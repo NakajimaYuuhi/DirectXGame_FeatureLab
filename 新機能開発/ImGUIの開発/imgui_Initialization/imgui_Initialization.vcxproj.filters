@@ -15,24 +15,81 @@
     <Filter Include="ソース ファイル\Window">
       <UniqueIdentifier>{6be45834-d8c1-414a-8a21-46d21a686a07}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\imguiManager">
+      <UniqueIdentifier>{ea411696-3476-4fc4-8b78-71fe6a1e831e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External">
+      <UniqueIdentifier>{77fad5ad-9a33-40b1-a2d9-d0dc15a53d3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\ImGui">
+      <UniqueIdentifier>{e1d7f1e4-78e8-4280-90a5-a041e3d8ef2c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="Source\Core\main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="DirectX11.cpp">
+    <ClCompile Include="Source\Core\Window\Window.cpp">
+      <Filter>ソース ファイル\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\DirectX11\DirectX11.cpp">
       <Filter>ソース ファイル\DirectX11</Filter>
     </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>ソース ファイル\Window</Filter>
+    <ClCompile Include="Source\External\imgui\imgui_widgets.cpp">
+      <Filter>External\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\imgui\imgui.cpp">
+      <Filter>External\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\imgui\imgui_draw.cpp">
+      <Filter>External\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\imgui\imgui_tables.cpp">
+      <Filter>External\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Graphics\ImGui\ImGuiManager.cpp">
+      <Filter>ソース ファイル\imguiManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\imgui\imgui_impl_dx11.cpp">
+      <Filter>External\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\imgui\imgui_impl_win32.cpp">
+      <Filter>External\ImGui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DirectX11.h">
+    <ClInclude Include="Source\Core\Window\Window.h">
+      <Filter>ソース ファイル\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\DirectX11\DirectX11.h">
       <Filter>ソース ファイル\DirectX11</Filter>
     </ClInclude>
-    <ClInclude Include="Window.h">
-      <Filter>ソース ファイル\Window</Filter>
+    <ClInclude Include="Source\External\imgui\imgui.h">
+      <Filter>External\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Graphics\ImGui\ImGuiManager.h">
+      <Filter>ソース ファイル\imguiManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\imgui\imgui_impl_win32.h">
+      <Filter>External\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\imgui\imgui_impl_dx11.h">
+      <Filter>External\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\imgui\imconfig.h">
+      <Filter>External\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\imgui\imgui_internal.h">
+      <Filter>External\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\imgui\imstb_rectpack.h">
+      <Filter>External\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\imgui\imstb_truetype.h">
+      <Filter>External\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\imgui\imstb_textedit.h">
+      <Filter>External\ImGui</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,2 +1,54 @@
 ImGUIの導入
 
+
+1.zipのダウンロード
+
+公式GitHubへ
+https://github.com/ocornut/imgui
+
+
+緑の「Code」→ Download ZIP
+
+
+解凍して、以下のフォルダがあることを確認：
+
+imgui.h
+
+imgui.cpp
+
+imgui_draw.cpp
+
+imgui_widgets.cpp
+
+imgui_tables.cpp
+
+backends/ フォルダ
+
+misc/ フォルダ
+
+2.プロジェクトへの導入
+
+📁 imgui 本体
+
+imgui.h
+
+imgui.cpp
+
+imgui_draw.cpp
+
+imgui_tables.cpp
+
+imgui_widgets.cpp
+
+📁 Platform（Win32）
+
+imgui_impl_win32.h
+
+imgui_impl_win32.cpp
+
+📁 Renderer（DirectX11）
+
+imgui_impl_dx11.h
+
+imgui_impl_dx11.cpp
+

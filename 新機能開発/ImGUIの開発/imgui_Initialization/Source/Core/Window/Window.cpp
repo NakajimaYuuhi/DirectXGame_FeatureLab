@@ -1,4 +1,10 @@
 #include "Window.h"
+#include "../Source/External/imgui/imgui.h"
+#include "../Source/External/imgui/imgui_impl_win32.h"
+
+
+extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(
+    HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 Window::Window()
 {
@@ -13,6 +19,9 @@ Window::~Window()
 
 LRESULT CALLBACK Window::WndProc(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
 {
+    if (ImGui_ImplWin32_WndProcHandler(hWnd, msg, wp, lp))
+        return true;
+
     switch (msg)
     {
     case WM_DESTROY:
