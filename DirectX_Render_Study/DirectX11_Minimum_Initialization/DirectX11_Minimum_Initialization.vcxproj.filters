@@ -17,21 +17,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Window.cpp">
-      <Filter>ソース ファイル\Window</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="Source\Core\Main\main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="DirectX11.cpp">
+    <ClCompile Include="Source\Core\DirectX11\DirectX11.cpp">
       <Filter>ソース ファイル\DirectX11</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\Window\Window.cpp">
+      <Filter>ソース ファイル\Window</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DirectX11.h">
+    <ClInclude Include="Source\Core\DirectX11\DirectX11.h">
       <Filter>ソース ファイル\DirectX11</Filter>
     </ClInclude>
-    <ClInclude Include="Window.h">
+    <ClInclude Include="Source\Core\Window\Window.h">
       <Filter>ソース ファイル\Window</Filter>
     </ClInclude>
   </ItemGroup>

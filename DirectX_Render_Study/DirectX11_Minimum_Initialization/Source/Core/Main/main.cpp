@@ -1,5 +1,5 @@
-#include "Window.h"
-#include "DirectX11.h"
+#include "Window/Window.h"
+#include "DirectX11/DirectX11.h"
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
