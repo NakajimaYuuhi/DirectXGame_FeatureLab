@@ -83,6 +83,13 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
+        else
+        {
+            CDX12Manager::GetInstance().BeginDraw();
+
+
+			CDX12Manager::GetInstance().EndDraw();
+        }
     }
 
     return 0;
