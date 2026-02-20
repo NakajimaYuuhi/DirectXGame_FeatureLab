@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ソースコード">
+      <UniqueIdentifier>{c33968e9-759a-403d-922e-d86bae5647a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースコード\Main">
+      <UniqueIdentifier>{d3a65a35-4d19-4711-a371-ee44d1c533d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースコード\DirectX12">
+      <UniqueIdentifier>{db04c9cd-2fac-4fee-89df-b53ada257798}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>ソースコード\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="DX12Manager.cpp">
+      <Filter>ソースコード\DirectX12</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DX12Manager.h">
+      <Filter>ソースコード\DirectX12</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
