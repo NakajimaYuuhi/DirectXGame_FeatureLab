@@ -31,13 +31,13 @@
 //ウィンドウプロシージャ
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 {
-    switch (msg)
-    {
-    case WM_DESTROY:
-        PostQuitMessage(0);
-        return 0;
-    }
-    return DefWindowProc(hwnd, msg, wparam, lparam);
+	switch (msg)
+	{
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		return 0;
+	}
+	return DefWindowProc(hwnd, msg, wparam, lparam);
 }
 
 //エントリーポイント
@@ -45,53 +45,54 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 {
 
 	//ウィンドウクラスの登録
-    const char* className = "DX12WindowClass";
+	const char* className = "DX12WindowClass";
 
-    WNDCLASSEX wc = {};
-    wc.cbSize = sizeof(WNDCLASSEX);
-    wc.lpfnWndProc = WindowProc;
-    wc.hInstance = hInst;
-    wc.lpszClassName = className;
-    wc.hCursor = LoadCursor(NULL, IDC_ARROW);
+	WNDCLASSEX wc = {};
+	wc.cbSize = sizeof(WNDCLASSEX);
+	wc.lpfnWndProc = WindowProc;
+	wc.hInstance = hInst;
+	wc.lpszClassName = className;
+	wc.hCursor = LoadCursor(NULL, IDC_ARROW);
 
-    RegisterClassEx(&wc);
+	RegisterClassEx(&wc);
 
 	//ウィンドウの作成
-    HWND hwnd = CreateWindowExA(
-        0,
-        className,
-        "DirectX12 Window",
-        WS_OVERLAPPEDWINDOW,
-        100, 100, 1920, 1080,
-        NULL,
-        NULL,
-        hInst,
-        NULL
-    );
+	HWND hwnd = CreateWindowExA(
+		0,
+		className,
+		"DirectX12 Window",
+		WS_OVERLAPPEDWINDOW,
+		100, 100, 1920, 1080,
+		NULL,
+		NULL,
+		hInst,
+		NULL
+	);
 
 	//ウィンドウの表示
-    ShowWindow(hwnd, nCmdShow);
+	ShowWindow(hwnd, nCmdShow);
 
-    MSG msg = {};
+	MSG msg = {};
 
-    CDX12Manager::GetInstance().Initialize(hwnd);
+	CDX12Manager::GetInstance().Initialize(hwnd);
 
-    while (msg.message != WM_QUIT)
-    {
-        if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
-        {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
-        }
-        else
-        {
-            CDX12Manager::GetInstance().BeginDraw();
+	while (msg.message != WM_QUIT)
+	{
+		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+		{
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
+		}
+		else
+		{
+			CDX12Manager::GetInstance().BeginDraw();
+
 
 
 			CDX12Manager::GetInstance().EndDraw();
-        }
-    }
+		}
+	}
 
-    return 0;
+	return 0;
 }
 

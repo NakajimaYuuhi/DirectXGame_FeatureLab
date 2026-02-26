@@ -14,11 +14,11 @@ class CDX12Manager
 {
 public:
 	//インスタンス取得
-    static CDX12Manager& GetInstance();
+	static CDX12Manager& GetInstance();
 
 	// <初期化、終了処理>
-    bool Initialize(HWND hwnd);
-    void Finalize();
+	bool Initialize(HWND hwnd);
+	void Finalize();
 	void BeginDraw();
 	void EndDraw();
 
@@ -31,7 +31,7 @@ public:
 private:
 
 	//DirectX 12関連のメンバ変数
-    ComPtr<IDXGIFactory6>       m_factory;      //ファクトリー
+	ComPtr<IDXGIFactory6>       m_factory;      //ファクトリー
 	ComPtr<ID3D12Device>        m_device;       //デバイス
 	ComPtr<ID3D12CommandQueue>  m_commandQueue; //コマンドキュー
 
@@ -53,7 +53,7 @@ private:
 
 
 
-    //画面関連
+	//画面関連
 	static const UINT m_FrameBufferCount;       //フレームバッファの数
 	UINT m_Width = SCREEN_WIDTH;                //画面の幅
 	UINT m_Height = SCREEN_HEIGHT;              //画面の高さ
@@ -61,13 +61,13 @@ private:
 
 
 
-    //シングルトン実装
+	//シングルトン実装
 private:
-    CDX12Manager() = default;
-    ~CDX12Manager() = default;
+	CDX12Manager() = default;
+	~CDX12Manager() = default;
 
-    CDX12Manager(const CDX12Manager&) = delete;
-    CDX12Manager& operator=(const CDX12Manager&) = delete;
+	CDX12Manager(const CDX12Manager&) = delete;
+	CDX12Manager& operator=(const CDX12Manager&) = delete;
 
 };
 

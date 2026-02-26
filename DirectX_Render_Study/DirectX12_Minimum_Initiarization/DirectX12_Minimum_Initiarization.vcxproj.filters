@@ -17,6 +17,12 @@
     <Filter Include="ソースコード\BasicSettings">
       <UniqueIdentifier>{a2081855-72f3-47be-b763-9c19860aab8f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソースコード\TestObject">
+      <UniqueIdentifier>{0ec8d4c2-6ed5-43df-a623-9636047c7d39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースコード\TestObject\Triangle">
+      <UniqueIdentifier>{6308579a-6291-4ca0-b9ee-bc7bda17a8e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -24,6 +30,9 @@
     </ClCompile>
     <ClCompile Include="DX12Manager.cpp">
       <Filter>ソースコード\DirectX12</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangle.cpp">
+      <Filter>ソースコード\TestObject\Triangle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -33,5 +42,13 @@
     <ClInclude Include="BasicSettings.h">
       <Filter>ソースコード\BasicSettings</Filter>
     </ClInclude>
+    <ClInclude Include="Triangle.h">
+      <Filter>ソースコード\TestObject\Triangle</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Triangle.hlsl">
+      <Filter>ソースコード\TestObject\Triangle</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>
