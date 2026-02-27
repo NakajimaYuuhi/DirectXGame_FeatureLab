@@ -6,11 +6,19 @@
 #pragma comment(lib, "d3dcompiler.lib")
 
 
+#include "BasicSettings.h"
+
+
 struct Vertex
 {
     float position[3];
     float color[4];
 };
+
+
+
+
+
 
 //頂点データの作成
 //四角形のレイアウトに変更
@@ -23,13 +31,62 @@ Vertex vertices[] =
 
     //四角形
     // 上
-    { { -0.3f,  0.3f, 0.0f }, { 1,0,0,1 } },
-    { {  0.3f,  0.3f, 0.0f }, { 0,1,0,1 } },
-    { { -0.3f, -0.3f, 0.0f }, { 0,0,1,1 } },
+    //{ { -0.3f,  0.3f, 0.0f }, { 1,0,0,1 } },
+    //{ {  0.3f,  0.3f, 0.0f }, { 0,1,0,1 } },
+    //{ { -0.3f, -0.3f, 0.0f }, { 0,0,1,1 } },
 
-    { { -0.3f, -0.3f, 0.0f }, { 0,0,1,1 } },
-    { {  0.3f,  0.3f, 0.0f }, { 0,1,0,1 } },
-    { {  0.3f, -0.3f, 0.0f }, { 1,1,0,1 } },
+    //{ { -0.3f, -0.3f, 0.0f }, { 0,0,1,1 } },
+    //{ {  0.3f,  0.3f, 0.0f }, { 0,1,0,1 } },
+    //{ {  0.3f, -0.3f, 0.0f }, { 1,1,0,1 } },
+
+    //立方体
+        // 前面
+    {{-0.5f,-0.5f,-0.5f},{1,0,0,1}},
+    {{-0.5f, 0.5f,-0.5f},{1,0,0,1}},
+    {{ 0.5f, 0.5f,-0.5f},{1,0,0,1}},
+    {{-0.5f,-0.5f,-0.5f},{1,0,0,1}},
+    {{ 0.5f, 0.5f,-0.5f},{1,0,0,1}},
+    {{ 0.5f,-0.5f,-0.5f},{1,0,0,1}},
+
+    // 背面
+    {{-0.5f,-0.5f,0.5f},{0,1,0,1}},
+    {{ 0.5f, 0.5f,0.5f},{0,1,0,1}},
+    {{-0.5f, 0.5f,0.5f},{0,1,0,1}},
+    {{-0.5f,-0.5f,0.5f},{0,1,0,1}},
+    {{ 0.5f,-0.5f,0.5f},{0,1,0,1}},
+    {{ 0.5f, 0.5f,0.5f},{0,1,0,1}},
+
+    // 左
+    {{-0.5f,-0.5f,0.5f},{0,0,1,1}},
+    {{-0.5f, 0.5f,0.5f},{0,0,1,1}},
+    {{-0.5f, 0.5f,-0.5f},{0,0,1,1}},
+    {{-0.5f,-0.5f,0.5f},{0,0,1,1}},
+    {{-0.5f, 0.5f,-0.5f},{0,0,1,1}},
+    {{-0.5f,-0.5f,-0.5f},{0,0,1,1}},
+
+    // 右
+    {{0.5f,-0.5f,-0.5f},{1,1,0,1}},
+    {{0.5f, 0.5f,-0.5f},{1,1,0,1}},
+    {{0.5f, 0.5f, 0.5f},{1,1,0,1}},
+    {{0.5f,-0.5f,-0.5f},{1,1,0,1}},
+    {{0.5f, 0.5f, 0.5f},{1,1,0,1}},
+    {{0.5f,-0.5f, 0.5f},{1,1,0,1}},
+
+    // 上
+    {{-0.5f,0.5f,-0.5f},{1,0,1,1}},
+    {{-0.5f,0.5f, 0.5f},{1,0,1,1}},
+    {{ 0.5f,0.5f, 0.5f},{1,0,1,1}},
+    {{-0.5f,0.5f,-0.5f},{1,0,1,1}},
+    {{ 0.5f,0.5f, 0.5f},{1,0,1,1}},
+    {{ 0.5f,0.5f,-0.5f},{1,0,1,1}},
+
+    // 下
+    {{-0.5f,-0.5f,-0.5f},{0,1,1,1}},
+    {{ 0.5f,-0.5f, 0.5f},{0,1,1,1}},
+    {{-0.5f,-0.5f, 0.5f},{0,1,1,1}},
+    {{-0.5f,-0.5f,-0.5f},{0,1,1,1}},
+    {{ 0.5f,-0.5f,-0.5f},{0,1,1,1}},
+    {{ 0.5f,-0.5f, 0.5f},{0,1,1,1}},
 };
 
 
@@ -80,9 +137,17 @@ void CTriangle::Initialize(ID3D12Device* _Device)
     ComPtr<ID3DBlob> signature;
     ComPtr<ID3DBlob> error;
 
+    //WVPようにパラメータを設定
+    D3D12_ROOT_PARAMETER rootParam{};
+    rootParam.ParameterType = D3D12_ROOT_PARAMETER_TYPE_CBV;
+    rootParam.Descriptor.ShaderRegister = 0; // b0
+    rootParam.Descriptor.RegisterSpace = 0;
+    rootParam.ShaderVisibility = D3D12_SHADER_VISIBILITY_VERTEX;
+
+
     D3D12_ROOT_SIGNATURE_DESC rootSignatureDesc{};
-    rootSignatureDesc.NumParameters = 0;
-    rootSignatureDesc.pParameters = nullptr;
+    rootSignatureDesc.NumParameters = 1;
+    rootSignatureDesc.pParameters = &rootParam;    //パラメータを設定するように変更
     rootSignatureDesc.NumStaticSamplers = 0;
     rootSignatureDesc.pStaticSamplers = nullptr;
     rootSignatureDesc.Flags =
@@ -163,12 +228,12 @@ void CTriangle::Initialize(ID3D12Device* _Device)
 
     psoDesc.pRootSignature = m_rootSignature.Get();
 
+
     //GraphicsPipelineStateを作成
     hr = _Device->CreateGraphicsPipelineState(
         &psoDesc,
         IID_PPV_ARGS(&m_pipelineState)
     );
-
 
 
 	//----- 頂点バッファの作成 -----
@@ -208,18 +273,85 @@ void CTriangle::Initialize(ID3D12Device* _Device)
     m_vertexBufferView.StrideInBytes = sizeof(Vertex);
 
 
+	//----- 定数バッファの作成 -----
+    //定数バッファのサイズを256バイトの倍数にする
+    UINT constantBufferSize =
+        (sizeof(ConstantBufferData) + 255) & ~255;
+
+	//UnloadHeapでリソース作成
+    //D3D12_HEAP_PROPERTIES heapProps = {};
+    heapProps = {};
+    heapProps.Type = D3D12_HEAP_TYPE_UPLOAD;
+
+    //D3D12_RESOURCE_DESC resourceDesc = {};
+    resourceDesc = {};
+    resourceDesc.Dimension = D3D12_RESOURCE_DIMENSION_BUFFER;
+    resourceDesc.Width = constantBufferSize;
+    resourceDesc.Height = 1;
+    resourceDesc.DepthOrArraySize = 1;
+    resourceDesc.MipLevels = 1;
+    resourceDesc.SampleDesc.Count = 1;
+    resourceDesc.Layout = D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
+
+    _Device->CreateCommittedResource(
+        &heapProps,
+        D3D12_HEAP_FLAG_NONE,
+        &resourceDesc,
+        D3D12_RESOURCE_STATE_GENERIC_READ,
+        nullptr,
+        IID_PPV_ARGS(&m_constantBuffer)
+    );
+
+    m_constantBuffer->Map(0, nullptr, (void**)&m_cbData);
+
+
 }
 
 void CTriangle::Draw(ID3D12GraphicsCommandList* _CommandList)
 {
+    //行列作成
+    DirectX::XMMATRIX world =
+        DirectX::XMMatrixTranslation(
+            m_position.x,
+            m_position.y,
+            m_position.z);
+    DirectX::XMMATRIX view =
+        DirectX::XMMatrixLookAtLH(
+            DirectX::XMVectorSet(0, 0, -3, 1),
+            DirectX::XMVectorSet(0, 0, 0, 1),
+            DirectX::XMVectorSet(0, 1, 0, 0));
+
+    DirectX::XMMATRIX proj =
+        DirectX::XMMatrixPerspectiveFovLH(
+            DirectX::XM_PIDIV4,
+            (float)SCREEN_WIDTH / SCREEN_HEIGHT,
+            0.1f,
+            100.0f);
+
+    DirectX::XMMATRIX wvp = world * view * proj;
+
+    m_cbData->WVP = XMMatrixTranspose(wvp);
+
+
+
+    ConstantBufferData* cbData = nullptr;
+    m_constantBuffer->Map(0, nullptr, (void**)&cbData);
+    cbData->WVP = XMMatrixTranspose(wvp);
+    m_constantBuffer->Unmap(0, nullptr);
+
+
     _CommandList->SetPipelineState(m_pipelineState.Get());
     _CommandList->SetGraphicsRootSignature(m_rootSignature.Get());
+    
+    _CommandList->SetGraphicsRootConstantBufferView(
+        0,
+        m_constantBuffer->GetGPUVirtualAddress()
+    );
 
     _CommandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
     _CommandList->IASetVertexBuffers(0, 1, &m_vertexBufferView);
-
     //三角形
     //_CommandList->DrawInstanced(3, 1, 0, 0);
     //四角形
-    _CommandList->DrawInstanced(6, 1, 0, 0);
+    _CommandList->DrawInstanced(36, 1, 0, 0);
 }

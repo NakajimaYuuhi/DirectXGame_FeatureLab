@@ -1,4 +1,8 @@
-//
+//WVP
+cbuffer ConstantBuffer : register(b0)
+{
+    float4x4 WVP;
+};
 
 struct VSInput
 {
@@ -15,7 +19,7 @@ struct PSInput
 PSInput VSMain(VSInput input)
 {
     PSInput output;
-    output.position = float4(input.position, 1.0f);
+    output.position = mul(float4(input.position, 1.0f), WVP);
     output.color = input.color;
     return output;
 }
