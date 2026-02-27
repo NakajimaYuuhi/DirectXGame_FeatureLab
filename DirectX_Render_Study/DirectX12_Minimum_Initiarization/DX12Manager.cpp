@@ -165,6 +165,10 @@ bool CDX12Manager::Initialize(HWND hwnd)
 	CreateFence();
 
 
+	//‰¼‚Å‰Šú‰»
+	triangle.Initialize(m_device.Get());
+
+
 	return true;
 }
 
@@ -209,11 +213,34 @@ void CDX12Manager::BeginDraw()
 
 	rtvHandle.ptr += m_frameIndex * m_rtvDescriptorSize;
 
+
+
+
+	D3D12_VIEWPORT viewport{};
+	viewport.Width = (float)m_Width;
+	viewport.Height = (float)m_Height;
+	viewport.MinDepth = 0.0f;
+	viewport.MaxDepth = 1.0f;
+
+	D3D12_RECT scissorRect{};
+	scissorRect.left = 0;
+	scissorRect.top = 0;
+	scissorRect.right = m_Width;
+	scissorRect.bottom = m_Height;
+
+	m_commandList->RSSetViewports(1, &viewport);
+	m_commandList->RSSetScissorRects(1, &scissorRect);
+
+
+
 	// 5. ƒNƒŠƒA
 	FLOAT clearColor[] = { 0.1f, 0.2f, 0.4f, 1.0f };
 
 	m_commandList->OMSetRenderTargets(1, &rtvHandle, FALSE, nullptr);
 	m_commandList->ClearRenderTargetView(rtvHandle, clearColor, 0, nullptr);
+
+	//‰¼‚Å•`‰æ
+	triangle.Draw(m_commandList.Get());
 }
 
 void CDX12Manager::EndDraw()

@@ -16,6 +16,8 @@
 #include <windows.h>
 #include "DX12Manager.h"
 
+
+
 //===== 名前空間宣言 =====
 
 //===== 定数・マクロ定義 =====
@@ -74,7 +76,12 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
 	MSG msg = {};
 
+
+
+
 	CDX12Manager::GetInstance().Initialize(hwnd);
+	
+
 
 	while (msg.message != WM_QUIT)
 	{

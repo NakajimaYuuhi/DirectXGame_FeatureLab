@@ -7,6 +7,10 @@
 
 #include "BasicSettings.h"
 
+//仮置き
+#include "Triangle.h"
+
+
 using Microsoft::WRL::ComPtr;
 
 //===== クラス定義 =====
@@ -27,6 +31,8 @@ public:
 
 	void CreateCommandObjects();
 	void CreateFence();
+
+
 
 private:
 
@@ -59,6 +65,8 @@ private:
 	UINT m_Height = SCREEN_HEIGHT;              //画面の高さ
 
 
+
+	CTriangle triangle;
 
 
 	//シングルトン実装
