@@ -30,7 +30,11 @@ public:
 
 private:
 	ComPtr<ID3D12Resource> m_vertexBuffer;
+	ComPtr<ID3D12Resource> m_indexBuffer;
 	D3D12_VERTEX_BUFFER_VIEW m_vertexBufferView;
+	D3D12_INDEX_BUFFER_VIEW m_indexBufferView;
+
+
 
 	ComPtr<ID3D12RootSignature> m_rootSignature;
 	ComPtr<ID3D12PipelineState> m_pipelineState;
@@ -39,6 +43,12 @@ private:
 	ComPtr<ID3D12Resource> m_constantBuffer;
 	//定数バッファの保持
 	ConstantBufferData* m_cbData = nullptr;
+
+	//// 深度バッファ
+	//ComPtr<ID3D12Resource> m_depthBuffer;
+
+	//// DSVヒープ
+	//ComPtr<ID3D12DescriptorHeap> m_dsvHeap;
 
 	// 位置（あとで当たり判定用にも使える）
 	DirectX::XMFLOAT3 m_position = { 0,0,0 };

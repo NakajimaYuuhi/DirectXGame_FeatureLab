@@ -164,6 +164,66 @@ bool CDX12Manager::Initialize(HWND hwnd)
 	//フェンス作成
 	CreateFence();
 
+	// ===== 深度バッファ作成 =====
+	D3D12_HEAP_PROPERTIES heapProps = {};
+	heapProps.Type = D3D12_HEAP_TYPE_DEFAULT;
+	heapProps.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
+	heapProps.MemoryPoolPreference = D3D12_MEMORY_POOL_UNKNOWN;
+	heapProps.CreationNodeMask = 1;
+	heapProps.VisibleNodeMask = 1;
+
+	D3D12_RESOURCE_DESC depthResourceDesc = {};
+	depthResourceDesc.Dimension = D3D12_RESOURCE_DIMENSION_TEXTURE2D;
+	depthResourceDesc.Alignment = 0;
+	depthResourceDesc.Width = SCREEN_WIDTH;
+	depthResourceDesc.Height = SCREEN_HEIGHT;
+	depthResourceDesc.DepthOrArraySize = 1;
+	depthResourceDesc.MipLevels = 1;
+	depthResourceDesc.Format = DXGI_FORMAT_D32_FLOAT;
+	depthResourceDesc.SampleDesc.Count = 1;
+	depthResourceDesc.SampleDesc.Quality = 0;
+	depthResourceDesc.Layout = D3D12_TEXTURE_LAYOUT_UNKNOWN;
+	depthResourceDesc.Flags = D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL;
+
+	D3D12_CLEAR_VALUE clearValue = {};
+	clearValue.Format = DXGI_FORMAT_D32_FLOAT;
+	clearValue.DepthStencil.Depth = 1.0f;
+	clearValue.DepthStencil.Stencil = 0;
+
+	m_device->CreateCommittedResource(
+		&heapProps,
+		D3D12_HEAP_FLAG_NONE,
+		&depthResourceDesc,
+		D3D12_RESOURCE_STATE_DEPTH_WRITE,
+		&clearValue,
+		IID_PPV_ARGS(&m_depthBuffer)
+	);
+
+
+	D3D12_DESCRIPTOR_HEAP_DESC heapDesc = {};
+	heapDesc.NumDescriptors = 1;
+	heapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_DSV;
+	heapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_NONE;
+	heapDesc.NodeMask = 0;
+
+	m_device->CreateDescriptorHeap(
+		&heapDesc,
+		IID_PPV_ARGS(&m_dsvHeap)
+	);
+
+
+	D3D12_DEPTH_STENCIL_VIEW_DESC dsvDesc = {};
+	dsvDesc.Format = DXGI_FORMAT_D32_FLOAT;
+	dsvDesc.ViewDimension = D3D12_DSV_DIMENSION_TEXTURE2D;
+	dsvDesc.Flags = D3D12_DSV_FLAG_NONE;
+
+	m_device->CreateDepthStencilView(
+		m_depthBuffer.Get(),
+		&dsvDesc,
+		m_dsvHeap->GetCPUDescriptorHandleForHeapStart()
+	);
+
+
 
 	//仮で初期化
 	triangle.Initialize(m_device.Get());
@@ -216,6 +276,8 @@ void CDX12Manager::BeginDraw()
 
 
 
+
+
 	D3D12_VIEWPORT viewport{};
 	viewport.Width = (float)m_Width;
 	viewport.Height = (float)m_Height;
@@ -231,14 +293,31 @@ void CDX12Manager::BeginDraw()
 	m_commandList->RSSetViewports(1, &viewport);
 	m_commandList->RSSetScissorRects(1, &scissorRect);
 
+	// 5. DSVハンドル取得
+	D3D12_CPU_DESCRIPTOR_HANDLE dsvHandle =
+		m_dsvHeap->GetCPUDescriptorHandleForHeapStart();
 
 
-	// 5. クリア
+	// 6. クリア
 	FLOAT clearColor[] = { 0.1f, 0.2f, 0.4f, 1.0f };
 
-	m_commandList->OMSetRenderTargets(1, &rtvHandle, FALSE, nullptr);
-	m_commandList->ClearRenderTargetView(rtvHandle, clearColor, 0, nullptr);
+	m_commandList->OMSetRenderTargets(
+		1,
+		&rtvHandle,
+		FALSE,
+		&dsvHandle
+	);
 
+
+	m_commandList->ClearRenderTargetView(rtvHandle, clearColor, 0, nullptr);
+	m_commandList->ClearDepthStencilView(
+		dsvHandle,
+		D3D12_CLEAR_FLAG_DEPTH,
+		1.0f,
+		0,
+		0,
+		nullptr
+	);
 	//仮で描画
 	triangle.Draw(m_commandList.Get());
 }

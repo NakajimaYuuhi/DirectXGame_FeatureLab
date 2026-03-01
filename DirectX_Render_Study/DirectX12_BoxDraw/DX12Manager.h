@@ -56,6 +56,12 @@ private:
 	UINT64 m_fenceValue = 0;		//フェンス値
 	HANDLE m_fenceEvent = nullptr;	//フェンスイベント
 
+	// 深度バッファ
+	ComPtr<ID3D12Resource> m_depthBuffer;
+
+	// DSVヒープ
+	ComPtr<ID3D12DescriptorHeap> m_dsvHeap;
+
 
 
 
