@@ -22,12 +22,12 @@ public:
 	void Update();
 
 	//レイの始点を取得する関数
-	DirectX::XMFLOAT3 GetStart() const
+	const DirectX::XMFLOAT3& GetStart() const
 	{
 		return m_Start;
 	}
 	//レイの方向を取得する関数
-	DirectX::XMFLOAT3 GetDirection() const
+	const DirectX::XMFLOAT3& GetDirection() const
 	{
 		return m_Direction;
 	}

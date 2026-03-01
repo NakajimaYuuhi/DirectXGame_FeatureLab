@@ -85,7 +85,9 @@ private:
 	//----- Getter,Setter -----
 public:
 	DirectX::XMFLOAT3 GetPos() { return m_Position; }
-	void	SetPos(DirectX::XMFLOAT3 _Position) { m_Position = _Position; }
+	void	SetPos(DirectX::XMFLOAT3 _Position) 
+	{ 
+		m_Position = _Position; }
 
 	DirectX::XMFLOAT3	GetScale() { return m_Scale; }
 	void	SetScale(DirectX::XMFLOAT3 _Scale) { m_Scale = _Scale; }
@@ -122,7 +124,13 @@ public:
 		m_Position.z += m_Velocity.z;
 	}
 
+	void ResetVelocityY()
+	{
+		m_Velocity.y = 0.0f;
+	}
+
 	//ColliderÇÃçÏê¨ä÷êî
 	void MakeCollider(ColliderName _ColliderName);
+	CCollider* GetCollider();
 };
 

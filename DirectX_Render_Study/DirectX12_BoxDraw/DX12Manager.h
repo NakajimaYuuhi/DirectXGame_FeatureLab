@@ -83,6 +83,7 @@ private:
 	//一旦プリミティブをここに置く
 	CMesh box;
 	CMesh ground;
+	CMesh slope;
 
 	//一旦持っておく
 	DirectX::XMMATRIX m_view;

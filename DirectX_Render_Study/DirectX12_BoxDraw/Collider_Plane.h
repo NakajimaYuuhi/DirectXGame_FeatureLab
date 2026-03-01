@@ -21,18 +21,29 @@ public:
     }
 
     //–@ü‚ğæ“¾‚·‚éŠÖ”
-    DirectX::XMFLOAT3 GetNormal() const
+    //TODO:QÆ‚Å•Ô‚·‚Æ—Ç‚¢
+    const DirectX::XMFLOAT3& GetNormal() const
     {
         return m_Normal;
     }
     //ˆÊ’u‚ğæ“¾‚·‚éŠÖ”
-    DirectX::XMFLOAT3 GetPos() const
+    const DirectX::XMFLOAT3& GetPos() const
     {
         return m_Pos;
 	}
 
+    void SetNormal(const DirectX::XMFLOAT3& normal)
+    {
+        m_Normal = normal;
+	}
+
+    void SetPos(const DirectX::XMFLOAT3& pos)
+    {
+        m_Pos = pos;
+	}
+
 private:
-    DirectX::XMFLOAT3 m_Normal    = {0.0f, 1.0f, 1.0f};
+    DirectX::XMFLOAT3 m_Normal    = {0.0f, 1.0f, 0.0f};
     DirectX::XMFLOAT3 m_Pos       = {0.0f, 0.0f, 0.0f};
 
 };

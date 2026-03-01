@@ -10,6 +10,9 @@
 #include "Collider_Ray.h"
 #include "Collider_Plane.h"
 
+//当たり判定
+#include "Collision.h"
+
 //===== 定数・マクロ定義 =====
 const UINT CDX12Manager::m_FrameBufferCount = FRAME_BUFFER_COUNT;   //フレームバッファの数
 
@@ -245,12 +248,36 @@ bool CDX12Manager::Initialize(HWND hwnd)
 	ground.SetPos({ 0.0f, 0.0f, 0.0f });
 	ground.SetScale({ 20.0f, 0.1f, 20.0f });
 	ground.SetRotation({ 0.0f, 0.0f, 0.0f });
+	ground.MakeCollider(CMesh::ColliderName::Plane);
 	//XMConvertToRadians(1.0f);みたいにradianに変換できる
+
+	//斜面
+	slope.Initialize(m_device.Get());
+	slope.SetPos({ 0.0f, 0.0f, 10.0f });
+	slope.SetScale({ 20.0f, 0.1f, 20.0f });
+	slope.SetRotation({ -0.8f, 0.0f, 0.0f });
+	slope.MakeCollider(CMesh::ColliderName::Plane);
+	CCollider_Plane* plane = (CCollider_Plane*)slope.GetCollider();
+
+	plane->SetNormal({ 0.0f, 0.7f, -0.7f });
+	plane->SetPos({ 0.0f, 0.0f, 10.0f });
 
 	//view,projの初期化
 	//view
 	m_view = DirectX::XMMatrixLookAtLH(
 		DirectX::XMVectorSet(10, 10, -20, 1),
+		DirectX::XMVectorSet(0, 0, 0, 1),
+		DirectX::XMVectorSet(0, 1, 0, 0));
+
+	//手前から見る用
+	//m_view = DirectX::XMMatrixLookAtLH(
+	//	DirectX::XMVectorSet(0, 0, -20, 1),
+	//	DirectX::XMVectorSet(0, 0, 0, 1),
+	//	DirectX::XMVectorSet(0, 1, 0, 0));
+
+	//横から見る用
+	m_view = DirectX::XMMatrixLookAtLH(
+		DirectX::XMVectorSet(40, 0, 0, 1),
 		DirectX::XMVectorSet(0, 0, 0, 1),
 		DirectX::XMVectorSet(0, 1, 0, 0));
 
@@ -324,6 +351,7 @@ void CDX12Manager::Update()
 		box.Dash();
 	}
 
+	//重力
 	box.Fall();
 
 	//抵抗
@@ -338,6 +366,42 @@ void CDX12Manager::Update()
 	box.Update();
 
 	//交差判定
+	float point = 0.0f;
+	float point2 = 0.0f;
+
+	//上手く取れてるはず(接地点は返してない,距離だけ)
+	bool result = CCollision::GetInstance().CheckCollision( *((CCollider_Ray*)(box.GetCollider())) , *((CCollider_Plane*)(ground.GetCollider())),point);
+	bool result2 = CCollision::GetInstance().CheckCollision(*((CCollider_Ray*)(box.GetCollider())), *((CCollider_Plane*)(slope.GetCollider())), point2);
+	//(仮実装)
+	if (result2)
+	{
+		if (point2 < 0.05f)
+		{
+			//if (point2 < point)
+			{
+				DirectX::XMFLOAT3 pos = box.GetPos();
+				pos.y += 1.5f;
+				box.SetPos(pos);
+				box.ResetVelocityY();
+				box.Update();
+			
+			}
+			return;
+		}
+
+	}
+
+	if (result)
+	{
+		if (point < 0.05f)
+		{
+				DirectX::XMFLOAT3 pos = box.GetPos();
+				pos.y = 0.51f;
+				box.SetPos(pos);
+				box.ResetVelocityY();
+				box.Update();
+		}
+	}
 
 
 }
@@ -424,6 +488,7 @@ void CDX12Manager::BeginDraw()
 	//仮で描画
 	box.Draw(m_commandList.Get());
 	ground.Draw(m_commandList.Get());
+	slope.Draw(m_commandList.Get());
 }
 
 void CDX12Manager::EndDraw()

@@ -5,6 +5,7 @@ class CCollider_Plane;
 
 class CCollision
 {
+public:
 	//インスタンス取得
 	static CCollision& GetInstance()
 	{
@@ -12,7 +13,7 @@ class CCollision
 		return m_Instance;
 	}
 
-	void CheckCollision
+	bool CheckCollision
 	(
 		const CCollider_Ray& ray,
 		const CCollider_Plane& plane,

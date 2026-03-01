@@ -1,9 +1,11 @@
 #include "Collision.h"
 
+#include <DirectXMath.h>
+
 #include "Collider_Ray.h"
 #include "Collider_Plane.h"
 
-void CCollision::CheckCollision
+bool CCollision::CheckCollision
 (   
     const CCollider_Ray& ray,
     const CCollider_Plane& plane,
@@ -12,22 +14,24 @@ void CCollision::CheckCollision
 {
     using namespace DirectX;
 
+
     XMVECTOR O = XMLoadFloat3(&ray.GetStart());
     XMVECTOR D = XMLoadFloat3(&ray.GetDirection());
-    XMVECTOR N = XMLoadFloat3(&plane.GetNormal());
 
-    float d = plane.GetDistance();
+    XMVECTOR N = XMLoadFloat3(&plane.GetNormal());
+    XMVECTOR P0 = XMLoadFloat3(&plane.GetPos());
 
     float denom = XMVectorGetX(XMVector3Dot(N, D));
 
+    // 平行チェック
     if (fabs(denom) < 0.0001f)
-        return false; // 平行
+        return false;
 
-    float numer = XMVectorGetX(XMVector3Dot(N, O)) + d;
+    XMVECTOR P0minusO = P0 - O;
 
-    float t = -numer / denom;
+    float t = XMVectorGetX(XMVector3Dot(N, P0minusO)) / denom;
 
-    if (t < 0)
+    if (t < 0.0f)
         return false; // 逆方向
 
     outT = t;

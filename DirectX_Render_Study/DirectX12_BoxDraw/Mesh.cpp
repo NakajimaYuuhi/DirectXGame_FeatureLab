@@ -441,3 +441,4 @@ void CMesh::MakeCollider(ColliderName _ColliderName)
 	m_pCollider.get()->Update();
 
 }
+CCollider* CMesh::GetCollider() { return m_pCollider.get(); }
