@@ -17,11 +17,11 @@ struct ConstantBufferData
 };
 
 //===== クラス定義 =====
-class CTriangle
+class CBox
 {
 public:
 	//コンストラクタ・デストラクタ
-	CTriangle();
+	CBox();
 
 	//初期化処理
 	void Initialize(ID3D12Device* _Device);//シェーダーコンパイルに関数名を変えてもいいかも 他の場所に移す
@@ -51,6 +51,16 @@ private:
 	//ComPtr<ID3D12DescriptorHeap> m_dsvHeap;
 
 	// 位置（あとで当たり判定用にも使える）
-	DirectX::XMFLOAT3 m_position = { 0,0,0 };
+	DirectX::XMFLOAT3 m_Position = { 0.0f,0.0f,0.0f };
+	//大きさ
+	DirectX::XMFLOAT3 m_Scale = { 1.0f, 1.0f, 1.0f };
+
+//----- Getter,Setter -----
+public:
+	DirectX::XMFLOAT3 GetPos()		{ return m_Position;	}
+	void	SetPos(DirectX::XMFLOAT3 _Position) { m_Position = _Position; }
+
+	DirectX::XMFLOAT3	GetScale()	{ return m_Scale;		}
+	void	SetScale(DirectX::XMFLOAT3 _Scale)	{ m_Scale = _Scale; }
 };
 

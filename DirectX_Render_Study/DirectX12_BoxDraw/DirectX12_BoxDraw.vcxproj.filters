@@ -14,19 +14,22 @@
     <Filter Include="ソースコード\TestObject">
       <UniqueIdentifier>{9bf0e665-e92d-4e8f-9da5-fa405932f1cd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソースコード\TestObject\Triangle">
-      <UniqueIdentifier>{5ffed21c-3d86-4a60-90e3-0635fbdb05ac}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソースコード\BasicSettings">
       <UniqueIdentifier>{9db8814f-b748-4474-9c23-1a690127956e}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソースコード\DirectX12">
       <UniqueIdentifier>{282f6986-98a1-4df9-9b9b-55af9df30c38}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソースコード\TestObject\Box">
+      <UniqueIdentifier>{5ffed21c-3d86-4a60-90e3-0635fbdb05ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースコード\Mesh">
+      <UniqueIdentifier>{987365ea-a828-4247-b6f8-9eb84cd2caa2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Triangle.h">
-      <Filter>ソースコード\TestObject\Triangle</Filter>
+    <ClInclude Include="Box.h">
+      <Filter>ソースコード\TestObject\Box</Filter>
     </ClInclude>
     <ClInclude Include="BasicSettings.h">
       <Filter>ソースコード\BasicSettings</Filter>
@@ -34,21 +37,23 @@
     <ClInclude Include="DX12Manager.h">
       <Filter>ソースコード\DirectX12</Filter>
     </ClInclude>
+    <ClInclude Include="Mesh.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>ソースコード\Main</Filter>
     </ClCompile>
-    <ClCompile Include="Triangle.cpp">
-      <Filter>ソースコード\TestObject\Triangle</Filter>
+    <ClCompile Include="Box.cpp">
+      <Filter>ソースコード\TestObject\Box</Filter>
     </ClCompile>
     <ClCompile Include="DX12Manager.cpp">
       <Filter>ソースコード\DirectX12</Filter>
     </ClCompile>
+    <ClCompile Include="Mesh.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Triangle.hlsl">
-      <Filter>ソースコード\TestObject\Triangle</Filter>
+      <Filter>ソースコード\TestObject\Box</Filter>
     </FxCompile>
   </ItemGroup>
 </Project>

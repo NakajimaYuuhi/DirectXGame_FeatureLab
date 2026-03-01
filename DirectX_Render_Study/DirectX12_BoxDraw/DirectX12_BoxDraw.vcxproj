@@ -21,12 +21,14 @@
   <ItemGroup>
     <ClInclude Include="BasicSettings.h" />
     <ClInclude Include="DX12Manager.h" />
-    <ClInclude Include="Triangle.h" />
+    <ClInclude Include="Box.h" />
+    <ClInclude Include="Mesh.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX12Manager.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="Box.cpp" />
+    <ClCompile Include="Mesh.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Triangle.hlsl">

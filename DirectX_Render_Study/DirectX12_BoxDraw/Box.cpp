@@ -1,5 +1,6 @@
 //===== インクルード =====
-#include "Triangle.h"
+#include "Box.h"
+#include "DX12Manager.h"
 
 //----- シェーダーコンパイル用 -----
 #include <d3dcompiler.h>
@@ -23,72 +24,9 @@ struct Vertex
 
 //頂点データの作成
 //四角形のレイアウトに変更
+//外から作成できるようにする
 Vertex vertices[] =
 {
-    //三角形
-    //{ { 0.0f, 0.25f, 0.0f }, { 1,0,0,1 } },
-    //{ { 0.25f, -0.25f, 0.0f }, { 0,1,0,1 } },
-    //{ { -0.25f, -0.25f, 0.0f }, { 0,0,1,1 } },
-
-    //四角形
-    // 上
-    //{ { -0.3f,  0.3f, 0.0f }, { 1,0,0,1 } },
-    //{ {  0.3f,  0.3f, 0.0f }, { 0,1,0,1 } },
-    //{ { -0.3f, -0.3f, 0.0f }, { 0,0,1,1 } },
-
-    //{ { -0.3f, -0.3f, 0.0f }, { 0,0,1,1 } },
-    //{ {  0.3f,  0.3f, 0.0f }, { 0,1,0,1 } },
-    //{ {  0.3f, -0.3f, 0.0f }, { 1,1,0,1 } },
-
-    ////立方体(非インデックス)
-    //    // 前面
-    //{{-0.5f,-0.5f,-0.5f},{1,0,0,1}},
-    //{{-0.5f, 0.5f,-0.5f},{1,0,0,1}},
-    //{{ 0.5f, 0.5f,-0.5f},{1,0,0,1}},
-    //{{-0.5f,-0.5f,-0.5f},{1,0,0,1}},
-    //{{ 0.5f, 0.5f,-0.5f},{1,0,0,1}},
-    //{{ 0.5f,-0.5f,-0.5f},{1,0,0,1}},
-
-    //// 背面
-    //{{-0.5f,-0.5f,0.5f},{0,1,0,1}},
-    //{{ 0.5f, 0.5f,0.5f},{0,1,0,1}},
-    //{{-0.5f, 0.5f,0.5f},{0,1,0,1}},
-    //{{-0.5f,-0.5f,0.5f},{0,1,0,1}},
-    //{{ 0.5f,-0.5f,0.5f},{0,1,0,1}},
-    //{{ 0.5f, 0.5f,0.5f},{0,1,0,1}},
-
-    //// 左
-    //{{-0.5f,-0.5f,0.5f},{0,0,1,1}},
-    //{{-0.5f, 0.5f,0.5f},{0,0,1,1}},
-    //{{-0.5f, 0.5f,-0.5f},{0,0,1,1}},
-    //{{-0.5f,-0.5f,0.5f},{0,0,1,1}},
-    //{{-0.5f, 0.5f,-0.5f},{0,0,1,1}},
-    //{{-0.5f,-0.5f,-0.5f},{0,0,1,1}},
-
-    //// 右
-    //{{0.5f,-0.5f,-0.5f},{1,1,0,1}},
-    //{{0.5f, 0.5f,-0.5f},{1,1,0,1}},
-    //{{0.5f, 0.5f, 0.5f},{1,1,0,1}},
-    //{{0.5f,-0.5f,-0.5f},{1,1,0,1}},
-    //{{0.5f, 0.5f, 0.5f},{1,1,0,1}},
-    //{{0.5f,-0.5f, 0.5f},{1,1,0,1}},
-
-    //// 上
-    //{{-0.5f,0.5f,-0.5f},{1,0,1,1}},
-    //{{-0.5f,0.5f, 0.5f},{1,0,1,1}},
-    //{{ 0.5f,0.5f, 0.5f},{1,0,1,1}},
-    //{{-0.5f,0.5f,-0.5f},{1,0,1,1}},
-    //{{ 0.5f,0.5f, 0.5f},{1,0,1,1}},
-    //{{ 0.5f,0.5f,-0.5f},{1,0,1,1}},
-
-    //// 下
-    //{{-0.5f,-0.5f,-0.5f},{0,1,1,1}},
-    //{{ 0.5f,-0.5f, 0.5f},{0,1,1,1}},
-    //{{-0.5f,-0.5f, 0.5f},{0,1,1,1}},
-    //{{-0.5f,-0.5f,-0.5f},{0,1,1,1}},
-    //{{ 0.5f,-0.5f,-0.5f},{0,1,1,1}},
-    //{{ 0.5f,-0.5f, 0.5f},{0,1,1,1}},
-
     //立方体(インデックス)
         // ===== 前面 (Z-) =====
     {{-0.5f,-0.5f,-0.5f},{1,0,0,1},{0,1}},
@@ -137,13 +75,13 @@ uint16_t indices[] =
     20,21,22, 20,22,23   // 下
 };
 
-CTriangle::CTriangle()
+CBox::CBox()
 {
 	//Initialize();
 }
 
 //===== メソッド定義 =====
-void CTriangle::Initialize(ID3D12Device* _Device)
+void CBox::Initialize(ID3D12Device* _Device)
 {
 
 
@@ -217,7 +155,7 @@ void CTriangle::Initialize(ID3D12Device* _Device)
     );
 
     //頂点レイアウトの作成
-    //変更した
+    //0,12,28がマジックナンバー
     D3D12_INPUT_ELEMENT_DESC inputLayout[] =
     {
         { "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0,
@@ -430,26 +368,24 @@ void CTriangle::Initialize(ID3D12Device* _Device)
 
 }
 
-void CTriangle::Draw(ID3D12GraphicsCommandList* _CommandList)
+void CBox::Draw(ID3D12GraphicsCommandList* _CommandList)
 {
     //行列作成
     DirectX::XMMATRIX world =
+        DirectX::XMMatrixScaling(
+            m_Scale.x,
+            m_Scale.y,
+            m_Scale.z)
+        *
         DirectX::XMMatrixTranslation(
-            m_position.x,
-            m_position.y,
-            m_position.z);
-    DirectX::XMMATRIX view =
-        DirectX::XMMatrixLookAtLH(
-            DirectX::XMVectorSet(0, 0, -3, 1),
-            DirectX::XMVectorSet(0, 0, 0, 1),
-            DirectX::XMVectorSet(0, 1, 0, 0));
+            m_Position.x,
+            m_Position.y,
+            m_Position.z);
 
-    DirectX::XMMATRIX proj =
-        DirectX::XMMatrixPerspectiveFovLH(
-            DirectX::XM_PIDIV4,
-            (float)SCREEN_WIDTH / SCREEN_HEIGHT,
-            0.1f,
-            100.0f);
+	//ビューとプロジェクションはDX12Managerから取得
+	DirectX::XMMATRIX view = CDX12Manager::GetInstance().GetView();
+    DirectX::XMMATRIX proj = CDX12Manager::GetInstance().GetProj();
+
 
     DirectX::XMMATRIX wvp = world * view * proj;
 
@@ -472,14 +408,9 @@ void CTriangle::Draw(ID3D12GraphicsCommandList* _CommandList)
     );
 
     _CommandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-    //_CommandList->IASetVertexBuffers(0, 1, &m_vertexBufferView);
-    ////三角形
-    ////_CommandList->DrawInstanced(3, 1, 0, 0);
-    ////四角形
-    //_CommandList->DrawInstanced(36, 1, 0, 0);
 
     //インデックス用に変更
     _CommandList->IASetVertexBuffers(0, 1, &m_vertexBufferView);
     _CommandList->IASetIndexBuffer(&m_indexBufferView);
-    _CommandList->DrawIndexedInstanced(36, 1, 0, 0, 0);
+    _CommandList->DrawIndexedInstanced(sizeof(indices)/sizeof(indices[0]), 1, 0, 0, 0);
 }

@@ -8,7 +8,7 @@
 #include "BasicSettings.h"
 
 //仮置き
-#include "Triangle.h"
+#include "Box.h"
 
 
 using Microsoft::WRL::ComPtr;
@@ -31,6 +31,10 @@ public:
 
 	void CreateCommandObjects();
 	void CreateFence();
+
+	//仮のview,projのGetter
+	DirectX::XMMATRIX GetView() { return m_view; }
+	DirectX::XMMATRIX GetProj() { return m_proj; }
 
 
 
@@ -72,7 +76,13 @@ private:
 
 
 
-	CTriangle triangle;
+	//一旦プリミティブをここに置く
+	CBox box;
+	CBox ground;
+
+	//一旦持っておく
+	DirectX::XMMATRIX m_view;
+	DirectX::XMMATRIX m_proj;
 
 
 	//シングルトン実装
