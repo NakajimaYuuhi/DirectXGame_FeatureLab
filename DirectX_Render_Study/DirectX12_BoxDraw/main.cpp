@@ -15,6 +15,8 @@
 //===== インクルード =====
 #include <windows.h>
 #include "DX12Manager.h"
+#include "InputManager.h"	//TODO:mainが知ってる必要は無い気がする
+
 
 
 
@@ -81,7 +83,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
 	CDX12Manager::GetInstance().Initialize(hwnd);
 	
-
+	CInputManager::GetInstance();
 
 	while (msg.message != WM_QUIT)
 	{
@@ -92,6 +94,13 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 		}
 		else
 		{
+			//入力更新
+			CInputManager::GetInstance().Update();
+
+			//更新処理
+			CDX12Manager::GetInstance().Update();
+
+			//描画処理
 			CDX12Manager::GetInstance().BeginDraw();
 
 
@@ -99,6 +108,8 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 			CDX12Manager::GetInstance().EndDraw();
 		}
 	}
+
+	CDX12Manager::GetInstance().Finalize();
 
 	return 0;
 }

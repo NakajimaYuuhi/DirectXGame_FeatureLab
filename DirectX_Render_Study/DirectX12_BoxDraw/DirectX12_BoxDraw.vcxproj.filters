@@ -11,25 +11,37 @@
     <Filter Include="ソースコード\Main">
       <UniqueIdentifier>{b25b49fc-ee7a-4fc6-b955-104e3607bb96}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソースコード\TestObject">
-      <UniqueIdentifier>{9bf0e665-e92d-4e8f-9da5-fa405932f1cd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソースコード\BasicSettings">
       <UniqueIdentifier>{9db8814f-b748-4474-9c23-1a690127956e}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソースコード\DirectX12">
       <UniqueIdentifier>{282f6986-98a1-4df9-9b9b-55af9df30c38}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソースコード\TestObject\Box">
+    <Filter Include="ソースコード\Objects">
+      <UniqueIdentifier>{badab656-e728-41b5-9eb9-c038f8f8075a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースコード\Objects\Mesh">
+      <UniqueIdentifier>{987365ea-a828-4247-b6f8-9eb84cd2caa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースコード\Objects\TestObject">
+      <UniqueIdentifier>{9bf0e665-e92d-4e8f-9da5-fa405932f1cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースコード\Objects\TestObject\Box">
       <UniqueIdentifier>{5ffed21c-3d86-4a60-90e3-0635fbdb05ac}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソースコード\Mesh">
-      <UniqueIdentifier>{987365ea-a828-4247-b6f8-9eb84cd2caa2}</UniqueIdentifier>
+    <Filter Include="ソースコード\Tools">
+      <UniqueIdentifier>{a5283a24-2553-4378-8c94-926d8546430e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースコード\Tools\InputManager">
+      <UniqueIdentifier>{c265212c-fd09-4340-a2f2-6896fa0f0c53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースコード\Collider">
+      <UniqueIdentifier>{bc7b1f87-d888-4967-917e-2f1e96359f80}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h">
-      <Filter>ソースコード\TestObject\Box</Filter>
+      <Filter>ソースコード\Objects\TestObject\Box</Filter>
     </ClInclude>
     <ClInclude Include="BasicSettings.h">
       <Filter>ソースコード\BasicSettings</Filter>
@@ -37,23 +49,53 @@
     <ClInclude Include="DX12Manager.h">
       <Filter>ソースコード\DirectX12</Filter>
     </ClInclude>
-    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Mesh.h">
+      <Filter>ソースコード\Objects\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>ソースコード\Tools\InputManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>ソースコード\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider_Plane.h">
+      <Filter>ソースコード\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider_Ray.h">
+      <Filter>ソースコード\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>ソースコード\Main</Filter>
     </ClCompile>
     <ClCompile Include="Box.cpp">
-      <Filter>ソースコード\TestObject\Box</Filter>
+      <Filter>ソースコード\Objects\TestObject\Box</Filter>
     </ClCompile>
     <ClCompile Include="DX12Manager.cpp">
       <Filter>ソースコード\DirectX12</Filter>
     </ClCompile>
-    <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Mesh.cpp">
+      <Filter>ソースコード\Objects\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>ソースコード\Tools\InputManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>ソースコード\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider_Plane.cpp">
+      <Filter>ソースコード\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider_Ray.cpp">
+      <Filter>ソースコード\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Triangle.hlsl">
-      <Filter>ソースコード\TestObject\Box</Filter>
+      <Filter>ソースコード\Objects\TestObject\Box</Filter>
     </FxCompile>
   </ItemGroup>
 </Project>

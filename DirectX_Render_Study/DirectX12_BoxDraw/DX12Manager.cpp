@@ -4,6 +4,12 @@
 #include <d3dcompiler.h>
 #include <iostream>
 
+#include "InputManager.h"
+
+//Collider
+#include "Collider_Ray.h"
+#include "Collider_Plane.h"
+
 //===== 定数・マクロ定義 =====
 const UINT CDX12Manager::m_FrameBufferCount = FRAME_BUFFER_COUNT;   //フレームバッファの数
 
@@ -228,13 +234,18 @@ bool CDX12Manager::Initialize(HWND hwnd)
 	//----- 仮でプリミティブ初期化 -----
 	//立方体
 	box.Initialize(m_device.Get());
-	box.SetPos({ 0.0f, 0.5f, 0.0f });
+	box.SetPos({ 0.0f, 2.0f, 0.0f });//0.5が一番下 
 	box.SetScale({ 1.0f, 1.0f, 1.0f });
+	box.SetRotation({ 0.0f, 0.0f, 0.0f });
+	//CCollider_Ray* ray = new CCollider_Ray(&box);
+	box.MakeCollider(CMesh::ColliderName::Ray);
 	
 	//地面
 	ground.Initialize(m_device.Get());
 	ground.SetPos({ 0.0f, 0.0f, 0.0f });
 	ground.SetScale({ 20.0f, 0.1f, 20.0f });
+	ground.SetRotation({ 0.0f, 0.0f, 0.0f });
+	//XMConvertToRadians(1.0f);みたいにradianに変換できる
 
 	//view,projの初期化
 	//view
@@ -263,6 +274,75 @@ void CDX12Manager::Finalize()
 	m_factory.Reset();
 }
 
+
+//----- 更新処理 -----
+void CDX12Manager::Update()
+{
+	//Boxの移動処理
+	//通常移動
+
+	//奥
+	if(CInputManager::GetInstance().IsKeyPress('W'))
+	{
+		DirectX::XMFLOAT3 pos = box.GetPos();
+
+		//本来は、DeltaTimeを掛けるべきだが、今回は仮なので固定値で移動させる
+		box.SetPos({ pos.x, pos.y, pos.z + 0.1f });
+	}
+
+	//手前
+	if (CInputManager::GetInstance().IsKeyPress('S'))
+	{
+		DirectX::XMFLOAT3 pos = box.GetPos();
+
+		//本来は、DeltaTimeを掛けるべきだが、今回は仮なので固定値で移動させる
+		box.SetPos({ pos.x, pos.y, pos.z - 0.1f });
+	}
+
+	//右
+	if (CInputManager::GetInstance().IsKeyPress('D'))
+	{
+		DirectX::XMFLOAT3 pos = box.GetPos();
+
+		//本来は、DeltaTimeを掛けるべきだが、今回は仮なので固定値で移動させる
+		box.SetPos({ pos.x + 0.1f, pos.y, pos.z });
+	}
+
+	//左
+	if (CInputManager::GetInstance().IsKeyPress('A'))
+	{
+		DirectX::XMFLOAT3 pos = box.GetPos();
+
+		//本来は、DeltaTimeを掛けるべきだが、今回は仮なので固定値で移動させる
+		box.SetPos({ pos.x - 0.1f, pos.y, pos.z });
+	}
+
+
+	//ぶっ飛び
+	if (CInputManager::GetInstance().IsKeyTrigger('F'))
+	{
+		box.Dash();
+	}
+
+	box.Fall();
+
+	//抵抗
+	box.Resistance();
+
+
+	//位置の更新
+	box.Move();
+
+
+	//Colliderの更新
+	box.Update();
+
+	//交差判定
+
+
+}
+
+//----- 描画処理 -----
 void CDX12Manager::BeginDraw()
 {
 	// GPUが前のフレームの処理を終えるのを待つ
@@ -375,6 +455,7 @@ void CDX12Manager::EndDraw()
 }
 
 
+//初期化用の関数
 void CDX12Manager::CreateCommandObjects()
 {
 

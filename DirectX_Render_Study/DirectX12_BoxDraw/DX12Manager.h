@@ -9,7 +9,7 @@
 
 //仮置き
 #include "Box.h"
-
+#include "Mesh.h"
 
 using Microsoft::WRL::ComPtr;
 
@@ -23,6 +23,10 @@ public:
 	// <初期化、終了処理>
 	bool Initialize(HWND hwnd);
 	void Finalize();
+
+	//更新処理
+	void Update();
+	//描画処理
 	void BeginDraw();
 	void EndDraw();
 
@@ -77,8 +81,8 @@ private:
 
 
 	//一旦プリミティブをここに置く
-	CBox box;
-	CBox ground;
+	CMesh box;
+	CMesh ground;
 
 	//一旦持っておく
 	DirectX::XMMATRIX m_view;

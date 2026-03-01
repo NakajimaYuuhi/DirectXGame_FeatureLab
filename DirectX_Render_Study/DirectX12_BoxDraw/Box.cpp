@@ -9,6 +9,8 @@
 
 #include "BasicSettings.h"
 
+
+
 //TODO:\‘¢‚ğ•ÏX‚·‚é
 struct Vertex
 {
