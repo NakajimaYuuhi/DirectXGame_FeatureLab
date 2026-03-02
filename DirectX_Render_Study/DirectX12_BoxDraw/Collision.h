@@ -1,4 +1,6 @@
 #pragma once
+#include <DirectXMath.h>
+
 
 class CCollider_Ray;
 class CCollider_Plane;
@@ -20,6 +22,13 @@ public:
 		float& outT
 	);
 
+	bool CheckCollision
+	(
+		const CCollider_Ray& ray,
+		const CCollider_Plane& plane,
+		float& outT,
+		DirectX::XMFLOAT3& _CollisionPoint
+	);
 	//ƒVƒ“ƒOƒ‹ƒgƒ“ŽÀ‘•
 private:
 	CCollision() = default;

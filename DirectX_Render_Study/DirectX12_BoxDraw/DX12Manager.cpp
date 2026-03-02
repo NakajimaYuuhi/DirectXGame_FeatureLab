@@ -366,16 +366,64 @@ void CDX12Manager::Update()
 	box.Update();
 
 	//交差判定
+	int num_collision = 0;
 	float point = 0.0f;
 	float point2 = 0.0f;
+	DirectX::XMFLOAT3 collisionPoint1;
+	DirectX::XMFLOAT3 collisionPoint2;
 
 	//上手く取れてるはず(接地点は返してない,距離だけ)
-	bool result  = CCollision::GetInstance().CheckCollision( *((CCollider_Ray*)(box.GetCollider())) , *((CCollider_Plane*)(ground.GetCollider())),point);
-	bool result2 = CCollision::GetInstance().CheckCollision(*((CCollider_Ray*)(box.GetCollider())), *((CCollider_Plane*)(slope.GetCollider())), point2);
+	bool result  = CCollision::GetInstance().CheckCollision( *((CCollider_Ray*)(box.GetCollider())) , *((CCollider_Plane*)(ground.GetCollider())),point, collisionPoint1);
+	bool result2 = CCollision::GetInstance().CheckCollision(*((CCollider_Ray*)(box.GetCollider())), *((CCollider_Plane*)(slope.GetCollider())), point2, collisionPoint2);
 	
 	
 	//----- 押し出し,跳ね返り(反発係数は0で一旦作成) -----
+	//押し出し処理を行う
+	//trueかつ最短の物で押し返しを行う
+	//数が少ないのでべた書き
+
+	//両方falseは何もしない
+	if(!result && !result2){return;}
 	
+	//両方trueのときは、距離の近い方を優先する
+	if (result)
+	{
+		num_collision = 1;
+	}
+	if (result2 && point2 < point)
+	{
+		num_collision = 2;
+	}
+
+	//それぞれのデータを渡して衝突応答を行う
+	switch (num_collision)
+	{
+	case 1:
+		//1つめのオブジェクトと衝突時の処理
+		//引数は法線、オブジェクト、衝突点、(反発係数)
+		//1.法線取得
+
+		//2.3.4.5.Forward,Rightを求める
+
+		//6.回転行列作成
+
+		//7.回転行列から、オイラー角を求める
+
+		//8.回転処理
+
+		//9.押し出し処理
+		//法線方向に押し出す
+		//衝突点からスケールyの半分押し出す
+
+
+		break;
+	case 2:
+		//2つめのオブジェクトと衝突時の処理
+		//引数は法線、オブジェクト、衝突点、(反発係数)
+		break;
+	}
+
+
 	//衝突点に移動
 	//向きを法線方向にする
 	//法線方向に、スケールyの半分押し出し
@@ -390,9 +438,6 @@ void CDX12Manager::Update()
 
 				{
 					//法線方向に回転する
-
-
-
 					DirectX::XMFLOAT3 pos = box.GetPos();
 					pos.y += 0.05f;
 					box.SetPos(pos);
