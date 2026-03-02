@@ -370,38 +370,56 @@ void CDX12Manager::Update()
 	float point2 = 0.0f;
 
 	//上手く取れてるはず(接地点は返してない,距離だけ)
-	bool result = CCollision::GetInstance().CheckCollision( *((CCollider_Ray*)(box.GetCollider())) , *((CCollider_Plane*)(ground.GetCollider())),point);
+	bool result  = CCollision::GetInstance().CheckCollision( *((CCollider_Ray*)(box.GetCollider())) , *((CCollider_Plane*)(ground.GetCollider())),point);
 	bool result2 = CCollision::GetInstance().CheckCollision(*((CCollider_Ray*)(box.GetCollider())), *((CCollider_Plane*)(slope.GetCollider())), point2);
+	
+	
+	//----- 押し出し,跳ね返り(反発係数は0で一旦作成) -----
+	
+	//衝突点に移動
+	//向きを法線方向にする
+	//法線方向に、スケールyの半分押し出し
+	
 	//(仮実装)
-	if (result2)
+	if (point2 <= point)
 	{
-		if (point2 < 0.05f)
+		if (result2)
 		{
-			//if (point2 < point)
+			if (point2 < 0.1f)
 			{
-				DirectX::XMFLOAT3 pos = box.GetPos();
-				pos.y += 1.5f;
-				box.SetPos(pos);
-				box.ResetVelocityY();
-				box.Update();
+
+				{
+					//法線方向に回転する
+
+
+
+					DirectX::XMFLOAT3 pos = box.GetPos();
+					pos.y += 0.05f;
+					box.SetPos(pos);
+					box.ResetVelocityY();
+					box.Update();
 			
+				}
 			}
-			return;
+
 		}
-
 	}
-
-	if (result)
+	else
 	{
-		if (point < 0.05f)
+		if (result)
 		{
-				DirectX::XMFLOAT3 pos = box.GetPos();
-				pos.y = 0.51f;
-				box.SetPos(pos);
-				box.ResetVelocityY();
-				box.Update();
+			if (point < 0.05f)
+			{
+					DirectX::XMFLOAT3 pos = box.GetPos();
+					pos.y = 0.51f;
+					box.SetPos(pos);
+					box.ResetVelocityY();
+					box.Update();
+			}
 		}
 	}
+
+
 
 
 }

@@ -129,6 +129,11 @@ public:
 		m_Velocity.y = 0.0f;
 	}
 
+	//•â³
+
+
+
+
 	//Collider‚Ìì¬ŠÖ”
 	void MakeCollider(ColliderName _ColliderName);
 	CCollider* GetCollider();

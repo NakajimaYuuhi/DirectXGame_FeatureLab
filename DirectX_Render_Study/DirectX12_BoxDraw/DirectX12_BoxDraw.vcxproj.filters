@@ -8,14 +8,8 @@
     <Filter Include="ソースコード">
       <UniqueIdentifier>{814600dd-01d8-4602-b989-36328c0565e5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソースコード\Main">
-      <UniqueIdentifier>{b25b49fc-ee7a-4fc6-b955-104e3607bb96}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソースコード\BasicSettings">
       <UniqueIdentifier>{9db8814f-b748-4474-9c23-1a690127956e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソースコード\DirectX12">
-      <UniqueIdentifier>{282f6986-98a1-4df9-9b9b-55af9df30c38}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソースコード\Objects">
       <UniqueIdentifier>{badab656-e728-41b5-9eb9-c038f8f8075a}</UniqueIdentifier>
@@ -38,6 +32,18 @@
     <Filter Include="ソースコード\Collider">
       <UniqueIdentifier>{bc7b1f87-d888-4967-917e-2f1e96359f80}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソースコード\System">
+      <UniqueIdentifier>{cc5265dd-2cbc-4b22-9a54-3e4e9127d002}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースコード\System\Collision">
+      <UniqueIdentifier>{b589a47e-8778-4a5d-92a7-4dddde73dc20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースコード\System\Main">
+      <UniqueIdentifier>{b25b49fc-ee7a-4fc6-b955-104e3607bb96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースコード\System\DirectX12">
+      <UniqueIdentifier>{282f6986-98a1-4df9-9b9b-55af9df30c38}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h">
@@ -47,7 +53,7 @@
       <Filter>ソースコード\BasicSettings</Filter>
     </ClInclude>
     <ClInclude Include="DX12Manager.h">
-      <Filter>ソースコード\DirectX12</Filter>
+      <Filter>ソースコード\System\DirectX12</Filter>
     </ClInclude>
     <ClInclude Include="Mesh.h">
       <Filter>ソースコード\Objects\Mesh</Filter>
@@ -64,17 +70,19 @@
     <ClInclude Include="Collider_Ray.h">
       <Filter>ソースコード\Collider</Filter>
     </ClInclude>
-    <ClInclude Include="Collision.h" />
+    <ClInclude Include="Collision.h">
+      <Filter>ソースコード\System\Collision</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>ソースコード\Main</Filter>
+      <Filter>ソースコード\System\Main</Filter>
     </ClCompile>
     <ClCompile Include="Box.cpp">
       <Filter>ソースコード\Objects\TestObject\Box</Filter>
     </ClCompile>
     <ClCompile Include="DX12Manager.cpp">
-      <Filter>ソースコード\DirectX12</Filter>
+      <Filter>ソースコード\System\DirectX12</Filter>
     </ClCompile>
     <ClCompile Include="Mesh.cpp">
       <Filter>ソースコード\Objects\Mesh</Filter>
@@ -91,7 +99,9 @@
     <ClCompile Include="Collider_Ray.cpp">
       <Filter>ソースコード\Collider</Filter>
     </ClCompile>
-    <ClCompile Include="Collision.cpp" />
+    <ClCompile Include="Collision.cpp">
+      <Filter>ソースコード\System\Collision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Triangle.hlsl">
