@@ -42,6 +42,11 @@ public:
         m_Pos = pos;
 	}
 
+    const DirectX::XMFLOAT3& GetNormal()
+    {
+        return m_Normal;
+	}
+
 private:
     DirectX::XMFLOAT3 m_Normal    = {0.0f, 1.0f, 0.0f};
     DirectX::XMFLOAT3 m_Pos       = {0.0f, 0.0f, 0.0f};

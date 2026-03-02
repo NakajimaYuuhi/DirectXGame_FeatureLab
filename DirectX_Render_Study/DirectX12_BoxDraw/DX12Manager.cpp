@@ -314,7 +314,8 @@ void CDX12Manager::Update()
 		DirectX::XMFLOAT3 pos = box.GetPos();
 
 		//本来は、DeltaTimeを掛けるべきだが、今回は仮なので固定値で移動させる
-		box.SetPos({ pos.x, pos.y, pos.z + 0.1f });
+		DirectX::XMFLOAT3 Forward = box.GetFront();
+		box.SetPos({ pos.x + Forward.x * 0.05f, pos.y + Forward.y * 0.05f, pos.z + Forward.z * 0.05f});
 	}
 
 	//手前
@@ -323,7 +324,8 @@ void CDX12Manager::Update()
 		DirectX::XMFLOAT3 pos = box.GetPos();
 
 		//本来は、DeltaTimeを掛けるべきだが、今回は仮なので固定値で移動させる
-		box.SetPos({ pos.x, pos.y, pos.z - 0.1f });
+		DirectX::XMFLOAT3 Forward = box.GetFront();
+		box.SetPos({ pos.x - Forward.x * 0.05f, pos.y - Forward.y * 0.05f, pos.z - Forward.z * 0.05f });
 	}
 
 	//右
@@ -398,18 +400,80 @@ void CDX12Manager::Update()
 	//それぞれのデータを渡して衝突応答を行う
 	switch (num_collision)
 	{
-	case 1:
+	case 1://グラウンド
+	{
+		if (!(point < 0.05f))return;
+
 		//1つめのオブジェクトと衝突時の処理
 		//引数は法線、オブジェクト、衝突点、(反発係数)
 		//1.法線取得
+		DirectX::XMFLOAT3 Up = ((CCollider_Plane*)ground.GetCollider())->GetNormal();
+		DirectX::XMVECTOR VecUp = DirectX::XMVector3Normalize(DirectX::XMLoadFloat3(&Up));
 
-		//2.3.4.5.Forward,Rightを求める
+		//2.Forward取得
+		DirectX::XMFLOAT3 tmpFront = box.GetFront();
+		DirectX::XMVECTOR OldForward = DirectX::XMLoadFloat3(&tmpFront);
+
+		//3.新しいForardを求める
+		//normalize( forward - dot(forward,up) * up )
+		DirectX::XMVECTOR VecNewForward;
+		VecNewForward =
+			DirectX::XMVector3Normalize
+			(
+				DirectX::XMVectorSubtract
+				(
+					OldForward,
+					DirectX::XMVectorMultiply
+					(
+						DirectX::XMVector3Dot(OldForward, VecUp), VecUp
+					)
+				)
+			);
+
+		//4.Rightを求める cross(up forward)
+		DirectX::XMVECTOR VecRight =
+			DirectX::XMVector3Normalize
+			(
+				DirectX::XMVector3Cross
+				(
+					VecUp, VecNewForward
+				)
+			);
+
+		//5.Forward再計算 cross(right,up)
+		VecNewForward =
+			DirectX::XMVector3Normalize
+			(
+				DirectX::XMVector3Cross
+				(
+					VecRight, VecUp
+				)
+			);
 
 		//6.回転行列作成
+		DirectX::XMMATRIX rot =
+		{
+			VecRight.m128_f32[0],    VecRight.m128_f32[1],    VecRight.m128_f32[2],    0.0f,
+			VecUp.m128_f32[0],       VecUp.m128_f32[1],       VecUp.m128_f32[2],       0.0f,
+			VecNewForward.m128_f32[0],  VecNewForward.m128_f32[1],  VecNewForward.m128_f32[2],  0.0f,
+			0.0f,                 0.0f,                 0.0f,                 1.0f
+		};
+
 
 		//7.回転行列から、オイラー角を求める
+		float R00 = rot.r[0].m128_f32[0];
+		float R01 = rot.r[0].m128_f32[1];
+		float R02 = rot.r[0].m128_f32[2];
+
+		float R12 = rot.r[1].m128_f32[2];
+		float R22 = rot.r[2].m128_f32[2];
+
+		float ry = asinf(-R02);
+		float rx = atan2f(R12, R22);
+		float rz = atan2f(R01, R00);
 
 		//8.回転処理
+		box.SetRotation({ rx,ry,rz });
 
 		//9.押し出し処理
 		//法線方向に押し出す
@@ -417,10 +481,90 @@ void CDX12Manager::Update()
 
 
 		break;
+	}
 	case 2:
-		//2つめのオブジェクトと衝突時の処理
-		//引数は法線、オブジェクト、衝突点、(反発係数)
-		break;
+		{
+			//2つめのオブジェクトと衝突時の処理
+			//引数は法線、オブジェクト、衝突点、(反発係数)
+			if (!(point2 < 0.1f))return;
+
+			//1つめのオブジェクトと衝突時の処理
+			//引数は法線、オブジェクト、衝突点、(反発係数)
+			//1.法線取得
+			DirectX::XMFLOAT3 Up = ((CCollider_Plane*)slope.GetCollider())->GetNormal();
+			DirectX::XMVECTOR VecUp = DirectX::XMVector3Normalize(DirectX::XMLoadFloat3(&Up));
+
+			//2.Forward取得
+			DirectX::XMFLOAT3 tmpFront = box.GetFront();
+			DirectX::XMVECTOR OldForward = DirectX::XMLoadFloat3(&tmpFront);
+
+			//3.新しいForardを求める
+			//normalize( forward - dot(forward,up) * up )
+			DirectX::XMVECTOR VecNewForward;
+			VecNewForward =
+				DirectX::XMVector3Normalize
+				(
+					DirectX::XMVectorSubtract
+					(
+						OldForward,
+						DirectX::XMVectorMultiply
+						(
+							DirectX::XMVector3Dot(OldForward, VecUp), VecUp
+						)
+					)
+				);
+
+			//4.Rightを求める cross(up forward)
+			DirectX::XMVECTOR VecRight =
+				DirectX::XMVector3Normalize
+				(
+					DirectX::XMVector3Cross
+					(
+						VecUp, VecNewForward
+					)
+				);
+
+			//5.Forward再計算 cross(right,up)
+			VecNewForward =
+				DirectX::XMVector3Normalize
+				(
+					DirectX::XMVector3Cross
+					(
+						VecRight, VecUp
+					)
+				);
+
+			//6.回転行列作成
+			DirectX::XMMATRIX rot =
+			{
+				VecRight.m128_f32[0],    VecRight.m128_f32[1],    VecRight.m128_f32[2],    0.0f,
+				VecUp.m128_f32[0],       VecUp.m128_f32[1],       VecUp.m128_f32[2],       0.0f,
+				VecNewForward.m128_f32[0],  VecNewForward.m128_f32[1],  VecNewForward.m128_f32[2],  0.0f,
+				0.0f,                 0.0f,                 0.0f,                 1.0f
+			};
+
+
+			//7.回転行列から、オイラー角を求める
+			float R00 = rot.r[0].m128_f32[0];
+			float R01 = rot.r[0].m128_f32[1];
+			float R02 = rot.r[0].m128_f32[2];
+
+			float R12 = rot.r[1].m128_f32[2];
+			float R22 = rot.r[2].m128_f32[2];
+
+			float ry = asinf(-R02);
+			float rx = atan2f(R12, R22);
+			float rz = atan2f(R01, R00);
+
+			//8.回転処理
+			box.SetRotation({ rx,ry,rz });
+
+			//9.押し出し処理
+			//法線方向に押し出す
+			//衝突点からスケールyの半分押し出す
+
+			break;
+		}
 	}
 
 

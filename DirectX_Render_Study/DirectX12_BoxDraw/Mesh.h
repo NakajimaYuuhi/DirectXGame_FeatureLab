@@ -131,6 +131,19 @@ public:
 
 	//•â³
 
+	//Front‚Ìæ“¾
+	DirectX::XMFLOAT3 GetFront() 
+	{ 
+		//‰ñ“]s—ñ‚Ìì¬
+		DirectX::XMMATRIX rotMat = DirectX::XMMatrixRotationRollPitchYaw(m_Rotation.x, m_Rotation.y, m_Rotation.z);
+		
+		//‰ñ“]s—ñ‚©‚çFront‚ğæ‚èo‚·
+		DirectX::XMFLOAT3 front;
+		front = { rotMat.r[2].m128_f32[0], rotMat.r[2].m128_f32[1], rotMat.r[2].m128_f32[2] };
+		
+		return front;
+	}
+
 
 
 
