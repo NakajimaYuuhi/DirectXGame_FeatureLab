@@ -95,6 +95,9 @@ public:
 	DirectX::XMFLOAT3	GetRotation() { return m_Rotation; }
 	void	SetRotation(DirectX::XMFLOAT3 _Rotation) { m_Rotation = _Rotation; }
 
+	DirectX::XMFLOAT3 GetVelocity() { return m_Velocity; }
+	void SetVelocity(DirectX::XMFLOAT3 _Velocity) { m_Velocity = _Velocity; }
+
 	void Dash()
 	{
 		//Frontの方向に速度を設定
@@ -143,6 +146,20 @@ public:
 		
 		return front;
 	}
+
+	//Upの取得
+	DirectX::XMFLOAT3 GetUp()
+	{
+		//回転行列の作成
+		DirectX::XMMATRIX rotMat = DirectX::XMMatrixRotationRollPitchYaw(m_Rotation.x, m_Rotation.y, m_Rotation.z);
+
+		//回転行列からFrontを取り出す
+		DirectX::XMFLOAT3 up;
+		up = { rotMat.r[1].m128_f32[0], rotMat.r[1].m128_f32[1], rotMat.r[1].m128_f32[2] };
+
+		return up;
+	}
+
 
 
 

@@ -315,7 +315,7 @@ void CDX12Manager::Update()
 
 		//本来は、DeltaTimeを掛けるべきだが、今回は仮なので固定値で移動させる
 		DirectX::XMFLOAT3 Forward = box.GetFront();
-		box.SetPos({ pos.x + Forward.x * 0.05f, pos.y + Forward.y * 0.05f, pos.z + Forward.z * 0.05f});
+		box.SetVelocity({ Forward.x * 0.05f, Forward.y * 0.05f, Forward.z * 0.05f});
 	}
 
 	//手前
@@ -325,7 +325,7 @@ void CDX12Manager::Update()
 
 		//本来は、DeltaTimeを掛けるべきだが、今回は仮なので固定値で移動させる
 		DirectX::XMFLOAT3 Forward = box.GetFront();
-		box.SetPos({ pos.x - Forward.x * 0.05f, pos.y - Forward.y * 0.05f, pos.z - Forward.z * 0.05f });
+		box.SetVelocity({ - Forward.x * 0.05f, - Forward.y * 0.05f, - Forward.z * 0.05f });
 	}
 
 	//右
@@ -402,7 +402,7 @@ void CDX12Manager::Update()
 	{
 	case 1://グラウンド
 	{
-		if (!(point < 0.05f))return;
+		if (!(point < 0.15f))return;
 
 		//1つめのオブジェクトと衝突時の処理
 		//引数は法線、オブジェクト、衝突点、(反発係数)
@@ -478,7 +478,31 @@ void CDX12Manager::Update()
 		//9.押し出し処理
 		//法線方向に押し出す
 		//衝突点からスケールyの半分押し出す
+		//9.押し出し 法線の方向に押し出し
+		DirectX::XMFLOAT3 BoxPos = box.GetPos();
+		DirectX::XMFLOAT3 BoxScale = box.GetScale();
+		DirectX::XMFLOAT3 PlaneNormal = ((CCollider_Plane*)ground.GetCollider())->GetNormal();
 
+		//衝突点から、ScaleYの分だけ法線方向に足す
+		BoxPos = { collisionPoint1.x + PlaneNormal.x * BoxScale.y * 0.51f, collisionPoint1.y + PlaneNormal.y * BoxScale.y * 0.51f, collisionPoint1.z + PlaneNormal.z * BoxScale.y * 0.51f };
+		//速度成分を消す
+		//1.速度取得
+		DirectX::XMFLOAT3 box_velocity = box.GetVelocity();
+		//2.法線との内積を取る
+		DirectX::XMVECTOR vec_plane_normal = DirectX::XMLoadFloat3(&PlaneNormal);
+		DirectX::XMVECTOR tmp_box_velocity = DirectX::XMLoadFloat3(&box_velocity);
+		float tmp_dot_velocity = DirectX::XMVectorGetX( DirectX::XMVector3Dot(tmp_box_velocity, vec_plane_normal) );
+
+		//3.2を足す(打ち消し)
+		tmp_box_velocity = DirectX::XMVectorAdd(DirectX::XMVectorScale(vec_plane_normal, -tmp_dot_velocity), tmp_box_velocity);
+
+
+		//4.3に反発係数を掛けて足す(反射)
+		DirectX::XMStoreFloat3(&box_velocity, tmp_box_velocity);
+		box.SetVelocity(box_velocity);
+
+
+		box.SetPos(BoxPos);
 
 		break;
 	}
@@ -486,7 +510,7 @@ void CDX12Manager::Update()
 		{
 			//2つめのオブジェクトと衝突時の処理
 			//引数は法線、オブジェクト、衝突点、(反発係数)
-			if (!(point2 < 0.1f))return;
+			if (!(point2 < 0.15f))return;
 
 			//1つめのオブジェクトと衝突時の処理
 			//引数は法線、オブジェクト、衝突点、(反発係数)
@@ -562,51 +586,77 @@ void CDX12Manager::Update()
 			//9.押し出し処理
 			//法線方向に押し出す
 			//衝突点からスケールyの半分押し出す
+			//9.押し出し 法線の方向に押し出し
+			DirectX::XMFLOAT3 BoxPos = box.GetPos();
+			DirectX::XMFLOAT3 BoxScale = box.GetScale();
+			DirectX::XMFLOAT3 PlaneNormal = ((CCollider_Plane*)slope.GetCollider())->GetNormal();
+
+			BoxPos = { collisionPoint2.x + PlaneNormal.x * BoxScale.y * 0.52f, collisionPoint2.y + PlaneNormal.y * BoxScale.y * 0.52f, collisionPoint2.z + PlaneNormal.z * BoxScale.y * 0.52f};
+			//速度成分を消す
+			box.SetPos(BoxPos);
+
+			//1.速度取得
+			DirectX::XMFLOAT3 box_velocity = box.GetVelocity();
+			//2.法線との内積を取る
+			DirectX::XMVECTOR vec_plane_normal = DirectX::XMVector3Normalize( DirectX::XMLoadFloat3(&PlaneNormal));
+			DirectX::XMVECTOR tmp_box_velocity = DirectX::XMLoadFloat3(&box_velocity);
+			float tmp_dot_velocity = DirectX::XMVectorGetX(DirectX::XMVector3Dot(tmp_box_velocity, vec_plane_normal));
+
+			//3.2を足す(打ち消し)
+			tmp_box_velocity = DirectX::XMVectorAdd(DirectX::XMVectorScale(vec_plane_normal, -tmp_dot_velocity), tmp_box_velocity);
+
+
+			//4.3に反発係数を掛けて足す(反射)
+			DirectX::XMStoreFloat3(&box_velocity, tmp_box_velocity);
+			box.SetVelocity(box_velocity);
+
+			//Rayの方向を変える
+			box.Update();
+
 
 			break;
 		}
 	}
 
 
-	//衝突点に移動
-	//向きを法線方向にする
-	//法線方向に、スケールyの半分押し出し
+
+
 	
 	//(仮実装)
-	if (point2 <= point)
-	{
-		if (result2)
-		{
-			if (point2 < 0.1f)
-			{
+	//if (point2 <= point)
+	//{
+	//	if (result2)
+	//	{
+	//		if (point2 < 0.1f)
+	//		{
 
-				{
-					//法線方向に回転する
-					DirectX::XMFLOAT3 pos = box.GetPos();
-					pos.y += 0.05f;
-					box.SetPos(pos);
-					box.ResetVelocityY();
-					box.Update();
-			
-				}
-			}
+	//			{
+	//				//法線方向に回転する
+	//				DirectX::XMFLOAT3 pos = box.GetPos();
+	//				pos.y += 0.05f;
+	//				box.SetPos(pos);
+	//				box.ResetVelocityY();
+	//				box.Update();
+	//		
+	//			}
+	//		}
 
-		}
-	}
-	else
-	{
-		if (result)
-		{
-			if (point < 0.05f)
-			{
-					DirectX::XMFLOAT3 pos = box.GetPos();
-					pos.y = 0.51f;
-					box.SetPos(pos);
-					box.ResetVelocityY();
-					box.Update();
-			}
-		}
-	}
+	//	}
+	//}
+	//else
+	//{
+	//	if (result)
+	//	{
+	//		if (point < 0.05f)
+	//		{
+	//				DirectX::XMFLOAT3 pos = box.GetPos();
+	//				pos.y = 0.51f;
+	//				box.SetPos(pos);
+	//				box.ResetVelocityY();
+	//				box.Update();
+	//		}
+	//	}
+	//}
 
 
 
