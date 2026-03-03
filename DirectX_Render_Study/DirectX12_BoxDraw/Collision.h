@@ -4,6 +4,7 @@
 
 class CCollider_Ray;
 class CCollider_Plane;
+class CMesh;
 
 class CCollision
 {
@@ -15,12 +16,12 @@ public:
 		return m_Instance;
 	}
 
-	bool CheckCollision
-	(
-		const CCollider_Ray& ray,
-		const CCollider_Plane& plane,
-		float& outT
-	);
+	//bool CheckCollision
+	//(
+	//	const CCollider_Ray& ray,
+	//	const CCollider_Plane& plane,
+	//	float& outT
+	//);
 
 	bool CheckCollision
 	(
@@ -29,6 +30,11 @@ public:
 		float& outT,
 		DirectX::XMFLOAT3& _CollisionPoint
 	);
+
+	//衝突点,オブジェクト
+	bool CheckPointInQuad(DirectX::XMFLOAT3 _CollisionPoint, CMesh* _Mesh);
+
+
 	//シングルトン実装
 private:
 	CCollision() = default;

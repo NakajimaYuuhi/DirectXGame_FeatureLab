@@ -25,7 +25,19 @@ struct MeshVertex
 MeshVertex mesh_vertices[] =
 {
     //立方体(インデックス)
-        // ===== 前面 (Z-) =====
+    // ===== 上 (Y+) =====
+    {{-0.5f,0.5f,-0.5f},{1,0,1,1},{0,1}},
+    {{-0.5f,0.5f, 0.5f},{1,0,1,1},{0,0}},
+    {{ 0.5f,0.5f, 0.5f},{1,0,1,1},{1,0}},
+    {{ 0.5f,0.5f,-0.5f},{1,0,1,1},{1,1}},
+    
+    // ===== 下 (Y-) =====
+    {{-0.5f,-0.5f, 0.5f},{0,1,1,1},{1,0}},
+    {{-0.5f,-0.5f,-0.5f},{0,1,1,1},{1,1}},
+    {{ 0.5f,-0.5f,-0.5f},{0,1,1,1},{0,1}},
+    {{ 0.5f,-0.5f, 0.5f},{0,1,1,1},{0,0}},
+
+    // ===== 前面 (Z-) =====
     {{-0.5f,-0.5f,-0.5f},{1,0,0,1},{0,1}},
     {{-0.5f, 0.5f,-0.5f},{1,0,0,1},{0,0}},
     {{ 0.5f, 0.5f,-0.5f},{1,0,0,1},{1,0}},
@@ -49,17 +61,7 @@ MeshVertex mesh_vertices[] =
     {{0.5f, 0.5f, 0.5f},{1,1,0,1},{1,0}},
     {{0.5f,-0.5f, 0.5f},{1,1,0,1},{1,1}},
 
-    // ===== 上 (Y+) =====
-    {{-0.5f,0.5f,-0.5f},{1,0,1,1},{0,1}},
-    {{-0.5f,0.5f, 0.5f},{1,0,1,1},{0,0}},
-    {{ 0.5f,0.5f, 0.5f},{1,0,1,1},{1,0}},
-    {{ 0.5f,0.5f,-0.5f},{1,0,1,1},{1,1}},
 
-    // ===== 下 (Y-) =====
-    {{-0.5f,-0.5f, 0.5f},{0,1,1,1},{1,0}},
-    {{-0.5f,-0.5f,-0.5f},{0,1,1,1},{1,1}},
-    {{ 0.5f,-0.5f,-0.5f},{0,1,1,1},{0,1}},
-    {{ 0.5f,-0.5f, 0.5f},{0,1,1,1},{0,0}},
 };
 
 uint16_t mesh_indices[] =
@@ -421,6 +423,47 @@ void CMesh::Draw(ID3D12GraphicsCommandList* _CommandList)
     _CommandList->IASetVertexBuffers(0, 1, &m_vertexBufferView);
     _CommandList->IASetIndexBuffer(&m_indexBufferView);
     _CommandList->DrawIndexedInstanced(sizeof(mesh_indices) / sizeof(mesh_indices[0]), 1, 0, 0, 0);
+}
+
+void CMesh::GetVertex(std::vector<DirectX::XMFLOAT3>& _vertices, std::vector<uint16_t>& _Indices)
+{
+
+    for (int i = 0; i < 4; i++)
+    {
+        DirectX::XMFLOAT3 tmp = { mesh_vertices[i].position[0], mesh_vertices[i].position[1], mesh_vertices[i].position[2]};
+        _vertices.push_back(tmp);
+    }
+
+    for (int i = 0; i < 6; i++)
+    {
+        uint16_t tmp =  mesh_indices[i];
+        _Indices.push_back(tmp);
+    }
+
+}
+
+DirectX::XMMATRIX CMesh::GetWorld()
+{
+    DirectX::XMMATRIX scale = DirectX::XMMatrixScaling(
+        m_Scale.x, m_Scale.y, m_Scale.z);
+
+    DirectX::XMMATRIX rotX = DirectX::XMMatrixRotationX(m_Rotation.x);
+    DirectX::XMMATRIX rotY = DirectX::XMMatrixRotationY(m_Rotation.y);
+    DirectX::XMMATRIX rotZ = DirectX::XMMatrixRotationZ(m_Rotation.z);
+
+    DirectX::XMMATRIX trans = DirectX::XMMatrixTranslation(
+        m_Position.x,
+        m_Position.y,
+        m_Position.z);
+
+    DirectX::XMMATRIX world =
+        scale *
+        rotX * rotY * rotZ *
+        trans;
+
+    return world;
+
+
 }
 
 //Colliderの作成関数

@@ -378,7 +378,17 @@ void CDX12Manager::Update()
 	bool result  = CCollision::GetInstance().CheckCollision( *((CCollider_Ray*)(box.GetCollider())) , *((CCollider_Plane*)(ground.GetCollider())),point, collisionPoint1);
 	bool result2 = CCollision::GetInstance().CheckCollision(*((CCollider_Ray*)(box.GetCollider())), *((CCollider_Plane*)(slope.GetCollider())), point2, collisionPoint2);
 	
-	
+	//外積を使った判定
+	//衝突点と、オブジェクトの情報を使って外積
+	if (result)
+	{
+		result = CCollision::GetInstance().CheckPointInQuad(collisionPoint1, &ground);
+	}
+	if (result2)
+	{
+		result2 = CCollision::GetInstance().CheckPointInQuad(collisionPoint2, &slope);
+	}
+
 	//----- 押し出し,跳ね返り(反発係数は0で一旦作成) -----
 	//押し出し処理を行う
 	//trueかつ最短の物で押し返しを行う
@@ -622,41 +632,7 @@ void CDX12Manager::Update()
 
 
 	
-	//(仮実装)
-	//if (point2 <= point)
-	//{
-	//	if (result2)
-	//	{
-	//		if (point2 < 0.1f)
-	//		{
-
-	//			{
-	//				//法線方向に回転する
-	//				DirectX::XMFLOAT3 pos = box.GetPos();
-	//				pos.y += 0.05f;
-	//				box.SetPos(pos);
-	//				box.ResetVelocityY();
-	//				box.Update();
-	//		
-	//			}
-	//		}
-
-	//	}
-	//}
-	//else
-	//{
-	//	if (result)
-	//	{
-	//		if (point < 0.05f)
-	//		{
-	//				DirectX::XMFLOAT3 pos = box.GetPos();
-	//				pos.y = 0.51f;
-	//				box.SetPos(pos);
-	//				box.ResetVelocityY();
-	//				box.Update();
-	//		}
-	//	}
-	//}
+	
 
 
 

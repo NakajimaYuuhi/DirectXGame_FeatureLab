@@ -13,6 +13,8 @@
 #include <wrl.h>
 using Microsoft::WRL::ComPtr;
 
+#include <vector>
+
 //#include "Collider.h"
 
 
@@ -161,8 +163,8 @@ public:
 	}
 
 
-
-
+	void GetVertex(std::vector<DirectX::XMFLOAT3> &_vertices, std::vector<uint16_t> &_Indices);
+	DirectX::XMMATRIX GetWorld();
 
 	//Collider‚Ìì¬ŠÖ”
 	void MakeCollider(ColliderName _ColliderName);
