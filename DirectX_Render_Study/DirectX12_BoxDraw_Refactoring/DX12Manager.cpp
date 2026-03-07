@@ -1,0 +1,790 @@
+//===== インクルード =====
+#include "DX12Manager.h"
+
+#include <d3dcompiler.h>
+#include <iostream>
+
+#include "InputManager.h"
+
+//Collider
+#include "Collider_Ray.h"
+#include "Collider_Plane.h"
+
+//当たり判定
+#include "Collision.h"
+
+//===== 定数・マクロ定義 =====
+const UINT CDX12Manager::m_FrameBufferCount = FRAME_BUFFER_COUNT;   //フレームバッファの数
+
+//===== メソッド定義 =====
+
+//インスタンス取得
+CDX12Manager& CDX12Manager::GetInstance()
+{
+	static CDX12Manager instance;
+	return instance;
+}
+
+// <初期化、終了処理>
+//初期化処理
+bool CDX12Manager::Initialize(HWND hwnd)
+{
+	HRESULT hr;
+
+#if defined(_DEBUG)
+	{
+		ComPtr<ID3D12Debug> debugController;
+		if (SUCCEEDED(D3D12GetDebugInterface(IID_PPV_ARGS(&debugController))))
+		{
+			debugController->EnableDebugLayer();
+		}
+	}
+#endif
+
+	//DXGI Factory 作成
+	hr = CreateDXGIFactory1(IID_PPV_ARGS(&m_factory));
+	if (FAILED(hr))
+		return false;
+
+	//アダプタ取得
+	ComPtr<IDXGIAdapter1> adapter;
+
+	for (UINT i = 0;
+		m_factory->EnumAdapters1(i, &adapter) != DXGI_ERROR_NOT_FOUND;
+		++i)
+	{
+		DXGI_ADAPTER_DESC1 desc;
+		adapter->GetDesc1(&desc);
+
+		if (desc.Flags & DXGI_ADAPTER_FLAG_SOFTWARE)
+			continue;
+
+		break;
+	}
+
+	//デバイス作成
+	hr = D3D12CreateDevice(
+		adapter.Get(),
+		D3D_FEATURE_LEVEL_11_0,
+		IID_PPV_ARGS(&m_device)
+	);
+
+	if (FAILED(hr))
+		return false;
+
+	//コマンドキュー作成
+	D3D12_COMMAND_QUEUE_DESC queueDesc = {};
+	queueDesc.Type = D3D12_COMMAND_LIST_TYPE_DIRECT;
+	queueDesc.Flags = D3D12_COMMAND_QUEUE_FLAG_NONE;
+
+	hr = m_device->CreateCommandQueue(
+		&queueDesc,
+		IID_PPV_ARGS(&m_commandQueue)
+	);
+
+	if (FAILED(hr))
+		return false;
+
+
+	// <スワップチェーン作成>
+	
+	//スワップチェーンの設定
+	DXGI_SWAP_CHAIN_DESC1 swapChainDesc = {};
+	swapChainDesc.BufferCount = m_FrameBufferCount;
+	swapChainDesc.Width = m_Width;
+	swapChainDesc.Height = m_Height;
+	swapChainDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+	swapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
+	swapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD;
+	swapChainDesc.SampleDesc.Count = 1;
+
+	//スワップチェーン作成
+	ComPtr<IDXGISwapChain1> swapChain1;
+
+	hr = m_factory->CreateSwapChainForHwnd(
+		m_commandQueue.Get(),
+		hwnd,
+		&swapChainDesc,
+		nullptr,
+		nullptr,
+		&swapChain1
+	);
+
+	if (FAILED(hr))
+		return false;
+
+	//IDXGISwapChain4 に変換
+	swapChain1.As(&m_swapChain);
+
+
+	// <RTV作成>
+	//RTVヒープの設定、作成
+	D3D12_DESCRIPTOR_HEAP_DESC rtvHeapDesc = {};
+	rtvHeapDesc.NumDescriptors = m_FrameBufferCount;
+	rtvHeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_RTV;
+	rtvHeapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_NONE;
+
+	hr = m_device->CreateDescriptorHeap(
+		&rtvHeapDesc,
+		IID_PPV_ARGS(&m_rtvHeap)
+	);
+
+	if (FAILED(hr))
+		return false;
+
+	//ディスクリプタサイズ取得
+	m_rtvDescriptorSize =
+		m_device->GetDescriptorHandleIncrementSize(
+			D3D12_DESCRIPTOR_HEAP_TYPE_RTV
+		);
+
+	//バックバッファ取得＆RTV作成
+	//ヒープの先頭ハンドル取得
+	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle =
+		m_rtvHeap->GetCPUDescriptorHandleForHeapStart();
+
+	for (UINT i = 0; i < m_FrameBufferCount; ++i)
+	{
+		//バックバッファ取得
+		hr = m_swapChain->GetBuffer(
+			i,
+			IID_PPV_ARGS(&m_renderTargets[i])
+		);
+
+		if (FAILED(hr))
+			return false;
+
+		//RTV作成
+		m_device->CreateRenderTargetView(
+			m_renderTargets[i].Get(),
+			nullptr,
+			rtvHandle
+		);
+
+		// 次のディスクリプタへ移動
+		rtvHandle.ptr += m_rtvDescriptorSize;
+	}
+
+
+	//コマンドオブジェクト作成
+	CreateCommandObjects();
+
+
+	//フェンス作成
+	CreateFence();
+
+	// ===== 深度バッファ作成 =====
+	D3D12_HEAP_PROPERTIES heapProps = {};
+	heapProps.Type = D3D12_HEAP_TYPE_DEFAULT;
+	heapProps.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
+	heapProps.MemoryPoolPreference = D3D12_MEMORY_POOL_UNKNOWN;
+	heapProps.CreationNodeMask = 1;
+	heapProps.VisibleNodeMask = 1;
+
+	D3D12_RESOURCE_DESC depthResourceDesc = {};
+	depthResourceDesc.Dimension = D3D12_RESOURCE_DIMENSION_TEXTURE2D;
+	depthResourceDesc.Alignment = 0;
+	depthResourceDesc.Width = SCREEN_WIDTH;
+	depthResourceDesc.Height = SCREEN_HEIGHT;
+	depthResourceDesc.DepthOrArraySize = 1;
+	depthResourceDesc.MipLevels = 1;
+	depthResourceDesc.Format = DXGI_FORMAT_D32_FLOAT;
+	depthResourceDesc.SampleDesc.Count = 1;
+	depthResourceDesc.SampleDesc.Quality = 0;
+	depthResourceDesc.Layout = D3D12_TEXTURE_LAYOUT_UNKNOWN;
+	depthResourceDesc.Flags = D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL;
+
+	D3D12_CLEAR_VALUE clearValue = {};
+	clearValue.Format = DXGI_FORMAT_D32_FLOAT;
+	clearValue.DepthStencil.Depth = 1.0f;
+	clearValue.DepthStencil.Stencil = 0;
+
+	m_device->CreateCommittedResource(
+		&heapProps,
+		D3D12_HEAP_FLAG_NONE,
+		&depthResourceDesc,
+		D3D12_RESOURCE_STATE_DEPTH_WRITE,
+		&clearValue,
+		IID_PPV_ARGS(&m_depthBuffer)
+	);
+
+
+	D3D12_DESCRIPTOR_HEAP_DESC heapDesc = {};
+	heapDesc.NumDescriptors = 1;
+	heapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_DSV;
+	heapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_NONE;
+	heapDesc.NodeMask = 0;
+
+	m_device->CreateDescriptorHeap(
+		&heapDesc,
+		IID_PPV_ARGS(&m_dsvHeap)
+	);
+
+
+	D3D12_DEPTH_STENCIL_VIEW_DESC dsvDesc = {};
+	dsvDesc.Format = DXGI_FORMAT_D32_FLOAT;
+	dsvDesc.ViewDimension = D3D12_DSV_DIMENSION_TEXTURE2D;
+	dsvDesc.Flags = D3D12_DSV_FLAG_NONE;
+
+	m_device->CreateDepthStencilView(
+		m_depthBuffer.Get(),
+		&dsvDesc,
+		m_dsvHeap->GetCPUDescriptorHandleForHeapStart()
+	);
+
+
+
+	//----- 仮でプリミティブ初期化 -----
+	//立方体
+	box.Initialize(m_device.Get());
+	box.SetPos({ 0.0f, 2.0f, 0.0f });//0.5が一番下 
+	box.SetScale({ 1.0f, 1.0f, 1.0f });
+	box.SetRotation({ 0.0f, 0.0f, 0.0f });
+	//CCollider_Ray* ray = new CCollider_Ray(&box);
+	box.MakeCollider(CMesh::ColliderName::Ray);
+	
+	//地面
+	ground.Initialize(m_device.Get());
+	ground.SetPos({ 0.0f, 0.0f, 0.0f });
+	ground.SetScale({ 20.0f, 0.1f, 20.0f });
+	ground.SetRotation({ 0.0f, 0.0f, 0.0f });
+	ground.MakeCollider(CMesh::ColliderName::Plane);
+	//XMConvertToRadians(1.0f);みたいにradianに変換できる
+
+	//斜面
+	slope.Initialize(m_device.Get());
+	slope.SetPos({ 0.0f, 0.0f, 10.0f });
+	slope.SetScale({ 20.0f, 0.1f, 20.0f });
+	slope.SetRotation({ -0.8f, 0.0f, 0.0f });
+	slope.MakeCollider(CMesh::ColliderName::Plane);
+	CCollider_Plane* plane = (CCollider_Plane*)slope.GetCollider();
+
+	plane->SetNormal({ 0.0f, 0.7f, -0.7f });
+	plane->SetPos({ 0.0f, 0.0f, 10.0f });
+
+	//view,projの初期化
+	//view
+	m_view = DirectX::XMMatrixLookAtLH(
+		DirectX::XMVectorSet(10, 10, -20, 1),
+		DirectX::XMVectorSet(0, 0, 0, 1),
+		DirectX::XMVectorSet(0, 1, 0, 0));
+
+	//手前から見る用
+	//m_view = DirectX::XMMatrixLookAtLH(
+	//	DirectX::XMVectorSet(0, 0, -20, 1),
+	//	DirectX::XMVectorSet(0, 0, 0, 1),
+	//	DirectX::XMVectorSet(0, 1, 0, 0));
+
+	//横から見る用
+	m_view = DirectX::XMMatrixLookAtLH(
+		DirectX::XMVectorSet(40, 0, 0, 1),
+		DirectX::XMVectorSet(0, 0, 0, 1),
+		DirectX::XMVectorSet(0, 1, 0, 0));
+
+	//proj
+	m_proj = DirectX::XMMatrixPerspectiveFovLH(
+		DirectX::XM_PIDIV4,
+		(float)SCREEN_WIDTH / SCREEN_HEIGHT,
+		0.1f,
+		100.0f);
+	
+
+
+	return true;
+}
+
+//終了処理
+void CDX12Manager::Finalize()
+{
+	m_commandQueue.Reset();
+	m_device.Reset();
+	m_factory.Reset();
+}
+
+
+//----- 更新処理 -----
+void CDX12Manager::Update()
+{
+	//Boxの移動処理
+	//通常移動
+
+	//奥
+	if(CInputManager::GetInstance().IsKeyPress('W'))
+	{
+		DirectX::XMFLOAT3 pos = box.GetPos();
+
+		//本来は、DeltaTimeを掛けるべきだが、今回は仮なので固定値で移動させる
+		DirectX::XMFLOAT3 Forward = box.GetFront();
+		box.SetVelocity({ Forward.x * 0.05f, Forward.y * 0.05f, Forward.z * 0.05f});
+	}
+
+	//手前
+	if (CInputManager::GetInstance().IsKeyPress('S'))
+	{
+		DirectX::XMFLOAT3 pos = box.GetPos();
+
+		//本来は、DeltaTimeを掛けるべきだが、今回は仮なので固定値で移動させる
+		DirectX::XMFLOAT3 Forward = box.GetFront();
+		box.SetVelocity({ - Forward.x * 0.05f, - Forward.y * 0.05f, - Forward.z * 0.05f });
+	}
+
+	//右
+	if (CInputManager::GetInstance().IsKeyPress('D'))
+	{
+		DirectX::XMFLOAT3 pos = box.GetPos();
+
+		//本来は、DeltaTimeを掛けるべきだが、今回は仮なので固定値で移動させる
+		box.SetPos({ pos.x + 0.1f, pos.y, pos.z });
+	}
+
+	//左
+	if (CInputManager::GetInstance().IsKeyPress('A'))
+	{
+		DirectX::XMFLOAT3 pos = box.GetPos();
+
+		//本来は、DeltaTimeを掛けるべきだが、今回は仮なので固定値で移動させる
+		box.SetPos({ pos.x - 0.1f, pos.y, pos.z });
+	}
+
+
+	//ぶっ飛び
+	if (CInputManager::GetInstance().IsKeyTrigger('F'))
+	{
+		box.Dash();
+	}
+
+	//重力
+	box.Fall();
+
+	//抵抗
+	box.Resistance();
+
+
+	//位置の更新
+	box.Move();
+
+
+	//Colliderの更新
+	box.Update();
+
+	//交差判定
+	int num_collision = 0;
+	float point = 0.0f;
+	float point2 = 0.0f;
+	DirectX::XMFLOAT3 collisionPoint1;
+	DirectX::XMFLOAT3 collisionPoint2;
+
+	//上手く取れてるはず(接地点は返してない,距離だけ)
+	bool result  = CCollision::GetInstance().CheckCollision( *((CCollider_Ray*)(box.GetCollider())) , *((CCollider_Plane*)(ground.GetCollider())),point, collisionPoint1);
+	bool result2 = CCollision::GetInstance().CheckCollision(*((CCollider_Ray*)(box.GetCollider())), *((CCollider_Plane*)(slope.GetCollider())), point2, collisionPoint2);
+	
+	//外積を使った判定
+	//衝突点と、オブジェクトの情報を使って外積
+	if (result)
+	{
+		result = CCollision::GetInstance().CheckPointInQuad(collisionPoint1, &ground);
+	}
+	if (result2)
+	{
+		result2 = CCollision::GetInstance().CheckPointInQuad(collisionPoint2, &slope);
+	}
+
+	//----- 押し出し,跳ね返り(反発係数は0で一旦作成) -----
+	//押し出し処理を行う
+	//trueかつ最短の物で押し返しを行う
+	//数が少ないのでべた書き
+
+	//両方falseは何もしない
+	if(!result && !result2){return;}
+	
+	//両方trueのときは、距離の近い方を優先する
+	if (result)
+	{
+		num_collision = 1;
+	}
+	if (result2 && point2 < point)
+	{
+		num_collision = 2;
+	}
+
+	//それぞれのデータを渡して衝突応答を行う
+	switch (num_collision)
+	{
+	case 1://グラウンド
+	{
+		if (!(point < 0.15f))return;
+
+		//1つめのオブジェクトと衝突時の処理
+		//引数は法線、オブジェクト、衝突点、(反発係数)
+		//1.法線取得
+		DirectX::XMFLOAT3 Up = ((CCollider_Plane*)ground.GetCollider())->GetNormal();
+		DirectX::XMVECTOR VecUp = DirectX::XMVector3Normalize(DirectX::XMLoadFloat3(&Up));
+
+		//2.Forward取得
+		DirectX::XMFLOAT3 tmpFront = box.GetFront();
+		DirectX::XMVECTOR OldForward = DirectX::XMLoadFloat3(&tmpFront);
+
+		//3.新しいForardを求める
+		//normalize( forward - dot(forward,up) * up )
+		DirectX::XMVECTOR VecNewForward;
+		VecNewForward =
+			DirectX::XMVector3Normalize
+			(
+				DirectX::XMVectorSubtract
+				(
+					OldForward,
+					DirectX::XMVectorMultiply
+					(
+						DirectX::XMVector3Dot(OldForward, VecUp), VecUp
+					)
+				)
+			);
+
+		//4.Rightを求める cross(up forward)
+		DirectX::XMVECTOR VecRight =
+			DirectX::XMVector3Normalize
+			(
+				DirectX::XMVector3Cross
+				(
+					VecUp, VecNewForward
+				)
+			);
+
+		//5.Forward再計算 cross(right,up)
+		VecNewForward =
+			DirectX::XMVector3Normalize
+			(
+				DirectX::XMVector3Cross
+				(
+					VecRight, VecUp
+				)
+			);
+
+		//6.回転行列作成
+		DirectX::XMMATRIX rot =
+		{
+			VecRight.m128_f32[0],    VecRight.m128_f32[1],    VecRight.m128_f32[2],    0.0f,
+			VecUp.m128_f32[0],       VecUp.m128_f32[1],       VecUp.m128_f32[2],       0.0f,
+			VecNewForward.m128_f32[0],  VecNewForward.m128_f32[1],  VecNewForward.m128_f32[2],  0.0f,
+			0.0f,                 0.0f,                 0.0f,                 1.0f
+		};
+
+
+		//7.回転行列から、オイラー角を求める
+		float R00 = rot.r[0].m128_f32[0];
+		float R01 = rot.r[0].m128_f32[1];
+		float R02 = rot.r[0].m128_f32[2];
+
+		float R12 = rot.r[1].m128_f32[2];
+		float R22 = rot.r[2].m128_f32[2];
+
+		float ry = asinf(-R02);
+		float rx = atan2f(R12, R22);
+		float rz = atan2f(R01, R00);
+
+		//8.回転処理
+		box.SetRotation({ rx,ry,rz });
+
+		//9.押し出し処理
+		//法線方向に押し出す
+		//衝突点からスケールyの半分押し出す
+		//9.押し出し 法線の方向に押し出し
+		DirectX::XMFLOAT3 BoxPos = box.GetPos();
+		DirectX::XMFLOAT3 BoxScale = box.GetScale();
+		DirectX::XMFLOAT3 PlaneNormal = ((CCollider_Plane*)ground.GetCollider())->GetNormal();
+
+		//衝突点から、ScaleYの分だけ法線方向に足す
+		BoxPos = { collisionPoint1.x + PlaneNormal.x * BoxScale.y * 0.51f, collisionPoint1.y + PlaneNormal.y * BoxScale.y * 0.51f, collisionPoint1.z + PlaneNormal.z * BoxScale.y * 0.51f };
+		//速度成分を消す
+		//1.速度取得
+		DirectX::XMFLOAT3 box_velocity = box.GetVelocity();
+		//2.法線との内積を取る
+		DirectX::XMVECTOR vec_plane_normal = DirectX::XMLoadFloat3(&PlaneNormal);
+		DirectX::XMVECTOR tmp_box_velocity = DirectX::XMLoadFloat3(&box_velocity);
+		float tmp_dot_velocity = DirectX::XMVectorGetX( DirectX::XMVector3Dot(tmp_box_velocity, vec_plane_normal) );
+
+		//3.2を足す(打ち消し)
+		tmp_box_velocity = DirectX::XMVectorAdd(DirectX::XMVectorScale(vec_plane_normal, -tmp_dot_velocity), tmp_box_velocity);
+
+
+		//4.3に反発係数を掛けて足す(反射)
+		DirectX::XMStoreFloat3(&box_velocity, tmp_box_velocity);
+		box.SetVelocity(box_velocity);
+
+
+		box.SetPos(BoxPos);
+
+		break;
+	}
+	case 2:
+		{
+			//2つめのオブジェクトと衝突時の処理
+			//引数は法線、オブジェクト、衝突点、(反発係数)
+			if (!(point2 < 0.15f))return;
+
+			//1つめのオブジェクトと衝突時の処理
+			//引数は法線、オブジェクト、衝突点、(反発係数)
+			//1.法線取得
+			DirectX::XMFLOAT3 Up = ((CCollider_Plane*)slope.GetCollider())->GetNormal();
+			DirectX::XMVECTOR VecUp = DirectX::XMVector3Normalize(DirectX::XMLoadFloat3(&Up));
+
+			//2.Forward取得
+			DirectX::XMFLOAT3 tmpFront = box.GetFront();
+			DirectX::XMVECTOR OldForward = DirectX::XMLoadFloat3(&tmpFront);
+
+			//3.新しいForardを求める
+			//normalize( forward - dot(forward,up) * up )
+			DirectX::XMVECTOR VecNewForward;
+			VecNewForward =
+				DirectX::XMVector3Normalize
+				(
+					DirectX::XMVectorSubtract
+					(
+						OldForward,
+						DirectX::XMVectorMultiply
+						(
+							DirectX::XMVector3Dot(OldForward, VecUp), VecUp
+						)
+					)
+				);
+
+			//4.Rightを求める cross(up forward)
+			DirectX::XMVECTOR VecRight =
+				DirectX::XMVector3Normalize
+				(
+					DirectX::XMVector3Cross
+					(
+						VecUp, VecNewForward
+					)
+				);
+
+			//5.Forward再計算 cross(right,up)
+			VecNewForward =
+				DirectX::XMVector3Normalize
+				(
+					DirectX::XMVector3Cross
+					(
+						VecRight, VecUp
+					)
+				);
+
+			//6.回転行列作成
+			DirectX::XMMATRIX rot =
+			{
+				VecRight.m128_f32[0],    VecRight.m128_f32[1],    VecRight.m128_f32[2],    0.0f,
+				VecUp.m128_f32[0],       VecUp.m128_f32[1],       VecUp.m128_f32[2],       0.0f,
+				VecNewForward.m128_f32[0],  VecNewForward.m128_f32[1],  VecNewForward.m128_f32[2],  0.0f,
+				0.0f,                 0.0f,                 0.0f,                 1.0f
+			};
+
+
+			//7.回転行列から、オイラー角を求める
+			float R00 = rot.r[0].m128_f32[0];
+			float R01 = rot.r[0].m128_f32[1];
+			float R02 = rot.r[0].m128_f32[2];
+
+			float R12 = rot.r[1].m128_f32[2];
+			float R22 = rot.r[2].m128_f32[2];
+
+			float ry = asinf(-R02);
+			float rx = atan2f(R12, R22);
+			float rz = atan2f(R01, R00);
+
+			//8.回転処理
+			box.SetRotation({ rx,ry,rz });
+
+			//9.押し出し処理
+			//法線方向に押し出す
+			//衝突点からスケールyの半分押し出す
+			//9.押し出し 法線の方向に押し出し
+			DirectX::XMFLOAT3 BoxPos = box.GetPos();
+			DirectX::XMFLOAT3 BoxScale = box.GetScale();
+			DirectX::XMFLOAT3 PlaneNormal = ((CCollider_Plane*)slope.GetCollider())->GetNormal();
+
+			BoxPos = { collisionPoint2.x + PlaneNormal.x * BoxScale.y * 0.52f, collisionPoint2.y + PlaneNormal.y * BoxScale.y * 0.52f, collisionPoint2.z + PlaneNormal.z * BoxScale.y * 0.52f};
+			//速度成分を消す
+			box.SetPos(BoxPos);
+
+			//1.速度取得
+			DirectX::XMFLOAT3 box_velocity = box.GetVelocity();
+			//2.法線との内積を取る
+			DirectX::XMVECTOR vec_plane_normal = DirectX::XMVector3Normalize( DirectX::XMLoadFloat3(&PlaneNormal));
+			DirectX::XMVECTOR tmp_box_velocity = DirectX::XMLoadFloat3(&box_velocity);
+			float tmp_dot_velocity = DirectX::XMVectorGetX(DirectX::XMVector3Dot(tmp_box_velocity, vec_plane_normal));
+
+			//3.2を足す(打ち消し)
+			tmp_box_velocity = DirectX::XMVectorAdd(DirectX::XMVectorScale(vec_plane_normal, -tmp_dot_velocity), tmp_box_velocity);
+
+
+			//4.3に反発係数を掛けて足す(反射)
+			DirectX::XMStoreFloat3(&box_velocity, tmp_box_velocity);
+			box.SetVelocity(box_velocity);
+
+			//Rayの方向を変える
+			box.Update();
+
+
+			break;
+		}
+	}
+
+
+
+
+	
+	
+
+
+
+
+}
+
+//----- 描画処理 -----
+void CDX12Manager::BeginDraw()
+{
+	// GPUが前のフレームの処理を終えるのを待つ
+	if (m_fence->GetCompletedValue() < m_fenceValue - 1)
+	{
+		m_fence->SetEventOnCompletion(m_fenceValue - 1, m_fenceEvent);
+		WaitForSingleObject(m_fenceEvent, INFINITE);
+	}
+
+
+	// 1. フレームインデックス更新
+	m_frameIndex = m_swapChain->GetCurrentBackBufferIndex();
+
+	// 2. リセット
+	m_commandAllocator->Reset();
+	m_commandList->Reset(m_commandAllocator.Get(), nullptr);
+
+	// 3. PRESENT → RENDER_TARGET へ遷移
+	D3D12_RESOURCE_BARRIER barrier{};
+	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+	barrier.Transition.pResource = m_renderTargets[m_frameIndex].Get();
+	barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_PRESENT;
+	barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_RENDER_TARGET;
+	barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
+
+	m_commandList->ResourceBarrier(1, &barrier);
+
+	// 4. RTVハンドル取得
+	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle =
+		m_rtvHeap->GetCPUDescriptorHandleForHeapStart();
+
+	rtvHandle.ptr += m_frameIndex * m_rtvDescriptorSize;
+
+
+
+
+
+
+	D3D12_VIEWPORT viewport{};
+	viewport.Width = (float)m_Width;
+	viewport.Height = (float)m_Height;
+	viewport.MinDepth = 0.0f;
+	viewport.MaxDepth = 1.0f;
+
+	D3D12_RECT scissorRect{};
+	scissorRect.left = 0;
+	scissorRect.top = 0;
+	scissorRect.right = m_Width;
+	scissorRect.bottom = m_Height;
+
+	m_commandList->RSSetViewports(1, &viewport);
+	m_commandList->RSSetScissorRects(1, &scissorRect);
+
+	// 5. DSVハンドル取得
+	D3D12_CPU_DESCRIPTOR_HANDLE dsvHandle =
+		m_dsvHeap->GetCPUDescriptorHandleForHeapStart();
+
+
+	// 6. クリア
+	FLOAT clearColor[] = { 0.1f, 0.2f, 0.4f, 1.0f };
+
+	m_commandList->OMSetRenderTargets(
+		1,
+		&rtvHandle,
+		FALSE,
+		&dsvHandle
+	);
+
+
+	m_commandList->ClearRenderTargetView(rtvHandle, clearColor, 0, nullptr);
+	m_commandList->ClearDepthStencilView(
+		dsvHandle,
+		D3D12_CLEAR_FLAG_DEPTH,
+		1.0f,
+		0,
+		0,
+		nullptr
+	);
+	//仮で描画
+	box.Draw(m_commandList.Get());
+	ground.Draw(m_commandList.Get());
+	slope.Draw(m_commandList.Get());
+}
+
+void CDX12Manager::EndDraw()
+{
+	// 1. RENDER_TARGET → PRESENT
+	D3D12_RESOURCE_BARRIER barrier{};
+	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+	barrier.Transition.pResource = m_renderTargets[m_frameIndex].Get();
+	barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_RENDER_TARGET;
+	barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_PRESENT;
+	barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
+
+	m_commandList->ResourceBarrier(1, &barrier);
+
+	// 2. Close
+	m_commandList->Close();
+
+	// 3. 実行
+	ID3D12CommandList* commandLists[] = { m_commandList.Get() };
+	m_commandQueue->ExecuteCommandLists(1, commandLists);
+
+	// 4. Present
+	m_swapChain->Present(1, 0);
+
+	// 5. フェンスをキューに挿入
+	const UINT64 fenceToWaitFor = m_fenceValue;
+	m_commandQueue->Signal(m_fence.Get(), fenceToWaitFor);
+	m_fenceValue++;
+}
+
+
+//初期化用の関数
+void CDX12Manager::CreateCommandObjects()
+{
+
+	//コマンドアロケーター作成
+	m_device->CreateCommandAllocator(
+		D3D12_COMMAND_LIST_TYPE_DIRECT,
+		IID_PPV_ARGS(&m_commandAllocator)
+	);
+
+	//コマンドリスト作成
+	m_device->CreateCommandList(
+		0,
+		D3D12_COMMAND_LIST_TYPE_DIRECT,
+		m_commandAllocator.Get(),
+		nullptr,
+		IID_PPV_ARGS(&m_commandList)
+	);
+
+	//コマンドリストは作成直後は recording 状態なので、Close しておく
+	m_commandList->Close();
+}
+
+void CDX12Manager::CreateFence()
+{
+	m_device->CreateFence(
+		0,
+		D3D12_FENCE_FLAG_NONE,
+		IID_PPV_ARGS(&m_fence)
+	);
+
+	m_fenceValue = 1;
+
+	m_fenceEvent = CreateEvent(nullptr, FALSE, FALSE, nullptr);
+}

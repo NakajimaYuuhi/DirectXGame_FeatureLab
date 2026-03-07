@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{c84c7220-0fcc-4baf-9ce2-93cce8b47c3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object">
+      <UniqueIdentifier>{4cdce19a-e216-48d5-8bfb-018ccf7a462f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object\Box">
+      <UniqueIdentifier>{e1dd811f-170d-4414-9845-75264893ccc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object\Mesh">
+      <UniqueIdentifier>{df798996-e66c-426d-8e1b-93bd85d0349d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Shader">
+      <UniqueIdentifier>{ed8efbd9-3d4e-47f1-8435-a137cd0f0312}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System">
+      <UniqueIdentifier>{3699b683-ecc0-4fe5-9205-1ff7df6fdc1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\DX12Manager">
+      <UniqueIdentifier>{30a2cc6c-6eb2-4a52-b095-c0f47b8281a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\Collision">
+      <UniqueIdentifier>{b4bb614e-df5b-4d6e-9596-aceed603d7bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\Collision\Collider">
+      <UniqueIdentifier>{14956d05-480d-47ae-874c-d406afc3c2ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\ImputSystem">
+      <UniqueIdentifier>{bc3a35dc-8cec-41c4-a559-488c9e6d7ae0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\Main">
+      <UniqueIdentifier>{85815f61-3d05-495a-8364-87d6ac4c076e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\Settings">
+      <UniqueIdentifier>{2bc724b1-3d55-45ab-83b6-3a9d0061d6b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\Settings\BasicSettings">
+      <UniqueIdentifier>{8ee8d6ae-7f54-445a-be19-de260e2bb69c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Box.cpp">
+      <Filter>Source\Object\Box</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Source\Object\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="DX12Manager.cpp">
+      <Filter>Source\System\DX12Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Source\System\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>Source\System\Collision\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider_Plane.cpp">
+      <Filter>Source\System\Collision\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider_Ray.cpp">
+      <Filter>Source\System\Collision\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Source\System\ImputSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source\System\Main</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Box.h">
+      <Filter>Source\Object\Box</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Source\Object\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="DX12Manager.h">
+      <Filter>Source\System\DX12Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Source\System\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider_Plane.h">
+      <Filter>Source\System\Collision\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider_Ray.h">
+      <Filter>Source\System\Collision\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Source\System\Collision\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Source\System\ImputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicSettings.h">
+      <Filter>Source\System\Settings\BasicSettings</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Triangle.hlsl">
+      <Filter>Source\Shader</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>
