@@ -22,12 +22,6 @@
     <Filter Include="Source\System\DX12Manager">
       <UniqueIdentifier>{30a2cc6c-6eb2-4a52-b095-c0f47b8281a2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\System\Collision">
-      <UniqueIdentifier>{b4bb614e-df5b-4d6e-9596-aceed603d7bc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\System\Collision\Collider">
-      <UniqueIdentifier>{14956d05-480d-47ae-874c-d406afc3c2ef}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source\System\ImputSystem">
       <UniqueIdentifier>{bc3a35dc-8cec-41c4-a559-488c9e6d7ae0}</UniqueIdentifier>
     </Filter>
@@ -40,6 +34,12 @@
     <Filter Include="Source\System\Settings\BasicSettings">
       <UniqueIdentifier>{8ee8d6ae-7f54-445a-be19-de260e2bb69c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\System\Component">
+      <UniqueIdentifier>{547b6c07-95ee-44ae-b4be-047469a42b87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\Component\Transform">
+      <UniqueIdentifier>{4dce75ff-8389-4dc2-bf12-e414331ae016}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Box.cpp">
@@ -51,24 +51,13 @@
     <ClCompile Include="DX12Manager.cpp">
       <Filter>Source\System\DX12Manager</Filter>
     </ClCompile>
-    <ClCompile Include="Collision.cpp">
-      <Filter>Source\System\Collision</Filter>
-    </ClCompile>
-    <ClCompile Include="Collider.cpp">
-      <Filter>Source\System\Collision\Collider</Filter>
-    </ClCompile>
-    <ClCompile Include="Collider_Plane.cpp">
-      <Filter>Source\System\Collision\Collider</Filter>
-    </ClCompile>
-    <ClCompile Include="Collider_Ray.cpp">
-      <Filter>Source\System\Collision\Collider</Filter>
-    </ClCompile>
     <ClCompile Include="InputManager.cpp">
       <Filter>Source\System\ImputSystem</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source\System\Main</Filter>
     </ClCompile>
+    <ClCompile Include="Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h">
@@ -80,24 +69,13 @@
     <ClInclude Include="DX12Manager.h">
       <Filter>Source\System\DX12Manager</Filter>
     </ClInclude>
-    <ClInclude Include="Collision.h">
-      <Filter>Source\System\Collision</Filter>
-    </ClInclude>
-    <ClInclude Include="Collider_Plane.h">
-      <Filter>Source\System\Collision\Collider</Filter>
-    </ClInclude>
-    <ClInclude Include="Collider_Ray.h">
-      <Filter>Source\System\Collision\Collider</Filter>
-    </ClInclude>
-    <ClInclude Include="Collider.h">
-      <Filter>Source\System\Collision\Collider</Filter>
-    </ClInclude>
     <ClInclude Include="InputManager.h">
       <Filter>Source\System\ImputSystem</Filter>
     </ClInclude>
     <ClInclude Include="BasicSettings.h">
       <Filter>Source\System\Settings\BasicSettings</Filter>
     </ClInclude>
+    <ClInclude Include="Transform.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Triangle.hlsl">

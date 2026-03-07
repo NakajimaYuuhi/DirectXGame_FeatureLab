@@ -6,12 +6,7 @@
 
 #include "InputManager.h"
 
-//Collider
-#include "Collider_Ray.h"
-#include "Collider_Plane.h"
 
-//当たり判定
-#include "Collision.h"
 
 //===== 定数・マクロ定義 =====
 const UINT CDX12Manager::m_FrameBufferCount = FRAME_BUFFER_COUNT;   //フレームバッファの数
@@ -237,30 +232,22 @@ bool CDX12Manager::Initialize(HWND hwnd)
 	//----- 仮でプリミティブ初期化 -----
 	//立方体
 	box.Initialize(m_device.Get());
-	box.SetPos({ 0.0f, 2.0f, 0.0f });//0.5が一番下 
+	box.SetPos({ 0.0f, 2.0f, 0.0f }); 
 	box.SetScale({ 1.0f, 1.0f, 1.0f });
 	box.SetRotation({ 0.0f, 0.0f, 0.0f });
-	//CCollider_Ray* ray = new CCollider_Ray(&box);
-	box.MakeCollider(CMesh::ColliderName::Ray);
 	
 	//地面
 	ground.Initialize(m_device.Get());
 	ground.SetPos({ 0.0f, 0.0f, 0.0f });
 	ground.SetScale({ 20.0f, 0.1f, 20.0f });
 	ground.SetRotation({ 0.0f, 0.0f, 0.0f });
-	ground.MakeCollider(CMesh::ColliderName::Plane);
-	//XMConvertToRadians(1.0f);みたいにradianに変換できる
 
 	//斜面
 	slope.Initialize(m_device.Get());
 	slope.SetPos({ 0.0f, 0.0f, 10.0f });
 	slope.SetScale({ 20.0f, 0.1f, 20.0f });
 	slope.SetRotation({ -0.8f, 0.0f, 0.0f });
-	slope.MakeCollider(CMesh::ColliderName::Plane);
-	CCollider_Plane* plane = (CCollider_Plane*)slope.GetCollider();
 
-	plane->SetNormal({ 0.0f, 0.7f, -0.7f });
-	plane->SetPos({ 0.0f, 0.0f, 10.0f });
 
 	//view,projの初期化
 	//view
@@ -305,338 +292,6 @@ void CDX12Manager::Finalize()
 //----- 更新処理 -----
 void CDX12Manager::Update()
 {
-	//Boxの移動処理
-	//通常移動
-
-	//奥
-	if(CInputManager::GetInstance().IsKeyPress('W'))
-	{
-		DirectX::XMFLOAT3 pos = box.GetPos();
-
-		//本来は、DeltaTimeを掛けるべきだが、今回は仮なので固定値で移動させる
-		DirectX::XMFLOAT3 Forward = box.GetFront();
-		box.SetVelocity({ Forward.x * 0.05f, Forward.y * 0.05f, Forward.z * 0.05f});
-	}
-
-	//手前
-	if (CInputManager::GetInstance().IsKeyPress('S'))
-	{
-		DirectX::XMFLOAT3 pos = box.GetPos();
-
-		//本来は、DeltaTimeを掛けるべきだが、今回は仮なので固定値で移動させる
-		DirectX::XMFLOAT3 Forward = box.GetFront();
-		box.SetVelocity({ - Forward.x * 0.05f, - Forward.y * 0.05f, - Forward.z * 0.05f });
-	}
-
-	//右
-	if (CInputManager::GetInstance().IsKeyPress('D'))
-	{
-		DirectX::XMFLOAT3 pos = box.GetPos();
-
-		//本来は、DeltaTimeを掛けるべきだが、今回は仮なので固定値で移動させる
-		box.SetPos({ pos.x + 0.1f, pos.y, pos.z });
-	}
-
-	//左
-	if (CInputManager::GetInstance().IsKeyPress('A'))
-	{
-		DirectX::XMFLOAT3 pos = box.GetPos();
-
-		//本来は、DeltaTimeを掛けるべきだが、今回は仮なので固定値で移動させる
-		box.SetPos({ pos.x - 0.1f, pos.y, pos.z });
-	}
-
-
-	//ぶっ飛び
-	if (CInputManager::GetInstance().IsKeyTrigger('F'))
-	{
-		box.Dash();
-	}
-
-	//重力
-	box.Fall();
-
-	//抵抗
-	box.Resistance();
-
-
-	//位置の更新
-	box.Move();
-
-
-	//Colliderの更新
-	box.Update();
-
-	//交差判定
-	int num_collision = 0;
-	float point = 0.0f;
-	float point2 = 0.0f;
-	DirectX::XMFLOAT3 collisionPoint1;
-	DirectX::XMFLOAT3 collisionPoint2;
-
-	//上手く取れてるはず(接地点は返してない,距離だけ)
-	bool result  = CCollision::GetInstance().CheckCollision( *((CCollider_Ray*)(box.GetCollider())) , *((CCollider_Plane*)(ground.GetCollider())),point, collisionPoint1);
-	bool result2 = CCollision::GetInstance().CheckCollision(*((CCollider_Ray*)(box.GetCollider())), *((CCollider_Plane*)(slope.GetCollider())), point2, collisionPoint2);
-	
-	//外積を使った判定
-	//衝突点と、オブジェクトの情報を使って外積
-	if (result)
-	{
-		result = CCollision::GetInstance().CheckPointInQuad(collisionPoint1, &ground);
-	}
-	if (result2)
-	{
-		result2 = CCollision::GetInstance().CheckPointInQuad(collisionPoint2, &slope);
-	}
-
-	//----- 押し出し,跳ね返り(反発係数は0で一旦作成) -----
-	//押し出し処理を行う
-	//trueかつ最短の物で押し返しを行う
-	//数が少ないのでべた書き
-
-	//両方falseは何もしない
-	if(!result && !result2){return;}
-	
-	//両方trueのときは、距離の近い方を優先する
-	if (result)
-	{
-		num_collision = 1;
-	}
-	if (result2 && point2 < point)
-	{
-		num_collision = 2;
-	}
-
-	//それぞれのデータを渡して衝突応答を行う
-	switch (num_collision)
-	{
-	case 1://グラウンド
-	{
-		if (!(point < 0.15f))return;
-
-		//1つめのオブジェクトと衝突時の処理
-		//引数は法線、オブジェクト、衝突点、(反発係数)
-		//1.法線取得
-		DirectX::XMFLOAT3 Up = ((CCollider_Plane*)ground.GetCollider())->GetNormal();
-		DirectX::XMVECTOR VecUp = DirectX::XMVector3Normalize(DirectX::XMLoadFloat3(&Up));
-
-		//2.Forward取得
-		DirectX::XMFLOAT3 tmpFront = box.GetFront();
-		DirectX::XMVECTOR OldForward = DirectX::XMLoadFloat3(&tmpFront);
-
-		//3.新しいForardを求める
-		//normalize( forward - dot(forward,up) * up )
-		DirectX::XMVECTOR VecNewForward;
-		VecNewForward =
-			DirectX::XMVector3Normalize
-			(
-				DirectX::XMVectorSubtract
-				(
-					OldForward,
-					DirectX::XMVectorMultiply
-					(
-						DirectX::XMVector3Dot(OldForward, VecUp), VecUp
-					)
-				)
-			);
-
-		//4.Rightを求める cross(up forward)
-		DirectX::XMVECTOR VecRight =
-			DirectX::XMVector3Normalize
-			(
-				DirectX::XMVector3Cross
-				(
-					VecUp, VecNewForward
-				)
-			);
-
-		//5.Forward再計算 cross(right,up)
-		VecNewForward =
-			DirectX::XMVector3Normalize
-			(
-				DirectX::XMVector3Cross
-				(
-					VecRight, VecUp
-				)
-			);
-
-		//6.回転行列作成
-		DirectX::XMMATRIX rot =
-		{
-			VecRight.m128_f32[0],    VecRight.m128_f32[1],    VecRight.m128_f32[2],    0.0f,
-			VecUp.m128_f32[0],       VecUp.m128_f32[1],       VecUp.m128_f32[2],       0.0f,
-			VecNewForward.m128_f32[0],  VecNewForward.m128_f32[1],  VecNewForward.m128_f32[2],  0.0f,
-			0.0f,                 0.0f,                 0.0f,                 1.0f
-		};
-
-
-		//7.回転行列から、オイラー角を求める
-		float R00 = rot.r[0].m128_f32[0];
-		float R01 = rot.r[0].m128_f32[1];
-		float R02 = rot.r[0].m128_f32[2];
-
-		float R12 = rot.r[1].m128_f32[2];
-		float R22 = rot.r[2].m128_f32[2];
-
-		float ry = asinf(-R02);
-		float rx = atan2f(R12, R22);
-		float rz = atan2f(R01, R00);
-
-		//8.回転処理
-		box.SetRotation({ rx,ry,rz });
-
-		//9.押し出し処理
-		//法線方向に押し出す
-		//衝突点からスケールyの半分押し出す
-		//9.押し出し 法線の方向に押し出し
-		DirectX::XMFLOAT3 BoxPos = box.GetPos();
-		DirectX::XMFLOAT3 BoxScale = box.GetScale();
-		DirectX::XMFLOAT3 PlaneNormal = ((CCollider_Plane*)ground.GetCollider())->GetNormal();
-
-		//衝突点から、ScaleYの分だけ法線方向に足す
-		BoxPos = { collisionPoint1.x + PlaneNormal.x * BoxScale.y * 0.51f, collisionPoint1.y + PlaneNormal.y * BoxScale.y * 0.51f, collisionPoint1.z + PlaneNormal.z * BoxScale.y * 0.51f };
-		//速度成分を消す
-		//1.速度取得
-		DirectX::XMFLOAT3 box_velocity = box.GetVelocity();
-		//2.法線との内積を取る
-		DirectX::XMVECTOR vec_plane_normal = DirectX::XMLoadFloat3(&PlaneNormal);
-		DirectX::XMVECTOR tmp_box_velocity = DirectX::XMLoadFloat3(&box_velocity);
-		float tmp_dot_velocity = DirectX::XMVectorGetX( DirectX::XMVector3Dot(tmp_box_velocity, vec_plane_normal) );
-
-		//3.2を足す(打ち消し)
-		tmp_box_velocity = DirectX::XMVectorAdd(DirectX::XMVectorScale(vec_plane_normal, -tmp_dot_velocity), tmp_box_velocity);
-
-
-		//4.3に反発係数を掛けて足す(反射)
-		DirectX::XMStoreFloat3(&box_velocity, tmp_box_velocity);
-		box.SetVelocity(box_velocity);
-
-
-		box.SetPos(BoxPos);
-
-		break;
-	}
-	case 2:
-		{
-			//2つめのオブジェクトと衝突時の処理
-			//引数は法線、オブジェクト、衝突点、(反発係数)
-			if (!(point2 < 0.15f))return;
-
-			//1つめのオブジェクトと衝突時の処理
-			//引数は法線、オブジェクト、衝突点、(反発係数)
-			//1.法線取得
-			DirectX::XMFLOAT3 Up = ((CCollider_Plane*)slope.GetCollider())->GetNormal();
-			DirectX::XMVECTOR VecUp = DirectX::XMVector3Normalize(DirectX::XMLoadFloat3(&Up));
-
-			//2.Forward取得
-			DirectX::XMFLOAT3 tmpFront = box.GetFront();
-			DirectX::XMVECTOR OldForward = DirectX::XMLoadFloat3(&tmpFront);
-
-			//3.新しいForardを求める
-			//normalize( forward - dot(forward,up) * up )
-			DirectX::XMVECTOR VecNewForward;
-			VecNewForward =
-				DirectX::XMVector3Normalize
-				(
-					DirectX::XMVectorSubtract
-					(
-						OldForward,
-						DirectX::XMVectorMultiply
-						(
-							DirectX::XMVector3Dot(OldForward, VecUp), VecUp
-						)
-					)
-				);
-
-			//4.Rightを求める cross(up forward)
-			DirectX::XMVECTOR VecRight =
-				DirectX::XMVector3Normalize
-				(
-					DirectX::XMVector3Cross
-					(
-						VecUp, VecNewForward
-					)
-				);
-
-			//5.Forward再計算 cross(right,up)
-			VecNewForward =
-				DirectX::XMVector3Normalize
-				(
-					DirectX::XMVector3Cross
-					(
-						VecRight, VecUp
-					)
-				);
-
-			//6.回転行列作成
-			DirectX::XMMATRIX rot =
-			{
-				VecRight.m128_f32[0],    VecRight.m128_f32[1],    VecRight.m128_f32[2],    0.0f,
-				VecUp.m128_f32[0],       VecUp.m128_f32[1],       VecUp.m128_f32[2],       0.0f,
-				VecNewForward.m128_f32[0],  VecNewForward.m128_f32[1],  VecNewForward.m128_f32[2],  0.0f,
-				0.0f,                 0.0f,                 0.0f,                 1.0f
-			};
-
-
-			//7.回転行列から、オイラー角を求める
-			float R00 = rot.r[0].m128_f32[0];
-			float R01 = rot.r[0].m128_f32[1];
-			float R02 = rot.r[0].m128_f32[2];
-
-			float R12 = rot.r[1].m128_f32[2];
-			float R22 = rot.r[2].m128_f32[2];
-
-			float ry = asinf(-R02);
-			float rx = atan2f(R12, R22);
-			float rz = atan2f(R01, R00);
-
-			//8.回転処理
-			box.SetRotation({ rx,ry,rz });
-
-			//9.押し出し処理
-			//法線方向に押し出す
-			//衝突点からスケールyの半分押し出す
-			//9.押し出し 法線の方向に押し出し
-			DirectX::XMFLOAT3 BoxPos = box.GetPos();
-			DirectX::XMFLOAT3 BoxScale = box.GetScale();
-			DirectX::XMFLOAT3 PlaneNormal = ((CCollider_Plane*)slope.GetCollider())->GetNormal();
-
-			BoxPos = { collisionPoint2.x + PlaneNormal.x * BoxScale.y * 0.52f, collisionPoint2.y + PlaneNormal.y * BoxScale.y * 0.52f, collisionPoint2.z + PlaneNormal.z * BoxScale.y * 0.52f};
-			//速度成分を消す
-			box.SetPos(BoxPos);
-
-			//1.速度取得
-			DirectX::XMFLOAT3 box_velocity = box.GetVelocity();
-			//2.法線との内積を取る
-			DirectX::XMVECTOR vec_plane_normal = DirectX::XMVector3Normalize( DirectX::XMLoadFloat3(&PlaneNormal));
-			DirectX::XMVECTOR tmp_box_velocity = DirectX::XMLoadFloat3(&box_velocity);
-			float tmp_dot_velocity = DirectX::XMVectorGetX(DirectX::XMVector3Dot(tmp_box_velocity, vec_plane_normal));
-
-			//3.2を足す(打ち消し)
-			tmp_box_velocity = DirectX::XMVectorAdd(DirectX::XMVectorScale(vec_plane_normal, -tmp_dot_velocity), tmp_box_velocity);
-
-
-			//4.3に反発係数を掛けて足す(反射)
-			DirectX::XMStoreFloat3(&box_velocity, tmp_box_velocity);
-			box.SetVelocity(box_velocity);
-
-			//Rayの方向を変える
-			box.Update();
-
-
-			break;
-		}
-	}
-
-
-
-
-	
-	
-
-
-
-
 }
 
 //----- 描画処理 -----
@@ -718,6 +373,8 @@ void CDX12Manager::BeginDraw()
 		0,
 		nullptr
 	);
+
+	// <別の場所に移動する>
 	//仮で描画
 	box.Draw(m_commandList.Get());
 	ground.Draw(m_commandList.Get());
@@ -753,7 +410,7 @@ void CDX12Manager::EndDraw()
 }
 
 
-//初期化用の関数
+//初期化用の関数達
 void CDX12Manager::CreateCommandObjects()
 {
 

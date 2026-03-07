@@ -5,9 +5,7 @@
 #include "BasicSettings.h"
 
 
-//Colliderのクラス
-#include "Collider_Ray.h"
-#include "Collider_Plane.h"
+
 
 
 //TODO:同じ形のプリミティブは、頂点バッファを共通にしたい
@@ -365,10 +363,6 @@ void CMesh::Initialize(ID3D12Device* _Device)
 
 void CMesh::Update()
 {
-    if(m_pCollider)
-    {
-        m_pCollider.get()->Update();
-	}
 }
 
 void CMesh::Draw(ID3D12GraphicsCommandList* _CommandList)
@@ -425,23 +419,6 @@ void CMesh::Draw(ID3D12GraphicsCommandList* _CommandList)
     _CommandList->DrawIndexedInstanced(sizeof(mesh_indices) / sizeof(mesh_indices[0]), 1, 0, 0, 0);
 }
 
-void CMesh::GetVertex(std::vector<DirectX::XMFLOAT3>& _vertices, std::vector<uint16_t>& _Indices)
-{
-
-    for (int i = 0; i < 4; i++)
-    {
-        DirectX::XMFLOAT3 tmp = { mesh_vertices[i].position[0], mesh_vertices[i].position[1], mesh_vertices[i].position[2]};
-        _vertices.push_back(tmp);
-    }
-
-    for (int i = 0; i < 6; i++)
-    {
-        uint16_t tmp =  mesh_indices[i];
-        _Indices.push_back(tmp);
-    }
-
-}
-
 DirectX::XMMATRIX CMesh::GetWorld()
 {
     DirectX::XMMATRIX scale = DirectX::XMMatrixScaling(
@@ -466,22 +443,3 @@ DirectX::XMMATRIX CMesh::GetWorld()
 
 }
 
-//Colliderの作成関数
-void CMesh::MakeCollider(ColliderName _ColliderName)
-{
-    switch (_ColliderName)
-    {
-    case CMesh::Ray:
-        m_pCollider = std::make_unique<CCollider_Ray>(this);
-        break;
-    case CMesh::Plane:
-        m_pCollider = std::make_unique<CCollider_Plane>(this);
-        break;
-    default:
-        break;
-    }
-
-	m_pCollider.get()->Update();
-
-}
-CCollider* CMesh::GetCollider() { return m_pCollider.get(); }

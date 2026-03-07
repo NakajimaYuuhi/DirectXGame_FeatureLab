@@ -133,25 +133,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Box.cpp" />
-    <ClCompile Include="Collider.cpp" />
-    <ClCompile Include="Collider_Plane.cpp" />
-    <ClCompile Include="Collider_Ray.cpp" />
-    <ClCompile Include="Collision.cpp" />
     <ClCompile Include="DX12Manager.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicSettings.h" />
     <ClInclude Include="Box.h" />
-    <ClInclude Include="Collider.h" />
-    <ClInclude Include="Collider_Plane.h" />
-    <ClInclude Include="Collider_Ray.h" />
-    <ClInclude Include="Collision.h" />
     <ClInclude Include="DX12Manager.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Transform.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Triangle.hlsl">
