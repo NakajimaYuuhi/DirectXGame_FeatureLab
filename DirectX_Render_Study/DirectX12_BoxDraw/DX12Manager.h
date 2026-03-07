@@ -17,18 +17,23 @@ using Microsoft::WRL::ComPtr;
 class CDX12Manager
 {
 public:
-	//インスタンス取得
+
+	// <インスタンス取得>
 	static CDX12Manager& GetInstance();
 
 	// <初期化、終了処理>
 	bool Initialize(HWND hwnd);
 	void Finalize();
 
-	//更新処理
-	void Update();
-	//描画処理
+	// <描画処理>
 	void BeginDraw();
 	void EndDraw();
+
+
+	// < 別で切り出したい >
+
+	//更新処理
+	void Update();
 
 
 
