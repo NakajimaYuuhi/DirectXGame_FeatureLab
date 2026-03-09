@@ -46,6 +46,15 @@
     <Filter Include="Source\Component">
       <UniqueIdentifier>{1b5c316c-3294-441e-9fdd-ea1ad12c37f5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Object\GameObject">
+      <UniqueIdentifier>{167ee01f-47b9-4158-9098-de10f0c0c112}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object\GameObject\3Dobject">
+      <UniqueIdentifier>{fcddab3a-4ba2-49be-b4e8-3d7d52332f3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object\GameObject\Base">
+      <UniqueIdentifier>{002ca8e1-3423-4b84-ab88-c09a134a031a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Box.cpp">
@@ -72,6 +81,12 @@
     <ClCompile Include="SceneTest.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="C3D_Object.cpp">
+      <Filter>Source\Object\GameObject\3Dobject</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Source\Object\GameObject\Base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h">
@@ -97,6 +112,12 @@
     </ClInclude>
     <ClInclude Include="SceneTest.h">
       <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="C3D_Object.h">
+      <Filter>Source\Object\GameObject\3Dobject</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Source\Object\GameObject\Base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
