@@ -1,7 +1,36 @@
+//===== インクルード =====
 #pragma once
 #include "Scene.h"
-class CSceneTest :
-    public CScene
+
+#include <vector>
+#include <memory>
+
+template <typename T>
+using Vector = std::vector<T>;
+
+template<typename T>
+using UniquePtr = std::unique_ptr<T>;
+
+//===== 前方宣言 =====
+class CObject;
+
+//===== クラス定義 =====
+class CSceneTest : public CScene
 {
+public:
+	CSceneTest();
+
+	~CSceneTest();
+
+	void Init();
+
+	void Update();
+
+	void Draw();
+
+
+private:
+	Vector<UniquePtr<CObject>> m_VecObject;
+	void AddObject(UniquePtr<CObject> _Object);
 };
 

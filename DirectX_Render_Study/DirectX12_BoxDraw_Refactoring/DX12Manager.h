@@ -45,6 +45,9 @@ public:
 	DirectX::XMMATRIX GetView() { return m_view; }
 	DirectX::XMMATRIX GetProj() { return m_proj; }
 
+	ID3D12Device* GetDevice() { return m_device.Get(); }
+	ID3D12GraphicsCommandList* GetCommandLIst() { return m_commandList.Get(); }
+
 
 
 private:
@@ -84,11 +87,6 @@ private:
 	UINT m_Height = SCREEN_HEIGHT;              //画面の高さ
 
 
-
-	//一旦プリミティブをここに置く
-	CMesh box;
-	CMesh ground;
-	CMesh slope;
 
 	//一旦持っておく
 	DirectX::XMMATRIX m_view;

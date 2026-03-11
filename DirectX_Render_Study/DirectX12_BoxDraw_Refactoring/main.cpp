@@ -17,8 +17,14 @@
 #include "DX12Manager.h"
 #include "InputManager.h"	//TODO:mainが知ってる必要は無い気がする
 
+//Scene
+#include "Scene.h"
+#include "SceneTest.h"
 
-
+//スマートポインタ
+#include<memory>
+template<typename T>
+using UniquePtr = std::unique_ptr<T>;
 
 //===== 名前空間宣言 =====
 
@@ -27,8 +33,11 @@
 //===== 構造体定義 =====
 
 //===== グローバル変数宣言 =====
+UniquePtr<CScene> g_CScene;
 
 //===== プロトタイプ宣言 =====
+
+
 
 
 //===== 関数定義 =====
@@ -44,6 +53,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 	return DefWindowProc(hwnd, msg, wparam, lparam);
 }
 
+//Todo : Windowもクラス化したい
 //エントリーポイント
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 {
@@ -79,10 +89,15 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 	MSG msg = {};
 
 
-
-
+	//DirectX12の初期化
 	CDX12Manager::GetInstance().Initialize(hwnd);
 	
+	//最初のシーンの作成
+	g_CScene = std::make_unique<CSceneTest>();
+
+	//シーンの初期化
+	g_CScene->Init();
+
 	CInputManager::GetInstance();
 
 	while (msg.message != WM_QUIT)
@@ -99,11 +114,12 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
 			//更新処理
 			CDX12Manager::GetInstance().Update();
+			g_CScene->Update();
 
 			//描画処理
 			CDX12Manager::GetInstance().BeginDraw();
 
-
+			g_CScene->Draw();
 
 			CDX12Manager::GetInstance().EndDraw();
 		}

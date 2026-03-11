@@ -17,6 +17,7 @@
 #include <memory>
 
 
+
 //===== エイリアス宣言 =====
 
 //Uniqueポインタ
@@ -32,7 +33,7 @@ using String = std::string;
 
 
 
-//===== 前方宣言 =====
+////===== 前方宣言 =====
 class CComponent;
 
 
@@ -42,7 +43,12 @@ class CObject
 {
 public:
 	CObject();
-	virtual ~CObject() = default;
+	virtual ~CObject();
+
+
+	virtual void Init();
+	virtual void Update() = 0;
+	virtual void Draw() = 0;
 
 protected:
 	//コンポーネント

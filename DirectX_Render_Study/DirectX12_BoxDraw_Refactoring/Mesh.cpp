@@ -9,6 +9,7 @@
 
 //Transform
 #include "Transform.h"
+#include "SceneTest.h"
 
 
 
@@ -78,14 +79,19 @@ uint16_t mesh_indices[] =
 
 
 
-void CMesh::Initialize(ID3D12Device* _Device)
+void CMesh::Init()
 {
 
+    //Transformの登録
+    RegisterTransform();
 
     //----- シェーダーコンパイル -----
     ComPtr<ID3DBlob> vertexShader;
     ComPtr<ID3DBlob> pixelShader;
     ComPtr<ID3DBlob> errorBlob;
+
+    //デバイス
+    ID3D12Device* device = CDX12Manager::GetInstance().GetDevice();
 
     HRESULT hr;
 
@@ -144,7 +150,7 @@ void CMesh::Initialize(ID3D12Device* _Device)
     );
 
     //ルートシグネチャの作成
-    hr = _Device->CreateRootSignature(
+    hr = device->CreateRootSignature(
         0,
         signature->GetBufferPointer(),
         signature->GetBufferSize(),
@@ -234,7 +240,7 @@ void CMesh::Initialize(ID3D12Device* _Device)
 
 
     //GraphicsPipelineStateを作成
-    hr = _Device->CreateGraphicsPipelineState(
+    hr = device->CreateGraphicsPipelineState(
         &psoDesc,
         IID_PPV_ARGS(&m_pipelineState)
     );
@@ -262,7 +268,7 @@ void CMesh::Initialize(ID3D12Device* _Device)
     resourceDesc.SampleDesc.Count = 1;
     resourceDesc.Layout = D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
 
-    _Device->CreateCommittedResource(
+    device->CreateCommittedResource(
         &heapProps,
         D3D12_HEAP_FLAG_NONE,
         &resourceDesc,
@@ -303,7 +309,7 @@ void CMesh::Initialize(ID3D12Device* _Device)
     resourceDesc.SampleDesc.Count = 1;
     resourceDesc.Layout = D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
 
-    _Device->CreateCommittedResource(
+    device->CreateCommittedResource(
         &heapProps,
         D3D12_HEAP_FLAG_NONE,
         &resourceDesc,
@@ -340,7 +346,7 @@ void CMesh::Initialize(ID3D12Device* _Device)
     resourceDesc2.Layout = D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
     resourceDesc2.Flags = D3D12_RESOURCE_FLAG_NONE;
 
-    _Device->CreateCommittedResource(
+    device->CreateCommittedResource(
         &heapProps2,
         D3D12_HEAP_FLAG_NONE,
         &resourceDesc2,
@@ -369,44 +375,47 @@ void CMesh::Update()
 {
 }
 
-void CMesh::Draw(ID3D12GraphicsCommandList* _CommandList)
+
+
+void CMesh::Draw()
 {
-    //行列作成
-	//スケール、回転、平行移動の順で行列を掛ける
+    // --コマンドリスト
+    ID3D12GraphicsCommandList* commandList = CDX12Manager::GetInstance().GetCommandLIst();
 
+
+    // --行列取得
     DirectX::XMMATRIX world = m_Transform->GetWorld();
-
-    //ビューとプロジェクションはDX12Managerから取得
     DirectX::XMMATRIX view = CDX12Manager::GetInstance().GetView();
     DirectX::XMMATRIX proj = CDX12Manager::GetInstance().GetProj();
 
 
+    // --掛け算
     DirectX::XMMATRIX wvp = world * view * proj;
 
-    m_cbData->WVP = XMMatrixTranspose(wvp);
+    // --定数バッファ用のデータにセットする
+    m_cbData->WVP = XMMatrixTranspose(wvp);//ここでセットしたやつ使ってる？　使ってなさそう
 
-
-
+    
     ConstantBufferData* cbData = nullptr;
     m_constantBuffer->Map(0, nullptr, (void**)&cbData);
     cbData->WVP = XMMatrixTranspose(wvp);
     m_constantBuffer->Unmap(0, nullptr);
 
 
-    _CommandList->SetPipelineState(m_pipelineState.Get());
-    _CommandList->SetGraphicsRootSignature(m_rootSignature.Get());
+    commandList->SetPipelineState(m_pipelineState.Get());
+    commandList->SetGraphicsRootSignature(m_rootSignature.Get());
 
-    _CommandList->SetGraphicsRootConstantBufferView(
+    commandList->SetGraphicsRootConstantBufferView(
         0,
         m_constantBuffer->GetGPUVirtualAddress()
     );
 
-    _CommandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+    commandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
     //インデックス用に変更
-    _CommandList->IASetVertexBuffers(0, 1, &m_vertexBufferView);
-    _CommandList->IASetIndexBuffer(&m_indexBufferView);
-    _CommandList->DrawIndexedInstanced(sizeof(mesh_indices) / sizeof(mesh_indices[0]), 1, 0, 0, 0);
+    commandList->IASetVertexBuffers(0, 1, &m_vertexBufferView);
+    commandList->IASetIndexBuffer(&m_indexBufferView);
+    commandList->DrawIndexedInstanced(sizeof(mesh_indices) / sizeof(mesh_indices[0]), 1, 0, 0, 0);
 }
 
 //Transformの登録

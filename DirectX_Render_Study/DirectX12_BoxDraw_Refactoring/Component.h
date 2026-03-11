@@ -29,6 +29,9 @@ public:
     //デストラクタ
     virtual ~CComponent() = default;
 
+    //初期化処理
+    virtual void Init(){}
+
     //----- Getter -----
     String GetName() const { return m_ComponentName; }
     bool GetIsVarid() const { return m_ComponentIsValid; }

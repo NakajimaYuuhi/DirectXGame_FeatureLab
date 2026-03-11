@@ -10,9 +10,6 @@
     <Filter Include="Source\Object\Box">
       <UniqueIdentifier>{e1dd811f-170d-4414-9845-75264893ccc1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Object\Mesh">
-      <UniqueIdentifier>{df798996-e66c-426d-8e1b-93bd85d0349d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source\Shader">
       <UniqueIdentifier>{ed8efbd9-3d4e-47f1-8435-a137cd0f0312}</UniqueIdentifier>
     </Filter>
@@ -64,13 +61,13 @@
     <Filter Include="Source\Component\ObjectInfo">
       <UniqueIdentifier>{e6b31355-be76-4af7-b9c2-4ca286384955}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Component\Mesh">
+      <UniqueIdentifier>{55901826-2416-44dc-beeb-12003462bdf9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Box.cpp">
       <Filter>Source\Object\Box</Filter>
-    </ClCompile>
-    <ClCompile Include="Mesh.cpp">
-      <Filter>Source\Object\Mesh</Filter>
     </ClCompile>
     <ClCompile Include="DX12Manager.cpp">
       <Filter>Source\System\DX12Manager</Filter>
@@ -102,13 +99,13 @@
     <ClCompile Include="ObjectInfo.cpp">
       <Filter>Source\Component\ObjectInfo</Filter>
     </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Source\Component\Mesh</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h">
       <Filter>Source\Object\Box</Filter>
-    </ClInclude>
-    <ClInclude Include="Mesh.h">
-      <Filter>Source\Object\Mesh</Filter>
     </ClInclude>
     <ClInclude Include="DX12Manager.h">
       <Filter>Source\System\DX12Manager</Filter>
@@ -139,6 +136,9 @@
     </ClInclude>
     <ClInclude Include="ObjectInfo.h">
       <Filter>Source\Component\ObjectInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Source\Component\Mesh</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

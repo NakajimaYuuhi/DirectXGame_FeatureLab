@@ -229,24 +229,6 @@ bool CDX12Manager::Initialize(HWND hwnd)
 
 
 
-	//----- 仮でプリミティブ初期化 -----
-	//立方体
-	box.Initialize(m_device.Get());
-	box.SetPos({ 0.0f, 2.0f, 0.0f }); 
-	box.SetScale({ 1.0f, 1.0f, 1.0f });
-	box.SetRotation({ 0.0f, 0.0f, 0.0f });
-	
-	//地面
-	ground.Initialize(m_device.Get());
-	ground.SetPos({ 0.0f, 0.0f, 0.0f });
-	ground.SetScale({ 20.0f, 0.1f, 20.0f });
-	ground.SetRotation({ 0.0f, 0.0f, 0.0f });
-
-	//斜面
-	slope.Initialize(m_device.Get());
-	slope.SetPos({ 0.0f, 0.0f, 10.0f });
-	slope.SetScale({ 20.0f, 0.1f, 20.0f });
-	slope.SetRotation({ -0.8f, 0.0f, 0.0f });
 
 
 	//view,projの初期化
@@ -374,11 +356,6 @@ void CDX12Manager::BeginDraw()
 		nullptr
 	);
 
-	// <別の場所に移動する>
-	//仮で描画
-	box.Draw(m_commandList.Get());
-	ground.Draw(m_commandList.Get());
-	slope.Draw(m_commandList.Get());
 }
 
 void CDX12Manager::EndDraw()

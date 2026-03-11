@@ -43,10 +43,10 @@ public:
 
 	}
 
-	//DX12Manager‚©‚ç‚µ‚ã‚Æ‚­‚·‚é
-	void Initialize(ID3D12Device* _Device);
+	//DX12Manager‚©‚çŽæ“¾‚·‚é(‰¼)
+	void Init();
 	void Update();
-	void Draw(ID3D12GraphicsCommandList* _CommandList);
+	void Draw();
 
 private:
 	ComPtr<ID3D12Resource> m_vertexBuffer;
