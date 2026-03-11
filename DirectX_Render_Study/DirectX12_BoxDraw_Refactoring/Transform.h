@@ -7,11 +7,30 @@
 //===== インクルード =====
 #pragma once
 #include <DirectXMath.h>
+#include "Component.h"
 
 //===== クラスの定義 =====
-class CTransform
+class CTransform :public CComponent
 {
 public:
+	//コンストラクタ
+	CTransform
+	(
+		DirectX::XMFLOAT3 _Position = { 0.0f, 0.0f, 0.0f },
+		DirectX::XMFLOAT3 _Rotation = { 0.0f, 0.0f, 0.0f },
+		DirectX::XMFLOAT3 _Scale	= { 1.0f, 1.0f, 1.0f }
+	)
+		: CComponent("Transform")//基本はコンポーネントの種類
+		, m_Position(_Position)	//位置
+		, m_Rotation(_Rotation)	//回転
+		, m_Scale	(_Scale)	//スケール
+	{
+	}
+
+	//デストラクタ
+	~CTransform() = default;
+
+	//----- 便利なGetter -----
 	//Frontの取得
 	DirectX::XMFLOAT3 GetFront()
 	{

@@ -132,8 +132,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ObjectInfo.cpp" />
     <ClCompile Include="Box.cpp" />
-    <ClCompile Include="C3D_Object.cpp" />
+    <ClCompile Include="3D_Object.cpp" />
+    <ClCompile Include="Component.cpp" />
     <ClCompile Include="DX12Manager.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
@@ -144,9 +146,11 @@
     <ClCompile Include="Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ObjectInfo.h" />
     <ClInclude Include="BasicSettings.h" />
     <ClInclude Include="Box.h" />
-    <ClInclude Include="C3D_Object.h" />
+    <ClInclude Include="3D_Object.h" />
+    <ClInclude Include="Component.h" />
     <ClInclude Include="DX12Manager.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Mesh.h" />

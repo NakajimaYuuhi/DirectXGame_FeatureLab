@@ -55,6 +55,15 @@
     <Filter Include="Source\Object\GameObject\Base">
       <UniqueIdentifier>{002ca8e1-3423-4b84-ab88-c09a134a031a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Component\Transform">
+      <UniqueIdentifier>{657c0d91-44ff-4b93-b5a4-fb9072e7050a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Component\Base">
+      <UniqueIdentifier>{c9e151cc-08c0-4e6c-b5c8-abf56b0836bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Component\ObjectInfo">
+      <UniqueIdentifier>{e6b31355-be76-4af7-b9c2-4ca286384955}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Box.cpp">
@@ -72,20 +81,26 @@
     <ClCompile Include="main.cpp">
       <Filter>Source\System\Main</Filter>
     </ClCompile>
-    <ClCompile Include="Transform.cpp">
-      <Filter>Source\Component</Filter>
-    </ClCompile>
     <ClCompile Include="Scene.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
     <ClCompile Include="SceneTest.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="C3D_Object.cpp">
+    <ClCompile Include="3D_Object.cpp">
       <Filter>Source\Object\GameObject\3Dobject</Filter>
     </ClCompile>
     <ClCompile Include="Object.cpp">
       <Filter>Source\Object\GameObject\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>Source\Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Source\Component\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectInfo.cpp">
+      <Filter>Source\Component\ObjectInfo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -104,20 +119,26 @@
     <ClInclude Include="BasicSettings.h">
       <Filter>Source\System\Settings\BasicSettings</Filter>
     </ClInclude>
-    <ClInclude Include="Transform.h">
-      <Filter>Source\Component</Filter>
-    </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>Source\Scene</Filter>
     </ClInclude>
     <ClInclude Include="SceneTest.h">
       <Filter>Source\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="C3D_Object.h">
+    <ClInclude Include="3D_Object.h">
       <Filter>Source\Object\GameObject\3Dobject</Filter>
     </ClInclude>
     <ClInclude Include="Object.h">
       <Filter>Source\Object\GameObject\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Source\Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Source\Component\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectInfo.h">
+      <Filter>Source\Component\ObjectInfo</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

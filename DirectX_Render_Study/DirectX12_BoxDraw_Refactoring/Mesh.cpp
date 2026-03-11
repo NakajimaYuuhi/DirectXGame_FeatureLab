@@ -4,7 +4,11 @@
 #pragma comment(lib, "d3dcompiler.lib")
 #include "BasicSettings.h"
 
+//Object
+#include "Object.h"
 
+//Transform
+#include "Transform.h"
 
 
 
@@ -369,22 +373,8 @@ void CMesh::Draw(ID3D12GraphicsCommandList* _CommandList)
 {
     //行列作成
 	//スケール、回転、平行移動の順で行列を掛ける
-    DirectX::XMMATRIX scale = DirectX::XMMatrixScaling(
-        m_Scale.x, m_Scale.y, m_Scale.z);
 
-    DirectX::XMMATRIX rotX = DirectX::XMMatrixRotationX(m_Rotation.x);
-    DirectX::XMMATRIX rotY = DirectX::XMMatrixRotationY(m_Rotation.y);
-    DirectX::XMMATRIX rotZ = DirectX::XMMatrixRotationZ(m_Rotation.z);
-
-    DirectX::XMMATRIX trans = DirectX::XMMatrixTranslation(
-        m_Position.x,
-        m_Position.y,
-        m_Position.z);
-
-    DirectX::XMMATRIX world =
-        scale *
-        rotX * rotY *rotZ *
-        trans;
+    DirectX::XMMATRIX world = m_Transform->GetWorld();
 
     //ビューとプロジェクションはDX12Managerから取得
     DirectX::XMMATRIX view = CDX12Manager::GetInstance().GetView();
@@ -419,27 +409,9 @@ void CMesh::Draw(ID3D12GraphicsCommandList* _CommandList)
     _CommandList->DrawIndexedInstanced(sizeof(mesh_indices) / sizeof(mesh_indices[0]), 1, 0, 0, 0);
 }
 
-DirectX::XMMATRIX CMesh::GetWorld()
+//Transformの登録
+void CMesh::RegisterTransform()
 {
-    DirectX::XMMATRIX scale = DirectX::XMMatrixScaling(
-        m_Scale.x, m_Scale.y, m_Scale.z);
-
-    DirectX::XMMATRIX rotX = DirectX::XMMatrixRotationX(m_Rotation.x);
-    DirectX::XMMATRIX rotY = DirectX::XMMatrixRotationY(m_Rotation.y);
-    DirectX::XMMATRIX rotZ = DirectX::XMMatrixRotationZ(m_Rotation.z);
-
-    DirectX::XMMATRIX trans = DirectX::XMMatrixTranslation(
-        m_Position.x,
-        m_Position.y,
-        m_Position.z);
-
-    DirectX::XMMATRIX world =
-        scale *
-        rotX * rotY * rotZ *
-        trans;
-
-    return world;
-
-
+    //GetComponentをする
+    m_Transform = m_Owner->GetComponent<CTransform>();
 }
-
