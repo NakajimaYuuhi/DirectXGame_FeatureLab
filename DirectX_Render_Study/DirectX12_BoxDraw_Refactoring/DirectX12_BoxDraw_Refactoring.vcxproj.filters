@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{c84c7220-0fcc-4baf-9ce2-93cce8b47c3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object">
+      <UniqueIdentifier>{4cdce19a-e216-48d5-8bfb-018ccf7a462f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object\Box">
+      <UniqueIdentifier>{e1dd811f-170d-4414-9845-75264893ccc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Shader">
+      <UniqueIdentifier>{ed8efbd9-3d4e-47f1-8435-a137cd0f0312}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System">
+      <UniqueIdentifier>{3699b683-ecc0-4fe5-9205-1ff7df6fdc1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\DX12Manager">
+      <UniqueIdentifier>{30a2cc6c-6eb2-4a52-b095-c0f47b8281a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\ImputSystem">
+      <UniqueIdentifier>{bc3a35dc-8cec-41c4-a559-488c9e6d7ae0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\Main">
+      <UniqueIdentifier>{85815f61-3d05-495a-8364-87d6ac4c076e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\Settings">
+      <UniqueIdentifier>{2bc724b1-3d55-45ab-83b6-3a9d0061d6b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\Settings\BasicSettings">
+      <UniqueIdentifier>{8ee8d6ae-7f54-445a-be19-de260e2bb69c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\Component">
+      <UniqueIdentifier>{547b6c07-95ee-44ae-b4be-047469a42b87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\Component\Transform">
+      <UniqueIdentifier>{4dce75ff-8389-4dc2-bf12-e414331ae016}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Scene">
+      <UniqueIdentifier>{ee17a054-761c-4595-ac3a-64926c2bb478}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Component">
+      <UniqueIdentifier>{1b5c316c-3294-441e-9fdd-ea1ad12c37f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object\GameObject">
+      <UniqueIdentifier>{167ee01f-47b9-4158-9098-de10f0c0c112}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object\GameObject\3Dobject">
+      <UniqueIdentifier>{fcddab3a-4ba2-49be-b4e8-3d7d52332f3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object\GameObject\Base">
+      <UniqueIdentifier>{002ca8e1-3423-4b84-ab88-c09a134a031a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Component\Transform">
+      <UniqueIdentifier>{657c0d91-44ff-4b93-b5a4-fb9072e7050a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Component\Base">
+      <UniqueIdentifier>{c9e151cc-08c0-4e6c-b5c8-abf56b0836bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Component\ObjectInfo">
+      <UniqueIdentifier>{e6b31355-be76-4af7-b9c2-4ca286384955}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Component\Mesh">
+      <UniqueIdentifier>{55901826-2416-44dc-beeb-12003462bdf9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Box.cpp">
+      <Filter>Source\Object\Box</Filter>
+    </ClCompile>
+    <ClCompile Include="DX12Manager.cpp">
+      <Filter>Source\System\DX12Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Source\System\ImputSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source\System\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneTest.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="3D_Object.cpp">
+      <Filter>Source\Object\GameObject\3Dobject</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Source\Object\GameObject\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>Source\Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Source\Component\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectInfo.cpp">
+      <Filter>Source\Component\ObjectInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Source\Component\Mesh</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Box.h">
+      <Filter>Source\Object\Box</Filter>
+    </ClInclude>
+    <ClInclude Include="DX12Manager.h">
+      <Filter>Source\System\DX12Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Source\System\ImputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicSettings.h">
+      <Filter>Source\System\Settings\BasicSettings</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneTest.h">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="3D_Object.h">
+      <Filter>Source\Object\GameObject\3Dobject</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Source\Object\GameObject\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Source\Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Source\Component\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectInfo.h">
+      <Filter>Source\Component\ObjectInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Source\Component\Mesh</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Triangle.hlsl">
+      <Filter>Source\Shader</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>
