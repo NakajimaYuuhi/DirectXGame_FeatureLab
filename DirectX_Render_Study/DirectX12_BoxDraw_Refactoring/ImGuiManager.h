@@ -2,36 +2,33 @@
 #include <d3d12.h>
 #include <wrl.h>
 #include <Windows.h>
+#include <wrl/client.h>
 
-class CImGuiManager
-{
+#pragma once
+#include <d3d12.h>
+#include <wrl/client.h>
+#include "imgui.h"
+
+class CImGuiManager {
 public:
-    CImGuiManager();
-    ~CImGuiManager();
+    static CImGuiManager& GetInstance();
 
-    //初期化
-    bool Initialize(
-        HWND hwnd,
-        ID3D12Device* pDevice,
-        ID3D12DescriptorHeap* pSrvHeap,
-        int frameCount
-    );
+    // 初期化 (ウィンドウハンドルとDX12のデバイス、バッファ数、フォーマットが必要)
+    bool Initialize(HWND hwnd);
 
-    //描画処理
-    void BeginFrame();   // NewFrame処理
-    void EndFrame();     // Render呼び出し前後
-    void Render(ID3D12GraphicsCommandList* pCommandList);
-
-    //後処理
+    // 終了処理
     void Finalize();
 
+    // フレーム開始時の処理
+    void Begin();
+
+    // フレーム終了時の描画処理 (コマンドリストを渡す)
+    void End(ID3D12GraphicsCommandList* commandList);
+
 private:
-    HWND m_hWnd;
+    CImGuiManager() = default;
+    ~CImGuiManager() = default;
 
-    ID3D12Device* m_pDevice;
-    ID3D12DescriptorHeap* m_pSrvHeap;
-    int m_FrameCount;
-
-    bool m_IsInitialized = false;
+    // ImGui用のフォントテクスチャ等を配置するためのSRVヒープ
+    Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> m_srvHeap;
 };
-
