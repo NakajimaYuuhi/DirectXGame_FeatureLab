@@ -11,6 +11,8 @@
 #include "Box.h"
 #include "Mesh.h"
 
+#include "ImGuiManager.h"
+
 using Microsoft::WRL::ComPtr;
 
 //===== クラス定義 =====
@@ -93,6 +95,11 @@ private:
 	DirectX::XMMATRIX m_proj;
 
 
+	//ImGui
+	CImGuiManager m_imguiManager;
+	ComPtr<ID3D12DescriptorHeap> m_imguiSrvHeap;
+
+
 	//シングルトン実装
 private:
 	CDX12Manager() = default;
@@ -101,5 +108,8 @@ private:
 	CDX12Manager(const CDX12Manager&) = delete;
 	CDX12Manager& operator=(const CDX12Manager&) = delete;
 
+private:
+	void MakeImGui();
+	void ImGuiInitialize(HWND hwnd);
 };
 

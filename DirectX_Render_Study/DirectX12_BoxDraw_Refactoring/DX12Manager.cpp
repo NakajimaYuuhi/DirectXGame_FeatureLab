@@ -5,6 +5,7 @@
 #include <iostream>
 
 #include "InputManager.h"
+#include "imgui.h"
 
 
 
@@ -168,6 +169,14 @@ bool CDX12Manager::Initialize(HWND hwnd)
 	//フェンス作成
 	CreateFence();
 
+	//ImGUi作成、初期化
+	MakeImGui();
+	ImGuiInitialize(hwnd);
+
+
+
+
+
 	// ===== 深度バッファ作成 =====
 	D3D12_HEAP_PROPERTIES heapProps = {};
 	heapProps.Type = D3D12_HEAP_TYPE_DEFAULT;
@@ -237,12 +246,7 @@ bool CDX12Manager::Initialize(HWND hwnd)
 		DirectX::XMVectorSet(10, 10, -20, 1),
 		DirectX::XMVectorSet(0, 0, 0, 1),
 		DirectX::XMVectorSet(0, 1, 0, 0));
-
-	//手前から見る用
-	//m_view = DirectX::XMMatrixLookAtLH(
-	//	DirectX::XMVectorSet(0, 0, -20, 1),
-	//	DirectX::XMVectorSet(0, 0, 0, 1),
-	//	DirectX::XMVectorSet(0, 1, 0, 0));
+;
 
 	//横から見る用
 	m_view = DirectX::XMMatrixLookAtLH(
@@ -293,6 +297,17 @@ void CDX12Manager::BeginDraw()
 	// 2. リセット
 	m_commandAllocator->Reset();
 	m_commandList->Reset(m_commandAllocator.Get(), nullptr);
+
+
+	ID3D12DescriptorHeap* heaps[] = { m_imguiSrvHeap.Get() };
+	m_commandList->SetDescriptorHeaps(1, heaps);
+
+	//// ========= ImGui BeginFrame =========
+	//m_imguiManager.BeginFrame();
+
+	//// ======== ImGui UI 描画部分 ========
+	//bool showDemo = true;
+	//ImGui::ShowDemoWindow(&showDemo);
 
 	// 3. PRESENT → RENDER_TARGET へ遷移
 	D3D12_RESOURCE_BARRIER barrier{};
@@ -370,6 +385,18 @@ void CDX12Manager::EndDraw()
 
 	m_commandList->ResourceBarrier(1, &barrier);
 
+
+	// ==== ImGui が使う SRV ヒープをセット ====
+	//	// ★ 追加：ここでも必要！
+	//ID3D12DescriptorHeap* heaps[] = { m_imguiSrvHeap.Get() };
+	//m_commandList->SetDescriptorHeaps(1, heaps);
+
+	////ImGuiDraw
+	//m_imguiManager.Render(m_commandList.Get());
+
+
+
+
 	// 2. Close
 	m_commandList->Close();
 
@@ -421,4 +448,29 @@ void CDX12Manager::CreateFence()
 	m_fenceValue = 1;
 
 	m_fenceEvent = CreateEvent(nullptr, FALSE, FALSE, nullptr);
+}
+
+void CDX12Manager::MakeImGui()
+{
+	D3D12_DESCRIPTOR_HEAP_DESC srvDesc = {};
+	srvDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
+	srvDesc.NumDescriptors = 1 + 2;
+	srvDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
+
+	HRESULT hr = m_device->CreateDescriptorHeap(
+		&srvDesc,
+		IID_PPV_ARGS(&m_imguiSrvHeap)
+	);
+	//if (FAILED(hr))
+	//	return false;
+}
+
+void CDX12Manager::ImGuiInitialize(HWND hwnd)
+{
+	m_imguiManager.Initialize(
+		hwnd,
+		m_device.Get(),
+		m_imguiSrvHeap.Get(),
+		m_FrameBufferCount
+	);
 }
