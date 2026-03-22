@@ -12,6 +12,7 @@
 #include "Mesh.h"
 
 
+
 using Microsoft::WRL::ComPtr;
 
 //===== クラス定義 =====
@@ -92,9 +93,6 @@ private:
 	//一旦持っておく
 	DirectX::XMMATRIX m_view;
 	DirectX::XMMATRIX m_proj;
-
-
-
 
 
 	//シングルトン実装

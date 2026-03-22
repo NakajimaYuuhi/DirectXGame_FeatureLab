@@ -169,6 +169,7 @@ bool CDX12Manager::Initialize(HWND hwnd)
 	//フェンス作成
 	CreateFence();
 
+	//ImGUi作成、初期化
 
 
 
@@ -297,10 +298,6 @@ void CDX12Manager::BeginDraw()
 	m_commandList->Reset(m_commandAllocator.Get(), nullptr);
 
 
-
-
-
-
 	// 3. PRESENT → RENDER_TARGET へ遷移
 	D3D12_RESOURCE_BARRIER barrier{};
 	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
@@ -376,12 +373,6 @@ void CDX12Manager::EndDraw()
 	barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
 
 	m_commandList->ResourceBarrier(1, &barrier);
-
-
-
-
-
-
 
 	// 2. Close
 	m_commandList->Close();

@@ -29,6 +29,8 @@
 template<typename T>
 using UniquePtr = std::unique_ptr<T>;
 
+#include "ImGuiManager.h"
+
 //===== 名前空間宣言 =====
 
 //===== 定数・マクロ定義 =====
@@ -40,13 +42,19 @@ UniquePtr<CScene> g_CScene;
 
 //===== プロトタイプ宣言 =====
 
-
+// ImGuiのWin32実装にあるプロトタイプ宣言
+extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 
 //===== 関数定義 =====
 //ウィンドウプロシージャ
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 {
+
+	// ImGuiがメッセージを処理したらそこでリターン
+	if (ImGui_ImplWin32_WndProcHandler(hwnd, msg, wparam, lparam))
+		return true;
+
 	switch (msg)
 	{
 	case WM_DESTROY:
@@ -103,6 +111,8 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
 	CInputManager::GetInstance();
 
+	CImGuiManager::GetInstance().Initialize(hwnd);
+
 	while (msg.message != WM_QUIT)
 	{
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
@@ -115,14 +125,24 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 			//入力更新
 			CInputManager::GetInstance().Update();
 
+
+			CDX12Manager::GetInstance().BeginDraw();
+
+			// --- 更新 ---
+			CImGuiManager::GetInstance().Begin();
+			ImGui::Begin("Debug Window"); // ここでGUIを作る
+			ImGui::Text("Hello, DX12!");
+			ImGui::End();
+
 			//更新処理
 			CDX12Manager::GetInstance().Update();
 			g_CScene->Update();
 
 			//描画処理
-			CDX12Manager::GetInstance().BeginDraw();
 
 			g_CScene->Draw();
+
+			CImGuiManager::GetInstance().End(CDX12Manager::GetInstance().GetCommandLIst());
 
 			CDX12Manager::GetInstance().EndDraw();
 		}
