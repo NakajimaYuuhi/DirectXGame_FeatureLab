@@ -5,7 +5,7 @@
 #include <iostream>
 
 #include "InputManager.h"
-#include "imgui.h"
+
 
 
 
@@ -169,9 +169,7 @@ bool CDX12Manager::Initialize(HWND hwnd)
 	//フェンス作成
 	CreateFence();
 
-	//ImGUi作成、初期化
-	MakeImGui();
-	ImGuiInitialize(hwnd);
+
 
 
 
@@ -299,15 +297,9 @@ void CDX12Manager::BeginDraw()
 	m_commandList->Reset(m_commandAllocator.Get(), nullptr);
 
 
-	ID3D12DescriptorHeap* heaps[] = { m_imguiSrvHeap.Get() };
-	m_commandList->SetDescriptorHeaps(1, heaps);
 
-	//// ========= ImGui BeginFrame =========
-	//m_imguiManager.BeginFrame();
 
-	//// ======== ImGui UI 描画部分 ========
-	//bool showDemo = true;
-	//ImGui::ShowDemoWindow(&showDemo);
+
 
 	// 3. PRESENT → RENDER_TARGET へ遷移
 	D3D12_RESOURCE_BARRIER barrier{};
@@ -386,13 +378,7 @@ void CDX12Manager::EndDraw()
 	m_commandList->ResourceBarrier(1, &barrier);
 
 
-	// ==== ImGui が使う SRV ヒープをセット ====
-	//	// ★ 追加：ここでも必要！
-	//ID3D12DescriptorHeap* heaps[] = { m_imguiSrvHeap.Get() };
-	//m_commandList->SetDescriptorHeaps(1, heaps);
 
-	////ImGuiDraw
-	//m_imguiManager.Render(m_commandList.Get());
 
 
 
@@ -450,27 +436,4 @@ void CDX12Manager::CreateFence()
 	m_fenceEvent = CreateEvent(nullptr, FALSE, FALSE, nullptr);
 }
 
-void CDX12Manager::MakeImGui()
-{
-	D3D12_DESCRIPTOR_HEAP_DESC srvDesc = {};
-	srvDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
-	srvDesc.NumDescriptors = 1 + 2;
-	srvDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
 
-	HRESULT hr = m_device->CreateDescriptorHeap(
-		&srvDesc,
-		IID_PPV_ARGS(&m_imguiSrvHeap)
-	);
-	//if (FAILED(hr))
-	//	return false;
-}
-
-void CDX12Manager::ImGuiInitialize(HWND hwnd)
-{
-	m_imguiManager.Initialize(
-		hwnd,
-		m_device.Get(),
-		m_imguiSrvHeap.Get(),
-		m_FrameBufferCount
-	);
-}
