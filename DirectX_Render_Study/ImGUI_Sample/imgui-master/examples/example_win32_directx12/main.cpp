@@ -1,4 +1,4 @@
-// Dear ImGui: standalone example application for Windows API + DirectX 12
+﻿// Dear ImGui: standalone example application for Windows API + DirectX 12
 
 // Learn about Dear ImGui:
 // - FAQ                  https://dearimgui.com/faq
@@ -110,13 +110,32 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 // Main code
 int main(int, char**)
 {
-    // Make process DPI aware and obtain main monitor scale
+    //ウィンドウの物理的なサイズをDPIに合わせるためにモニターの拡大率を取得
     ImGui_ImplWin32_EnableDpiAwareness();
     float main_scale = ImGui_ImplWin32_GetDpiScaleForMonitor(::MonitorFromPoint(POINT{ 0, 0 }, MONITOR_DEFAULTTOPRIMARY));
 
-    // Create application window
-    WNDCLASSEXW wc = { sizeof(wc), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(nullptr), nullptr, nullptr, nullptr, nullptr, L"ImGui Example", nullptr };
+    //--- Window作成 ---
+    //DPIを考慮してサイズを決定
+    WNDCLASSEXW wc ={
+        sizeof(wc),
+        CS_CLASSDC,
+        WndProc,
+        0L,
+        0L,
+        GetModuleHandle(nullptr),
+        nullptr,
+        nullptr,
+        nullptr,
+        nullptr,
+        L"ImGui Example",
+        nullptr
+    };
+
+    //ウィンドウクラスの登録
     ::RegisterClassExW(&wc);
+
+    //ウィンドウの作成
+    //サイズはどこかに定義しておきたい
     HWND hwnd = ::CreateWindowW(wc.lpszClassName, L"Dear ImGui DirectX12 Example", WS_OVERLAPPEDWINDOW, 100, 100, (int)(1280 * main_scale), (int)(800 * main_scale), nullptr, nullptr, wc.hInstance, nullptr);
 
     // Initialize Direct3D
@@ -127,37 +146,101 @@ int main(int, char**)
         return 1;
     }
 
-    // Show the window
+    //ウィンドウの表示
     ::ShowWindow(hwnd, SW_SHOWDEFAULT);
+    //強制的に再描画
+    //「今すぐ再描画して！」と OS に頼む関数
+    //まだ WM_PAINT が来てない場合に、強制的に WM_PAINT を送る
+    //初回描画をすぐ実行してウィンドウが白紙のままになるのを防ぐ
+    //ShowWindow はウィンドウマネージャへの“表示リクエスト”であって、実際の描画が直ちに行われるとは限らない
+    //描画はUpdateWindowに依存してないから→結局無くていい
     ::UpdateWindow(hwnd);
 
-    // Setup Dear ImGui context
+    //----- ImGuiコンテキストの作成 -----
+
+    //ヘッダとライブラリのバージョンが一致しているかを確認する
+    //
+    //・コンパイル時のバージョン
+    //・実行時のバージョン
+    //が一致しているかをチェック
     IMGUI_CHECKVERSION();
+
+    //コンテキスト（ImGuiの本体＋状態）を作成
+    //ImGui は“グローバルな状態（コンテキスト）”を1つ持って動く
+    //このコンテキストの中に、
+    //ウィンドウ情報
+    //・入力状態
+    //・フォント
+    //・スタイル
+    //・レンダリングのための内部データ
+    //が入っている
     ImGui::CreateContext();
+
+    //入出力に関する設定（ImGuiIO）を触れるように取得
+    //キーボードの状態
+    //・マウスの状態
+    //・画面解像度
+    //・DPIスケール
+    //・ゲームパッドの状態
+    //など、フレームごとに更新される入力情報が全部入ってる
     ImGuiIO& io = ImGui::GetIO(); (void)io;
+
+    //キーボードやゲームパッドで UI ナビゲーションを有効化
+    //ウィジェット（ボタン・スライダーなど）をキーボードやゲームパッドで操作できるようになる
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
 
+    //--- その他設定 ---
+
     // Setup Dear ImGui style
+    //テーマの設定
     ImGui::StyleColorsDark();
     //ImGui::StyleColorsLight();
 
     // Setup scaling
+    //DPIに合わせたスケーリング
     ImGuiStyle& style = ImGui::GetStyle();
     style.ScaleAllSizes(main_scale);        // Bake a fixed style scale. (until we have a solution for dynamic style scaling, changing this requires resetting Style + calling this again)
     style.FontScaleDpi = main_scale;        // Set initial font scale. (in docking branch: using io.ConfigDpiScaleFonts=true automatically overrides this for every window depending on the current monitor)
 
+    // --後で戻ってくる
+
     // Setup Platform/Renderer backends
+    //Win32との接続(Platform BackEnd)の初期化
+    //ImGuiがOSイベントを扱うために橋渡しが必要
+    //・入力の取得、ウィンドウサイズの変更、フォーカス
+    //やってること
+    //1.ウィンドウハンドルの保存 hwnd
+    //2.使うOSの明示 Win32専用の関数ポインタを渡す
+    //3.マウス入力の処理準備
+    //4.キーボード入力の処理準備
+    //Win32 のキーコード → ImGui のキーコードへ変換する対応表を作る。
+    //5.ウィンドウサイズの取得・DPI情報の取得
+    //6.WndProc をフックする仕組みの準備
+
+    //メインビューポートに HWND を登録
+    //XInputライブラリを動的ロード（ゲームパッド対応）
+    //
     ImGui_ImplWin32_Init(hwnd);
 
+
+    //--- DirectX12関連の初期化 ---
+    //引数が多くて分かりにくかったInit処理を、InitInfoにまとめたもの
+
     ImGui_ImplDX12_InitInfo init_info = {};
-    init_info.Device = g_pd3dDevice;
-    init_info.CommandQueue = g_pd3dCommandQueue;
-    init_info.NumFramesInFlight = APP_NUM_FRAMES_IN_FLIGHT;
-    init_info.RTVFormat = DXGI_FORMAT_R8G8B8A8_UNORM;
-    init_info.DSVFormat = DXGI_FORMAT_UNKNOWN;
+    init_info.Device = g_pd3dDevice;            //デバイス
+    init_info.CommandQueue = g_pd3dCommandQueue;//コマンドキューも必要になった
+    init_info.NumFramesInFlight = APP_NUM_FRAMES_IN_FLIGHT;//フレームバッファの数 スワップチェーンのバックバッファの数と合わせる(大体2か3)
+    init_info.RTVFormat = DXGI_FORMAT_R8G8B8A8_UNORM;//RTVFormat
+    init_info.DSVFormat = DXGI_FORMAT_UNKNOWN;  //深度ステンシルのフォーマット（使わないなら UNKNOWN でOK)
     // Allocating SRV descriptors (for textures) is up to the application, so we provide callbacks.
     // (current version of the backend will only allocate one descriptor, future versions will need to allocate more)
+    //テクスチャ用 SRV は、アプリが割り当てる
+    //"アプリ側でSRVを管理する！ImGuiはコールバックするだけ！"
+    //→コールバック関数の登録 Srvの確保、開放
+    //ディスクリプタヒープ : ディスクリプタの格納場所
+    //ディスクリプタ : Viewを登録したもの Viewの場所のメモ
+    //ビュー : GPUリソースへのアクセスの設定
     init_info.SrvDescriptorHeap = g_pd3dSrvDescHeap;
     init_info.SrvDescriptorAllocFn = [](ImGui_ImplDX12_InitInfo*, D3D12_CPU_DESCRIPTOR_HANDLE* out_cpu_handle, D3D12_GPU_DESCRIPTOR_HANDLE* out_gpu_handle) { return g_pd3dSrvDescHeapAlloc.Alloc(out_cpu_handle, out_gpu_handle); };
     init_info.SrvDescriptorFreeFn = [](ImGui_ImplDX12_InitInfo*, D3D12_CPU_DESCRIPTOR_HANDLE cpu_handle, D3D12_GPU_DESCRIPTOR_HANDLE gpu_handle)            { return g_pd3dSrvDescHeapAlloc.Free(cpu_handle, gpu_handle); };
@@ -178,6 +261,21 @@ int main(int, char**)
     //io.Fonts->AddFontDefaultVector();
     //io.Fonts->AddFontDefaultBitmap();
     //io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\segoeui.ttf");
+    //FontConfigも足してみる
+    ImFontConfig config;
+    config.SizePixels = 18.0f;
+
+    // 日本語の文字セットを追加
+    static const ImWchar japanese_range[] = {
+        0x0020, 0x00FF,   // Basic Latin
+        0x3000, 0x30FF,   // ひらがな・カタカナ
+        0x4E00, 0x9FAF,   // 漢字（基本）
+        0,
+    };
+
+    io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\yumin.ttf", 20.0f, nullptr,io.Fonts->GetGlyphRangesJapanese());
+    //io.Fonts->AddFontFromFileTTF("C:/Windows/Fonts/meiryo.ttc", 20.0f, &config, japanese_range);
+    // 
     //io.Fonts->AddFontFromFileTTF("../../misc/fonts/DroidSans.ttf");
     //io.Fonts->AddFontFromFileTTF("../../misc/fonts/Roboto-Medium.ttf");
     //io.Fonts->AddFontFromFileTTF("../../misc/fonts/Cousine-Regular.ttf");
@@ -186,7 +284,7 @@ int main(int, char**)
 
     // Our state
     bool show_demo_window = true;
-    bool show_another_window = false;
+    bool show_another_window = true;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
     // Main loop
@@ -207,6 +305,7 @@ int main(int, char**)
             break;
 
         // Handle window screen locked
+        //画面が隠れているなら、フレームループをスキップ
         if ((g_SwapChainOccluded && g_pSwapChain->Present(0, DXGI_PRESENT_TEST) == DXGI_STATUS_OCCLUDED) || ::IsIconic(hwnd))
         {
             ::Sleep(10);
@@ -214,11 +313,12 @@ int main(int, char**)
         }
         g_SwapChainOccluded = false;
 
-        // Start the Dear ImGui frame
+        //<BeginFrame>
         ImGui_ImplDX12_NewFrame();
         ImGui_ImplWin32_NewFrame();
         ImGui::NewFrame();
 
+        //<ImGuiDraw>
         // 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
         if (show_demo_window)
             ImGui::ShowDemoWindow(&show_demo_window);
@@ -237,15 +337,17 @@ int main(int, char**)
             ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
             ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
 
+            //クリックされたらTrueが返ってくる
             if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
                 counter++;
-            ImGui::SameLine();
-            ImGui::Text("counter = %d", counter);
+            ImGui::SameLine();//同じ行に各命令？
+            ImGui::Text("counter = %d", counter);//テキストは、Printfみたいに書ける ってかC++がそういうもんなのか？
 
+            //FrameRateはioから持ってこれる
             ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / io.Framerate, io.Framerate);
             ImGui::End();
         }
-
+        
         // 3. Show another simple window.
         if (show_another_window)
         {
@@ -256,13 +358,27 @@ int main(int, char**)
             ImGui::End();
         }
 
+        //足してみる
+        {
+            //第2引数でboolを渡すと、×ボタンが現れる(押すとfalseになる)
+            ImGui::Begin("テスト");                          // Create a window called "Hello, world!" and append into it.
+
+            ImGui::Text("Let's Try");               // Display some text (you can use a format strings too)
+
+            ImGui::End();
+        }
+
+
         // Rendering
         ImGui::Render();
 
+        //フレームインデックスの更新
         FrameContext* frameCtx = WaitForNextFrameContext();
         UINT backBufferIdx = g_pSwapChain->GetCurrentBackBufferIndex();
+        //コマンドアロケーターのリセット
         frameCtx->CommandAllocator->Reset();
 
+        //バリア処理
         D3D12_RESOURCE_BARRIER barrier = {};
         barrier.Type                   = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
         barrier.Flags                  = D3D12_RESOURCE_BARRIER_FLAG_NONE;
@@ -273,17 +389,30 @@ int main(int, char**)
         g_pd3dCommandList->Reset(frameCtx->CommandAllocator, nullptr);
         g_pd3dCommandList->ResourceBarrier(1, &barrier);
 
-        // Render Dear ImGui graphics
+        //---レンダーターゲットの更新---
+        //画面の色
         const float clear_color_with_alpha[4] = { clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w, clear_color.w };
+        //レンダーターゲットビューのクリア
         g_pd3dCommandList->ClearRenderTargetView(g_mainRenderTargetDescriptor[backBufferIdx], clear_color_with_alpha, 0, nullptr);
+        //レンダーターゲットのセット
         g_pd3dCommandList->OMSetRenderTargets(1, &g_mainRenderTargetDescriptor[backBufferIdx], FALSE, nullptr);
+
+
+        //---ImGuiの描画コマンドのセット---
+        // 描画先ヒープをImGui用のものに設定
         g_pd3dCommandList->SetDescriptorHeaps(1, &g_pd3dSrvDescHeap);
+        // コマンドリストにImGuiの描画コマンドを積む
         ImGui_ImplDX12_RenderDrawData(ImGui::GetDrawData(), g_pd3dCommandList);
+
+        //バリアの処理
         barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_RENDER_TARGET;
         barrier.Transition.StateAfter  = D3D12_RESOURCE_STATE_PRESENT;
         g_pd3dCommandList->ResourceBarrier(1, &barrier);
+
+        //コマンドリストを閉じる
         g_pd3dCommandList->Close();
 
+        //コマンドリストの実行
         g_pd3dCommandQueue->ExecuteCommandLists(1, (ID3D12CommandList* const*)&g_pd3dCommandList);
         g_pd3dCommandQueue->Signal(g_fence, ++g_fenceLastSignaledValue);
         frameCtx->FenceValue = g_fenceLastSignaledValue;
@@ -295,13 +424,18 @@ int main(int, char**)
         g_frameIndex++;
     }
 
+
+    //---- 終了処理 ---
+    //これはなんだろう？
     WaitForPendingOperations();
 
+    //ImGui関連の終了処理
     // Cleanup
     ImGui_ImplDX12_Shutdown();
     ImGui_ImplWin32_Shutdown();
     ImGui::DestroyContext();
 
+    //DirectX, Window関連の終了処理
     CleanupDeviceD3D();
     ::DestroyWindow(hwnd);
     ::UnregisterClassW(wc.lpszClassName, wc.hInstance);
@@ -518,30 +652,41 @@ FrameContext* WaitForNextFrameContext()
 // Forward declare message handler from imgui_impl_win32.cpp
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
+
+//--- メッセージの分岐処理 ---
+
 // Win32 message handler
 // You can read the io.WantCaptureMouse, io.WantCaptureKeyboard flags to tell if dear imgui wants to use your inputs.
 // - When io.WantCaptureMouse is true, do not dispatch mouse input data to your main application, or clear/overwrite your copy of the mouse data.
 // - When io.WantCaptureKeyboard is true, do not dispatch keyboard input data to your main application, or clear/overwrite your copy of the keyboard data.
 // Generally you may always pass all inputs to dear imgui, and hide them from your application based on those two flags.
+
 LRESULT WINAPI WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
-    
+    // ImGuiがメッセージを処理したらそこでリターン
     if (ImGui_ImplWin32_WndProcHandler(hWnd, msg, wParam, lParam))
         return true;
 
+    //受け取りたく無いメッセージの時に、returnでメッセージを受け取らせない
+    //メッセージに応じて特殊な処理を入れたい時に、分岐させて書く
     switch (msg)
     {
+    //ウィンドウサイズ変更メッセージ
+    //ウィンドウサイズが変わったら、SwapChainのResizeBufferを呼ぶ
+    //レンダーターゲットの破棄、再生成
+    //ウィンドウのサイズが変わっても、ImGuiのウィンドウの位置が変わらない、伸びない
     case WM_SIZE:
         if (g_pd3dDevice != nullptr && wParam != SIZE_MINIMIZED)
         {
-            CleanupRenderTarget();
+            CleanupRenderTarget();              //RenderTargetの破棄
             DXGI_SWAP_CHAIN_DESC1 desc = {};
             g_pSwapChain->GetDesc1(&desc);
-            HRESULT result = g_pSwapChain->ResizeBuffers(0, (UINT)LOWORD(lParam), (UINT)HIWORD(lParam), desc.Format, desc.Flags);
+            HRESULT result = g_pSwapChain->ResizeBuffers(0, (UINT)LOWORD(lParam), (UINT)HIWORD(lParam), desc.Format, desc.Flags);   //バッファーのリサイズ
             IM_ASSERT(SUCCEEDED(result) && "Failed to resize swapchain.");
-            CreateRenderTarget();
+            CreateRenderTarget();               //RenderTargetの生成
         }
         return 0;
+    //Alt を押したときの古い Windows メニューを出さない
     case WM_SYSCOMMAND:
         if ((wParam & 0xfff0) == SC_KEYMENU) // Disable ALT application menu
             return 0;
@@ -550,5 +695,6 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
         ::PostQuitMessage(0);
         return 0;
     }
+    //メッセージを受け取る
     return ::DefWindowProcW(hWnd, msg, wParam, lParam);
 }

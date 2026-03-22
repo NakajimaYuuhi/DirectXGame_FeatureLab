@@ -8766,7 +8766,7 @@ static void ShowExampleAppMainMenuBar()
 {
     if (ImGui::BeginMainMenuBar())
     {
-        if (ImGui::BeginMenu("File"))
+        if (ImGui::BeginMenu("File"))//•`‰æ+Active‚È‚çtrue‚ª•Ô‚Á‚Ä‚«‚Ä’†g‚ğ‘‚­
         {
             IMGUI_DEMO_MARKER("Menu/File");
             ShowExampleMenuFile();

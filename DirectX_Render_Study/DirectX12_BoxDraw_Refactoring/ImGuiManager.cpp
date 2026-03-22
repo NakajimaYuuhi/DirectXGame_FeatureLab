@@ -1,4 +1,4 @@
-#include "IMGuiManager.h"
+ï»¿#include "IMGuiManager.h"
 #include "imgui_impl_win32.h"
 #include "imgui_impl_dx12.h"
 #include "DX12Manager.h"
@@ -10,16 +10,16 @@ CImGuiManager& CImGuiManager::GetInstance() {
 
 bool CImGuiManager::Initialize(HWND hwnd) {
     auto& dx12 = CDX12Manager::GetInstance();
-    ID3D12Device* device = dx12.GetDevice(); // CDX12Manager‚ÉGetDevice()‚ª•K—v
+    ID3D12Device* device = dx12.GetDevice(); // CDX12Managerã«GetDevice()ãŒå¿…è¦
 
-    // ˆÀ‘Sƒ`ƒFƒbƒNFƒfƒoƒCƒX‚ª‹ó‚Á‚Û‚È‚çƒGƒ‰[I
+    // å®‰å…¨ãƒã‚§ãƒƒã‚¯ï¼šãƒ‡ãƒã‚¤ã‚¹ãŒç©ºã£ã½ãªã‚‰ã‚¨ãƒ©ãƒ¼ï¼
     if (!device) {
         OutputDebugStringA("Error: DX12 Device is NULL!\n");
         return false;
     }
 
 
-    // 1. ImGuiƒRƒ“ƒeƒLƒXƒg‚Ìì¬
+    // 1. ImGuiã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã®ä½œæˆ
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO();
@@ -27,10 +27,10 @@ bool CImGuiManager::Initialize(HWND hwnd) {
     io.Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\msgothic.ttc", 20.0f, nullptr, io.Fonts->GetGlyphRangesJapanese());
     io.Fonts->Build();
 
-    // ƒXƒ^ƒCƒ‹İ’èi‚¨D‚İ‚ÅIj
+    // ã‚¹ã‚¿ã‚¤ãƒ«è¨­å®šï¼ˆãŠå¥½ã¿ã§ï¼ï¼‰
     ImGui::StyleColorsDark();
 
-    // 2. ImGui—p‚ÌSRVƒfƒBƒXƒNƒŠƒvƒ^ƒq[ƒvì¬
+    // 2. ImGuiç”¨ã®SRVãƒ‡ã‚£ã‚¹ã‚¯ãƒªãƒ—ã‚¿ãƒ’ãƒ¼ãƒ—ä½œæˆ
     D3D12_DESCRIPTOR_HEAP_DESC desc = {};
     desc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
     desc.NumDescriptors = 3;
@@ -40,7 +40,7 @@ bool CImGuiManager::Initialize(HWND hwnd) {
         return false;
     }
 
-    // 3. ƒvƒ‰ƒbƒgƒtƒH[ƒ€‚ÆƒŒƒ“ƒ_ƒ‰[‚Ì‰Šú‰»
+    // 3. ãƒ—ãƒ©ãƒƒãƒˆãƒ•ã‚©ãƒ¼ãƒ ã¨ãƒ¬ãƒ³ãƒ€ãƒ©ãƒ¼ã®åˆæœŸåŒ–
     //ImGui_ImplWin32_Init(hwnd);
 
     if (!ImGui_ImplWin32_Init(hwnd)) return false;
@@ -74,40 +74,31 @@ bool CImGuiManager::Initialize(HWND hwnd) {
     //int width, height;
     //io.Fonts->GetTexDataAsRGBA32(&pixels, &width, &height);
 
-    ImGui_ImplDX12_CreateDeviceObjects(); // GPU‘¤‚É–³—‚â‚èì‚é
-    //ImGui::GetIO().Fonts->Build();        // CPU‘¤‚Åuƒrƒ‹ƒhÏ‚İvƒtƒ‰ƒO‚ğ—§‚Ä‚é
+    ImGui_ImplDX12_CreateDeviceObjects(); // GPUå´ã«ç„¡ç†ã‚„ã‚Šä½œã‚‹
+    //ImGui::GetIO().Fonts->Build();        // CPUå´ã§ã€Œãƒ“ãƒ«ãƒ‰æ¸ˆã¿ã€ãƒ•ãƒ©ã‚°ã‚’ç«‹ã¦ã‚‹
 
     return true;
 }
 
-void CImGuiManager::Begin() {
-
-    if (ImGui::GetCurrentContext() == nullptr) {
-        OutputDebugStringA("ImGui Context is NULL!\n");
-        return;
-    }
-
-    // yƒ`ƒFƒbƒN2zDX12ƒoƒbƒNƒGƒ“ƒh‚ª‰Šú‰»‚³‚ê‚Ä‚¢‚é‚©H
-    // ‚±‚ê‚ªNULL‚¾‚ÆA’¼Œã‚Ì NewFrame ‚ÍÀ¿u‰½‚à‚µ‚È‚¢v‚Ì‚ÅƒGƒ‰[‚É‚È‚é‚æ
-    if (ImGui::GetIO().BackendRendererUserData == nullptr) {
-        OutputDebugStringA("ImGui DX12 Backend Data is NULL! Init failed?\n");
-        // ‚à‚µ‚±‚±‚ğ’Ê‚é‚È‚çAInitialize“à‚Ì ImGui_ImplDX12_Init ‚ª¸”s‚µ‚Ä‚éI
-    }
-
+void CImGuiManager::Begin() 
+{
     ImGui_ImplDX12_NewFrame();
     ImGui_ImplWin32_NewFrame();
     ImGui::NewFrame();
 }
 
-void CImGuiManager::End(ID3D12GraphicsCommandList* commandList) {
-    // ImGui‚Ì“à•”ƒf[ƒ^‚ğƒŒƒ“ƒ_ƒŠƒ“ƒO—p‚É‚Ü‚Æ‚ß‚é
+void CImGuiManager::End(ID3D12GraphicsCommandList* commandList) 
+{
+
+    // ImGuiã®å†…éƒ¨ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ç”¨ã«ã¾ã¨ã‚ã‚‹
+    //è²¯ã‚ãŸæç”»å‘½ä»¤ã‚’æç”»ãƒ‡ãƒ¼ã‚¿(ImDrawData)ã«å¤‰æ›ã™ã‚‹
     ImGui::Render();
 
-    // •`‰ææƒq[ƒv‚ğImGui—p‚Ì‚à‚Ì‚Éİ’è
+    // æç”»å…ˆãƒ’ãƒ¼ãƒ—ã‚’ImGuiç”¨ã®ã‚‚ã®ã«è¨­å®š
     ID3D12DescriptorHeap* heaps[] = { m_srvHeap.Get() };
     commandList->SetDescriptorHeaps(_countof(heaps), heaps);
 
-    // ƒRƒ}ƒ“ƒhƒŠƒXƒg‚ÉImGui‚Ì•`‰æƒRƒ}ƒ“ƒh‚ğÏ‚Ş
+    // ã‚³ãƒãƒ³ãƒ‰ãƒªã‚¹ãƒˆã«ImGuiã®æç”»ã‚³ãƒãƒ³ãƒ‰ã‚’ç©ã‚€(GPUã«é€ã‚‹)
     ImGui_ImplDX12_RenderDrawData(ImGui::GetDrawData(), commandList);
 }
 

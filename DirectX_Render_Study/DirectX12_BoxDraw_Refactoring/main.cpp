@@ -1,62 +1,66 @@
-///////////////////////////////////////////
+ï»¿///////////////////////////////////////////
 //main.cpp                               
 //                                       
-//  DirectX12‚Ì‰Šú‰»ƒvƒƒOƒ‰ƒ€               
+//  DirectX12ã®åˆæœŸåŒ–ãƒ—ãƒ­ã‚°ãƒ©ãƒ                
 //                                         
-//  `ŠT—v`                             
-//    DirectX12‚Ì‰Šú‰»‚ğs‚¤ƒvƒƒOƒ‰ƒ€
+//  ï½æ¦‚è¦ï½                             
+//    DirectX12ã®åˆæœŸåŒ–ã‚’è¡Œã†ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
 //                                       
-//  `XV—š—ğ`                         
-//  2026/02/20 §ìŠJn -Nakajima Yuhi-  
-//  2026/03/12 ƒŠƒtƒ@ƒNƒ^ƒŠƒ“ƒO‚Íˆê’UŠ®—¹
+//  ï½æ›´æ–°å±¥æ­´ï½                         
+//  2026/02/20 åˆ¶ä½œé–‹å§‹ -Nakajima Yuhi-  
+//  2026/03/12 ãƒªãƒ•ã‚¡ã‚¯ã‚¿ãƒªãƒ³ã‚°ã¯ä¸€æ—¦å®Œäº†
 // 
-//  ‹¤’Ê‚Ì’¸“_ƒf[ƒ^‚ğg‚Á‚Ä‚¢‚é‚Æ‚«‚È‚Ç‚ÍA‹¤’Ê‚Ìƒoƒbƒtƒ@‚ğg‚¤
-//  PSOŠÇ—
+//  å…±é€šã®é ‚ç‚¹ãƒ‡ãƒ¼ã‚¿ã‚’ä½¿ã£ã¦ã„ã‚‹ã¨ããªã©ã¯ã€å…±é€šã®ãƒãƒƒãƒ•ã‚¡ã‚’ä½¿ã†
+//  PSOç®¡ç†
 //                                       
 ///////////////////////////////////////////
 
-//===== ƒCƒ“ƒNƒ‹[ƒh =====
+//===== ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ =====
 #include <windows.h>
 #include "DX12Manager.h"
-#include "InputManager.h"	//TODO:main‚ª’m‚Á‚Ä‚é•K—v‚Í–³‚¢‹C‚ª‚·‚é
+#include "InputManager.h"	//TODO:mainãŒçŸ¥ã£ã¦ã‚‹å¿…è¦ã¯ç„¡ã„æ°—ãŒã™ã‚‹
 
 //Scene
 #include "Scene.h"
 #include "SceneTest.h"
 
-//ƒXƒ}[ƒgƒ|ƒCƒ“ƒ^
+//ã‚¹ãƒãƒ¼ãƒˆãƒã‚¤ãƒ³ã‚¿
 #include<memory>
 template<typename T>
 using UniquePtr = std::unique_ptr<T>;
 
 #include "ImGuiManager.h"
 
-//===== –¼‘O‹óŠÔéŒ¾ =====
+//===== åå‰ç©ºé–“å®£è¨€ =====
 
-//===== ’è”Eƒ}ƒNƒ’è‹` =====
+//===== å®šæ•°ãƒ»ãƒã‚¯ãƒ­å®šç¾© =====
 
-//===== \‘¢‘Ì’è‹` =====
+//===== æ§‹é€ ä½“å®šç¾© =====
 
-//===== ƒOƒ[ƒoƒ‹•Ï”éŒ¾ =====
+//===== ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°å®£è¨€ =====
 UniquePtr<CScene> g_CScene;
 
-//===== ƒvƒƒgƒ^ƒCƒvéŒ¾ =====
+//===== ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€ =====
 
-// ImGui‚ÌWin32À‘•‚É‚ ‚éƒvƒƒgƒ^ƒCƒvéŒ¾
+// ImGuiã®Win32å®Ÿè£…ã«ã‚ã‚‹ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 
-//===== ŠÖ”’è‹` =====
-//ƒEƒBƒ“ƒhƒEƒvƒƒV[ƒWƒƒ
+//===== é–¢æ•°å®šç¾© =====
+//ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 {
 
-	// ImGui‚ªƒƒbƒZ[ƒW‚ğˆ—‚µ‚½‚ç‚»‚±‚ÅƒŠƒ^[ƒ“
+	// ImGuiãŒãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡¦ç†ã—ãŸã‚‰ãã“ã§ãƒªã‚¿ãƒ¼ãƒ³
 	if (ImGui_ImplWin32_WndProcHandler(hwnd, msg, wparam, lparam))
 		return true;
 
 	switch (msg)
 	{
+	case WM_SYSCOMMAND:
+		if ((wparam & 0xfff0) == SC_KEYMENU) // Disable ALT application menu
+			return 0;
+		break;
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		return 0;
@@ -64,12 +68,12 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 	return DefWindowProc(hwnd, msg, wparam, lparam);
 }
 
-//Todo : Window‚àƒNƒ‰ƒX‰»‚µ‚½‚¢
-//ƒGƒ“ƒgƒŠ[ƒ|ƒCƒ“ƒg
+//Todo : Windowã‚‚ã‚¯ãƒ©ã‚¹åŒ–ã—ãŸã„
+//ã‚¨ãƒ³ãƒˆãƒªãƒ¼ãƒã‚¤ãƒ³ãƒˆ
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 {
 
-	//ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX‚Ì“o˜^
+	//ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ©ã‚¹ã®ç™»éŒ²
 	const char* className = "DX12WindowClass";
 
 	WNDCLASSEX wc = {};
@@ -81,7 +85,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
 	RegisterClassEx(&wc);
 
-	//ƒEƒBƒ“ƒhƒE‚Ìì¬
+	//ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ä½œæˆ
 	HWND hwnd = CreateWindowExA(
 		0,
 		className,
@@ -94,19 +98,19 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 		NULL
 	);
 
-	//ƒEƒBƒ“ƒhƒE‚Ì•\¦
+	//ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®è¡¨ç¤º
 	ShowWindow(hwnd, nCmdShow);
 
 	MSG msg = {};
 
 
-	//DirectX12‚Ì‰Šú‰»
+	//DirectX12ã®åˆæœŸåŒ–
 	CDX12Manager::GetInstance().Initialize(hwnd);
 	
-	//Å‰‚ÌƒV[ƒ“‚Ìì¬
+	//æœ€åˆã®ã‚·ãƒ¼ãƒ³ã®ä½œæˆ
 	g_CScene = std::make_unique<CSceneTest>();
 
-	//ƒV[ƒ“‚Ì‰Šú‰»
+	//ã‚·ãƒ¼ãƒ³ã®åˆæœŸåŒ–
 	g_CScene->Init();
 
 	CInputManager::GetInstance();
@@ -122,28 +126,43 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 		}
 		else
 		{
-			//“ü—ÍXV
+			//ç”»é¢ãŒéš ã‚Œã¦ã„ã‚‹ãªã‚‰ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ã‚¹ã‚­ãƒƒãƒ—
+			if (CDX12Manager::GetInstance().IsOccluded(hwnd))
+			{
+				::Sleep(10);
+				continue;
+			}
+
+
+			//---å…¥åŠ›ã®æ›´æ–°---
 			CInputManager::GetInstance().Update();
 
+			
 
-			CDX12Manager::GetInstance().BeginDraw();
-
-			// --- XV ---
+			// --- æ›´æ–° ---
+			//ImGuiã®ãƒ•ãƒ¬ãƒ¼ãƒ é–‹å§‹
 			CImGuiManager::GetInstance().Begin();
-			ImGui::Begin("Debug Window"); // ‚±‚±‚ÅGUI‚ğì‚é
+
+			//ImGuiã®æç”»å‘½ä»¤ã‚’æºœã‚ã‚‹
+			ImGui::Begin("Debug Window"); // ã“ã“ã§GUIã‚’ä½œã‚‹
 			ImGui::Text("Hello, DX12!");
 			ImGui::End();
 
-			//XVˆ—
-			CDX12Manager::GetInstance().Update();
+			//ã‚·ãƒ¼ãƒ³ã®æ›´æ–°å‡¦ç†
 			g_CScene->Update();
 
-			//•`‰æˆ—
 
+			//---æç”»å‡¦ç†---
+			//DirectX12æç”»é–‹å§‹
+			CDX12Manager::GetInstance().BeginDraw();
+
+			//ã‚·ãƒ¼ãƒ³ã®æç”»
 			g_CScene->Draw();
 
+			//ImGuiã®æç”»
 			CImGuiManager::GetInstance().End(CDX12Manager::GetInstance().GetCommandLIst());
 
+			//DirectX12ã®æç”»çµ‚äº†
 			CDX12Manager::GetInstance().EndDraw();
 		}
 	}
