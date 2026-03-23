@@ -185,11 +185,17 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
 		CImGuiManager::GetInstance().Begin();
 
-		//ImGuiの描画命令を溜める
-		ImGui::Begin("Debug Window"); // ここでGUIを作る
-		ImGui::Text("Hello, DX12!");
-		ImGui::End();
+		{
+			bool IsValidTransform;
+			//ImGuiの描画命令を溜める
+			ImGui::Begin("ComponentList"); // ここでGUIを作る
+			ImGui::Text("Transform"); ImGui::SameLine(); ImGui::Checkbox(" ", &IsValidTransform);
+			ImGui::Text("Position");
+			ImGui::Text("Scale");
+			ImGui::Text("Rotation");
+			ImGui::End();
 
+		}
 		{
 			static ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
