@@ -1,54 +1,96 @@
-///////////////////////////////////////////
+ï»¿///////////////////////////////////////////
 //main.cpp                               
 //                                       
-//  DirectX12‚Ì‰Šú‰»ƒvƒƒOƒ‰ƒ€               
+//  DirectX12ã®åˆæœŸåŒ–ãƒ—ãƒ­ã‚°ãƒ©ãƒ                
 //                                         
-//  `ŠT—v`                             
-//    DirectX12‚Ì‰Šú‰»‚ğs‚¤ƒvƒƒOƒ‰ƒ€
+//  ï½æ¦‚è¦ï½                             
+//    DirectX12ã®åˆæœŸåŒ–ã‚’è¡Œã†ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
 //                                       
-//  `XV—š—ğ`                         
-//  2026/02/20 §ìŠJn -Nakajima Yuhi-  
-//  2026/03/12 ƒŠƒtƒ@ƒNƒ^ƒŠƒ“ƒO‚Íˆê’UŠ®—¹
+//  ï½æ›´æ–°å±¥æ­´ï½                         
+//  2026/02/20 åˆ¶ä½œé–‹å§‹ -Nakajima Yuhi-  
+//  2026/03/12 ãƒªãƒ•ã‚¡ã‚¯ã‚¿ãƒªãƒ³ã‚°ã¯ä¸€æ—¦å®Œäº†
 // 
-//  ‹¤’Ê‚Ì’¸“_ƒf[ƒ^‚ğg‚Á‚Ä‚¢‚é‚Æ‚«‚È‚Ç‚ÍA‹¤’Ê‚Ìƒoƒbƒtƒ@‚ğg‚¤
-//  PSOŠÇ—
+//  å…±é€šã®é ‚ç‚¹ãƒ‡ãƒ¼ã‚¿ã‚’ä½¿ã£ã¦ã„ã‚‹ã¨ããªã©ã¯ã€å…±é€šã®ãƒãƒƒãƒ•ã‚¡ã‚’ä½¿ã†
+//  PSOç®¡ç†
 //                                       
 ///////////////////////////////////////////
 
-//===== ƒCƒ“ƒNƒ‹[ƒh =====
+//===== ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ =====
 #include <windows.h>
 #include "DX12Manager.h"
-#include "InputManager.h"	//TODO:main‚ª’m‚Á‚Ä‚é•K—v‚Í–³‚¢‹C‚ª‚·‚é
+#include "InputManager.h"	//TODO:mainãŒçŸ¥ã£ã¦ã‚‹å¿…è¦ã¯ç„¡ã„æ°—ãŒã™ã‚‹
 
 //Scene
 #include "Scene.h"
 #include "SceneTest.h"
 
-//ƒXƒ}[ƒgƒ|ƒCƒ“ƒ^
+//ã‚¹ãƒãƒ¼ãƒˆãƒã‚¤ãƒ³ã‚¿
 #include<memory>
 template<typename T>
 using UniquePtr = std::unique_ptr<T>;
 
-//===== –¼‘O‹óŠÔéŒ¾ =====
+#include "ImGuiManager.h"
 
-//===== ’è”Eƒ}ƒNƒ’è‹` =====
+#include "imgui_impl_win32.h"
 
-//===== \‘¢‘Ì’è‹` =====
+#include <string>
 
-//===== ƒOƒ[ƒoƒ‹•Ï”éŒ¾ =====
+//===== åå‰ç©ºé–“å®£è¨€ =====
+
+//===== å®šæ•°ãƒ»ãƒã‚¯ãƒ­å®šç¾© =====
+
+//===== æ§‹é€ ä½“å®šç¾© =====
+
+//===== ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°å®£è¨€ =====
 UniquePtr<CScene> g_CScene;
 
-//===== ƒvƒƒgƒ^ƒCƒvéŒ¾ =====
+//===== ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€ =====
 
+// ImGuiã®Win32å®Ÿè£…ã«ã‚ã‚‹ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
+extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
+bool initialized = false;
+void DisplaySize()
+{
+	if(!initialized)return;
 
+	ImGuiIO& io = ImGui::GetIO();
+	std::string str = "DisplaySize = ";
+	str += io.DisplaySize.x;
+	str += ", ";
+	str += io.DisplaySize.y;
+	OutputDebugString(str.c_str());
+	OutputDebugString("\n");
+}
 
-//===== ŠÖ”’è‹` =====
-//ƒEƒBƒ“ƒhƒEƒvƒƒV[ƒWƒƒ
+//===== é–¢æ•°å®šç¾© =====
+//ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 {
+
+	// ImGuiãŒãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡¦ç†ã—ãŸã‚‰ãã“ã§ãƒªã‚¿ãƒ¼ãƒ³
+	if (ImGui_ImplWin32_WndProcHandler(hwnd, msg, wparam, lparam))
+		return true;
+
+
 	switch (msg)
 	{
+	case WM_SIZE:
+		
+		DisplaySize();
+
+		if (CDX12Manager::GetInstance().GetDevice() && wparam != SIZE_MINIMIZED)
+		{
+			CDX12Manager::GetInstance().ResizeRenderTarget(lparam);
+			CDX12Manager::GetInstance().ResizeDepthBuffer(lparam);
+			CDX12Manager::GetInstance().ResizeViewPort(lparam);
+		}
+		DisplaySize();
+		return 0;
+	case WM_SYSCOMMAND:
+		if ((wparam & 0xfff0) == SC_KEYMENU) // Disable ALT application menu
+			return 0;
+		break;
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		return 0;
@@ -56,12 +98,12 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 	return DefWindowProc(hwnd, msg, wparam, lparam);
 }
 
-//Todo : Window‚àƒNƒ‰ƒX‰»‚µ‚½‚¢
-//ƒGƒ“ƒgƒŠ[ƒ|ƒCƒ“ƒg
+//Todo : Windowã‚‚ã‚¯ãƒ©ã‚¹åŒ–ã—ãŸã„
+//ã‚¨ãƒ³ãƒˆãƒªãƒ¼ãƒã‚¤ãƒ³ãƒˆ
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 {
 
-	//ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX‚Ì“o˜^
+	//ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ©ã‚¹ã®ç™»éŒ²
 	const char* className = "DX12WindowClass";
 
 	WNDCLASSEX wc = {};
@@ -73,59 +115,127 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
 	RegisterClassEx(&wc);
 
-	//ƒEƒBƒ“ƒhƒE‚Ìì¬
+	//ImGuiã®æ©Ÿèƒ½ã§DPIã‚’å–å¾—
+	float main_scale = CImGuiManager::GetInstance().GetActualScaleFactor();
+	//main_scale /= 1.5;
+
+	//ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ä½œæˆ
 	HWND hwnd = CreateWindowExA(
 		0,
 		className,
 		"DirectX12 Window",
 		WS_OVERLAPPEDWINDOW,
-		100, 100, 1920, 1080,
+		100, 100, 1920 * main_scale, 1080 * main_scale,
 		NULL,
 		NULL,
 		hInst,
 		NULL
 	);
 
-	//ƒEƒBƒ“ƒhƒE‚Ì•\¦
+	//ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®è¡¨ç¤º
 	ShowWindow(hwnd, nCmdShow);
 
 	MSG msg = {};
 
 
-	//DirectX12‚Ì‰Šú‰»
+	//DirectX12ã®åˆæœŸåŒ–
 	CDX12Manager::GetInstance().Initialize(hwnd);
 	
-	//Å‰‚ÌƒV[ƒ“‚Ìì¬
+	//æœ€åˆã®ã‚·ãƒ¼ãƒ³ã®ä½œæˆ
 	g_CScene = std::make_unique<CSceneTest>();
 
-	//ƒV[ƒ“‚Ì‰Šú‰»
+	//ã‚·ãƒ¼ãƒ³ã®åˆæœŸåŒ–
 	g_CScene->Init();
 
 	CInputManager::GetInstance();
 
-	while (msg.message != WM_QUIT)
+	CImGuiManager::GetInstance().Initialize(hwnd);
+	initialized = true;
+
+	//DisplaySize();
+
+	bool done = false;
+	while (!done)
 	{
-		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+		while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
 		{
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
+			if (msg.message == WM_QUIT)
+				done = true;
 		}
-		else
+		if (done)
+			break;
+
+		//ç”»é¢ãŒéš ã‚Œã¦ã„ã‚‹ãªã‚‰ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’ã‚¹ã‚­ãƒƒãƒ—
+		if (CDX12Manager::GetInstance().IsOccluded(hwnd))
 		{
-			//“ü—ÍXV
-			CInputManager::GetInstance().Update();
-
-			//XVˆ—
-			CDX12Manager::GetInstance().Update();
-			g_CScene->Update();
-
-			//•`‰æˆ—
-			CDX12Manager::GetInstance().BeginDraw();
-
-			g_CScene->Draw();
-
-			CDX12Manager::GetInstance().EndDraw();
+			::Sleep(10);
+			continue;
 		}
+
+
+		//---å…¥åŠ›ã®æ›´æ–°---
+		CInputManager::GetInstance().Update();
+
+			
+
+		// --- æ›´æ–° ---
+		//ImGuiã®ãƒ•ãƒ¬ãƒ¼ãƒ é–‹å§‹
+
+		CImGuiManager::GetInstance().Begin();
+
+		//ImGuiã®æç”»å‘½ä»¤ã‚’æºœã‚ã‚‹
+		ImGui::Begin("Debug Window"); // ã“ã“ã§GUIã‚’ä½œã‚‹
+		ImGui::Text("Hello, DX12!");
+		ImGui::End();
+
+		{
+			static ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+
+			static bool show_demo_window = true;
+			static bool show_another_window = true;
+
+			static float f = 0.0f;
+			static int counter = 0;
+
+			ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
+
+			ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
+			ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our window open/close state
+			ImGui::Checkbox("Another Window", &show_another_window);
+
+			ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
+			ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
+
+			//ã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸã‚‰TrueãŒè¿”ã£ã¦ãã‚‹
+			if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
+				counter++;
+			ImGui::SameLine();//åŒã˜è¡Œã«å„å‘½ä»¤ï¼Ÿ
+			ImGui::Text("counter = %d", counter);//ãƒ†ã‚­ã‚¹ãƒˆã¯ã€Printfã¿ãŸã„ã«æ›¸ã‘ã‚‹ ã£ã¦ã‹C++ãŒãã†ã„ã†ã‚‚ã‚“ãªã®ã‹ï¼Ÿ
+
+			//FrameRateã¯ioã‹ã‚‰æŒã£ã¦ã“ã‚Œã‚‹
+			//ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / io.Framerate, io.Framerate);
+			ImGui::End();
+		}
+
+		//ã‚·ãƒ¼ãƒ³ã®æ›´æ–°å‡¦ç†
+		g_CScene->Update();
+
+
+		//---æç”»å‡¦ç†---
+		//DirectX12æç”»é–‹å§‹
+		CDX12Manager::GetInstance().BeginDraw();
+
+		//ã‚·ãƒ¼ãƒ³ã®æç”»
+		g_CScene->Draw();
+
+		//ImGuiã®æç”»
+		CImGuiManager::GetInstance().End(CDX12Manager::GetInstance().GetCommandLIst());
+
+		//DirectX12ã®æç”»çµ‚äº†
+		CDX12Manager::GetInstance().EndDraw();
+		
 	}
 
 	CDX12Manager::GetInstance().Finalize();
