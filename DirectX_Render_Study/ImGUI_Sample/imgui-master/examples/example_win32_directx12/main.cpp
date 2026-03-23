@@ -132,7 +132,7 @@ int main(int, char**)
     };
 
     //ウィンドウクラスの登録
-    ::RegisterClassExW(&wc);
+    ::RegisterClassEx(&wc);
 
     //ウィンドウの作成
     //サイズはどこかに定義しておきたい
@@ -142,7 +142,7 @@ int main(int, char**)
     if (!CreateDeviceD3D(hwnd))
     {
         CleanupDeviceD3D();
-        ::UnregisterClassW(wc.lpszClassName, wc.hInstance);
+        ::UnregisterClass(wc.lpszClassName, wc.hInstance);
         return 1;
     }
 
@@ -520,12 +520,15 @@ bool CreateDeviceD3D(HWND hWnd)
     }
 
     {
+        //ImGui用のSRVディスクリプタヒープ作成
         D3D12_DESCRIPTOR_HEAP_DESC desc = {};
         desc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
         desc.NumDescriptors = APP_SRV_HEAP_SIZE;
         desc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
         if (g_pd3dDevice->CreateDescriptorHeap(&desc, IID_PPV_ARGS(&g_pd3dSrvDescHeap)) != S_OK)
             return false;
+
+        //
         g_pd3dSrvDescHeapAlloc.Create(g_pd3dDevice, g_pd3dSrvDescHeap);
     }
 

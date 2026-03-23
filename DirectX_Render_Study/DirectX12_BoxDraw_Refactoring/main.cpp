@@ -31,6 +31,8 @@ using UniquePtr = std::unique_ptr<T>;
 
 #include "ImGuiManager.h"
 
+#include "imgui_impl_win32.h"
+
 //===== 名前空間宣言 =====
 
 //===== 定数・マクロ定義 =====
@@ -57,6 +59,12 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 
 	switch (msg)
 	{
+	case WM_SIZE:
+		if (CDX12Manager::GetInstance().GetDevice() && wparam != SIZE_MINIMIZED)
+		{
+			CDX12Manager::GetInstance().ResizeRenderTarget(lparam);
+		}
+		return 0;
 	case WM_SYSCOMMAND:
 		if ((wparam & 0xfff0) == SC_KEYMENU) // Disable ALT application menu
 			return 0;
@@ -85,13 +93,17 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
 	RegisterClassEx(&wc);
 
+	ImGui_ImplWin32_EnableDpiAwareness();
+	float main_scale = ImGui_ImplWin32_GetDpiScaleForMonitor(::MonitorFromPoint(POINT{ 0, 0 }, MONITOR_DEFAULTTOPRIMARY));
+
+
 	//ウィンドウの作成
 	HWND hwnd = CreateWindowExA(
 		0,
 		className,
 		"DirectX12 Window",
 		WS_OVERLAPPEDWINDOW,
-		100, 100, 1920, 1080,
+		100, 100, 1920 * main_scale, 1080 * main_scale,
 		NULL,
 		NULL,
 		hInst,
@@ -147,6 +159,35 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 			ImGui::Begin("Debug Window"); // ここでGUIを作る
 			ImGui::Text("Hello, DX12!");
 			ImGui::End();
+
+			{
+				static ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+
+				static bool show_demo_window = true;
+				static bool show_another_window = true;
+
+				static float f = 0.0f;
+				static int counter = 0;
+
+				ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
+
+				ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
+				ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our window open/close state
+				ImGui::Checkbox("Another Window", &show_another_window);
+
+				ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
+				ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
+
+				//クリックされたらTrueが返ってくる
+				if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
+					counter++;
+				ImGui::SameLine();//同じ行に各命令？
+				ImGui::Text("counter = %d", counter);//テキストは、Printfみたいに書ける ってかC++がそういうもんなのか？
+
+				//FrameRateはioから持ってこれる
+				//ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / io.Framerate, io.Framerate);
+				ImGui::End();
+			}
 
 			//シーンの更新処理
 			g_CScene->Update();

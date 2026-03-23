@@ -6,6 +6,8 @@
 
 #include "InputManager.h"
 
+#include "Windows.h"
+#include "imgui.h"
 
 
 
@@ -279,6 +281,16 @@ void CDX12Manager::Update()
 {
 }
 
+void CDX12Manager::ResizeRenderTarget(LPARAM lParam)
+{
+	CleanupRenderTarget();              //RenderTargetの破棄
+	DXGI_SWAP_CHAIN_DESC1 desc = {};
+	m_swapChain->GetDesc1(&desc);
+	HRESULT result = m_swapChain->ResizeBuffers(0, (UINT)LOWORD(lParam), (UINT)HIWORD(lParam), desc.Format, desc.Flags);   //バッファーのリサイズ
+	IM_ASSERT(SUCCEEDED(result) && "Failed to resize swapchain.");
+	CreateRenderTarget();               //RenderTargetの生成
+}
+
 //----- 描画処理 -----
 void CDX12Manager::BeginDraw()
 {
@@ -431,6 +443,58 @@ void CDX12Manager::CreateFence()
 	m_fenceValue = 1;
 
 	m_fenceEvent = CreateEvent(nullptr, FALSE, FALSE, nullptr);
+}
+
+void CDX12Manager::CreateRenderTarget()
+{
+	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle =
+		m_rtvHeap->GetCPUDescriptorHandleForHeapStart();
+
+	for (UINT i = 0; i < m_FrameBufferCount; ++i)
+	{
+		//バックバッファ取得
+		HRESULT hr = m_swapChain->GetBuffer(
+			i,
+			IID_PPV_ARGS(&m_renderTargets[i])
+		);
+
+		if (FAILED(hr))
+			return;
+
+
+
+		//RTV作成
+		m_device->CreateRenderTargetView(
+			m_renderTargets[i].Get(),
+			nullptr,
+			rtvHandle
+		);
+
+		// 次のディスクリプタへ移動
+		rtvHandle.ptr += m_rtvDescriptorSize;
+	}
+}
+
+void CDX12Manager::WaitForPendingOperations()
+{
+
+	m_commandQueue->Signal(m_fence.Get(), m_fenceValue);
+
+	if (m_fence->GetCompletedValue() < m_fenceValue)
+	{
+		m_fence->SetEventOnCompletion(m_fenceValue, m_fenceEvent);
+		WaitForSingleObject(m_fenceEvent, INFINITE);
+	}
+	m_fenceValue++;
+
+}
+
+void CDX12Manager::CleanupRenderTarget()
+{
+	WaitForPendingOperations();
+
+	for (UINT i = 0; i < FRAME_BUFFER_COUNT; i++)
+		m_renderTargets[i].Reset(); 
 }
 
 //

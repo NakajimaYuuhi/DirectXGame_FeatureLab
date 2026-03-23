@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <d3d12.h>
 #include <wrl.h>
 #include <Windows.h>
@@ -8,27 +8,39 @@
 #include <d3d12.h>
 #include <wrl/client.h>
 #include "imgui.h"
+#include "DescriptorHeapAllocator.h"
 
 class CImGuiManager {
 public:
+
+    struct SrvAllocUserData
+    {
+        CImGuiManager* self;
+    };
+
     static CImGuiManager& GetInstance();
 
-    // ‰Šú‰» (ƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹‚ÆDX12‚ÌƒfƒoƒCƒXAƒoƒbƒtƒ@”AƒtƒH[ƒ}ƒbƒg‚ª•K—v)
+    // åˆæœŸåŒ– (ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«ã¨DX12ã®ãƒ‡ãƒã‚¤ã‚¹ã€ãƒãƒƒãƒ•ã‚¡æ•°ã€ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆãŒå¿…è¦)
     bool Initialize(HWND hwnd);
 
-    // I—¹ˆ—
+    // çµ‚äº†å‡¦ç†
     void Finalize();
 
-    // ƒtƒŒ[ƒ€ŠJn‚Ìˆ—
+    // ãƒ•ãƒ¬ãƒ¼ãƒ é–‹å§‹æ™‚ã®å‡¦ç†
     void Begin();
 
-    // ƒtƒŒ[ƒ€I—¹‚Ì•`‰æˆ— (ƒRƒ}ƒ“ƒhƒŠƒXƒg‚ğ“n‚·)
+    // ãƒ•ãƒ¬ãƒ¼ãƒ çµ‚äº†æ™‚ã®æç”»å‡¦ç† (ã‚³ãƒãƒ³ãƒ‰ãƒªã‚¹ãƒˆã‚’æ¸¡ã™)
     void End(ID3D12GraphicsCommandList* commandList);
+
+    CDescriptorHeapAllocator& GetDescriptorHeapAllocator() { return m_DescriptorHeapAllocator; }
 
 private:
     CImGuiManager() = default;
     ~CImGuiManager() = default;
 
-    // ImGui—p‚ÌƒtƒHƒ“ƒgƒeƒNƒXƒ`ƒƒ“™‚ğ”z’u‚·‚é‚½‚ß‚ÌSRVƒq[ƒv
+    // ImGuiç”¨ã®ãƒ•ã‚©ãƒ³ãƒˆãƒ†ã‚¯ã‚¹ãƒãƒ£ç­‰ã‚’é…ç½®ã™ã‚‹ãŸã‚ã®SRVãƒ’ãƒ¼ãƒ—
     Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> m_srvHeap;
+    CDescriptorHeapAllocator m_DescriptorHeapAllocator;
+    SrvAllocUserData m_SrvAllocUserData;
+
 };

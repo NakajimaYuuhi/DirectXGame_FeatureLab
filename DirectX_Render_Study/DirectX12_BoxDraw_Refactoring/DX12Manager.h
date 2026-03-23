@@ -38,10 +38,15 @@ public:
 	void Update();
 
 
+	void ResizeRenderTarget(LPARAM lParam);
 
 
 	void CreateCommandObjects();
 	void CreateFence();
+
+	void CreateRenderTarget();
+	void CleanupRenderTarget();
+	void WaitForPendingOperations();
 
 	//仮のview,projのGetter
 	DirectX::XMMATRIX GetView() { return m_view; }
@@ -49,6 +54,7 @@ public:
 
 	ID3D12Device* GetDevice() { return m_device.Get(); }
 	ID3D12GraphicsCommandList* GetCommandLIst() { return m_commandList.Get(); }
+	ID3D12CommandQueue* GetCommandQueue() { return m_commandQueue.Get(); }
 
 
 

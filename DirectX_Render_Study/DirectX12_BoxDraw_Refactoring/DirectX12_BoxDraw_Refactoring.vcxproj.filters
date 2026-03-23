@@ -73,6 +73,9 @@
     <Filter Include="Source\System\ImGuiManager">
       <UniqueIdentifier>{9060e3c7-6498-4dbb-85a7-d1a618f79a63}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\System\ImGui\DescriptorAllocator">
+      <UniqueIdentifier>{336b1e38-97d3-4f58-9dca-e05cede68c25}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Box.cpp">
@@ -134,6 +137,9 @@
     </ClCompile>
     <ClCompile Include="imgui_impl_win32.cpp">
       <Filter>Source\System\ImGui\BackEnds</Filter>
+    </ClCompile>
+    <ClCompile Include="DescriptorHeapAllocator.cpp">
+      <Filter>Source\System\ImGui\DescriptorAllocator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +205,9 @@
     </ClInclude>
     <ClInclude Include="imstb_truetype.h">
       <Filter>Source\System\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="DescriptorHeapAllocator.h">
+      <Filter>Source\System\ImGui\DescriptorAllocator</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
