@@ -2,17 +2,39 @@
 #include "imgui_impl_win32.h"
 #include "imgui_impl_dx12.h"
 #include "DX12Manager.h"
+#include "BasicSettings.h"
 
 CImGuiManager& CImGuiManager::GetInstance() {
     static CImGuiManager instance;
     return instance;
 }
 
-bool CImGuiManager::Initialize(HWND hwnd) 
+//画面の拡大率の取得
+float CImGuiManager::GetSystemScaleFactor()
 {
-
     ImGui_ImplWin32_EnableDpiAwareness();
     float main_scale = ImGui_ImplWin32_GetDpiScaleForMonitor(::MonitorFromPoint(POINT{ 0, 0 }, MONITOR_DEFAULTTOPRIMARY));
+
+    return main_scale;
+}
+
+
+
+float CImGuiManager::GetActualScaleFactor()
+{
+    float scale = GetSystemScaleFactor();
+
+    //falseなら適用しない
+    if (!DISPLAY_SCALING_ENABLED)return 1.0f;
+
+    //trueなら拡大率をそのまま返す
+    return GetSystemScaleFactor();
+}
+
+bool CImGuiManager::Initialize(HWND hwnd)
+{
+
+    float main_scale = GetActualScaleFactor();
 
 
     auto& dx12 = CDX12Manager::GetInstance();

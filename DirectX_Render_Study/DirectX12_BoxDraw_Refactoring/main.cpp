@@ -33,6 +33,8 @@ using UniquePtr = std::unique_ptr<T>;
 
 #include "imgui_impl_win32.h"
 
+#include <string>
+
 //===== 名前空間宣言 =====
 
 //===== 定数・マクロ定義 =====
@@ -47,6 +49,19 @@ UniquePtr<CScene> g_CScene;
 // ImGuiのWin32実装にあるプロトタイプ宣言
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
+bool initialized = false;
+void DisplaySize()
+{
+	if(!initialized)return;
+
+	ImGuiIO& io = ImGui::GetIO();
+	std::string str = "DisplaySize = ";
+	str += io.DisplaySize.x;
+	str += ", ";
+	str += io.DisplaySize.y;
+	OutputDebugString(str.c_str());
+	OutputDebugString("\n");
+}
 
 //===== 関数定義 =====
 //ウィンドウプロシージャ
@@ -57,13 +72,20 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 	if (ImGui_ImplWin32_WndProcHandler(hwnd, msg, wparam, lparam))
 		return true;
 
+
 	switch (msg)
 	{
 	case WM_SIZE:
+		
+		DisplaySize();
+
 		if (CDX12Manager::GetInstance().GetDevice() && wparam != SIZE_MINIMIZED)
 		{
 			CDX12Manager::GetInstance().ResizeRenderTarget(lparam);
+			CDX12Manager::GetInstance().ResizeDepthBuffer(lparam);
+			CDX12Manager::GetInstance().ResizeViewPort(lparam);
 		}
+		DisplaySize();
 		return 0;
 	case WM_SYSCOMMAND:
 		if ((wparam & 0xfff0) == SC_KEYMENU) // Disable ALT application menu
@@ -93,9 +115,9 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
 	RegisterClassEx(&wc);
 
-	ImGui_ImplWin32_EnableDpiAwareness();
-	float main_scale = ImGui_ImplWin32_GetDpiScaleForMonitor(::MonitorFromPoint(POINT{ 0, 0 }, MONITOR_DEFAULTTOPRIMARY));
-
+	//ImGuiの機能でDPIを取得
+	float main_scale = CImGuiManager::GetInstance().GetActualScaleFactor();
+	//main_scale /= 1.5;
 
 	//ウィンドウの作成
 	HWND hwnd = CreateWindowExA(
@@ -128,84 +150,92 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 	CInputManager::GetInstance();
 
 	CImGuiManager::GetInstance().Initialize(hwnd);
+	initialized = true;
 
-	while (msg.message != WM_QUIT)
+	//DisplaySize();
+
+	bool done = false;
+	while (!done)
 	{
-		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+		while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
 		{
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
+			if (msg.message == WM_QUIT)
+				done = true;
 		}
-		else
+		if (done)
+			break;
+
+		//画面が隠れているならフレームをスキップ
+		if (CDX12Manager::GetInstance().IsOccluded(hwnd))
 		{
-			//画面が隠れているならフレームをスキップ
-			if (CDX12Manager::GetInstance().IsOccluded(hwnd))
-			{
-				::Sleep(10);
-				continue;
-			}
+			::Sleep(10);
+			continue;
+		}
 
 
-			//---入力の更新---
-			CInputManager::GetInstance().Update();
+		//---入力の更新---
+		CInputManager::GetInstance().Update();
 
 			
 
-			// --- 更新 ---
-			//ImGuiのフレーム開始
-			CImGuiManager::GetInstance().Begin();
+		// --- 更新 ---
+		//ImGuiのフレーム開始
 
-			//ImGuiの描画命令を溜める
-			ImGui::Begin("Debug Window"); // ここでGUIを作る
-			ImGui::Text("Hello, DX12!");
+		CImGuiManager::GetInstance().Begin();
+
+		//ImGuiの描画命令を溜める
+		ImGui::Begin("Debug Window"); // ここでGUIを作る
+		ImGui::Text("Hello, DX12!");
+		ImGui::End();
+
+		{
+			static ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+
+			static bool show_demo_window = true;
+			static bool show_another_window = true;
+
+			static float f = 0.0f;
+			static int counter = 0;
+
+			ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
+
+			ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
+			ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our window open/close state
+			ImGui::Checkbox("Another Window", &show_another_window);
+
+			ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
+			ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
+
+			//クリックされたらTrueが返ってくる
+			if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
+				counter++;
+			ImGui::SameLine();//同じ行に各命令？
+			ImGui::Text("counter = %d", counter);//テキストは、Printfみたいに書ける ってかC++がそういうもんなのか？
+
+			//FrameRateはioから持ってこれる
+			//ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / io.Framerate, io.Framerate);
 			ImGui::End();
-
-			{
-				static ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-
-				static bool show_demo_window = true;
-				static bool show_another_window = true;
-
-				static float f = 0.0f;
-				static int counter = 0;
-
-				ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
-
-				ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
-				ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our window open/close state
-				ImGui::Checkbox("Another Window", &show_another_window);
-
-				ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
-				ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
-
-				//クリックされたらTrueが返ってくる
-				if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
-					counter++;
-				ImGui::SameLine();//同じ行に各命令？
-				ImGui::Text("counter = %d", counter);//テキストは、Printfみたいに書ける ってかC++がそういうもんなのか？
-
-				//FrameRateはioから持ってこれる
-				//ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / io.Framerate, io.Framerate);
-				ImGui::End();
-			}
-
-			//シーンの更新処理
-			g_CScene->Update();
-
-
-			//---描画処理---
-			//DirectX12描画開始
-			CDX12Manager::GetInstance().BeginDraw();
-
-			//シーンの描画
-			g_CScene->Draw();
-
-			//ImGuiの描画
-			CImGuiManager::GetInstance().End(CDX12Manager::GetInstance().GetCommandLIst());
-
-			//DirectX12の描画終了
-			CDX12Manager::GetInstance().EndDraw();
 		}
+
+		//シーンの更新処理
+		g_CScene->Update();
+
+
+		//---描画処理---
+		//DirectX12描画開始
+		CDX12Manager::GetInstance().BeginDraw();
+
+		//シーンの描画
+		g_CScene->Draw();
+
+		//ImGuiの描画
+		CImGuiManager::GetInstance().End(CDX12Manager::GetInstance().GetCommandLIst());
+
+		//DirectX12の描画終了
+		CDX12Manager::GetInstance().EndDraw();
+		
 	}
 
 	CDX12Manager::GetInstance().Finalize();

@@ -619,6 +619,7 @@ void CreateRenderTarget()
         g_pd3dDevice->CreateRenderTargetView(pBackBuffer, nullptr, g_mainRenderTargetDescriptor[i]);
         g_mainRenderTargetResource[i] = pBackBuffer;
     }
+
 }
 
 void CleanupRenderTarget()
@@ -699,5 +700,5 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
         return 0;
     }
     //メッセージを受け取る
-    return ::DefWindowProcW(hWnd, msg, wParam, lParam);
+    return ::DefWindowProc(hWnd, msg, wParam, lParam);
 }

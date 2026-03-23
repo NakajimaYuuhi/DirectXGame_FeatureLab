@@ -9,7 +9,7 @@
 #include "Windows.h"
 #include "imgui.h"
 
-
+#include "imgui_impl_dx12.h"
 
 //===== 定数・マクロ定義 =====
 const UINT CDX12Manager::m_FrameBufferCount = FRAME_BUFFER_COUNT;   //フレームバッファの数
@@ -89,8 +89,9 @@ bool CDX12Manager::Initialize(HWND hwnd)
 	//スワップチェーンの設定
 	DXGI_SWAP_CHAIN_DESC1 swapChainDesc = {};
 	swapChainDesc.BufferCount = m_FrameBufferCount;
-	swapChainDesc.Width = m_Width;
-	swapChainDesc.Height = m_Height;
+	//0でウィンドウに合わせてもらう
+	swapChainDesc.Width = 0;
+	swapChainDesc.Height = 0;
 	swapChainDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 	swapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
 	swapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD;
@@ -281,16 +282,6 @@ void CDX12Manager::Update()
 {
 }
 
-void CDX12Manager::ResizeRenderTarget(LPARAM lParam)
-{
-	CleanupRenderTarget();              //RenderTargetの破棄
-	DXGI_SWAP_CHAIN_DESC1 desc = {};
-	m_swapChain->GetDesc1(&desc);
-	HRESULT result = m_swapChain->ResizeBuffers(0, (UINT)LOWORD(lParam), (UINT)HIWORD(lParam), desc.Format, desc.Flags);   //バッファーのリサイズ
-	IM_ASSERT(SUCCEEDED(result) && "Failed to resize swapchain.");
-	CreateRenderTarget();               //RenderTargetの生成
-}
-
 //----- 描画処理 -----
 void CDX12Manager::BeginDraw()
 {
@@ -445,6 +436,111 @@ void CDX12Manager::CreateFence()
 	m_fenceEvent = CreateEvent(nullptr, FALSE, FALSE, nullptr);
 }
 
+
+void CDX12Manager::ResizeRenderTarget(LPARAM lParam)
+{
+	CleanupRenderTarget();              //RenderTargetの破棄
+	DXGI_SWAP_CHAIN_DESC1 desc = {};
+	m_swapChain->GetDesc1(&desc);
+	HRESULT result = m_swapChain->ResizeBuffers(0, (UINT)LOWORD(lParam), (UINT)HIWORD(lParam), desc.Format, desc.Flags);   //バッファーのリサイズ
+	IM_ASSERT(SUCCEEDED(result) && "Failed to resize swapchain.");
+	CreateRenderTarget();               //RenderTargetの生成
+
+
+}
+void CDX12Manager::ResizeViewPort(LPARAM lParam)
+{
+	D3D12_VIEWPORT viewport{};
+	viewport.Width = LOWORD(lParam);
+	viewport.Height = HIWORD(lParam);
+	viewport.MinDepth = 0.0f;
+	viewport.MaxDepth = 1.0f;
+
+	D3D12_RECT scissorRect{};
+	scissorRect.left = 0;
+	scissorRect.top = 0;
+	scissorRect.right = LOWORD(lParam);
+	scissorRect.bottom = HIWORD(lParam);
+
+	m_commandList->RSSetViewports(1, &viewport);
+	m_commandList->RSSetScissorRects(1, &scissorRect);
+}
+void CDX12Manager::ResizeDepthBuffer(LPARAM lParam)
+{
+
+	// 古いリソース破棄
+	m_depthBuffer.Reset();
+	m_dsvHeap.Reset();
+
+	// 1. ヒーププロパティ（初期化時と同じ）
+	D3D12_HEAP_PROPERTIES heapProps = {};
+	heapProps.Type = D3D12_HEAP_TYPE_DEFAULT;
+	heapProps.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
+	heapProps.MemoryPoolPreference = D3D12_MEMORY_POOL_UNKNOWN;
+	heapProps.CreationNodeMask = 1;
+	heapProps.VisibleNodeMask = 1;
+
+	// 2. リサイズ後の DepthStencil のリソース作成
+	D3D12_RESOURCE_DESC depthResourceDesc = {};
+	depthResourceDesc.Dimension = D3D12_RESOURCE_DIMENSION_TEXTURE2D;
+	depthResourceDesc.Alignment = 0;
+	depthResourceDesc.Width = LOWORD(lParam);
+	depthResourceDesc.Height = HIWORD(lParam);
+	depthResourceDesc.DepthOrArraySize = 1;
+	depthResourceDesc.MipLevels = 1;
+	depthResourceDesc.Format = DXGI_FORMAT_D32_FLOAT;
+	depthResourceDesc.SampleDesc.Count = 1;
+	depthResourceDesc.SampleDesc.Quality = 0;
+	depthResourceDesc.Layout = D3D12_TEXTURE_LAYOUT_UNKNOWN;
+	depthResourceDesc.Flags = D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL;
+
+	D3D12_CLEAR_VALUE clearValue = {};
+	clearValue.Format = DXGI_FORMAT_D32_FLOAT;
+	clearValue.DepthStencil.Depth = 1.0f;
+	clearValue.DepthStencil.Stencil = 0;
+
+	// Create depth buffer texture
+	HRESULT hr = m_device->CreateCommittedResource(
+		&heapProps,
+		D3D12_HEAP_FLAG_NONE,
+		&depthResourceDesc,
+		D3D12_RESOURCE_STATE_DEPTH_WRITE,
+		&clearValue,
+		IID_PPV_ARGS(&m_depthBuffer)
+	);
+	if (FAILED(hr))
+	{
+		OutputDebugStringA("Failed to create depth buffer!\n");
+		return;
+	}
+
+	// 3. DSV ヒープ作成
+	D3D12_DESCRIPTOR_HEAP_DESC heapDesc = {};
+	heapDesc.NumDescriptors = 1;
+	heapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_DSV;
+	heapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_NONE;
+
+	hr = m_device->CreateDescriptorHeap(
+		&heapDesc,
+		IID_PPV_ARGS(&m_dsvHeap)
+	);
+	if (FAILED(hr))
+	{
+		OutputDebugStringA("Failed to create DSV heap!\n");
+		return;
+	}
+
+	// 4. DSV の作成
+	D3D12_DEPTH_STENCIL_VIEW_DESC dsvDesc = {};
+	dsvDesc.Format = DXGI_FORMAT_D32_FLOAT;
+	dsvDesc.ViewDimension = D3D12_DSV_DIMENSION_TEXTURE2D;
+
+	m_device->CreateDepthStencilView(
+		m_depthBuffer.Get(),
+		&dsvDesc,
+		m_dsvHeap->GetCPUDescriptorHandleForHeapStart()
+	);
+}
 void CDX12Manager::CreateRenderTarget()
 {
 	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle =
@@ -474,6 +570,13 @@ void CDX12Manager::CreateRenderTarget()
 		rtvHandle.ptr += m_rtvDescriptorSize;
 	}
 }
+void CDX12Manager::CleanupRenderTarget()
+{
+	WaitForPendingOperations();
+
+	for (UINT i = 0; i < FRAME_BUFFER_COUNT; i++)
+		m_renderTargets[i].Reset(); 
+}
 
 void CDX12Manager::WaitForPendingOperations()
 {
@@ -489,13 +592,6 @@ void CDX12Manager::WaitForPendingOperations()
 
 }
 
-void CDX12Manager::CleanupRenderTarget()
-{
-	WaitForPendingOperations();
-
-	for (UINT i = 0; i < FRAME_BUFFER_COUNT; i++)
-		m_renderTargets[i].Reset(); 
-}
 
 //
 bool CDX12Manager::IsOccluded(HWND hwnd)

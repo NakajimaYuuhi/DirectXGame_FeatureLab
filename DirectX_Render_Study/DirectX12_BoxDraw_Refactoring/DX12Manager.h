@@ -39,6 +39,9 @@ public:
 
 
 	void ResizeRenderTarget(LPARAM lParam);
+	void ResizeDepthBuffer(LPARAM lParam);
+
+	void ResizeViewPort(LPARAM lParam);
 
 
 	void CreateCommandObjects();
