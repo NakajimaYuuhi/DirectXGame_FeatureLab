@@ -137,6 +137,9 @@ bool Model::Load(const char* file, float scale, Flip flip)
 	m_loadScale = scale;
 	m_loadFlip = flip;
 
+
+	//----- ファイル読み込み -----
+
 	// Assimp側で読み込みを実行
 	const aiScene* pScene = static_cast<const aiScene*>(LoadAssimpScene(file));
 	if (!pScene) { return false; }
@@ -145,6 +148,9 @@ bool Model::Load(const char* file, float scale, Flip flip)
 #ifdef _DEBUG
 	CheckMeshFreeze(pScene);
 #endif
+
+	//----- 情報の取得 -----
+	//アニメーション情報は取得しない
 
 	// ノードの作成
 	MakeNodes(pScene);
@@ -213,7 +219,7 @@ const void* Model::LoadAssimpScene(const char* file)
 	m_errorStr = "";
 #endif
 
-	// assimpの設定
+	//----- assimpの設定 -----
 	static Assimp::Importer importer;
 	int flag = 0;
 	flag |= aiProcess_Triangulate;
@@ -224,6 +230,8 @@ const void* Model::LoadAssimpScene(const char* file)
 
 	// assimpで読み込み
 	importer.SetPropertyBool(AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS, false);
+
+	//----- 読み込み -----
 	const aiScene* pScene = importer.ReadFile(file, flag);
 #ifdef _DEBUG
 	if (!pScene)

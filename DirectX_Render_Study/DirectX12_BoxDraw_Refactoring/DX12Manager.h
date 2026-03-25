@@ -1,4 +1,4 @@
-//===== ƒCƒ“ƒNƒ‹[ƒh =====
+ï»¿//===== ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ =====
 #pragma once
 
 #include <d3d12.h>
@@ -7,99 +7,120 @@
 
 #include "BasicSettings.h"
 
-//‰¼’u‚«
+//ä»®ç½®ã
 #include "Box.h"
 #include "Mesh.h"
 
+
+
 using Microsoft::WRL::ComPtr;
 
-//===== ƒNƒ‰ƒX’è‹` =====
+//===== ã‚¯ãƒ©ã‚¹å®šç¾© =====
 class CDX12Manager
 {
 public:
 
-	// <ƒCƒ“ƒXƒ^ƒ“ƒXæ“¾>
+	// <ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å–å¾—>
 	static CDX12Manager& GetInstance();
 
-	// <‰Šú‰»AI—¹ˆ—>
+	// <åˆæœŸåŒ–ã€çµ‚äº†å‡¦ç†>
 	bool Initialize(HWND hwnd);
 	void Finalize();
 
-	// <•`‰æˆ—>
+	// <æç”»å‡¦ç†>
 	void BeginDraw();
 	void EndDraw();
 
 
-	// < •Ê‚ÅØ‚èo‚µ‚½‚¢ >
+	// < åˆ¥ã§åˆ‡ã‚Šå‡ºã—ãŸã„ >
 
-	//XVˆ—
+	//æ›´æ–°å‡¦ç†
 	void Update();
 
 
+	void ResizeRenderTarget(LPARAM lParam);
+	void ResizeDepthBuffer(LPARAM lParam);
+
+	void ResizeViewPort(LPARAM lParam);
 
 
 	void CreateCommandObjects();
 	void CreateFence();
 
-	//‰¼‚Ìview,proj‚ÌGetter
+	void CreateRenderTarget();
+	void CleanupRenderTarget();
+	void WaitForPendingOperations();
+
+	//ä»®ã®view,projã®Getter
 	DirectX::XMMATRIX GetView() { return m_view; }
 	DirectX::XMMATRIX GetProj() { return m_proj; }
 
 	ID3D12Device* GetDevice() { return m_device.Get(); }
 	ID3D12GraphicsCommandList* GetCommandLIst() { return m_commandList.Get(); }
+	ID3D12CommandQueue* GetCommandQueue() { return m_commandQueue.Get(); }
 
 
 
 private:
 
-	//DirectX 12ŠÖ˜A‚Ìƒƒ“ƒo•Ï”
-	ComPtr<IDXGIFactory6>       m_factory;      //ƒtƒ@ƒNƒgƒŠ[
-	ComPtr<ID3D12Device>        m_device;       //ƒfƒoƒCƒX
-	ComPtr<ID3D12CommandQueue>  m_commandQueue; //ƒRƒ}ƒ“ƒhƒLƒ…[
+	//DirectX 12é–¢é€£ã®ãƒ¡ãƒ³ãƒå¤‰æ•°
+	ComPtr<IDXGIFactory6>       m_factory;      //ãƒ•ã‚¡ã‚¯ãƒˆãƒªãƒ¼
+	ComPtr<ID3D12Device>        m_device;       //ãƒ‡ãƒã‚¤ã‚¹
+	ComPtr<ID3D12CommandQueue>  m_commandQueue; //ã‚³ãƒãƒ³ãƒ‰ã‚­ãƒ¥ãƒ¼
 
-	ComPtr<IDXGISwapChain4> m_swapChain;        //ƒXƒƒbƒvƒ`ƒF[ƒ“
+	ComPtr<IDXGISwapChain4> m_swapChain;        //ã‚¹ãƒ¯ãƒƒãƒ—ãƒã‚§ãƒ¼ãƒ³
 
-	ComPtr<ID3D12DescriptorHeap> m_rtvHeap;                     //RTVƒq[ƒv
-	ComPtr<ID3D12Resource> m_renderTargets[FRAME_BUFFER_COUNT]; //ƒŒƒ“ƒ_[ƒ^[ƒQƒbƒg
+	ComPtr<ID3D12DescriptorHeap> m_rtvHeap;                     //RTVãƒ’ãƒ¼ãƒ—
+	ComPtr<ID3D12Resource> m_renderTargets[FRAME_BUFFER_COUNT]; //ãƒ¬ãƒ³ãƒ€ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆ
 
-	UINT m_frameIndex = 0;					//ƒtƒŒ[ƒ€ƒCƒ“ƒfƒbƒNƒX
-	UINT m_rtvDescriptorSize = 0;								//RTVƒfƒBƒXƒNƒŠƒvƒ^ƒTƒCƒY
+	UINT m_frameIndex = 0;					//ãƒ•ãƒ¬ãƒ¼ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+	UINT m_rtvDescriptorSize = 0;								//RTVãƒ‡ã‚£ã‚¹ã‚¯ãƒªãƒ—ã‚¿ã‚µã‚¤ã‚º
 
-	ComPtr<ID3D12CommandAllocator> m_commandAllocator;			//ƒRƒ}ƒ“ƒhƒAƒƒP[ƒ^[
-	ComPtr<ID3D12GraphicsCommandList> m_commandList;			//ƒRƒ}ƒ“ƒhƒŠƒXƒg
+	ComPtr<ID3D12CommandAllocator> m_commandAllocator;			//ã‚³ãƒãƒ³ãƒ‰ã‚¢ãƒ­ã‚±ãƒ¼ã‚¿ãƒ¼
+	ComPtr<ID3D12GraphicsCommandList> m_commandList;			//ã‚³ãƒãƒ³ãƒ‰ãƒªã‚¹ãƒˆ
 
-	ComPtr<ID3D12Fence> m_fence;	//ƒtƒFƒ“ƒX
-	UINT64 m_fenceValue = 0;		//ƒtƒFƒ“ƒX’l
-	HANDLE m_fenceEvent = nullptr;	//ƒtƒFƒ“ƒXƒCƒxƒ“ƒg
+	ComPtr<ID3D12Fence> m_fence;	//ãƒ•ã‚§ãƒ³ã‚¹
+	UINT64 m_fenceValue = 0;		//ãƒ•ã‚§ãƒ³ã‚¹å€¤
+	HANDLE m_fenceEvent = nullptr;	//ãƒ•ã‚§ãƒ³ã‚¹ã‚¤ãƒ™ãƒ³ãƒˆ
 
-	// [“xƒoƒbƒtƒ@
+	// æ·±åº¦ãƒãƒƒãƒ•ã‚¡
 	ComPtr<ID3D12Resource> m_depthBuffer;
 
-	// DSVƒq[ƒv
+	// DSVãƒ’ãƒ¼ãƒ—
 	ComPtr<ID3D12DescriptorHeap> m_dsvHeap;
 
 
 
 
-	//‰æ–ÊŠÖ˜A
-	static const UINT m_FrameBufferCount;       //ƒtƒŒ[ƒ€ƒoƒbƒtƒ@‚Ì”
-	UINT m_Width = SCREEN_WIDTH;                //‰æ–Ê‚Ì•
-	UINT m_Height = SCREEN_HEIGHT;              //‰æ–Ê‚Ì‚‚³
+	//ç”»é¢é–¢é€£
+	static const UINT m_FrameBufferCount;       //ãƒ•ãƒ¬ãƒ¼ãƒ ãƒãƒƒãƒ•ã‚¡ã®æ•°
+	UINT m_Width = SCREEN_WIDTH;                //ç”»é¢ã®å¹…
+	UINT m_Height = SCREEN_HEIGHT;              //ç”»é¢ã®é«˜ã•
 
 
 
-	//ˆê’U‚Á‚Ä‚¨‚­
+	//ä¸€æ—¦æŒã£ã¦ãŠã
 	DirectX::XMMATRIX m_view;
 	DirectX::XMMATRIX m_proj;
 
 
-	//ƒVƒ“ƒOƒ‹ƒgƒ“À‘•
+	//----- ç”»é¢ãŒéš ã‚Œã¦ã„ã‚‹ã‹ã®åˆ¤å®š -----
+public:		
+	bool IsOccluded(HWND hwnd);
+private:	
+	void ResetIsOccluded();
+	bool m_SwapChainOccluded = false;
+
+
+	//ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³å®Ÿè£…
 private:
 	CDX12Manager() = default;
 	~CDX12Manager() = default;
 
 	CDX12Manager(const CDX12Manager&) = delete;
 	CDX12Manager& operator=(const CDX12Manager&) = delete;
+
+private:
 
 };
 
