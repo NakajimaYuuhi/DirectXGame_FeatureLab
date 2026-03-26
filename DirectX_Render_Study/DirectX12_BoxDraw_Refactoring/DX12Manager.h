@@ -1,4 +1,4 @@
-﻿//===== インクルード =====
+//===== インクルード =====
 #pragma once
 
 #include <d3d12.h>
@@ -51,6 +51,8 @@ public:
 	void CleanupRenderTarget();
 	void WaitForPendingOperations();
 
+	void ForceWait();
+
 	//仮のview,projのGetter
 	DirectX::XMMATRIX GetView() { return m_view; }
 	DirectX::XMMATRIX GetProj() { return m_proj; }
@@ -59,7 +61,22 @@ public:
 	ID3D12GraphicsCommandList* GetCommandLIst() { return m_commandList.Get(); }
 	ID3D12CommandQueue* GetCommandQueue() { return m_commandQueue.Get(); }
 
+	ID3D12DescriptorHeap* GetSRVHeap()
+	{
+		return m_srvHeap.Get();
+	}
 
+	ID3D12CommandAllocator* GetCommandAllocator() {
+		return  m_commandAllocator.Get();
+	}
+
+	D3D12_GPU_DESCRIPTOR_HANDLE GetGpuSrvHandle(int index);
+	D3D12_GPU_DESCRIPTOR_HANDLE GetHeadGpuSrvHandle();
+	D3D12_CPU_DESCRIPTOR_HANDLE GetCpuSrvHandle(int index);
+	UINT AllocsrvNextIndex()
+	{
+		return m_srvNextIndex++;
+	}
 
 private:
 
@@ -88,6 +105,15 @@ private:
 
 	// DSVヒープ
 	ComPtr<ID3D12DescriptorHeap> m_dsvHeap;
+
+
+	//SRVは全体で1つ
+	ComPtr<ID3D12DescriptorHeap> m_srvHeap;
+	UINT m_srvDescriptorSize;
+	UINT m_srvNextIndex = 0;
+
+
+
 
 
 

@@ -76,6 +76,9 @@
     <Filter Include="Source\System\ImGui\DescriptorAllocator">
       <UniqueIdentifier>{336b1e38-97d3-4f58-9dca-e05cede68c25}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Component\Texture">
+      <UniqueIdentifier>{2fa3fbc2-ed9e-40af-b84d-baee9c40440c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Box.cpp">
@@ -141,6 +144,7 @@
     <ClCompile Include="DescriptorHeapAllocator.cpp">
       <Filter>Source\System\ImGui\DescriptorAllocator</Filter>
     </ClCompile>
+    <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h">
@@ -209,6 +213,7 @@
     <ClInclude Include="DescriptorHeapAllocator.h">
       <Filter>Source\System\ImGui\DescriptorAllocator</Filter>
     </ClInclude>
+    <ClInclude Include="Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Triangle.hlsl">

@@ -1,4 +1,4 @@
-﻿///////////////////////////////////////////
+///////////////////////////////////////////
 //main.cpp                               
 //                                       
 //  DirectX12の初期化プログラム               
@@ -77,7 +77,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 	{
 	case WM_SIZE:
 		
-		DisplaySize();
+		//DisplaySize();
 
 		if (CDX12Manager::GetInstance().GetDevice() && wparam != SIZE_MINIMIZED)
 		{
@@ -85,7 +85,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 			CDX12Manager::GetInstance().ResizeDepthBuffer(lparam);
 			CDX12Manager::GetInstance().ResizeViewPort(lparam);
 		}
-		DisplaySize();
+		//DisplaySize();
 		return 0;
 	case WM_SYSCOMMAND:
 		if ((wparam & 0xfff0) == SC_KEYMENU) // Disable ALT application menu
@@ -118,19 +118,30 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 	//ImGuiの機能でDPIを取得
 	float main_scale = CImGuiManager::GetInstance().GetActualScaleFactor();
 	//main_scale /= 1.5;
+	RECT rc = { 0, 0, 1920, 1080 }; // ほしい「中身」のサイズ
+	AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, FALSE); // 枠を含めたサイズに計算し直してくれる
 
-	//ウィンドウの作成
-	HWND hwnd = CreateWindowExA(
-		0,
-		className,
-		"DirectX12 Window",
-		WS_OVERLAPPEDWINDOW,
-		100, 100, 1920 * main_scale, 1080 * main_scale,
-		NULL,
-		NULL,
-		hInst,
-		NULL
+	// rc.right - rc.left が「枠を含めた本当の幅」になる
+	HWND hwnd = CreateWindowEx(
+		0, className, "DirectX12 Window", WS_OVERLAPPEDWINDOW,
+		CW_USEDEFAULT, CW_USEDEFAULT,
+		(rc.right - rc.left) * main_scale, (rc.bottom - rc.top) * main_scale, // 計算したサイズを渡す！
+		nullptr, nullptr, hInst, nullptr
 	);
+
+
+	////ウィンドウの作成
+	//HWND hwnd = CreateWindowEx(
+	//	0,
+	//	className,
+	//	"DirectX12 Window",
+	//	WS_OVERLAPPEDWINDOW,
+	//	100, 100, 1920 * main_scale, 1080 * main_scale,
+	//	NULL,
+	//	NULL,
+	//	hInst,
+	//	NULL
+	//);
 
 	//ウィンドウの表示
 	ShowWindow(hwnd, nCmdShow);
@@ -166,6 +177,12 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 		}
 		if (done)
 			break;
+
+
+		//
+
+
+
 
 		//画面が隠れているならフレームをスキップ
 		if (CDX12Manager::GetInstance().IsOccluded(hwnd))

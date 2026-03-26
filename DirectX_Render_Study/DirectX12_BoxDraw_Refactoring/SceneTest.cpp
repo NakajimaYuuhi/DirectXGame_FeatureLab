@@ -1,11 +1,11 @@
-#include "SceneTest.h"
+ï»¿#include "SceneTest.h"
 #include "3D_Object.h"
 
 #include "Object.h"
 
 CSceneTest::CSceneTest()
 {
-    //Box‚Ìì¬
+    //Boxã®ä½œæˆ
     auto box = std::make_unique<C3D_Object>("Box");
 
     box->SetTransform({ 0.0f, 2.0f, 0.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 0.0f, 0.0f });
@@ -33,7 +33,7 @@ CSceneTest::~CSceneTest() = default;
 
 void CSceneTest::Init()
 {
-    //‚»‚ê‚¼‚ê‚ÌƒIƒuƒWƒFƒNƒg‚ğ‰Šú‰»
+    //ãã‚Œãã‚Œã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’åˆæœŸåŒ–
     for (auto& object : m_VecObject)
     {
         object->Init();

@@ -1,15 +1,15 @@
-//Mesh.h
-//ƒƒbƒVƒ…‚ÌƒNƒ‰ƒX
+ï»¿//Mesh.h
+//ãƒ¡ãƒƒã‚·ãƒ¥ã®ã‚¯ãƒ©ã‚¹
 
-//===== ƒCƒ“ƒNƒ‹[ƒh =====
+//===== ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ =====
 #pragma once
 
-//----- DirectX12ŠÖ˜A -----
+//----- DirectX12é–¢é€£ -----
 #include <d3d12.h>
 #include <DirectXMath.h>
 #include <memory>
 
-//----- ƒXƒ}[ƒgƒ|ƒCƒ“ƒ^—p -----
+//----- ã‚¹ãƒãƒ¼ãƒˆãƒã‚¤ãƒ³ã‚¿ç”¨ -----
 #include <wrl.h>
 using Microsoft::WRL::ComPtr;
 
@@ -17,33 +17,37 @@ using Microsoft::WRL::ComPtr;
 
 #include "Component.h"
 
+//----- Texture -----
+//ç¶ºéº—ã˜ã‚ƒãªã„ã‘ã©ã€ä¸€æ—¦ã“ã“ã«å…¥ã‚Œã‚‹
+#include "Texture.h"
+
 
 template <typename T>
 using UniquePtr = std::unique_ptr<T>;
 
 
 
-//===== ‘O•ûéŒ¾ =====
-class CTransform;	//–ˆƒtƒŒ[ƒ€g‚¤‚©‚ç’u‚¢‚Æ‚­
+//===== å‰æ–¹å®£è¨€ =====
+class CTransform;	//æ¯ãƒ•ãƒ¬ãƒ¼ãƒ ä½¿ã†ã‹ã‚‰ç½®ã„ã¨ã
 
-//===== \‘¢‘Ì’è‹`(•Ê‚ÌêŠ‚ÉˆÚ‚·) =====
+//===== æ§‹é€ ä½“å®šç¾©(åˆ¥ã®å ´æ‰€ã«ç§»ã™) =====
 struct MeshConstantBufferData
 {
 	DirectX::XMMATRIX WVP;
 };
 
-//===== ƒNƒ‰ƒX’è‹` =====
+//===== ã‚¯ãƒ©ã‚¹å®šç¾© =====
 class CMesh : public CComponent
 {
 public:
-	//Initialize‚ğ‚Ç‚±‚©‚ÅŒÄ‚Ô•K—v—L‚è
+	//Initializeã‚’ã©ã“ã‹ã§å‘¼ã¶å¿…è¦æœ‰ã‚Š
 	CMesh()
 		:CComponent("Mesh")
 	{
 
 	}
 
-	//DX12Manager‚©‚çæ“¾‚·‚é(‰¼)
+	//DX12Managerã‹ã‚‰å–å¾—ã™ã‚‹(ä»®)
 	void Init();
 	void Update();
 	void Draw();
@@ -57,18 +61,28 @@ private:
 	ComPtr<ID3D12RootSignature> m_rootSignature;
 	ComPtr<ID3D12PipelineState> m_pipelineState;
 
-	//’è”ƒoƒbƒtƒ@
+	//å®šæ•°ãƒãƒƒãƒ•ã‚¡
 	ComPtr<ID3D12Resource> m_constantBuffer;
-	//’è”ƒoƒbƒtƒ@‚Ì•Û
+	//å®šæ•°ãƒãƒƒãƒ•ã‚¡ã®ä¿æŒ
 	MeshConstantBufferData* m_cbData = nullptr;
 
+
+
+	//Texture
+	CTexture m_Texture;
+
+
+
+
 private:
-	//Transform’u‚«ê
+	//Transformç½®ãå ´
 	CTransform* m_Transform;
 	void RegisterTransform();
 
+
+
 	//----- Getter,Setter -----
 public:
-	//’¸“_ƒf[ƒ^‚Ìæ“¾
+	//é ‚ç‚¹ãƒ‡ãƒ¼ã‚¿ã®å–å¾—
 };
 

@@ -1,4 +1,4 @@
-﻿//===== インクルード =====
+//===== インクルード =====
 #include "DX12Manager.h"
 
 #include <d3dcompiler.h>
@@ -240,6 +240,21 @@ bool CDX12Manager::Initialize(HWND hwnd)
 
 
 
+	//SRV
+	D3D12_DESCRIPTOR_HEAP_DESC desc = {};
+	desc.NumDescriptors = 128;
+	desc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
+	desc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
+
+	hr = m_device->CreateDescriptorHeap(&desc, IID_PPV_ARGS(&m_srvHeap));
+
+	m_srvDescriptorSize = m_device->GetDescriptorHandleIncrementSize(
+		D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
+
+	//ハンドルテスト
+	D3D12_GPU_DESCRIPTOR_HANDLE gpuHandle = m_srvHeap->GetGPUDescriptorHandleForHeapStart();
+
+
 
 
 	//view,projの初期化
@@ -263,7 +278,7 @@ bool CDX12Manager::Initialize(HWND hwnd)
 		0.1f,
 		100.0f);
 	
-
+	//m_commandQueue->ExecuteCommandLists(m_commandList);
 
 	return true;
 }
@@ -282,15 +297,39 @@ void CDX12Manager::Update()
 {
 }
 
+void CDX12Manager::ForceWait()
+{
+	// 今積んである命令（コピーなど）に目印をつける
+	m_commandQueue->Signal(m_fence.Get(), m_fenceValue);
+
+	// その目印に到達するまで、CPUを完全に停止させて待つ
+	m_fence->SetEventOnCompletion(m_fenceValue, m_fenceEvent);
+	WaitForSingleObject(m_fenceEvent, INFINITE);
+
+	// 次のために値を更新しておく
+	m_fenceValue++;
+}
+
+
 //----- 描画処理 -----
 void CDX12Manager::BeginDraw()
 {
+
+
+
+
+
 	// GPUが前のフレームの処理を終えるのを待つ
 	if (m_fence->GetCompletedValue() < m_fenceValue - 1)
 	{
 		m_fence->SetEventOnCompletion(m_fenceValue - 1, m_fenceEvent);
 		WaitForSingleObject(m_fenceEvent, INFINITE);
 	}
+
+
+	// ここで一旦、今のコマンドリストの状態を強制的にクリアにする
+	//m_commandAllocator->Reset();
+	//m_commandList->Reset(m_commandAllocator.Get(), nullptr);
 
 	//変数のリセット
 	ResetIsOccluded();
@@ -366,6 +405,9 @@ void CDX12Manager::BeginDraw()
 		0,
 		nullptr
 	);
+
+
+
 
 }
 
@@ -444,9 +486,19 @@ void CDX12Manager::ResizeRenderTarget(LPARAM lParam)
 	m_swapChain->GetDesc1(&desc);
 	HRESULT result = m_swapChain->ResizeBuffers(0, (UINT)LOWORD(lParam), (UINT)HIWORD(lParam), desc.Format, desc.Flags);   //バッファーのリサイズ
 	IM_ASSERT(SUCCEEDED(result) && "Failed to resize swapchain.");
+
+	//m_commandAllocator->Reset();
+	//m_commandList->Reset(m_commandAllocator.Get(), nullptr);
+
 	CreateRenderTarget();               //RenderTargetの生成
 
+	//// ★ 5. 使い終わったら閉じて実行する（または次のBeginDrawに備えて閉じる）
+	//m_commandList->Close();
+	//ID3D12CommandList* lists[] = { m_commandList.Get() };
+	//m_commandQueue->ExecuteCommandLists(1, lists);
 
+	//// リサイズ直後も一応待っておくと安全！
+	//WaitForPendingOperations();
 }
 void CDX12Manager::ResizeViewPort(LPARAM lParam)
 {
@@ -462,8 +514,8 @@ void CDX12Manager::ResizeViewPort(LPARAM lParam)
 	scissorRect.right = LOWORD(lParam);
 	scissorRect.bottom = HIWORD(lParam);
 
-	m_commandList->RSSetViewports(1, &viewport);
-	m_commandList->RSSetScissorRects(1, &scissorRect);
+	//m_commandList->RSSetViewports(1, &viewport);
+	//m_commandList->RSSetScissorRects(1, &scissorRect);
 }
 void CDX12Manager::ResizeDepthBuffer(LPARAM lParam)
 {
@@ -590,6 +642,21 @@ void CDX12Manager::WaitForPendingOperations()
 	}
 	m_fenceValue++;
 
+}
+
+D3D12_GPU_DESCRIPTOR_HANDLE CDX12Manager::GetGpuSrvHandle(int index)
+{
+	return CD3DX12_GPU_DESCRIPTOR_HANDLE(m_srvHeap->GetGPUDescriptorHandleForHeapStart(), index, m_srvDescriptorSize);
+}
+
+D3D12_GPU_DESCRIPTOR_HANDLE CDX12Manager::GetHeadGpuSrvHandle()
+{
+	return m_srvHeap->GetGPUDescriptorHandleForHeapStart();
+}
+
+D3D12_CPU_DESCRIPTOR_HANDLE CDX12Manager::GetCpuSrvHandle(int index)
+{
+	return CD3DX12_CPU_DESCRIPTOR_HANDLE(m_srvHeap->GetCPUDescriptorHandleForHeapStart(), index, m_srvDescriptorSize);
 }
 
 

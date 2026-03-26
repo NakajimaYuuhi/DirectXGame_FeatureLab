@@ -1,8 +1,11 @@
-//WVP
+
 cbuffer ConstantBuffer : register(b0)
 {
     float4x4 WVP;
 };
+
+Texture2D tex0 : register(t0);
+SamplerState samLinear : register(s0);
 
 struct VSInput
 {
@@ -18,6 +21,8 @@ struct PSInput
     float2 uv : TEXCOORD;
 };
 
+
+
 PSInput VSMain(VSInput input)
 {
     PSInput output;
@@ -29,5 +34,8 @@ PSInput VSMain(VSInput input)
 
 float4 PSMain(PSInput input) : SV_TARGET
 {
-    return input.color;
+    float4 texColor = tex0.Sample(samLinear, input.uv);
+    //return float4(1, 0, 0, 1);
+    //return float4(input.uv, 0, 1);
+    return texColor;
 }

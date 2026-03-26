@@ -1,4 +1,4 @@
-//===== ƒCƒ“ƒNƒ‹[ƒh =====
+ï»¿//===== ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ =====
 #include "3D_Object.h"
 
 //Transform
@@ -9,10 +9,10 @@
 C3D_Object::C3D_Object()
 	:CObject()
 {
-	//TransformƒRƒ“ƒ|[ƒlƒ“ƒg‚Ìì¬
+	//Transformã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ä½œæˆ
 	AddComponent<CTransform>();
 
-	//Mesh‚à‚±‚±H
+	//Meshã‚‚ã“ã“ï¼Ÿ
 	AddComponent<CMesh>();
 
 }
@@ -26,9 +26,6 @@ C3D_Object::C3D_Object(String _Name)
 void C3D_Object::Update() 
 {
 
-	//CTransform* transform = GetComponent<CTransform>();
-
-	//transform->Update();
 
 	CMesh* mesh = GetComponent<CMesh>();
 
