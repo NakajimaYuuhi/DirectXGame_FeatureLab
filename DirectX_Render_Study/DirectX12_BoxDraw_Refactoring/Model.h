@@ -24,6 +24,7 @@
 //===== エイリアス =====
 //Mesh
 using Mesh = SharedPtr<CMesh>;
+using Meshes = Vector<Mesh>;
 
 //Material
 using Material = SharedPtr<CMaterial>;
@@ -49,6 +50,8 @@ public:
 	//一旦立方体がデフォルト
 	//頂点情報、インデックス情報も渡せるようになるとグッド
 	void RegisterMesh(UINT _MatIdx);
+
+	//頂点情報、インデックス情報のセット
 	
 	UINT RegisterMatarial(wstring _FilePath,DirectX::XMFLOAT4 _Color);
 
@@ -56,6 +59,7 @@ private:
 	//Mesh
 	//一旦Mesh1つだけ
 	Mesh m_Mesh;
+	Meshes m_Meshes;
 
 	//Meterial
 	Materials m_Materials;

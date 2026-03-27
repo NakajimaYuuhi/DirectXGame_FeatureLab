@@ -19,11 +19,21 @@
 //一旦頂点情報を外から入れるのは、後回しで
 
 //----- 後で移すもの -----
+//struct MeshVertex
+//{
+//    float position[3];
+//    float color[4];
+//    float uv[2];
+//};
+
 struct MeshVertex
 {
     float position[3];
-    float color[4];
+    float normal[3];
     float uv[2];
+
+    uint8_t boneIndices[4];  // ボーン番号（最大255体まで）
+    float   boneWeights[4];  // ボーンの重み
 };
 
 //頂点データの作成
@@ -31,40 +41,40 @@ MeshVertex mesh_vertices[] =
 {
     //立方体(インデックス)
     // ===== 上 (Y+) =====
-    {{-0.5f,0.5f,-0.5f},{1,0,1,1},{0,1}},
-    {{-0.5f,0.5f, 0.5f},{1,0,1,1},{0,0}},
-    {{ 0.5f,0.5f, 0.5f},{1,0,1,1},{1,0}},
-    {{ 0.5f,0.5f,-0.5f},{1,0,1,1},{1,1}},
+    {{-0.5f,0.5f,-0.5f},{0,1,0},{0,1}},
+    {{-0.5f,0.5f, 0.5f},{0,1,0},{0,0}},
+    {{ 0.5f,0.5f, 0.5f},{0,1,0},{1,0}},
+    {{ 0.5f,0.5f,-0.5f},{0,1,0},{1,1}},
     
     // ===== 下 (Y-) =====
-    {{-0.5f,-0.5f, 0.5f},{0,1,1,1},{1,0}},
-    {{-0.5f,-0.5f,-0.5f},{0,1,1,1},{1,1}},
-    {{ 0.5f,-0.5f,-0.5f},{0,1,1,1},{0,1}},
-    {{ 0.5f,-0.5f, 0.5f},{0,1,1,1},{0,0}},
+    {{-0.5f,-0.5f, 0.5f},{0,-1,0},{1,0}},
+    {{-0.5f,-0.5f,-0.5f},{0,-1,0},{1,1}},
+    {{ 0.5f,-0.5f,-0.5f},{0,-1,0},{0,1}},
+    {{ 0.5f,-0.5f, 0.5f},{0,-1,0},{0,0}},
 
     // ===== 前面 (Z-) =====
-    {{-0.5f,-0.5f,-0.5f},{1,0,0,1},{0,1}},
-    {{-0.5f, 0.5f,-0.5f},{1,0,0,1},{0,0}},
-    {{ 0.5f, 0.5f,-0.5f},{1,0,0,1},{1,0}},
-    {{ 0.5f,-0.5f,-0.5f},{1,0,0,1},{1,1}},
+    {{-0.5f,-0.5f,-0.5f},{0,0,-1},{0,1}},
+    {{-0.5f, 0.5f,-0.5f},{0,0,-1},{0,0}},
+    {{ 0.5f, 0.5f,-0.5f},{0,0,-1},{1,0}},
+    {{ 0.5f,-0.5f,-0.5f},{0,0,-1},{1,1}},
 
     // ===== 背面 (Z+) =====
-    {{-0.5f,-0.5f,0.5f},{0,1,0,1},{1,1}},
-    {{ 0.5f,-0.5f,0.5f},{0,1,0,1},{0,1}},
-    {{ 0.5f, 0.5f,0.5f},{0,1,0,1},{0,0}},
-    {{-0.5f, 0.5f,0.5f},{0,1,0,1},{1,0}},
+    {{-0.5f,-0.5f,0.5f},{0,0,1},{1,1}},
+    {{ 0.5f,-0.5f,0.5f},{0,0,1},{0,1}},
+    {{ 0.5f, 0.5f,0.5f},{0,0,1},{0,0}},
+    {{-0.5f, 0.5f,0.5f},{0,0,1},{1,0}},
 
     // ===== 左 (X-) =====
-    {{-0.5f,-0.5f, 0.5f},{0,0,1,1},{0,1}},
-    {{-0.5f, 0.5f, 0.5f},{0,0,1,1},{0,0}},
-    {{-0.5f, 0.5f,-0.5f},{0,0,1,1},{1,0}},
-    {{-0.5f,-0.5f,-0.5f},{0,0,1,1},{1,1}},
+    {{-0.5f,-0.5f, 0.5f},{-1,0,0},{0,1}},
+    {{-0.5f, 0.5f, 0.5f},{-1,0,0},{0,0}},
+    {{-0.5f, 0.5f,-0.5f},{-1,0,0},{1,0}},
+    {{-0.5f,-0.5f,-0.5f},{-1,0,0},{1,1}},
 
     // ===== 右 (X+) =====
-    {{0.5f,-0.5f,-0.5f},{1,1,0,1},{0,1}},
-    {{0.5f, 0.5f,-0.5f},{1,1,0,1},{0,0}},
-    {{0.5f, 0.5f, 0.5f},{1,1,0,1},{1,0}},
-    {{0.5f,-0.5f, 0.5f},{1,1,0,1},{1,1}},
+    {{0.5f,-0.5f,-0.5f},{1,0,0},{0,1}},
+    {{0.5f, 0.5f,-0.5f},{1,0,0},{0,0}},
+    {{0.5f, 0.5f, 0.5f},{1,0,0},{1,0}},
+    {{0.5f,-0.5f, 0.5f},{1,0,0},{1,1}},
 
 
 };
@@ -196,16 +206,29 @@ void CMesh::Init()
 
     //頂点レイアウトの作成
     //0,12,28がマジックナンバー
+    //D3D12_INPUT_ELEMENT_DESC inputLayout[] =
+    //{
+    //    { "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0,
+    //      D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+
+    //    { "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 12,
+    //      D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+
+    //    { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, 28,
+    //      D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+    //};
+
     D3D12_INPUT_ELEMENT_DESC inputLayout[] =
     {
-        { "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0,
-          D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+        { "POSITION",     0, DXGI_FORMAT_R32G32B32_FLOAT,    0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+        { "NORMAL",       0, DXGI_FORMAT_R32G32B32_FLOAT,    0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+        { "TEXCOORD",     0, DXGI_FORMAT_R32G32_FLOAT,       0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
 
-        { "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 12,
-          D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+        // ボーン番号（uint8 × 4） → R8G8B8A8_UINT
+        { "BLENDINDICES", 0, DXGI_FORMAT_R8G8B8A8_UINT,      0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
 
-        { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, 28,
-          D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+        // ボーンの重み（float × 4）
+        { "BLENDWEIGHT",  0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
     };
 
     //PSOの設定

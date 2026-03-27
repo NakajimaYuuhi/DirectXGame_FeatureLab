@@ -12,22 +12,30 @@ void CModel::Init()
 
 void CModel::Update() 
 {
-	m_Mesh->Update();
+	//Meshの更新
+	for (auto& mesh : m_Meshes)
+	{
+		mesh->Update();
+	}
 }
 
 void CModel::Draw() 
 {
-	m_Mesh->Draw();
+	//Meshの描画
+	for (auto& mesh : m_Meshes)
+	{
+		mesh->Draw();
+	}
 }
 
 void CModel::RegisterMesh(UINT _MatIdx)
 {
+	Mesh mesh = std::make_shared<CMesh>(m_Materials[_MatIdx].get());
 
+	mesh->RegisterOwner(m_Owner);
+	mesh->Init();
 
-	m_Mesh = std::make_shared<CMesh>(m_Materials[_MatIdx].get());
-
-	m_Mesh->RegisterOwner(m_Owner);
-	m_Mesh->Init();
+	m_Meshes.push_back(mesh);
 }
 
 //ファイルデータ通りに読み込むこと前提

@@ -17,7 +17,7 @@ CSceneTest::CSceneTest()
     CModel* model = box->GetComponent<CModel>();
 
     //Materialの登録
-    UINT mat_num = model->RegisterMatarial(L"Assets/Texture/Sample1.jpg", {1.0f,1.0f,1.0f,1.0f});
+    UINT mat_num = model->RegisterMatarial(L"Assets/Texture/Sample2.jpg", {1.0f,1.0f,1.0f,1.0f});
     
     //Meshの登録
     model->RegisterMesh(mat_num);
@@ -53,7 +53,7 @@ CSceneTest::CSceneTest()
     model = slope->GetComponent<CModel>();
 
     //Materialの登録
-    mat_num = model->RegisterMatarial(L"Assets/Texture/Sample1.jpg", { 1.0f,1.0f,1.0f,1.0f });
+    mat_num = model->RegisterMatarial(L"Assets/Texture/Sample3.jpg", { 1.0f,1.0f,1.0f,1.0f });
 
     //Meshの登録
     model->RegisterMesh(mat_num);

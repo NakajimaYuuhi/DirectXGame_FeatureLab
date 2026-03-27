@@ -10,15 +10,19 @@ SamplerState samLinear : register(s0);
 struct VSInput
 {
     float3 position : POSITION;
-    float4 color : COLOR;
+    float3 normal : NORMAL;
     float2 uv : TEXCOORD;
+
+    uint4 boneIndices : BLENDINDICES; // DX11/12 の標準セマンティクス
+    float4 boneWeights : BLENDWEIGHT;
 };
 
 struct PSInput
 {
     float4 position : SV_POSITION;
-    float4 color : COLOR;
     float2 uv : TEXCOORD;
+
+
 };
 
 
@@ -27,8 +31,8 @@ PSInput VSMain(VSInput input)
 {
     PSInput output;
     output.position = mul(float4(input.position, 1.0f), WVP);
-    output.color = input.color;
     output.uv = input.uv;
+
     return output;
 }
 
