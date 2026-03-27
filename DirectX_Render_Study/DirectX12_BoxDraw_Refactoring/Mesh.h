@@ -1,4 +1,4 @@
-﻿//Mesh.h
+//Mesh.h
 //メッシュのクラス
 
 //===== インクルード =====
@@ -7,7 +7,6 @@
 //----- DirectX12関連 -----
 #include <d3d12.h>
 #include <DirectXMath.h>
-#include <memory>
 
 //----- スマートポインタ用 -----
 #include <wrl.h>
@@ -15,20 +14,15 @@ using Microsoft::WRL::ComPtr;
 
 #include <vector>
 
-#include "Component.h"
 
 //----- Texture -----
 //綺麗じゃないけど、一旦ここに入れる
 #include "Texture.h"
 
-
-template <typename T>
-using UniquePtr = std::unique_ptr<T>;
-
-
-
 //===== 前方宣言 =====
+class CObject;
 class CTransform;	//毎フレーム使うから置いとく
+class CMaterial;
 
 //===== 構造体定義(別の場所に移す) =====
 struct MeshConstantBufferData
@@ -37,15 +31,11 @@ struct MeshConstantBufferData
 };
 
 //===== クラス定義 =====
-class CMesh : public CComponent
+class CMesh
 {
 public:
 	//Initializeをどこかで呼ぶ必要有り
-	CMesh()
-		:CComponent("Mesh")
-	{
-
-	}
+	CMesh(CMaterial* _Material);
 
 	//DX12Managerから取得する(仮)
 	void Init();
@@ -67,22 +57,23 @@ private:
 	MeshConstantBufferData* m_cbData = nullptr;
 
 
-
-	//Texture
-	CTexture m_Texture;
-
-
-
+	//Material
+	CMaterial* m_Material;
 
 private:
 	//Transform置き場
-	CTransform* m_Transform;
+	CTransform* m_Transform = nullptr;
 	void RegisterTransform();
+	
+	//CObjectの参照
+	CObject* m_Owner;
+
 
 
 
 	//----- Getter,Setter -----
 public:
 	//頂点データの取得
+	void RegisterOwner(CObject* _Owner);
 };
 

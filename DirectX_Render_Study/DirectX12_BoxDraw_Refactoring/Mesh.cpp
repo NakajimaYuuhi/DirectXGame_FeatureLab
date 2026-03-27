@@ -11,6 +11,8 @@
 #include "Transform.h"
 #include "SceneTest.h"
 
+#include "Material.h"
+
 
 
 //TODO:同じ形のプリミティブは、頂点バッファを共通にしたい
@@ -78,6 +80,12 @@ uint16_t mesh_indices[] =
 };
 
 
+
+
+//Initializeをどこかで呼ぶ必要有り
+CMesh::CMesh(CMaterial* _Material)
+    :m_Material(_Material)
+{ }
 
 void CMesh::Init()
 {
@@ -398,26 +406,27 @@ void CMesh::Init()
 
 
 
-
+    //----- 消す -----
 
     // --- 初期化処理などの安全な場所で ---
+    //本当は、全体で一括でコマンドリストの開閉を行う
 
-// 1. コマンドリストを開く
-    CDX12Manager::GetInstance().GetCommandAllocator()->Reset();
-    cmdList->Reset(CDX12Manager::GetInstance().GetCommandAllocator(), nullptr);
+    //// 1. コマンドリストを開く
+    //CDX12Manager::GetInstance().GetCommandAllocator()->Reset();
+    //cmdList->Reset(CDX12Manager::GetInstance().GetCommandAllocator(), nullptr);
 
 
-    //-----Texture関連(仮実装)-----
-    m_Texture.LoadTexture(device, cmdList, L"Assets/Texture/Sample1.jpg", 0);
-    m_Texture.CreateSRV(device);
+    ////-----Texture関連(仮実装)-----
+    //m_Texture.LoadTexture(device, cmdList, L"Assets/Texture/Sample1.jpg", 0);
+    //m_Texture.CreateSRV(device);
 
-    // --- ここでコマンドを実行して投げる ---
-    cmdList->Close();
-    ID3D12CommandList* list[] = { cmdList };
-    CDX12Manager::GetInstance().GetCommandQueue()->ExecuteCommandLists(1, list);
+    //// --- ここでコマンドを実行して投げる ---
+    //cmdList->Close();
+    //ID3D12CommandList* list[] = { cmdList };
+    //CDX12Manager::GetInstance().GetCommandQueue()->ExecuteCommandLists(1, list);
 
-    // ★ここでGPUがコピーを終えるまで、CPUをストップさせる！
-    CDX12Manager::GetInstance().ForceWait();
+    //// ★ここでGPUがコピーを終えるまで、CPUをストップさせる！
+    //CDX12Manager::GetInstance().ForceWait();
 
 
 }
@@ -465,7 +474,7 @@ void CMesh::Draw()
 
     commandList->SetGraphicsRootDescriptorTable(
         1,
-        m_Texture.GetGpuHandle()
+        m_Material->GetGpuHandle()
     );
 
 
@@ -487,4 +496,9 @@ void CMesh::RegisterTransform()
 {
     //GetComponentをする
     m_Transform = m_Owner->GetComponent<CTransform>();
+}
+
+void CMesh::RegisterOwner(CObject* _Owner)
+{
+    m_Owner = _Owner;
 }

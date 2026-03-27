@@ -1,4 +1,4 @@
-﻿//===== インクルード =====
+//===== インクルード =====
 #include "3D_Object.h"
 
 //Transform
@@ -6,14 +6,18 @@
 //Mesh
 #include "Mesh.h"
 
+//Model
+#include "Model.h"
+
 C3D_Object::C3D_Object()
 	:CObject()
 {
 	//Transformコンポーネントの作成
 	AddComponent<CTransform>();
 
-	//Meshもここ？
-	AddComponent<CMesh>();
+	//生成するコンポーネントをMeshからModelに変更
+	AddComponent<CModel>();
+	//AddComponent<CMesh>();
 
 }
 
@@ -27,17 +31,17 @@ void C3D_Object::Update()
 {
 
 
-	CMesh* mesh = GetComponent<CMesh>();
+	CModel* model = GetComponent<CModel>();
 
-	mesh->Update();
+	model->Update();
 
 }
 
 void C3D_Object::Draw() 
 {
-	CMesh* mesh = GetComponent<CMesh>();
+	CModel* model = GetComponent<CModel>();
 
-	mesh->Draw();
+	model->Draw();
 }
 
 //Transform

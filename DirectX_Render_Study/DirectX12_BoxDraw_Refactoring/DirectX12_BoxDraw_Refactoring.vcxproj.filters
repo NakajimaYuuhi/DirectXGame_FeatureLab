@@ -61,9 +61,6 @@
     <Filter Include="Source\Component\ObjectInfo">
       <UniqueIdentifier>{e6b31355-be76-4af7-b9c2-4ca286384955}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Component\Mesh">
-      <UniqueIdentifier>{55901826-2416-44dc-beeb-12003462bdf9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source\System\ImGui">
       <UniqueIdentifier>{7de9bda6-b3eb-4b1d-b1b2-f2ac7cd653f0}</UniqueIdentifier>
     </Filter>
@@ -78,6 +75,18 @@
     </Filter>
     <Filter Include="Source\Component\Texture">
       <UniqueIdentifier>{2fa3fbc2-ed9e-40af-b84d-baee9c40440c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Component\Model">
+      <UniqueIdentifier>{e5be4073-92c5-4abf-be2a-55eb4ed75cf2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Component\Model\Mesh">
+      <UniqueIdentifier>{55901826-2416-44dc-beeb-12003462bdf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Component\Model\Material">
+      <UniqueIdentifier>{1b43511f-7310-432f-adc6-dfc5ad617ace}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\Settings\Alias">
+      <UniqueIdentifier>{3385a793-5af6-4b9a-a7b4-2db73b0dbdde}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -115,7 +124,7 @@
       <Filter>Source\Component\ObjectInfo</Filter>
     </ClCompile>
     <ClCompile Include="Mesh.cpp">
-      <Filter>Source\Component\Mesh</Filter>
+      <Filter>Source\Component\Model\Mesh</Filter>
     </ClCompile>
     <ClCompile Include="ImGuiManager.cpp">
       <Filter>Source\System\ImGuiManager</Filter>
@@ -144,7 +153,15 @@
     <ClCompile Include="DescriptorHeapAllocator.cpp">
       <Filter>Source\System\ImGui\DescriptorAllocator</Filter>
     </ClCompile>
-    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Model.cpp">
+      <Filter>Source\Component\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source\Component\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>Source\Component\Model\Material</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h">
@@ -181,7 +198,7 @@
       <Filter>Source\Component\ObjectInfo</Filter>
     </ClInclude>
     <ClInclude Include="Mesh.h">
-      <Filter>Source\Component\Mesh</Filter>
+      <Filter>Source\Component\Model\Mesh</Filter>
     </ClInclude>
     <ClInclude Include="ImGuiManager.h">
       <Filter>Source\System\ImGuiManager</Filter>
@@ -213,7 +230,27 @@
     <ClInclude Include="DescriptorHeapAllocator.h">
       <Filter>Source\System\ImGui\DescriptorAllocator</Filter>
     </ClInclude>
-    <ClInclude Include="Texture.h" />
+    <ClInclude Include="Model.h">
+      <Filter>Source\Component\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Source\Component\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>Source\Component\Model\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXPtrAlias.h">
+      <Filter>Source\System\Settings\Alias</Filter>
+    </ClInclude>
+    <ClInclude Include="SmartPtrAlias.h">
+      <Filter>Source\System\Settings\Alias</Filter>
+    </ClInclude>
+    <ClInclude Include="StringAlias.h">
+      <Filter>Source\System\Settings\Alias</Filter>
+    </ClInclude>
+    <ClInclude Include="ContainerAlias.h">
+      <Filter>Source\System\Settings\Alias</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Triangle.hlsl">
