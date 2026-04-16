@@ -1,12 +1,23 @@
-
+// ================================
+// Constant Buffer (b0)
+// ================================
 cbuffer ConstantBuffer : register(b0)
 {
     float4x4 WVP;
 };
 
+// ================================
+// Resources
+// ================================
 Texture2D tex0 : register(t0);
 SamplerState samLinear : register(s0);
 
+// ボーン行列 SRV（t1）
+StructuredBuffer<float4x4> g_BoneMatrices : register(t1);
+
+// ================================
+// Vertex Input
+// ================================
 struct VSInput
 {
     float3 position : POSITION;
@@ -26,11 +37,30 @@ struct PSInput
 };
 
 
-
+// ================================
+// Vertex Shader (Skinning)
+// ================================
 PSInput VSMain(VSInput input)
 {
     PSInput output;
-    output.position = mul(float4(input.position, 1.0f), WVP);
+    
+    //output.position = mul(float4(input.position, 1.0f), WVP);
+    
+    // --- ボーン変形 ---
+    float4 localPos = float4(input.position, 1.0f);
+
+    float4 skinnedPos =
+        mul(localPos, g_BoneMatrices[input.boneIndices.x]) * input.boneWeights.x +
+        mul(localPos, g_BoneMatrices[input.boneIndices.y]) * input.boneWeights.y +
+        mul(localPos, g_BoneMatrices[input.boneIndices.z]) * input.boneWeights.z +
+        mul(localPos, g_BoneMatrices[input.boneIndices.w]) * input.boneWeights.w;
+
+    // WVP 変換
+    output.position = mul(skinnedPos, WVP);
+    
+    
+    
+    
     output.uv = input.uv;
 
     return output;

@@ -19,6 +19,8 @@
 #include "Mesh.h"
 //Material
 #include "Material.h"
+//Bone
+#include "Bone.h"
 
 
 //===== エイリアス =====
@@ -29,6 +31,14 @@ using Meshes = Vector<Mesh>;
 //Material
 using Material = SharedPtr<CMaterial>;
 using Materials = Vector<Material>;
+
+//Bone
+using Bone = SharedPtr<CBone>;
+using Bones = Vector<Bone>;
+
+//SkinningMatrix
+using SkinningMatrix = DirectX::XMMATRIX;
+using SkinningMatrices = Vector<SkinningMatrix>;
 
 //===== 前方宣言 =====
 
@@ -55,15 +65,31 @@ public:
 	
 	UINT RegisterMatarial(wstring _FilePath,DirectX::XMFLOAT4 _Color);
 
+	void CalculateRecursive(int index);
+
+	//ボーンの更新
+	void UpdateBones();
+
+	void CreateBoneBuffer();
+	void UpdateBoneBuffer();    // CPU→GPUへの転送
+
 private:
 	//Mesh
 	//一旦Mesh1つだけ
-	Mesh m_Mesh;
 	Meshes m_Meshes;
 
 	//Meterial
 	Materials m_Materials;
 
-	//Node
+	//Bone
+	Bones m_Bones;
+
+	//SkinningMatrix
+	SkinningMatrices m_SkinningMatrices;
+
+	ComPtr<ID3D12Resource> m_BoneBuffer;     // StructuredBuffer
+	D3D12_GPU_DESCRIPTOR_HANDLE m_BoneSrvGpuHandle{};
+	UINT m_boneSrvIndex = 0;
+
 };
 

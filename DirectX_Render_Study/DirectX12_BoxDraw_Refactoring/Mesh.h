@@ -42,6 +42,8 @@ public:
 	void Update();
 	void Draw();
 
+	void BindBoneSRV(D3D12_GPU_DESCRIPTOR_HANDLE handle);
+
 private:
 	ComPtr<ID3D12Resource> m_vertexBuffer;
 	ComPtr<ID3D12Resource> m_indexBuffer;
@@ -55,6 +57,8 @@ private:
 	ComPtr<ID3D12Resource> m_constantBuffer;
 	//定数バッファの保持
 	MeshConstantBufferData* m_cbData = nullptr;
+
+	D3D12_GPU_DESCRIPTOR_HANDLE m_BoneSrvGpuHandle;
 
 
 	//Material
@@ -75,5 +79,10 @@ private:
 public:
 	//頂点データの取得
 	void RegisterOwner(CObject* _Owner);
+
+	void SetBoneSRV(D3D12_GPU_DESCRIPTOR_HANDLE handle)
+	{
+		m_BoneSrvGpuHandle = handle;
+	}
 };
 

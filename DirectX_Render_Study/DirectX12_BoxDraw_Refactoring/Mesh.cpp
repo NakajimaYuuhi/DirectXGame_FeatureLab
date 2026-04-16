@@ -41,40 +41,40 @@ MeshVertex mesh_vertices[] =
 {
     //立方体(インデックス)
     // ===== 上 (Y+) =====
-    {{-0.5f,0.5f,-0.5f},{0,1,0},{0,1}},
-    {{-0.5f,0.5f, 0.5f},{0,1,0},{0,0}},
-    {{ 0.5f,0.5f, 0.5f},{0,1,0},{1,0}},
-    {{ 0.5f,0.5f,-0.5f},{0,1,0},{1,1}},
+    {{-0.5f,0.5f,-0.5f},{0,1,0},{0,1},{0,0,0,0},{1,0,0,0}},
+    {{-0.5f,0.5f, 0.5f},{0,1,0},{0,0},{0,0,0,0},{1,0,0,0}},
+    {{ 0.5f,0.5f, 0.5f},{0,1,0},{1,0},{0,0,0,0},{1,0,0,0}},
+    {{ 0.5f,0.5f,-0.5f},{0,1,0},{1,1},{0,0,0,0},{1,0,0,0}},
     
     // ===== 下 (Y-) =====
-    {{-0.5f,-0.5f, 0.5f},{0,-1,0},{1,0}},
-    {{-0.5f,-0.5f,-0.5f},{0,-1,0},{1,1}},
-    {{ 0.5f,-0.5f,-0.5f},{0,-1,0},{0,1}},
-    {{ 0.5f,-0.5f, 0.5f},{0,-1,0},{0,0}},
+    {{-0.5f,-0.5f, 0.5f},{0,-1,0},{1,0},{0,0,0,0},{1,0,0,0}},
+    {{-0.5f,-0.5f,-0.5f},{0,-1,0},{1,1},{0,0,0,0},{1,0,0,0}},
+    {{ 0.5f,-0.5f,-0.5f},{0,-1,0},{0,1},{0,0,0,0},{1,0,0,0}},
+    {{ 0.5f,-0.5f, 0.5f},{0,-1,0},{0,0},{0,0,0,0},{1,0,0,0}},
 
     // ===== 前面 (Z-) =====
-    {{-0.5f,-0.5f,-0.5f},{0,0,-1},{0,1}},
-    {{-0.5f, 0.5f,-0.5f},{0,0,-1},{0,0}},
-    {{ 0.5f, 0.5f,-0.5f},{0,0,-1},{1,0}},
-    {{ 0.5f,-0.5f,-0.5f},{0,0,-1},{1,1}},
+    {{-0.5f,-0.5f,-0.5f},{0,0,-1},{0,1},{0,0,0,0},{1,0,0,0}},
+    {{-0.5f, 0.5f,-0.5f},{0,0,-1},{0,0},{0,0,0,0},{1,0,0,0}},
+    {{ 0.5f, 0.5f,-0.5f},{0,0,-1},{1,0},{0,0,0,0},{1,0,0,0}},
+    {{ 0.5f,-0.5f,-0.5f},{0,0,-1},{1,1},{0,0,0,0},{1,0,0,0}},
 
     // ===== 背面 (Z+) =====
-    {{-0.5f,-0.5f,0.5f},{0,0,1},{1,1}},
-    {{ 0.5f,-0.5f,0.5f},{0,0,1},{0,1}},
-    {{ 0.5f, 0.5f,0.5f},{0,0,1},{0,0}},
-    {{-0.5f, 0.5f,0.5f},{0,0,1},{1,0}},
+    {{-0.5f,-0.5f,0.5f},{0,0,1},{1,1},{0,0,0,0},{1,0,0,0}},
+    {{ 0.5f,-0.5f,0.5f},{0,0,1},{0,1},{0,0,0,0},{1,0,0,0}},
+    {{ 0.5f, 0.5f,0.5f},{0,0,1},{0,0},{0,0,0,0},{1,0,0,0}},
+    {{-0.5f, 0.5f,0.5f},{0,0,1},{1,0},{0,0,0,0},{1,0,0,0}},
 
     // ===== 左 (X-) =====
-    {{-0.5f,-0.5f, 0.5f},{-1,0,0},{0,1}},
-    {{-0.5f, 0.5f, 0.5f},{-1,0,0},{0,0}},
-    {{-0.5f, 0.5f,-0.5f},{-1,0,0},{1,0}},
-    {{-0.5f,-0.5f,-0.5f},{-1,0,0},{1,1}},
+    {{-0.5f,-0.5f, 0.5f},{-1,0,0},{0,1},{0,0,0,0},{1,0,0,0}},
+    {{-0.5f, 0.5f, 0.5f},{-1,0,0},{0,0},{0,0,0,0},{1,0,0,0}},
+    {{-0.5f, 0.5f,-0.5f},{-1,0,0},{1,0},{0,0,0,0},{1,0,0,0}},
+    {{-0.5f,-0.5f,-0.5f},{-1,0,0},{1,1},{0,0,0,0},{1,0,0,0}},
 
     // ===== 右 (X+) =====
-    {{0.5f,-0.5f,-0.5f},{1,0,0},{0,1}},
-    {{0.5f, 0.5f,-0.5f},{1,0,0},{0,0}},
-    {{0.5f, 0.5f, 0.5f},{1,0,0},{1,0}},
-    {{0.5f,-0.5f, 0.5f},{1,0,0},{1,1}},
+    {{0.5f,-0.5f,-0.5f},{1,0,0},{0,1},{0,0,0,0},{1,0,0,0}},
+    {{0.5f, 0.5f,-0.5f},{1,0,0},{0,0},{0,0,0,0},{1,0,0,0}},
+    {{0.5f, 0.5f, 0.5f},{1,0,0},{1,0},{0,0,0,0},{1,0,0,0}},
+    {{0.5f,-0.5f, 0.5f},{1,0,0},{1,1},{0,0,0,0},{1,0,0,0}},
 
 
 };
@@ -144,9 +144,11 @@ void CMesh::Init()
     ComPtr<ID3DBlob> signature;
     ComPtr<ID3DBlob> error;
 
+
+    // ===== Root Parameters =====
     //WVPようにパラメータを設定
     //複数送るので、配列に変更
-    D3D12_ROOT_PARAMETER rootParams[2] = {};
+    D3D12_ROOT_PARAMETER rootParams[3] = {};
 
     // --CBV (b0)
     rootParams[0].ParameterType = D3D12_ROOT_PARAMETER_TYPE_CBV;
@@ -155,17 +157,37 @@ void CMesh::Init()
     rootParams[0].ShaderVisibility = D3D12_SHADER_VISIBILITY_VERTEX;
 
     // --- SRV (t0)
-    D3D12_DESCRIPTOR_RANGE srvRange{};
-    srvRange.RangeType = D3D12_DESCRIPTOR_RANGE_TYPE_SRV;
-    srvRange.NumDescriptors = 1;
-    srvRange.BaseShaderRegister = 0; // t0
-    srvRange.RegisterSpace = 0;
-    srvRange.OffsetInDescriptorsFromTableStart = D3D12_DESCRIPTOR_RANGE_OFFSET_APPEND;
+    D3D12_DESCRIPTOR_RANGE srvRanges[2] = {};
+    srvRanges[0].RangeType = D3D12_DESCRIPTOR_RANGE_TYPE_SRV;
+    srvRanges[0].NumDescriptors = 1;
+    srvRanges[0].BaseShaderRegister = 0; // t0
+    srvRanges[0].RegisterSpace = 0;
+    srvRanges[0].OffsetInDescriptorsFromTableStart = D3D12_DESCRIPTOR_RANGE_OFFSET_APPEND;
 
+    srvRanges[1].RangeType = D3D12_DESCRIPTOR_RANGE_TYPE_SRV;
+    srvRanges[1].NumDescriptors = 1;
+    srvRanges[1].BaseShaderRegister = 1; // t1
+    srvRanges[1].RegisterSpace = 0;
+    srvRanges[1].OffsetInDescriptorsFromTableStart = D3D12_DESCRIPTOR_RANGE_OFFSET_APPEND;
+
+    //====================
+    // 1. Texture SRV (t0)
+    //====================
     rootParams[1].ParameterType = D3D12_ROOT_PARAMETER_TYPE_DESCRIPTOR_TABLE;
     rootParams[1].DescriptorTable.NumDescriptorRanges = 1;
-    rootParams[1].DescriptorTable.pDescriptorRanges = &srvRange;
+    rootParams[1].DescriptorTable.pDescriptorRanges = &srvRanges[0];
     rootParams[1].ShaderVisibility = D3D12_SHADER_VISIBILITY_PIXEL;
+
+    //====================
+    // 2. Bone SRV (t1)
+    //====================
+    rootParams[2].ParameterType = D3D12_ROOT_PARAMETER_TYPE_DESCRIPTOR_TABLE;
+    rootParams[2].DescriptorTable.NumDescriptorRanges = 1;
+    rootParams[2].DescriptorTable.pDescriptorRanges = &srvRanges[1];
+
+    // ★BoneはVSで使う
+    rootParams[2].ShaderVisibility = D3D12_SHADER_VISIBILITY_VERTEX;
+
 
     // --Sampler (s0)
     D3D12_STATIC_SAMPLER_DESC sampler{};
@@ -491,9 +513,17 @@ void CMesh::Draw()
     commandList->SetGraphicsRootSignature(m_rootSignature.Get());
 
     //SRVヒープのセット
-    ID3D12DescriptorHeap* heaps[] = { CDX12Manager::GetInstance().GetSRVHeap() };
+    //ID3D12DescriptorHeap* heaps[] = { CDX12Manager::GetInstance().GetSRVHeap() };
 
-    commandList->SetDescriptorHeaps(1, heaps);
+    //commandList->SetDescriptorHeaps(1, heaps);
+
+    commandList->SetGraphicsRootDescriptorTable(2, m_BoneSrvGpuHandle);
+
+
+    commandList->SetGraphicsRootConstantBufferView(
+        0,
+        m_constantBuffer->GetGPUVirtualAddress()
+    );
 
     commandList->SetGraphicsRootDescriptorTable(
         1,
@@ -501,10 +531,6 @@ void CMesh::Draw()
     );
 
 
-    commandList->SetGraphicsRootConstantBufferView(
-        0,
-        m_constantBuffer->GetGPUVirtualAddress()
-    );
 
     commandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
@@ -514,6 +540,11 @@ void CMesh::Draw()
     commandList->DrawIndexedInstanced(sizeof(mesh_indices) / sizeof(mesh_indices[0]), 1, 0, 0, 0);
 }
 
+void CMesh::BindBoneSRV(D3D12_GPU_DESCRIPTOR_HANDLE handle)
+{
+    ID3D12GraphicsCommandList* commandList = CDX12Manager::GetInstance().GetCommandLIst();
+    commandList->SetGraphicsRootDescriptorTable(2, handle);
+}
 //Transformの登録
 void CMesh::RegisterTransform()
 {

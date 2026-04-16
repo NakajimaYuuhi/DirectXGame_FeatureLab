@@ -88,6 +88,9 @@
     <Filter Include="Source\System\Settings\Alias">
       <UniqueIdentifier>{3385a793-5af6-4b9a-a7b4-2db73b0dbdde}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Component\Model\Bone">
+      <UniqueIdentifier>{ccc4fc86-a97a-4977-a448-92be25a4a1a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Box.cpp">
@@ -161,6 +164,9 @@
     </ClCompile>
     <ClCompile Include="Material.cpp">
       <Filter>Source\Component\Model\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="Bone.cpp">
+      <Filter>Source\Component\Model\Bone</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -250,6 +256,9 @@
     </ClInclude>
     <ClInclude Include="ContainerAlias.h">
       <Filter>Source\System\Settings\Alias</Filter>
+    </ClInclude>
+    <ClInclude Include="Bone.h">
+      <Filter>Source\Component\Model\Bone</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
