@@ -35,6 +35,8 @@ using UniquePtr = std::unique_ptr<T>;
 
 #include <string>
 
+#include "gltfLoader.h"
+
 //===== 名前空間宣言 =====
 
 //===== 定数・マクロ定義 =====
@@ -164,6 +166,8 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 	initialized = true;
 
 	//DisplaySize();
+
+	TestLoadGLTF();
 
 	bool done = false;
 	while (!done)

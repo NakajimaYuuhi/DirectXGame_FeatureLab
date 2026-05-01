@@ -4,4 +4,4 @@
 class CgltfLoader
 {};
 
-void TestLoadGLTFv3();
+void TestLoadGLTF();

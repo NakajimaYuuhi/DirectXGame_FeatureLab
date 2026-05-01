@@ -12,7 +12,9 @@
 
 #include "gltfLoader.h"
 
-void TestLoadGLTFv3()
+
+//読み込み成功したっぽい
+void TestLoadGLTF()
 {
     tinygltf::TinyGLTF loader;
     tinygltf::Model model;
@@ -21,7 +23,7 @@ void TestLoadGLTFv3()
     std::string err;
 
     // 読みたい glb/gltf ファイル名
-    std::string filename = "test.glb";
+    std::string filename = "Assets/Model/OffensiveIdle.glb";
 
     bool ret = false;
 
