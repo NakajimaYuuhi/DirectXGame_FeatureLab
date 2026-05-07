@@ -18,23 +18,7 @@
 //TODO:同じ形のプリミティブは、頂点バッファを共通にしたい
 //一旦頂点情報を外から入れるのは、後回しで
 
-//----- 後で移すもの -----
-//struct MeshVertex
-//{
-//    float position[3];
-//    float color[4];
-//    float uv[2];
-//};
 
-struct MeshVertex
-{
-    float position[3];
-    float normal[3];
-    float uv[2];
-
-    uint8_t boneIndices[4];  // ボーン番号（最大255体まで）
-    float   boneWeights[4];  // ボーンの重み
-};
 
 //頂点データの作成
 MeshVertex mesh_vertices[] =
@@ -88,6 +72,8 @@ uint16_t mesh_indices[] =
     16,17,18, 16,18,19,  // 上
     20,21,22, 20,22,23   // 下
 };
+
+//
 
 
 

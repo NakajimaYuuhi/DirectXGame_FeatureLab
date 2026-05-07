@@ -19,6 +19,9 @@ using Microsoft::WRL::ComPtr;
 //綺麗じゃないけど、一旦ここに入れる
 #include "Texture.h"
 
+//構造体情報
+#include "ModelData.h"
+
 //===== 前方宣言 =====
 class CObject;
 class CTransform;	//毎フレーム使うから置いとく
@@ -60,9 +63,16 @@ private:
 
 	D3D12_GPU_DESCRIPTOR_HANDLE m_BoneSrvGpuHandle;
 
+	//----- 情報 -----
 
 	//Material
 	CMaterial* m_Material;
+
+	//頂点データ
+	std::vector<MeshVertex> m_Vertices;	//頂点
+	std::vector<uint32_t>	m_Indices;	//インデックス
+
+
 
 private:
 	//Transform置き場
