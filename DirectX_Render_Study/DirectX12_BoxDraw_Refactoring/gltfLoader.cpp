@@ -18,31 +18,40 @@
 
 
 //読み込み成功したっぽい
-void TestLoadGLTF()
+LoadedModelData TestLoadGLTF()
 {
-    tinygltf::TinyGLTF loader;
-    tinygltf::Model model;
 
+    //----- 変数宣言 -----
+    // GLTF関連
+    //< ロードに必要なもの >
+    tinygltf::TinyGLTF loader;  //コンテキスト
+    tinygltf::Model model;      //読み込んだデータを格納
+
+    //< エラーチェック用 >
+    bool loadResult;
     std::string warn;
     std::string err;
 
-    // 読みたい glb/gltf ファイル名
+    //< ファイル名 >
+    //読みたい glb/gltf ファイル名
     std::string filename = "Assets/Model/OffensiveIdle.glb";
 
-    bool ret = false;
 
 
     //モデルの情報
 	LoadedModelData loadedModelData;
 
 
+    //----- 変数の初期化 -----
+    loadResult = false;
+
 
 	//----- 読み込み -----
     if (filename.ends_with(".glb")) {
-        ret = loader.LoadBinaryFromFile(&model, &err, &warn, filename);
+        loadResult = loader.LoadBinaryFromFile(&model, &err, &warn, filename);
     }
     else {
-        ret = loader.LoadASCIIFromFile(&model, &err, &warn, filename);
+        loadResult = loader.LoadASCIIFromFile(&model, &err, &warn, filename);
     }
 
 	//----- 読み込み失敗 -----
@@ -54,9 +63,9 @@ void TestLoadGLTF()
         std::cout << "Err: " << err << std::endl;
     }
 
-    if (!ret) {
+    if (!loadResult) {
         std::cout << "Failed to load: " << filename << std::endl;
-        return ;
+        //return ;
     }
 
 	//----- 読み込み成功 -----
@@ -69,23 +78,30 @@ void TestLoadGLTF()
     std::cout << "Skins:    " << model.skins.size() << std::endl;
     std::cout << "Anims:    " << model.animations.size() << std::endl;
 
-	//----- メッシュの頂点データを取得してみる -----
+
+	//----- メッシュデータを取得する -----
 	for (const auto& mesh : model.meshes) // メッシュごとにループ
     {
     
 		//== 変数宣言 ==
-		MeshData meshData;                  //メッシュの情報
-		std::vector<MeshVertex> vertices;   //頂点データのVector
+        //GLTFはMesh -> Primitiveの構造
+        //Primitiveをメッシュとして取り込むので、ベースになるものを宣言しておく
+        std::string meshName;   //メッシュの名前
+        int PrimitiveNum;       //プリミティブのインデックス
 
-        //----- 1.名前の取得 -----
-		meshData.name = mesh.name;
+        //== 変数の初期化 ==
+        meshName = mesh.name;   //名前を取得
+        PrimitiveNum = 0;       
 
-		//----- 2.頂点データの取得 -----
 
+		//== 頂点データの取得 ==
 		// メッシュのプリミティブごとにループ
         for (const auto& primitive : mesh.primitives) 
         {
-            //----- 下準備 -----
+            //== 変数宣言 ==
+            std::string primitiveName;
+            MeshData meshData;                  //メッシュの情報
+            std::vector<MeshVertex> vertices;   //頂点データのVector
 
             // 頂点属性を取得
             const auto& attributes = primitive.attributes;        
@@ -94,11 +110,12 @@ void TestLoadGLTF()
             const tinygltf::Accessor& posAccessor = model.accessors[attributes.at("POSITION")];
             size_t VertexCount = posAccessor.count;
 
+
 			//----- Vectorの準備 -----
-            //MeshのVector
-			std::vector<MeshVertex> vertices;   //頂点のデータを格納するベクター
+            //Vectorのサイズを直す
             vertices.resize(VertexCount);       //Resizeをしておく
 
+            //== verticesにデータを入れる ==
             
             //----- 位置データを取得 -----
             if (attributes.find("POSITION") != attributes.end()) 
@@ -133,12 +150,6 @@ void TestLoadGLTF()
                     vertices[i].position[1] = positions[i * 3 + 1];
                     vertices[i].position[2] = positions[i * 3 + 2];
                 }
-
-
-                //頂点数の取得
-                size_t vertexCount = accessor.count;
-
-
 
             }
 
@@ -180,10 +191,188 @@ void TestLoadGLTF()
                 }
             }
 
-			//一旦Sizeを表示してみる
-			std::cout << "Vertex Count: " << VertexCount << std::endl;
+            //----- ボーンの情報 -----
+            if (attributes.find("JOINTS_0") != attributes.end())
+            {
+                const tinygltf::Accessor& accessor = model.accessors[attributes.at("JOINTS_0")];
+                const tinygltf::BufferView& bufferView = model.bufferViews[accessor.bufferView];
+                const tinygltf::Buffer& buffer = model.buffers[bufferView.buffer];
 
+                const unsigned short* joints =
+                    reinterpret_cast<const unsigned short*>(&buffer.data[bufferView.byteOffset + accessor.byteOffset]);
+
+                for (size_t i = 0; i < VertexCount; i++)
+                {
+                    vertices[i].boneIndices[0] = joints[i * 4 + 0];
+                    vertices[i].boneIndices[1] = joints[i * 4 + 1];
+                    vertices[i].boneIndices[2] = joints[i * 4 + 2];
+                    vertices[i].boneIndices[3] = joints[i * 4 + 3];
+                }
+            }
+
+            //----- ウエイト -----
+            if (attributes.find("WEIGHTS_0") != attributes.end())
+            {
+                const tinygltf::Accessor& accessor = model.accessors[attributes.at("WEIGHTS_0")];
+                const tinygltf::BufferView& bufferView = model.bufferViews[accessor.bufferView];
+                const tinygltf::Buffer& buffer = model.buffers[bufferView.buffer];
+
+                const float* weights =
+                    reinterpret_cast<const float*>(&buffer.data[bufferView.byteOffset + accessor.byteOffset]);
+
+                for (size_t i = 0; i < VertexCount; i++)
+                {
+                    vertices[i].boneWeights[0] = weights[i * 4 + 0];
+                    vertices[i].boneWeights[1] = weights[i * 4 + 1];
+                    vertices[i].boneWeights[2] = weights[i * 4 + 2];
+                    vertices[i].boneWeights[3] = weights[i * 4 + 3];
+                }
+            }
+
+            //----- マテリアルの情報 -----
+            int materialIndex = primitive.material;
+            meshData.materialIndex = materialIndex;
+
+
+            //名前を入れる
+            primitiveName = meshName;
+            primitiveName += "_Primitive";
+            primitiveName += std::to_string(PrimitiveNum);
+
+            meshData.name = primitiveName;
+
+            //verticesのvectorを格納する
+            meshData.vertices = vertices;
+
+
+            //loadModelDataに格納
+            loadedModelData.meshes.push_back(meshData);
+
+
+            //Primitiveのインデックスのカウント
+            PrimitiveNum++;
         }
 	}
 
+    //----- マテリアルのデータの取得 -----
+    for (const auto& material : model.materials)//マテリアルごとに実行
+    {
+        MaterialData materialData;
+
+        // 名前
+        materialData.name = material.name;
+
+        // PBR メイン情報
+        const auto& pbr = material.pbrMetallicRoughness;
+
+        // BaseColorFactor
+        if (!pbr.baseColorFactor.empty())
+        {
+            materialData.baseColorFactor[0] = pbr.baseColorFactor[0];
+            materialData.baseColorFactor[1] = pbr.baseColorFactor[1];
+            materialData.baseColorFactor[2] = pbr.baseColorFactor[2];
+            materialData.baseColorFactor[3] = pbr.baseColorFactor[3];
+        }
+
+        // Metallic / Roughness
+        materialData.metallicFactor = pbr.metallicFactor;
+        materialData.roughnessFactor = pbr.roughnessFactor;
+
+
+        //---------- BaseColorTexture --------------
+        if (pbr.baseColorTexture.index >= 0)
+        {
+            int texIndex = pbr.baseColorTexture.index;
+
+            const tinygltf::Texture& tex = model.textures[texIndex];
+
+            if (tex.source >= 0)
+            {
+                const tinygltf::Image& image = model.images[tex.source];
+                materialData.baseColorTexturePath = image.uri;     // 画像ファイル名
+            }
+        }
+
+        //---------- MetallicRoughnessTexture --------------
+        if (pbr.metallicRoughnessTexture.index >= 0)
+        {
+            int texIndex = pbr.metallicRoughnessTexture.index;
+
+            const tinygltf::Texture& tex = model.textures[texIndex];
+
+            if (tex.source >= 0)
+            {
+                const tinygltf::Image& image = model.images[tex.source];
+                materialData.metallicRoughnessTexturePath = image.uri;
+            }
+        }
+
+        // LoadedModelData に追加
+        loadedModelData.materials.push_back(materialData);
+    }
+
+    //----- ノードのデータの取得 -----
+    for (const auto& node : model.nodes)
+    {
+        NodeData nodeData;
+
+        //--- 名前 ---
+        nodeData.name = node.name;
+
+        //--- メッシュ参照 ---
+        nodeData.meshIndex = node.mesh;  // -1 の場合は mesh なし
+
+        //--- 子ノード ---
+        nodeData.children = node.children;
+
+        //--- TRS or Matrix ---
+
+        // Translation
+        if (!node.translation.empty()) {
+            nodeData.translation[0] = node.translation[0];
+            nodeData.translation[1] = node.translation[1];
+            nodeData.translation[2] = node.translation[2];
+        }
+
+        // Rotation (Quaternion)
+        if (!node.rotation.empty()) {
+            nodeData.rotation[0] = node.rotation[0];
+            nodeData.rotation[1] = node.rotation[1];
+            nodeData.rotation[2] = node.rotation[2];
+            nodeData.rotation[3] = node.rotation[3];
+        }
+
+        // Scale
+        if (!node.scale.empty()) {
+            nodeData.scale[0] = node.scale[0];
+            nodeData.scale[1] = node.scale[1];
+            nodeData.scale[2] = node.scale[2];
+        }
+
+        // Matrix（4x4行列）
+        if (!node.matrix.empty()) 
+        {
+            for (int i = 0; i < 16; i++) {
+                nodeData.matrix[i] = node.matrix[i];
+            }
+        }
+        else 
+        {
+            // TRS → 行列変換が必要ならここでする
+            // 今は省略可能
+        }
+
+        //--- Skin index（スケルトン） ---
+        nodeData.skinIndex = node.skin;
+
+        //→ LoadedModelData に追加
+        loadedModelData.nodes.push_back(nodeData);
+    }
+
+    //----- スキンのデータの取得 -----
+
+
+
+    //値を返す
+    return loadedModelData;
 }

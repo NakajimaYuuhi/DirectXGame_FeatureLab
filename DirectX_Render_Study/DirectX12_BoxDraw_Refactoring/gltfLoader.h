@@ -1,7 +1,10 @@
 
 
 #pragma once
+
+#include "ModelData.h"
+
 class CgltfLoader
 {};
 
-void TestLoadGLTF();
+LoadedModelData TestLoadGLTF();

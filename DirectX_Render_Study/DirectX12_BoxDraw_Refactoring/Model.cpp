@@ -1,5 +1,6 @@
 #include "Model.h"
 #include "DX12Manager.h"
+#include "gltfLoader.h"
 
 CModel::CModel()
 	:CComponent("Model")
@@ -138,6 +139,25 @@ void CModel::UpdateBoneBuffer()
 	m_BoneBuffer->Map(0, nullptr, &mapped);
 	memcpy(mapped, m_SkinningMatrices.data(), bufferSize);
 	m_BoneBuffer->Unmap(0, nullptr);
+}
+
+void CModel::ModelLoad(std::string _Path)
+{
+	//モデルのデータ
+	LoadedModelData loadedModelData;
+	
+	//フォーマットに応じて、適切なLoaderを呼ぶ
+	//一旦GLTFLoaderで実装する
+	loadedModelData = TestLoadGLTF();
+
+	//返って来たものから、Mesh,Material,Boneのデータを作成する
+	//MakeBones(ノードのデータから作成) 
+	
+	//MakeMashes(マテリアルのデータから作成)
+
+	//MakeMaterials
+
+
 }
 
 void CModel::Init()

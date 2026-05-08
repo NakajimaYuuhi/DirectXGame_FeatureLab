@@ -73,6 +73,10 @@ public:
 	void CreateBoneBuffer();
 	void UpdateBoneBuffer();    // CPU→GPUへの転送
 
+
+	//Modelのロード
+	void ModelLoad(std::string _Path);
+
 private:
 	//Mesh
 	//一旦Mesh1つだけ

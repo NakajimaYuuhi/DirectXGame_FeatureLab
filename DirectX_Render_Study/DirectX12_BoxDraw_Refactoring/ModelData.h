@@ -1,5 +1,5 @@
 #pragma once
-
+#include <DirectXMath.h>
 #include <vector>
 #include <string>
 
@@ -26,18 +26,34 @@ struct MeshData
 
 struct MaterialData
 {
+    //マテリアル名
     std::string name;
 
+    //ベースカラーのテクスチャのパス
     std::string baseColorTexturePath;
+
+    //ベースカラー
+    float baseColorFactor[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
+
+    //PBRの金属反射用
+    float metallicFactor = 1.0f;
+    float roughnessFactor = 1.0f;
+    std::string metallicRoughnessTexturePath;
 };
 
 struct NodeData
 {
     std::string name;
+    int meshIndex = -1;
 
-    //Matrix localMatrix;
+    std::vector<int> children;
 
-    std::vector<uint32_t> children;
+    float translation[3] = { 0,0,0 };
+    float rotation[4] = { 0,0,0,1 };
+    float scale[3] = { 1,1,1 };
+    float matrix[16] = {};  // デフォルトは identity 行列でも良い
+
+    int skinIndex = -1;
 };
 
 struct LoadedModelData
