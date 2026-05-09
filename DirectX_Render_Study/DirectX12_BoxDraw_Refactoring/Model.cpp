@@ -153,9 +153,11 @@ void CModel::ModelLoad(std::string _Path)
 	//返って来たものから、Mesh,Material,Boneのデータを作成する
 	//MakeBones(ノードのデータから作成) 
 	
+
 	//MakeMashes(マテリアルのデータから作成)
 
 	//MakeMaterials
+
 
 
 }

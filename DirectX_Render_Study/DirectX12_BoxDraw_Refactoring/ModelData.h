@@ -43,22 +43,43 @@ struct MaterialData
 
 struct NodeData
 {
-    std::string name;
-    int meshIndex = -1;
 
+    //ノード名
+    std::string name;
+
+    //メッシュのノード
+    int meshIndex = -1;
+    
+    //子ノード
     std::vector<int> children;
 
-    float translation[3] = { 0,0,0 };
-    float rotation[4] = { 0,0,0,1 };
-    float scale[3] = { 1,1,1 };
+    //TRS
+    float translation[3]    = { 0.0f, 0.0f, 0.0f };
+    float rotation[4]       = { 0.0f ,0.0f, 0.0f, 1.0f };
+    float scale[3]          = { 1.0f, 1.0f, 1.0f };
+    
+    //Matrix(TRSが使えないとき用)
     float matrix[16] = {};  // デフォルトは identity 行列でも良い
 
+    //Skinのインデックス
     int skinIndex = -1;
+
 };
+
+//
+struct SkinData 
+{
+    std::vector<int> joints;                                // ジョイントの node index
+    std::vector<DirectX::XMFLOAT4X4> inverseBindMatrices;   // 行列
+
+    //Skeltonのノード番号は一旦無しで
+};
+
 
 struct LoadedModelData
 {
     std::vector<MeshData> meshes;
     std::vector<MaterialData> materials;
     std::vector<NodeData> nodes;
+    std::vector<SkinData> skins;
 };

@@ -370,8 +370,39 @@ LoadedModelData TestLoadGLTF()
     }
 
     //----- スキンのデータの取得 -----
+    for (const auto& skin : model.skins)
+    {
+        SkinData skinData;
 
+        //jointsを入れる
+        skinData.joints = skin.joints;
 
+        //
+        if (skin.inverseBindMatrices >= 0) {
+            // bufferView から inverseBindMatrices を読む
+            const tinygltf::Accessor& accessor = model.accessors[skin.inverseBindMatrices];
+            const tinygltf::BufferView& bufferView = model.bufferViews[accessor.bufferView];
+            const tinygltf::Buffer& buffer = model.buffers[bufferView.buffer];
+
+            const unsigned char* dataPtr = &buffer.data[bufferView.byteOffset + accessor.byteOffset];
+
+            size_t count = accessor.count;
+            skinData.inverseBindMatrices.resize(count);
+
+            for (size_t i = 0; i < count; ++i) {
+                const float* m = reinterpret_cast<const float*>(dataPtr + accessor.ByteStride(bufferView) * i);
+
+                // glTF は列優先(column-major)
+                DirectX::XMFLOAT4X4 mat;
+                memcpy(&mat, m, sizeof(float) * 16);
+
+                skinData.inverseBindMatrices[i] = mat;
+            }
+        }
+
+        loadedModelData.skins.push_back(skinData);
+    }
+    
 
     //値を返す
     return loadedModelData;
