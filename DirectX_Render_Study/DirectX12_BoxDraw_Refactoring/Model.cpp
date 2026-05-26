@@ -166,12 +166,26 @@ void CModel::ModelLoad(std::string _Path)
 	//頂点データも渡せるようにする
 	//引数なしで仮データ(Cubeを登録するようにする)
 	//メッシュごとにループする
-	int index = 0;
-	RegisterMesh(mat_num, &(loadedModelData.meshes[0].vertices[0]), sizeof(loadedModelData.meshes[0].vertices) / sizeof(loadedModelData.meshes[0].vertices[0]),
-		&(loadedModelData.meshes[0].indices[0]), sizeof(loadedModelData.meshes[0].indices) / sizeof(loadedModelData.meshes[0].indices[0]));
+	for (auto mesh : loadedModelData.meshes)
+	{
+
+
+		RegisterMesh(
+			mat_num, 
+			mesh.vertices.data(), 
+			mesh.vertices.size(),
+			mesh.indices .data(), 
+			mesh.indices .size()
+		);
+
+	}
+
+	//int index = 2;
+	//RegisterMesh(mat_num, &(loadedModelData.meshes[index].vertices[0]), loadedModelData.meshes[index].vertices.size(),
+	//	&(loadedModelData.meshes[index].indices[0]), loadedModelData.meshes[index].indices.size());
 	//m_Meshes[0]->SetVertex(
-	//	&(loadedModelData.meshes[0].vertices[0]), sizeof(loadedModelData.meshes[0].vertices) / sizeof(loadedModelData.meshes[0].vertices[0]),
-	//	&(loadedModelData.meshes[0].indices[0]),  sizeof(loadedModelData.meshes[0].indices)  / sizeof(loadedModelData.meshes[0].indices[0])
+	//	&(loadedModelData.meshes[index].vertices[0]), loadedModelData.meshes[0].vertices.size(),
+	//	&(loadedModelData.meshes[index].indices[0]), loadedModelData.meshes[0].indices.size()
 	//	);
 
 
@@ -209,10 +223,10 @@ void CModel::Draw()
 	//ボーンの更新
 	UpdateBones();
 
-	static float time = 0.01f; // 適当に時間
-	time += 0.01f;
-	DirectX::XMMATRIX rot = DirectX::XMMatrixRotationY(time);
-	m_Bones[0]->localPose = rot;
+	//static float time = 0.01f; // 適当に時間
+	//time += 0.01f;
+	//DirectX::XMMATRIX rot = DirectX::XMMatrixRotationY(time);
+	//m_Bones[0]->localPose = rot;
 
 	// GPUへボーン行列を送る
 	UpdateBoneBuffer();
@@ -253,11 +267,11 @@ void CModel::RegisterMesh(UINT _MatIdx, const MeshVertex* vertices, size_t verte
 	Mesh mesh = std::make_shared<CMesh>(m_Materials[_MatIdx].get());
 
 	mesh->RegisterOwner(m_Owner);
+	mesh->Init();
 	mesh->SetVertex(
 		vertices, vertexCount,
 		indices, indexCount
 	);
-	mesh->Init();
 
 	m_Meshes.push_back(mesh);
 }

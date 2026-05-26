@@ -260,18 +260,18 @@ bool CDX12Manager::Initialize(HWND hwnd)
 	//view,projの初期化
 	//view
 	m_view = DirectX::XMMatrixLookAtLH(
-		DirectX::XMVectorSet(10, 10, -20, 1),
-		DirectX::XMVectorSet(0, 0, 0, 1),
+		DirectX::XMVectorSet(-0.1, 0.5, -3, 1),
+		DirectX::XMVectorSet(0, 1.5, 0, 1),
 		DirectX::XMVectorSet(0, 1, 0, 0));
 ;
 //Todo : Modelの描画テストをするときは、正面からに直す
 
 
 	//横から見る用
-	m_view = DirectX::XMMatrixLookAtLH(
-		DirectX::XMVectorSet(40, 0, 0, 1),
-		DirectX::XMVectorSet(0, 0, 0, 1),
-		DirectX::XMVectorSet(0, 1, 0, 0));
+	//m_view = DirectX::XMMatrixLookAtLH(
+	//	DirectX::XMVectorSet(40, 0, 0, 1),
+	//	DirectX::XMVectorSet(0, 0, 0, 1),
+	//	DirectX::XMVectorSet(0, 1, 0, 0));
 
 	//proj
 	m_proj = DirectX::XMMatrixPerspectiveFovLH(

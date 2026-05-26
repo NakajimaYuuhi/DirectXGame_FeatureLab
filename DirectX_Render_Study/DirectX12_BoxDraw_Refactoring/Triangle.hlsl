@@ -49,14 +49,15 @@ PSInput VSMain(VSInput input)
     // --- ボーン変形 ---
     float4 localPos = float4(input.position, 1.0f);
 
-    float4 skinnedPos =
-        mul(localPos, g_BoneMatrices[input.boneIndices.x]) * input.boneWeights.x +
-        mul(localPos, g_BoneMatrices[input.boneIndices.y]) * input.boneWeights.y +
-        mul(localPos, g_BoneMatrices[input.boneIndices.z]) * input.boneWeights.z +
-        mul(localPos, g_BoneMatrices[input.boneIndices.w]) * input.boneWeights.w;
+    //float4 skinnedPos =
+    //    mul(localPos, g_BoneMatrices[input.boneIndices.x]) * input.boneWeights.x +
+    //    mul(localPos, g_BoneMatrices[input.boneIndices.y]) * input.boneWeights.y +
+    //    mul(localPos, g_BoneMatrices[input.boneIndices.z]) * input.boneWeights.z +
+    //    mul(localPos, g_BoneMatrices[input.boneIndices.w]) * input.boneWeights.w;
 
     // WVP 変換
-    output.position = mul(skinnedPos, WVP);
+    output.position = mul(localPos, WVP);
+    //output.position = mul(skinnedPos, WVP);
     
     
     

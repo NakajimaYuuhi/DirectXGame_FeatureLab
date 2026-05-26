@@ -167,7 +167,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
 	//DisplaySize();
 
-	TestLoadGLTF();
+	//TestLoadGLTF();
 
 	bool done = false;
 	while (!done)
