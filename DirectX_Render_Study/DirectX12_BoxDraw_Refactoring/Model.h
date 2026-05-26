@@ -60,6 +60,8 @@ public:
 	//一旦立方体がデフォルト
 	//頂点情報、インデックス情報も渡せるようになるとグッド
 	void RegisterMesh(UINT _MatIdx);
+	void RegisterMesh(UINT _MatIdx, const MeshVertex* vertices, size_t vertexCount,
+		const uint16_t* indices, size_t indexCount);
 
 	//頂点情報、インデックス情報のセット
 	

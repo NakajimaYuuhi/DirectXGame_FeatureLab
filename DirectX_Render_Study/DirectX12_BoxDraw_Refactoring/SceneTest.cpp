@@ -7,76 +7,76 @@
 
 CSceneTest::CSceneTest()
 {
-    //--- Box ---
-    auto box = std::make_unique<C3D_Object>("Box");
+    ////--- Box ---
+    //auto box = std::make_unique<C3D_Object>("Box");
 
 
-    CModel* model = box->GetComponent<CModel>();
+    //CModel* model = box->GetComponent<CModel>();
 
-    model->CreateTmpBoneData();
+    //model->CreateTmpBoneData();
 
-    //Transformの登録
-    box->SetTransform({ 0.0f, 2.0f, 0.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 0.0f, 0.0f });
-    
-    //Modelの取得
+    ////Transformの登録
+    //box->SetTransform({ 0.0f, 2.0f, 0.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 0.0f, 0.0f });
+    //
+    ////Modelの取得
 
-    //Materialの登録
-    UINT mat_num = model->RegisterMatarial(L"Assets/Texture/Sample2.jpg", {1.0f,1.0f,1.0f,1.0f});
-    
-    //Meshの登録
-    model->RegisterMesh(mat_num);
+    ////Materialの登録
+    //UINT mat_num = model->RegisterMatarial(L"Assets/Texture/Sample2.jpg", {1.0f,1.0f,1.0f,1.0f});
+    //
+    ////Meshの登録
+    //model->RegisterMesh(mat_num);
 
-    m_VecObject.push_back(std::move(box));
-
-
-    //--- Ground ---
-    auto ground = std::make_unique<C3D_Object>("Ground");
-
-    model = ground->GetComponent<CModel>();
-
-    model->CreateTmpBoneData();
-
-    ground->SetTransform({ 0.0f, 0.0f, 0.0f }, { 20.0f, 0.1f, 20.0f }, { 0.0f, 0.0f, 0.0f });
+    //m_VecObject.push_back(std::move(box));
 
 
-    //Modelの取得
+    ////--- Ground ---
+    //auto ground = std::make_unique<C3D_Object>("Ground");
 
-    //Materialの登録
-    mat_num = model->RegisterMatarial(L"Assets/Texture/Sample1.jpg", { 1.0f,1.0f,1.0f,1.0f });
+    //model = ground->GetComponent<CModel>();
 
-    //Meshの登録
-    model->RegisterMesh(mat_num);
+    //model->CreateTmpBoneData();
 
-    //配列に追加
-    m_VecObject.push_back(std::move(ground));
-
-    //--- Slope ---
-    auto slope = std::make_unique<C3D_Object>("Slope");
-
-    model = slope->GetComponent<CModel>();
+    //ground->SetTransform({ 0.0f, 0.0f, 0.0f }, { 20.0f, 0.1f, 20.0f }, { 0.0f, 0.0f, 0.0f });
 
 
-    model->CreateTmpBoneData();
+    ////Modelの取得
 
-    slope->SetTransform({ 0.0f, 0.0f, 10.0f }, { 20.0f, 0.1f, 20.0f }, { -0.8f, 0.0f, 0.0f });
+    ////Materialの登録
+    //mat_num = model->RegisterMatarial(L"Assets/Texture/Sample1.jpg", { 1.0f,1.0f,1.0f,1.0f });
+
+    ////Meshの登録
+    //model->RegisterMesh(mat_num);
+
+    ////配列に追加
+    //m_VecObject.push_back(std::move(ground));
+
+    ////--- Slope ---
+    //auto slope = std::make_unique<C3D_Object>("Slope");
+
+    //model = slope->GetComponent<CModel>();
 
 
-    //Modelの取得
+    //model->CreateTmpBoneData();
 
-    //Materialの登録
-    mat_num = model->RegisterMatarial(L"Assets/Texture/Sample3.jpg", { 1.0f,1.0f,1.0f,1.0f });
+    //slope->SetTransform({ 0.0f, 0.0f, 10.0f }, { 20.0f, 0.1f, 20.0f }, { -0.8f, 0.0f, 0.0f });
 
-    //Meshの登録
-    model->RegisterMesh(mat_num);
 
-    //配列に追加
-    m_VecObject.push_back(std::move(slope));
+    ////Modelの取得
+
+    ////Materialの登録
+    //mat_num = model->RegisterMatarial(L"Assets/Texture/Sample3.jpg", { 1.0f,1.0f,1.0f,1.0f });
+
+    ////Meshの登録
+    //model->RegisterMesh(mat_num);
+
+    ////配列に追加
+    //m_VecObject.push_back(std::move(slope));
 
 
     //----- Model -----
     auto model_obj = std::make_unique<C3D_Object>("Model_obj");
 
-    model = model_obj->GetComponent<CModel>();
+    CModel* model = model_obj->GetComponent<CModel>();
 
     model_obj->SetTransform({ 0.0f, 0.0f, 0.0f }, { 20.0f, 0.1f, 20.0f }, { 0.0f, 0.0f, -1.6f });
 

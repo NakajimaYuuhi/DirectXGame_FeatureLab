@@ -245,8 +245,60 @@ LoadedModelData TestLoadGLTF()
             meshData.vertices = vertices;
 
 
+
+
+            //== Indexの情報を読み取る
+            std::vector<uint32_t> indices;
+
+            if (primitive.indices < 0) {
+                continue;
+            }
+
+            const tinygltf::Accessor& accessor = model.accessors[primitive.indices];
+            const tinygltf::BufferView& bufferView = model.bufferViews[accessor.bufferView];
+            const tinygltf::Buffer& buffer = model.buffers[bufferView.buffer];
+
+            const unsigned char* dataPtr = buffer.data.data() + bufferView.byteOffset + accessor.byteOffset;
+
+            // componentType によって読み方が変わる
+            switch (accessor.componentType)
+            {
+            case TINYGLTF_COMPONENT_TYPE_UNSIGNED_SHORT:
+            {
+                const uint16_t* buf = reinterpret_cast<const uint16_t*>(dataPtr);
+                for (size_t i = 0; i < accessor.count; i++) {
+                    indices.push_back(static_cast<uint32_t>(buf[i]));
+                }
+                break;
+            }
+            case TINYGLTF_COMPONENT_TYPE_UNSIGNED_INT:
+            {
+                const uint32_t* buf = reinterpret_cast<const uint32_t*>(dataPtr);
+                for (size_t i = 0; i < accessor.count; i++) {
+                    indices.push_back(buf[i]);
+                }
+                break;
+            }
+            case TINYGLTF_COMPONENT_TYPE_UNSIGNED_BYTE:
+            {
+                const uint8_t* buf = reinterpret_cast<const uint8_t*>(dataPtr);
+                for (size_t i = 0; i < accessor.count; i++) {
+                    indices.push_back(static_cast<uint32_t>(buf[i]));
+                }
+                break;
+            }
+            default:
+                std::cerr << "Unsupported index component type\n";
+                break;
+            }
+
+            // 読み込んだ indices を格納
+            meshData.indices.assign(std::begin(indices), std::end(indices));
+
+
             //loadModelDataに格納
             loadedModelData.meshes.push_back(meshData);
+    
 
 
             //Primitiveのインデックスのカウント

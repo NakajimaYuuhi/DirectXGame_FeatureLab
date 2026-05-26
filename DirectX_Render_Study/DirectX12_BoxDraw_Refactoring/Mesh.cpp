@@ -84,6 +84,8 @@ CMesh::CMesh(CMaterial* _Material)
 { 
     //ここで、頂点情報、インデックス情報をデフォルトでセット(仮実装)
     m_Vertices.assign(std::begin(mesh_vertices), std::end(mesh_vertices));//assignで入れれるらしい
+    m_Indices.assign(std::begin(mesh_indices), std::end(mesh_indices));
+
 }
 
 void CMesh::Init()
@@ -394,7 +396,7 @@ void CMesh::Init()
 
     //----- インデックスバッファの作成 -----
     //サイズ計算
-    const UINT indexBufferSize = sizeof(mesh_indices);
+    const UINT indexBufferSize = sizeof(uint16_t) * m_Indices.size();
 
     //リソース作成（UploadHeap）
     D3D12_HEAP_PROPERTIES heapProps2 = {};
@@ -429,12 +431,12 @@ void CMesh::Init()
     //インデックスデータをバッファにコピー
     uint8_t* mappedData2 = nullptr;
     m_indexBuffer->Map(0, nullptr, reinterpret_cast<void**>(&mappedData2));
-    memcpy(mappedData2, mesh_indices, indexBufferSize);
+    memcpy(mappedData2, m_Indices.data(), indexBufferSize);
     m_indexBuffer->Unmap(0, nullptr);
 
     //インデックスバッファビューの設定
     m_indexBufferView.BufferLocation = m_indexBuffer->GetGPUVirtualAddress();
-    m_indexBufferView.SizeInBytes = sizeof(mesh_indices);
+    m_indexBufferView.SizeInBytes = indexBufferSize;
     m_indexBufferView.Format = DXGI_FORMAT_R16_UINT; // uint16_tならこれ
 
 
@@ -533,6 +535,15 @@ void CMesh::BindBoneSRV(D3D12_GPU_DESCRIPTOR_HANDLE handle)
 {
     ID3D12GraphicsCommandList* commandList = CDX12Manager::GetInstance().GetCommandLIst();
     commandList->SetGraphicsRootDescriptorTable(2, handle);
+}
+
+void CMesh::SetVertex(const MeshVertex* vertices, size_t vertexCount, const uint16_t* indices, size_t indexCount)
+{
+    m_Vertices.clear();
+    m_Indices.clear();
+
+    m_Vertices.assign(vertices, vertices + vertexCount);
+    m_Indices.assign(indices, indices + indexCount);
 }
 //Transformの登録
 void CMesh::RegisterTransform()

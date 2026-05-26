@@ -165,7 +165,14 @@ void CModel::ModelLoad(std::string _Path)
 	//Meshの登録
 	//頂点データも渡せるようにする
 	//引数なしで仮データ(Cubeを登録するようにする)
-	RegisterMesh(mat_num);
+	//メッシュごとにループする
+	int index = 0;
+	RegisterMesh(mat_num, &(loadedModelData.meshes[0].vertices[0]), sizeof(loadedModelData.meshes[0].vertices) / sizeof(loadedModelData.meshes[0].vertices[0]),
+		&(loadedModelData.meshes[0].indices[0]), sizeof(loadedModelData.meshes[0].indices) / sizeof(loadedModelData.meshes[0].indices[0]));
+	//m_Meshes[0]->SetVertex(
+	//	&(loadedModelData.meshes[0].vertices[0]), sizeof(loadedModelData.meshes[0].vertices) / sizeof(loadedModelData.meshes[0].vertices[0]),
+	//	&(loadedModelData.meshes[0].indices[0]),  sizeof(loadedModelData.meshes[0].indices)  / sizeof(loadedModelData.meshes[0].indices[0])
+	//	);
 
 
 
@@ -234,6 +241,22 @@ void CModel::RegisterMesh(UINT _MatIdx)
 	Mesh mesh = std::make_shared<CMesh>(m_Materials[_MatIdx].get());
 
 	mesh->RegisterOwner(m_Owner);
+
+	mesh->Init();
+
+	m_Meshes.push_back(mesh);
+}
+
+void CModel::RegisterMesh(UINT _MatIdx, const MeshVertex* vertices, size_t vertexCount, const uint16_t* indices, size_t indexCount)
+{
+	//生成に失敗している
+	Mesh mesh = std::make_shared<CMesh>(m_Materials[_MatIdx].get());
+
+	mesh->RegisterOwner(m_Owner);
+	mesh->SetVertex(
+		vertices, vertexCount,
+		indices, indexCount
+	);
 	mesh->Init();
 
 	m_Meshes.push_back(mesh);
