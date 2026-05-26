@@ -10,11 +10,15 @@ CSceneTest::CSceneTest()
     //--- Box ---
     auto box = std::make_unique<C3D_Object>("Box");
 
+
+    CModel* model = box->GetComponent<CModel>();
+
+    model->CreateTmpBoneData();
+
     //Transformの登録
     box->SetTransform({ 0.0f, 2.0f, 0.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 0.0f, 0.0f });
     
     //Modelの取得
-    CModel* model = box->GetComponent<CModel>();
 
     //Materialの登録
     UINT mat_num = model->RegisterMatarial(L"Assets/Texture/Sample2.jpg", {1.0f,1.0f,1.0f,1.0f});
@@ -28,11 +32,14 @@ CSceneTest::CSceneTest()
     //--- Ground ---
     auto ground = std::make_unique<C3D_Object>("Ground");
 
+    model = ground->GetComponent<CModel>();
+
+    model->CreateTmpBoneData();
+
     ground->SetTransform({ 0.0f, 0.0f, 0.0f }, { 20.0f, 0.1f, 20.0f }, { 0.0f, 0.0f, 0.0f });
 
 
     //Modelの取得
-    model = ground->GetComponent<CModel>();
 
     //Materialの登録
     mat_num = model->RegisterMatarial(L"Assets/Texture/Sample1.jpg", { 1.0f,1.0f,1.0f,1.0f });
@@ -46,11 +53,15 @@ CSceneTest::CSceneTest()
     //--- Slope ---
     auto slope = std::make_unique<C3D_Object>("Slope");
 
+    model = slope->GetComponent<CModel>();
+
+
+    model->CreateTmpBoneData();
+
     slope->SetTransform({ 0.0f, 0.0f, 10.0f }, { 20.0f, 0.1f, 20.0f }, { -0.8f, 0.0f, 0.0f });
 
 
     //Modelの取得
-    model = slope->GetComponent<CModel>();
 
     //Materialの登録
     mat_num = model->RegisterMatarial(L"Assets/Texture/Sample3.jpg", { 1.0f,1.0f,1.0f,1.0f });
@@ -85,6 +96,7 @@ void CSceneTest::Update()
 
 void CSceneTest::Draw() 
 {
+    //モデルによってDrawする
     for (auto& object : m_VecObject)
     {
         object->Draw();

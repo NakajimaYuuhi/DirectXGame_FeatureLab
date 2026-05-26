@@ -70,6 +70,9 @@ public:
 	//ボーンの更新
 	void UpdateBones();
 
+
+	void CreateTmpBoneData();
+
 	void CreateBoneBuffer();
 	void UpdateBoneBuffer();    // CPU→GPUへの転送
 

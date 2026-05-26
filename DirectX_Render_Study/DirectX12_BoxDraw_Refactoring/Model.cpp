@@ -5,28 +5,9 @@
 CModel::CModel()
 	:CComponent("Model")
 {
-	//----- ボーンのデータ仮作成 -----
-	Bone bone;
-	bone = std::make_shared<CBone>();
 
-	bone->name = "Root";
-	bone->parentIndex = -1;
-	bone->children = {};
 
-	// 初期姿勢（BindPose）
-	bone->localBindPose = DirectX::XMMatrixIdentity();
-
-	// 逆行列
-	bone->inverseBindPose = DirectX::XMMatrixInverse(nullptr, bone->localBindPose);
-
-	// 現在ポーズ
-	bone->localPose = DirectX::XMMatrixIdentity();
-	bone->globalPose = DirectX::XMMatrixIdentity();
-	m_Bones.push_back(bone);
-
-	//ボーンバッファの作成
-	CreateBoneBuffer();
-
+	
 
 }
 
@@ -69,6 +50,31 @@ void CModel::UpdateBones()
 		m_SkinningMatrices[i] =
 			m_Bones[i]->globalPose * m_Bones[i]->inverseBindPose;
 	}
+}
+
+void CModel::CreateTmpBoneData()
+{
+	//----- ボーンのデータ仮作成 -----
+	Bone bone;
+	bone = std::make_shared<CBone>();
+
+	bone->name = "Root";
+	bone->parentIndex = -1;
+	bone->children = {};
+
+	// 初期姿勢（BindPose）
+	bone->localBindPose = DirectX::XMMatrixIdentity();
+
+	// 逆行列
+	bone->inverseBindPose = DirectX::XMMatrixInverse(nullptr, bone->localBindPose);
+
+	// 現在ポーズ
+	bone->localPose = DirectX::XMMatrixIdentity();
+	bone->globalPose = DirectX::XMMatrixIdentity();
+	m_Bones.push_back(bone);
+
+	//ボーンバッファの作成
+	CreateBoneBuffer();
 }
 
 void CModel::CreateBoneBuffer()
@@ -150,8 +156,23 @@ void CModel::ModelLoad(std::string _Path)
 	//一旦GLTFLoaderで実装する
 	loadedModelData = TestLoadGLTF();
 
+	//ボーンデータ仮作成
+	CreateTmpBoneData();
+
+	//マテリアル仮作成
+	UINT mat_num = RegisterMatarial(L"Assets/Texture/Sample1.jpg", { 1.0f,1.0f,1.0f,1.0f });
+
+	//Meshの登録
+	//頂点データも渡せるようにする
+	//引数なしで仮データ(Cubeを登録するようにする)
+	RegisterMesh(mat_num);
+
+
+
 	//返って来たものから、Mesh,Material,Boneのデータを作成する
 	//MakeBones(ノードのデータから作成) 
+	//Skinの情報を探索して、Boneのインデックスのリストを作成する
+
 	
 
 	//MakeMashes(マテリアルのデータから作成)
