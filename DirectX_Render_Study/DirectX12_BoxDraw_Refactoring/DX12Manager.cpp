@@ -264,6 +264,8 @@ bool CDX12Manager::Initialize(HWND hwnd)
 		DirectX::XMVectorSet(0, 0, 0, 1),
 		DirectX::XMVectorSet(0, 1, 0, 0));
 ;
+//Todo : Modelの描画テストをするときは、正面からに直す
+
 
 	//横から見る用
 	m_view = DirectX::XMMatrixLookAtLH(

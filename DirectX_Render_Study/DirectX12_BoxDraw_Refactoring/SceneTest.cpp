@@ -71,6 +71,21 @@ CSceneTest::CSceneTest()
 
     //配列に追加
     m_VecObject.push_back(std::move(slope));
+
+
+    //----- Model -----
+    auto model_obj = std::make_unique<C3D_Object>("Model_obj");
+
+    model = model_obj->GetComponent<CModel>();
+
+    model_obj->SetTransform({ 0.0f, 0.0f, 0.0f }, { 20.0f, 0.1f, 20.0f }, { 0.0f, 0.0f, -1.6f });
+
+    model->ModelLoad("");
+
+
+    //配列に追加
+    m_VecObject.push_back(std::move(model_obj));
+
 }
 
 

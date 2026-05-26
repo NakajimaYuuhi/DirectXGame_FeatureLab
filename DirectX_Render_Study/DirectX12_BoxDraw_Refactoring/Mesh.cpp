@@ -81,7 +81,10 @@ uint16_t mesh_indices[] =
 //Initializeをどこかで呼ぶ必要有り
 CMesh::CMesh(CMaterial* _Material)
     :m_Material(_Material)
-{ }
+{ 
+    //ここで、頂点情報、インデックス情報をデフォルトでセット(仮実装)
+    m_Vertices.assign(std::begin(mesh_vertices), std::end(mesh_vertices));//assignで入れれるらしい
+}
 
 void CMesh::Init()
 {
@@ -321,7 +324,7 @@ void CMesh::Init()
 
     //----- 頂点バッファの作成 -----
     //サイズ計算
-    UINT vertexBufferSize = sizeof(mesh_vertices);
+    UINT vertexBufferSize = sizeof(MeshVertex) * m_Vertices.size();//型のサイズに掛け算
 
     //リソース作成（UploadHeap）
     D3D12_HEAP_PROPERTIES heapProps = {};
@@ -348,13 +351,13 @@ void CMesh::Init()
     //頂点データをバッファにコピー
     void* mappedData = nullptr;
     m_vertexBuffer->Map(0, nullptr, &mappedData);
-    memcpy(mappedData, mesh_vertices, vertexBufferSize);
+    memcpy(mappedData, m_Vertices.data(), vertexBufferSize);//これ
     m_vertexBuffer->Unmap(0, nullptr);
 
     //頂点バッファビューの設定
     m_vertexBufferView.BufferLocation = m_vertexBuffer->GetGPUVirtualAddress();
-    m_vertexBufferView.SizeInBytes = vertexBufferSize;
-    m_vertexBufferView.StrideInBytes = sizeof(MeshVertex);
+    m_vertexBufferView.SizeInBytes = vertexBufferSize;//これ
+    m_vertexBufferView.StrideInBytes = sizeof(MeshVertex);//これ
 
 
     //----- 定数バッファの作成 -----
