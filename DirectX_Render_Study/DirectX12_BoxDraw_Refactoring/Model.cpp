@@ -33,7 +33,6 @@ void CModel::CalculateRecursive(int index)
 
 void CModel::UpdateBones()
 {
-	// ① 親子伝播
 	for (int i = 0; i < m_Bones.size(); i++)
 	{
 		if (m_Bones[i]->parentIndex < 0)
@@ -42,7 +41,6 @@ void CModel::UpdateBones()
 		}
 	}
 
-	// ② スキニング行列作成 ← ★ここ！！
 	m_SkinningMatrices.resize(m_Bones.size());
 
 	for (int i = 0; i < m_Bones.size(); i++)
@@ -156,29 +154,166 @@ void CModel::ModelLoad(std::string _Path)
 	//一旦GLTFLoaderで実装する
 	loadedModelData = TestLoadGLTF();
 
-	//ボーンデータ仮作成
+	////ボーンデータ仮作成
 	CreateTmpBoneData();
 
+	//----- ボーンデータ作成 -----
+	//NodeDataからCBoneのVectorに一括取り込み
+
+	//一旦ボーンをクリア
+	m_Bones.clear();
+
+	// -- 1.forループで全データ取り込み
+	for (const auto& node : loadedModelData.nodes)
+	{
+		//領域作成
+		auto bone = std::make_shared<CBone>();
+
+		//Name,Childrenを一旦入れる
+		bone->name = node.name;
+		bone->children = node.children;
+		bone->parentIndex = -1; // ステップ2で埋めるので一旦-1
+
+		// --- ローカル初期行列（localBindPose）の作成 ---
+		
+		//行列で持っているかを確認
+		bool hasMatrix = false;
+		//1つでも値が入っているなら、持っているということ
+		for (int i = 0; i < 16; ++i) { if (node.matrix[i] != 0.0f) { hasMatrix = true; break; } }
+
+		if (hasMatrix)
+		{
+			bone->localBindPose = DirectX::XMLoadFloat4x4((const DirectX::XMFLOAT4X4*)node.matrix);
+		}
+		else
+		{
+			// TRS（初期値）からローカル行列を合成
+			DirectX::XMVECTOR s = DirectX::XMVectorSet(node.scale[0], node.scale[1], node.scale[2], 0.0f);
+			DirectX::XMVECTOR r = DirectX::XMVectorSet(node.rotation[0], node.rotation[1], node.rotation[2], node.rotation[3]); // クォータニオン
+			DirectX::XMVECTOR t = DirectX::XMVectorSet(node.translation[0], node.translation[1], node.translation[2], 0.0f);
+
+			//行列に変換
+			bone->localBindPose = DirectX::XMMatrixAffineTransformation(s, DirectX::XMVectorZero(), r, t);
+		}
+
+		// 最初は現在のアニメーション用ローカルポーズ(localPose)も初期姿勢と同じにする
+		bone->localPose = bone->localBindPose;
+
+		//プッシュする
+		m_Bones.push_back(bone);
+	}
+
+	// -- 2.ParentDataを埋める
+	for (int i = 0; i < m_Bones.size(); ++i)
+	{
+		//Childrenに該当するParentを書き換える
+		for (int childIdx : m_Bones[i]->children)
+		{
+			m_Bones[childIdx]->parentIndex = i;
+		}
+	}
+
+	//-- 3.初期グローバル行列(globalBindPose)の階層計算
+
+	//ラムダ関数を使ってRootから再帰的に計算
+	//ラムダ関数の定義
+	auto lambdaComputeBindPose = [&](auto& self, int nodeIdx, const DirectX::XMMATRIX& parentMatrix) -> void 
+	{
+		//Boneの取得
+		auto& bone = m_Bones[nodeIdx];
+
+		// グローバル行列 = 自身のローカル * 親のグローバル
+		bone->globalBindPose = bone->localBindPose * parentMatrix;
+		bone->globalPose = bone->globalBindPose; // 現在のポーズも同期
+
+		// 子ノードへ伝播
+		for (int childIdx : bone->children) 
+		{
+			self(self, childIdx, bone->globalBindPose);
+		}
+	};
+
+	//親がいないノード（parentIndex == -1 の Rootノード）を起点に走らせる
+	for (int i = 0; i < m_Bones.size(); ++i)
+	{
+		//-1が起点
+		if (m_Bones[i]->parentIndex == -1)
+		{
+			lambdaComputeBindPose(lambdaComputeBindPose, i, DirectX::XMMatrixIdentity());
+		}
+	}
+
+	//-- 4.SkinData から正式な inverseBindPose（逆行列）を割り当てる
+	// まず全ノードに対して、ステップ3のglobalBindPoseの逆行列を安全用に入れておく
+	for (auto& bone : m_Bones)
+	{
+		bone->inverseBindPose = DirectX::XMMatrixInverse(nullptr, bone->globalBindPose);
+	}
+
+	// スキンデータ（ボーン情報）がある場合、gLTFの正確な逆バインド行列で上書き
+	if (!loadedModelData.skins.empty())
+	{
+		//ここは定数
+		const auto& skin = loadedModelData.skins[0]; // キャラクター用のskin
+
+		for (size_t i = 0; i < skin.joints.size(); ++i)
+		{
+			int nodeIdx = skin.joints[i]; // skin上のi番目のボーンが指す、全ノード(m_Bones)の中のインデックス
+
+			// tinygltfから読み込んだ XMFLOAT4X4 を XMMATRIX に変換して上書き
+			m_Bones[nodeIdx]->inverseBindPose = DirectX::XMLoadFloat4x4(&skin.inverseBindMatrices[i]);
+		}
+	}
+
+	//ボーンバッファ作成
+	CreateBoneBuffer();
+
+
+	//----- マテリアル作成 -----
 	//マテリアル仮作成
 	UINT mat_num = RegisterMatarial(L"Assets/Texture/Sample1.jpg", { 1.0f,1.0f,1.0f,1.0f });
 
-	//Meshの登録
-	//頂点データも渡せるようにする
-	//引数なしで仮データ(Cubeを登録するようにする)
-	//メッシュごとにループする
-	for (auto mesh : loadedModelData.meshes)
+	// -- 5.すべてのメッシュの登録（breakを削除して全部読み込む！）
+	for (int i = 0; i < loadedModelData.nodes.size(); ++i)
 	{
+		const auto& node = loadedModelData.nodes[i];
 
+		if (node.meshIndex != -1)
+		{
+			const auto& mesh = loadedModelData.meshes[node.meshIndex];
 
-		RegisterMesh(
-			mat_num, 
-			mesh.vertices.data(), 
-			mesh.vertices.size(),
-			mesh.indices .data(), 
-			mesh.indices .size()
-		);
-
+			// すべてのメッシュ（65〜69番など）をRegisterMeshします
+			RegisterMesh(
+				mat_num,
+				mesh.vertices.data(),
+				mesh.vertices.size(),
+				mesh.indices.data(),
+				mesh.indices.size()
+			);
+		}
 	}
+
+
+	////Meshの登録
+	////頂点データも渡せるようにする
+	////引数なしで仮データ(Cubeを登録するようにする)
+	////メッシュごとにループする
+	//for (auto mesh : loadedModelData.meshes)
+	//{
+
+
+	//	RegisterMesh(
+	//		mat_num, 
+	//		mesh.vertices.data(), 
+	//		mesh.vertices.size(),
+	//		mesh.indices .data(), 
+	//		mesh.indices .size()
+	//	);
+	//	break;
+	//}
+
+
+
 
 	//int index = 2;
 	//RegisterMesh(mat_num, &(loadedModelData.meshes[index].vertices[0]), loadedModelData.meshes[index].vertices.size(),
@@ -225,7 +360,7 @@ void CModel::Draw()
 
 	//static float time = 0.01f; // 適当に時間
 	//time += 0.01f;
-	//DirectX::XMMATRIX rot = DirectX::XMMatrixRotationY(time);
+	//DirectX::XMMATRIX rot = DirectX::XMMatrixRotationX(time);
 	//m_Bones[0]->localPose = rot;
 
 	// GPUへボーン行列を送る
@@ -261,7 +396,7 @@ void CModel::RegisterMesh(UINT _MatIdx)
 	m_Meshes.push_back(mesh);
 }
 
-void CModel::RegisterMesh(UINT _MatIdx, const MeshVertex* vertices, size_t vertexCount, const uint16_t* indices, size_t indexCount)
+void CModel::RegisterMesh(UINT _MatIdx, const MeshVertex* vertices, size_t vertexCount, const uint32_t* indices, size_t indexCount)
 {
 	//生成に失敗している
 	Mesh mesh = std::make_shared<CMesh>(m_Materials[_MatIdx].get());

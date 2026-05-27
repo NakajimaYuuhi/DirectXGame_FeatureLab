@@ -49,7 +49,7 @@ public:
 
 	//頂点、インデックス情報のセット
 	void SetVertex(const MeshVertex* vertices, size_t vertexCount,
-		const uint16_t* indices, size_t indexCount);
+		const uint32_t* indices, size_t indexCount);
 
 private:
 	ComPtr<ID3D12Resource> m_vertexBuffer;
@@ -74,7 +74,7 @@ private:
 
 	//頂点データ
 	std::vector<MeshVertex> m_Vertices;	//頂点
-	std::vector<uint16_t>	m_Indices;	//インデックス
+	std::vector<uint32_t>	m_Indices;	//インデックス
 
 
 

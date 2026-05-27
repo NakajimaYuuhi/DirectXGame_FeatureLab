@@ -78,7 +78,7 @@ CSceneTest::CSceneTest()
 
     CModel* model = model_obj->GetComponent<CModel>();
 
-    model_obj->SetTransform({ 0.0f, 0.0f, 0.0f }, { 20.0f, 0.1f, 20.0f }, { 0.0f, 0.0f, -1.6f });
+    //model_obj->SetTransform({ 0.0f, 0.0f, 0.0f }, { 20.0f, 0.1f, 20.0f }, { 0.0f, 0.0f, -1.6f });
 
     model->ModelLoad("");
 

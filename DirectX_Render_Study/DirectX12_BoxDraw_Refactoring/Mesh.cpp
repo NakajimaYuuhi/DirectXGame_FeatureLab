@@ -63,7 +63,7 @@ MeshVertex mesh_vertices[] =
 
 };
 
-uint16_t mesh_indices[] =
+uint32_t mesh_indices[] =
 {
     0,1,2, 0,2,3,        // 前
     4,5,6, 4,6,7,        // 背
@@ -221,7 +221,7 @@ void CMesh::Init()
         { "TEXCOORD",     0, DXGI_FORMAT_R32G32_FLOAT,       0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
 
         // ボーン番号（uint8 × 4） → R8G8B8A8_UINT
-        { "BLENDINDICES", 0, DXGI_FORMAT_R8G8B8A8_UINT,      0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+        { "BLENDINDICES", 0, DXGI_FORMAT_R32G32B32A32_UINT,      0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
 
         // ボーンの重み（float × 4）
         { "BLENDWEIGHT",  0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
@@ -483,7 +483,7 @@ void CMesh::BindBoneSRV(D3D12_GPU_DESCRIPTOR_HANDLE handle)
     commandList->SetGraphicsRootDescriptorTable(2, handle);
 }
 
-void CMesh::SetVertex(const MeshVertex* vertices, size_t vertexCount, const uint16_t* indices, size_t indexCount)
+void CMesh::SetVertex(const MeshVertex* vertices, size_t vertexCount, const uint32_t* indices, size_t indexCount)
 {
 
     ID3D12Device* device = CDX12Manager::GetInstance().GetDevice();
@@ -534,7 +534,7 @@ void CMesh::SetVertex(const MeshVertex* vertices, size_t vertexCount, const uint
 
     //----- インデックスバッファの作成 -----
     //サイズ計算
-    const UINT indexBufferSize = sizeof(uint16_t) * m_Indices.size();
+    const UINT indexBufferSize = sizeof(uint32_t) * m_Indices.size();
 
     //リソース作成（UploadHeap）
     D3D12_HEAP_PROPERTIES heapProps2 = {};
@@ -575,7 +575,7 @@ void CMesh::SetVertex(const MeshVertex* vertices, size_t vertexCount, const uint
     //インデックスバッファビューの設定
     m_indexBufferView.BufferLocation = m_indexBuffer->GetGPUVirtualAddress();
     m_indexBufferView.SizeInBytes = indexBufferSize;
-    m_indexBufferView.Format = DXGI_FORMAT_R16_UINT; // uint16_tならこれ
+    m_indexBufferView.Format = DXGI_FORMAT_R32_UINT; // uint16_tならこれ
 }
 //Transformの登録
 void CMesh::RegisterTransform()

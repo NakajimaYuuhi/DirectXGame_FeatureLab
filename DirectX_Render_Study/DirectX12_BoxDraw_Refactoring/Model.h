@@ -61,7 +61,7 @@ public:
 	//頂点情報、インデックス情報も渡せるようになるとグッド
 	void RegisterMesh(UINT _MatIdx);
 	void RegisterMesh(UINT _MatIdx, const MeshVertex* vertices, size_t vertexCount,
-		const uint16_t* indices, size_t indexCount);
+		const uint32_t* indices, size_t indexCount);
 
 	//頂点情報、インデックス情報のセット
 	
@@ -87,7 +87,7 @@ private:
 	//一旦Mesh1つだけ
 	Meshes m_Meshes;
 
-	//Meterial
+	//Material
 	Materials m_Materials;
 
 	//Bone

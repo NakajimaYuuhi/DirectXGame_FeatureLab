@@ -35,6 +35,7 @@ LoadedModelData TestLoadGLTF()
     //< ファイル名 >
     //読みたい glb/gltf ファイル名
     std::string filename = "Assets/Model/OffensiveIdle.glb";
+    //std::string filename = "Assets/Model/cube.glb";
 
 
 
@@ -198,15 +199,34 @@ LoadedModelData TestLoadGLTF()
                 const tinygltf::BufferView& bufferView = model.bufferViews[accessor.bufferView];
                 const tinygltf::Buffer& buffer = model.buffers[bufferView.buffer];
 
-                const unsigned short* joints =
-                    reinterpret_cast<const unsigned short*>(&buffer.data[bufferView.byteOffset + accessor.byteOffset]);
+                const unsigned char* dataPtr = &buffer.data[bufferView.byteOffset + accessor.byteOffset];
 
-                for (size_t i = 0; i < VertexCount; i++)
+                // gLTFのボーンインデックスの型ごとに処理を分ける
+                if (accessor.componentType == TINYGLTF_COMPONENT_TYPE_UNSIGNED_SHORT) // 5123 (16bit)
                 {
-                    vertices[i].boneIndices[0] = joints[i * 4 + 0];
-                    vertices[i].boneIndices[1] = joints[i * 4 + 1];
-                    vertices[i].boneIndices[2] = joints[i * 4 + 2];
-                    vertices[i].boneIndices[3] = joints[i * 4 + 3];
+                    const uint16_t* joints = reinterpret_cast<const uint16_t*>(dataPtr);
+                    for (size_t i = 0; i < VertexCount; i++)
+                    {
+                        vertices[i].boneIndices[0] = static_cast<uint32_t>(joints[i * 4 + 0]);
+                        vertices[i].boneIndices[1] = static_cast<uint32_t>(joints[i * 4 + 1]);
+                        vertices[i].boneIndices[2] = static_cast<uint32_t>(joints[i * 4 + 2]);
+                        vertices[i].boneIndices[3] = static_cast<uint32_t>(joints[i * 4 + 3]);
+                    }
+                }
+                else if (accessor.componentType == TINYGLTF_COMPONENT_TYPE_UNSIGNED_BYTE) // 5121 (8bit) 🔥超怪しい！
+                {
+                    const uint8_t* joints = reinterpret_cast<const uint8_t*>(dataPtr);
+                    for (size_t i = 0; i < VertexCount; i++)
+                    {
+                        vertices[i].boneIndices[0] = static_cast<uint32_t>(joints[i * 4 + 0]);
+                        vertices[i].boneIndices[1] = static_cast<uint32_t>(joints[i * 4 + 1]);
+                        vertices[i].boneIndices[2] = static_cast<uint32_t>(joints[i * 4 + 2]);
+                        vertices[i].boneIndices[3] = static_cast<uint32_t>(joints[i * 4 + 3]);
+                    }
+                }
+                else
+                {
+                    std::cerr << "Unsupported JOINTS component type!\n";
                 }
             }
 

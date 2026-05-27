@@ -10,7 +10,7 @@ struct MeshVertex
     float normal[3];
     float uv[2];
 
-    uint8_t boneIndices[4];  // ボーン番号（最大255体まで）
+    uint32_t boneIndices[4];  // ボーン番号（最大255体まで）
     float   boneWeights[4];  // ボーンの重み
 };
 
@@ -19,7 +19,7 @@ struct MeshData
     std::string name;
 
     std::vector<MeshVertex> vertices;
-    std::vector<uint16_t> indices;
+    std::vector<uint32_t> indices;
 
     uint32_t materialIndex;
 };
