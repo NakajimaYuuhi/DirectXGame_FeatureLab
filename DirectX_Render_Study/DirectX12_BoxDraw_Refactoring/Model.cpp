@@ -22,7 +22,7 @@ void CModel::CalculateRecursive(int index)
 	else
 	{
 		auto& parent = m_Bones[bone->parentIndex];
-		bone->globalPose = parent->globalPose * bone->localPose;
+		bone->globalPose = bone->localPose * parent->globalPose;
 	}
 
 	for (int child : bone->children)
@@ -47,6 +47,10 @@ void CModel::UpdateBones()
 	{
 		m_SkinningMatrices[i] =
 			m_Bones[i]->globalPose * m_Bones[i]->inverseBindPose;
+
+		//アニメーションがおかしかったら、ここをいじる
+		//m_SkinningMatrices[i] =
+		//	 m_Bones[i]->inverseBindPose* m_Bones[i]->globalPose;
 	}
 }
 
@@ -155,7 +159,7 @@ void CModel::ModelLoad(std::string _Path)
 	loadedModelData = TestLoadGLTF();
 
 	////ボーンデータ仮作成
-	CreateTmpBoneData();
+	//CreateTmpBoneData();
 
 	//----- ボーンデータ作成 -----
 	//NodeDataからCBoneのVectorに一括取り込み

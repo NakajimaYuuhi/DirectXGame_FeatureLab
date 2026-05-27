@@ -260,7 +260,7 @@ bool CDX12Manager::Initialize(HWND hwnd)
 	//view,projの初期化
 	//view
 	m_view = DirectX::XMMatrixLookAtLH(
-		DirectX::XMVectorSet(0, 0, -5, 1),
+		DirectX::XMVectorSet(0, 0, 5, 1),
 		DirectX::XMVectorSet(0, 0, 0, 1),
 		DirectX::XMVectorSet(0, 1, 0, 0));
 ;

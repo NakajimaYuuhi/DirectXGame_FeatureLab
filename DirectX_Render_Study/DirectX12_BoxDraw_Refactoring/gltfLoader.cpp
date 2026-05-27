@@ -113,8 +113,21 @@ LoadedModelData TestLoadGLTF()
 
 
 			//----- Vectorの準備 -----
-            //Vectorのサイズを直す
+            //Vector의サイズを直す
             vertices.resize(VertexCount);       //Resizeをしておく
+
+            // ゴミデータが入るのを防ぐため、ボーン情報とウェイトを初期化
+            for (size_t i = 0; i < VertexCount; i++)
+            {
+                vertices[i].boneIndices[0] = 0;
+                vertices[i].boneIndices[1] = 0;
+                vertices[i].boneIndices[2] = 0;
+                vertices[i].boneIndices[3] = 0;
+                vertices[i].boneWeights[0] = 1.0f; // 最初のボーンにウェイト100%
+                vertices[i].boneWeights[1] = 0.0f;
+                vertices[i].boneWeights[2] = 0.0f;
+                vertices[i].boneWeights[3] = 0.0f;
+            }
 
             //== verticesにデータを入れる ==
             
@@ -237,15 +250,44 @@ LoadedModelData TestLoadGLTF()
                 const tinygltf::BufferView& bufferView = model.bufferViews[accessor.bufferView];
                 const tinygltf::Buffer& buffer = model.buffers[bufferView.buffer];
 
-                const float* weights =
-                    reinterpret_cast<const float*>(&buffer.data[bufferView.byteOffset + accessor.byteOffset]);
+                const unsigned char* dataPtr = &buffer.data[bufferView.byteOffset + accessor.byteOffset];
 
-                for (size_t i = 0; i < VertexCount; i++)
+                if (accessor.componentType == TINYGLTF_COMPONENT_TYPE_FLOAT) // 5126
                 {
-                    vertices[i].boneWeights[0] = weights[i * 4 + 0];
-                    vertices[i].boneWeights[1] = weights[i * 4 + 1];
-                    vertices[i].boneWeights[2] = weights[i * 4 + 2];
-                    vertices[i].boneWeights[3] = weights[i * 4 + 3];
+                    const float* weights = reinterpret_cast<const float*>(dataPtr);
+                    for (size_t i = 0; i < VertexCount; i++)
+                    {
+                        vertices[i].boneWeights[0] = weights[i * 4 + 0];
+                        vertices[i].boneWeights[1] = weights[i * 4 + 1];
+                        vertices[i].boneWeights[2] = weights[i * 4 + 2];
+                        vertices[i].boneWeights[3] = weights[i * 4 + 3];
+                    }
+                }
+                else if (accessor.componentType == TINYGLTF_COMPONENT_TYPE_UNSIGNED_SHORT) // 5123
+                {
+                    const uint16_t* weights = reinterpret_cast<const uint16_t*>(dataPtr);
+                    for (size_t i = 0; i < VertexCount; i++)
+                    {
+                        vertices[i].boneWeights[0] = static_cast<float>(weights[i * 4 + 0]) / 65535.0f;
+                        vertices[i].boneWeights[1] = static_cast<float>(weights[i * 4 + 1]) / 65535.0f;
+                        vertices[i].boneWeights[2] = static_cast<float>(weights[i * 4 + 2]) / 65535.0f;
+                        vertices[i].boneWeights[3] = static_cast<float>(weights[i * 4 + 3]) / 65535.0f;
+                    }
+                }
+                else if (accessor.componentType == TINYGLTF_COMPONENT_TYPE_UNSIGNED_BYTE) // 5121
+                {
+                    const uint8_t* weights = reinterpret_cast<const uint8_t*>(dataPtr);
+                    for (size_t i = 0; i < VertexCount; i++)
+                    {
+                        vertices[i].boneWeights[0] = static_cast<float>(weights[i * 4 + 0]) / 255.0f;
+                        vertices[i].boneWeights[1] = static_cast<float>(weights[i * 4 + 1]) / 255.0f;
+                        vertices[i].boneWeights[2] = static_cast<float>(weights[i * 4 + 2]) / 255.0f;
+                        vertices[i].boneWeights[3] = static_cast<float>(weights[i * 4 + 3]) / 255.0f;
+                    }
+                }
+                else
+                {
+                    std::cerr << "Unsupported WEIGHTS component type!\n";
                 }
             }
 

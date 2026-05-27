@@ -29,7 +29,8 @@ C3D_Object::C3D_Object(String _Name)
 
 void C3D_Object::Update() 
 {
-
+	//キー入力を取得して、ポジションのUpdate
+	
 
 	CModel* model = GetComponent<CModel>();
 

@@ -50,11 +50,11 @@ PSInput VSMain(VSInput input)
     // --- ボーン変形 ---
     float4 localPos = float4(input.position, 1.0f);
 
-    //float4 skinnedPos =
-    //mul(localPos, g_BoneMatrices[input.boneIndices.x]) * input.boneWeights.x +
-    //mul(localPos, g_BoneMatrices[input.boneIndices.y]) * input.boneWeights.y +
-    //mul(localPos, g_BoneMatrices[input.boneIndices.z]) * input.boneWeights.z +
-    //mul(localPos, g_BoneMatrices[input.boneIndices.w]) * input.boneWeights.w;
+    float4 skinnedPos =
+    mul(localPos, g_BoneMatrices[input.boneIndices.x]) * input.boneWeights.x +
+    mul(localPos, g_BoneMatrices[input.boneIndices.y]) * input.boneWeights.y +
+    mul(localPos, g_BoneMatrices[input.boneIndices.z]) * input.boneWeights.z +
+    mul(localPos, g_BoneMatrices[input.boneIndices.w]) * input.boneWeights.w;
 
     //float4 skinnedPos =
     //mul(g_BoneMatrices[input.boneIndices.x], localPos) * input.boneWeights.x +
@@ -77,13 +77,9 @@ PSInput VSMain(VSInput input)
     //mul(identityMatrix, localPos) * input.boneWeights.z +
     //mul(identityMatrix, localPos) * input.boneWeights.w;
     
-    float4 skinnedPos = mul(identityMatrix, localPos);
+    //float4 skinnedPos = mul(identityMatrix, localPos);
     
-    //float4 skinnedPos =
-    //mul(localPos, identityMatrix) * input.boneWeights.x +
-    //mul(localPos, identityMatrix) * input.boneWeights.y +
-    //mul(localPos, identityMatrix) * input.boneWeights.z +
-    //mul(localPos, identityMatrix) * input.boneWeights.w;
+
     
     // WVP 変換
     //output.position = mul(localPos, WVP);

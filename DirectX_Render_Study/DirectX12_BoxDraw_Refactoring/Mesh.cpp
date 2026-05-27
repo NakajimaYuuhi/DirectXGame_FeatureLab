@@ -474,7 +474,7 @@ void CMesh::Draw()
     //インデックス用に変更
     commandList->IASetVertexBuffers(0, 1, &m_vertexBufferView);
     commandList->IASetIndexBuffer(&m_indexBufferView);
-    commandList->DrawIndexedInstanced(sizeof(mesh_indices) / sizeof(mesh_indices[0]), 1, 0, 0, 0);
+    commandList->DrawIndexedInstanced(static_cast<UINT>(m_Indices.size()), 1, 0, 0, 0);
 }
 
 void CMesh::BindBoneSRV(D3D12_GPU_DESCRIPTOR_HANDLE handle)
