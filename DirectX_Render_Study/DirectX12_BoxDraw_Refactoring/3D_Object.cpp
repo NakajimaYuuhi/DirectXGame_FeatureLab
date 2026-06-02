@@ -1,4 +1,4 @@
-//===== ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ =====
+//===== ƒCƒ“ƒNƒ‹[ƒh =====
 #include "3D_Object.h"
 
 //Transform
@@ -12,10 +12,10 @@
 C3D_Object::C3D_Object()
 	:CObject()
 {
-	//Transformã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ä½œæˆ
+	//TransformƒRƒ“ƒ|[ƒlƒ“ƒg‚Ìì¬
 	AddComponent<CTransform>();
 
-	//ç”Ÿæˆã™ã‚‹ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’Meshã‹ã‚‰Modelã«å¤‰æ›´
+	//¶¬‚·‚éƒRƒ“ƒ|[ƒlƒ“ƒg‚ğMesh‚©‚çModel‚É•ÏX
 	AddComponent<CModel>();
 	//AddComponent<CMesh>();
 
@@ -29,7 +29,7 @@ C3D_Object::C3D_Object(String _Name)
 
 void C3D_Object::Update() 
 {
-	//ã‚­ãƒ¼å…¥åŠ›ã‚’å–å¾—ã—ã¦ã€ãƒã‚¸ã‚·ãƒ§ãƒ³ã®Update
+	//ƒL[“ü—Í‚ğæ“¾‚µ‚ÄAƒ|ƒWƒVƒ‡ƒ“‚ÌUpdate
 	
 
 	CModel* model = GetComponent<CModel>();

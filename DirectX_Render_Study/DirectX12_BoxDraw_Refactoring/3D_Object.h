@@ -1,8 +1,8 @@
 //3D_Object.h
-//3Dæç”»ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã§ä½¿ç”¨ã™ã‚‹
-//Transformã¨ã‹Meshã‚’ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§æŒã£ã¦ãŠãã‚ˆã†ã«ã™ã‚‹
+//3D•`‰æ‚·‚éƒIƒuƒWƒFƒNƒg‚Åg—p‚·‚é
+//Transform‚Æ‚©Mesh‚ğƒfƒtƒHƒ‹ƒg‚Å‚Á‚Ä‚¨‚­‚æ‚¤‚É‚·‚é
 
-//===== ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ =====
+//===== ƒCƒ“ƒNƒ‹[ƒh =====
 #pragma once
 #include "Object.h"
 #include <string>
@@ -11,7 +11,7 @@
 //string
 using String = std::string;
 
-//===== ã‚¯ãƒ©ã‚¹ã®å®šç¾© =====
+//===== ƒNƒ‰ƒX‚Ì’è‹` =====
 class C3D_Object : public CObject
 {
 public:
@@ -31,8 +31,8 @@ private:
     //----- Getter,Setter -----
 public:
     
-    //ç†æƒ³ã¯å¤–éƒ¨ãƒ‡ãƒ¼ã‚¿ã§æŒã£ã¦ã„ã‚‹ã“ã¨
-    //--- åˆæœŸåŒ–ç”¨ ---
+    //—‘z‚ÍŠO•”ƒf[ƒ^‚Å‚Á‚Ä‚¢‚é‚±‚Æ
+    //--- ‰Šú‰»—p ---
     //Transform
     void SetTransform(DirectX::XMFLOAT3 _Position, DirectX::XMFLOAT3 _Scale, DirectX::XMFLOAT3 _Rotation);
     //Mesh
@@ -40,7 +40,7 @@ public:
     //Material
     //void SetMaterial(wstring _TexturePath, XMFloat4 Color);
 
-    //--- åˆ©ä¾¿æ€§ã®ãŸã‚è¿½åŠ  ---
+    //--- —˜•Ö«‚Ì‚½‚ß’Ç‰Á ---
     DirectX::XMFLOAT3 GetPos();
     void	SetPos(DirectX::XMFLOAT3 _Position);
 

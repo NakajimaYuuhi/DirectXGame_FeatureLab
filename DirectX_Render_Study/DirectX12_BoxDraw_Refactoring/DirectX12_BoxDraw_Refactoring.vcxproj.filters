@@ -16,9 +16,6 @@
     <Filter Include="Source\System">
       <UniqueIdentifier>{3699b683-ecc0-4fe5-9205-1ff7df6fdc1f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\System\DX12Manager">
-      <UniqueIdentifier>{30a2cc6c-6eb2-4a52-b095-c0f47b8281a2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source\System\ImputSystem">
       <UniqueIdentifier>{bc3a35dc-8cec-41c4-a559-488c9e6d7ae0}</UniqueIdentifier>
     </Filter>
@@ -45,12 +42,6 @@
     </Filter>
     <Filter Include="Source\Object\GameObject">
       <UniqueIdentifier>{167ee01f-47b9-4158-9098-de10f0c0c112}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Object\GameObject\3Dobject">
-      <UniqueIdentifier>{fcddab3a-4ba2-49be-b4e8-3d7d52332f3d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Object\GameObject\Base">
-      <UniqueIdentifier>{002ca8e1-3423-4b84-ab88-c09a134a031a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source\Component\Transform">
       <UniqueIdentifier>{657c0d91-44ff-4b93-b5a4-fb9072e7050a}</UniqueIdentifier>
@@ -94,13 +85,43 @@
     <Filter Include="Source\Component\Model\Node">
       <UniqueIdentifier>{09be6f2c-0ae7-44eb-9c35-ddf01d3ef94c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\System\Collision">
+      <UniqueIdentifier>{98667cff-eaa1-46bf-a456-1cab713f7b97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\DrawSystem">
+      <UniqueIdentifier>{8dd510ca-4341-478f-a6cf-4f963ebbb084}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\DrawSystem\DX12Manager">
+      <UniqueIdentifier>{30a2cc6c-6eb2-4a52-b095-c0f47b8281a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\DrawSystem\PSO">
+      <UniqueIdentifier>{3aac6890-3252-4310-998e-06cca945824d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\DrawSystem\Shader">
+      <UniqueIdentifier>{8403a2c5-ea2b-4ae7-bdde-418c830a3f73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object\GameObject\BaseClass">
+      <UniqueIdentifier>{930321b3-ad8b-4940-8a18-9b1bbf6d278b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object\GameObject\BaseClass\Base">
+      <UniqueIdentifier>{002ca8e1-3423-4b84-ab88-c09a134a031a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object\GameObject\BaseClass\3Dobject">
+      <UniqueIdentifier>{fcddab3a-4ba2-49be-b4e8-3d7d52332f3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object\GameObject\3DObjects">
+      <UniqueIdentifier>{296c5e1b-ea0a-4157-85cd-eb1171bd692f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object\GameObject\3DObjects\Player">
+      <UniqueIdentifier>{96282237-6176-41bd-86ad-4bbf300dab1f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Box.cpp">
       <Filter>Source\Object\Box</Filter>
     </ClCompile>
     <ClCompile Include="DX12Manager.cpp">
-      <Filter>Source\System\DX12Manager</Filter>
+      <Filter>Source\System\DrawSystem\DX12Manager</Filter>
     </ClCompile>
     <ClCompile Include="InputManager.cpp">
       <Filter>Source\System\ImputSystem</Filter>
@@ -115,10 +136,10 @@
       <Filter>Source\Scene</Filter>
     </ClCompile>
     <ClCompile Include="3D_Object.cpp">
-      <Filter>Source\Object\GameObject\3Dobject</Filter>
+      <Filter>Source\Object\GameObject\BaseClass\3Dobject</Filter>
     </ClCompile>
     <ClCompile Include="Object.cpp">
-      <Filter>Source\Object\GameObject\Base</Filter>
+      <Filter>Source\Object\GameObject\BaseClass\Base</Filter>
     </ClCompile>
     <ClCompile Include="Transform.cpp">
       <Filter>Source\Component\Transform</Filter>
@@ -172,13 +193,25 @@
       <Filter>Source\Component\Model\Bone</Filter>
     </ClCompile>
     <ClCompile Include="gltfLoader.cpp" />
+    <ClCompile Include="PSOManager.cpp">
+      <Filter>Source\System\DrawSystem\PSO</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Source\System\DrawSystem\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderManager.cpp">
+      <Filter>Source\System\DrawSystem\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source\Object\GameObject\3DObjects\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h">
       <Filter>Source\Object\Box</Filter>
     </ClInclude>
     <ClInclude Include="DX12Manager.h">
-      <Filter>Source\System\DX12Manager</Filter>
+      <Filter>Source\System\DrawSystem\DX12Manager</Filter>
     </ClInclude>
     <ClInclude Include="InputManager.h">
       <Filter>Source\System\ImputSystem</Filter>
@@ -193,10 +226,10 @@
       <Filter>Source\Scene</Filter>
     </ClInclude>
     <ClInclude Include="3D_Object.h">
-      <Filter>Source\Object\GameObject\3Dobject</Filter>
+      <Filter>Source\Object\GameObject\BaseClass\3Dobject</Filter>
     </ClInclude>
     <ClInclude Include="Object.h">
-      <Filter>Source\Object\GameObject\Base</Filter>
+      <Filter>Source\Object\GameObject\BaseClass\Base</Filter>
     </ClInclude>
     <ClInclude Include="Transform.h">
       <Filter>Source\Component\Transform</Filter>
@@ -272,6 +305,18 @@
     <ClInclude Include="tiny_gltf.h" />
     <ClInclude Include="ModelData.h">
       <Filter>Source\Component\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="PSOManager.h">
+      <Filter>Source\System\DrawSystem\PSO</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Source\System\DrawSystem\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderManager.h">
+      <Filter>Source\System\DrawSystem\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Source\Object\GameObject\3DObjects\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
