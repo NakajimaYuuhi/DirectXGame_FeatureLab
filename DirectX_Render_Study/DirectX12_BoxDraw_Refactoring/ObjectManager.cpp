@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "Bullet.h"
 #include "Enemy.h"
+#include "BillBoard.h"
 
 #include "Collision.h"
 
@@ -48,6 +49,11 @@ CObject* ObjectManager::Instantiate(Scene::ID _SceneID, ObjectTag _Tag, std::str
 		case ObjectTag::FIELD:
 			//Floor
 
+			break;
+		case ObjectTag::BILLBOARD:
+			tmpObject = std::make_unique<BillBoard>("BillBoard");		//生成
+			returnObject = tmpObject.get();							//生ポインタ取得
+			vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//配列に追加
 			break;
 		case ObjectTag::EFFECT:
 			break;

@@ -71,6 +71,23 @@ public:
 	DirectX::XMMATRIX GetWorld();
 
 	//TODO:Up,Front,Rightから、角度を再設定
+	void SetRotationFromUpFront(DirectX::XMFLOAT3 _Up, DirectX::XMFLOAT3 _Front)
+	{
+		//Rightの計算
+		DirectX::XMFLOAT3 right;
+		right.x = _Up.y * _Front.z - _Up.z * _Front.y;
+		right.y = _Up.z * _Front.x - _Up.x * _Front.z;
+		right.z = _Up.x * _Front.y - _Up.y * _Front.x;
+		//回転行列の作成
+		DirectX::XMMATRIX rotMat = DirectX::XMMatrixIdentity();
+		rotMat.r[0] = DirectX::XMVectorSet(right.x, right.y, right.z, 0.0f);
+		rotMat.r[1] = DirectX::XMVectorSet(_Up.x, _Up.y, _Up.z, 0.0f);
+		rotMat.r[2] = DirectX::XMVectorSet(_Front.x, _Front.y, _Front.z, 0.0f);
+		//回転行列からオイラー角を取り出す
+		m_Rotation.y = atan2f(rotMat.r[2].m128_f32[0], rotMat.r[2].m128_f32[2]);
+		m_Rotation.x = asinf(-rotMat.r[2].m128_f32[1]);
+		m_Rotation.z = atan2f(rotMat.r[1].m128_f32[1], rotMat.r[0].m128_f32[1]);
+	}
 
 private:
     //位置、回転、スケール
