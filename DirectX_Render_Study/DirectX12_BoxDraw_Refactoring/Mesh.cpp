@@ -166,7 +166,6 @@ void CMesh::Draw(CTransform* transform)
     DirectX::XMMATRIX wvp = world * view * proj;
 
     // --定数バッファ用のチE EタにセチE  する
-    DirectX::XMMATRIX wvp_t = XMMatrixTranspose(wvp);
     
     commandList->SetPipelineState(PSOManager::GetInstance().GetMeshPSO());
     commandList->SetGraphicsRootSignature(PSOManager::GetInstance().GetMeshRootSignature());
@@ -179,10 +178,21 @@ void CMesh::Draw(CTransform* transform)
     commandList->SetGraphicsRootDescriptorTable(2, m_BoneSrvGpuHandle);
 
 
+    struct RootConstantsData {
+        DirectX::XMMATRIX wvp;
+        DirectX::XMFLOAT2 uvOffset;
+        DirectX::XMFLOAT2 uvScale;
+    };
+    
+    RootConstantsData rcData;
+    rcData.wvp = XMMatrixTranspose(wvp);
+    rcData.uvOffset = transform->GetUVOffset();
+    rcData.uvScale = transform->GetUVScale();
+
     commandList->SetGraphicsRoot32BitConstants(
         0,
-        16,
-        &wvp_t,
+        20,
+        &rcData,
         0
     );
 

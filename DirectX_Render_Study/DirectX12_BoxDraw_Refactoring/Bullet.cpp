@@ -45,8 +45,10 @@ void Bullet::Update()
 	//位置のセット
 	transform->SetPos(pos);
 
-
-
+	//UVをいじってみる
+	DirectX::XMFLOAT2 currentUV = transform->GetUVOffset();
+	currentUV.x += 0.01f; // X方向にスクロール（速度はお好みで）
+	transform->SetUVOffset(currentUV);
 }
 
 void Bullet::OnCollision(CObject* _Other)

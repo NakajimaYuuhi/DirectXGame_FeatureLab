@@ -46,7 +46,7 @@ void PSOManager::Init(ID3D12Device* device)
     rootParams[0].ParameterType = D3D12_ROOT_PARAMETER_TYPE_32BIT_CONSTANTS;
     rootParams[0].Constants.ShaderRegister = 0; // b0
     rootParams[0].Constants.RegisterSpace = 0;
-    rootParams[0].Constants.Num32BitValues = 16; // WVP is 16 floats
+    rootParams[0].Constants.Num32BitValues = 20; // WVP (16) + uvOffset (2) + uvScale (2) = 20 floats
     rootParams[0].ShaderVisibility = D3D12_SHADER_VISIBILITY_VERTEX;
 
     // --- SRV (t0 & t1)

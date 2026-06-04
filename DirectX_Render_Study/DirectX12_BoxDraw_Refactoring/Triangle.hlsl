@@ -4,6 +4,8 @@
 cbuffer ConstantBuffer : register(b0)
 {
     float4x4 WVP;
+    float2 uvOffset;
+    float2 uvScale;
 };
 
 // ================================
@@ -12,7 +14,7 @@ cbuffer ConstantBuffer : register(b0)
 Texture2D tex0 : register(t0);
 SamplerState samLinear : register(s0);
 
-// ƒ{[ƒ“s—ñ SRVit1j
+// ãƒœãƒ¼ãƒ³è¡Œåˆ— SRVï¼ˆt1ï¼‰
 //StructuredBuffer<float4x4> g_BoneMatrices : register(t1);
 StructuredBuffer<float4x4> g_BoneMatrices : register(t1);
 
@@ -25,7 +27,7 @@ struct VSInput
     float3 normal : NORMAL;
     float2 uv : TEXCOORD;
 
-    uint4 boneIndices : BLENDINDICES; // DX11/12 ‚Ì•W€ƒZƒ}ƒ“ƒeƒBƒNƒX
+    uint4 boneIndices : BLENDINDICES; // DX11/12 ã®æ¨™æº–ã‚»ãƒãƒ³ãƒ†ã‚£ã‚¯ã‚¹
     float4 boneWeights : BLENDWEIGHT;
 };
 
@@ -47,7 +49,7 @@ PSInput VSMain(VSInput input)
     
     //output.position = mul(float4(input.position, 1.0f), WVP);
     
-    // --- ƒ{[ƒ“•ÏŒ` ---
+    // --- ãƒœãƒ¼ãƒ³å¤‰å½¢ ---
     float4 localPos = float4(input.position, 1.0f);
 
     float4 skinnedPos =
@@ -62,7 +64,7 @@ PSInput VSMain(VSInput input)
     //mul(g_BoneMatrices[input.boneIndices.z], localPos) * input.boneWeights.z +
     //mul(g_BoneMatrices[input.boneIndices.w], localPos) * input.boneWeights.w;
     
-    // yƒeƒXƒg—pzStructuredBuffer‚Ì’l‚ğ–³‹‚µ‚ÄA‹­§“I‚ÉIdentity‚ÅƒXƒLƒjƒ“ƒO‚·‚é
+    // ã€ãƒ†ã‚¹ãƒˆç”¨ã€‘StructuredBufferã®å€¤ã‚’ç„¡è¦–ã—ã¦ã€å¼·åˆ¶çš„ã«Identityã§ã‚¹ã‚­ãƒ‹ãƒ³ã‚°ã™ã‚‹
     float4x4 identityMatrix = float4x4(
     1, 0, 0, 0,
     0, 1, 0, 0,
@@ -70,7 +72,7 @@ PSInput VSMain(VSInput input)
     0, 0, 0, 1
     );
 
-    // ‡”Ô‚Í mul(s—ñ, ƒxƒNƒgƒ‹) ‚Å‡‚í‚¹‚Ü‚·
+    // é †ç•ªã¯ mul(è¡Œåˆ—, ãƒ™ã‚¯ãƒˆãƒ«) ã§åˆã‚ã›ã¾ã™
     //float4 skinnedPos =
     //mul(identityMatrix, localPos) * input.boneWeights.x +
     //mul(identityMatrix, localPos) * input.boneWeights.y +
@@ -81,14 +83,14 @@ PSInput VSMain(VSInput input)
     
 
     
-    // WVP •ÏŠ·
+    // WVP å¤‰æ›
     //output.position = mul(localPos, WVP);
     output.position = mul(skinnedPos, WVP);
     
     
     
     
-    output.uv = input.uv;
+    output.uv = (input.uv * uvScale) + uvOffset;
 
     return output;
 }
