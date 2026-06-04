@@ -53,10 +53,10 @@ public:
 
 protected:
 	//コンポーネント
-	Vector<UniquePtr<CComponent>> m_Components;
+	Vector<UniquePtr<CComponent>> components;
 
 	//有効、無効フラグ
-	bool m_IsValid;
+	bool isValid;
 
 
 	//----- コンポーネントの管理
@@ -67,7 +67,7 @@ public:
 	T* GetComponent() 
 	{
 		//コンテナ内を探索
-		for (auto& c : m_Components) 
+		for (auto& c : components) 
 		{
 			//生ポインタ取得
 			//キャストができれば、それを返す
@@ -91,7 +91,7 @@ public:
 		comp->SetOwner(this);
 
 		T* raw = comp.get();
-		m_Components.push_back(std::move(comp));
+		components.push_back(std::move(comp));
 		return raw;
 	}
 
@@ -99,8 +99,8 @@ public:
 	//----- Getter,Setter -----
 
 	// --IsValid
-	bool GetIsVarid() const			{ return m_IsValid; }
-	void SetIsValid(bool _IsValid)	{ m_IsValid = _IsValid; }
+	bool GetIsVarid() const			{ return isValid; }
+	void SetIsValid(bool _IsValid)	{ isValid = _IsValid; }
 
 	//オブジェクトの名前のセット
 	void SetName(String _ObjectName);

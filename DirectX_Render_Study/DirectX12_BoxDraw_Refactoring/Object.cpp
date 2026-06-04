@@ -12,7 +12,7 @@
 
 //各子オブジェクトは外部データから、コンポーネント作成できるといいかも
 CObject::CObject()
-	:m_IsValid(true)
+	:isValid(true)
 {
 	//オブジェクト情報のコンポーネントの作成
 	AddComponent<CObjectInfo>();
@@ -24,7 +24,7 @@ CObject::~CObject() = default;
 void CObject::Init() 
 {
 	//各コンポーネントのInitを呼ぶ
-	for (auto& c : m_Components)
+	for (auto& c : components)
 	{
 		//コンポーネントのInitを呼ぶ
 		c->Init();

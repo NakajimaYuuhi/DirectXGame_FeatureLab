@@ -5,6 +5,8 @@
 
 #include "Model.h"
 
+#include "ObjectManager.h"
+
 CSceneTest::CSceneTest()
 {
     ////--- Box ---
@@ -73,32 +75,34 @@ CSceneTest::CSceneTest()
     //m_VecObject.push_back(std::move(slope));
 
 
+    //----- Player -----
+    //今の所何も無し
+	auto player = ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::PLAYER, "Player");
+
+
     //----- Model -----
-    auto model_obj = std::make_unique<C3D_Object>("Model_obj");
 
-    CModel* model = model_obj->GetComponent<CModel>();
+    //auto model_obj = std::make_unique<C3D_Object>("Model_obj");
 
-    //model_obj->SetTransform({ 0.0f, 0.0f, 0.0f }, { 20.0f, 0.1f, 20.0f }, { 0.0f, 0.0f, -1.6f });
+    //CModel* model = model_obj->GetComponent<CModel>();
 
-    model->ModelLoad("Assets/Model/OffensiveIdle.glb");
+    ////model_obj->SetTransform({ 0.0f, 0.0f, 0.0f }, { 20.0f, 0.1f, 20.0f }, { 0.0f, 0.0f, -1.6f });
+
+    //model->ModelLoad("Assets/Model/OffensiveIdle.glb");
 
 
-    //配列に追加
-    m_VecObject.push_back(std::move(model_obj));
+    ////配列に追加
+    //m_VecObject.push_back(std::move(model_obj));
 
 
     //----- Todo : Planeクラスにする -----
-    auto model_obj2 = std::make_unique<C3D_Object>("Model_obj2");
+    C3D_Object* Plane = (C3D_Object*) (ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::NONE, "Plane"));
 
-    CModel* model2 = model_obj2->GetComponent<CModel>();
+    CModel* Plane_Model = Plane->GetComponent<CModel>();
 
-    model_obj2->SetTransform({ 0.0f, 0.0f, 0.0f }, { 20.0f, 0.1f, 20.0f }, { 0.0f, 0.0f, 0.0f });
+    Plane->SetTransform({ 0.0f, 0.0f, 0.0f }, { 20.0f, 0.1f, 20.0f }, { 0.0f, 0.0f, 0.0f });
 
-    model2->ModelLoad("Assets/Model/Plane.glb");
-
-
-    //配列に追加
-    m_VecObject.push_back(std::move(model_obj2));
+    Plane_Model->ModelLoad("Assets/Model/Plane.glb");
 
 }
 
@@ -117,6 +121,8 @@ void CSceneTest::Init()
 
 void CSceneTest::Update() 
 {
+	ObjectManager::GetInstance().Update(Scene::ID::NONE);
+
     for (auto& object : m_VecObject)
     {
         object->Update();
@@ -130,11 +136,13 @@ void CSceneTest::Update()
 
 void CSceneTest::Draw() 
 {
+
     //モデルによってDrawする
     for (auto& object : m_VecObject)
     {
         object->Draw();
     }
+	ObjectManager::GetInstance().Draw(Scene::ID::NONE);
 }
 
 void CSceneTest::AddObject(UniquePtr<CObject> _Object)

@@ -8,6 +8,8 @@ class ObjectManager
 {
 public:
 
+
+
 	//生成処理
 	CObject* Instantiate(Scene::ID _SceneID, ObjectTag _Tag, std::string _TypeName);
 
@@ -23,7 +25,8 @@ public:
 	void Draw(Scene::ID _SceneID);			//描画
 
 private:
-	Vector<UniquePtr<CObject>> vecObject;	//オブジェクトの配列
+	//一旦配列は1つ(2次元)
+	Vector <Vector<UniquePtr<CObject>>> vecObject;	//オブジェクトの配列
 
 //----- シングルトンの実装に必要 -----
 public:

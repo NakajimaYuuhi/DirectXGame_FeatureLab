@@ -3,12 +3,18 @@
 #pragma once
 #include "3D_Object.h"
 
-class Player : C3D_Object
+#include "StringAlias.h"
+
+class Player : public C3D_Object
 {
 public:
 	Player(String _Name);
+	~Player() = default;
 
 	//“ü—Í‚ÌXV
 	virtual void Update();
+
+protected:
+	String ModelPath;
 };
 

@@ -18,7 +18,7 @@ public:
     C3D_Object();
     C3D_Object(String _Name);
 
-    ~C3D_Object()
+    virtual ~C3D_Object()
     {
 
     }
