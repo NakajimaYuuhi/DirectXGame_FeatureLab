@@ -1,1 +1,1 @@
-﻿#include "DescriptorHeapAllocator.h"
+#include "DescriptorHeapAllocator.h"

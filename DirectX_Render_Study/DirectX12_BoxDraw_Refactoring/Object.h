@@ -1,26 +1,26 @@
 //Object.h
-//ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹
-//ã‚³ãƒ³ãƒãƒãƒ³ãƒˆã®è¿½åŠ ã€å‰Šé™¤ã®ãƒ¡ã‚½ãƒƒãƒ‰æœ‰ã‚Š
+//ƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX
+//ƒRƒ“ƒ|ƒlƒ“ƒg‚Ì’Ç‰ÁAíœ‚Ìƒƒ\ƒbƒh—L‚è
 
-//TODO : è¤‡æ•°ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®æ‰±ã„
-//è¤‡æ•°ã‚ã£ãŸã¨ã—ã¦ã‚‚å®‰å…¨ã«æ‰±ã„ãŸã„
-//åå‰ã§è­˜åˆ¥ã§ãã‚‹æƒ³å®šã§ä¸€æ—¦Nameã®å¤‰æ•°ã¯ä½œã£ã¦ã‚ã‚‹
+//TODO : •¡”ƒRƒ“ƒ|[ƒlƒ“ƒg‚Ìˆµ‚¢
+//•¡”‚ ‚Á‚½‚Æ‚µ‚Ä‚àˆÀ‘S‚Éˆµ‚¢‚½‚¢
+//–¼‘O‚ÅŽ¯•Ê‚Å‚«‚é‘z’è‚Åˆê’UName‚Ì•Ï”‚Íì‚Á‚Ä‚ ‚é
 
-//TODO : Args,std::forwardã®ç†è§£ãŒå¿…é ˆ
+//TODO : Args,std::forward‚Ì—‰ð‚ª•K{
 
-//===== ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ =====
+//===== ƒCƒ“ƒNƒ‹[ƒh =====
 #pragma once
 
-//åŸºæœ¬æ©Ÿèƒ½
+//Šî–{‹@”\
 #include <string>
 #include <vector>
 #include <memory>
 
 
 
-//===== ã‚¨ã‚¤ãƒªã‚¢ã‚¹å®£è¨€ =====
+//===== ƒGƒCƒŠƒAƒXéŒ¾ =====
 
-//Uniqueãƒã‚¤ãƒ³ã‚¿
+//Uniqueƒ|ƒCƒ“ƒ^
 template<typename T>
 using UniquePtr = std::unique_ptr<T>;
 
@@ -33,12 +33,12 @@ using String = std::string;
 
 
 
-////===== å‰æ–¹å®£è¨€ =====
+////===== ‘O•ûéŒ¾ =====
 class CComponent;
 
 
 
-//===== ã‚¯ãƒ©ã‚¹å®šç¾© =====
+//===== ƒNƒ‰ƒX’è‹` =====
 class CObject
 {
 public:
@@ -51,25 +51,25 @@ public:
 	virtual void Draw() = 0;
 
 protected:
-	//ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
+	//ƒRƒ“ƒ|[ƒlƒ“ƒg
 	Vector<UniquePtr<CComponent>> m_Components;
 
-	//æœ‰åŠ¹ã€ç„¡åŠ¹ãƒ•ãƒ©ã‚°
+	//—LŒøA–³Œøƒtƒ‰ƒO
 	bool m_IsValid;
 
 
-	//----- ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ç®¡ç†
+	//----- ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠÇ—
 public:
 
-	// --ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®å–å¾—
+	// --ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŽæ“¾
 	template<class T>
 	T* GetComponent() 
 	{
-		//ã‚³ãƒ³ãƒ†ãƒŠå†…ã‚’æŽ¢ç´¢
+		//ƒRƒ“ƒeƒi“à‚ð’Tõ
 		for (auto& c : m_Components) 
 		{
-			//ç”Ÿãƒã‚¤ãƒ³ã‚¿å–å¾—
-			//ã‚­ãƒ£ã‚¹ãƒˆãŒã§ãã‚Œã°ã€ãã‚Œã‚’è¿”ã™
+			//¶ƒ|ƒCƒ“ƒ^Žæ“¾
+			//ƒLƒƒƒXƒg‚ª‚Å‚«‚ê‚ÎA‚»‚ê‚ð•Ô‚·
 			if (auto ptr = dynamic_cast<T*>(c.get())) 
 			{
 				return ptr;
@@ -78,10 +78,10 @@ public:
 		return nullptr;
 	}
 
-	// --ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®è¿½åŠ 
-	//å¼•æ•°ã®æ•°ã€åž‹ã«åˆ¶é™ãŒç„¡ã„ã¯ãš
+	// --ƒRƒ“ƒ|[ƒlƒ“ƒg‚Ì’Ç‰Á
+	//ˆø”‚Ì”AŒ^‚É§ŒÀ‚ª–³‚¢‚Í‚¸
 
-	//TODO : Args,std::forwardã®ç†è§£ãŒå¿…é ˆ
+	//TODO : Args,std::forward‚Ì—‰ð‚ª•K{
 
 	template<class T, class... Args>
 	T* AddComponent(Args&&... args) 
@@ -101,7 +101,7 @@ public:
 	bool GetIsVarid() const			{ return m_IsValid; }
 	void SetIsValid(bool _IsValid)	{ m_IsValid = _IsValid; }
 
-	//ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®åå‰ã®ã‚»ãƒƒãƒˆ
+	//ƒIƒuƒWƒFƒNƒg‚Ì–¼‘O‚ÌƒZƒbƒg
 	void SetName(String _ObjectName);
 
 };

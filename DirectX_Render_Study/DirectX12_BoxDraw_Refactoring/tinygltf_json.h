@@ -325,7 +325,7 @@ static const double cj_exact_pow10[23] = {
     1e16, 1e17, 1e18, 1e19, 1e20, 1e21, 1e22
 };
 
-/* Clinger's fast path: mantissa * 10^exp10 â†’ double.
+/* Clinger's fast path: mantissa * 10^exp10 ¨ double.
  * Requires mantissa <= 2^53 (exactly representable as double).
  * Returns 1 on success, 0 if fallback needed. */
 static int cj_fast_dbl_convert(uint64_t mantissa, int exp10, int neg, double *out) {
@@ -423,7 +423,7 @@ static int cj_fast_flt_convert(uint64_t mantissa, int exp10, int neg, float *out
  * Returns pointer past the last character consumed, or NULL on error.
  *
  * float32_mode: when non-zero, floating-point values are parsed at float
- * (single) precision â€” only 9 significant digits are tracked for the
+ * (single) precision ? only 9 significant digits are tracked for the
  * fraction part, and the result is stored as (double)(float)value.  This
  * is faster but not JSON-conformant for high-precision doubles.  Integer-
  * only tokens (no '.'/'e') are always parsed at full int64 precision
@@ -864,7 +864,7 @@ public:
 
     /* allow_exceptions is honoured only when TINYGLTF_JSON_USE_EXCEPTIONS is
      * defined; otherwise it is accepted for API compatibility but has no
-     * effect â€” parse errors always return a null value silently. */
+     * effect ? parse errors always return a null value silently. */
     static tinygltf_json parse(const char *first, const char *last,
                                std::nullptr_t = nullptr,
                                bool allow_exceptions = false);
@@ -1889,7 +1889,7 @@ static int cj_serialize(cj_strbuf *sb, const tinygltf_json *v,
         }
         case CJ_STRING: {
             /* Defensive: if str_ is NULL (OOM during construction), use length 0.
-             * The invariant str_==NULLâ†’str_len_==0 is enforced at all construction
+             * The invariant str_==NULL¨str_len_==0 is enforced at all construction
              * sites, but guard here in case of future callers. */
             const char *s = v->str_ ? v->str_ : "";
             size_t      n = v->str_ ? v->str_len_ : 0u;

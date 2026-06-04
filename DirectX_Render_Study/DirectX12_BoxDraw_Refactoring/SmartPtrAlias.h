@@ -2,7 +2,7 @@
 
 #include <memory>
 
-//Uniqueãƒã‚¤ãƒ³ã‚¿
+//Uniqueƒ|ƒCƒ“ƒ^
 template<typename T>
 using UniquePtr = std::unique_ptr<T>;
 

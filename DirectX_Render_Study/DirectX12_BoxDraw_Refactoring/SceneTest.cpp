@@ -15,15 +15,15 @@ CSceneTest::CSceneTest()
 
     //model->CreateTmpBoneData();
 
-    ////Transformã®ç™»éŒ²
+    ////Transform‚Ì“o˜^
     //box->SetTransform({ 0.0f, 2.0f, 0.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 0.0f, 0.0f });
     //
-    ////Modelã®å–å¾—
+    ////Model‚ÌŽæ“¾
 
-    ////Materialã®ç™»éŒ²
+    ////Material‚Ì“o˜^
     //UINT mat_num = model->RegisterMatarial(L"Assets/Texture/Sample2.jpg", {1.0f,1.0f,1.0f,1.0f});
     //
-    ////Meshã®ç™»éŒ²
+    ////Mesh‚Ì“o˜^
     //model->RegisterMesh(mat_num);
 
     //m_VecObject.push_back(std::move(box));
@@ -39,15 +39,15 @@ CSceneTest::CSceneTest()
     //ground->SetTransform({ 0.0f, 0.0f, 0.0f }, { 20.0f, 0.1f, 20.0f }, { 0.0f, 0.0f, 0.0f });
 
 
-    ////Modelã®å–å¾—
+    ////Model‚ÌŽæ“¾
 
-    ////Materialã®ç™»éŒ²
+    ////Material‚Ì“o˜^
     //mat_num = model->RegisterMatarial(L"Assets/Texture/Sample1.jpg", { 1.0f,1.0f,1.0f,1.0f });
 
-    ////Meshã®ç™»éŒ²
+    ////Mesh‚Ì“o˜^
     //model->RegisterMesh(mat_num);
 
-    ////é…åˆ—ã«è¿½åŠ 
+    ////”z—ñ‚É’Ç‰Á
     //m_VecObject.push_back(std::move(ground));
 
     ////--- Slope ---
@@ -61,15 +61,15 @@ CSceneTest::CSceneTest()
     //slope->SetTransform({ 0.0f, 0.0f, 10.0f }, { 20.0f, 0.1f, 20.0f }, { -0.8f, 0.0f, 0.0f });
 
 
-    ////Modelã®å–å¾—
+    ////Model‚ÌŽæ“¾
 
-    ////Materialã®ç™»éŒ²
+    ////Material‚Ì“o˜^
     //mat_num = model->RegisterMatarial(L"Assets/Texture/Sample3.jpg", { 1.0f,1.0f,1.0f,1.0f });
 
-    ////Meshã®ç™»éŒ²
+    ////Mesh‚Ì“o˜^
     //model->RegisterMesh(mat_num);
 
-    ////é…åˆ—ã«è¿½åŠ 
+    ////”z—ñ‚É’Ç‰Á
     //m_VecObject.push_back(std::move(slope));
 
 
@@ -83,7 +83,7 @@ CSceneTest::CSceneTest()
     model->ModelLoad("");
 
 
-    //é…åˆ—ã«è¿½åŠ 
+    //”z—ñ‚É’Ç‰Á
     m_VecObject.push_back(std::move(model_obj));
 
 }
@@ -94,7 +94,7 @@ CSceneTest::~CSceneTest() = default;
 
 void CSceneTest::Init()
 {
-    //ãã‚Œãžã‚Œã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’åˆæœŸåŒ–
+    //‚»‚ê‚¼‚ê‚ÌƒIƒuƒWƒFƒNƒg‚ð‰Šú‰»
     for (auto& object : m_VecObject)
     {
         object->Init();
@@ -111,7 +111,7 @@ void CSceneTest::Update()
 
 void CSceneTest::Draw() 
 {
-    //ãƒ¢ãƒ‡ãƒ«ã«ã‚ˆã£ã¦Drawã™ã‚‹
+    //ƒ‚ƒfƒ‹‚É‚æ‚Á‚ÄDraw‚·‚é
     for (auto& object : m_VecObject)
     {
         object->Draw();

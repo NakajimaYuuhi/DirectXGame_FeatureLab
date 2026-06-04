@@ -1,19 +1,19 @@
 //Model.h
-//Modelé–¢é€£ã®ã‚¯ãƒ©ã‚¹
-//Mesh,Material,Nodeã‚’æŒã¤
-//ä¸€æ—¦ä½œã£ãŸã ã‘
+//ModelŠÖ˜A‚ÌƒNƒ‰ƒX
+//Mesh,Material,Node‚ğ‚Â
+//ˆê’Uì‚Á‚½‚¾‚¯
 
-//===== ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ =====
-//ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ã‚¬ãƒ¼ãƒ‰
+//===== ƒCƒ“ƒNƒ‹[ƒh =====
+//ƒCƒ“ƒNƒ‹[ƒhƒK[ƒh
 #pragma once
 
-//è¦ªã‚¯ãƒ©ã‚¹
+//eƒNƒ‰ƒX
 #include "Component.h"
 
-//åŸºæœ¬æ©Ÿèƒ½
-#include "StringAlias.h"	//æ–‡å­—åˆ—
-#include "ContainerAlias.h"	//ã‚³ãƒ³ãƒ†ãƒŠ
-#include "SmartPtrAlias.h"	//ã‚¹ãƒãƒ¼ãƒˆãƒã‚¤ãƒ³ã‚¿
+//Šî–{‹@”\
+#include "StringAlias.h"	//•¶š—ñ
+#include "ContainerAlias.h"	//ƒRƒ“ƒeƒi
+#include "SmartPtrAlias.h"	//ƒXƒ}[ƒgƒ|ƒCƒ“ƒ^
 
 //Mesh
 #include "Mesh.h"
@@ -23,7 +23,7 @@
 #include "Bone.h"
 
 
-//===== ã‚¨ã‚¤ãƒªã‚¢ã‚¹ =====
+//===== ƒGƒCƒŠƒAƒX =====
 //Mesh
 using Mesh = SharedPtr<CMesh>;
 using Meshes = Vector<Mesh>;
@@ -40,10 +40,10 @@ using Bones = Vector<Bone>;
 using SkinningMatrix = DirectX::XMMATRIX;
 using SkinningMatrices = Vector<SkinningMatrix>;
 
-//===== å‰æ–¹å®£è¨€ =====
+//===== ‘O•ûéŒ¾ =====
 
 
-//===== ã‚¯ãƒ©ã‚¹å®šç¾© =====
+//===== ƒNƒ‰ƒX’è‹` =====
 class CModel : public CComponent
 {
 public:
@@ -53,38 +53,38 @@ public:
 	void Update();
 	void Draw();
 
-	//æ¿ãƒãƒªã¨ã‹ãªã‚‰ã€ã“ã‚Œã‚’ä½¿ã†
-	//LoadModel(ã“ã£ã¡ã®æ–¹ãŒã„ã„ã‹ã‚‚)
+	//”Âƒ|ƒŠ‚Æ‚©‚È‚çA‚±‚ê‚ğg‚¤
+	//LoadModel(‚±‚Á‚¿‚Ì•û‚ª‚¢‚¢‚©‚à)
 	//void RegisterMesh(UINT _MatIdx, Primitive _Primitive);
 	
-	//ä¸€æ—¦ç«‹æ–¹ä½“ãŒãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ
-	//é ‚ç‚¹æƒ…å ±ã€ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹æƒ…å ±ã‚‚æ¸¡ã›ã‚‹ã‚ˆã†ã«ãªã‚‹ã¨ã‚°ãƒƒãƒ‰
+	//ˆê’U—§•û‘Ì‚ªƒfƒtƒHƒ‹ƒg
+	//’¸“_î•ñAƒCƒ“ƒfƒbƒNƒXî•ñ‚à“n‚¹‚é‚æ‚¤‚É‚È‚é‚ÆƒOƒbƒh
 	void RegisterMesh(UINT _MatIdx);
 	void RegisterMesh(UINT _MatIdx, const MeshVertex* vertices, size_t vertexCount,
 		const uint32_t* indices, size_t indexCount);
 
-	//é ‚ç‚¹æƒ…å ±ã€ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹æƒ…å ±ã®ã‚»ãƒƒãƒˆ
+	//’¸“_î•ñAƒCƒ“ƒfƒbƒNƒXî•ñ‚ÌƒZƒbƒg
 	
 	UINT RegisterMatarial(wstring _FilePath,DirectX::XMFLOAT4 _Color);
 
 	void CalculateRecursive(int index);
 
-	//ãƒœãƒ¼ãƒ³ã®æ›´æ–°
+	//ƒ{[ƒ“‚ÌXV
 	void UpdateBones();
 
 
 	void CreateTmpBoneData();
 
 	void CreateBoneBuffer();
-	void UpdateBoneBuffer();    // CPUâ†’GPUã¸ã®è»¢é€
+	void UpdateBoneBuffer();    // CPU¨GPU‚Ö‚Ì“]‘—
 
 
-	//Modelã®ãƒ­ãƒ¼ãƒ‰
+	//Model‚Ìƒ[ƒh
 	void ModelLoad(std::string _Path);
 
 private:
 	//Mesh
-	//ä¸€æ—¦Mesh1ã¤ã ã‘
+	//ˆê’UMesh1‚Â‚¾‚¯
 	Meshes m_Meshes;
 
 	//Material

@@ -1,4 +1,4 @@
-//===== ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ =====
+//===== ƒCƒ“ƒNƒ‹[ƒh =====
 #include "DX12Manager.h"
 
 #include <d3dcompiler.h>
@@ -11,20 +11,20 @@
 
 #include "imgui_impl_dx12.h"
 
-//===== å®šæ•°ãƒ»ãƒã‚¯ãƒ­å®šç¾© =====
-const UINT CDX12Manager::m_FrameBufferCount = FRAME_BUFFER_COUNT;   //ãƒ•ãƒ¬ãƒ¼ãƒ ãƒãƒƒãƒ•ã‚¡ã®æ•°
+//===== ’è”Eƒ}ƒNƒ’è‹` =====
+const UINT CDX12Manager::m_FrameBufferCount = FRAME_BUFFER_COUNT;   //ƒtƒŒ[ƒ€ƒoƒbƒtƒ@‚Ì”
 
-//===== ãƒ¡ã‚½ãƒƒãƒ‰å®šç¾© =====
+//===== ƒƒ\ƒbƒh’è‹` =====
 
-//ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å–å¾—
+//ƒCƒ“ƒXƒ^ƒ“ƒXæ“¾
 CDX12Manager& CDX12Manager::GetInstance()
 {
 	static CDX12Manager instance;
 	return instance;
 }
 
-// <åˆæœŸåŒ–ã€çµ‚äº†å‡¦ç†>
-//åˆæœŸåŒ–å‡¦ç†
+// <‰Šú‰»AI—¹ˆ—>
+//‰Šú‰»ˆ—
 bool CDX12Manager::Initialize(HWND hwnd)
 {
 	HRESULT hr;
@@ -39,12 +39,12 @@ bool CDX12Manager::Initialize(HWND hwnd)
 	}
 #endif
 
-	//DXGI Factory ä½œæˆ
+	//DXGI Factory ì¬
 	hr = CreateDXGIFactory1(IID_PPV_ARGS(&m_factory));
 	if (FAILED(hr))
 		return false;
 
-	//ã‚¢ãƒ€ãƒ—ã‚¿å–å¾—
+	//ƒAƒ_ƒvƒ^æ“¾
 	ComPtr<IDXGIAdapter1> adapter;
 
 	for (UINT i = 0;
@@ -60,7 +60,7 @@ bool CDX12Manager::Initialize(HWND hwnd)
 		break;
 	}
 
-	//ãƒ‡ãƒã‚¤ã‚¹ä½œæˆ
+	//ƒfƒoƒCƒXì¬
 	hr = D3D12CreateDevice(
 		adapter.Get(),
 		D3D_FEATURE_LEVEL_11_0,
@@ -70,7 +70,7 @@ bool CDX12Manager::Initialize(HWND hwnd)
 	if (FAILED(hr))
 		return false;
 
-	//ã‚³ãƒãƒ³ãƒ‰ã‚­ãƒ¥ãƒ¼ä½œæˆ
+	//ƒRƒ}ƒ“ƒhƒLƒ…[ì¬
 	D3D12_COMMAND_QUEUE_DESC queueDesc = {};
 	queueDesc.Type = D3D12_COMMAND_LIST_TYPE_DIRECT;
 	queueDesc.Flags = D3D12_COMMAND_QUEUE_FLAG_NONE;
@@ -84,12 +84,12 @@ bool CDX12Manager::Initialize(HWND hwnd)
 		return false;
 
 
-	// <ã‚¹ãƒ¯ãƒƒãƒ—ãƒã‚§ãƒ¼ãƒ³ä½œæˆ>
+	// <ƒXƒƒbƒvƒ`ƒF[ƒ“ì¬>
 	
-	//ã‚¹ãƒ¯ãƒƒãƒ—ãƒã‚§ãƒ¼ãƒ³ã®è¨­å®š
+	//ƒXƒƒbƒvƒ`ƒF[ƒ“‚Ìİ’è
 	DXGI_SWAP_CHAIN_DESC1 swapChainDesc = {};
 	swapChainDesc.BufferCount = m_FrameBufferCount;
-	//0ã§ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«åˆã‚ã›ã¦ã‚‚ã‚‰ã†
+	//0‚ÅƒEƒBƒ“ƒhƒE‚É‡‚í‚¹‚Ä‚à‚ç‚¤
 	swapChainDesc.Width = 0;
 	swapChainDesc.Height = 0;
 	swapChainDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
@@ -97,7 +97,7 @@ bool CDX12Manager::Initialize(HWND hwnd)
 	swapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD;
 	swapChainDesc.SampleDesc.Count = 1;
 
-	//ã‚¹ãƒ¯ãƒƒãƒ—ãƒã‚§ãƒ¼ãƒ³ä½œæˆ
+	//ƒXƒƒbƒvƒ`ƒF[ƒ“ì¬
 	ComPtr<IDXGISwapChain1> swapChain1;
 
 	hr = m_factory->CreateSwapChainForHwnd(
@@ -112,12 +112,12 @@ bool CDX12Manager::Initialize(HWND hwnd)
 	if (FAILED(hr))
 		return false;
 
-	//IDXGISwapChain4 ã«å¤‰æ›
+	//IDXGISwapChain4 ‚É•ÏŠ·
 	swapChain1.As(&m_swapChain);
 
 
-	// <RTVä½œæˆ>
-	//RTVãƒ’ãƒ¼ãƒ—ã®è¨­å®šã€ä½œæˆ
+	// <RTVì¬>
+	//RTVƒq[ƒv‚Ìİ’èAì¬
 	D3D12_DESCRIPTOR_HEAP_DESC rtvHeapDesc = {};
 	rtvHeapDesc.NumDescriptors = m_FrameBufferCount;
 	rtvHeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_RTV;
@@ -131,20 +131,20 @@ bool CDX12Manager::Initialize(HWND hwnd)
 	if (FAILED(hr))
 		return false;
 
-	//ãƒ‡ã‚£ã‚¹ã‚¯ãƒªãƒ—ã‚¿ã‚µã‚¤ã‚ºå–å¾—
+	//ƒfƒBƒXƒNƒŠƒvƒ^ƒTƒCƒYæ“¾
 	m_rtvDescriptorSize =
 		m_device->GetDescriptorHandleIncrementSize(
 			D3D12_DESCRIPTOR_HEAP_TYPE_RTV
 		);
 
-	//ãƒãƒƒã‚¯ãƒãƒƒãƒ•ã‚¡å–å¾—ï¼†RTVä½œæˆ
-	//ãƒ’ãƒ¼ãƒ—ã®å…ˆé ­ãƒãƒ³ãƒ‰ãƒ«å–å¾—
+	//ƒoƒbƒNƒoƒbƒtƒ@æ“¾•RTVì¬
+	//ƒq[ƒv‚Ìæ“ªƒnƒ“ƒhƒ‹æ“¾
 	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle =
 		m_rtvHeap->GetCPUDescriptorHandleForHeapStart();
 
 	for (UINT i = 0; i < m_FrameBufferCount; ++i)
 	{
-		//ãƒãƒƒã‚¯ãƒãƒƒãƒ•ã‚¡å–å¾—
+		//ƒoƒbƒNƒoƒbƒtƒ@æ“¾
 		hr = m_swapChain->GetBuffer(
 			i,
 			IID_PPV_ARGS(&m_renderTargets[i])
@@ -153,33 +153,33 @@ bool CDX12Manager::Initialize(HWND hwnd)
 		if (FAILED(hr))
 			return false;
 
-		//RTVä½œæˆ
+		//RTVì¬
 		m_device->CreateRenderTargetView(
 			m_renderTargets[i].Get(),
 			nullptr,
 			rtvHandle
 		);
 
-		// æ¬¡ã®ãƒ‡ã‚£ã‚¹ã‚¯ãƒªãƒ—ã‚¿ã¸ç§»å‹•
+		// Ÿ‚ÌƒfƒBƒXƒNƒŠƒvƒ^‚ÖˆÚ“®
 		rtvHandle.ptr += m_rtvDescriptorSize;
 	}
 
 
-	//ã‚³ãƒãƒ³ãƒ‰ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆä½œæˆ
+	//ƒRƒ}ƒ“ƒhƒIƒuƒWƒFƒNƒgì¬
 	CreateCommandObjects();
 
 
-	//ãƒ•ã‚§ãƒ³ã‚¹ä½œæˆ
+	//ƒtƒFƒ“ƒXì¬
 	CreateFence();
 
-	//ImGUiä½œæˆã€åˆæœŸåŒ–
+	//ImGUiì¬A‰Šú‰»
 
 
 
 
 
 
-	// ===== æ·±åº¦ãƒãƒƒãƒ•ã‚¡ä½œæˆ =====
+	// ===== [“xƒoƒbƒtƒ@ì¬ =====
 	D3D12_HEAP_PROPERTIES heapProps = {};
 	heapProps.Type = D3D12_HEAP_TYPE_DEFAULT;
 	heapProps.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
@@ -251,23 +251,23 @@ bool CDX12Manager::Initialize(HWND hwnd)
 	m_srvDescriptorSize = m_device->GetDescriptorHandleIncrementSize(
 		D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
 
-	//ãƒãƒ³ãƒ‰ãƒ«ãƒ†ã‚¹ãƒˆ
+	//ƒnƒ“ƒhƒ‹ƒeƒXƒg
 	D3D12_GPU_DESCRIPTOR_HANDLE gpuHandle = m_srvHeap->GetGPUDescriptorHandleForHeapStart();
 
 
 
 
-	//view,projã®åˆæœŸåŒ–
+	//view,proj‚Ì‰Šú‰»
 	//view
 	m_view = DirectX::XMMatrixLookAtLH(
 		DirectX::XMVectorSet(0, 0, 5, 1),
 		DirectX::XMVectorSet(0, 0, 0, 1),
 		DirectX::XMVectorSet(0, 1, 0, 0));
 ;
-//Todo : Modelã®æç”»ãƒ†ã‚¹ãƒˆã‚’ã™ã‚‹ã¨ãã¯ã€æ­£é¢ã‹ã‚‰ã«ç›´ã™
+//Todo : Model‚Ì•`‰æƒeƒXƒg‚ğ‚·‚é‚Æ‚«‚ÍA³–Ê‚©‚ç‚É’¼‚·
 
 
-	//æ¨ªã‹ã‚‰è¦‹ã‚‹ç”¨
+	//‰¡‚©‚çŒ©‚é—p
 	//m_view = DirectX::XMMatrixLookAtLH(
 	//	DirectX::XMVectorSet(40, 0, 0, 1),
 	//	DirectX::XMVectorSet(0, 0, 0, 1),
@@ -285,7 +285,7 @@ bool CDX12Manager::Initialize(HWND hwnd)
 	return true;
 }
 
-//çµ‚äº†å‡¦ç†
+//I—¹ˆ—
 void CDX12Manager::Finalize()
 {
 	m_commandQueue.Reset();
@@ -294,26 +294,26 @@ void CDX12Manager::Finalize()
 }
 
 
-//----- æ›´æ–°å‡¦ç† -----
+//----- XVˆ— -----
 void CDX12Manager::Update()
 {
 }
 
 void CDX12Manager::ForceWait()
 {
-	// ä»Šç©ã‚“ã§ã‚ã‚‹å‘½ä»¤ï¼ˆã‚³ãƒ”ãƒ¼ãªã©ï¼‰ã«ç›®å°ã‚’ã¤ã‘ã‚‹
+	// ¡Ï‚ñ‚Å‚ ‚é–½—ßiƒRƒs[‚È‚Çj‚É–Úˆó‚ğ‚Â‚¯‚é
 	m_commandQueue->Signal(m_fence.Get(), m_fenceValue);
 
-	// ãã®ç›®å°ã«åˆ°é”ã™ã‚‹ã¾ã§ã€CPUã‚’å®Œå…¨ã«åœæ­¢ã•ã›ã¦å¾…ã¤
+	// ‚»‚Ì–Úˆó‚É“’B‚·‚é‚Ü‚ÅACPU‚ğŠ®‘S‚É’â~‚³‚¹‚Ä‘Ò‚Â
 	m_fence->SetEventOnCompletion(m_fenceValue, m_fenceEvent);
 	WaitForSingleObject(m_fenceEvent, INFINITE);
 
-	// æ¬¡ã®ãŸã‚ã«å€¤ã‚’æ›´æ–°ã—ã¦ãŠã
+	// Ÿ‚Ì‚½‚ß‚É’l‚ğXV‚µ‚Ä‚¨‚­
 	m_fenceValue++;
 }
 
 
-//----- æç”»å‡¦ç† -----
+//----- •`‰æˆ— -----
 void CDX12Manager::BeginDraw()
 {
 
@@ -321,7 +321,7 @@ void CDX12Manager::BeginDraw()
 
 
 
-	// GPUãŒå‰ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã®å‡¦ç†ã‚’çµ‚ãˆã‚‹ã®ã‚’å¾…ã¤
+	// GPU‚ª‘O‚ÌƒtƒŒ[ƒ€‚Ìˆ—‚ğI‚¦‚é‚Ì‚ğ‘Ò‚Â
 	if (m_fence->GetCompletedValue() < m_fenceValue - 1)
 	{
 		m_fence->SetEventOnCompletion(m_fenceValue - 1, m_fenceEvent);
@@ -329,22 +329,22 @@ void CDX12Manager::BeginDraw()
 	}
 
 
-	// ã“ã“ã§ä¸€æ—¦ã€ä»Šã®ã‚³ãƒãƒ³ãƒ‰ãƒªã‚¹ãƒˆã®çŠ¶æ…‹ã‚’å¼·åˆ¶çš„ã«ã‚¯ãƒªã‚¢ã«ã™ã‚‹
+	// ‚±‚±‚Åˆê’UA¡‚ÌƒRƒ}ƒ“ƒhƒŠƒXƒg‚Ìó‘Ô‚ğ‹­§“I‚ÉƒNƒŠƒA‚É‚·‚é
 	//m_commandAllocator->Reset();
 	//m_commandList->Reset(m_commandAllocator.Get(), nullptr);
 
-	//å¤‰æ•°ã®ãƒªã‚»ãƒƒãƒˆ
+	//•Ï”‚ÌƒŠƒZƒbƒg
 	ResetIsOccluded();
 
-	// 1. ãƒ•ãƒ¬ãƒ¼ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹æ›´æ–°
+	// 1. ƒtƒŒ[ƒ€ƒCƒ“ƒfƒbƒNƒXXV
 	m_frameIndex = m_swapChain->GetCurrentBackBufferIndex();
 
-	// 2. ãƒªã‚»ãƒƒãƒˆ
+	// 2. ƒŠƒZƒbƒg
 	m_commandAllocator->Reset();
 	m_commandList->Reset(m_commandAllocator.Get(), nullptr);
 
 
-	// 3. PRESENT â†’ RENDER_TARGET ã¸é·ç§»
+	// 3. PRESENT ¨ RENDER_TARGET ‚Ö‘JˆÚ
 	D3D12_RESOURCE_BARRIER barrier{};
 	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
 	barrier.Transition.pResource = m_renderTargets[m_frameIndex].Get();
@@ -354,7 +354,7 @@ void CDX12Manager::BeginDraw()
 
 	m_commandList->ResourceBarrier(1, &barrier);
 
-	// 4. RTVãƒãƒ³ãƒ‰ãƒ«å–å¾—
+	// 4. RTVƒnƒ“ƒhƒ‹æ“¾
 	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle =
 		m_rtvHeap->GetCPUDescriptorHandleForHeapStart();
 
@@ -380,16 +380,16 @@ void CDX12Manager::BeginDraw()
 	m_commandList->RSSetViewports(1, &viewport);
 	m_commandList->RSSetScissorRects(1, &scissorRect);
 
-	// 5. DSVãƒãƒ³ãƒ‰ãƒ«å–å¾—
+	// 5. DSVƒnƒ“ƒhƒ‹æ“¾
 	D3D12_CPU_DESCRIPTOR_HANDLE dsvHandle =
 		m_dsvHeap->GetCPUDescriptorHandleForHeapStart();
 
 
-	// 6. ã‚¯ãƒªã‚¢
-	//ç”»é¢ã®è‰²
+	// 6. ƒNƒŠƒA
+	//‰æ–Ê‚ÌF
 	FLOAT clearColor[] = { 0.1f, 0.2f, 0.4f, 1.0f };
 
-	//ãƒ¬ãƒ³ãƒ€ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã®ã‚»ãƒƒãƒˆ
+	//ƒŒƒ“ƒ_[ƒ^[ƒQƒbƒg‚ÌƒZƒbƒg
 	m_commandList->OMSetRenderTargets(
 		1,
 		&rtvHandle,
@@ -397,7 +397,7 @@ void CDX12Manager::BeginDraw()
 		&dsvHandle
 	);
 
-	//RtV,DSVã®ã‚»ãƒƒãƒˆ
+	//RtV,DSV‚ÌƒZƒbƒg
 	m_commandList->ClearRenderTargetView(rtvHandle, clearColor, 0, nullptr);
 	m_commandList->ClearDepthStencilView(
 		dsvHandle,
@@ -415,7 +415,7 @@ void CDX12Manager::BeginDraw()
 
 void CDX12Manager::EndDraw()
 {
-	// 1. RENDER_TARGET â†’ PRESENT
+	// 1. RENDER_TARGET ¨ PRESENT
 	D3D12_RESOURCE_BARRIER barrier{};
 	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
 	barrier.Transition.pResource = m_renderTargets[m_frameIndex].Get();
@@ -428,7 +428,7 @@ void CDX12Manager::EndDraw()
 	// 2. Close
 	m_commandList->Close();
 
-	// 3. å®Ÿè¡Œ
+	// 3. Às
 	ID3D12CommandList* commandLists[] = { m_commandList.Get() };
 	m_commandQueue->ExecuteCommandLists(1, commandLists);
 
@@ -437,24 +437,24 @@ void CDX12Manager::EndDraw()
 	//HRESULT hr = g_pSwapChain->Present(0, g_SwapChainTearingSupport ? DXGI_PRESENT_ALLOW_TEARING : 0); // Present without vsync
 	m_SwapChainOccluded = (hr == DXGI_STATUS_OCCLUDED);
 
-	// 5. ãƒ•ã‚§ãƒ³ã‚¹ã‚’ã‚­ãƒ¥ãƒ¼ã«æŒ¿å…¥
+	// 5. ƒtƒFƒ“ƒX‚ğƒLƒ…[‚É‘}“ü
 	const UINT64 fenceToWaitFor = m_fenceValue;
 	m_commandQueue->Signal(m_fence.Get(), fenceToWaitFor);
 	m_fenceValue++;
 }
 
 
-//åˆæœŸåŒ–ç”¨ã®é–¢æ•°é”
+//‰Šú‰»—p‚ÌŠÖ”’B
 void CDX12Manager::CreateCommandObjects()
 {
 
-	//ã‚³ãƒãƒ³ãƒ‰ã‚¢ãƒ­ã‚±ãƒ¼ã‚¿ãƒ¼ä½œæˆ
+	//ƒRƒ}ƒ“ƒhƒAƒƒP[ƒ^[ì¬
 	m_device->CreateCommandAllocator(
 		D3D12_COMMAND_LIST_TYPE_DIRECT,
 		IID_PPV_ARGS(&m_commandAllocator)
 	);
 
-	//ã‚³ãƒãƒ³ãƒ‰ãƒªã‚¹ãƒˆä½œæˆ
+	//ƒRƒ}ƒ“ƒhƒŠƒXƒgì¬
 	m_device->CreateCommandList(
 		0,
 		D3D12_COMMAND_LIST_TYPE_DIRECT,
@@ -463,7 +463,7 @@ void CDX12Manager::CreateCommandObjects()
 		IID_PPV_ARGS(&m_commandList)
 	);
 
-	//ã‚³ãƒãƒ³ãƒ‰ãƒªã‚¹ãƒˆã¯ä½œæˆç›´å¾Œã¯ recording çŠ¶æ…‹ãªã®ã§ã€Close ã—ã¦ãŠã
+	//ƒRƒ}ƒ“ƒhƒŠƒXƒg‚Íì¬’¼Œã‚Í recording ó‘Ô‚È‚Ì‚ÅAClose ‚µ‚Ä‚¨‚­
 	m_commandList->Close();
 }
 
@@ -483,23 +483,23 @@ void CDX12Manager::CreateFence()
 
 void CDX12Manager::ResizeRenderTarget(LPARAM lParam)
 {
-	CleanupRenderTarget();              //RenderTargetã®ç ´æ£„
+	CleanupRenderTarget();              //RenderTarget‚Ì”jŠü
 	DXGI_SWAP_CHAIN_DESC1 desc = {};
 	m_swapChain->GetDesc1(&desc);
-	HRESULT result = m_swapChain->ResizeBuffers(0, (UINT)LOWORD(lParam), (UINT)HIWORD(lParam), desc.Format, desc.Flags);   //ãƒãƒƒãƒ•ã‚¡ãƒ¼ã®ãƒªã‚µã‚¤ã‚º
+	HRESULT result = m_swapChain->ResizeBuffers(0, (UINT)LOWORD(lParam), (UINT)HIWORD(lParam), desc.Format, desc.Flags);   //ƒoƒbƒtƒ@[‚ÌƒŠƒTƒCƒY
 	IM_ASSERT(SUCCEEDED(result) && "Failed to resize swapchain.");
 
 	//m_commandAllocator->Reset();
 	//m_commandList->Reset(m_commandAllocator.Get(), nullptr);
 
-	CreateRenderTarget();               //RenderTargetã®ç”Ÿæˆ
+	CreateRenderTarget();               //RenderTarget‚Ì¶¬
 
-	//// â˜… 5. ä½¿ã„çµ‚ã‚ã£ãŸã‚‰é–‰ã˜ã¦å®Ÿè¡Œã™ã‚‹ï¼ˆã¾ãŸã¯æ¬¡ã®BeginDrawã«å‚™ãˆã¦é–‰ã˜ã‚‹ï¼‰
+	//// š 5. g‚¢I‚í‚Á‚½‚ç•Â‚¶‚ÄÀs‚·‚éi‚Ü‚½‚ÍŸ‚ÌBeginDraw‚É”õ‚¦‚Ä•Â‚¶‚éj
 	//m_commandList->Close();
 	//ID3D12CommandList* lists[] = { m_commandList.Get() };
 	//m_commandQueue->ExecuteCommandLists(1, lists);
 
-	//// ãƒªã‚µã‚¤ã‚ºç›´å¾Œã‚‚ä¸€å¿œå¾…ã£ã¦ãŠãã¨å®‰å…¨ï¼
+	//// ƒŠƒTƒCƒY’¼Œã‚àˆê‰‘Ò‚Á‚Ä‚¨‚­‚ÆˆÀ‘SI
 	//WaitForPendingOperations();
 }
 void CDX12Manager::ResizeViewPort(LPARAM lParam)
@@ -522,11 +522,11 @@ void CDX12Manager::ResizeViewPort(LPARAM lParam)
 void CDX12Manager::ResizeDepthBuffer(LPARAM lParam)
 {
 
-	// å¤ã„ãƒªã‚½ãƒ¼ã‚¹ç ´æ£„
+	// ŒÃ‚¢ƒŠƒ\[ƒX”jŠü
 	m_depthBuffer.Reset();
 	m_dsvHeap.Reset();
 
-	// 1. ãƒ’ãƒ¼ãƒ—ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ï¼ˆåˆæœŸåŒ–æ™‚ã¨åŒã˜ï¼‰
+	// 1. ƒq[ƒvƒvƒƒpƒeƒBi‰Šú‰»‚Æ“¯‚¶j
 	D3D12_HEAP_PROPERTIES heapProps = {};
 	heapProps.Type = D3D12_HEAP_TYPE_DEFAULT;
 	heapProps.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
@@ -534,7 +534,7 @@ void CDX12Manager::ResizeDepthBuffer(LPARAM lParam)
 	heapProps.CreationNodeMask = 1;
 	heapProps.VisibleNodeMask = 1;
 
-	// 2. ãƒªã‚µã‚¤ã‚ºå¾Œã® DepthStencil ã®ãƒªã‚½ãƒ¼ã‚¹ä½œæˆ
+	// 2. ƒŠƒTƒCƒYŒã‚Ì DepthStencil ‚ÌƒŠƒ\[ƒXì¬
 	D3D12_RESOURCE_DESC depthResourceDesc = {};
 	depthResourceDesc.Dimension = D3D12_RESOURCE_DIMENSION_TEXTURE2D;
 	depthResourceDesc.Alignment = 0;
@@ -568,7 +568,7 @@ void CDX12Manager::ResizeDepthBuffer(LPARAM lParam)
 		return;
 	}
 
-	// 3. DSV ãƒ’ãƒ¼ãƒ—ä½œæˆ
+	// 3. DSV ƒq[ƒvì¬
 	D3D12_DESCRIPTOR_HEAP_DESC heapDesc = {};
 	heapDesc.NumDescriptors = 1;
 	heapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_DSV;
@@ -584,7 +584,7 @@ void CDX12Manager::ResizeDepthBuffer(LPARAM lParam)
 		return;
 	}
 
-	// 4. DSV ã®ä½œæˆ
+	// 4. DSV ‚Ìì¬
 	D3D12_DEPTH_STENCIL_VIEW_DESC dsvDesc = {};
 	dsvDesc.Format = DXGI_FORMAT_D32_FLOAT;
 	dsvDesc.ViewDimension = D3D12_DSV_DIMENSION_TEXTURE2D;
@@ -602,7 +602,7 @@ void CDX12Manager::CreateRenderTarget()
 
 	for (UINT i = 0; i < m_FrameBufferCount; ++i)
 	{
-		//ãƒãƒƒã‚¯ãƒãƒƒãƒ•ã‚¡å–å¾—
+		//ƒoƒbƒNƒoƒbƒtƒ@æ“¾
 		HRESULT hr = m_swapChain->GetBuffer(
 			i,
 			IID_PPV_ARGS(&m_renderTargets[i])
@@ -613,14 +613,14 @@ void CDX12Manager::CreateRenderTarget()
 
 
 
-		//RTVä½œæˆ
+		//RTVì¬
 		m_device->CreateRenderTargetView(
 			m_renderTargets[i].Get(),
 			nullptr,
 			rtvHandle
 		);
 
-		// æ¬¡ã®ãƒ‡ã‚£ã‚¹ã‚¯ãƒªãƒ—ã‚¿ã¸ç§»å‹•
+		// Ÿ‚ÌƒfƒBƒXƒNƒŠƒvƒ^‚ÖˆÚ“®
 		rtvHandle.ptr += m_rtvDescriptorSize;
 	}
 }

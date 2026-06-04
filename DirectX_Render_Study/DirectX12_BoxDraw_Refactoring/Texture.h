@@ -1,4 +1,4 @@
-ï»¿#pragma once
+#pragma once
 #include <d3d12.h>
 #include "d3dx12.h"
 #include "DirectXTex.h"
@@ -28,7 +28,7 @@ public:
     int GetSrvIndex() {
         return m_srvIndex;
     }
-    // SRV ã® GPU ãƒãƒ³ãƒ‰ãƒ«ï¼ˆMesh ã§ä½¿ã†ç”¨ï¼‰
+    // SRV ‚Ì GPU ƒnƒ“ƒhƒ‹iMesh ‚Åg‚¤—pj
 
 private:
     ComPtr<ID3D12Resource> texture;
@@ -40,6 +40,6 @@ private:
 
     D3D12_GPU_DESCRIPTOR_HANDLE m_gpuHandle;
 
-    //ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+    //ƒCƒ“ƒfƒbƒNƒX
     int m_srvIndex;
 };

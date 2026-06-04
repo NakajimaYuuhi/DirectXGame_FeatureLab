@@ -1,4 +1,4 @@
-ï»¿#pragma once
+#pragma once
 #include <d3d12.h>
 #include <wrl.h>
 #include <Windows.h>
@@ -13,7 +13,7 @@
 class CImGuiManager {
 public:
 
-    //ã„ã‚‰ãªã„æ°—ãŒã™ã‚‹
+    //‚¢‚ç‚È‚¢‹C‚ª‚·‚é
     struct SrvAllocUserData
     {
         CImGuiManager* self;
@@ -21,24 +21,24 @@ public:
 
     static CImGuiManager& GetInstance();
 
-    //ç”»é¢ã®æ‹¡å¤§ç‡ã®å–å¾—
+    //‰æ–Ê‚ÌŠg‘å—¦‚Ìæ“¾
     float GetSystemScaleFactor();
 
-    //å®Ÿéš›ã«æ‹¡å¤§ã™ã‚‹å€ç‡ã®å–å¾—
-    //æ‹¡å¤§ç‡ã«ã—ãŸãŒã£ã¦æ‹¡å¤§ã™ã‚‹ã®ãŒç†æƒ³ã ãŒã€ä»Šä½¿ã£ã¦ã‚‹ãƒãƒ¼ãƒˆãƒ‘ã‚½ã‚³ãƒ³ã ã¨å¤§ããã¦å›°ã‚‹ã®ã§ã€é©ç”¨ã™ã‚‹ã‹ã‚’ãƒ•ãƒ©ã‚°ã§æ±ºã‚ã‚‹
+    //ÀÛ‚ÉŠg‘å‚·‚é”{—¦‚Ìæ“¾
+    //Šg‘å—¦‚É‚µ‚½‚ª‚Á‚ÄŠg‘å‚·‚é‚Ì‚ª—‘z‚¾‚ªA¡g‚Á‚Ä‚éƒm[ƒgƒpƒ\ƒRƒ“‚¾‚Æ‘å‚«‚­‚Ä¢‚é‚Ì‚ÅA“K—p‚·‚é‚©‚ğƒtƒ‰ƒO‚ÅŒˆ‚ß‚é
     float GetActualScaleFactor();
 
 
-    // åˆæœŸåŒ– (ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«ã¨DX12ã®ãƒ‡ãƒã‚¤ã‚¹ã€ãƒãƒƒãƒ•ã‚¡æ•°ã€ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆãŒå¿…è¦)
+    // ‰Šú‰» (ƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹‚ÆDX12‚ÌƒfƒoƒCƒXAƒoƒbƒtƒ@”AƒtƒH[ƒ}ƒbƒg‚ª•K—v)
     bool Initialize(HWND hwnd);
 
-    // çµ‚äº†å‡¦ç†
+    // I—¹ˆ—
     void Finalize();
 
-    // ãƒ•ãƒ¬ãƒ¼ãƒ é–‹å§‹æ™‚ã®å‡¦ç†
+    // ƒtƒŒ[ƒ€ŠJn‚Ìˆ—
     void Begin();
 
-    // ãƒ•ãƒ¬ãƒ¼ãƒ çµ‚äº†æ™‚ã®æç”»å‡¦ç† (ã‚³ãƒãƒ³ãƒ‰ãƒªã‚¹ãƒˆã‚’æ¸¡ã™)
+    // ƒtƒŒ[ƒ€I—¹‚Ì•`‰æˆ— (ƒRƒ}ƒ“ƒhƒŠƒXƒg‚ğ“n‚·)
     void End(ID3D12GraphicsCommandList* commandList);
 
     CDescriptorHeapAllocator& GetDescriptorHeapAllocator() { return m_DescriptorHeapAllocator; }
@@ -47,7 +47,7 @@ private:
     CImGuiManager() = default;
     ~CImGuiManager() = default;
 
-    // ImGuiç”¨ã®ãƒ•ã‚©ãƒ³ãƒˆãƒ†ã‚¯ã‚¹ãƒãƒ£ç­‰ã‚’é…ç½®ã™ã‚‹ãŸã‚ã®SRVãƒ’ãƒ¼ãƒ—
+    // ImGui—p‚ÌƒtƒHƒ“ƒgƒeƒNƒXƒ`ƒƒ“™‚ğ”z’u‚·‚é‚½‚ß‚ÌSRVƒq[ƒv
     Microsoft::WRL::ComPtr<ID3D12DescriptorHeap> m_srvHeap;
     CDescriptorHeapAllocator m_DescriptorHeapAllocator;
     SrvAllocUserData m_SrvAllocUserData;

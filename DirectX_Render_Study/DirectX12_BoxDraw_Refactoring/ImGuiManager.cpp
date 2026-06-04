@@ -1,4 +1,4 @@
-ï»¿#include "ImGuiManager.h"
+#include "ImGuiManager.h"
 #include "imgui_impl_win32.h"
 #include "imgui_impl_dx12.h"
 #include "DX12Manager.h"
@@ -9,7 +9,7 @@ CImGuiManager& CImGuiManager::GetInstance() {
     return instance;
 }
 
-//ç”»é¢ã®æ‹¡å¤§ç‡ã®å–å¾—
+//‰æ–Ê‚ÌŠg‘å—¦‚Ìæ“¾
 float CImGuiManager::GetSystemScaleFactor()
 {
     ImGui_ImplWin32_EnableDpiAwareness();
@@ -24,10 +24,10 @@ float CImGuiManager::GetActualScaleFactor()
 {
     float scale = GetSystemScaleFactor();
 
-    //falseãªã‚‰é©ç”¨ã—ãªã„
+    //false‚È‚ç“K—p‚µ‚È‚¢
     if (!DISPLAY_SCALING_ENABLED)return 1.0f;
 
-    //trueãªã‚‰æ‹¡å¤§ç‡ã‚’ãã®ã¾ã¾è¿”ã™
+    //true‚È‚çŠg‘å—¦‚ğ‚»‚Ì‚Ü‚Ü•Ô‚·
     return GetSystemScaleFactor();
 }
 
@@ -38,29 +38,29 @@ bool CImGuiManager::Initialize(HWND hwnd)
 
 
     auto& dx12 = CDX12Manager::GetInstance();
-    ID3D12Device* device = dx12.GetDevice(); // CDX12Managerã«GetDevice()ãŒå¿…è¦
+    ID3D12Device* device = dx12.GetDevice(); // CDX12Manager‚ÉGetDevice()‚ª•K—v
     ID3D12CommandQueue* commandQueue = dx12.GetCommandQueue();
 
-    // å®‰å…¨ãƒã‚§ãƒƒã‚¯ï¼šãƒ‡ãƒã‚¤ã‚¹ãŒç©ºã£ã½ãªã‚‰ã‚¨ãƒ©ãƒ¼ï¼
+    // ˆÀ‘Sƒ`ƒFƒbƒNFƒfƒoƒCƒX‚ª‹ó‚Á‚Û‚È‚çƒGƒ‰[I
     if (!device) {
         OutputDebugString("Error: DX12 Device is NULL!\n");
         return false;
     }
 
 
-    // 1. ImGuiã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã®ä½œæˆ
-    IMGUI_CHECKVERSION();           //ãƒãƒ¼ã‚¸ãƒ§ãƒ³ãƒã‚§ãƒƒã‚¯
-    ImGui::CreateContext();         //ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ(ã‚°ãƒ­ãƒ¼ãƒãƒ«ãªçŠ¶æ…‹)ä½œæˆ
-    ImGuiIO& io = ImGui::GetIO();   //å…¥å‡ºåŠ›ã«é–¢ã™ã‚‹è¨­å®šï¼ˆImGuiIOï¼‰ã‚’è§¦ã‚Œã‚‹ã‚ˆã†ã«å–å¾—
+    // 1. ImGuiƒRƒ“ƒeƒLƒXƒg‚Ìì¬
+    IMGUI_CHECKVERSION();           //ƒo[ƒWƒ‡ƒ“ƒ`ƒFƒbƒN
+    ImGui::CreateContext();         //ƒRƒ“ƒeƒLƒXƒg(ƒOƒ[ƒoƒ‹‚Èó‘Ô)ì¬
+    ImGuiIO& io = ImGui::GetIO();   //“üo—Í‚ÉŠÖ‚·‚éİ’èiImGuiIOj‚ğG‚ê‚é‚æ‚¤‚Éæ“¾
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
     //io.Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\msgothic.ttc", 20.0f, nullptr, io.Fonts->GetGlyphRangesJapanese());
     //io.Fonts->Build();
 
-    // ã‚¹ã‚¿ã‚¤ãƒ«è¨­å®š
+    // ƒXƒ^ƒCƒ‹İ’è
     ImGui::StyleColorsDark();
 
-    // 2. ImGuiç”¨ã®SRVãƒ‡ã‚£ã‚¹ã‚¯ãƒªãƒ—ã‚¿ãƒ’ãƒ¼ãƒ—ä½œæˆ
+    // 2. ImGui—p‚ÌSRVƒfƒBƒXƒNƒŠƒvƒ^ƒq[ƒvì¬
     D3D12_DESCRIPTOR_HEAP_DESC desc = {};
     desc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
     desc.NumDescriptors = 3;
@@ -70,7 +70,7 @@ bool CImGuiManager::Initialize(HWND hwnd)
         return false;
     }
 
-    //ãƒ‡ã‚£ã‚¹ã‚¯ãƒªãƒ—ã‚¿ãƒ’ãƒ¼ãƒ—ã®ã‚¢ãƒ­ã‚±ãƒ¼ã‚¿ã‚‚ä½œã£ã¦ãŠã
+    //ƒfƒBƒXƒNƒŠƒvƒ^ƒq[ƒv‚ÌƒAƒƒP[ƒ^‚àì‚Á‚Ä‚¨‚­
     m_DescriptorHeapAllocator.Create(device, m_srvHeap.Get());
 
     ImGuiStyle& style = ImGui::GetStyle();
@@ -80,7 +80,7 @@ bool CImGuiManager::Initialize(HWND hwnd)
 
 
 
-    // 3. ãƒ—ãƒ©ãƒƒãƒˆãƒ•ã‚©ãƒ¼ãƒ ã¨ãƒ¬ãƒ³ãƒ€ãƒ©ãƒ¼ã®åˆæœŸåŒ–
+    // 3. ƒvƒ‰ƒbƒgƒtƒH[ƒ€‚ÆƒŒƒ“ƒ_ƒ‰[‚Ì‰Šú‰»
     //ImGui_ImplWin32_Init(hwnd);
 
 
@@ -91,15 +91,15 @@ bool CImGuiManager::Initialize(HWND hwnd)
 
 
 
-    //DirectXé–¢é€£ã®åˆæœŸåŒ–
-    //å¼•æ•°ãŒå¤šãã¦åˆ†ã‹ã‚Šã«ãã‹ã£ãŸInitå‡¦ç†ã‚’ã€InitInfoã«ã¾ã¨ã‚ãŸã‚‚ã®
+    //DirectXŠÖ˜A‚Ì‰Šú‰»
+    //ˆø”‚ª‘½‚­‚Ä•ª‚©‚è‚É‚­‚©‚Á‚½Initˆ—‚ğAInitInfo‚É‚Ü‚Æ‚ß‚½‚à‚Ì
 
     ImGui_ImplDX12_InitInfo init_info = {};
-    init_info.Device = device;            //ãƒ‡ãƒã‚¤ã‚¹
-    init_info.CommandQueue = commandQueue;//ã‚³ãƒãƒ³ãƒ‰ã‚­ãƒ¥ãƒ¼ã‚‚å¿…è¦ã«ãªã£ãŸ
-    init_info.NumFramesInFlight = FRAME_BUFFER_COUNT;//ãƒ•ãƒ¬ãƒ¼ãƒ ãƒãƒƒãƒ•ã‚¡ã®æ•° ã‚¹ãƒ¯ãƒƒãƒ—ãƒã‚§ãƒ¼ãƒ³ã®ãƒãƒƒã‚¯ãƒãƒƒãƒ•ã‚¡ã®æ•°ã¨åˆã‚ã›ã‚‹(å¤§ä½“2ã‹3)
+    init_info.Device = device;            //ƒfƒoƒCƒX
+    init_info.CommandQueue = commandQueue;//ƒRƒ}ƒ“ƒhƒLƒ…[‚à•K—v‚É‚È‚Á‚½
+    init_info.NumFramesInFlight = FRAME_BUFFER_COUNT;//ƒtƒŒ[ƒ€ƒoƒbƒtƒ@‚Ì” ƒXƒƒbƒvƒ`ƒF[ƒ“‚ÌƒoƒbƒNƒoƒbƒtƒ@‚Ì”‚Æ‡‚í‚¹‚é(‘å‘Ì2‚©3)
     init_info.RTVFormat = DXGI_FORMAT_R8G8B8A8_UNORM;//RTVFormat
-    init_info.DSVFormat = DXGI_FORMAT_UNKNOWN;  //æ·±åº¦ã‚¹ãƒ†ãƒ³ã‚·ãƒ«ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆï¼ˆä½¿ã‚ãªã„ãªã‚‰ UNKNOWN ã§OK)
+    init_info.DSVFormat = DXGI_FORMAT_UNKNOWN;  //[“xƒXƒeƒ“ƒVƒ‹‚ÌƒtƒH[ƒ}ƒbƒgig‚í‚È‚¢‚È‚ç UNKNOWN ‚ÅOK)
     init_info.SrvDescriptorHeap = m_srvHeap.Get();
     init_info.SrvDescriptorAllocFn = [](ImGui_ImplDX12_InitInfo*, D3D12_CPU_DESCRIPTOR_HANDLE* out_cpu_handle, D3D12_GPU_DESCRIPTOR_HANDLE* out_gpu_handle) { return CImGuiManager::GetInstance().GetDescriptorHeapAllocator().Alloc(out_cpu_handle, out_gpu_handle); };
     init_info.SrvDescriptorFreeFn = [](ImGui_ImplDX12_InitInfo*, D3D12_CPU_DESCRIPTOR_HANDLE cpu_handle, D3D12_GPU_DESCRIPTOR_HANDLE gpu_handle) { return CImGuiManager::GetInstance().GetDescriptorHeapAllocator().Free(cpu_handle, gpu_handle); };
@@ -114,15 +114,15 @@ bool CImGuiManager::Initialize(HWND hwnd)
     //    m_srvHeap->GetGPUDescriptorHandleForHeapStart()
     //);
 
-    //----- ãƒ•ã‚©ãƒ³ãƒˆã®ã‚»ãƒƒãƒˆ -----
+    //----- ƒtƒHƒ“ƒg‚ÌƒZƒbƒg -----
     ImFontConfig config;
     config.SizePixels = 18.0f;
 
-    // æ—¥æœ¬èªã®æ–‡å­—ã‚»ãƒƒãƒˆã‚’è¿½åŠ 
+    // “ú–{Œê‚Ì•¶šƒZƒbƒg‚ğ’Ç‰Á
     static const ImWchar japanese_range[] = {
         0x0020, 0x00FF,   // Basic Latin
-        0x3000, 0x30FF,   // ã²ã‚‰ãŒãªãƒ»ã‚«ã‚¿ã‚«ãƒŠ
-        0x4E00, 0x9FAF,   // æ¼¢å­—ï¼ˆåŸºæœ¬ï¼‰
+        0x3000, 0x30FF,   // ‚Ğ‚ç‚ª‚ÈEƒJƒ^ƒJƒi
+        0x4E00, 0x9FAF,   // Š¿šiŠî–{j
         0,
     };
 
@@ -151,15 +151,15 @@ void CImGuiManager::Begin()
 void CImGuiManager::End(ID3D12GraphicsCommandList* commandList) 
 {
 
-    // ImGuiã®å†…éƒ¨ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ç”¨ã«ã¾ã¨ã‚ã‚‹
-    //è²¯ã‚ãŸæç”»å‘½ä»¤ã‚’æç”»ãƒ‡ãƒ¼ã‚¿(ImDrawData)ã«å¤‰æ›ã™ã‚‹
+    // ImGui‚Ì“à•”ƒf[ƒ^‚ğƒŒƒ“ƒ_ƒŠƒ“ƒO—p‚É‚Ü‚Æ‚ß‚é
+    //’™‚ß‚½•`‰æ–½—ß‚ğ•`‰æƒf[ƒ^(ImDrawData)‚É•ÏŠ·‚·‚é
     ImGui::Render();
 
-    // æç”»å…ˆãƒ’ãƒ¼ãƒ—ã‚’ImGuiç”¨ã®ã‚‚ã®ã«è¨­å®š
+    // •`‰ææƒq[ƒv‚ğImGui—p‚Ì‚à‚Ì‚Éİ’è
     ID3D12DescriptorHeap* heaps[] = { m_srvHeap.Get() };
     commandList->SetDescriptorHeaps(_countof(heaps), heaps);
 
-    // ã‚³ãƒãƒ³ãƒ‰ãƒªã‚¹ãƒˆã«ImGuiã®æç”»ã‚³ãƒãƒ³ãƒ‰ã‚’ç©ã‚€(GPUã«é€ã‚‹)
+    // ƒRƒ}ƒ“ƒhƒŠƒXƒg‚ÉImGui‚Ì•`‰æƒRƒ}ƒ“ƒh‚ğÏ‚Ş(GPU‚É‘—‚é)
     ImGui_ImplDX12_RenderDrawData(ImGui::GetDrawData(), commandList);
 }
 

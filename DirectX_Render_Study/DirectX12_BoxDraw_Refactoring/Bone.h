@@ -3,20 +3,20 @@
 #include "StringAlias.h"
 #include "ContainerAlias.h"
 
-//ãƒœãƒ¼ãƒ³ã®æƒ…å ±
+//ƒ{[ƒ“‚Ìî•ñ
 class CBone
 {
 public:
     string name;
 
-    int parentIndex; // -1ãªã‚‰ãƒ«ãƒ¼ãƒˆ
+    int parentIndex; // -1‚È‚çƒ‹[ƒg
     Vector<int> children;
 
-    DirectX::XMMATRIX localBindPose;     // åˆæœŸãƒ­ãƒ¼ã‚«ãƒ«
-    DirectX::XMMATRIX globalBindPose;    // åˆæœŸã‚°ãƒ­ãƒ¼ãƒãƒ«
-    DirectX::XMMATRIX inverseBindPose;   // é€†è¡Œåˆ—ï¼ˆè¶…é‡è¦ï¼‰
+    DirectX::XMMATRIX localBindPose;     // ‰Šúƒ[ƒJƒ‹
+    DirectX::XMMATRIX globalBindPose;    // ‰ŠúƒOƒ[ƒoƒ‹
+    DirectX::XMMATRIX inverseBindPose;   // ‹ts—ñi’´d—vj
 
-    DirectX::XMMATRIX localPose;   // ç¾åœ¨ã®ãƒ­ãƒ¼ã‚«ãƒ«ï¼ˆã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ï¼‰
-    DirectX::XMMATRIX globalPose;  // è¦ªå­ä¼æ’­å¾Œ
+    DirectX::XMMATRIX localPose;   // Œ»İ‚Ìƒ[ƒJƒ‹iƒAƒjƒ[ƒVƒ‡ƒ“j
+    DirectX::XMMATRIX globalPose;  // eq“`”dŒã
 };
 

@@ -2,8 +2,8 @@
 
 #include "DX12Manager.h"
 
-//FilePathã‚’å–ã£ã¦ãŠãã‹ã¯è¦æ¤œè¨
-//ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã®ãƒ’ãƒƒãƒˆãƒã‚§ãƒƒã‚¯ã§ä½¿ã†ã‹ã‚‚ã—ã‚Œãªã„
+//FilePath‚ğæ‚Á‚Ä‚¨‚­‚©‚Í—vŒŸ“¢
+//ƒLƒƒƒbƒVƒ…‚Ìƒqƒbƒgƒ`ƒFƒbƒN‚Åg‚¤‚©‚à‚µ‚ê‚È‚¢
 CMaterial::CMaterial(wstring _FilePath, XMFLOAT4 _Color)
 	:m_Color(_Color)
 {
@@ -16,33 +16,33 @@ CMaterial::CMaterial(wstring _FilePath, XMFLOAT4 _Color)
 
 void CMaterial::LoadTexture(wstring _FilePath)
 {
-    //ç†æƒ³ã¯ã€ã‚³ãƒãƒ³ãƒ‰é–‹ã„ãŸçŠ¶æ…‹ã§è¡Œã†
-    //æ¯å›ã€ã‚³ãƒãƒ³ãƒ‰ã®é–‹é–‰ã€GPUã®çµ‚äº†å¾…ã¡ã‚’ã—ã¦ã‚‹ã¨å¤§å¤‰
-    //ã‚³ãƒãƒ³ãƒ‰ãŒé–‹ã„ã¦ã„ãªã‘ã‚Œã°ã€é–‹ãã€ã¨ã‹ã¾ã§ã§ããŸã‚‰æœ€é«˜
+    //—‘z‚ÍAƒRƒ}ƒ“ƒhŠJ‚¢‚½ó‘Ô‚Ås‚¤
+    //–ˆ‰ñAƒRƒ}ƒ“ƒh‚ÌŠJ•ÂAGPU‚ÌI—¹‘Ò‚¿‚ğ‚µ‚Ä‚é‚Æ‘å•Ï
+    //ƒRƒ}ƒ“ƒh‚ªŠJ‚¢‚Ä‚¢‚È‚¯‚ê‚ÎAŠJ‚­A‚Æ‚©‚Ü‚Å‚Å‚«‚½‚çÅ‚
 
-    //--ä¸€æ—¦ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã‚’è€ƒæ…®ã›ãšã«ãƒ­ãƒ¼ãƒ‰ã™ã‚‹
+    //--ˆê’UƒLƒƒƒbƒVƒ…‚ğl—¶‚¹‚¸‚Éƒ[ƒh‚·‚é
 
-    //ãƒ‡ãƒã‚¤ã‚¹ã€ã‚³ãƒãƒ³ãƒ‰ãƒªã‚¹ãƒˆã®å–å¾—
+    //ƒfƒoƒCƒXAƒRƒ}ƒ“ƒhƒŠƒXƒg‚Ìæ“¾
     ID3D12Device* device = CDX12Manager::GetInstance().GetDevice();
     ID3D12GraphicsCommandList* cmdList = CDX12Manager::GetInstance().GetCommandLIst();
 
 
-    // 1. ã‚³ãƒãƒ³ãƒ‰ãƒªã‚¹ãƒˆã‚’é–‹ã
+    // 1. ƒRƒ}ƒ“ƒhƒŠƒXƒg‚ğŠJ‚­
     CDX12Manager::GetInstance().GetCommandAllocator()->Reset();
     cmdList->Reset(CDX12Manager::GetInstance().GetCommandAllocator(), nullptr);
 
 
 
-    //ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®ãƒ­ãƒ¼ãƒ‰ã€SRVã®ä½œæˆ
+    //ƒeƒNƒXƒ`ƒƒ‚Ìƒ[ƒhASRV‚Ìì¬
     m_Texture->LoadTexture(device, cmdList, _FilePath.c_str(), 0);
     m_Texture->CreateSRV(device);
 
 
-    // 2.ã‚³ãƒãƒ³ãƒ‰å®Ÿè¡Œ
+    // 2.ƒRƒ}ƒ“ƒhÀs
     cmdList->Close();
     ID3D12CommandList* list[] = { cmdList };
     CDX12Manager::GetInstance().GetCommandQueue()->ExecuteCommandLists(1, list);
 
-    // 3.ã“ã“ã§GPUãŒã‚³ãƒ”ãƒ¼ã‚’çµ‚ãˆã‚‹ã¾ã§ã€CPUã‚’ã‚¹ãƒˆãƒƒãƒ—ã•ã›ã‚‹ï¼
+    // 3.‚±‚±‚ÅGPU‚ªƒRƒs[‚ğI‚¦‚é‚Ü‚ÅACPU‚ğƒXƒgƒbƒv‚³‚¹‚éI
     CDX12Manager::GetInstance().ForceWait();
 }

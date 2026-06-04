@@ -3,15 +3,15 @@
 #include <vector>
 #include <string>
 
-//é ‚ç‚¹æƒ…å ±
+//’¸“_î•ñ
 struct MeshVertex
 {
     float position[3];
     float normal[3];
     float uv[2];
 
-    uint32_t boneIndices[4];  // ãƒœãƒ¼ãƒ³ç•ªå·ï¼ˆæœ€å¤§255ä½“ã¾ã§ï¼‰
-    float   boneWeights[4];  // ãƒœãƒ¼ãƒ³ã®é‡ã¿
+    uint32_t boneIndices[4];  // ƒ{[ƒ“”Ô†iÅ‘å255‘Ì‚Ü‚Åj
+    float   boneWeights[4];  // ƒ{[ƒ“‚Ìd‚İ
 };
 
 struct MeshData
@@ -26,16 +26,16 @@ struct MeshData
 
 struct MaterialData
 {
-    //ãƒãƒ†ãƒªã‚¢ãƒ«å
+    //ƒ}ƒeƒŠƒAƒ‹–¼
     std::string name;
 
-    //ãƒ™ãƒ¼ã‚¹ã‚«ãƒ©ãƒ¼ã®ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®ãƒ‘ã‚¹
+    //ƒx[ƒXƒJƒ‰[‚ÌƒeƒNƒXƒ`ƒƒ‚ÌƒpƒX
     std::string baseColorTexturePath;
 
-    //ãƒ™ãƒ¼ã‚¹ã‚«ãƒ©ãƒ¼
+    //ƒx[ƒXƒJƒ‰[
     float baseColorFactor[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
 
-    //PBRã®é‡‘å±åå°„ç”¨
+    //PBR‚Ì‹à‘®”½Ë—p
     float metallicFactor = 1.0f;
     float roughnessFactor = 1.0f;
     std::string metallicRoughnessTexturePath;
@@ -44,13 +44,13 @@ struct MaterialData
 struct NodeData
 {
 
-    //ãƒãƒ¼ãƒ‰å
+    //ƒm[ƒh–¼
     std::string name;
 
-    //ãƒ¡ãƒƒã‚·ãƒ¥ã®ãƒãƒ¼ãƒ‰
+    //ƒƒbƒVƒ…‚Ìƒm[ƒh
     int meshIndex = -1;
     
-    //å­ãƒãƒ¼ãƒ‰
+    //qƒm[ƒh
     std::vector<int> children;
 
     //TRS
@@ -58,10 +58,10 @@ struct NodeData
     float rotation[4]       = { 0.0f ,0.0f, 0.0f, 1.0f };
     float scale[3]          = { 1.0f, 1.0f, 1.0f };
     
-    //Matrix(TRSãŒä½¿ãˆãªã„ã¨ãç”¨)
-    float matrix[16] = {};  // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯ identity è¡Œåˆ—ã§ã‚‚è‰¯ã„
+    //Matrix(TRS‚ªg‚¦‚È‚¢‚Æ‚«—p)
+    float matrix[16] = {};  // ƒfƒtƒHƒ‹ƒg‚Í identity s—ñ‚Å‚à—Ç‚¢
 
-    //Skinã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+    //Skin‚ÌƒCƒ“ƒfƒbƒNƒX
     int skinIndex = -1;
 
 };
@@ -69,10 +69,10 @@ struct NodeData
 //
 struct SkinData 
 {
-    std::vector<int> joints;                                // ã‚¸ãƒ§ã‚¤ãƒ³ãƒˆã® node index
-    std::vector<DirectX::XMFLOAT4X4> inverseBindMatrices;   // è¡Œåˆ—
+    std::vector<int> joints;                                // ƒWƒ‡ƒCƒ“ƒg‚Ì node index
+    std::vector<DirectX::XMFLOAT4X4> inverseBindMatrices;   // s—ñ
 
-    //Skeltonã®ãƒãƒ¼ãƒ‰ç•ªå·ã¯ä¸€æ—¦ç„¡ã—ã§
+    //Skelton‚Ìƒm[ƒh”Ô†‚Íˆê’U–³‚µ‚Å
 };
 
 
