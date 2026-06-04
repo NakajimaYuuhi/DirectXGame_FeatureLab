@@ -21,6 +21,8 @@
 
 #include "BoxCollider3D.h"
 
+#include "Explosion.h"
+
 
 Enemy::Enemy(String _Name)
 	:C3D_Object(_Name)
@@ -69,6 +71,19 @@ void Enemy::OnCollision(CObject* _Other)
 		if (HP <= 0)
 		{
 			SetIsDestroyed(true);
+			
+			//explosion‚ð¶¬
+			C3D_Object* billBoard = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::EFFECT, "Explosion"));
+			if (billBoard)
+			{
+				CTransform* transform = billBoard->GetComponent<CTransform>();
+				CTransform* bulletTransform = _Other->GetComponent<CTransform>();
+				//ˆÊ’u
+				DirectX::XMFLOAT3 pos = bulletTransform->GetPos();
+				transform->SetPos(pos);
+				transform->SetScale({ 0.8f, 1.0f, 0.8f });
+			}
+
 		}
 	}
 }

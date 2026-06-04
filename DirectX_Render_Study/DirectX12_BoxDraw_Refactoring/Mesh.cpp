@@ -81,9 +81,9 @@ uint32_t mesh_indices[] =
 
 
 //Initializeをどこかで呼ぶ?E  有めE
-CMesh::CMesh(CMaterial* _Material)
-    :m_Material(_Material)
-{ 
+//Initializeをどこかで呼ぶ?E  有めE
+CMesh::CMesh()
+{  
     //ここで、E  点?E  、インチE  クス?E  をデフォルトでセチE  (仮実裁E
     m_Vertices.assign(std::begin(mesh_vertices), std::end(mesh_vertices));//assignで入れれるらしい
     m_Indices.assign(std::begin(mesh_indices), std::end(mesh_indices));
@@ -150,24 +150,32 @@ void CMesh::Update()
 
 
 
-void CMesh::Draw(CTransform* transform)
+void CMesh::Draw(CTransform* transform, CMaterial* material, BlendMode blendMode)
 {
-    // --コマンドリスチE
+    // --コマンドリスト
     ID3D12GraphicsCommandList* commandList = CDX12Manager::GetInstance().GetCommandLIst();
 
 
-    // --行 E取征E
+    // --行列取得
     DirectX::XMMATRIX world = transform->GetWorld();
     DirectX::XMMATRIX view = CDX12Manager::GetInstance().GetView();
     DirectX::XMMATRIX proj = CDX12Manager::GetInstance().GetProj();
 
 
-    // --掛け?E
+    // --掛け算
     DirectX::XMMATRIX wvp = world * view * proj;
 
-    // --定数バッファ用のチE EタにセチE  する
+    // --定数バッファ用のデータにセットする
     
-    commandList->SetPipelineState(PSOManager::GetInstance().GetMeshPSO());
+    if (blendMode == BlendMode::Additive)
+    {
+        commandList->SetPipelineState(PSOManager::GetInstance().GetAdditivePSO());
+    }
+    else
+    {
+        commandList->SetPipelineState(PSOManager::GetInstance().GetMeshPSO());
+    }
+    
     commandList->SetGraphicsRootSignature(PSOManager::GetInstance().GetMeshRootSignature());
 
     //SRVチEEチEEセチE  
@@ -198,7 +206,7 @@ void CMesh::Draw(CTransform* transform)
 
     commandList->SetGraphicsRootDescriptorTable(
         1,
-        m_Material->GetGpuHandle()
+        material->GetGpuHandle()
     );
 
 

@@ -1,15 +1,15 @@
-//ˆê’UTexture,Color‚ðŽ‚Â
-//’¸“_‚²‚Æ‚ÉF‚ðŽ‚Â
+//ä¸€æ—¦Texture,Colorã‚’æŒã¤
+//é ‚ç‚¹ã”ã¨ã«è‰²ã‚’æŒã¤
 
 //Material
 #pragma once
 #include <DirectXMath.h>
-#include "StringAlias.h"	//•¶Žš—ñ
-#include "SmartPtrAlias.h"	//ƒXƒ}[ƒgƒ|ƒCƒ“ƒ^
+#include "StringAlias.h"	//æ–‡å­—åˆ—
+#include "SmartPtrAlias.h"	//ã‚¹ãƒžãƒ¼ãƒˆãƒã‚¤ãƒ³ã‚¿
 
 #include "Texture.h"
 
-//===== ƒGƒCƒŠƒAƒX =====
+//===== ã‚¨ã‚¤ãƒªã‚¢ã‚¹ =====
 using XMFLOAT4 = DirectX::XMFLOAT4;
 
 using Color = XMFLOAT4;
@@ -28,14 +28,12 @@ public:
 		return m_Texture->GetGpuHandle();
 	}
 
+	//ä»®ã§ç½®ã„ã¦ãŠã
+	void LoadTexture(wstring _FilePath);
+
 private:
 	//Texture
 	pTexture m_Texture;
 	//color
 	Color m_Color;
-
-
-	//‰¼‚Å’u‚¢‚Ä‚¨‚­
-	void LoadTexture(wstring _FilePath);
 };
-

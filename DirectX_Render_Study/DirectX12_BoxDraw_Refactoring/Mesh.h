@@ -1,14 +1,14 @@
 //Mesh.h
-//ƒƒbƒVƒ…‚ÌƒNƒ‰ƒX
+//ãƒ¡ãƒƒã‚·ãƒ¥ã®ã‚¯ãƒ©ã‚¹
 
-//===== ƒCƒ“ƒNƒ‹[ƒh =====
+//===== ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ =====
 #pragma once
 
-//----- DirectX12ŠÖ˜A -----
+//----- DirectX12é–¢é€£ -----
 #include <d3d12.h>
 #include <DirectXMath.h>
 
-//----- ƒXƒ}[ƒgƒ|ƒCƒ“ƒ^—p -----
+//----- ã‚¹ãƒãƒ¼ãƒˆãƒã‚¤ãƒ³ã‚¿ç”¨ -----
 #include <wrl.h>
 using Microsoft::WRL::ComPtr;
 
@@ -16,45 +16,46 @@ using Microsoft::WRL::ComPtr;
 
 
 //----- Texture -----
-//ãY—í‚¶‚á‚È‚¢‚¯‚ÇAˆê’U‚±‚±‚É“ü‚ê‚é
+//ç¶ºéº—ã˜ã‚ƒãªã„ã‘ã©ã€ä¸€æ—¦ã“ã“ã«å…¥ã‚Œã‚‹
 #include "Texture.h"
+#include "BasicSettings.h"
 
-//\‘¢‘Ìî•ñ
+//æ§‹é€ ä½“æƒ…å ±
 #include "ModelData.h"
 
-//===== ‘O•ûéŒ¾ =====
+//===== å‰æ–¹å®£è¨€ =====
 class CObject;
-class CTransform;	//–ˆƒtƒŒ[ƒ€g‚¤‚©‚ç’u‚¢‚Æ‚­
+class CTransform;	//æ¯ãƒ•ãƒ¬ãƒ¼ãƒ ä½¿ã†ã‹ã‚‰ç½®ã„ã¨ã
 class CMaterial;
 
-//===== \‘¢‘Ì’è‹`(•Ê‚ÌêŠ‚ÉˆÚ‚·) =====
+//===== æ§‹é€ ä½“å®šç¾©(åˆ¥ã®å ´æ‰€ã«ç§»ã™) =====
 struct MeshConstantBufferData
 {
 	DirectX::XMMATRIX WVP;
 };
 
-//===== ƒNƒ‰ƒX’è‹` =====
+//===== ã‚¯ãƒ©ã‚¹å®šç¾© =====
 class CMesh
 {
 
-//===== ‰¼À‘• =====
-//ƒrƒ‹ƒ{[ƒh‘Î‰—p
+//===== ä»®å®Ÿè£… =====
+//ãƒ“ãƒ«ãƒœãƒ¼ãƒ‰å¯¾å¿œç”¨
 
 
 
 
 public:
-	//Initialize‚ğ‚Ç‚±‚©‚ÅŒÄ‚Ô•K—v—L‚è
-	CMesh(CMaterial* _Material);
+	//Initializeã‚’ã©ã“ã‹ã§å‘¼ã¶å¿…è¦æœ‰ã‚Š
+	CMesh();
 
-	//DX12Manager‚©‚çæ“¾‚·‚é(‰¼)
+	//DX12Managerã‹ã‚‰å–å¾—ã™ã‚‹(ä»®)
 	void Init();
 	void Update();
-	void Draw(class CTransform* transform);
+	void Draw(class CTransform* transform, class CMaterial* material, BlendMode blendMode);
 
 	void BindBoneSRV(D3D12_GPU_DESCRIPTOR_HANDLE handle);
 
-	//’¸“_AƒCƒ“ƒfƒbƒNƒXî•ñ‚ÌƒZƒbƒg
+	//é ‚ç‚¹ã€ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹æƒ…å ±ã®ã‚»ãƒƒãƒˆ
 	void SetVertex(const MeshVertex* vertices, size_t vertexCount,
 		const uint32_t* indices, size_t indexCount);
 
@@ -66,20 +67,17 @@ private:
 
 	D3D12_GPU_DESCRIPTOR_HANDLE m_BoneSrvGpuHandle;
 
-	//----- î•ñ -----
+	//----- æƒ…å ± -----
 
-	//Material
-	CMaterial* m_Material;
-
-	//’¸“_ƒf[ƒ^
-	std::vector<MeshVertex> m_Vertices;	//’¸“_
-	std::vector<uint32_t>	m_Indices;	//ƒCƒ“ƒfƒbƒNƒX
+	//CObjectã®å‚ç…§
+	std::vector<MeshVertex> m_Vertices;	//é ‚ç‚¹
+	std::vector<uint32_t>	m_Indices;	//ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
 
 
 
 private:
 	
-	//CObject‚ÌQÆ
+	//CObjectã®å‚ç…§
 	CObject* m_Owner;
 
 
@@ -87,7 +85,7 @@ private:
 
 	//----- Getter,Setter -----
 public:
-	//’¸“_ƒf[ƒ^‚Ìæ“¾
+	//é ‚ç‚¹ãƒ‡ãƒ¼ã‚¿ã®å–å¾—
 	void RegisterOwner(CObject* _Owner);
 
 	void SetBoneSRV(D3D12_GPU_DESCRIPTOR_HANDLE handle)

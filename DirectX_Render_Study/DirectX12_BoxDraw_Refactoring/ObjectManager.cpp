@@ -6,6 +6,7 @@
 #include "Enemy.h"
 #include "BillBoard.h"
 #include "RandomParticle.h"
+#include "Explosion.h"
 
 #include "Collision.h"
 
@@ -62,6 +63,13 @@ CObject* ObjectManager::Instantiate(Scene::ID _SceneID, ObjectTag _Tag, std::str
 				vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//配列に追加
 				break;
 			}
+			else if (_TypeName == "Explosion")
+			{
+				tmpObject = std::make_unique<Explosion>("Explosion");		//生成
+				returnObject = tmpObject.get();							//生ポインタ取得
+				vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//配列に追加
+				break;
+			}
 
 
 			tmpObject = std::make_unique<BillBoard>("BillBoard");		//生成
@@ -69,6 +77,10 @@ CObject* ObjectManager::Instantiate(Scene::ID _SceneID, ObjectTag _Tag, std::str
 			vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//配列に追加
 			break;
 		case ObjectTag::EFFECT:
+			tmpObject = std::make_unique<Explosion>("Explosion");		//生成
+			returnObject = tmpObject.get();							//生ポインタ取得
+			vecObject[static_cast<int>(ObjectTag::EFFECT)].push_back(std::move(tmpObject));				//配列に追加
+			break;
 			break;
 		case ObjectTag::UI:
 			break;

@@ -4,3 +4,9 @@
 #define SCREEN_WIDTH  1920
 #define SCREEN_HEIGHT 1080
 #define DISPLAY_SCALING_ENABLED (false)
+
+enum class BlendMode
+{
+	Opaque,
+	Additive
+};

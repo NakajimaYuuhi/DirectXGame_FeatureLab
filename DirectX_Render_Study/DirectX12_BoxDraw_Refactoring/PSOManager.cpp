@@ -160,4 +160,29 @@ void PSOManager::Init(ID3D12Device* device)
         &psoDesc,
         IID_PPV_ARGS(&m_meshPipelineState)
     );
+
+    // ----- Additive Pipeline State Object -----
+    D3D12_GRAPHICS_PIPELINE_STATE_DESC additivePsoDesc = psoDesc;
+    
+    // 加算合成のブレンドステート設定
+    D3D12_RENDER_TARGET_BLEND_DESC blendDesc = {};
+    blendDesc.BlendEnable = TRUE;
+    blendDesc.LogicOpEnable = FALSE;
+    blendDesc.SrcBlend = D3D12_BLEND_SRC_ALPHA;         // SRC
+    blendDesc.DestBlend = D3D12_BLEND_ONE;              // DEST (1 = 加算)
+    blendDesc.BlendOp = D3D12_BLEND_OP_ADD;
+    blendDesc.SrcBlendAlpha = D3D12_BLEND_ONE;
+    blendDesc.DestBlendAlpha = D3D12_BLEND_ZERO;
+    blendDesc.BlendOpAlpha = D3D12_BLEND_OP_ADD;
+    blendDesc.RenderTargetWriteMask = D3D12_COLOR_WRITE_ENABLE_ALL;
+
+    additivePsoDesc.BlendState.RenderTarget[0] = blendDesc;
+    
+    // Zバッファへの書き込みを無効化（半透明描画の基本）
+    additivePsoDesc.DepthStencilState.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ZERO;
+
+    hr = device->CreateGraphicsPipelineState(
+        &additivePsoDesc,
+        IID_PPV_ARGS(&m_additivePipelineState)
+    );
 }

@@ -123,8 +123,11 @@ CSceneTest::CSceneTest()
     enemy->SetTransform({ 0.0f, 0.0f, 10.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 3.14f, 0.0f });
 
 	//BillBoard‚Ì¶¬
-    C3D_Object* billBoard = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::BILLBOARD, "BillBoard"));
-	billBoard->SetTransform({ -1.0f, 1.5f, 0.0f }, { 0.1f, 1.0f, 0.1f }, { 0.0f, 0.0f, 0.0f });
+    //C3D_Object* billBoard = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::BILLBOARD, "Explosion"));
+	//billBoard->SetTransform({ -1.0f, 1.5f, 0.0f }, { 0.3f, 1.0f, 0.3f }, { 0.0f, 0.0f, 0.0f });
+
+
+
 
 }
 
