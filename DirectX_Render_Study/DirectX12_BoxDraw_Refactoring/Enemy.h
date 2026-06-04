@@ -10,9 +10,13 @@ public:
 	//“ü—Í‚ÌXV
 	virtual void Update();
 
+	virtual void OnCollision(CObject* _Other) override;
+
 protected:
 	String ModelPath;
 
 	float Speed = 0.005f;
+
+	int HP = 3;
 };
 

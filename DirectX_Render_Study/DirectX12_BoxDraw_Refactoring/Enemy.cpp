@@ -2,6 +2,8 @@
 //===== インクルード=====
 
 
+#include "ObjectInfo.h"
+
 //Model
 #include "Model.h"
 #include "ModelManager.h"
@@ -52,4 +54,21 @@ void Enemy::Update()
 
 
 
+}
+
+void Enemy::OnCollision(CObject* _Other)
+{
+	//衝突した相手がBulletだったら消える
+	CObjectInfo* otherInfo = _Other->GetComponent<CObjectInfo>();
+
+	//タグがPlayerBulletだったら
+	if (otherInfo && otherInfo->GetObjectTag() == ObjectTag::PLAYER_BULLET)
+	{
+		//HPを減らす
+		HP--;
+		if (HP <= 0)
+		{
+			SetIsDestroyed(true);
+		}
+	}
 }

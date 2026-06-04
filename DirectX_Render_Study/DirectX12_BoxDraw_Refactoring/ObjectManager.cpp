@@ -5,6 +5,7 @@
 #include "Bullet.h"
 #include "Enemy.h"
 #include "BillBoard.h"
+#include "RandomParticle.h"
 
 #include "Collision.h"
 
@@ -35,6 +36,9 @@ CObject* ObjectManager::Instantiate(Scene::ID _SceneID, ObjectTag _Tag, std::str
 			vecObject[static_cast<int>(ObjectTag::PLAYER)].push_back(std::move(tmpObject));				//配列に追加
 			break;
 		case ObjectTag::PLAYER_BULLET:
+
+
+
 			tmpObject = std::make_unique<Bullet>("Bullet");		//生成
 			returnObject = tmpObject.get();							//生ポインタ取得
 			vecObject[static_cast<int>(ObjectTag::PLAYER_BULLET)].push_back(std::move(tmpObject));		//配列に追加
@@ -51,6 +55,15 @@ CObject* ObjectManager::Instantiate(Scene::ID _SceneID, ObjectTag _Tag, std::str
 
 			break;
 		case ObjectTag::BILLBOARD:
+			if (_TypeName == "RandomParticle")
+			{
+				tmpObject = std::make_unique<RandomParticle>("Particle");		//生成
+				returnObject = tmpObject.get();							//生ポインタ取得
+				vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//配列に追加
+				break;
+			}
+
+
 			tmpObject = std::make_unique<BillBoard>("BillBoard");		//生成
 			returnObject = tmpObject.get();							//生ポインタ取得
 			vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//配列に追加
@@ -135,8 +148,8 @@ void ObjectManager::CollisionUpdate(Scene::ID _SceneID)
 					if (Collision::CheckCollision(colliderA, colliderB))
 					{
 						//衝突しているときの処理
-						vecObject[static_cast<int>(order[0])][i]->SetIsDestroyed(true);
-						vecObject[static_cast<int>(order[1])][j]->SetIsDestroyed(true);
+						vecObject[static_cast<int>(order[0])][i]->OnCollision(vecObject[static_cast<int>(order[1])][j].get());
+						vecObject[static_cast<int>(order[1])][j]->OnCollision(vecObject[static_cast<int>(order[0])][i].get());
 					}
 				}
 			}

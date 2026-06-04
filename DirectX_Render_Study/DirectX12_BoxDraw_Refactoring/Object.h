@@ -51,6 +51,9 @@ public:
 	virtual void LateUpdate() = 0;
 	virtual void Draw() = 0;
 
+	//衝突したときの処理
+	virtual void OnCollision(CObject* _Other) {}
+
 protected:
 	//コンポーネント
 	Vector<UniquePtr<CComponent>> components;

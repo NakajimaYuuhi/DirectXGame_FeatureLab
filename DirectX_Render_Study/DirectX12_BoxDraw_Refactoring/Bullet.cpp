@@ -3,7 +3,11 @@
 #include "ObjectInfo.h"
 #include "Transform.h"
 
+#include "Enemy.h"
+
 #include "BoxCollider3D.h"
+
+#include "ObjectManager.h"
 
 
 Bullet::Bullet(String _Name)
@@ -43,4 +47,28 @@ void Bullet::Update()
 
 
 
+}
+
+void Bullet::OnCollision(CObject* _Other)
+{
+	//衝突した相手がEnemyだったら消える
+	CObjectInfo* otherInfo = _Other->GetComponent<CObjectInfo>();
+	if (otherInfo && otherInfo->GetObjectTag() == ObjectTag::ENEMY)
+	{
+		SetIsDestroyed(true);
+
+		//パーティクルを出す(20個)
+		for (int i = 0; i < 20; i++)
+		{
+			CObject* particle = ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::BILLBOARD, "RandomParticle");
+			if (particle)
+			{
+				CTransform* transform = particle->GetComponent<CTransform>();
+				//位置
+				DirectX::XMFLOAT3 pos = GetPos();
+				transform->SetPos(pos);
+				transform->SetScale({ 0.05f, 1.0f, 0.05f });
+			}
+		}
+	}
 }

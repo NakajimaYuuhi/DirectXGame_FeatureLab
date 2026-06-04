@@ -14,6 +14,8 @@ public:
 	//“ü—Í‚ÌXV
 	virtual void Update();
 
+	virtual void OnCollision(CObject* _Other) override;
+
 	void SetDirection(DirectX::XMFLOAT3 _Direction)
 	{
 		Direction = _Direction;
