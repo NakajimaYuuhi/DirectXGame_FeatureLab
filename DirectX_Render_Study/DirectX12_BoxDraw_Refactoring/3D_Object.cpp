@@ -38,6 +38,10 @@ void C3D_Object::Update()
 
 }
 
+void C3D_Object::LateUpdate()
+{
+}
+
 void C3D_Object::Draw() 
 {
 	CModel* model = GetComponent<CModel>();

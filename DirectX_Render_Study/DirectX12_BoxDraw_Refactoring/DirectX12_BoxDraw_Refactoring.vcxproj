@@ -144,6 +144,7 @@
     </FxCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BillBoard.cpp" />
     <ClCompile Include="Bone.cpp" />
     <ClCompile Include="DescriptorHeapAllocator.cpp" />
     <ClCompile Include="gltfLoader.cpp" />
@@ -166,6 +167,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PSOManager.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -176,6 +178,7 @@
     <ClCompile Include="Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BillBoard.h" />
     <ClInclude Include="Bone.h" />
     <ClInclude Include="ContainerAlias.h" />
     <ClInclude Include="DescriptorHeapAllocator.h" />
@@ -203,6 +206,8 @@
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="ObjectManager.h" />
+    <ClInclude Include="ObjectTag.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PSOManager.h" />
     <ClInclude Include="Scene.h" />

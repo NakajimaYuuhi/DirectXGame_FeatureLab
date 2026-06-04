@@ -80,11 +80,25 @@ CSceneTest::CSceneTest()
 
     //model_obj->SetTransform({ 0.0f, 0.0f, 0.0f }, { 20.0f, 0.1f, 20.0f }, { 0.0f, 0.0f, -1.6f });
 
-    model->ModelLoad("");
+    model->ModelLoad("Assets/Model/OffensiveIdle.glb");
 
 
     //配列に追加
     m_VecObject.push_back(std::move(model_obj));
+
+
+    //----- Todo : Planeクラスにする -----
+    auto model_obj2 = std::make_unique<C3D_Object>("Model_obj2");
+
+    CModel* model2 = model_obj2->GetComponent<CModel>();
+
+    model_obj2->SetTransform({ 0.0f, 0.0f, 0.0f }, { 20.0f, 0.1f, 20.0f }, { 0.0f, 0.0f, 0.0f });
+
+    model2->ModelLoad("Assets/Model/Plane.glb");
+
+
+    //配列に追加
+    m_VecObject.push_back(std::move(model_obj2));
 
 }
 
@@ -106,6 +120,11 @@ void CSceneTest::Update()
     for (auto& object : m_VecObject)
     {
         object->Update();
+    }
+
+    for (auto& object : m_VecObject)
+    {
+        object->LateUpdate();
     }
 }
 

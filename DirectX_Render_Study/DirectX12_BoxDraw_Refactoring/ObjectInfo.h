@@ -1,28 +1,31 @@
 #pragma once
+#include "ObjectTag.h"
+
 #include "Component.h"
 #include <cassert>
 
-#include <string>
-using String = std::string;
+#include "StringAlias.h"
 
 //クラス定義
 class CObjectInfo :public CComponent
 {
 public:
 	CObjectInfo() 
-		:m_ObjectName("")			//指定が無いなら空
+		:objectName("")			//指定が無いなら空
 		,CComponent("ObjectInfo")	//基本はコンポーネントの種類 
 	{}
 
 	//Object名を指定する
 	CObjectInfo(String _ObjectName)
-		: m_ObjectName(_ObjectName)	//指定した文字列
+		: objectName(_ObjectName)	//指定した文字列
 		, CComponent("ObjectInfo")	//基本はコンポーネントの種類 
 	{}
 
 
 private:
-	String	m_ObjectName;	//オブジェクトの名前
+	String	objectName;	//オブジェクトの名前
+	ObjectTag objectTag = ObjectTag::NONE;	//オブジェクトのタグ
+	
 
 
 	//----- 特別に書いておくGetter,Setter -----
@@ -43,9 +46,13 @@ public:
 
 	//----- 当たり前に書くGetter,Setter -----
 public:
-	void SetObjectName(String _ObjectName) { m_ObjectName = _ObjectName; }
+	void SetObjectName(String _ObjectName) { objectName = _ObjectName; }
 
-	String GetObjectName() { return m_ObjectName; }
+	String GetObjectName() { return objectName; }
+
+	void SetObjectTag(ObjectTag _ObjectTag) { objectTag = _ObjectTag; }
+
+	ObjectTag GetObjectTag() { return objectTag; }
 
 };
 

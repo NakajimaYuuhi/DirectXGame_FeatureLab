@@ -2,14 +2,8 @@
 #pragma once
 #include "Scene.h"
 
-#include <vector>
-#include <memory>
-
-template <typename T>
-using Vector = std::vector<T>;
-
-template<typename T>
-using UniquePtr = std::unique_ptr<T>;
+#include "SmartPtrAlias.h"
+#include "ContainerAlias.h"
 
 //===== ‘O•ûéŒ¾ =====
 class CObject;

@@ -36,6 +36,13 @@ struct MeshConstantBufferData
 //===== クラス定義 =====
 class CMesh
 {
+
+//===== 仮実装 =====
+//ビルボード対応用
+
+
+
+
 public:
 	//Initializeをどこかで呼ぶ必要有り
 	CMesh(CMaterial* _Material);

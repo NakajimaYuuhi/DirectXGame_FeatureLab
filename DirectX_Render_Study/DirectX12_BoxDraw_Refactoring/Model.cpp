@@ -156,7 +156,7 @@ void CModel::ModelLoad(std::string _Path)
 	
 	//フォーマットに応じて、適切なLoaderを呼ぶ
 	//一旦GLTFLoaderで実装する
-	loadedModelData = TestLoadGLTF();
+	loadedModelData = TestLoadGLTF(_Path);
 
 	////ボーンデータ仮作成
 	//CreateTmpBoneData();

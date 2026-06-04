@@ -5,11 +5,11 @@
 //===== インクルード =====
 #pragma once
 #include "Object.h"
-#include <string>
 #include <DirectXMath.h>
 
-//string
-using String = std::string;
+#include "StringAlias.h"
+#include "Transform.h"
+
 
 //===== クラスの定義 =====
 class C3D_Object : public CObject
@@ -24,6 +24,7 @@ public:
     }
 
     virtual void Update();
+    virtual void LateUpdate();
     virtual void Draw();
 
 private:
@@ -49,6 +50,21 @@ public:
 
     DirectX::XMFLOAT3	GetRotation();
     void	SetRotation(DirectX::XMFLOAT3 _Rotation);
+
+	//Front,Right,Upのベクトル取得
+	DirectX::XMFLOAT3 GetFront()
+    {
+        CTransform* transform = GetComponent<CTransform>();
+        return transform->GetFront();
+	}
+    DirectX::XMFLOAT3 GetRight() {
+        CTransform* transform = GetComponent<CTransform>();
+		return transform->GetRight();
+    }
+    DirectX::XMFLOAT3 GetUp() {
+        CTransform* transform = GetComponent<CTransform>();
+		return transform->GetUp();
+    }
 
 
 };

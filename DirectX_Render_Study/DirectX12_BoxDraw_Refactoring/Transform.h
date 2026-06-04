@@ -57,6 +57,16 @@ public:
 		return up;
 	}
 
+	DirectX::XMFLOAT3 GetRight()
+	{
+		//回転行列の作成
+		DirectX::XMMATRIX rotMat = DirectX::XMMatrixRotationRollPitchYaw(m_Rotation.x, m_Rotation.y, m_Rotation.z);
+		//回転行列からFrontを取り出す
+		DirectX::XMFLOAT3 right;
+		right = { rotMat.r[0].m128_f32[0], rotMat.r[0].m128_f32[1], rotMat.r[0].m128_f32[2] };
+		return right;
+	}
+
 	//World行列の取得
 	DirectX::XMMATRIX GetWorld();
 

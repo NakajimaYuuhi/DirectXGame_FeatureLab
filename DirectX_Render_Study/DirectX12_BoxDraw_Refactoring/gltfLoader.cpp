@@ -5,7 +5,7 @@
 #define TINYGLTF_NOEXCEPTION
 #define JSON_NOEXCEPTION
 #include "tiny_gltf.h"
-#include <string>
+
 #include <iostream>
 
 #include <vector>
@@ -18,7 +18,7 @@
 
 
 //読み込み成功したっぽい
-LoadedModelData TestLoadGLTF()
+LoadedModelData TestLoadGLTF(std::string _fileName)
 {
 
     //----- 変数宣言 -----
@@ -34,7 +34,8 @@ LoadedModelData TestLoadGLTF()
 
     //< ファイル名 >
     //読みたい glb/gltf ファイル名
-    std::string filename = "Assets/Model/OffensiveIdle.glb";
+    std::string filename = _fileName;
+    //std::string filename = "Assets/Model/OffensiveIdle.glb";
     //std::string filename = "Assets/Model/cube.glb";
 
 

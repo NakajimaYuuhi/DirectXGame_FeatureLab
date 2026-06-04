@@ -115,6 +115,21 @@
     <Filter Include="Source\Object\GameObject\3DObjects\Player">
       <UniqueIdentifier>{96282237-6176-41bd-86ad-4bbf300dab1f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Object\GameObject\3DObjects\BillBoard">
+      <UniqueIdentifier>{6ddb9703-c1d9-4d1e-9885-9f8413e19c06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\ObjectManager">
+      <UniqueIdentifier>{a9e74486-8fa3-4e75-a440-9dc2e2f4cbf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\TinyGLTF">
+      <UniqueIdentifier>{395696f1-f986-45de-84bf-b29bb9de7fb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\GLTFLoader">
+      <UniqueIdentifier>{5189f17a-9fe5-45fb-b680-e336a7360d6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object\GameObject\BaseClass\Tag">
+      <UniqueIdentifier>{68c0e205-3487-4e46-8ac7-195088f151cc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Box.cpp">
@@ -192,7 +207,6 @@
     <ClCompile Include="Bone.cpp">
       <Filter>Source\Component\Model\Bone</Filter>
     </ClCompile>
-    <ClCompile Include="gltfLoader.cpp" />
     <ClCompile Include="PSOManager.cpp">
       <Filter>Source\System\DrawSystem\PSO</Filter>
     </ClCompile>
@@ -204,6 +218,15 @@
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Source\Object\GameObject\3DObjects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="BillBoard.cpp">
+      <Filter>Source\Object\GameObject\3DObjects\BillBoard</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectManager.cpp">
+      <Filter>Source\System\ObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="gltfLoader.cpp">
+      <Filter>Source\System\GLTFLoader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -297,12 +320,6 @@
     <ClInclude Include="Bone.h">
       <Filter>Source\Component\Model\Bone</Filter>
     </ClInclude>
-    <ClInclude Include="gltfLoader.h" />
-    <ClInclude Include="tinygltf_json.h" />
-    <ClInclude Include="json.hpp" />
-    <ClInclude Include="stb_image.h" />
-    <ClInclude Include="stb_image_write.h" />
-    <ClInclude Include="tiny_gltf.h" />
     <ClInclude Include="ModelData.h">
       <Filter>Source\Component\Model</Filter>
     </ClInclude>
@@ -317,6 +334,33 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Source\Object\GameObject\3DObjects\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="BillBoard.h">
+      <Filter>Source\Object\GameObject\3DObjects\BillBoard</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManager.h">
+      <Filter>Source\System\ObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="json.hpp">
+      <Filter>Source\System\TinyGLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>Source\System\TinyGLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image_write.h">
+      <Filter>Source\System\TinyGLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="tiny_gltf.h">
+      <Filter>Source\System\TinyGLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="tinygltf_json.h">
+      <Filter>Source\System\TinyGLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="gltfLoader.h">
+      <Filter>Source\System\GLTFLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectTag.h">
+      <Filter>Source\Object\GameObject\BaseClass\Tag</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
