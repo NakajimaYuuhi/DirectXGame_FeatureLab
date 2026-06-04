@@ -8,6 +8,7 @@ namespace Object
 
 		BACKGROUND,
 		PLAYER,
+		PLAYER_BULLET,
 
 		ENEMY,
 		ENEMY_BULLET,

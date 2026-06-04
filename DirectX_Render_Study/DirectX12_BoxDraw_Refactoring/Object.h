@@ -57,6 +57,7 @@ protected:
 
 	//有効、無効フラグ
 	bool isValid;
+	bool IsDestroyed = false;
 
 
 	//----- コンポーネントの管理
@@ -102,8 +103,14 @@ public:
 	bool GetIsVarid() const			{ return isValid; }
 	void SetIsValid(bool _IsValid)	{ isValid = _IsValid; }
 
+	// --IsDestroyed
+	bool GetIsDestroyed() const { return IsDestroyed; }
+	void SetIsDestroyed(bool _IsDestroyed) { IsDestroyed = _IsDestroyed; }
+
 	//オブジェクトの名前のセット
 	void SetName(String _ObjectName);
+
+
 
 };
 

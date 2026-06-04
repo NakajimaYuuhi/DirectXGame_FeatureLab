@@ -2,6 +2,7 @@
 
 #include "3D_Object.h"
 #include "Player.h"
+#include "Bullet.h"
 
 CObject* ObjectManager::Instantiate(Scene::ID _SceneID, ObjectTag _Tag, std::string _TypeName)
 {
@@ -28,6 +29,11 @@ CObject* ObjectManager::Instantiate(Scene::ID _SceneID, ObjectTag _Tag, std::str
 			tmpObject = std::make_unique<Player>("Player");		//生成
 			returnObject = tmpObject.get();							//生ポインタ取得
 			vecObject[static_cast<int>(ObjectTag::PLAYER)].push_back(std::move(tmpObject));				//配列に追加
+			break;
+		case ObjectTag::PLAYER_BULLET:
+			tmpObject = std::make_unique<Bullet>("Bullet");		//生成
+			returnObject = tmpObject.get();							//生ポインタ取得
+			vecObject[static_cast<int>(ObjectTag::PLAYER_BULLET)].push_back(std::move(tmpObject));		//配列に追加
 			break;
 		case ObjectTag::ENEMY:
             break;
@@ -68,6 +74,22 @@ void ObjectManager::Update(Scene::ID _SceneID)
 		{
 			object->Update();
 		}
+	}
+
+	//Collisionの更新
+
+
+	//削除処理
+	for (auto& vec : vecObject)
+	{
+		// erase-removeイディオムを使うのが定石だよ
+		vec.erase(
+			std::remove_if(vec.begin(), vec.end(),
+				[](const std::unique_ptr<CObject>& obj) {
+					return obj->GetIsDestroyed(); // 削除フラグが立っているか判定
+				}),
+			vec.end()
+		);
 	}
 
 	for (auto& vec : vecObject)

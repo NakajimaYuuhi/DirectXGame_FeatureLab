@@ -77,6 +77,13 @@ bool CTexture::LoadTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdL
 
 void CTexture::CreateSRV(ID3D12Device* device)
 {
+
+    // これを入れるだけで、とりあえずクラッシュは防げるはず
+    if (!texture) {
+        OutputDebugStringA("警告: テクスチャがロードされていません！\n");
+        return;
+    }
+
     CDX12Manager& dx12 = CDX12Manager::GetInstance();
 
     int index = dx12.AllocsrvNextIndex();

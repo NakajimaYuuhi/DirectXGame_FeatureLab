@@ -77,7 +77,10 @@ CSceneTest::CSceneTest()
 
     //----- Player -----
     //¡‚ÌŠ‰½‚à–³‚µ
-	auto player = ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::PLAYER, "Player");
+    C3D_Object* player = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::PLAYER, "Player"));
+
+    //Žè‘O‚ðˆê’UŒü‚¢‚Ä‚à‚ç‚¤
+    player->SetTransform({ 0.0f, 0.0f, 0.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 3.14f, 0.0f });
 
 
     //----- Model -----
@@ -96,13 +99,23 @@ CSceneTest::CSceneTest()
 
 
     //----- Todo : PlaneƒNƒ‰ƒX‚É‚·‚é -----
-    C3D_Object* Plane = (C3D_Object*) (ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::NONE, "Plane"));
+    //C3D_Object* Plane = (C3D_Object*) (ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::NONE, "Plane"));
 
-    CModel* Plane_Model = Plane->GetComponent<CModel>();
+    //CModel* Plane_Model = Plane->GetComponent<CModel>();
 
-    Plane->SetTransform({ 0.0f, 0.0f, 0.0f }, { 20.0f, 0.1f, 20.0f }, { 0.0f, 0.0f, 0.0f });
+    //Plane->SetTransform({ 0.0f, 0.0f, 0.0f }, { 20.0f, 0.1f, 20.0f }, { 0.0f, 0.0f, 0.0f });
 
-    Plane_Model->ModelLoad("Assets/Model/Plane.glb");
+    //Plane_Model->ModelLoad("Assets/Model/Plane.glb");
+
+	//Bullet‚Ì¶¬
+    C3D_Object* bullet = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::PLAYER_BULLET, "Bullet"));
+
+    bullet->SetTransform({ 0.0f, 1.0f, 0.0f }, { 0.1f, 0.1f, 0.1f }, { 0.0f, 0.0f, 0.0f });
+
+    CModel* Bullet_Model = bullet->GetComponent<CModel>();
+
+    Bullet_Model->ModelLoad("Assets/Model/cube.glb");
+
 
 }
 

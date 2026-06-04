@@ -130,6 +130,15 @@
     <Filter Include="Source\Object\GameObject\BaseClass\Tag">
       <UniqueIdentifier>{68c0e205-3487-4e46-8ac7-195088f151cc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Object\GameObject\3DObjects\Bullet">
+      <UniqueIdentifier>{3042aa71-1c8b-4c39-b88b-9ceeda85f8de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object\GameObject\3DObjects\Bullet\PlayerBullet">
+      <UniqueIdentifier>{1bfe599a-8d8d-4d70-a5bf-bff83acc7e23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object\GameObject\3DObjects\Bullet\EnemyBullet">
+      <UniqueIdentifier>{2351b294-92a5-495d-b1d0-840d646c2444}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Box.cpp">
@@ -228,6 +237,7 @@
     <ClCompile Include="gltfLoader.cpp">
       <Filter>Source\System\GLTFLoader</Filter>
     </ClCompile>
+    <ClCompile Include="Bullet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h">
@@ -365,6 +375,7 @@
     <ClInclude Include="SceneEnums.h">
       <Filter>Source\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Triangle.hlsl">
