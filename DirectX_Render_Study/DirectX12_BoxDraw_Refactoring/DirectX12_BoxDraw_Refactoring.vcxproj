@@ -146,8 +146,13 @@
   <ItemGroup>
     <ClCompile Include="BillBoard.cpp" />
     <ClCompile Include="Bone.cpp" />
+    <ClCompile Include="BoxCollider3D.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Collider.cpp" />
+    <ClCompile Include="Collider3D.cpp" />
+    <ClCompile Include="Collision.cpp" />
     <ClCompile Include="DescriptorHeapAllocator.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="gltfLoader.cpp" />
     <ClCompile Include="imgui.cpp" />
     <ClCompile Include="ImGuiManager.cpp" />
@@ -183,10 +188,15 @@
   <ItemGroup>
     <ClInclude Include="BillBoard.h" />
     <ClInclude Include="Bone.h" />
+    <ClInclude Include="BoxCollider3D.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Collider.h" />
+    <ClInclude Include="Collider3D.h" />
+    <ClInclude Include="Collision.h" />
     <ClInclude Include="ContainerAlias.h" />
     <ClInclude Include="DescriptorHeapAllocator.h" />
     <ClInclude Include="DirectXPtrAlias.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="gltfLoader.h" />
     <ClInclude Include="imconfig.h" />
     <ClInclude Include="imgui.h" />

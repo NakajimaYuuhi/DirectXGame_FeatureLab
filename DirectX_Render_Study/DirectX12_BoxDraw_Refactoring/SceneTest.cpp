@@ -80,7 +80,7 @@ CSceneTest::CSceneTest()
     C3D_Object* player = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::PLAYER, "Player"));
 
     //Žè‘O‚ðˆê’UŒü‚¢‚Ä‚à‚ç‚¤
-    player->SetTransform({ 0.0f, 0.0f, 0.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 3.14f, 0.0f });
+    player->SetTransform({ 0.0f, 0.0f, 0.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 0.0f, 0.0f });
 
 
     //----- Model -----
@@ -108,14 +108,19 @@ CSceneTest::CSceneTest()
     //Plane_Model->ModelLoad("Assets/Model/Plane.glb");
 
 	//Bullet‚Ì¶¬
-    C3D_Object* bullet = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::PLAYER_BULLET, "Bullet"));
+    //C3D_Object* bullet = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::PLAYER_BULLET, "Bullet"));
 
-    bullet->SetTransform({ 0.0f, 1.0f, 0.0f }, { 0.1f, 0.1f, 0.1f }, { 0.0f, 0.0f, 0.0f });
+    //bullet->SetTransform({ 0.0f, 1.0f, 0.0f }, { 0.1f, 0.1f, 0.1f }, { 0.0f, 0.0f, 0.0f });
 
-    CModel* Bullet_Model = bullet->GetComponent<CModel>();
+    //CModel* Bullet_Model = bullet->GetComponent<CModel>();
 
-    Bullet_Model->ModelLoad("Assets/Model/cube.glb");
+    //Bullet_Model->ModelLoad("Assets/Model/cube.glb");
 
+
+    C3D_Object* enemy = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::ENEMY, "Enemy"));
+
+    //Žè‘O‚ðˆê’UŒü‚¢‚Ä‚à‚ç‚¤
+    enemy->SetTransform({ 0.0f, 0.0f, 10.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 3.14f, 0.0f });
 
 }
 

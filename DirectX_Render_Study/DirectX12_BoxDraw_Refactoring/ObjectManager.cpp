@@ -3,6 +3,9 @@
 #include "3D_Object.h"
 #include "Player.h"
 #include "Bullet.h"
+#include "Enemy.h"
+
+#include "Collision.h"
 
 CObject* ObjectManager::Instantiate(Scene::ID _SceneID, ObjectTag _Tag, std::string _TypeName)
 {
@@ -36,6 +39,9 @@ CObject* ObjectManager::Instantiate(Scene::ID _SceneID, ObjectTag _Tag, std::str
 			vecObject[static_cast<int>(ObjectTag::PLAYER_BULLET)].push_back(std::move(tmpObject));		//配列に追加
 			break;
 		case ObjectTag::ENEMY:
+			tmpObject = std::make_unique<Enemy>("Enemy");		//生成
+			returnObject = tmpObject.get();							//生ポインタ取得
+			vecObject[static_cast<int>(ObjectTag::ENEMY)].push_back(std::move(tmpObject));				//配列に追加
             break;
 		case ObjectTag::ENEMY_BULLET:
 			break;
@@ -77,7 +83,7 @@ void ObjectManager::Update(Scene::ID _SceneID)
 	}
 
 	//Collisionの更新
-
+	CollisionUpdate(_SceneID);
 
 	//削除処理
 	for (auto& vec : vecObject)
@@ -97,6 +103,37 @@ void ObjectManager::Update(Scene::ID _SceneID)
 		for (auto& object : vec)
 		{
 			object->LateUpdate();
+		}
+	}
+}
+
+void ObjectManager::CollisionUpdate(Scene::ID _SceneID)
+{
+	//Collisionの更新
+	//CollisionOrderを取得
+	Vector<Vector<ObjectTag>>& CollisionOrder = Collision::GetInstance().GetCollisionOrder();
+
+	//CollisionOrderの順番で衝突判定
+	for (auto& order : CollisionOrder)
+	{
+		//orderの順番で衝突判定
+		for (size_t i = 0; i < vecObject[static_cast<int>(order[0])].size(); i++)
+		{
+			for (size_t j = 0; j < vecObject[static_cast<int>(order[1])].size(); j++)
+			{
+				//衝突判定
+				BoxCollider3D* colliderA = vecObject[static_cast<int>(order[0])][i]->GetComponent<BoxCollider3D>();
+				BoxCollider3D* colliderB = vecObject[static_cast<int>(order[1])][j]->GetComponent<BoxCollider3D>();
+				if (colliderA && colliderB)
+				{
+					if (Collision::CheckCollision(colliderA, colliderB))
+					{
+						//衝突しているときの処理
+						vecObject[static_cast<int>(order[0])][i]->SetIsDestroyed(true);
+						vecObject[static_cast<int>(order[1])][j]->SetIsDestroyed(true);
+					}
+				}
+			}
 		}
 	}
 }

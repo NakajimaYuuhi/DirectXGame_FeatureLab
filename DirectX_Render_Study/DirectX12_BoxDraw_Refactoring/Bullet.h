@@ -23,7 +23,7 @@ protected:
 	String ModelPath;
 	//•ûŒüƒxƒNƒgƒ‹
 	DirectX::XMFLOAT3 Direction = {1.0f, 0.0f, 0.0f};
-	float Speed = 0.01f;
+	float Speed = 0.04f;
 	
 
 };

@@ -17,6 +17,8 @@
 //ObjectManager
 #include "ObjectManager.h"
 
+#include "BoxCollider3D.h"
+
 
 Player::Player(String _Name)
 	:C3D_Object(_Name)
@@ -33,7 +35,14 @@ Player::Player(String _Name)
 	//モチE  のローチE
 	CModel* model = GetComponent<CModel>();
 
-	model->ModelLoad(ModelPath);
+
+	auto sharedModel = ModelManager::GetInstance().GetModel(ModelPath);
+
+	model->CopyFrom(sharedModel);
+
+	BoxCollider3D* collider = AddComponent<BoxCollider3D>();
+	collider->SetOffset({0.0f, 1.0f, 0.0f});
+	collider->SetSize({ 1.0f, 2.0f, 1.0f });
 
 }
 
@@ -99,14 +108,15 @@ void Player::Update()
 	{
 		Bullet* bullet = (Bullet*)(ObjectManager::GetInstance().Instantiate(Scene::ID::GAME, ObjectTag::PLAYER_BULLET, "Bullet"));
 
-		bullet->SetTransform({GetPos()}, {0.1f, 0.1f, 0.1f}, {0.0f, 0.0f, 0.0f});
+		DirectX::XMFLOAT3 bulletPos = GetPos();
+		bullet->SetTransform({bulletPos.x,bulletPos.y + 1.4f, bulletPos.z}, {0.1f, 0.1f, 0.1f}, {0.0f, 0.0f, 0.0f});
 
 		CModel* Bullet_Model = bullet->GetComponent<CModel>();
 
 		auto sharedModel = ModelManager::GetInstance().GetModel("Assets/Model/cube.glb");
 		Bullet_Model->CopyFrom(sharedModel);
 
-		//弾の方向をプレイヤーの前方に設?E
+		//弾の方向をプレイヤーの前方に設定
 		bullet->SetDirection(GetFront());
 	}
 

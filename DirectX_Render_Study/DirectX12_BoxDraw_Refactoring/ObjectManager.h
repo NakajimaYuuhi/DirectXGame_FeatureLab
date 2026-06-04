@@ -22,6 +22,8 @@ public:
 	//更新処理
 	void Update(Scene::ID _SceneID);
 
+	void CollisionUpdate(Scene::ID _SceneID);	//Collisionの更新
+
 	void Draw(Scene::ID _SceneID);			//描画
 
 private:

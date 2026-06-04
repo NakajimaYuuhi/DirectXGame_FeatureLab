@@ -3,6 +3,8 @@
 #include "ObjectInfo.h"
 #include "Transform.h"
 
+#include "BoxCollider3D.h"
+
 
 Bullet::Bullet(String _Name)
 	:C3D_Object(_Name)
@@ -11,6 +13,8 @@ Bullet::Bullet(String _Name)
 	CObjectInfo* objectInfo = GetComponent<CObjectInfo>();
 	objectInfo->SetObjectTag(ObjectTag::PLAYER_BULLET);
 
+	BoxCollider3D* collider = AddComponent<BoxCollider3D>();
+	collider->SetSize({ 0.1f, 0.1f, 0.1f });
 
 }
 
