@@ -1,9 +1,10 @@
-//===== インクルード =====
+//===== インクルーチE=====
 
 #include "Player.h"
 
 //Model
 #include "Model.h"
+#include "ModelManager.h"
 //ObjectInfo
 #include "ObjectInfo.h"
 
@@ -26,10 +27,10 @@ Player::Player(String _Name)
 
 
 	//----- Model -----
-	//モデルのパスの初期化
+	//モチE  のパスの初期匁E
 	ModelPath = "Assets/Model/OffensiveIdle.glb";
 
-	//モデルのロード
+	//モチE  のローチE
 	CModel* model = GetComponent<CModel>();
 
 	model->ModelLoad(ModelPath);
@@ -93,7 +94,7 @@ void Player::Update()
 	}
 
 
-	//ぶっ飛び
+	//ぶっ飛 E
 	if (CInputManager::GetInstance().IsKeyTrigger('F'))
 	{
 		Bullet* bullet = (Bullet*)(ObjectManager::GetInstance().Instantiate(Scene::ID::GAME, ObjectTag::PLAYER_BULLET, "Bullet"));
@@ -102,9 +103,10 @@ void Player::Update()
 
 		CModel* Bullet_Model = bullet->GetComponent<CModel>();
 
-		Bullet_Model->ModelLoad("Assets/Model/cube.glb");
+		auto sharedModel = ModelManager::GetInstance().GetModel("Assets/Model/cube.glb");
+		Bullet_Model->CopyFrom(sharedModel);
 
-		//弾の方向をプレイヤーの前方に設定
+		//弾の方向をプレイヤーの前方に設?E
 		bullet->SetDirection(GetFront());
 	}
 

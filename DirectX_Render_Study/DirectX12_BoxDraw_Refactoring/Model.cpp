@@ -1,6 +1,8 @@
 #include "Model.h"
 #include "DX12Manager.h"
 #include "gltfLoader.h"
+#include "Transform.h"
+#include "Object.h"
 
 CModel::CModel()
 	:CComponent("Model")
@@ -380,12 +382,14 @@ void CModel::Draw()
 	};
 	commandList->SetDescriptorHeaps(1, heaps);
 
+	CTransform* transform = m_Owner->GetComponent<CTransform>();
+
 	//Mesh‚Ì•`‰æ
 	for (auto& mesh : m_Meshes)
 	{
 		mesh->SetBoneSRV(m_BoneSrvGpuHandle);
 		//mesh->BindBoneSRV(m_BoneSrvGpuHandle);
-		mesh->Draw();
+		mesh->Draw(transform);
 	}
 }
 

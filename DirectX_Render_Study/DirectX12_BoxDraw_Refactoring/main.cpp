@@ -17,6 +17,7 @@
 
 //===== インクルード =====
 #include <windows.h>
+#include "PSOManager.h"
 #include "DX12Manager.h"
 #include "InputManager.h"	//TODO:mainが知ってる必要は無い気がする
 
@@ -153,6 +154,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
 	//DirectX12の初期化
 	CDX12Manager::GetInstance().Initialize(hwnd);
+	PSOManager::GetInstance().Init(CDX12Manager::GetInstance().GetDevice());
 	
 	//最初のシーンの作成
 	g_CScene = std::make_unique<CSceneTest>();

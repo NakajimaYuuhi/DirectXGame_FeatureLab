@@ -82,6 +82,17 @@ public:
 	//Model‚Ìƒ[ƒh
 	void ModelLoad(std::string _Path);
 
+	void CopyFrom(const std::shared_ptr<CModel>& other)
+	{
+		m_Meshes = other->m_Meshes;
+		m_Materials = other->m_Materials;
+		// For animated models, bones should be cloned per instance, but for static models copying is fine.
+		m_Bones = other->m_Bones;
+		m_SkinningMatrices = other->m_SkinningMatrices;
+		m_BoneBuffer = other->m_BoneBuffer;
+		m_BoneSrvGpuHandle = other->m_BoneSrvGpuHandle;
+	}
+
 private:
 	//Mesh
 	//ˆê’UMesh1‚Â‚¾‚¯

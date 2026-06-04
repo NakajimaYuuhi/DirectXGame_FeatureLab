@@ -50,7 +50,7 @@ public:
 	//DX12Managerから取得する(仮)
 	void Init();
 	void Update();
-	void Draw();
+	void Draw(class CTransform* transform);
 
 	void BindBoneSRV(D3D12_GPU_DESCRIPTOR_HANDLE handle);
 
@@ -63,14 +63,6 @@ private:
 	ComPtr<ID3D12Resource> m_indexBuffer;
 	D3D12_VERTEX_BUFFER_VIEW m_vertexBufferView;
 	D3D12_INDEX_BUFFER_VIEW m_indexBufferView;
-
-	ComPtr<ID3D12RootSignature> m_rootSignature;
-	ComPtr<ID3D12PipelineState> m_pipelineState;
-
-	//定数バッファ
-	ComPtr<ID3D12Resource> m_constantBuffer;
-	//定数バッファの保持
-	MeshConstantBufferData* m_cbData = nullptr;
 
 	D3D12_GPU_DESCRIPTOR_HANDLE m_BoneSrvGpuHandle;
 
@@ -86,9 +78,6 @@ private:
 
 
 private:
-	//Transform置き場
-	CTransform* m_Transform = nullptr;
-	void RegisterTransform();
 	
 	//CObjectの参照
 	CObject* m_Owner;

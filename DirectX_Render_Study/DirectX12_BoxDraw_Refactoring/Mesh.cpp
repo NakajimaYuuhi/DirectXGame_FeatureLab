@@ -1,8 +1,10 @@
 #include "Mesh.h"
 #include "DX12Manager.h"
+#include "PSOManager.h"
 #include <d3dcompiler.h>
 #pragma comment(lib, "d3dcompiler.lib")
 #include "BasicSettings.h"
+#include <stdio.h>
 
 //Object
 #include "Object.h"
@@ -15,46 +17,46 @@
 
 
 
-//TODO:“¯‚¶Œ`‚ÌƒvƒŠƒ~ƒeƒBƒu‚ÍA’¸“_ƒoƒbƒtƒ@‚ğ‹¤’Ê‚É‚µ‚½‚¢
-//ˆê’U’¸“_î•ñ‚ğŠO‚©‚ç“ü‚ê‚é‚Ì‚ÍAŒã‰ñ‚µ‚Å
+//TODO:åŒã˜å½¢ã®ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ– Eã€E  ç‚¹ãƒãƒƒãƒ•ã‚¡ã‚’ Eé€šã«ã—ãŸãE
+//ä¸€æ—¦é ‚ç‚¹?E  ã‚’å¤–ã‹ã‚‰ Eã‚Œã‚‹ã®ã¯ã€å¾Œå›ã—ã§
 
 
 
-//’¸“_ƒf[ƒ^‚Ìì¬
+//é ‚ç‚¹ãƒE Eã‚¿ã®ä½œ E
 MeshVertex mesh_vertices[] =
 {
-    //—§•û‘Ì(ƒCƒ“ƒfƒbƒNƒX)
-    // ===== ã (Y+) =====
+    //ç«‹æ–¹?Eã‚¤ãƒ³ãƒE  ã‚¯ã‚¹)
+    // ===== ä¸E(Y+) =====
     {{-0.5f,0.5f,-0.5f},{0,1,0},{0,1},{0,0,0,0},{1,0,0,0}},
     {{-0.5f,0.5f, 0.5f},{0,1,0},{0,0},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f,0.5f, 0.5f},{0,1,0},{1,0},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f,0.5f,-0.5f},{0,1,0},{1,1},{0,0,0,0},{1,0,0,0}},
     
-    // ===== ‰º (Y-) =====
+    // ===== ä¸E(Y-) =====
     {{-0.5f,-0.5f, 0.5f},{0,-1,0},{1,0},{0,0,0,0},{1,0,0,0}},
     {{-0.5f,-0.5f,-0.5f},{0,-1,0},{1,1},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f,-0.5f,-0.5f},{0,-1,0},{0,1},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f,-0.5f, 0.5f},{0,-1,0},{0,0},{0,0,0,0},{1,0,0,0}},
 
-    // ===== ‘O–Ê (Z-) =====
+    // ===== å‰é¢ (Z-) =====
     {{-0.5f,-0.5f,-0.5f},{0,0,-1},{0,1},{0,0,0,0},{1,0,0,0}},
     {{-0.5f, 0.5f,-0.5f},{0,0,-1},{0,0},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f, 0.5f,-0.5f},{0,0,-1},{1,0},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f,-0.5f,-0.5f},{0,0,-1},{1,1},{0,0,0,0},{1,0,0,0}},
 
-    // ===== ”w–Ê (Z+) =====
+    // ===== èƒŒé¢ (Z+) =====
     {{-0.5f,-0.5f,0.5f},{0,0,1},{1,1},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f,-0.5f,0.5f},{0,0,1},{0,1},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f, 0.5f,0.5f},{0,0,1},{0,0},{0,0,0,0},{1,0,0,0}},
     {{-0.5f, 0.5f,0.5f},{0,0,1},{1,0},{0,0,0,0},{1,0,0,0}},
 
-    // ===== ¶ (X-) =====
+    // ===== å·¦ (X-) =====
     {{-0.5f,-0.5f, 0.5f},{-1,0,0},{0,1},{0,0,0,0},{1,0,0,0}},
     {{-0.5f, 0.5f, 0.5f},{-1,0,0},{0,0},{0,0,0,0},{1,0,0,0}},
     {{-0.5f, 0.5f,-0.5f},{-1,0,0},{1,0},{0,0,0,0},{1,0,0,0}},
     {{-0.5f,-0.5f,-0.5f},{-1,0,0},{1,1},{0,0,0,0},{1,0,0,0}},
 
-    // ===== ‰E (X+) =====
+    // ===== å³ (X+) =====
     {{0.5f,-0.5f,-0.5f},{1,0,0},{0,1},{0,0,0,0},{1,0,0,0}},
     {{0.5f, 0.5f,-0.5f},{1,0,0},{0,0},{0,0,0,0},{1,0,0,0}},
     {{0.5f, 0.5f, 0.5f},{1,0,0},{1,0},{0,0,0,0},{1,0,0,0}},
@@ -65,12 +67,12 @@ MeshVertex mesh_vertices[] =
 
 uint32_t mesh_indices[] =
 {
-    0,1,2, 0,2,3,        // ‘O
-    4,5,6, 4,6,7,        // ”w
-    8,9,10, 8,10,11,     // ¶
-    12,13,14, 12,14,15,  // ‰E
-    16,17,18, 16,18,19,  // ã
-    20,21,22, 20,22,23   // ‰º
+    0,1,2, 0,2,3,        // ?E
+    4,5,6, 4,6,7,        // ?E
+    8,9,10, 8,10,11,     // å·¦
+    12,13,14, 12,14,15,  // å³
+    16,17,18, 16,18,19,  // ä¸E
+    20,21,22, 20,22,23   // ä¸E
 };
 
 //
@@ -78,12 +80,12 @@ uint32_t mesh_indices[] =
 
 
 
-//Initialize‚ğ‚Ç‚±‚©‚ÅŒÄ‚Ô•K—v—L‚è
+//Initializeã‚’ã©ã“ã‹ã§å‘¼ã¶?E  æœ‰ã‚E
 CMesh::CMesh(CMaterial* _Material)
     :m_Material(_Material)
 { 
-    //‚±‚±‚ÅA’¸“_î•ñAƒCƒ“ƒfƒbƒNƒXî•ñ‚ğƒfƒtƒHƒ‹ƒg‚ÅƒZƒbƒg(‰¼À‘•)
-    m_Vertices.assign(std::begin(mesh_vertices), std::end(mesh_vertices));//assign‚Å“ü‚ê‚ê‚é‚ç‚µ‚¢
+    //ã“ã“ã§ã€E  ç‚¹?E  ã€ã‚¤ãƒ³ãƒE  ã‚¯ã‚¹?E  ã‚’ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã‚»ãƒE  (ä»®å®Ÿè£E
+    m_Vertices.assign(std::begin(mesh_vertices), std::end(mesh_vertices));//assignã§å…¥ã‚Œã‚Œã‚‹ã‚‰ã—ã„
     m_Indices.assign(std::begin(mesh_indices), std::end(mesh_indices));
 
 }
@@ -91,285 +93,14 @@ CMesh::CMesh(CMaterial* _Material)
 void CMesh::Init()
 {
 
-    //Transform‚Ì“o˜^
-    RegisterTransform();
-
-    //----- ƒVƒF[ƒ_[ƒRƒ“ƒpƒCƒ‹ -----
-    ComPtr<ID3DBlob> vertexShader;
-    ComPtr<ID3DBlob> pixelShader;
-    ComPtr<ID3DBlob> errorBlob;
-
-    //ƒfƒoƒCƒX
-    ID3D12Device* device = CDX12Manager::GetInstance().GetDevice();
-    ID3D12GraphicsCommandList* cmdList = CDX12Manager::GetInstance().GetCommandLIst();
-
-    HRESULT hr;
-
-    //’¸“_ƒVƒF[ƒ_‚ÌƒRƒ“ƒpƒCƒ‹
-    hr = D3DCompileFromFile(
-        L"Triangle.hlsl",
-        nullptr,
-        nullptr,
-        "VSMain",
-        "vs_5_0",
-        0,
-        0,
-        &vertexShader,
-        &errorBlob
-    );
-
-    //ƒsƒNƒZƒ‹ƒVƒF[ƒ_‚ÌƒRƒ“ƒpƒCƒ‹
-    hr = D3DCompileFromFile(
-        L"Triangle.hlsl",
-        nullptr,
-        nullptr,
-        "PSMain",
-        "ps_5_0",
-        0,
-        0,
-        &pixelShader,
-        &errorBlob
-    );
-
-    //----- ƒ‹[ƒgƒVƒOƒlƒ`ƒƒ -----
-    ComPtr<ID3DBlob> signature;
-    ComPtr<ID3DBlob> error;
+    // m_Transform is no longer used.
 
 
-    // ===== Root Parameters =====
-    //WVP‚æ‚¤‚Éƒpƒ‰ƒ[ƒ^‚ğİ’è
-    //•¡”‘—‚é‚Ì‚ÅA”z—ñ‚É•ÏX
-    D3D12_ROOT_PARAMETER rootParams[3] = {};
-
-    // --CBV (b0)
-    rootParams[0].ParameterType = D3D12_ROOT_PARAMETER_TYPE_CBV;
-    rootParams[0].Descriptor.ShaderRegister = 0; // b0
-    rootParams[0].Descriptor.RegisterSpace = 0;
-    rootParams[0].ShaderVisibility = D3D12_SHADER_VISIBILITY_VERTEX;
-
-    // --- SRV (t0)
-    D3D12_DESCRIPTOR_RANGE srvRanges[2] = {};
-    srvRanges[0].RangeType = D3D12_DESCRIPTOR_RANGE_TYPE_SRV;
-    srvRanges[0].NumDescriptors = 1;
-    srvRanges[0].BaseShaderRegister = 0; // t0
-    srvRanges[0].RegisterSpace = 0;
-    srvRanges[0].OffsetInDescriptorsFromTableStart = D3D12_DESCRIPTOR_RANGE_OFFSET_APPEND;
-
-    srvRanges[1].RangeType = D3D12_DESCRIPTOR_RANGE_TYPE_SRV;
-    srvRanges[1].NumDescriptors = 1;
-    srvRanges[1].BaseShaderRegister = 1; // t1
-    srvRanges[1].RegisterSpace = 0;
-    srvRanges[1].OffsetInDescriptorsFromTableStart = D3D12_DESCRIPTOR_RANGE_OFFSET_APPEND;
-
-    //====================
-    // 1. Texture SRV (t0)
-    //====================
-    rootParams[1].ParameterType = D3D12_ROOT_PARAMETER_TYPE_DESCRIPTOR_TABLE;
-    rootParams[1].DescriptorTable.NumDescriptorRanges = 1;
-    rootParams[1].DescriptorTable.pDescriptorRanges = &srvRanges[0];
-    rootParams[1].ShaderVisibility = D3D12_SHADER_VISIBILITY_PIXEL;
-
-    //====================
-    // 2. Bone SRV (t1)
-    //====================
-    rootParams[2].ParameterType = D3D12_ROOT_PARAMETER_TYPE_DESCRIPTOR_TABLE;
-    rootParams[2].DescriptorTable.NumDescriptorRanges = 1;
-    rootParams[2].DescriptorTable.pDescriptorRanges = &srvRanges[1];
-
-    // šBone‚ÍVS‚Åg‚¤
-    rootParams[2].ShaderVisibility = D3D12_SHADER_VISIBILITY_VERTEX;
-
-
-    // --Sampler (s0)
-    D3D12_STATIC_SAMPLER_DESC sampler{};
-    sampler.Filter = D3D12_FILTER_MIN_MAG_MIP_LINEAR;
-    sampler.AddressU = D3D12_TEXTURE_ADDRESS_MODE_WRAP;
-    sampler.AddressV = D3D12_TEXTURE_ADDRESS_MODE_WRAP;
-    sampler.AddressW = D3D12_TEXTURE_ADDRESS_MODE_WRAP;
-    sampler.ShaderRegister = 0; // s0
-    sampler.ShaderVisibility = D3D12_SHADER_VISIBILITY_PIXEL;
-
-    // --RootSignatureDesc
-    D3D12_ROOT_SIGNATURE_DESC rootSignatureDesc{};
-    rootSignatureDesc.NumParameters = _countof(rootParams);
-    rootSignatureDesc.pParameters = rootParams;    //ƒpƒ‰ƒ[ƒ^‚ğİ’è‚·‚é‚æ‚¤‚É•ÏX
-    rootSignatureDesc.NumStaticSamplers = 1;
-    rootSignatureDesc.pStaticSamplers = &sampler;   //ƒTƒ“ƒvƒ‰[‚à“o˜^
-    rootSignatureDesc.Flags =
-        D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT;
-
-    //ƒ‹[ƒgƒVƒOƒlƒ`ƒƒ‚ÌƒVƒŠƒAƒ‰ƒCƒY
-    D3D12SerializeRootSignature(
-        &rootSignatureDesc,
-        D3D_ROOT_SIGNATURE_VERSION_1,
-        &signature,
-        &error
-    );
-
-    //ƒ‹[ƒgƒVƒOƒlƒ`ƒƒ‚Ìì¬
-    hr = device->CreateRootSignature(
-        0,
-        signature->GetBufferPointer(),
-        signature->GetBufferSize(),
-        IID_PPV_ARGS(&m_rootSignature)
-    );
-
-    D3D12_INPUT_ELEMENT_DESC inputLayout[] =
-    {
-        { "POSITION",     0, DXGI_FORMAT_R32G32B32_FLOAT,    0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
-        { "NORMAL",       0, DXGI_FORMAT_R32G32B32_FLOAT,    0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
-        { "TEXCOORD",     0, DXGI_FORMAT_R32G32_FLOAT,       0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
-
-        // ƒ{[ƒ“”Ô†iuint8 ~ 4j ¨ R8G8B8A8_UINT
-        { "BLENDINDICES", 0, DXGI_FORMAT_R32G32B32A32_UINT,      0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
-
-        // ƒ{[ƒ“‚Ìd‚İifloat ~ 4j
-        { "BLENDWEIGHT",  0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
-    };
-
-    //PSO‚Ìİ’è
-    D3D12_GRAPHICS_PIPELINE_STATE_DESC psoDesc = {};
-    psoDesc.InputLayout.pInputElementDescs = inputLayout;
-    psoDesc.InputLayout.NumElements = _countof(inputLayout);
-
-    psoDesc.VS = { vertexShader->GetBufferPointer(), vertexShader->GetBufferSize() };
-    psoDesc.PS = { pixelShader->GetBufferPointer(), pixelShader->GetBufferSize() };
-
-    psoDesc.PrimitiveTopologyType = D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE;
-
-    psoDesc.RTVFormats[0] = DXGI_FORMAT_R8G8B8A8_UNORM;
-    psoDesc.NumRenderTargets = 1;
-
-    psoDesc.SampleDesc.Count = 1;
-    psoDesc.SampleMask = UINT_MAX;
-
-    //ƒ‰ƒXƒ^ƒ‰ƒCƒU[ƒXƒe[ƒg‚Ìİ’è
-    D3D12_RASTERIZER_DESC rasterDesc = {};
-    rasterDesc.FillMode = D3D12_FILL_MODE_SOLID;
-    rasterDesc.CullMode = D3D12_CULL_MODE_BACK;
-    rasterDesc.FrontCounterClockwise = FALSE;
-    rasterDesc.DepthBias = D3D12_DEFAULT_DEPTH_BIAS;
-    rasterDesc.DepthBiasClamp = D3D12_DEFAULT_DEPTH_BIAS_CLAMP;
-    rasterDesc.SlopeScaledDepthBias = D3D12_DEFAULT_SLOPE_SCALED_DEPTH_BIAS;
-    rasterDesc.DepthClipEnable = TRUE;
-    rasterDesc.MultisampleEnable = FALSE;
-    rasterDesc.AntialiasedLineEnable = FALSE;
-    rasterDesc.ForcedSampleCount = 0;
-    rasterDesc.ConservativeRaster = D3D12_CONSERVATIVE_RASTERIZATION_MODE_OFF;
-
-    psoDesc.RasterizerState = rasterDesc;
-
-    psoDesc.BlendState = {};
-    psoDesc.BlendState.RenderTarget[0].RenderTargetWriteMask = D3D12_COLOR_WRITE_ENABLE_ALL;
-
-    //----- [“xƒoƒbƒtƒ@ƒŠƒ\[ƒXì¬ -----
-
-
-    //----- DepthStencilState‚Ìİ’è -----
-    D3D12_DEPTH_STENCIL_DESC depthDesc = {};
-    depthDesc.DepthEnable = TRUE;
-    depthDesc.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ALL;
-    depthDesc.DepthFunc = D3D12_COMPARISON_FUNC_LESS;
-    depthDesc.StencilEnable = FALSE;
-
-    psoDesc.DepthStencilState = depthDesc;
-
-    // ‚±‚ê’´d—v
-    psoDesc.DSVFormat = DXGI_FORMAT_D32_FLOAT;
-
-    psoDesc.RTVFormats[0] = DXGI_FORMAT_R8G8B8A8_UNORM;
-    psoDesc.NumRenderTargets = 1;
-    psoDesc.PrimitiveTopologyType = D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE;
-
-    psoDesc.pRootSignature = m_rootSignature.Get();
-
-
-    //GraphicsPipelineState‚ğì¬
-    hr = device->CreateGraphicsPipelineState(
-        &psoDesc,
-        IID_PPV_ARGS(&m_pipelineState)
-    );
-
-    if (FAILED(hr))
-    {
-        MessageBoxA(nullptr, "PSO creation failed", "Error", MB_OK);
-    }
-
-
-    ////----- ’¸“_ƒoƒbƒtƒ@‚Ìì¬ -----
-    ////ƒTƒCƒYŒvZ
-    //UINT vertexBufferSize = sizeof(MeshVertex) * m_Vertices.size();//Œ^‚ÌƒTƒCƒY‚ÉŠ|‚¯Z
-
-    ////ƒŠƒ\[ƒXì¬iUploadHeapj
-    //D3D12_HEAP_PROPERTIES heapProps = {};
-    //heapProps.Type = D3D12_HEAP_TYPE_UPLOAD;
-
-    //D3D12_RESOURCE_DESC resourceDesc = {};
-    //resourceDesc.Dimension = D3D12_RESOURCE_DIMENSION_BUFFER;
-    //resourceDesc.Width = vertexBufferSize;
-    //resourceDesc.Height = 1;
-    //resourceDesc.DepthOrArraySize = 1;
-    //resourceDesc.MipLevels = 1;
-    //resourceDesc.SampleDesc.Count = 1;
-    //resourceDesc.Layout = D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
-
-    //device->CreateCommittedResource(
-    //    &heapProps,
-    //    D3D12_HEAP_FLAG_NONE,
-    //    &resourceDesc,
-    //    D3D12_RESOURCE_STATE_GENERIC_READ,
-    //    nullptr,
-    //    IID_PPV_ARGS(&m_vertexBuffer)
-    //);
-
-    ////’¸“_ƒf[ƒ^‚ğƒoƒbƒtƒ@‚ÉƒRƒs[
-    //void* mappedData = nullptr;
-    //m_vertexBuffer->Map(0, nullptr, &mappedData);
-    //memcpy(mappedData, m_Vertices.data(), vertexBufferSize);//‚±‚ê
-    //m_vertexBuffer->Unmap(0, nullptr);
-
-    ////’¸“_ƒoƒbƒtƒ@ƒrƒ…[‚Ìİ’è
-    //m_vertexBufferView.BufferLocation = m_vertexBuffer->GetGPUVirtualAddress();
-    //m_vertexBufferView.SizeInBytes = vertexBufferSize;//‚±‚ê
-    //m_vertexBufferView.StrideInBytes = sizeof(MeshVertex);//‚±‚ê
-
-
-    //----- ’è”ƒoƒbƒtƒ@‚Ìì¬ -----
-    //’è”ƒoƒbƒtƒ@‚ÌƒTƒCƒY‚ğ256ƒoƒCƒg‚Ì”{”‚É‚·‚é
-    UINT constantBufferSize =
-        (sizeof(ConstantBufferData) + 255) & ~255;
-
-    //UnloadHeap‚ÅƒŠƒ\[ƒXì¬
-    D3D12_HEAP_PROPERTIES heapProps = {};
-    heapProps.Type = D3D12_HEAP_TYPE_UPLOAD;
-
-    D3D12_RESOURCE_DESC resourceDesc = {};
-    //resourceDesc = {};
-    resourceDesc.Dimension = D3D12_RESOURCE_DIMENSION_BUFFER;
-    resourceDesc.Width = constantBufferSize;
-    resourceDesc.Height = 1;
-    resourceDesc.DepthOrArraySize = 1;
-    resourceDesc.MipLevels = 1;
-    resourceDesc.SampleDesc.Count = 1;
-    resourceDesc.Layout = D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
-
-    device->CreateCommittedResource(
-        &heapProps,
-        D3D12_HEAP_FLAG_NONE,
-        &resourceDesc,
-        D3D12_RESOURCE_STATE_GENERIC_READ,
-        nullptr,
-        IID_PPV_ARGS(&m_constantBuffer)
-    );
-
-    m_constantBuffer->Map(0, nullptr, (void**)&m_cbData);
-
-
-    ////----- ƒCƒ“ƒfƒbƒNƒXƒoƒbƒtƒ@‚Ìì¬ -----
-    ////ƒTƒCƒYŒvZ
+    ////----- ã‚¤ãƒ³ãƒE  ã‚¯ã‚¹ãƒãƒƒãƒ•ã‚¡ã®ä½œ E -----
+    ////ã‚µã‚¤ã‚ºè¨ˆ?E
     //const UINT indexBufferSize = sizeof(uint16_t) * m_Indices.size();
 
-    ////ƒŠƒ\[ƒXì¬iUploadHeapj
+    ////ãƒªã‚½ãƒ¼ã‚¹ä½œ E E EploadHeap E E
     //D3D12_HEAP_PROPERTIES heapProps2 = {};
     //heapProps2.Type = D3D12_HEAP_TYPE_UPLOAD;
     //heapProps2.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
@@ -399,16 +130,16 @@ void CMesh::Init()
     //    IID_PPV_ARGS(&m_indexBuffer)
     //);
 
-    ////ƒCƒ“ƒfƒbƒNƒXƒf[ƒ^‚ğƒoƒbƒtƒ@‚ÉƒRƒs[
+    ////ã‚¤ãƒ³ãƒE  ã‚¯ã‚¹ãƒE Eã‚¿ã‚’ãƒãƒE  ã‚¡ã«ã‚³ãƒ” E
     //uint8_t* mappedData2 = nullptr;
     //m_indexBuffer->Map(0, nullptr, reinterpret_cast<void**>(&mappedData2));
     //memcpy(mappedData2, m_Indices.data(), indexBufferSize);
     //m_indexBuffer->Unmap(0, nullptr);
 
-    ////ƒCƒ“ƒfƒbƒNƒXƒoƒbƒtƒ@ƒrƒ…[‚Ìİ’è
+    ////ã‚¤ãƒ³ãƒE  ã‚¯ã‚¹ãƒãƒƒãƒ•ã‚¡ãƒ“ãƒ¥ãƒ¼ã®è¨­?E
     //m_indexBufferView.BufferLocation = m_indexBuffer->GetGPUVirtualAddress();
     //m_indexBufferView.SizeInBytes = indexBufferSize;
-    //m_indexBufferView.Format = DXGI_FORMAT_R16_UINT; // uint16_t‚È‚ç‚±‚ê
+    //m_indexBufferView.Format = DXGI_FORMAT_R16_UINT; // uint16_tãªã‚‰ã“ã‚E
 
 
 }
@@ -419,37 +150,28 @@ void CMesh::Update()
 
 
 
-void CMesh::Draw()
+void CMesh::Draw(CTransform* transform)
 {
-    // --ƒRƒ}ƒ“ƒhƒŠƒXƒg
+    // --ã‚³ãƒãƒ³ãƒ‰ãƒªã‚¹ãƒE
     ID3D12GraphicsCommandList* commandList = CDX12Manager::GetInstance().GetCommandLIst();
 
 
-    // --s—ñæ“¾
-    DirectX::XMMATRIX world = m_Transform->GetWorld();
+    // --è¡Œ Eå–å¾E
+    DirectX::XMMATRIX world = transform->GetWorld();
     DirectX::XMMATRIX view = CDX12Manager::GetInstance().GetView();
     DirectX::XMMATRIX proj = CDX12Manager::GetInstance().GetProj();
 
 
-    // --Š|‚¯Z
+    // --æ›ã‘?E
     DirectX::XMMATRIX wvp = world * view * proj;
 
-    // --’è”ƒoƒbƒtƒ@—p‚Ìƒf[ƒ^‚ÉƒZƒbƒg‚·‚é
-    //1
-    m_cbData->WVP = XMMatrixTranspose(wvp);//‚±‚±‚ÅƒZƒbƒg‚µ‚½‚â‚Âg‚Á‚Ä‚éH@g‚Á‚Ä‚È‚³‚»‚¤
+    // --å®šæ•°ãƒãƒƒãƒ•ã‚¡ç”¨ã®ãƒE Eã‚¿ã«ã‚»ãƒE  ã™ã‚‹
+    DirectX::XMMATRIX wvp_t = XMMatrixTranspose(wvp);
+    
+    commandList->SetPipelineState(PSOManager::GetInstance().GetMeshPSO());
+    commandList->SetGraphicsRootSignature(PSOManager::GetInstance().GetMeshRootSignature());
 
-    //2
-    ConstantBufferData* cbData = nullptr;
-    m_constantBuffer->Map(0, nullptr, (void**)&cbData);
-    cbData->WVP = XMMatrixTranspose(wvp);
-    m_constantBuffer->Unmap(0, nullptr);
-    //1,2‚Ì‚Ç‚Á‚¿‚©‚Å‚¢‚¢
-
-
-    commandList->SetPipelineState(m_pipelineState.Get());
-    commandList->SetGraphicsRootSignature(m_rootSignature.Get());
-
-    //SRVƒq[ƒv‚ÌƒZƒbƒg
+    //SRVãƒEEãƒEEã‚»ãƒE  
     //ID3D12DescriptorHeap* heaps[] = { CDX12Manager::GetInstance().GetSRVHeap() };
 
     //commandList->SetDescriptorHeaps(1, heaps);
@@ -457,9 +179,11 @@ void CMesh::Draw()
     commandList->SetGraphicsRootDescriptorTable(2, m_BoneSrvGpuHandle);
 
 
-    commandList->SetGraphicsRootConstantBufferView(
+    commandList->SetGraphicsRoot32BitConstants(
         0,
-        m_constantBuffer->GetGPUVirtualAddress()
+        16,
+        &wvp_t,
+        0
     );
 
     commandList->SetGraphicsRootDescriptorTable(
@@ -471,7 +195,7 @@ void CMesh::Draw()
 
     commandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-    //ƒCƒ“ƒfƒbƒNƒX—p‚É•ÏX
+    //ã‚¤ãƒ³ãƒE  ã‚¯ã‚¹ç”¨ã«å¤‰æ›´
     commandList->IASetVertexBuffers(0, 1, &m_vertexBufferView);
     commandList->IASetIndexBuffer(&m_indexBufferView);
     commandList->DrawIndexedInstanced(static_cast<UINT>(m_Indices.size()), 1, 0, 0, 0);
@@ -494,11 +218,11 @@ void CMesh::SetVertex(const MeshVertex* vertices, size_t vertexCount, const uint
     m_Vertices.assign(vertices, vertices + vertexCount);
     m_Indices.assign(indices, indices + indexCount);
 
-    //----- ’¸“_ƒoƒbƒtƒ@‚Ìì¬ -----
-    //ƒTƒCƒYŒvZ
-    UINT vertexBufferSize = sizeof(MeshVertex) * m_Vertices.size();//Œ^‚ÌƒTƒCƒY‚ÉŠ|‚¯Z
+    //----- é ‚ç‚¹ãƒãƒƒãƒ•ã‚¡ã®ä½œ E -----
+    //ã‚µã‚¤ã‚ºè¨ˆ?E
+    UINT vertexBufferSize = sizeof(MeshVertex) * m_Vertices.size();//å‹ Eã‚µã‚¤ã‚ºã«æ›ã‘?E
 
-    //ƒŠƒ\[ƒXì¬iUploadHeapj
+    //ãƒªã‚½ãƒ¼ã‚¹ä½œ E E EploadHeap E E
     D3D12_HEAP_PROPERTIES heapProps = {};
     heapProps.Type = D3D12_HEAP_TYPE_UPLOAD;
 
@@ -520,23 +244,23 @@ void CMesh::SetVertex(const MeshVertex* vertices, size_t vertexCount, const uint
         IID_PPV_ARGS(&m_vertexBuffer)
     );
 
-    //’¸“_ƒf[ƒ^‚ğƒoƒbƒtƒ@‚ÉƒRƒs[
+    //é ‚ç‚¹ãƒE Eã‚¿ã‚’ãƒãƒE  ã‚¡ã«ã‚³ãƒ” E
     void* mappedData = nullptr;
     m_vertexBuffer->Map(0, nullptr, &mappedData);
-    memcpy(mappedData, m_Vertices.data(), vertexBufferSize);//‚±‚ê
+    memcpy(mappedData, m_Vertices.data(), vertexBufferSize);//ã“ã‚Œ
     m_vertexBuffer->Unmap(0, nullptr);
 
-    //’¸“_ƒoƒbƒtƒ@ƒrƒ…[‚Ìİ’è
+    //é ‚ç‚¹ãƒãƒƒãƒ•ã‚¡ãƒ“ãƒ¥ãƒ¼ã®è¨­?E
     m_vertexBufferView.BufferLocation = m_vertexBuffer->GetGPUVirtualAddress();
-    m_vertexBufferView.SizeInBytes = vertexBufferSize;//‚±‚ê
-    m_vertexBufferView.StrideInBytes = sizeof(MeshVertex);//‚±‚ê
+    m_vertexBufferView.SizeInBytes = vertexBufferSize;//ã“ã‚Œ
+    m_vertexBufferView.StrideInBytes = sizeof(MeshVertex);//ã“ã‚Œ
 
 
-    //----- ƒCƒ“ƒfƒbƒNƒXƒoƒbƒtƒ@‚Ìì¬ -----
-    //ƒTƒCƒYŒvZ
+    //----- ã‚¤ãƒ³ãƒE  ã‚¯ã‚¹ãƒãƒƒãƒ•ã‚¡ã®ä½œ E -----
+    //ã‚µã‚¤ã‚ºè¨ˆ?E
     const UINT indexBufferSize = sizeof(uint32_t) * m_Indices.size();
 
-    //ƒŠƒ\[ƒXì¬iUploadHeapj
+    //ãƒªã‚½ãƒ¼ã‚¹ä½œ E E EploadHeap E E
     D3D12_HEAP_PROPERTIES heapProps2 = {};
     heapProps2.Type = D3D12_HEAP_TYPE_UPLOAD;
     heapProps2.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
@@ -566,23 +290,18 @@ void CMesh::SetVertex(const MeshVertex* vertices, size_t vertexCount, const uint
         IID_PPV_ARGS(&m_indexBuffer)
     );
 
-    //ƒCƒ“ƒfƒbƒNƒXƒf[ƒ^‚ğƒoƒbƒtƒ@‚ÉƒRƒs[
+    //ã‚¤ãƒ³ãƒE  ã‚¯ã‚¹ãƒE Eã‚¿ã‚’ãƒãƒE  ã‚¡ã«ã‚³ãƒ” E
     uint8_t* mappedData2 = nullptr;
     m_indexBuffer->Map(0, nullptr, reinterpret_cast<void**>(&mappedData2));
     memcpy(mappedData2, m_Indices.data(), indexBufferSize);
     m_indexBuffer->Unmap(0, nullptr);
 
-    //ƒCƒ“ƒfƒbƒNƒXƒoƒbƒtƒ@ƒrƒ…[‚Ìİ’è
+    //ã‚¤ãƒ³ãƒE  ã‚¯ã‚¹ãƒãƒƒãƒ•ã‚¡ãƒ“ãƒ¥ãƒ¼ã®è¨­?E
     m_indexBufferView.BufferLocation = m_indexBuffer->GetGPUVirtualAddress();
     m_indexBufferView.SizeInBytes = indexBufferSize;
-    m_indexBufferView.Format = DXGI_FORMAT_R32_UINT; // uint16_t‚È‚ç‚±‚ê
+    m_indexBufferView.Format = DXGI_FORMAT_R32_UINT; // uint16_tãªã‚‰ã“ã‚E
 }
-//Transform‚Ì“o˜^
-void CMesh::RegisterTransform()
-{
-    //GetComponent‚ğ‚·‚é
-    m_Transform = m_Owner->GetComponent<CTransform>();
-}
+
 
 void CMesh::RegisterOwner(CObject* _Owner)
 {
