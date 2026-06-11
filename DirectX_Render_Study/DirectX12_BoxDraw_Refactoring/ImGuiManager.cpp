@@ -37,7 +37,7 @@ bool CImGuiManager::Initialize(HWND hwnd)
     float main_scale = GetActualScaleFactor();
 
 
-    auto& dx12 = CDX12Manager::GetInstance();
+    auto& dx12 = DX12Manager::GetInstance();
     ID3D12Device* device = dx12.GetDevice(); // CDX12Manager‚ÉGetDevice()‚ª•K—v
     ID3D12CommandQueue* commandQueue = dx12.GetCommandQueue();
 

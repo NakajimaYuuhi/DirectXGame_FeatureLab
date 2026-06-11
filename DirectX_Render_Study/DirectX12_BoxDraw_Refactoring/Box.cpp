@@ -385,8 +385,8 @@ void CBox::Draw(ID3D12GraphicsCommandList* _CommandList)
             m_Position.z);
 
 	//ビューとプロジェクションはDX12Managerから取得
-	DirectX::XMMATRIX view = CDX12Manager::GetInstance().GetView();
-    DirectX::XMMATRIX proj = CDX12Manager::GetInstance().GetProj();
+	DirectX::XMMATRIX view = DX12Manager::GetInstance().GetView();
+    DirectX::XMMATRIX proj = DX12Manager::GetInstance().GetProj();
 
 
     DirectX::XMMATRIX wvp = world * view * proj;

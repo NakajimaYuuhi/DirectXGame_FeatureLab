@@ -24,7 +24,5 @@ public:
 
 
 private:
-	Vector<UniquePtr<CObject>> m_VecObject;
-	void AddObject(UniquePtr<CObject> _Object);
 };
 

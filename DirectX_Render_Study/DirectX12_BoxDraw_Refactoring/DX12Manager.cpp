@@ -12,20 +12,20 @@
 #include "imgui_impl_dx12.h"
 
 //===== 定数・マクロ定義 =====
-const UINT CDX12Manager::m_FrameBufferCount = FRAME_BUFFER_COUNT;   //フレームバッファの数
+const UINT DX12Manager::m_FrameBufferCount = FRAME_BUFFER_COUNT;   //フレームバッファの数
 
 //===== メソッド定義 =====
 
 //インスタンス取得
-CDX12Manager& CDX12Manager::GetInstance()
+DX12Manager& DX12Manager::GetInstance()
 {
-	static CDX12Manager instance;
+	static DX12Manager instance;
 	return instance;
 }
 
 // <初期化、終了処理>
 //初期化処理
-bool CDX12Manager::Initialize(HWND hwnd)
+bool DX12Manager::Initialize(HWND hwnd)
 {
 	HRESULT hr;
 
@@ -286,7 +286,7 @@ bool CDX12Manager::Initialize(HWND hwnd)
 }
 
 //終了処理
-void CDX12Manager::Finalize()
+void DX12Manager::Finalize()
 {
 	m_commandQueue.Reset();
 	m_device.Reset();
@@ -295,11 +295,11 @@ void CDX12Manager::Finalize()
 
 
 //----- 更新処理 -----
-void CDX12Manager::Update()
+void DX12Manager::Update()
 {
 }
 
-void CDX12Manager::ForceWait()
+void DX12Manager::ForceWait()
 {
 	// 今積んである命令（コピーなど）に目印をつける
 	m_commandQueue->Signal(m_fence.Get(), m_fenceValue);
@@ -314,7 +314,7 @@ void CDX12Manager::ForceWait()
 
 
 //----- 描画処理 -----
-void CDX12Manager::BeginDraw()
+void DX12Manager::BeginDraw()
 {
 
 
@@ -413,7 +413,7 @@ void CDX12Manager::BeginDraw()
 
 }
 
-void CDX12Manager::EndDraw()
+void DX12Manager::EndDraw()
 {
 	// 1. RENDER_TARGET → PRESENT
 	D3D12_RESOURCE_BARRIER barrier{};
@@ -445,7 +445,7 @@ void CDX12Manager::EndDraw()
 
 
 //初期化用の関数達
-void CDX12Manager::CreateCommandObjects()
+void DX12Manager::CreateCommandObjects()
 {
 
 	//コマンドアロケーター作成
@@ -467,7 +467,7 @@ void CDX12Manager::CreateCommandObjects()
 	m_commandList->Close();
 }
 
-void CDX12Manager::CreateFence()
+void DX12Manager::CreateFence()
 {
 	m_device->CreateFence(
 		0,
@@ -481,7 +481,7 @@ void CDX12Manager::CreateFence()
 }
 
 
-void CDX12Manager::ResizeRenderTarget(LPARAM lParam)
+void DX12Manager::ResizeRenderTarget(LPARAM lParam)
 {
 	CleanupRenderTarget();              //RenderTargetの破棄
 	DXGI_SWAP_CHAIN_DESC1 desc = {};
@@ -502,7 +502,7 @@ void CDX12Manager::ResizeRenderTarget(LPARAM lParam)
 	//// リサイズ直後も一応待っておくと安全！
 	//WaitForPendingOperations();
 }
-void CDX12Manager::ResizeViewPort(LPARAM lParam)
+void DX12Manager::ResizeViewPort(LPARAM lParam)
 {
 	D3D12_VIEWPORT viewport{};
 	viewport.Width = LOWORD(lParam);
@@ -519,7 +519,7 @@ void CDX12Manager::ResizeViewPort(LPARAM lParam)
 	//m_commandList->RSSetViewports(1, &viewport);
 	//m_commandList->RSSetScissorRects(1, &scissorRect);
 }
-void CDX12Manager::ResizeDepthBuffer(LPARAM lParam)
+void DX12Manager::ResizeDepthBuffer(LPARAM lParam)
 {
 
 	// 古いリソース破棄
@@ -595,7 +595,7 @@ void CDX12Manager::ResizeDepthBuffer(LPARAM lParam)
 		m_dsvHeap->GetCPUDescriptorHandleForHeapStart()
 	);
 }
-void CDX12Manager::CreateRenderTarget()
+void DX12Manager::CreateRenderTarget()
 {
 	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle =
 		m_rtvHeap->GetCPUDescriptorHandleForHeapStart();
@@ -624,7 +624,7 @@ void CDX12Manager::CreateRenderTarget()
 		rtvHandle.ptr += m_rtvDescriptorSize;
 	}
 }
-void CDX12Manager::CleanupRenderTarget()
+void DX12Manager::CleanupRenderTarget()
 {
 	WaitForPendingOperations();
 
@@ -632,7 +632,7 @@ void CDX12Manager::CleanupRenderTarget()
 		m_renderTargets[i].Reset(); 
 }
 
-void CDX12Manager::WaitForPendingOperations()
+void DX12Manager::WaitForPendingOperations()
 {
 
 	m_commandQueue->Signal(m_fence.Get(), m_fenceValue);
@@ -646,29 +646,29 @@ void CDX12Manager::WaitForPendingOperations()
 
 }
 
-D3D12_GPU_DESCRIPTOR_HANDLE CDX12Manager::GetGpuSrvHandle(int index)
+D3D12_GPU_DESCRIPTOR_HANDLE DX12Manager::GetGpuSrvHandle(int index)
 {
 	return CD3DX12_GPU_DESCRIPTOR_HANDLE(m_srvHeap->GetGPUDescriptorHandleForHeapStart(), index, m_srvDescriptorSize);
 }
 
-D3D12_GPU_DESCRIPTOR_HANDLE CDX12Manager::GetHeadGpuSrvHandle()
+D3D12_GPU_DESCRIPTOR_HANDLE DX12Manager::GetHeadGpuSrvHandle()
 {
 	return m_srvHeap->GetGPUDescriptorHandleForHeapStart();
 }
 
-D3D12_CPU_DESCRIPTOR_HANDLE CDX12Manager::GetCpuSrvHandle(int index)
+D3D12_CPU_DESCRIPTOR_HANDLE DX12Manager::GetCpuSrvHandle(int index)
 {
 	return CD3DX12_CPU_DESCRIPTOR_HANDLE(m_srvHeap->GetCPUDescriptorHandleForHeapStart(), index, m_srvDescriptorSize);
 }
 
 
 //
-bool CDX12Manager::IsOccluded(HWND hwnd)
+bool DX12Manager::IsOccluded(HWND hwnd)
 {
 	return ((m_SwapChainOccluded && m_swapChain->Present(0, DXGI_PRESENT_TEST) == DXGI_STATUS_OCCLUDED) || IsIconic(hwnd));
 }
 
-void CDX12Manager::ResetIsOccluded()
+void DX12Manager::ResetIsOccluded()
 {
 	m_SwapChainOccluded = false;
 }

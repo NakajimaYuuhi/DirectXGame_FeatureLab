@@ -14,15 +14,15 @@ CMaterial::CMaterial(wstring _FilePath, XMFLOAT4 _Color)
 void CMaterial::LoadTexture(wstring _FilePath)
 {
     //デバイス、コマンドリストの取得
-    ID3D12Device* device = CDX12Manager::GetInstance().GetDevice();
-    ID3D12GraphicsCommandList* cmdList = CDX12Manager::GetInstance().GetCommandLIst();
+    ID3D12Device* device = DX12Manager::GetInstance().GetDevice();
+    ID3D12GraphicsCommandList* cmdList = DX12Manager::GetInstance().GetCommandList();
 
     // 0. GPUが処理中の場合、コマンドアロケータをリセットするとDevice Removedになるため待機
-    CDX12Manager::GetInstance().ForceWait();
+    DX12Manager::GetInstance().ForceWait();
 
     // 1. コマンドリストを開く
-    CDX12Manager::GetInstance().GetCommandAllocator()->Reset();
-    cmdList->Reset(CDX12Manager::GetInstance().GetCommandAllocator(), nullptr);
+    DX12Manager::GetInstance().GetCommandAllocator()->Reset();
+    cmdList->Reset(DX12Manager::GetInstance().GetCommandAllocator(), nullptr);
 
 
 
@@ -33,8 +33,8 @@ void CMaterial::LoadTexture(wstring _FilePath)
     // 2.コマンド実行
     cmdList->Close();
     ID3D12CommandList* list[] = { cmdList };
-    CDX12Manager::GetInstance().GetCommandQueue()->ExecuteCommandLists(1, list);
+    DX12Manager::GetInstance().GetCommandQueue()->ExecuteCommandLists(1, list);
 
     // 3.ここでGPUがコピーを終えるまで、CPUをストップさせる！
-    CDX12Manager::GetInstance().ForceWait();
+    DX12Manager::GetInstance().ForceWait();
 }

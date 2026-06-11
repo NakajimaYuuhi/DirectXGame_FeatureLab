@@ -84,7 +84,7 @@ void CTexture::CreateSRV(ID3D12Device* device)
         return;
     }
 
-    CDX12Manager& dx12 = CDX12Manager::GetInstance();
+    DX12Manager& dx12 = DX12Manager::GetInstance();
 
     int index = dx12.AllocsrvNextIndex();
     m_srvIndex = index;

@@ -164,7 +164,7 @@ void PSOManager::Init(ID3D12Device* device)
     // ----- Additive Pipeline State Object -----
     D3D12_GRAPHICS_PIPELINE_STATE_DESC additivePsoDesc = psoDesc;
     
-    // 加算合成のブレンドステート設定
+    // 加算合成 ブレンドステート設定    
     D3D12_RENDER_TARGET_BLEND_DESC blendDesc = {};
     blendDesc.BlendEnable = TRUE;
     blendDesc.LogicOpEnable = FALSE;
@@ -178,11 +178,124 @@ void PSOManager::Init(ID3D12Device* device)
 
     additivePsoDesc.BlendState.RenderTarget[0] = blendDesc;
     
-    // Zバッファへの書き込みを無効化（半透明描画の基本）
-    additivePsoDesc.DepthStencilState.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ZERO;
+    // Zバッファへの書き込みを無効化（半透 E描画の基本 E E    additivePsoDesc.DepthStencilState.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ZERO;
 
     hr = device->CreateGraphicsPipelineState(
         &additivePsoDesc,
         IID_PPV_ARGS(&m_additivePipelineState)
+    );
+
+    // ----- Sprite Shader Compilation -----
+    ComPtr<ID3DBlob> spriteVertexShader;
+    ComPtr<ID3DBlob> spritePixelShader;
+
+    hr = D3DCompileFromFile(
+        L"Sprite.hlsl", nullptr, nullptr, "VSMain", "vs_5_0", 0, 0, &spriteVertexShader, &errorBlob
+    );
+    if (FAILED(hr)) {
+        if (errorBlob) {
+            OutputDebugStringA((char*)errorBlob->GetBufferPointer());
+        }
+    }
+
+    hr = D3DCompileFromFile(
+        L"Sprite.hlsl", nullptr, nullptr, "PSMain", "ps_5_0", 0, 0, &spritePixelShader, &errorBlob
+    );
+    if (FAILED(hr)) {
+        if (errorBlob) {
+            OutputDebugStringA((char*)errorBlob->GetBufferPointer());
+        }
+    }
+
+    // ----- Sprite Root Signature -----
+    D3D12_ROOT_PARAMETER spriteRootParams[2] = {};
+
+    // Root Constants (b0) -> WVP (16 floats) + color (4 floats) = 20 floats
+    spriteRootParams[0].ParameterType = D3D12_ROOT_PARAMETER_TYPE_32BIT_CONSTANTS;
+    spriteRootParams[0].Constants.ShaderRegister = 0; // b0
+    spriteRootParams[0].Constants.RegisterSpace = 0;
+    spriteRootParams[0].Constants.Num32BitValues = 20; 
+    spriteRootParams[0].ShaderVisibility = D3D12_SHADER_VISIBILITY_ALL;
+
+    // Descriptor Table (t0) -> SRV
+    D3D12_DESCRIPTOR_RANGE spriteSrvRange = {};
+    spriteSrvRange.RangeType = D3D12_DESCRIPTOR_RANGE_TYPE_SRV;
+    spriteSrvRange.NumDescriptors = 1;
+    spriteSrvRange.BaseShaderRegister = 0; // t0
+    spriteSrvRange.RegisterSpace = 0;
+    spriteSrvRange.OffsetInDescriptorsFromTableStart = D3D12_DESCRIPTOR_RANGE_OFFSET_APPEND;
+
+    spriteRootParams[1].ParameterType = D3D12_ROOT_PARAMETER_TYPE_DESCRIPTOR_TABLE;
+    spriteRootParams[1].DescriptorTable.NumDescriptorRanges = 1;
+    spriteRootParams[1].DescriptorTable.pDescriptorRanges = &spriteSrvRange;
+    spriteRootParams[1].ShaderVisibility = D3D12_SHADER_VISIBILITY_PIXEL;
+
+    D3D12_STATIC_SAMPLER_DESC spriteSampler = sampler; // Reuse sampler from mesh PSO
+
+    D3D12_ROOT_SIGNATURE_DESC spriteRootSignatureDesc{};
+    spriteRootSignatureDesc.NumParameters = _countof(spriteRootParams);
+    spriteRootSignatureDesc.pParameters = spriteRootParams;
+    spriteRootSignatureDesc.NumStaticSamplers = 1;
+    spriteRootSignatureDesc.pStaticSamplers = &spriteSampler;
+    spriteRootSignatureDesc.Flags = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT;
+
+    hr = D3D12SerializeRootSignature(
+        &spriteRootSignatureDesc, D3D_ROOT_SIGNATURE_VERSION_1, &signature, &error
+    );
+
+    hr = device->CreateRootSignature(
+        0, signature->GetBufferPointer(), signature->GetBufferSize(), IID_PPV_ARGS(&m_spriteRootSignature)
+    );
+
+    // ----- Sprite Pipeline State Object -----
+    D3D12_INPUT_ELEMENT_DESC spriteInputLayout[] =
+    {
+        { "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+        { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT,    0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+    };
+
+    D3D12_GRAPHICS_PIPELINE_STATE_DESC spritePsoDesc = {};
+    spritePsoDesc.InputLayout.pInputElementDescs = spriteInputLayout;
+    spritePsoDesc.InputLayout.NumElements = _countof(spriteInputLayout);
+    spritePsoDesc.VS = { spriteVertexShader->GetBufferPointer(), spriteVertexShader->GetBufferSize() };
+    spritePsoDesc.PS = { spritePixelShader->GetBufferPointer(), spritePixelShader->GetBufferSize() };
+    spritePsoDesc.PrimitiveTopologyType = D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE;
+    spritePsoDesc.SampleDesc.Count = 1;
+    spritePsoDesc.SampleMask = UINT_MAX;
+    
+    // Rasterizer (No culling for 2D typically, or just backface)
+    D3D12_RASTERIZER_DESC spriteRasterDesc = rasterDesc;
+    spriteRasterDesc.CullMode = D3D12_CULL_MODE_NONE; // Often want none for 2D
+    spriteRasterDesc.DepthClipEnable = FALSE;
+    spritePsoDesc.RasterizerState = spriteRasterDesc;
+
+    // Blend state (Alpha blending)
+    D3D12_BLEND_DESC spriteBlendDesc = {};
+    spriteBlendDesc.RenderTarget[0].BlendEnable = TRUE;
+    spriteBlendDesc.RenderTarget[0].SrcBlend = D3D12_BLEND_SRC_ALPHA;
+    spriteBlendDesc.RenderTarget[0].DestBlend = D3D12_BLEND_INV_SRC_ALPHA;
+    spriteBlendDesc.RenderTarget[0].BlendOp = D3D12_BLEND_OP_ADD;
+    spriteBlendDesc.RenderTarget[0].SrcBlendAlpha = D3D12_BLEND_ONE;
+    spriteBlendDesc.RenderTarget[0].DestBlendAlpha = D3D12_BLEND_ZERO;
+    spriteBlendDesc.RenderTarget[0].BlendOpAlpha = D3D12_BLEND_OP_ADD;
+    spriteBlendDesc.RenderTarget[0].RenderTargetWriteMask = D3D12_COLOR_WRITE_ENABLE_ALL;
+    spritePsoDesc.BlendState = spriteBlendDesc;
+
+    // Depth Stencil (No depth write/test for UI)
+    D3D12_DEPTH_STENCIL_DESC spriteDepthDesc = {};
+    spriteDepthDesc.DepthEnable = FALSE;
+    spriteDepthDesc.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ZERO;
+    spriteDepthDesc.DepthFunc = D3D12_COMPARISON_FUNC_ALWAYS;
+    spriteDepthDesc.StencilEnable = FALSE;
+    spritePsoDesc.DepthStencilState = spriteDepthDesc;
+
+    spritePsoDesc.DSVFormat = DXGI_FORMAT_UNKNOWN; // No depth buffer used for 2D UI usually
+    spritePsoDesc.RTVFormats[0] = DXGI_FORMAT_R8G8B8A8_UNORM;
+    spritePsoDesc.NumRenderTargets = 1;
+    spritePsoDesc.pRootSignature = m_spriteRootSignature.Get();
+
+    hr = device->CreateGraphicsPipelineState(
+        &spritePsoDesc,
+        IID_PPV_ARGS(&m_spritePipelineState)
     );
 }

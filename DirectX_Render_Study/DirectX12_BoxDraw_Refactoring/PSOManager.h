@@ -20,6 +20,9 @@ public:
     ID3D12PipelineState* GetMeshPSO() const { return m_meshPipelineState.Get(); }
     ID3D12PipelineState* GetAdditivePSO() const { return m_additivePipelineState.Get(); }
 
+    ID3D12RootSignature* GetSpriteRootSignature() const { return m_spriteRootSignature.Get(); }
+    ID3D12PipelineState* GetSpritePSO() const { return m_spritePipelineState.Get(); }
+
 private:
     PSOManager() = default;
     ~PSOManager() = default;
@@ -29,4 +32,7 @@ private:
     ComPtr<ID3D12RootSignature> m_meshRootSignature;
     ComPtr<ID3D12PipelineState> m_meshPipelineState;
     ComPtr<ID3D12PipelineState> m_additivePipelineState;
+
+    ComPtr<ID3D12RootSignature> m_spriteRootSignature;
+    ComPtr<ID3D12PipelineState> m_spritePipelineState;
 };

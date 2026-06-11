@@ -17,12 +17,12 @@
 
 
 
-//TODO:同じ形のプリミティブ E、E  点バッファを E通にしたぁE
-//一旦頂点?E  を外から Eれるのは、後回しで
+//TODO:同じ形のプリミティチEE、E  点バッファめEE通にしたぁE
+//一旦頂点?E  を外かめEEれるのは、後回しで
 
 
 
-//頂点チE Eタの作 E
+//頂点チE Eタの佁EE
 MeshVertex mesh_vertices[] =
 {
     //立方?EインチE  クス)
@@ -96,11 +96,11 @@ void CMesh::Init()
     // m_Transform is no longer used.
 
 
-    ////----- インチE  クスバッファの作 E -----
-    ////サイズ計?E
+    ////----- インチE  クスバッファの佁EE -----
+    ////サイズ訁EE
     //const UINT indexBufferSize = sizeof(uint16_t) * m_Indices.size();
 
-    ////リソース作 E E EploadHeap E E
+    ////リソース佁EE E EploadHeap E E
     //D3D12_HEAP_PROPERTIES heapProps2 = {};
     //heapProps2.Type = D3D12_HEAP_TYPE_UPLOAD;
     //heapProps2.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
@@ -130,7 +130,7 @@ void CMesh::Init()
     //    IID_PPV_ARGS(&m_indexBuffer)
     //);
 
-    ////インチE  クスチE EタをバチE  ァにコピ E
+    ////インチE  クスチE EタをバチE  ァにコチEE
     //uint8_t* mappedData2 = nullptr;
     //m_indexBuffer->Map(0, nullptr, reinterpret_cast<void**>(&mappedData2));
     //memcpy(mappedData2, m_Indices.data(), indexBufferSize);
@@ -152,20 +152,20 @@ void CMesh::Update()
 
 void CMesh::Draw(CTransform* transform, CMaterial* material, BlendMode blendMode)
 {
-    // --コマンドリスト
-    ID3D12GraphicsCommandList* commandList = CDX12Manager::GetInstance().GetCommandLIst();
+    // --コマンドリスチE
+    ID3D12GraphicsCommandList* commandList = DX12Manager::GetInstance().GetCommandList();
 
 
-    // --行列取得
+    // --行�E取征E
     DirectX::XMMATRIX world = transform->GetWorld();
-    DirectX::XMMATRIX view = CDX12Manager::GetInstance().GetView();
-    DirectX::XMMATRIX proj = CDX12Manager::GetInstance().GetProj();
+    DirectX::XMMATRIX view = DX12Manager::GetInstance().GetView();
+    DirectX::XMMATRIX proj = DX12Manager::GetInstance().GetProj();
 
 
-    // --掛け算
+    // --掛け箁E
     DirectX::XMMATRIX wvp = world * view * proj;
 
-    // --定数バッファ用のデータにセットする
+    // --定数バッファ用のチE�EタにセチE��する
     
     if (blendMode == BlendMode::Additive)
     {
@@ -221,14 +221,14 @@ void CMesh::Draw(CTransform* transform, CMaterial* material, BlendMode blendMode
 
 void CMesh::BindBoneSRV(D3D12_GPU_DESCRIPTOR_HANDLE handle)
 {
-    ID3D12GraphicsCommandList* commandList = CDX12Manager::GetInstance().GetCommandLIst();
+    ID3D12GraphicsCommandList* commandList = DX12Manager::GetInstance().GetCommandList();
     commandList->SetGraphicsRootDescriptorTable(2, handle);
 }
 
 void CMesh::SetVertex(const MeshVertex* vertices, size_t vertexCount, const uint32_t* indices, size_t indexCount)
 {
 
-    ID3D12Device* device = CDX12Manager::GetInstance().GetDevice();
+    ID3D12Device* device = DX12Manager::GetInstance().GetDevice();
 
     m_Vertices.clear();
     m_Indices.clear();
@@ -236,11 +236,11 @@ void CMesh::SetVertex(const MeshVertex* vertices, size_t vertexCount, const uint
     m_Vertices.assign(vertices, vertices + vertexCount);
     m_Indices.assign(indices, indices + indexCount);
 
-    //----- 頂点バッファの作 E -----
-    //サイズ計?E
-    UINT vertexBufferSize = sizeof(MeshVertex) * m_Vertices.size();//型 Eサイズに掛け?E
+    //----- 頂点バッファの佁EE -----
+    //サイズ訁EE
+    UINT vertexBufferSize = sizeof(MeshVertex) * m_Vertices.size();//垁EEサイズに掛け?E
 
-    //リソース作 E E EploadHeap E E
+    //リソース佁EE E EploadHeap E E
     D3D12_HEAP_PROPERTIES heapProps = {};
     heapProps.Type = D3D12_HEAP_TYPE_UPLOAD;
 
@@ -262,7 +262,7 @@ void CMesh::SetVertex(const MeshVertex* vertices, size_t vertexCount, const uint
         IID_PPV_ARGS(&m_vertexBuffer)
     );
 
-    //頂点チE EタをバチE  ァにコピ E
+    //頂点チE EタをバチE  ァにコチEE
     void* mappedData = nullptr;
     m_vertexBuffer->Map(0, nullptr, &mappedData);
     memcpy(mappedData, m_Vertices.data(), vertexBufferSize);//これ
@@ -274,11 +274,11 @@ void CMesh::SetVertex(const MeshVertex* vertices, size_t vertexCount, const uint
     m_vertexBufferView.StrideInBytes = sizeof(MeshVertex);//これ
 
 
-    //----- インチE  クスバッファの作 E -----
-    //サイズ計?E
+    //----- インチE  クスバッファの佁EE -----
+    //サイズ訁EE
     const UINT indexBufferSize = sizeof(uint32_t) * m_Indices.size();
 
-    //リソース作 E E EploadHeap E E
+    //リソース佁EE E EploadHeap E E
     D3D12_HEAP_PROPERTIES heapProps2 = {};
     heapProps2.Type = D3D12_HEAP_TYPE_UPLOAD;
     heapProps2.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
@@ -308,7 +308,7 @@ void CMesh::SetVertex(const MeshVertex* vertices, size_t vertexCount, const uint
         IID_PPV_ARGS(&m_indexBuffer)
     );
 
-    //インチE  クスチE EタをバチE  ァにコピ E
+    //インチE  クスチE EタをバチE  ァにコチEE
     uint8_t* mappedData2 = nullptr;
     m_indexBuffer->Map(0, nullptr, reinterpret_cast<void**>(&mappedData2));
     memcpy(mappedData2, m_Indices.data(), indexBufferSize);

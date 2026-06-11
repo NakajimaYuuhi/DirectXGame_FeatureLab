@@ -82,11 +82,11 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 		
 		//DisplaySize();
 
-		if (CDX12Manager::GetInstance().GetDevice() && wparam != SIZE_MINIMIZED)
+		if (DX12Manager::GetInstance().GetDevice() && wparam != SIZE_MINIMIZED)
 		{
-			CDX12Manager::GetInstance().ResizeRenderTarget(lparam);
-			CDX12Manager::GetInstance().ResizeDepthBuffer(lparam);
-			CDX12Manager::GetInstance().ResizeViewPort(lparam);
+			DX12Manager::GetInstance().ResizeRenderTarget(lparam);
+			DX12Manager::GetInstance().ResizeDepthBuffer(lparam);
+			DX12Manager::GetInstance().ResizeViewPort(lparam);
 		}
 		//DisplaySize();
 		return 0;
@@ -153,8 +153,8 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
 
 	//DirectX12の初期化
-	CDX12Manager::GetInstance().Initialize(hwnd);
-	PSOManager::GetInstance().Init(CDX12Manager::GetInstance().GetDevice());
+	DX12Manager::GetInstance().Initialize(hwnd);
+	PSOManager::GetInstance().Init(DX12Manager::GetInstance().GetDevice());
 	
 	//最初のシーンの作成
 	g_CScene = std::make_unique<CSceneTest>();
@@ -191,7 +191,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
 
 		//画面が隠れているならフレームをスキップ
-		if (CDX12Manager::GetInstance().IsOccluded(hwnd))
+		if (DX12Manager::GetInstance().IsOccluded(hwnd))
 		{
 			::Sleep(10);
 			continue;
@@ -254,20 +254,20 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
 		//---描画処理---
 		//DirectX12描画開始
-		CDX12Manager::GetInstance().BeginDraw();
+		DX12Manager::GetInstance().BeginDraw();
 
 		//シーンの描画
 		g_CScene->Draw();
 
 		//ImGuiの描画
-		CImGuiManager::GetInstance().End(CDX12Manager::GetInstance().GetCommandLIst());
+		CImGuiManager::GetInstance().End(DX12Manager::GetInstance().GetCommandList());
 
 		//DirectX12の描画終了
-		CDX12Manager::GetInstance().EndDraw();
+		DX12Manager::GetInstance().EndDraw();
 		
 	}
 
-	CDX12Manager::GetInstance().Finalize();
+	DX12Manager::GetInstance().Finalize();
 
 	return 0;
 }

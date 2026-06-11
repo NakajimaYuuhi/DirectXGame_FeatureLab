@@ -37,7 +37,7 @@ void BillBoard::LateUpdate()
 	CTransform* transform = GetComponent<CTransform>();
 
 	//カメラの行列を取得
-	CDX12Manager& dx12Manager = CDX12Manager::GetInstance();
+	DX12Manager& dx12Manager = DX12Manager::GetInstance();
 	DirectX::XMMATRIX view = dx12Manager.GetView();
 
 	//----- view行列から、カメラの軸を取り出す -----

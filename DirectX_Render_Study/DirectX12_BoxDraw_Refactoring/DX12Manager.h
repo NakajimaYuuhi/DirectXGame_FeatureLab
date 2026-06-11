@@ -16,12 +16,12 @@
 using Microsoft::WRL::ComPtr;
 
 //===== クラス定義 =====
-class CDX12Manager
+class DX12Manager
 {
 public:
 
 	// <インスタンス取得>
-	static CDX12Manager& GetInstance();
+	static DX12Manager& GetInstance();
 
 	// <初期化、終了処理>
 	bool Initialize(HWND hwnd);
@@ -58,7 +58,7 @@ public:
 	DirectX::XMMATRIX GetProj() { return m_proj; }
 
 	ID3D12Device* GetDevice() { return m_device.Get(); }
-	ID3D12GraphicsCommandList* GetCommandLIst() { return m_commandList.Get(); }
+	ID3D12GraphicsCommandList* GetCommandList() { return m_commandList.Get(); }
 	ID3D12CommandQueue* GetCommandQueue() { return m_commandQueue.Get(); }
 
 	ID3D12DescriptorHeap* GetSRVHeap()
@@ -140,11 +140,11 @@ private:
 
 	//シングルトン実装
 private:
-	CDX12Manager() = default;
-	~CDX12Manager() = default;
+	DX12Manager() = default;
+	~DX12Manager() = default;
 
-	CDX12Manager(const CDX12Manager&) = delete;
-	CDX12Manager& operator=(const CDX12Manager&) = delete;
+	DX12Manager(const DX12Manager&) = delete;
+	DX12Manager& operator=(const DX12Manager&) = delete;
 
 private:
 

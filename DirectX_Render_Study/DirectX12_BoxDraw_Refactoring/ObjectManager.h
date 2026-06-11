@@ -14,7 +14,7 @@ public:
 	CObject* Instantiate(Scene::ID _SceneID, ObjectTag _Tag, std::string _TypeName);
 
 	//‰Šú‰»ˆ—
-	void Init();
+	void Init(Scene::ID _SceneID);
 
 	//I—¹ˆ—
 	void Uninit();

@@ -10,6 +10,8 @@
 
 #include "Collision.h"
 
+#include "UIObject.h"
+
 CObject* ObjectManager::Instantiate(Scene::ID _SceneID, ObjectTag _Tag, std::string _TypeName)
 {
     //Todo : Factoryを作る
@@ -83,6 +85,9 @@ CObject* ObjectManager::Instantiate(Scene::ID _SceneID, ObjectTag _Tag, std::str
 			break;
 			break;
 		case ObjectTag::UI:
+			tmpObject = std::make_unique<CUIObject>("UIObject");		//生成
+			returnObject = tmpObject.get();							//生ポインタ取得
+			vecObject[static_cast<int>(ObjectTag::UI)].push_back(std::move(tmpObject));				//配列に追加
 			break;
 		case ObjectTag::TEXT:
 			break;
@@ -101,6 +106,19 @@ CObject* ObjectManager::Instantiate(Scene::ID _SceneID, ObjectTag _Tag, std::str
 void ObjectManager::Uninit()
 {
 	
+}
+
+void ObjectManager::Init(Scene::ID _SceneID)
+{
+	for (auto& vec : vecObject)
+	{
+		for (auto& object : vec)
+		{
+			object->Init();
+		}
+	}
+
+
 }
 
 void ObjectManager::Update(Scene::ID _SceneID)
