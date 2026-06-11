@@ -14,7 +14,7 @@ cbuffer ConstantBuffer : register(b0)
 Texture2D tex0 : register(t0);
 SamplerState samLinear : register(s0);
 
-// ボーン行列 SRV（t1）
+// �{�[���s�� SRV�it1�j
 //StructuredBuffer<float4x4> g_BoneMatrices : register(t1);
 StructuredBuffer<float4x4> g_BoneMatrices : register(t1);
 
@@ -27,7 +27,7 @@ struct VSInput
     float3 normal : NORMAL;
     float2 uv : TEXCOORD;
 
-    uint4 boneIndices : BLENDINDICES; // DX11/12 の標準セマンティクス
+    uint4 boneIndices : BLENDINDICES; // DX11/12 �̕W���Z�}���e�B�N�X
     float4 boneWeights : BLENDWEIGHT;
 };
 
@@ -49,7 +49,7 @@ PSInput VSMain(VSInput input)
     
     //output.position = mul(float4(input.position, 1.0f), WVP);
     
-    // --- ボーン変形 ---
+    // --- �{�[���ό` ---
     float4 localPos = float4(input.position, 1.0f);
 
     float4 skinnedPos =
@@ -58,32 +58,7 @@ PSInput VSMain(VSInput input)
     mul(localPos, g_BoneMatrices[input.boneIndices.z]) * input.boneWeights.z +
     mul(localPos, g_BoneMatrices[input.boneIndices.w]) * input.boneWeights.w;
 
-    //float4 skinnedPos =
-    //mul(g_BoneMatrices[input.boneIndices.x], localPos) * input.boneWeights.x +
-    //mul(g_BoneMatrices[input.boneIndices.y], localPos) * input.boneWeights.y +
-    //mul(g_BoneMatrices[input.boneIndices.z], localPos) * input.boneWeights.z +
-    //mul(g_BoneMatrices[input.boneIndices.w], localPos) * input.boneWeights.w;
-    
-    // 【テスト用】StructuredBufferの値を無視して、強制的にIdentityでスキニングする
-    float4x4 identityMatrix = float4x4(
-    1, 0, 0, 0,
-    0, 1, 0, 0,
-    0, 0, 1, 0,
-    0, 0, 0, 1
-    );
-
-    // 順番は mul(行列, ベクトル) で合わせます
-    //float4 skinnedPos =
-    //mul(identityMatrix, localPos) * input.boneWeights.x +
-    //mul(identityMatrix, localPos) * input.boneWeights.y +
-    //mul(identityMatrix, localPos) * input.boneWeights.z +
-    //mul(identityMatrix, localPos) * input.boneWeights.w;
-    
-    //float4 skinnedPos = mul(identityMatrix, localPos);
-    
-
-    
-    // WVP 変換
+    // WVP �ϊ�
     //output.position = mul(localPos, WVP);
     output.position = mul(skinnedPos, WVP);
     

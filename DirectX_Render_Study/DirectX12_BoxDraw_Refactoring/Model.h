@@ -1,19 +1,19 @@
 //Model.h
-//ModelŠÖ˜A‚ÌƒNƒ‰ƒX
-//Mesh,Material,Node‚ğ‚Â
-//ˆê’Uì‚Á‚½‚¾‚¯
+//Modelé–¢é€£ã®ã‚¯ãƒ©ã‚¹
+//Mesh,Material,Nodeã‚’æŒã¤
+//ä¸€æ—¦ä½œã£ãŸã ã‘
 
-//===== ƒCƒ“ƒNƒ‹[ƒh =====
-//ƒCƒ“ƒNƒ‹[ƒhƒK[ƒh
+//===== ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ =====
+//ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ã‚¬ãƒ¼ãƒ‰
 #pragma once
 
-//eƒNƒ‰ƒX
+//è¦ªã‚¯ãƒ©ã‚¹
 #include "Component.h"
 
-//Šî–{‹@”\
-#include "StringAlias.h"	//•¶š—ñ
-#include "ContainerAlias.h"	//ƒRƒ“ƒeƒi
-#include "SmartPtrAlias.h"	//ƒXƒ}[ƒgƒ|ƒCƒ“ƒ^
+//åŸºæœ¬æ©Ÿèƒ½
+#include "StringAlias.h"	//æ–‡å­—åˆ—
+#include "ContainerAlias.h"	//ã‚³ãƒ³ãƒ†ãƒŠ
+#include "SmartPtrAlias.h"	//ã‚¹ãƒãƒ¼ãƒˆãƒã‚¤ãƒ³ã‚¿
 
 //Mesh
 #include "Mesh.h"
@@ -23,7 +23,7 @@
 #include "Bone.h"
 
 
-//===== ƒGƒCƒŠƒAƒX =====
+//===== ã‚¨ã‚¤ãƒªã‚¢ã‚¹ =====
 //Mesh
 using Mesh = SharedPtr<CMesh>;
 using Meshes = Vector<Mesh>;
@@ -40,10 +40,10 @@ using Bones = Vector<Bone>;
 using SkinningMatrix = DirectX::XMMATRIX;
 using SkinningMatrices = Vector<SkinningMatrix>;
 
-//===== ‘O•ûéŒ¾ =====
+//===== å‰æ–¹å®£è¨€ =====
 
 
-//===== ƒNƒ‰ƒX’è‹` =====
+//===== ã‚¯ãƒ©ã‚¹å®šç¾© =====
 class CModel : public CComponent
 {
 public:
@@ -55,33 +55,33 @@ public:
 
 	void SetBlendMode(BlendMode mode) { m_BlendMode = mode; }
 
-	//”Âƒ|ƒŠ‚Æ‚©‚È‚çA‚±‚ê‚ğg‚¤
-	//LoadModel(‚±‚Á‚¿‚Ì•û‚ª‚¢‚¢‚©‚à)
+	//æ¿ãƒãƒªã¨ã‹ãªã‚‰ã€ã“ã‚Œã‚’ä½¿ã†
+	//LoadModel(ã“ã£ã¡ã®æ–¹ãŒã„ã„ã‹ã‚‚)
 	//void RegisterMesh(UINT _MatIdx, Primitive _Primitive);
 	
-	//ˆê’U—§•û‘Ì‚ªƒfƒtƒHƒ‹ƒg
-	//’¸“_î•ñAƒCƒ“ƒfƒbƒNƒXî•ñ‚à“n‚¹‚é‚æ‚¤‚É‚È‚é‚ÆƒOƒbƒh
+	//ä¸€æ—¦ç«‹æ–¹ä½“ãŒãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ
+	//é ‚ç‚¹æƒ…å ±ã€ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹æƒ…å ±ã‚‚æ¸¡ã›ã‚‹ã‚ˆã†ã«ãªã‚‹ã¨ã‚°ãƒƒãƒ‰
 	void RegisterMesh(UINT _MatIdx);
 	void RegisterMesh(UINT _MatIdx, const MeshVertex* vertices, size_t vertexCount,
 		const uint32_t* indices, size_t indexCount);
 
-	//’¸“_î•ñAƒCƒ“ƒfƒbƒNƒXî•ñ‚ÌƒZƒbƒg
+	//é ‚ç‚¹æƒ…å ±ã€ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹æƒ…å ±ã®ã‚»ãƒƒãƒˆ
 	
 	UINT RegisterMatarial(wstring _FilePath,DirectX::XMFLOAT4 _Color);
 
 	void CalculateRecursive(int index);
 
-	//ƒ{[ƒ“‚ÌXV
+	//ãƒœãƒ¼ãƒ³ã®æ›´æ–°
 	void UpdateBones();
 
 
 	void CreateTmpBoneData();
 
 	void CreateBoneBuffer();
-	void UpdateBoneBuffer();    // CPU¨GPU‚Ö‚Ì“]‘—
+	void UpdateBoneBuffer();    // CPUâ†’GPUã¸ã®è»¢é€
 
 
-	//Model‚Ìƒ[ƒh
+	//Modelã®ãƒ­ãƒ¼ãƒ‰
 	void ModelLoad(std::string _Path);
 
 	void CopyFrom(const std::shared_ptr<CModel>& other)
@@ -106,6 +106,9 @@ public:
 		m_SkinningMatrices = other->m_SkinningMatrices;
 		m_BoneBuffer = other->m_BoneBuffer;
 		m_BoneSrvGpuHandle = other->m_BoneSrvGpuHandle;
+        
+        m_Animations = other->m_Animations;
+        m_SkinJoints = other->m_SkinJoints;
 	}
 
 	void SetMaterialTexture(const std::wstring& texturePath, UINT materialIndex = 0)
@@ -116,12 +119,21 @@ public:
 		}
 	}
 
+	void PlayAnimation(int index) {
+		if (index >= 0 && index < m_Animations.size()) {
+			m_currentAnimationIndex = index;
+			m_animationTime = 0.0f;
+		}
+	}
+
+	void UpdateAnimation(float deltaTime);
+
 private:
 	//Mesh
-	//ˆê’UMesh1‚Â‚¾‚¯
+	//ä¸€æ—¦Mesh1ã¤ã ã‘
 	Meshes m_Meshes;
 
-	// ŠeƒƒbƒVƒ…‚ªg‚¤ƒ}ƒeƒŠƒAƒ‹‚ÌƒCƒ“ƒfƒbƒNƒX
+	// å„ãƒ¡ãƒƒã‚·ãƒ¥ãŒä½¿ã†ãƒãƒ†ãƒªã‚¢ãƒ«ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
 	std::vector<UINT> m_MeshMaterialIndices;
 
 	BlendMode m_BlendMode = BlendMode::Opaque;
@@ -139,5 +151,9 @@ private:
 	D3D12_GPU_DESCRIPTOR_HANDLE m_BoneSrvGpuHandle{};
 	UINT m_boneSrvIndex = 0;
 
+	std::vector<AnimationData> m_Animations;
+	std::vector<int> m_SkinJoints;
+	int m_currentAnimationIndex = -1;
+	float m_animationTime = 0.0f;
 };
 

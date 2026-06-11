@@ -12,43 +12,43 @@
 
 #include "gltfLoader.h"
 
-//\‘¢‘Ìî•ñ
+//æ§‹é€ ä½“æƒ…å ±
 #include "ModelData.h"
 
 
 
-//“Ç‚İ‚İ¬Œ÷‚µ‚½‚Á‚Û‚¢
+//èª­ã¿è¾¼ã¿æˆåŠŸã—ãŸã£ã½ã„
 LoadedModelData TestLoadGLTF(std::string _fileName)
 {
 
-    //----- •Ï”éŒ¾ -----
-    // GLTFŠÖ˜A
-    //< ƒ[ƒh‚É•K—v‚È‚à‚Ì >
-    tinygltf::TinyGLTF loader;  //ƒRƒ“ƒeƒLƒXƒg
-    tinygltf::Model model;      //“Ç‚İ‚ñ‚¾ƒf[ƒ^‚ğŠi”[
+    //----- å¤‰æ•°å®£è¨€ -----
+    // GLTFé–¢é€£
+    //< ãƒ­ãƒ¼ãƒ‰ã«å¿…è¦ãªã‚‚ã® >
+    tinygltf::TinyGLTF loader;  //ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
+    tinygltf::Model model;      //èª­ã¿è¾¼ã‚“ã ãƒ‡ãƒ¼ã‚¿ã‚’æ ¼ç´
 
-    //< ƒGƒ‰[ƒ`ƒFƒbƒN—p >
+    //< ã‚¨ãƒ©ãƒ¼ãƒã‚§ãƒƒã‚¯ç”¨ >
     bool loadResult;
     std::string warn;
     std::string err;
 
-    //< ƒtƒ@ƒCƒ‹–¼ >
-    //“Ç‚İ‚½‚¢ glb/gltf ƒtƒ@ƒCƒ‹–¼
+    //< ãƒ•ã‚¡ã‚¤ãƒ«å >
+    //èª­ã¿ãŸã„ glb/gltf ãƒ•ã‚¡ã‚¤ãƒ«å
     std::string filename = _fileName;
     //std::string filename = "Assets/Model/OffensiveIdle.glb";
     //std::string filename = "Assets/Model/cube.glb";
 
 
 
-    //ƒ‚ƒfƒ‹‚Ìî•ñ
+    //ãƒ¢ãƒ‡ãƒ«ã®æƒ…å ±
 	LoadedModelData loadedModelData;
 
 
-    //----- •Ï”‚Ì‰Šú‰» -----
+    //----- å¤‰æ•°ã®åˆæœŸåŒ– -----
     loadResult = false;
 
 
-	//----- “Ç‚İ‚İ -----
+	//----- èª­ã¿è¾¼ã¿ -----
     if (filename.ends_with(".glb")) {
         loadResult = loader.LoadBinaryFromFile(&model, &err, &warn, filename);
     }
@@ -56,7 +56,7 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
         loadResult = loader.LoadASCIIFromFile(&model, &err, &warn, filename);
     }
 
-	//----- “Ç‚İ‚İ¸”s -----
+	//----- èª­ã¿è¾¼ã¿å¤±æ•— -----
     if (!warn.empty()) {
         std::cout << "Warn: " << warn << std::endl;
     }
@@ -70,10 +70,10 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
         //return ;
     }
 
-	//----- “Ç‚İ‚İ¬Œ÷ -----
+	//----- èª­ã¿è¾¼ã¿æˆåŠŸ -----
     std::cout << "Success! Loaded: " << filename << std::endl;
 
-    //----- ƒfƒoƒbƒOƒeƒXƒg -----
+    //----- ãƒ‡ãƒãƒƒã‚°ãƒ†ã‚¹ãƒˆ -----
     std::cout << "Meshes:   " << model.meshes.size() << std::endl;
     std::cout << "Nodes:    " << model.nodes.size() << std::endl;
     std::cout << "Buffers:  " << model.buffers.size() << std::endl;
@@ -81,132 +81,114 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
     std::cout << "Anims:    " << model.animations.size() << std::endl;
 
 
-	//----- ƒƒbƒVƒ…ƒf[ƒ^‚ğæ“¾‚·‚é -----
-	for (const auto& mesh : model.meshes) // ƒƒbƒVƒ…‚²‚Æ‚Éƒ‹[ƒv
+	//----- ãƒ¡ãƒƒã‚·ãƒ¥ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹ -----
+	for (const auto& mesh : model.meshes) // ãƒ¡ãƒƒã‚·ãƒ¥ã”ã¨ã«ãƒ«ãƒ¼ãƒ—
     {
     
-		//== •Ï”éŒ¾ ==
-        //GLTF‚ÍMesh -> Primitive‚Ì\‘¢
-        //Primitive‚ğƒƒbƒVƒ…‚Æ‚µ‚Äæ‚è‚Ş‚Ì‚ÅAƒx[ƒX‚É‚È‚é‚à‚Ì‚ğéŒ¾‚µ‚Ä‚¨‚­
-        std::string meshName;   //ƒƒbƒVƒ…‚Ì–¼‘O
-        int PrimitiveNum;       //ƒvƒŠƒ~ƒeƒBƒu‚ÌƒCƒ“ƒfƒbƒNƒX
+		//== å¤‰æ•°å®£è¨€ ==
+        //GLTFã¯Mesh -> Primitiveã®æ§‹é€ 
+        //Primitiveã‚’ãƒ¡ãƒƒã‚·ãƒ¥ã¨ã—ã¦å–ã‚Šè¾¼ã‚€ã®ã§ã€ãƒ™ãƒ¼ã‚¹ã«ãªã‚‹ã‚‚ã®ã‚’å®£è¨€ã—ã¦ãŠã
+        std::string meshName;   //ãƒ¡ãƒƒã‚·ãƒ¥ã®åå‰
+        int PrimitiveNum;       //ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
 
-        //== •Ï”‚Ì‰Šú‰» ==
-        meshName = mesh.name;   //–¼‘O‚ğæ“¾
+        //== å¤‰æ•°ã®åˆæœŸåŒ– ==
+        meshName = mesh.name;   //åå‰ã‚’å–å¾—
         PrimitiveNum = 0;       
 
 
-		//== ’¸“_ƒf[ƒ^‚Ìæ“¾ ==
-		// ƒƒbƒVƒ…‚ÌƒvƒŠƒ~ƒeƒBƒu‚²‚Æ‚Éƒ‹[ƒv
+		//== é ‚ç‚¹ãƒ‡ãƒ¼ã‚¿ã®å–å¾— ==
+		// ãƒ¡ãƒƒã‚·ãƒ¥ã®ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–ã”ã¨ã«ãƒ«ãƒ¼ãƒ—
         for (const auto& primitive : mesh.primitives) 
         {
-            //== •Ï”éŒ¾ ==
+            //== å¤‰æ•°å®£è¨€ ==
             std::string primitiveName;
-            MeshData meshData;                  //ƒƒbƒVƒ…‚Ìî•ñ
-            std::vector<MeshVertex> vertices;   //’¸“_ƒf[ƒ^‚ÌVector
+            MeshData meshData;                  //ãƒ¡ãƒƒã‚·ãƒ¥ã®æƒ…å ±
+            std::vector<MeshVertex> vertices;   //é ‚ç‚¹ãƒ‡ãƒ¼ã‚¿ã®Vector
 
-            // ’¸“_‘®«‚ğæ“¾
+            // é ‚ç‚¹å±æ€§ã‚’å–å¾—
             const auto& attributes = primitive.attributes;        
 
-            //’¸“_”‚ğæ“¾
+            //é ‚ç‚¹æ•°ã‚’å–å¾—
             const tinygltf::Accessor& posAccessor = model.accessors[attributes.at("POSITION")];
             size_t VertexCount = posAccessor.count;
 
 
-			//----- Vector‚Ì€”õ -----
-            //Vector?ƒTƒCƒY‚ğ’¼‚·
-            vertices.resize(VertexCount);       //Resize‚ğ‚µ‚Ä‚¨‚­
+			//----- Vectorã®æº–å‚™ -----
+            //Vector?ã‚µã‚¤ã‚ºã‚’ç›´ã™
+            vertices.resize(VertexCount);       //Resizeã‚’ã—ã¦ãŠã
 
-            // ƒSƒ~ƒf[ƒ^‚ª“ü‚é‚Ì‚ğ–h‚®‚½‚ßAƒ{[ƒ“î•ñ‚ÆƒEƒFƒCƒg‚ğ‰Šú‰»
+            // ã‚´ãƒŸãƒ‡ãƒ¼ã‚¿ãŒå…¥ã‚‹ã®ã‚’é˜²ããŸã‚ã€ãƒœãƒ¼ãƒ³æƒ…å ±ã¨ã‚¦ã‚§ã‚¤ãƒˆã‚’åˆæœŸåŒ–
             for (size_t i = 0; i < VertexCount; i++)
             {
                 vertices[i].boneIndices[0] = 0;
                 vertices[i].boneIndices[1] = 0;
                 vertices[i].boneIndices[2] = 0;
                 vertices[i].boneIndices[3] = 0;
-                vertices[i].boneWeights[0] = 1.0f; // Å‰‚Ìƒ{[ƒ“‚ÉƒEƒFƒCƒg100%
+                vertices[i].boneWeights[0] = 1.0f; // æœ€åˆã®ãƒœãƒ¼ãƒ³ã«ã‚¦ã‚§ã‚¤ãƒˆ100%
                 vertices[i].boneWeights[1] = 0.0f;
                 vertices[i].boneWeights[2] = 0.0f;
                 vertices[i].boneWeights[3] = 0.0f;
             }
 
-            //== vertices‚Éƒf[ƒ^‚ğ“ü‚ê‚é ==
+            //== verticesã«ãƒ‡ãƒ¼ã‚¿ã‚’å…¥ã‚Œã‚‹ ==
             
-            //----- ˆÊ’uƒf[ƒ^‚ğæ“¾ -----
+            //----- POSITION -----
             if (attributes.find("POSITION") != attributes.end()) 
             {
-                //TODO:Šeî•ñ‚ğ—‰ğ‚·‚é
-
-				//’¸“_‘®«‚©‚çƒAƒNƒZƒT[‚ğæ“¾
                 const tinygltf::Accessor& accessor = model.accessors[attributes.at("POSITION")];
                 const tinygltf::BufferView& bufferView = model.bufferViews[accessor.bufferView];
                 const tinygltf::Buffer& buffer = model.buffers[bufferView.buffer];
 
+                const unsigned char* dataPtr = &buffer.data[bufferView.byteOffset + accessor.byteOffset];
+                size_t stride = accessor.ByteStride(bufferView);
 
-				//----- ’¸“_ƒf[ƒ^‚Ìæ“¾ -----
-                // ƒoƒbƒtƒ@‚©‚ç’¸“_ƒf[ƒ^‚ğ“Ç‚İæ‚é
-                //float3”z—ñ‚É•ÏŠ·
-				//x,y,z‚Ì‡”Ô‚ÅŠi”[‚³‚ê‚é
-                const float* vertexData = reinterpret_cast<const float*>(&buffer.data[bufferView.byteOffset + accessor.byteOffset]);
-
-				//’¸“_ƒf[ƒ^‚Ì—á: ˆÊ’uƒf[ƒ^‚ğfloat3”z—ñ‚Æ‚µ‚Äæ“¾
-                const float* positions =
-                    reinterpret_cast<const float*>(
-                        &buffer.data[bufferView.byteOffset + accessor.byteOffset]
-                        );
-
-
-				//----- ’¸“_ƒf[ƒ^‚ÌŠi”[ -----
-
-				//’¸“_ƒf[ƒ^‚ğMeshVertex\‘¢‘Ì‚ÌVector‚ÉŠi”[
                 for (size_t i = 0; i < VertexCount; i++)
                 {
-                    vertices[i].position[0] = positions[i * 3 + 0];
-                    vertices[i].position[1] = positions[i * 3 + 1];
-                    vertices[i].position[2] = positions[i * 3 + 2];
+                    const float* pos = reinterpret_cast<const float*>(dataPtr + i * stride);
+                    vertices[i].position[0] = pos[0];
+                    vertices[i].position[1] = pos[1];
+                    vertices[i].position[2] = pos[2];
                 }
-
             }
 
-			//----- –@üƒf[ƒ^‚ğæ“¾ -----
+			//----- NORMAL -----
             if (attributes.find("NORMAL") != attributes.end())
             {
                 const tinygltf::Accessor& accessor = model.accessors[attributes.at("NORMAL")];
                 const tinygltf::BufferView& bufferView = model.bufferViews[accessor.bufferView];
                 const tinygltf::Buffer& buffer = model.buffers[bufferView.buffer];
 
-                const float* normals =
-                    reinterpret_cast<const float*>(
-                        &buffer.data[bufferView.byteOffset + accessor.byteOffset]
-                        );
+                const unsigned char* dataPtr = &buffer.data[bufferView.byteOffset + accessor.byteOffset];
+                size_t stride = accessor.ByteStride(bufferView);
 
                 for (size_t i = 0; i < VertexCount; i++)
                 {
-                    vertices[i].normal[0] = normals[i * 3 + 0];
-                    vertices[i].normal[1] = normals[i * 3 + 1];
-                    vertices[i].normal[2] = normals[i * 3 + 2];
+                    const float* norm = reinterpret_cast<const float*>(dataPtr + i * stride);
+                    vertices[i].normal[0] = norm[0];
+                    vertices[i].normal[1] = norm[1];
+                    vertices[i].normal[2] = norm[2];
                 }
-
             }
 
-			//----- UVƒf[ƒ^‚ğæ“¾ -----
+			//----- TEXCOORD_0 -----
             if (attributes.find("TEXCOORD_0") != attributes.end())
             {
                 const tinygltf::Accessor& accessor = model.accessors[attributes.at("TEXCOORD_0")];
                 const tinygltf::BufferView& bufferView = model.bufferViews[accessor.bufferView];
                 const tinygltf::Buffer& buffer = model.buffers[bufferView.buffer];
-                const float* uvs =
-                    reinterpret_cast<const float*>(
-                        &buffer.data[bufferView.byteOffset + accessor.byteOffset]
-                        );
+
+                const unsigned char* dataPtr = &buffer.data[bufferView.byteOffset + accessor.byteOffset];
+                size_t stride = accessor.ByteStride(bufferView);
+
                 for (size_t i = 0; i < VertexCount; i++)
                 {
-                    vertices[i].uv[0] = uvs[i * 2 + 0];
-                    vertices[i].uv[1] = uvs[i * 2 + 1];
+                    const float* uv = reinterpret_cast<const float*>(dataPtr + i * stride);
+                    vertices[i].uv[0] = uv[0];
+                    vertices[i].uv[1] = uv[1];
                 }
             }
 
-            //----- ƒ{[ƒ“‚Ìî•ñ -----
+            //----- JOINTS_0 -----
             if (attributes.find("JOINTS_0") != attributes.end())
             {
                 const tinygltf::Accessor& accessor = model.accessors[attributes.at("JOINTS_0")];
@@ -214,37 +196,33 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
                 const tinygltf::Buffer& buffer = model.buffers[bufferView.buffer];
 
                 const unsigned char* dataPtr = &buffer.data[bufferView.byteOffset + accessor.byteOffset];
+                size_t stride = accessor.ByteStride(bufferView);
 
-                // gLTF‚Ìƒ{[ƒ“ƒCƒ“ƒfƒbƒNƒX‚ÌŒ^‚²‚Æ‚Éˆ—‚ğ•ª‚¯‚é
-                if (accessor.componentType == TINYGLTF_COMPONENT_TYPE_UNSIGNED_SHORT) // 5123 (16bit)
+                if (accessor.componentType == TINYGLTF_COMPONENT_TYPE_UNSIGNED_SHORT) // 5123
                 {
-                    const uint16_t* joints = reinterpret_cast<const uint16_t*>(dataPtr);
                     for (size_t i = 0; i < VertexCount; i++)
                     {
-                        vertices[i].boneIndices[0] = static_cast<uint32_t>(joints[i * 4 + 0]);
-                        vertices[i].boneIndices[1] = static_cast<uint32_t>(joints[i * 4 + 1]);
-                        vertices[i].boneIndices[2] = static_cast<uint32_t>(joints[i * 4 + 2]);
-                        vertices[i].boneIndices[3] = static_cast<uint32_t>(joints[i * 4 + 3]);
+                        const uint16_t* joints = reinterpret_cast<const uint16_t*>(dataPtr + i * stride);
+                        vertices[i].boneIndices[0] = static_cast<uint32_t>(joints[0]);
+                        vertices[i].boneIndices[1] = static_cast<uint32_t>(joints[1]);
+                        vertices[i].boneIndices[2] = static_cast<uint32_t>(joints[2]);
+                        vertices[i].boneIndices[3] = static_cast<uint32_t>(joints[3]);
                     }
                 }
-                else if (accessor.componentType == TINYGLTF_COMPONENT_TYPE_UNSIGNED_BYTE) // 5121 (8bit) ??’´‰ö‚µ‚¢I
+                else if (accessor.componentType == TINYGLTF_COMPONENT_TYPE_UNSIGNED_BYTE) // 5121
                 {
-                    const uint8_t* joints = reinterpret_cast<const uint8_t*>(dataPtr);
                     for (size_t i = 0; i < VertexCount; i++)
                     {
-                        vertices[i].boneIndices[0] = static_cast<uint32_t>(joints[i * 4 + 0]);
-                        vertices[i].boneIndices[1] = static_cast<uint32_t>(joints[i * 4 + 1]);
-                        vertices[i].boneIndices[2] = static_cast<uint32_t>(joints[i * 4 + 2]);
-                        vertices[i].boneIndices[3] = static_cast<uint32_t>(joints[i * 4 + 3]);
+                        const uint8_t* joints = reinterpret_cast<const uint8_t*>(dataPtr + i * stride);
+                        vertices[i].boneIndices[0] = static_cast<uint32_t>(joints[0]);
+                        vertices[i].boneIndices[1] = static_cast<uint32_t>(joints[1]);
+                        vertices[i].boneIndices[2] = static_cast<uint32_t>(joints[2]);
+                        vertices[i].boneIndices[3] = static_cast<uint32_t>(joints[3]);
                     }
-                }
-                else
-                {
-                    std::cerr << "Unsupported JOINTS component type!\n";
                 }
             }
 
-            //----- ƒEƒGƒCƒg -----
+            //----- WEIGHTS_0 -----
             if (attributes.find("WEIGHTS_0") != attributes.end())
             {
                 const tinygltf::Accessor& accessor = model.accessors[attributes.at("WEIGHTS_0")];
@@ -252,38 +230,39 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
                 const tinygltf::Buffer& buffer = model.buffers[bufferView.buffer];
 
                 const unsigned char* dataPtr = &buffer.data[bufferView.byteOffset + accessor.byteOffset];
+                size_t stride = accessor.ByteStride(bufferView);
 
                 if (accessor.componentType == TINYGLTF_COMPONENT_TYPE_FLOAT) // 5126
                 {
-                    const float* weights = reinterpret_cast<const float*>(dataPtr);
                     for (size_t i = 0; i < VertexCount; i++)
                     {
-                        vertices[i].boneWeights[0] = weights[i * 4 + 0];
-                        vertices[i].boneWeights[1] = weights[i * 4 + 1];
-                        vertices[i].boneWeights[2] = weights[i * 4 + 2];
-                        vertices[i].boneWeights[3] = weights[i * 4 + 3];
+                        const float* weights = reinterpret_cast<const float*>(dataPtr + i * stride);
+                        vertices[i].boneWeights[0] = weights[0];
+                        vertices[i].boneWeights[1] = weights[1];
+                        vertices[i].boneWeights[2] = weights[2];
+                        vertices[i].boneWeights[3] = weights[3];
                     }
                 }
                 else if (accessor.componentType == TINYGLTF_COMPONENT_TYPE_UNSIGNED_SHORT) // 5123
                 {
-                    const uint16_t* weights = reinterpret_cast<const uint16_t*>(dataPtr);
                     for (size_t i = 0; i < VertexCount; i++)
                     {
-                        vertices[i].boneWeights[0] = static_cast<float>(weights[i * 4 + 0]) / 65535.0f;
-                        vertices[i].boneWeights[1] = static_cast<float>(weights[i * 4 + 1]) / 65535.0f;
-                        vertices[i].boneWeights[2] = static_cast<float>(weights[i * 4 + 2]) / 65535.0f;
-                        vertices[i].boneWeights[3] = static_cast<float>(weights[i * 4 + 3]) / 65535.0f;
+                        const uint16_t* weights = reinterpret_cast<const uint16_t*>(dataPtr + i * stride);
+                        vertices[i].boneWeights[0] = static_cast<float>(weights[0]) / 65535.0f;
+                        vertices[i].boneWeights[1] = static_cast<float>(weights[1]) / 65535.0f;
+                        vertices[i].boneWeights[2] = static_cast<float>(weights[2]) / 65535.0f;
+                        vertices[i].boneWeights[3] = static_cast<float>(weights[3]) / 65535.0f;
                     }
                 }
                 else if (accessor.componentType == TINYGLTF_COMPONENT_TYPE_UNSIGNED_BYTE) // 5121
                 {
-                    const uint8_t* weights = reinterpret_cast<const uint8_t*>(dataPtr);
                     for (size_t i = 0; i < VertexCount; i++)
                     {
-                        vertices[i].boneWeights[0] = static_cast<float>(weights[i * 4 + 0]) / 255.0f;
-                        vertices[i].boneWeights[1] = static_cast<float>(weights[i * 4 + 1]) / 255.0f;
-                        vertices[i].boneWeights[2] = static_cast<float>(weights[i * 4 + 2]) / 255.0f;
-                        vertices[i].boneWeights[3] = static_cast<float>(weights[i * 4 + 3]) / 255.0f;
+                        const uint8_t* weights = reinterpret_cast<const uint8_t*>(dataPtr + i * stride);
+                        vertices[i].boneWeights[0] = static_cast<float>(weights[0]) / 255.0f;
+                        vertices[i].boneWeights[1] = static_cast<float>(weights[1]) / 255.0f;
+                        vertices[i].boneWeights[2] = static_cast<float>(weights[2]) / 255.0f;
+                        vertices[i].boneWeights[3] = static_cast<float>(weights[3]) / 255.0f;
                     }
                 }
                 else
@@ -292,25 +271,25 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
                 }
             }
 
-            //----- ƒ}ƒeƒŠƒAƒ‹‚Ìî•ñ -----
+            //----- ãƒãƒ†ãƒªã‚¢ãƒ«ã®æƒ…å ± -----
             int materialIndex = primitive.material;
             meshData.materialIndex = materialIndex;
 
 
-            //–¼‘O‚ğ“ü‚ê‚é
+            //åå‰ã‚’å…¥ã‚Œã‚‹
             primitiveName = meshName;
             primitiveName += "_Primitive";
             primitiveName += std::to_string(PrimitiveNum);
 
             meshData.name = primitiveName;
 
-            //vertices‚Ìvector‚ğŠi”[‚·‚é
+            //verticesã®vectorã‚’æ ¼ç´ã™ã‚‹
             meshData.vertices = vertices;
 
 
 
 
-            //== Index‚Ìî•ñ‚ğ“Ç‚İæ‚é
+            //== Indexã®æƒ…å ±ã‚’èª­ã¿å–ã‚‹
             std::vector<uint32_t> indices;
 
             if (primitive.indices < 0) {
@@ -323,7 +302,7 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
 
             const unsigned char* dataPtr = buffer.data.data() + bufferView.byteOffset + accessor.byteOffset;
 
-            // componentType ‚É‚æ‚Á‚Ä“Ç‚İ•û‚ª•Ï‚í‚é
+            // componentType ã«ã‚ˆã£ã¦èª­ã¿æ–¹ãŒå¤‰ã‚ã‚‹
             switch (accessor.componentType)
             {
             case TINYGLTF_COMPONENT_TYPE_UNSIGNED_SHORT:
@@ -355,29 +334,29 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
                 break;
             }
 
-            // “Ç‚İ‚ñ‚¾ indices ‚ğŠi”[
+            // èª­ã¿è¾¼ã‚“ã  indices ã‚’æ ¼ç´
             meshData.indices.assign(std::begin(indices), std::end(indices));
 
 
-            //loadModelData‚ÉŠi”[
+            //loadModelDataã«æ ¼ç´
             loadedModelData.meshes.push_back(meshData);
     
 
 
-            //Primitive‚ÌƒCƒ“ƒfƒbƒNƒX‚ÌƒJƒEƒ“ƒg
+            //Primitiveã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã®ã‚«ã‚¦ãƒ³ãƒˆ
             PrimitiveNum++;
         }
 	}
 
-    //----- ƒ}ƒeƒŠƒAƒ‹‚Ìƒf[ƒ^‚Ìæ“¾ -----
-    for (const auto& material : model.materials)//ƒ}ƒeƒŠƒAƒ‹‚²‚Æ‚ÉÀs
+    //----- ãƒãƒ†ãƒªã‚¢ãƒ«ã®ãƒ‡ãƒ¼ã‚¿ã®å–å¾— -----
+    for (const auto& material : model.materials)//ãƒãƒ†ãƒªã‚¢ãƒ«ã”ã¨ã«å®Ÿè¡Œ
     {
         MaterialData materialData;
 
-        // –¼‘O
+        // åå‰
         materialData.name = material.name;
 
-        // PBR ƒƒCƒ“î•ñ
+        // PBR ãƒ¡ã‚¤ãƒ³æƒ…å ±
         const auto& pbr = material.pbrMetallicRoughness;
 
         // BaseColorFactor
@@ -404,7 +383,7 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
             if (tex.source >= 0)
             {
                 const tinygltf::Image& image = model.images[tex.source];
-                materialData.baseColorTexturePath = image.uri;     // ‰æ‘œƒtƒ@ƒCƒ‹–¼
+                materialData.baseColorTexturePath = image.uri;     // ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«å
             }
         }
 
@@ -422,22 +401,22 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
             }
         }
 
-        // LoadedModelData ‚É’Ç‰Á
+        // LoadedModelData ã«è¿½åŠ 
         loadedModelData.materials.push_back(materialData);
     }
 
-    //----- ƒm[ƒh‚Ìƒf[ƒ^‚Ìæ“¾ -----
+    //----- ãƒãƒ¼ãƒ‰ã®ãƒ‡ãƒ¼ã‚¿ã®å–å¾— -----
     for (const auto& node : model.nodes)
     {
         NodeData nodeData;
 
-        //--- –¼‘O ---
+        //--- åå‰ ---
         nodeData.name = node.name;
 
-        //--- ƒƒbƒVƒ…QÆ ---
-        nodeData.meshIndex = node.mesh;  // -1 ‚Ìê‡‚Í mesh ‚È‚µ
+        //--- ãƒ¡ãƒƒã‚·ãƒ¥å‚ç…§ ---
+        nodeData.meshIndex = node.mesh;  // -1 ã®å ´åˆã¯ mesh ãªã—
 
-        //--- qƒm[ƒh ---
+        //--- å­ãƒãƒ¼ãƒ‰ ---
         nodeData.children = node.children;
 
         //--- TRS or Matrix ---
@@ -464,7 +443,7 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
             nodeData.scale[2] = node.scale[2];
         }
 
-        // Matrixi4x4s—ñj
+        // Matrixï¼ˆ4x4è¡Œåˆ—ï¼‰
         if (!node.matrix.empty()) 
         {
             for (int i = 0; i < 16; i++) {
@@ -473,28 +452,28 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
         }
         else 
         {
-            // TRS ¨ s—ñ•ÏŠ·‚ª•K—v‚È‚ç‚±‚±‚Å‚·‚é
-            // ¡‚ÍÈ—ª‰Â”\
+            // TRS â†’ è¡Œåˆ—å¤‰æ›ãŒå¿…è¦ãªã‚‰ã“ã“ã§ã™ã‚‹
+            // ä»Šã¯çœç•¥å¯èƒ½
         }
 
-        //--- Skin indexiƒXƒPƒ‹ƒgƒ“j ---
+        //--- Skin indexï¼ˆã‚¹ã‚±ãƒ«ãƒˆãƒ³ï¼‰ ---
         nodeData.skinIndex = node.skin;
 
-        //¨ LoadedModelData ‚É’Ç‰Á
+        //â†’ LoadedModelData ã«è¿½åŠ 
         loadedModelData.nodes.push_back(nodeData);
     }
 
-    //----- ƒXƒLƒ“‚Ìƒf[ƒ^‚Ìæ“¾ -----
+    //----- ã‚¹ã‚­ãƒ³ã®ãƒ‡ãƒ¼ã‚¿ã®å–å¾— -----
     for (const auto& skin : model.skins)
     {
         SkinData skinData;
 
-        //joints‚ğ“ü‚ê‚é
+        //jointsã‚’å…¥ã‚Œã‚‹
         skinData.joints = skin.joints;
 
         //
         if (skin.inverseBindMatrices >= 0) {
-            // bufferView ‚©‚ç inverseBindMatrices ‚ğ“Ç‚Ş
+            // bufferView ã‹ã‚‰ inverseBindMatrices ã‚’èª­ã‚€
             const tinygltf::Accessor& accessor = model.accessors[skin.inverseBindMatrices];
             const tinygltf::BufferView& bufferView = model.bufferViews[accessor.bufferView];
             const tinygltf::Buffer& buffer = model.buffers[bufferView.buffer];
@@ -507,7 +486,7 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
             for (size_t i = 0; i < count; ++i) {
                 const float* m = reinterpret_cast<const float*>(dataPtr + accessor.ByteStride(bufferView) * i);
 
-                // glTF ‚Í—ñ—Dæ(column-major)
+                // glTF ã¯åˆ—å„ªå…ˆ(column-major)
                 DirectX::XMFLOAT4X4 mat;
                 memcpy(&mat, m, sizeof(float) * 16);
 
@@ -540,12 +519,30 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
             const tinygltf::Accessor& outputAccessor = model.accessors[sampler.output];
             const tinygltf::BufferView& outputView = model.bufferViews[outputAccessor.bufferView];
             const tinygltf::Buffer& outputBuffer = model.buffers[outputView.buffer];
-            const float* values = reinterpret_cast<const float*>(&outputBuffer.data[outputView.byteOffset + outputAccessor.byteOffset]);
+            const unsigned char* outputDataPtr = &outputBuffer.data[outputView.byteOffset + outputAccessor.byteOffset];
             int numComponents = tinygltf::GetNumComponentsInType(outputAccessor.type);
+            size_t stride = outputAccessor.ByteStride(outputView);
+            
             for(size_t i=0; i<outputAccessor.count; ++i) {
                 std::vector<float> val(numComponents);
+                const unsigned char* currentData = outputDataPtr + i * stride;
+                
                 for(int j=0; j<numComponents; ++j) {
-                    val[j] = values[i * numComponents + j];
+                    if (outputAccessor.componentType == TINYGLTF_COMPONENT_TYPE_FLOAT) {
+                        val[j] = reinterpret_cast<const float*>(currentData)[j];
+                    }
+                    else if (outputAccessor.componentType == TINYGLTF_COMPONENT_TYPE_BYTE) {
+                        val[j] = std::max(reinterpret_cast<const int8_t*>(currentData)[j] / 127.0f, -1.0f);
+                    }
+                    else if (outputAccessor.componentType == TINYGLTF_COMPONENT_TYPE_UNSIGNED_BYTE) {
+                        val[j] = reinterpret_cast<const uint8_t*>(currentData)[j] / 255.0f;
+                    }
+                    else if (outputAccessor.componentType == TINYGLTF_COMPONENT_TYPE_SHORT) {
+                        val[j] = std::max(reinterpret_cast<const int16_t*>(currentData)[j] / 32767.0f, -1.0f);
+                    }
+                    else if (outputAccessor.componentType == TINYGLTF_COMPONENT_TYPE_UNSIGNED_SHORT) {
+                        val[j] = reinterpret_cast<const uint16_t*>(currentData)[j] / 65535.0f;
+                    }
                 }
                 samplerData.output.push_back(val);
             }
@@ -575,6 +572,6 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
     }
     OutputDebugString("");
 
-    //’l‚ğ•Ô‚·
+    //å€¤ã‚’è¿”ã™
     return loadedModelData;
 }

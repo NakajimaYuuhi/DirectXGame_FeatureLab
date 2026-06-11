@@ -1,5 +1,5 @@
 #include "Enemy.h"
-//===== ƒCƒ“ƒNƒ‹[ƒh=====
+//===== ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰=====
 
 
 #include "ObjectInfo.h"
@@ -27,23 +27,24 @@
 Enemy::Enemy(String _Name)
 	:C3D_Object(_Name)
 {
-	//----- ƒ^ƒO -----
+	//----- ã‚¿ã‚° -----
 	CObjectInfo* objectInfo = GetComponent<CObjectInfo>();
 	objectInfo->SetObjectTag(ObjectTag::ENEMY);
 
 
 	//----- Model -----
-	//ƒ‚ƒ`E  ‚ÌƒpƒX‚Ì‰Šú–æE
+	//ãƒ¢ãƒE  ã®ãƒ‘ã‚¹ã®åˆæœŸåŒE
 	ModelPath = "Assets/Model/OffensiveIdle.glb";
 
-	//ƒXƒe[ƒW‚Åg‚¤ƒ‚ƒfƒ‹‚ğˆê——‚É‚µ‚Ä‚Ç‚±‚©‚Åƒ[ƒh‚µ‚Ä‚¨‚­‚Æ‚¢‚¢‚©‚à
-	//ƒ‚ƒ`E  ‚Ìƒ[ƒ`E
+	//ã‚¹ãƒ†ãƒ¼ã‚¸ã§ä½¿ã†ãƒ¢ãƒ‡ãƒ«ã‚’ä¸€è¦§ã«ã—ã¦ã©ã“ã‹ã§ãƒ­ãƒ¼ãƒ‰ã—ã¦ãŠãã¨ã„ã„ã‹ã‚‚
+	//ãƒ¢ãƒE  ã®ãƒ­ãƒ¼ãƒE
 	CModel* model = GetComponent<CModel>();
 
 
 	auto sharedModel = ModelManager::GetInstance().GetModel(ModelPath);
 
 	model->CopyFrom(sharedModel);
+    model->PlayAnimation(0);
 
 	BoxCollider3D* collider = AddComponent<BoxCollider3D>();
 	collider->SetOffset({ 0.0f, 1.0f, 0.0f });
@@ -53,32 +54,33 @@ Enemy::Enemy(String _Name)
 
 void Enemy::Update()
 {
-
-
-
+    CModel* model = GetComponent<CModel>();
+    if (model) {
+        model->UpdateAnimation(0.016f); // ~60 FPS
+    }
 }
 
 void Enemy::OnCollision(CObject* _Other)
 {
-	//Õ“Ë‚µ‚½‘Šè‚ªBullet‚¾‚Á‚½‚çÁ‚¦‚é
+	//è¡çªã—ãŸç›¸æ‰‹ãŒBulletã ã£ãŸã‚‰æ¶ˆãˆã‚‹
 	CObjectInfo* otherInfo = _Other->GetComponent<CObjectInfo>();
 
-	//ƒ^ƒO‚ªPlayerBullet‚¾‚Á‚½‚ç
+	//ã‚¿ã‚°ãŒPlayerBulletã ã£ãŸã‚‰
 	if (otherInfo && otherInfo->GetObjectTag() == ObjectTag::PLAYER_BULLET)
 	{
-		//HP‚ğŒ¸‚ç‚·
+		//HPã‚’æ¸›ã‚‰ã™
 		HP--;
 		if (HP <= 0)
 		{
 			SetIsDestroyed(true);
 			
-			//explosion‚ğ¶¬
+			//explosionã‚’ç”Ÿæˆ
 			C3D_Object* billBoard = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::EFFECT, "Explosion"));
 			if (billBoard)
 			{
 				CTransform* transform = billBoard->GetComponent<CTransform>();
 				CTransform* bulletTransform = _Other->GetComponent<CTransform>();
-				//ˆÊ’u
+				//ä½ç½®
 				DirectX::XMFLOAT3 pos = bulletTransform->GetPos();
 				transform->SetPos(pos);
 				transform->SetScale({ 0.8f, 1.0f, 0.8f });

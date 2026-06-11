@@ -47,18 +47,19 @@ void CModel::UpdateBones()
 
 	for (int i = 0; i < m_Bones.size(); i++)
 	{
-		m_SkinningMatrices[i] =
-			m_Bones[i]->globalPose * m_Bones[i]->inverseBindPose;
+  		m_SkinningMatrices[i] = DirectX::XMMatrixTranspose(
+  			m_Bones[i]->inverseBindPose * m_Bones[i]->globalPose);
+	}
 
-		//ƒAƒjƒ[ƒVƒ‡ƒ“‚ª‚¨‚©‚µ‚©‚Á‚½‚çA‚±‚±‚ğ‚ŸE  ‚ßE
+		//ç¹§ï½¢ç¹ä¹Î“ç¹ï½¼ç¹§ï½·ç¹ï½§ç¹ï½³ç¸ºå¾Œâ™€ç¸ºä¹ï¼ ç¸ºä¹â–²ç¸ºæº˜ï½‰ç¸²âˆšï¼…ç¸ºè–™ï½’ç¸ºãƒ»  ç¹§ãƒ»
 		//m_SkinningMatrices[i] =
 		//	 m_Bones[i]->inverseBindPose* m_Bones[i]->globalPose;
-	}
+	
 }
 
 void CModel::CreateTmpBoneData()
 {
-	//----- ƒ{ Eƒ“‚Ìƒ`E Eƒ^‰¼ì E -----
+	//----- ç¹ãƒ»Eç¹ï½³ç¸ºï½®ç¹ãƒ» Eç¹§ï½¿è‰ï½®è´ãƒ»E -----
 	Bone bone;
 	bone = std::make_shared<CBone>();
 
@@ -66,18 +67,18 @@ void CModel::CreateTmpBoneData()
 	bone->parentIndex = -1;
 	bone->children = {};
 
-	// ‰Šúp¨ E EindPose E E
+	// è›»æ™„æ‚„èŸ‹ï½¿èœï½¢ E EindPose E E
 	bone->localBindPose = DirectX::XMMatrixIdentity();
 
-	// ‘—E   E
+	// é¨¾ãƒ»   E
 	bone->inverseBindPose = DirectX::XMMatrixInverse(nullptr, bone->localBindPose);
 
-	// Œ»İƒ| EƒY
+	// è¿´ï½¾è¨ï½¨ç¹ãƒ»Eç¹§ï½º
 	bone->localPose = DirectX::XMMatrixIdentity();
 	bone->globalPose = DirectX::XMMatrixIdentity();
 	m_Bones.push_back(bone);
 
-	//ƒ{ Eƒ“ƒoƒbƒtƒ@‚Ìì E
+	//ç¹ãƒ»Eç¹ï½³ç¹èˆŒãƒ£ç¹è¼”ãƒç¸ºï½®è´ãƒ»E
 	CreateBoneBuffer();
 }
 
@@ -86,11 +87,12 @@ void CModel::CreateBoneBuffer()
 	ID3D12Device* device = DX12Manager::GetInstance().GetDevice();
 	ID3D12DescriptorHeap* srvHeap = DX12Manager::GetInstance().GetSRVHeap();
 
-	UINT boneCount = static_cast<UINT>(m_Bones.size());
+	UINT boneCount = m_SkinJoints.empty() ? static_cast<UINT>(m_Bones.size()) : static_cast<UINT>(m_SkinJoints.size());
+	if (boneCount == 0) boneCount = 1; // Prevent 0 size buffer
 	UINT bufferSize = sizeof(DirectX::XMMATRIX) * boneCount;
 
 	//=============================
-	// ‡@ ƒŠƒ\[ƒXì E E EPLOAD E E
+	// ç«­ï¿½ ç¹ï½ªç¹§ï½½ç¹ï½¼ç¹§ï½¹è´ãƒ»E E EPLOAD E E
 	//=============================
 	CD3DX12_HEAP_PROPERTIES heapProps(D3D12_HEAP_TYPE_UPLOAD);
 	CD3DX12_RESOURCE_DESC resourceDesc = CD3DX12_RESOURCE_DESC::Buffer(bufferSize);
@@ -105,7 +107,7 @@ void CModel::CreateBoneBuffer()
 	);
 
 	//=============================
-	// ‡A SRV‚Ì“o˜^
+	// ç«­ï½¡ SRVç¸ºï½®é€‹ï½»éª­ï½²
 	//=============================
 
 	m_boneSrvIndex = DX12Manager::GetInstance().AllocsrvNextIndex();
@@ -114,10 +116,10 @@ void CModel::CreateBoneBuffer()
 		DX12Manager::GetInstance().GetCpuSrvHandle(m_boneSrvIndex);
 
 	//========================
-	// ‡B SRVì E
+	// ç«­ï½¢ SRVè´ãƒ»E
 	//========================
 	D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
-	srvDesc.Format = DXGI_FORMAT_UNKNOWN; // StructuredBuffer‚ÍUNORM•s—vE
+	srvDesc.Format = DXGI_FORMAT_UNKNOWN; // StructuredBufferç¸ºï½¯UNORMè³å´ï½¦ãƒ»
 	srvDesc.ViewDimension = D3D12_SRV_DIMENSION_BUFFER;
 	srvDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
 
@@ -129,9 +131,9 @@ void CModel::CreateBoneBuffer()
 	device->CreateShaderResourceView(m_BoneBuffer.Get(), &srvDesc, cpuHandle);
 
 	//========================
-	// ‡C GPUƒnƒ“ƒhƒ‹•Û?E
+	// ç«­ï½£ GPUç¹ä¸ŠÎ¦ç¹å³¨Îè«ãƒ»E
 	//========================
-	// GPUƒnƒ“ƒhƒ‹ E Eraw()‚Åg‚ŸE  E
+	// GPUç¹ä¸ŠÎ¦ç¹å³¨Î E Eraw()ç¸ºï½§è´ï½¿ç¸ºãƒ»  E
 	m_BoneSrvGpuHandle = DX12Manager::GetInstance().GetGpuSrvHandle(m_boneSrvIndex);
 
 }
@@ -140,51 +142,47 @@ void CModel::UpdateBoneBuffer()
 {
 	if (!m_BoneBuffer) return;
 
-	UINT boneCount = (UINT)m_Bones.size();
+	UINT boneCount = m_SkinJoints.empty() ? static_cast<UINT>(m_Bones.size()) : static_cast<UINT>(m_SkinJoints.size());
+	if (boneCount == 0) boneCount = 1;
 	UINT bufferSize = sizeof(DirectX::XMMATRIX) * boneCount;
 
-	// CPU‘¤‚Ì m_SkinningMatrices ‚ª–ˆƒtƒŒ[ƒ€ŒvZ‚³‚ê‚Ä‚ŸE  ‘O’ñ
+	std::vector<DirectX::XMMATRIX> uploadMatrices(boneCount, DirectX::XMMatrixIdentity());
+	if (m_SkinJoints.empty())
+	{
+		for (size_t i = 0; i < m_Bones.size(); i++)
+		{
+			uploadMatrices[i] = m_SkinningMatrices[i];
+		}
+	}
+	else
+	{
+		for (size_t i = 0; i < m_SkinJoints.size(); ++i)
+		{
+			uploadMatrices[i] = m_SkinningMatrices[m_SkinJoints[i]];
+		}
+	}
+
 	void* mapped = nullptr;
 
 	m_BoneBuffer->Map(0, nullptr, &mapped);
-	memcpy(mapped, m_SkinningMatrices.data(), bufferSize);
+	memcpy(mapped, uploadMatrices.data(), bufferSize);
 	m_BoneBuffer->Unmap(0, nullptr);
 }
-
 void CModel::ModelLoad(std::string _Path)
 {
-	//ƒ‚ƒ`E  ‚Ìƒ`E Eƒ^
 	LoadedModelData loadedModelData;
-	
-	//ƒtƒH[ƒ}ƒbƒg‚É‰‚¶‚ÄAE  ?E  Loader‚ğŒÄ‚Ô
-	//ˆê’UGLTFLoader‚ÅÀÙE  ‚ßE
 	loadedModelData = TestLoadGLTF(_Path);
 
-	////ƒ{ Eƒ“ƒ`E Eƒ^‰¼ì E
-	//CreateTmpBoneData();
-
-	//----- ƒ{ Eƒ“ƒ`E Eƒ^ì E -----
-	//NodeData‚©‚çCBone‚ÌVector‚ÉˆêŠ‡æ‚è‚İ
-
-	//ˆê’Uƒ{ Eƒ“‚ğƒNƒŠƒA
 	m_Bones.clear();
 
-	// -- 1.forƒ‹[ƒv‚Å‘Sƒ`E Eƒ^æ‚è‚İ
 	for (const auto& node : loadedModelData.nodes)
 	{
-		//—Ìˆæì E
 		auto bone = std::make_shared<CBone>();
-
-		//Name,Children‚ğˆê’U“ü‚ê‚é
 		bone->name = node.name;
 		bone->children = node.children;
-		bone->parentIndex = -1; // ƒXƒ`E  ƒ`E‚Å–„‚ß‚é E‚Åˆê’U-1
-
-		// --- ƒ[ƒJƒ‹‰Šús E E EocalBindPose E  Eì E ---
+		bone->parentIndex = -1;
 		
-		//s E‚Å‚Á‚Ä‚ŸE  ‚©‚ğŠm?E
 		bool hasMatrix = false;
-		//1‚Â‚Å‚à’l‚ª E‚Á‚Ä‚ŸE  ‚È‚çA‚Á‚Ä‚ŸE  ‚Æ‚ŸE  ‚±‚Æ
 		for (int i = 0; i < 16; ++i) { if (node.matrix[i] != 0.0f) { hasMatrix = true; break; } }
 
 		if (hasMatrix)
@@ -193,93 +191,93 @@ void CModel::ModelLoad(std::string _Path)
 		}
 		else
 		{
-			// TRS E  EŠú’l E ‚©‚çƒ[ƒJƒ‹s E‚ğ‡?E
 			DirectX::XMVECTOR s = DirectX::XMVectorSet(node.scale[0], node.scale[1], node.scale[2], 0.0f);
-			DirectX::XMVECTOR r = DirectX::XMVectorSet(node.rotation[0], node.rotation[1], node.rotation[2], node.rotation[3]); // ƒNƒH[ƒ^ƒjƒIƒ“
+			DirectX::XMVECTOR r = DirectX::XMVectorSet(node.rotation[0], node.rotation[1], node.rotation[2], node.rotation[3]);
 			DirectX::XMVECTOR t = DirectX::XMVectorSet(node.translation[0], node.translation[1], node.translation[2], 0.0f);
-
-			//s E‚É•ÏŠ·
 			bone->localBindPose = DirectX::XMMatrixAffineTransformation(s, DirectX::XMVectorZero(), r, t);
 		}
 
-		// Å‰ EŒ»İ‚ÌƒAƒjƒ[ƒVƒ‡ƒ“—pƒ[ƒJƒ‹ƒ| EƒY(localPose)‚à EŠúp¨‚Æ“¯‚¶‚É‚·‚é
-		bone->localPose = bone->localBindPose;
+        DirectX::XMVECTOR s, r, t;
+        DirectX::XMMatrixDecompose(&s, &r, &t, bone->localBindPose);
+        DirectX::XMStoreFloat3(&bone->scale, s);
+        DirectX::XMStoreFloat4(&bone->rotation, r);
+        DirectX::XMStoreFloat3(&bone->translation, t);
 
-		//ƒvƒbƒVƒ…‚·‚é
+		bone->localPose = bone->localBindPose;
 		m_Bones.push_back(bone);
 	}
 
-	// -- 2.ParentData‚ğ–„‚ß‚é
+	m_Animations = loadedModelData.animations;
+
 	for (int i = 0; i < m_Bones.size(); ++i)
 	{
-		//Children‚ÉŠY“–‚·‚éParent‚ğ‘‚«Š·‚¦‚é
 		for (int childIdx : m_Bones[i]->children)
 		{
 			m_Bones[childIdx]->parentIndex = i;
 		}
 	}
 
-	//-- 3.‰ŠúƒOƒ[ƒoƒ‹s E(globalBindPose)‚ÌŠK‘wŒv?E
-
-	//ƒ‰ƒ€ƒ_ŠÖ”‚ğg‚Á‚ÄRoot‚©‚çÄ‹A?E  Œv?E
-	//ƒ‰ƒ€ƒ_ŠÖ”‚Ì’è‹`
+	//ç¹ï½©ç¹ï¿½ç¹Â€é«¢ï½¢è¬¨ï½°ç¸ºï½®è³å¤‚ï½¾ï½©
 	auto lambdaComputeBindPose = [&](auto& self, int nodeIdx, const DirectX::XMMATRIX& parentMatrix) -> void 
 	{
-		//Bone‚ÌæªE
+		//Boneç¸ºï½®èœ¿é–€ï½¾ãƒ»
 		auto& bone = m_Bones[nodeIdx];
 
-		// ƒOƒ[ƒoƒ‹s E = ©g‚Ìƒ[ƒJƒ‹ * e‚ÌƒOƒ[ƒoƒ‹
+		// ç¹§ï½°ç¹ï½­ç¹ï½¼ç¹èˆŒÎé™¦ãƒ»E = é–¾ï½ªéœ„ï½«ç¸ºï½®ç¹ï½­ç¹ï½¼ç¹§ï½«ç¹ï½« * éš•ï½ªç¸ºï½®ç¹§ï½°ç¹ï½­ç¹ï½¼ç¹èˆŒÎ
 		bone->globalBindPose = bone->localBindPose * parentMatrix;
-		bone->globalPose = bone->globalBindPose; // Œ»İ‚Ìƒ| EƒY‚à“¯?E
+		bone->globalPose = bone->globalBindPose; // è¿´ï½¾è¨ï½¨ç¸ºï½®ç¹ãƒ»Eç¹§ï½ºç¹§ã‚‡é…”?E
 
-		// qƒm[ƒh‚Ö“`”d
+		// èŸ„èˆŒãƒ®ç¹ï½¼ç¹å³¨âˆˆè¨æ™„çœº
 		for (int childIdx : bone->children) 
 		{
 			self(self, childIdx, bone->globalBindPose);
 		}
 	};
 
-	//e‚ª‚¢‚È‚ŸE  [ƒhIEarentIndex == -1 ‚Ì Rootƒm Eƒhj‚ğ‹N“_‚É‘–‚ç‚¹‚ßE
+	//éš•ï½ªç¸ºå¾Œï¼ç¸ºï½ªç¸ºãƒ»  ç¹ï½¼ç¹ä¼šï½¼ãƒ»arentIndex == -1 ç¸ºï½® Rootç¹ãƒ»Eç¹ä¼šï½¼å³¨ï½’è¥ï½·è½¤ï½¹ç¸ºï½«è¥ï½°ç¹§å³¨â—‹ç¹§ãƒ»
 	for (int i = 0; i < m_Bones.size(); ++i)
 	{
-		//-1‚ª‹N“_
+		//-1ç¸ºç‘šï½µï½·è½¤ï½¹
 		if (m_Bones[i]->parentIndex == -1)
 		{
 			lambdaComputeBindPose(lambdaComputeBindPose, i, DirectX::XMMatrixIdentity());
 		}
 	}
 
-	//-- 4.SkinData ‚©‚ç³®‚È inverseBindPose E ‘—E   E E ‚ğŠ„‚è“–‚Ä‚ßE
-	// ‚Ü‚¸ Eƒm Eƒh‚É‘Î‚µ‚ÄAƒXƒ`E  ƒ`E‚ÌglobalBindPose‚Ì‘—E   E‚ğˆÀ E—p‚É“ü‚ê‚Ä‚¨‚­
+	//-- 4.SkinData ç¸ºä¹ï½‰è±ï½£è ‘ä¸Šâ†‘ inverseBindPose E é¨¾ãƒ»   E E ç¹§è²ç‰¡ç¹§é›ï½½è–™â€»ç¹§ãƒ»
+	// ç¸ºï½¾ç¸ºãƒ»Eç¹ãƒ»Eç¹å³¨â†“èŸ‡ï½¾ç¸ºåŠ±â€»ç¸²âˆšã›ç¹ãƒ»  ç¹ãƒ»ç¸ºï½®globalBindPoseç¸ºï½®é¨¾ãƒ»   Eç¹§è²ï½®ãƒ»Eé€•ï½¨ç¸ºï½«èœˆï½¥ç¹§å¾Œâ€»ç¸ºç¿«ï¿¥
 	for (auto& bone : m_Bones)
 	{
 		bone->inverseBindPose = DirectX::XMMatrixInverse(nullptr, bone->globalBindPose);
 	}
 
-	// ƒXƒLƒ“ƒ`E Eƒ^ E  E[ƒ“?E   E ‚ª‚ ‚éê‡AgLTF‚Ì³Šm‚È‘—E  ƒCƒ“ƒhs E‚Åã‘‚ŸE
+	// ç¹§ï½¹ç¹§ï½­ç¹ï½³ç¹ãƒ» Eç¹§ï½¿ E  Eç¹ï½¼ç¹ï½³?E   E ç¸ºå¾Œâ‰ ç¹§å¥ï¿½ï½´èœ·åŒ»Â€â€œLTFç¸ºï½®è±ï½£é’ï½ºç¸ºï½ªé¨¾ãƒ»  ç¹§ï½¤ç¹ï½³ç¹èŠ½ï½¡ãƒ»Eç¸ºï½§è³é ‘å¶Œç¸ºãƒ»
 	if (!loadedModelData.skins.empty())
 	{
-		//‚±‚±‚Í’è”
-		const auto& skin = loadedModelData.skins[0]; // ƒLƒƒƒ‰ƒNƒ^[—p‚Ìskin
+		//èœŠå€…ï½¸Â€ç¹§ï½¹ç¹§ï½­ç¹ï½³ç¹§å‘ˆÎ¦è³ãƒ»
+		//èœŠå€…ï½¸â‚¬ç¹§ï½¹ç¹§ï½­ç¹ï½³ç¹§å‘ˆÎ¦è³ãƒ»
+		const auto& skin = loadedModelData.skins[0]; // ç¹§ï½­ç¹ï½£ç¹ï½©ç¹§ï½¯ç¹§ï½¿ç¹ï½¼é€•ï½¨ç¸ºï½®èœŠå€…ï½¸â‚¬skin
+		m_SkinJoints = skin.joints;
 
 		for (size_t i = 0; i < skin.joints.size(); ++i)
 		{
-			int nodeIdx = skin.joints[i]; // skinã Ei”Ô–Ú‚Ìƒ{ Eƒ“‚ªw‚·A Eƒm Eƒ`Em_Bones)‚Ì’†‚ÌƒCƒ“ƒ`E  ƒNƒX
+			int nodeIdx = skin.joints[i]; // skinä¸Šã®iç•ªç›®ã®ãƒœãƒ¼ãƒ³ãŒæŒ‡ã™ã€å…¨ãƒãƒ¼ãƒ‰(m_Bones)ã®ä¸­ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
 
-			// tinygltf‚©‚ç“Ç‚İ‚ñ‚¾ XMFLOAT4X4 ‚ßEXMMATRIX ‚É•ÏŠ·‚µ‚Äã‘‚ŸE
+			// GLTFã®è¡Œåˆ—ã¯åˆ—å„ªå…ˆ(column-major)ãªã®ã§ã€XMLoadFloat4x4ã§èª­ã‚€ã¨è‡ªå‹•çš„ã«è¡Œå„ªå…ˆ(row-major)ã«å¤‰æ›ã•ã‚Œã‚‹ã€‚
+			// ãã®ãŸã‚ã€ã“ã“ã§ã¯Transposeã‚’ã—ã¦ã¯ã„ã‘ãªã„ï¼
 			m_Bones[nodeIdx]->inverseBindPose = DirectX::XMLoadFloat4x4(&skin.inverseBindMatrices[i]);
 		}
 	}
 
-	//ƒ{ Eƒ“ƒoƒbƒtƒ@ì E
+	//ç¹ãƒ»Eç¹ï½³ç¹èˆŒãƒ£ç¹è¼”ãƒè´ãƒ»E
 	CreateBoneBuffer();
 
 
-	//----- ƒ}ƒeƒŠƒAƒ‹ì E -----
-	//ƒ}ƒeƒŠƒAƒ‹‰¼ì E
+	//----- ç¹æ§­ãƒ¦ç¹ï½ªç¹§ï½¢ç¹ï½«è´ãƒ»E -----
+	//ç¹æ§­ãƒ¦ç¹ï½ªç¹§ï½¢ç¹ï½«è‰ï½®è´ãƒ»E
 	UINT mat_num = RegisterMatarial(L"Assets/Texture/Sample1.jpg", { 1.0f,1.0f,1.0f,1.0f });
 
-	// -- 5.‚·‚×‚Ä‚Ìƒƒ`E  ƒ…‚Ì“o˜^ E Ereak‚ğíœ‚µ‚Ä‘S•”“Ç‚İ‚Ş E E  E
+	// -- 5.ç¸ºå¶âˆ‹ç¸ºï½¦ç¸ºï½®ç¹ï½¡ç¹ãƒ»  ç¹ï½¥ç¸ºï½®é€‹ï½»éª­ï½² E Ereakç¹§è²ç‚é«¯ï½¤ç¸ºåŠ±â€»èœˆï½¨é©›ï½¨éš±ï½­ç¸ºï½¿éœï½¼ç¹§Â€ E E  E
 	for (int i = 0; i < loadedModelData.nodes.size(); ++i)
 	{
 		const auto& node = loadedModelData.nodes[i];
@@ -288,7 +286,7 @@ void CModel::ModelLoad(std::string _Path)
 		{
 			const auto& mesh = loadedModelData.meshes[node.meshIndex];
 
-			// ‚·‚×‚Ä‚Ìƒƒ`E  ƒ… E E5?69”Ô‚È‚Ç E ‚ğRegisterMesh‚µ‚Ü‚ŸE
+			// ç¸ºå¶âˆ‹ç¸ºï½¦ç¸ºï½®ç¹ï½¡ç¹ãƒ»  ç¹ï½¥ E E5?69é€¡ï½ªç¸ºï½ªç¸ºï½© E ç¹§å¦egisterMeshç¸ºåŠ±âˆªç¸ºãƒ»
 			RegisterMesh(
 				mat_num,
 				mesh.vertices.data(),
@@ -300,10 +298,10 @@ void CModel::ModelLoad(std::string _Path)
 	}
 
 
-	////Mesh‚Ì“o˜^
-	////’¸“_ƒ`E Eƒ^‚à“n‚¹‚é‚æ‚¤‚É‚·‚é
-	////ˆø”‚È‚µ‚Å‰¼ƒ`E Eƒ^(Cube‚ğ“o˜^‚·‚é‚æ‚¤‚É‚·‚é)
-	////ƒƒ`E  ƒ…‚²‚Æ‚Éƒ‹[ƒv‚·‚ßE
+	////Meshç¸ºï½®é€‹ï½»éª­ï½²
+	////é¬†ã‚‰ã›ç¹ãƒ» Eç¹§ï½¿ç¹§ã‚ˆï½¸ï½¡ç¸ºå¸™ï½‹ç¹§åŒ»â‰§ç¸ºï½«ç¸ºå¶ï½‹
+	////è ‘å¢“ç„šç¸ºï½ªç¸ºåŠ±ã€’è‰ï½®ç¹ãƒ» Eç¹§ï½¿(Cubeç¹§å ¤åŒ³éª­ï½²ç¸ºå¶ï½‹ç¹§åŒ»â‰§ç¸ºï½«ç¸ºå¶ï½‹)
+	////ç¹ï½¡ç¹ãƒ»  ç¹ï½¥ç¸ºæ–â†’ç¸ºï½«ç¹ï½«ç¹ï½¼ç¹åŠ±â˜†ç¹§ãƒ»
 	//for (auto mesh : loadedModelData.meshes)
 	//{
 
@@ -331,13 +329,13 @@ void CModel::ModelLoad(std::string _Path)
 
 
 
-	//•Ô‚Á‚Ä—ˆ‚½‚à‚Ì‚©‚çAMesh,Material,Bone‚Ìƒ`E Eƒ^‚ğì E‚·‚é
-	//MakeBones(ƒm Eƒh Eƒ`E Eƒ^‚©‚çì E) 
-	//Skin‚Ì?E  ‚ğ’Tõ‚µ‚ÄABone‚ÌƒCƒ“ƒ`E  ƒNƒX‚ÌƒŠƒXƒg‚ğì E‚·‚é
+	//éœ‘æ–â–²ç¸ºï½¦è­šï½¥ç¸ºæº˜ï½‚ç¸ºï½®ç¸ºä¹ï½‰ç¸²ï½€esh,Material,Boneç¸ºï½®ç¹ãƒ» Eç¹§ï½¿ç¹§å‰ƒï½½ãƒ»Eç¸ºå¶ï½‹
+	//MakeBones(ç¹ãƒ»Eç¹ãƒ»Eç¹ãƒ» Eç¹§ï½¿ç¸ºä¹ï½‰è´ãƒ»E) 
+	//Skinç¸ºï½®?E  ç¹§å‘ˆçˆ¾é‚ï½¢ç¸ºåŠ±â€»ç¸²ã€‚oneç¸ºï½®ç¹§ï½¤ç¹ï½³ç¹ãƒ»  ç¹§ï½¯ç¹§ï½¹ç¸ºï½®ç¹ï½ªç¹§ï½¹ç¹åŒ»ï½’è´ãƒ»Eç¸ºå¶ï½‹
 
 	
 
-	//MakeMashes(ƒ}ƒeƒŠƒAƒ‹‚Ìƒ`E Eƒ^‚©‚çì E)
+	//MakeMashes(ç¹æ§­ãƒ¦ç¹ï½ªç¹§ï½¢ç¹ï½«ç¸ºï½®ç¹ãƒ» Eç¹§ï½¿ç¸ºä¹ï½‰è´ãƒ»E)
 
 	//MakeMaterials
 
@@ -352,7 +350,7 @@ void CModel::Init()
 
 void CModel::Update() 
 {
-	//Mesh‚ÌXV
+	//Meshç¸ºï½®è­–ï½´è­ï½°
 	for (auto& mesh : m_Meshes)
 	{
 		mesh->Update();
@@ -361,15 +359,15 @@ void CModel::Update()
 
 void CModel::Draw() 
 {
-	//ƒ{ Eƒ“‚ÌXV
+	//ç¹ãƒ»Eç¹ï½³ç¸ºï½®è­–ï½´è­ï½°
 	UpdateBones();
 
-	//static float time = 0.01f; // “K“–‚ÉŠÔ
+	//static float time = 0.01f; // é©•ï½©è –è–™â†“è­ã‚‹ä¿£
 	//time += 0.01f;
 	//DirectX::XMMATRIX rot = DirectX::XMMatrixRotationX(time);
 	//m_Bones[0]->localPose = rot;
 
-	// GPU‚Öƒ{ Eƒ“s E‚ğ‘—‚é
+	// GPUç¸ºï½¸ç¹ãƒ»Eç¹ï½³é™¦ãƒ»Eç¹§å¸Â€âˆšï½‹
 	UpdateBoneBuffer();
 
 	ID3D12GraphicsCommandList* commandList =
@@ -384,7 +382,7 @@ void CModel::Draw()
 
 	CTransform* transform = m_Owner->GetComponent<CTransform>();
 
-	//Mesh‚Ì•`‰æ
+	//Meshç¸ºï½®è¬ å†—åˆ¤
 	for (size_t i = 0; i < m_Meshes.size(); ++i)
 	{
 		m_Meshes[i]->SetBoneSRV(m_BoneSrvGpuHandle);
@@ -422,14 +420,78 @@ void CModel::RegisterMesh(UINT _MatIdx, const MeshVertex* vertices, size_t verte
 	m_MeshMaterialIndices.push_back(_MatIdx);
 }
 
-//ƒtƒ@ƒCƒ‹ƒ`E Eƒ^’Ê‚è‚É“Ç‚İ‚Ş‚±‚Æ‘O’ñ
-//F‚¾‚¯•Ï‚¦‚½ƒLƒƒƒ‰ƒNƒ^[‚ğ—pˆÓ‚µ‚½‚¢‚È‚çA‰½‚©è’i‚ğ˜VE  ‚é?E  ‚ª‚ ‚é‚©‚à
+//ç¹è¼”ãƒç¹§ï½¤ç¹ï½«ç¹ãƒ» Eç¹§ï½¿é¨¾å£¹ï½Šç¸ºï½«éš±ï½­ç¸ºï½¿éœï½¼ç¹§Â€ç¸ºè–™â†’èœ‘è‚´ç½²
+//æ¿¶ï½²ç¸ºï¿½ç¸ºå¤§ï½¤å³¨âˆ´ç¸ºæº˜ãç¹ï½£ç¹ï½©ç¹§ï½¯ç¹§ï½¿ç¹ï½¼ç¹§å ¤ç•‘è«¢ä¸Šï¼ ç¸ºæº˜ï¼ç¸ºï½ªç¹§å³¨Â€âˆ½ï½½è¼”Â°è¬‡åŒºï½®ï½µç¹§å®šÂ€ãƒ»  ç¹§ãƒ»E  ç¸ºå¾Œâ‰ ç¹§ä¹Â°ç¹§ãƒ»
 UINT CModel::RegisterMatarial(wstring _FilePath, DirectX::XMFLOAT4 _Color)
 {
-	//Material‚ÌVector‚É’Ç‰Á
-	//‚±‚±‚Åƒ`E  ƒXƒ`ƒƒ‚Ì“Ç‚İ‚İ‚às‚¤
+	//Materialç¸ºï½®Vectorç¸ºï½«éœ‘ï½½èœ‰ï¿½
+	//ç¸ºè–™ï¼…ç¸ºï½§ç¹ãƒ»  ç¹§ï½¹ç¹âˆšÎ•ç¸ºï½®éš±ï½­ç¸ºï½¿éœï½¼ç¸ºï½¿ç¹§ã‚Šï½¡å¾Œâ‰§
 	m_Materials.push_back(std::make_shared<CMaterial>(_FilePath, _Color));
 
-	//LastIndex‚ğ•Ô‚¹‚Î‚ŸE  ‚ŸEƒLƒƒƒ`E  ƒ…‚ª‚ ‚ê E˜b‚Í•Ê‚©‚à)
+	//LastIndexç¹§å®šï½¿æ–â—‹ç¸ºï½°ç¸ºãƒ»  ç¸ºãƒ»ç¹§ï½­ç¹ï½£ç¹ãƒ»  ç¹ï½¥ç¸ºå¾Œâ‰ ç¹§ãƒ»Eéš§ï½±ç¸ºï½¯è›»ï½¥ç¸ºä¹ï½‚)
 	return m_Materials.size() - 1;
+}
+
+void CModel::UpdateAnimation(float deltaTime)
+{
+    if (m_currentAnimationIndex < 0 || m_currentAnimationIndex >= m_Animations.size() || m_Bones.empty()) return;
+
+    m_animationTime += deltaTime;
+    const AnimationData& anim = m_Animations[m_currentAnimationIndex];
+
+    // Evaluate all channels
+    for (const auto& channel : anim.channels) {
+        if (channel.targetNodeIndex < 0 || channel.targetNodeIndex >= m_Bones.size()) continue;
+
+        const AnimationSamplerData& sampler = anim.samplers[channel.samplerIndex];
+        if (sampler.input.empty()) continue;
+
+        // Loop animation
+        float maxTime = sampler.input.back();
+        float localTime = fmod(m_animationTime, maxTime);
+
+        // Find keyframe
+        size_t frameIdx = 0;
+        for (size_t i = 0; i < sampler.input.size() - 1; ++i) {
+            if (localTime >= sampler.input[i] && localTime < sampler.input[i + 1]) {
+                frameIdx = i;
+                break;
+            }
+        }
+
+        size_t nextIdx = frameIdx + 1;
+        if (nextIdx >= sampler.input.size()) nextIdx = frameIdx;
+
+        float t0 = sampler.input[frameIdx];
+        float t1 = sampler.input[nextIdx];
+        float factor = (t1 > t0) ? (localTime - t0) / (t1 - t0) : 0.0f;
+
+        const auto& v0 = sampler.output[frameIdx];
+        const auto& v1 = sampler.output[nextIdx];
+
+        auto& bone = m_Bones[channel.targetNodeIndex];
+
+        if (channel.path == AnimationPath::TRANSLATION) {
+            DirectX::XMVECTOR p0 = DirectX::XMVectorSet(v0[0], v0[1], v0[2], 0.0f);
+            DirectX::XMVECTOR p1 = DirectX::XMVectorSet(v1[0], v1[1], v1[2], 0.0f);
+            DirectX::XMVECTOR p = DirectX::XMVectorLerp(p0, p1, factor);
+            DirectX::XMStoreFloat3(&bone->translation, p);
+        }
+        else if (channel.path == AnimationPath::ROTATION) {
+            DirectX::XMVECTOR q0 = DirectX::XMVectorSet(v0[0], v0[1], v0[2], v0[3]);
+            DirectX::XMVECTOR q1 = DirectX::XMVectorSet(v1[0], v1[1], v1[2], v1[3]);
+            DirectX::XMVECTOR q = DirectX::XMQuaternionSlerp(q0, q1, factor);
+            DirectX::XMStoreFloat4(&bone->rotation, q);
+        }
+        else if (channel.path == AnimationPath::SCALE) {
+            DirectX::XMVECTOR s0 = DirectX::XMVectorSet(v0[0], v0[1], v0[2], 0.0f);
+            DirectX::XMVECTOR s1 = DirectX::XMVectorSet(v1[0], v1[1], v1[2], 0.0f);
+            DirectX::XMVECTOR s = DirectX::XMVectorLerp(s0, s1, factor);
+            DirectX::XMStoreFloat3(&bone->scale, s);
+        }
+        
+        bone->UpdateLocalPose();
+    }
+
+    UpdateBones();
 }
