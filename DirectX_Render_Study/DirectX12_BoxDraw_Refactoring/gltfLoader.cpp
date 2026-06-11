@@ -12,43 +12,43 @@
 
 #include "gltfLoader.h"
 
-//æ§‹é€ ä½“æƒ…å ±
+//\‘¢‘Ìî•ñ
 #include "ModelData.h"
 
 
 
-//èª­ã¿è¾¼ã¿æˆåŠŸã—ãŸã£ã½ã„
+//“Ç‚İ‚İ¬Œ÷‚µ‚½‚Á‚Û‚¢
 LoadedModelData TestLoadGLTF(std::string _fileName)
 {
 
-    //----- å¤‰æ•°å®£è¨€ -----
-    // GLTFé–¢é€£
-    //< ãƒ­ãƒ¼ãƒ‰ã«å¿…è¦ãªã‚‚ã® >
-    tinygltf::TinyGLTF loader;  //ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
-    tinygltf::Model model;      //èª­ã¿è¾¼ã‚“ã ãƒ‡ãƒ¼ã‚¿ã‚’æ ¼ç´
+    //----- •Ï”éŒ¾ -----
+    // GLTFŠÖ˜A
+    //< ƒ[ƒh‚É•K—v‚È‚à‚Ì >
+    tinygltf::TinyGLTF loader;  //ƒRƒ“ƒeƒLƒXƒg
+    tinygltf::Model model;      //“Ç‚İ‚ñ‚¾ƒf[ƒ^‚ğŠi”[
 
-    //< ã‚¨ãƒ©ãƒ¼ãƒã‚§ãƒƒã‚¯ç”¨ >
+    //< ƒGƒ‰[ƒ`ƒFƒbƒN—p >
     bool loadResult;
     std::string warn;
     std::string err;
 
-    //< ãƒ•ã‚¡ã‚¤ãƒ«å >
-    //èª­ã¿ãŸã„ glb/gltf ãƒ•ã‚¡ã‚¤ãƒ«å
+    //< ƒtƒ@ƒCƒ‹–¼ >
+    //“Ç‚İ‚½‚¢ glb/gltf ƒtƒ@ƒCƒ‹–¼
     std::string filename = _fileName;
     //std::string filename = "Assets/Model/OffensiveIdle.glb";
     //std::string filename = "Assets/Model/cube.glb";
 
 
 
-    //ãƒ¢ãƒ‡ãƒ«ã®æƒ…å ±
+    //ƒ‚ƒfƒ‹‚Ìî•ñ
 	LoadedModelData loadedModelData;
 
 
-    //----- å¤‰æ•°ã®åˆæœŸåŒ– -----
+    //----- •Ï”‚Ì‰Šú‰» -----
     loadResult = false;
 
 
-	//----- èª­ã¿è¾¼ã¿ -----
+	//----- “Ç‚İ‚İ -----
     if (filename.ends_with(".glb")) {
         loadResult = loader.LoadBinaryFromFile(&model, &err, &warn, filename);
     }
@@ -56,7 +56,7 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
         loadResult = loader.LoadASCIIFromFile(&model, &err, &warn, filename);
     }
 
-	//----- èª­ã¿è¾¼ã¿å¤±æ•— -----
+	//----- “Ç‚İ‚İ¸”s -----
     if (!warn.empty()) {
         std::cout << "Warn: " << warn << std::endl;
     }
@@ -70,10 +70,10 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
         //return ;
     }
 
-	//----- èª­ã¿è¾¼ã¿æˆåŠŸ -----
+	//----- “Ç‚İ‚İ¬Œ÷ -----
     std::cout << "Success! Loaded: " << filename << std::endl;
 
-    //----- ãƒ‡ãƒãƒƒã‚°ãƒ†ã‚¹ãƒˆ -----
+    //----- ƒfƒoƒbƒOƒeƒXƒg -----
     std::cout << "Meshes:   " << model.meshes.size() << std::endl;
     std::cout << "Nodes:    " << model.nodes.size() << std::endl;
     std::cout << "Buffers:  " << model.buffers.size() << std::endl;
@@ -81,56 +81,56 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
     std::cout << "Anims:    " << model.animations.size() << std::endl;
 
 
-	//----- ãƒ¡ãƒƒã‚·ãƒ¥ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹ -----
-	for (const auto& mesh : model.meshes) // ãƒ¡ãƒƒã‚·ãƒ¥ã”ã¨ã«ãƒ«ãƒ¼ãƒ—
+	//----- ƒƒbƒVƒ…ƒf[ƒ^‚ğæ“¾‚·‚é -----
+	for (const auto& mesh : model.meshes) // ƒƒbƒVƒ…‚²‚Æ‚Éƒ‹[ƒv
     {
     
-		//== å¤‰æ•°å®£è¨€ ==
-        //GLTFã¯Mesh -> Primitiveã®æ§‹é€ 
-        //Primitiveã‚’ãƒ¡ãƒƒã‚·ãƒ¥ã¨ã—ã¦å–ã‚Šè¾¼ã‚€ã®ã§ã€ãƒ™ãƒ¼ã‚¹ã«ãªã‚‹ã‚‚ã®ã‚’å®£è¨€ã—ã¦ãŠã
-        std::string meshName;   //ãƒ¡ãƒƒã‚·ãƒ¥ã®åå‰
-        int PrimitiveNum;       //ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+		//== •Ï”éŒ¾ ==
+        //GLTF‚ÍMesh -> Primitive‚Ì\‘¢
+        //Primitive‚ğƒƒbƒVƒ…‚Æ‚µ‚Äæ‚è‚Ş‚Ì‚ÅAƒx[ƒX‚É‚È‚é‚à‚Ì‚ğéŒ¾‚µ‚Ä‚¨‚­
+        std::string meshName;   //ƒƒbƒVƒ…‚Ì–¼‘O
+        int PrimitiveNum;       //ƒvƒŠƒ~ƒeƒBƒu‚ÌƒCƒ“ƒfƒbƒNƒX
 
-        //== å¤‰æ•°ã®åˆæœŸåŒ– ==
-        meshName = mesh.name;   //åå‰ã‚’å–å¾—
+        //== •Ï”‚Ì‰Šú‰» ==
+        meshName = mesh.name;   //–¼‘O‚ğæ“¾
         PrimitiveNum = 0;       
 
 
-		//== é ‚ç‚¹ãƒ‡ãƒ¼ã‚¿ã®å–å¾— ==
-		// ãƒ¡ãƒƒã‚·ãƒ¥ã®ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–ã”ã¨ã«ãƒ«ãƒ¼ãƒ—
+		//== ’¸“_ƒf[ƒ^‚Ìæ“¾ ==
+		// ƒƒbƒVƒ…‚ÌƒvƒŠƒ~ƒeƒBƒu‚²‚Æ‚Éƒ‹[ƒv
         for (const auto& primitive : mesh.primitives) 
         {
-            //== å¤‰æ•°å®£è¨€ ==
+            //== •Ï”éŒ¾ ==
             std::string primitiveName;
-            MeshData meshData;                  //ãƒ¡ãƒƒã‚·ãƒ¥ã®æƒ…å ±
-            std::vector<MeshVertex> vertices;   //é ‚ç‚¹ãƒ‡ãƒ¼ã‚¿ã®Vector
+            MeshData meshData;                  //ƒƒbƒVƒ…‚Ìî•ñ
+            std::vector<MeshVertex> vertices;   //’¸“_ƒf[ƒ^‚ÌVector
 
-            // é ‚ç‚¹å±æ€§ã‚’å–å¾—
+            // ’¸“_‘®«‚ğæ“¾
             const auto& attributes = primitive.attributes;        
 
-            //é ‚ç‚¹æ•°ã‚’å–å¾—
+            //’¸“_”‚ğæ“¾
             const tinygltf::Accessor& posAccessor = model.accessors[attributes.at("POSITION")];
             size_t VertexCount = posAccessor.count;
 
 
-			//----- Vectorã®æº–å‚™ -----
-            //Vector?ã‚µã‚¤ã‚ºã‚’ç›´ã™
-            vertices.resize(VertexCount);       //Resizeã‚’ã—ã¦ãŠã
+			//----- Vector‚Ì€”õ -----
+            //Vector?ƒTƒCƒY‚ğ’¼‚·
+            vertices.resize(VertexCount);       //Resize‚ğ‚µ‚Ä‚¨‚­
 
-            // ã‚´ãƒŸãƒ‡ãƒ¼ã‚¿ãŒå…¥ã‚‹ã®ã‚’é˜²ããŸã‚ã€ãƒœãƒ¼ãƒ³æƒ…å ±ã¨ã‚¦ã‚§ã‚¤ãƒˆã‚’åˆæœŸåŒ–
+            // ƒSƒ~ƒf[ƒ^‚ª“ü‚é‚Ì‚ğ–h‚®‚½‚ßAƒ{[ƒ“î•ñ‚ÆƒEƒFƒCƒg‚ğ‰Šú‰»
             for (size_t i = 0; i < VertexCount; i++)
             {
                 vertices[i].boneIndices[0] = 0;
                 vertices[i].boneIndices[1] = 0;
                 vertices[i].boneIndices[2] = 0;
                 vertices[i].boneIndices[3] = 0;
-                vertices[i].boneWeights[0] = 1.0f; // æœ€åˆã®ãƒœãƒ¼ãƒ³ã«ã‚¦ã‚§ã‚¤ãƒˆ100%
+                vertices[i].boneWeights[0] = 1.0f; // Å‰‚Ìƒ{[ƒ“‚ÉƒEƒFƒCƒg100%
                 vertices[i].boneWeights[1] = 0.0f;
                 vertices[i].boneWeights[2] = 0.0f;
                 vertices[i].boneWeights[3] = 0.0f;
             }
 
-            //== verticesã«ãƒ‡ãƒ¼ã‚¿ã‚’å…¥ã‚Œã‚‹ ==
+            //== vertices‚Éƒf[ƒ^‚ğ“ü‚ê‚é ==
             
             //----- POSITION -----
             if (attributes.find("POSITION") != attributes.end()) 
@@ -271,25 +271,25 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
                 }
             }
 
-            //----- ãƒãƒ†ãƒªã‚¢ãƒ«ã®æƒ…å ± -----
+            //----- ƒ}ƒeƒŠƒAƒ‹‚Ìî•ñ -----
             int materialIndex = primitive.material;
             meshData.materialIndex = materialIndex;
 
 
-            //åå‰ã‚’å…¥ã‚Œã‚‹
+            //–¼‘O‚ğ“ü‚ê‚é
             primitiveName = meshName;
             primitiveName += "_Primitive";
             primitiveName += std::to_string(PrimitiveNum);
 
             meshData.name = primitiveName;
 
-            //verticesã®vectorã‚’æ ¼ç´ã™ã‚‹
+            //vertices‚Ìvector‚ğŠi”[‚·‚é
             meshData.vertices = vertices;
 
 
 
 
-            //== Indexã®æƒ…å ±ã‚’èª­ã¿å–ã‚‹
+            //== Index‚Ìî•ñ‚ğ“Ç‚İæ‚é
             std::vector<uint32_t> indices;
 
             if (primitive.indices < 0) {
@@ -302,7 +302,7 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
 
             const unsigned char* dataPtr = buffer.data.data() + bufferView.byteOffset + accessor.byteOffset;
 
-            // componentType ã«ã‚ˆã£ã¦èª­ã¿æ–¹ãŒå¤‰ã‚ã‚‹
+            // componentType ‚É‚æ‚Á‚Ä“Ç‚İ•û‚ª•Ï‚í‚é
             switch (accessor.componentType)
             {
             case TINYGLTF_COMPONENT_TYPE_UNSIGNED_SHORT:
@@ -334,29 +334,29 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
                 break;
             }
 
-            // èª­ã¿è¾¼ã‚“ã  indices ã‚’æ ¼ç´
+            // “Ç‚İ‚ñ‚¾ indices ‚ğŠi”[
             meshData.indices.assign(std::begin(indices), std::end(indices));
 
 
-            //loadModelDataã«æ ¼ç´
+            //loadModelData‚ÉŠi”[
             loadedModelData.meshes.push_back(meshData);
     
 
 
-            //Primitiveã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã®ã‚«ã‚¦ãƒ³ãƒˆ
+            //Primitive‚ÌƒCƒ“ƒfƒbƒNƒX‚ÌƒJƒEƒ“ƒg
             PrimitiveNum++;
         }
 	}
 
-    //----- ãƒãƒ†ãƒªã‚¢ãƒ«ã®ãƒ‡ãƒ¼ã‚¿ã®å–å¾— -----
-    for (const auto& material : model.materials)//ãƒãƒ†ãƒªã‚¢ãƒ«ã”ã¨ã«å®Ÿè¡Œ
+    //----- ƒ}ƒeƒŠƒAƒ‹‚Ìƒf[ƒ^‚Ìæ“¾ -----
+    for (const auto& material : model.materials)//ƒ}ƒeƒŠƒAƒ‹‚²‚Æ‚ÉÀs
     {
         MaterialData materialData;
 
-        // åå‰
+        // –¼‘O
         materialData.name = material.name;
 
-        // PBR ãƒ¡ã‚¤ãƒ³æƒ…å ±
+        // PBR ƒƒCƒ“î•ñ
         const auto& pbr = material.pbrMetallicRoughness;
 
         // BaseColorFactor
@@ -383,7 +383,7 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
             if (tex.source >= 0)
             {
                 const tinygltf::Image& image = model.images[tex.source];
-                materialData.baseColorTexturePath = image.uri;     // ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«å
+                materialData.baseColorTexturePath = image.uri;     // ‰æ‘œƒtƒ@ƒCƒ‹–¼
             }
         }
 
@@ -401,22 +401,22 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
             }
         }
 
-        // LoadedModelData ã«è¿½åŠ 
+        // LoadedModelData ‚É’Ç‰Á
         loadedModelData.materials.push_back(materialData);
     }
 
-    //----- ãƒãƒ¼ãƒ‰ã®ãƒ‡ãƒ¼ã‚¿ã®å–å¾— -----
+    //----- ƒm[ƒh‚Ìƒf[ƒ^‚Ìæ“¾ -----
     for (const auto& node : model.nodes)
     {
         NodeData nodeData;
 
-        //--- åå‰ ---
+        //--- –¼‘O ---
         nodeData.name = node.name;
 
-        //--- ãƒ¡ãƒƒã‚·ãƒ¥å‚ç…§ ---
-        nodeData.meshIndex = node.mesh;  // -1 ã®å ´åˆã¯ mesh ãªã—
+        //--- ƒƒbƒVƒ…QÆ ---
+        nodeData.meshIndex = node.mesh;  // -1 ‚Ìê‡‚Í mesh ‚È‚µ
 
-        //--- å­ãƒãƒ¼ãƒ‰ ---
+        //--- qƒm[ƒh ---
         nodeData.children = node.children;
 
         //--- TRS or Matrix ---
@@ -443,7 +443,7 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
             nodeData.scale[2] = node.scale[2];
         }
 
-        // Matrixï¼ˆ4x4è¡Œåˆ—ï¼‰
+        // Matrixi4x4s—ñj
         if (!node.matrix.empty()) 
         {
             for (int i = 0; i < 16; i++) {
@@ -452,28 +452,28 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
         }
         else 
         {
-            // TRS â†’ è¡Œåˆ—å¤‰æ›ãŒå¿…è¦ãªã‚‰ã“ã“ã§ã™ã‚‹
-            // ä»Šã¯çœç•¥å¯èƒ½
+            // TRS ¨ s—ñ•ÏŠ·‚ª•K—v‚È‚ç‚±‚±‚Å‚·‚é
+            // ¡‚ÍÈ—ª‰Â”\
         }
 
-        //--- Skin indexï¼ˆã‚¹ã‚±ãƒ«ãƒˆãƒ³ï¼‰ ---
+        //--- Skin indexiƒXƒPƒ‹ƒgƒ“j ---
         nodeData.skinIndex = node.skin;
 
-        //â†’ LoadedModelData ã«è¿½åŠ 
+        //¨ LoadedModelData ‚É’Ç‰Á
         loadedModelData.nodes.push_back(nodeData);
     }
 
-    //----- ã‚¹ã‚­ãƒ³ã®ãƒ‡ãƒ¼ã‚¿ã®å–å¾— -----
+    //----- ƒXƒLƒ“‚Ìƒf[ƒ^‚Ìæ“¾ -----
     for (const auto& skin : model.skins)
     {
         SkinData skinData;
 
-        //jointsã‚’å…¥ã‚Œã‚‹
+        //joints‚ğ“ü‚ê‚é
         skinData.joints = skin.joints;
 
         //
         if (skin.inverseBindMatrices >= 0) {
-            // bufferView ã‹ã‚‰ inverseBindMatrices ã‚’èª­ã‚€
+            // bufferView ‚©‚ç inverseBindMatrices ‚ğ“Ç‚Ş
             const tinygltf::Accessor& accessor = model.accessors[skin.inverseBindMatrices];
             const tinygltf::BufferView& bufferView = model.bufferViews[accessor.bufferView];
             const tinygltf::Buffer& buffer = model.buffers[bufferView.buffer];
@@ -486,7 +486,7 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
             for (size_t i = 0; i < count; ++i) {
                 const float* m = reinterpret_cast<const float*>(dataPtr + accessor.ByteStride(bufferView) * i);
 
-                // glTF ã¯åˆ—å„ªå…ˆ(column-major)
+                // glTF ‚Í—ñ—Dæ(column-major)
                 DirectX::XMFLOAT4X4 mat;
                 memcpy(&mat, m, sizeof(float) * 16);
 
@@ -572,6 +572,6 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
     }
     OutputDebugString("");
 
-    //å€¤ã‚’è¿”ã™
+    //’l‚ğ•Ô‚·
     return loadedModelData;
 }

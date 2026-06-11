@@ -1,5 +1,5 @@
 #include "Enemy.h"
-//===== ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰=====
+//===== ƒCƒ“ƒNƒ‹[ƒh=====
 
 
 #include "ObjectInfo.h"
@@ -27,17 +27,17 @@
 Enemy::Enemy(String _Name)
 	:C3D_Object(_Name)
 {
-	//----- ã‚¿ã‚° -----
+	//----- ƒ^ƒO -----
 	CObjectInfo* objectInfo = GetComponent<CObjectInfo>();
 	objectInfo->SetObjectTag(ObjectTag::ENEMY);
 
 
 	//----- Model -----
-	//ãƒ¢ãƒE  ã®ãƒ‘ã‚¹ã®åˆæœŸåŒE
+	//ƒ‚ƒ`E  ‚ÌƒpƒX‚Ì‰Šú–æE
 	ModelPath = "Assets/Model/OffensiveIdle.glb";
 
-	//ã‚¹ãƒ†ãƒ¼ã‚¸ã§ä½¿ã†ãƒ¢ãƒ‡ãƒ«ã‚’ä¸€è¦§ã«ã—ã¦ã©ã“ã‹ã§ãƒ­ãƒ¼ãƒ‰ã—ã¦ãŠãã¨ã„ã„ã‹ã‚‚
-	//ãƒ¢ãƒE  ã®ãƒ­ãƒ¼ãƒE
+	//ƒXƒe[ƒW‚Åg‚¤ƒ‚ƒfƒ‹‚ğˆê——‚É‚µ‚Ä‚Ç‚±‚©‚Åƒ[ƒh‚µ‚Ä‚¨‚­‚Æ‚¢‚¢‚©‚à
+	//ƒ‚ƒ`E  ‚Ìƒ[ƒ`E
 	CModel* model = GetComponent<CModel>();
 
 
@@ -62,25 +62,25 @@ void Enemy::Update()
 
 void Enemy::OnCollision(CObject* _Other)
 {
-	//è¡çªã—ãŸç›¸æ‰‹ãŒBulletã ã£ãŸã‚‰æ¶ˆãˆã‚‹
+	//Õ“Ë‚µ‚½‘Šè‚ªBullet‚¾‚Á‚½‚çÁ‚¦‚é
 	CObjectInfo* otherInfo = _Other->GetComponent<CObjectInfo>();
 
-	//ã‚¿ã‚°ãŒPlayerBulletã ã£ãŸã‚‰
+	//ƒ^ƒO‚ªPlayerBullet‚¾‚Á‚½‚ç
 	if (otherInfo && otherInfo->GetObjectTag() == ObjectTag::PLAYER_BULLET)
 	{
-		//HPã‚’æ¸›ã‚‰ã™
+		//HP‚ğŒ¸‚ç‚·
 		HP--;
 		if (HP <= 0)
 		{
 			SetIsDestroyed(true);
 			
-			//explosionã‚’ç”Ÿæˆ
+			//explosion‚ğ¶¬
 			C3D_Object* billBoard = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::EFFECT, "Explosion"));
 			if (billBoard)
 			{
 				CTransform* transform = billBoard->GetComponent<CTransform>();
 				CTransform* bulletTransform = _Other->GetComponent<CTransform>();
-				//ä½ç½®
+				//ˆÊ’u
 				DirectX::XMFLOAT3 pos = bulletTransform->GetPos();
 				transform->SetPos(pos);
 				transform->SetScale({ 0.8f, 1.0f, 0.8f });
