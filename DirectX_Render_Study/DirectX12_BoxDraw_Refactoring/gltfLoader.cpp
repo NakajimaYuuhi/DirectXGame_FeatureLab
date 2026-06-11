@@ -518,6 +518,62 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
         loadedModelData.skins.push_back(skinData);
     }
     
+    // ----- Animations -----
+    for (const auto& anim : model.animations) {
+        AnimationData animData;
+        animData.name = anim.name;
+
+        // Parse samplers
+        for (const auto& sampler : anim.samplers) {
+            AnimationSamplerData samplerData;
+            
+            // get input accessor (time)
+            const tinygltf::Accessor& inputAccessor = model.accessors[sampler.input];
+            const tinygltf::BufferView& inputView = model.bufferViews[inputAccessor.bufferView];
+            const tinygltf::Buffer& inputBuffer = model.buffers[inputView.buffer];
+            const float* times = reinterpret_cast<const float*>(&inputBuffer.data[inputView.byteOffset + inputAccessor.byteOffset]);
+            for(size_t i=0; i<inputAccessor.count; ++i) {
+                samplerData.input.push_back(times[i]);
+            }
+
+            // get output accessor (values)
+            const tinygltf::Accessor& outputAccessor = model.accessors[sampler.output];
+            const tinygltf::BufferView& outputView = model.bufferViews[outputAccessor.bufferView];
+            const tinygltf::Buffer& outputBuffer = model.buffers[outputView.buffer];
+            const float* values = reinterpret_cast<const float*>(&outputBuffer.data[outputView.byteOffset + outputAccessor.byteOffset]);
+            int numComponents = tinygltf::GetNumComponentsInType(outputAccessor.type);
+            for(size_t i=0; i<outputAccessor.count; ++i) {
+                std::vector<float> val(numComponents);
+                for(int j=0; j<numComponents; ++j) {
+                    val[j] = values[i * numComponents + j];
+                }
+                samplerData.output.push_back(val);
+            }
+            
+            if (sampler.interpolation == "LINEAR") samplerData.interpolation = InterpolationType::LINEAR;
+            else if (sampler.interpolation == "STEP") samplerData.interpolation = InterpolationType::STEP;
+            else samplerData.interpolation = InterpolationType::CUBICSPLINE;
+
+            animData.samplers.push_back(samplerData);
+        }
+
+        // Parse channels
+        for (const auto& channel : anim.channels) {
+            AnimationChannelData channelData;
+            channelData.targetNodeIndex = channel.target_node;
+            channelData.samplerIndex = channel.sampler;
+            
+            if (channel.target_path == "translation") channelData.path = AnimationPath::TRANSLATION;
+            else if (channel.target_path == "rotation") channelData.path = AnimationPath::ROTATION;
+            else if (channel.target_path == "scale") channelData.path = AnimationPath::SCALE;
+            else channelData.path = AnimationPath::WEIGHTS;
+
+            animData.channels.push_back(channelData);
+        }
+
+        loadedModelData.animations.push_back(animData);
+    }
+    OutputDebugString("");
 
     //’l‚ð•Ô‚·
     return loadedModelData;

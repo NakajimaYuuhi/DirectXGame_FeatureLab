@@ -69,10 +69,39 @@ struct NodeData
 //
 struct SkinData 
 {
-    std::vector<int> joints;                                // ジョイントの node index
-    std::vector<DirectX::XMFLOAT4X4> inverseBindMatrices;   // 行列
+    std::vector<int> joints;                                // joints node index
+    std::vector<DirectX::XMFLOAT4X4> inverseBindMatrices;   // inverse bind matrices
+};
 
-    //Skeltonのノード番号は一旦無しで
+enum class AnimationPath {
+    TRANSLATION,
+    ROTATION,
+    SCALE,
+    WEIGHTS
+};
+
+enum class InterpolationType {
+    LINEAR,
+    STEP,
+    CUBICSPLINE
+};
+
+struct AnimationSamplerData {
+    std::vector<float> input;               // Time keyframes
+    std::vector<std::vector<float>> output; // Values at keyframes
+    InterpolationType interpolation;
+};
+
+struct AnimationChannelData {
+    int targetNodeIndex;
+    AnimationPath path;
+    int samplerIndex;
+};
+
+struct AnimationData {
+    std::string name;
+    std::vector<AnimationSamplerData> samplers;
+    std::vector<AnimationChannelData> channels;
 };
 
 
@@ -82,4 +111,5 @@ struct LoadedModelData
     std::vector<MaterialData> materials;
     std::vector<NodeData> nodes;
     std::vector<SkinData> skins;
+    std::vector<AnimationData> animations;
 };

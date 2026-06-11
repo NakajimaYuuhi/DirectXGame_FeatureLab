@@ -33,6 +33,11 @@ CObject* ObjectManager::Instantiate(Scene::ID _SceneID, ObjectTag _Tag, std::str
 
         case ObjectTag::BACKGROUND:
 			break;
+		case ObjectTag::UI:
+			tmpObject = std::make_unique<CUIObject>(_TypeName);
+			returnObject = tmpObject.get();
+			vecObject[static_cast<int>(ObjectTag::UI)].push_back(std::move(tmpObject));
+			break;
 		case ObjectTag::PLAYER:
 			tmpObject = std::make_unique<Player>("Player");		//生成
 			returnObject = tmpObject.get();							//生ポインタ取得
@@ -83,11 +88,6 @@ CObject* ObjectManager::Instantiate(Scene::ID _SceneID, ObjectTag _Tag, std::str
 			returnObject = tmpObject.get();							//生ポインタ取得
 			vecObject[static_cast<int>(ObjectTag::EFFECT)].push_back(std::move(tmpObject));				//配列に追加
 			break;
-			break;
-		case ObjectTag::UI:
-			tmpObject = std::make_unique<CUIObject>("UIObject");		//生成
-			returnObject = tmpObject.get();							//生ポインタ取得
-			vecObject[static_cast<int>(ObjectTag::UI)].push_back(std::move(tmpObject));				//配列に追加
 			break;
 		case ObjectTag::TEXT:
 			break;
