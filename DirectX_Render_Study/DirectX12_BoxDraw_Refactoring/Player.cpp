@@ -39,6 +39,7 @@ Player::Player(String _Name)
 	auto sharedModel = ModelManager::GetInstance().GetModel(ModelPath);
 
 	model->CopyFrom(sharedModel);
+	model->PlayAnimation(0);
 
 	BoxCollider3D* collider = AddComponent<BoxCollider3D>();
 	collider->SetOffset({0.0f, 1.0f, 0.0f});
@@ -120,5 +121,8 @@ void Player::Update()
 		bullet->SetDirection(GetFront());
 	}
 
-
+	CModel* model = GetComponent<CModel>();
+	if (model) {
+		model->UpdateAnimation(0.016f); // ~60 FPS
+	}
 }
