@@ -56,7 +56,8 @@ void Enemy::Update()
 {
     CModel* model = GetComponent<CModel>();
     if (model) {
-       model->UpdateAnimation(0.016f); // ~60 FPS
+       //model->UpdateAnimation(0.016f); // ~60 FPS
+		model->UpdateAnimation(0.016f);
     }
 }
 
