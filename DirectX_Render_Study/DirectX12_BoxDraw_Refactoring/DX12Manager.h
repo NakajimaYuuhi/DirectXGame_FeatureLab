@@ -70,6 +70,11 @@ public:
 		return  m_commandAllocator.Get();
 	}
 
+	IDXGISwapChain4* GetSwapChain()
+	{
+		return m_swapChain.Get();
+	}
+
 	D3D12_GPU_DESCRIPTOR_HANDLE GetGpuSrvHandle(int index);
 	D3D12_GPU_DESCRIPTOR_HANDLE GetHeadGpuSrvHandle();
 	D3D12_CPU_DESCRIPTOR_HANDLE GetCpuSrvHandle(int index);

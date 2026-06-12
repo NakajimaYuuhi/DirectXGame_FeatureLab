@@ -10,7 +10,6 @@
 #include "imgui.h"
 
 #include "imgui_impl_dx12.h"
-#include "D2DTextRenderer.h"
 
 //===== 定数・マクロ定義 =====
 const UINT DX12Manager::m_FrameBufferCount = FRAME_BUFFER_COUNT;   //フレームバッファの数
@@ -283,14 +282,12 @@ bool DX12Manager::Initialize(HWND hwnd)
 	
 	//m_commandQueue->ExecuteCommandLists(m_commandList);
 
-	if (!D2DTextRenderer::GetInstance().Initialize(m_device.Get(), m_commandQueue.Get(), m_swapChain.Get(), m_Width, m_Height, m_FrameBufferCount)) { return false; }
 	return true;
 }
 
 //終了処理
 void DX12Manager::Finalize()
 {
-	D2DTextRenderer::GetInstance().Finalize();
 	m_commandQueue.Reset();
 	m_device.Reset();
 	m_factory.Reset();
@@ -418,13 +415,24 @@ void DX12Manager::BeginDraw()
 
 void DX12Manager::EndDraw()
 {
+	// 1. RENDER_TARGET → PRESENT
+	D3D12_RESOURCE_BARRIER barrier{};
+	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+	barrier.Transition.pResource = m_renderTargets[m_frameIndex].Get();
+	barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_RENDER_TARGET;
+	barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_PRESENT;
+	barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
+
+	m_commandList->ResourceBarrier(1, &barrier);
+
+	// 2. Close
 	m_commandList->Close();
 
+	// 3. 実行
 	ID3D12CommandList* commandLists[] = { m_commandList.Get() };
 	m_commandQueue->ExecuteCommandLists(1, commandLists);
 
-	D2DTextRenderer::GetInstance().Render(m_frameIndex);
-
+	// 4. Present
 	HRESULT hr = m_swapChain->Present(1, 0);
 	//HRESULT hr = g_pSwapChain->Present(0, g_SwapChainTearingSupport ? DXGI_PRESENT_ALLOW_TEARING : 0); // Present without vsync
 	m_SwapChainOccluded = (hr == DXGI_STATUS_OCCLUDED);
@@ -484,9 +492,15 @@ void DX12Manager::ResizeRenderTarget(LPARAM lParam)
 	//m_commandAllocator->Reset();
 	//m_commandList->Reset(m_commandAllocator.Get(), nullptr);
 
-	CreateRenderTarget();
+	CreateRenderTarget();               //RenderTargetの生成
 
-	D2DTextRenderer::GetInstance().Resize((UINT)LOWORD(lParam), (UINT)HIWORD(lParam), m_swapChain.Get());
+	//// ★ 5. 使い終わったら閉じて実行する（または次のBeginDrawに備えて閉じる）
+	//m_commandList->Close();
+	//ID3D12CommandList* lists[] = { m_commandList.Get() };
+	//m_commandQueue->ExecuteCommandLists(1, lists);
+
+	//// リサイズ直後も一応待っておくと安全！
+	//WaitForPendingOperations();
 }
 void DX12Manager::ResizeViewPort(LPARAM lParam)
 {
@@ -658,11 +672,5 @@ void DX12Manager::ResetIsOccluded()
 {
 	m_SwapChainOccluded = false;
 }
-
-
-
-
-
-
 
 
