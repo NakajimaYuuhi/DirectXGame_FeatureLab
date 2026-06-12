@@ -11,6 +11,7 @@
 #include "Collision.h"
 
 #include "UIObject.h"
+#include "TextObject.h"
 
 CObject* ObjectManager::Instantiate(Scene::ID _SceneID, ObjectTag _Tag, std::string _TypeName)
 {
@@ -90,6 +91,9 @@ CObject* ObjectManager::Instantiate(Scene::ID _SceneID, ObjectTag _Tag, std::str
 			break;
 			break;
 		case ObjectTag::TEXT:
+			tmpObject = std::make_unique<TextObject>("TextObject1");		//生成
+			returnObject = tmpObject.get();							//生ポインタ取得
+			vecObject[static_cast<int>(ObjectTag::TEXT)].push_back(std::move(tmpObject));				//配列に追加
 			break;
 		case ObjectTag::CAMERA:
 			break;
@@ -207,3 +211,4 @@ ObjectManager::ObjectManager()
 ObjectManager::~ObjectManager()
 {
 }
+
