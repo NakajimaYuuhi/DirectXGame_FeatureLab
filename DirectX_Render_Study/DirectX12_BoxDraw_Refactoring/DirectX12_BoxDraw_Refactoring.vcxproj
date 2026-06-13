@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -144,6 +144,7 @@
     </FxCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Skydome.cpp" />
     <ClCompile Include="D2DTextRenderer.cpp" />
     <ClCompile Include="TextObject.cpp" />
     <ClCompile Include="TextRenderer.cpp" />
@@ -193,6 +194,7 @@
     <ClCompile Include="Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Skydome.h" />
     <ClInclude Include="D2DTextRenderer.h" />
     <ClInclude Include="TextObject.h" />
     <ClInclude Include="TextRenderer.h" />

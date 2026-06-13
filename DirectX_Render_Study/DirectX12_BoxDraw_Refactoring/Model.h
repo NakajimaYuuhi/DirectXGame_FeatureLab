@@ -55,8 +55,8 @@ public:
 
 	void SetBlendMode(BlendMode mode) { m_BlendMode = mode; }
 
-	//|ƂȂAg
-	//LoadModel(̕)
+	//|ƂȁEg
+	//LoadModel(́E
 	//void RegisterMesh(UINT _MatIdx, Primitive _Primitive);
 	
 	//ÛftHg
@@ -104,7 +104,7 @@ public:
 		m_Animations = other->m_Animations;
 		m_SkinJoints = other->m_SkinJoints;
 
-		// アニメーション用にボーンをディープコピー（共有しない）
+		// アニメーション用にボ�Eンをディープコピ�E�E��E有しなぁE��E
 		m_Bones.clear();
 		for (const auto& otherBone : other->m_Bones)
 		{
@@ -127,7 +127,7 @@ public:
 
 		m_SkinningMatrices = other->m_SkinningMatrices;
 
-		// 固有のSRVとバッファを生成する
+		// 固有�ESRVとバッファを生成すめE
 		CreateBoneBuffer();
 	}
 
@@ -150,7 +150,7 @@ public:
 
 private:
 	//Mesh
-	//UMesh1
+	//UMesh1E
 	Meshes m_Meshes;
 
 	// ebVg}eÃCfbNX

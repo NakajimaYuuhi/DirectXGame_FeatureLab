@@ -1,4 +1,4 @@
-﻿#include "SceneTest.h"
+#include "SceneTest.h"
 #include "TextObject.h"
 #include "3D_Object.h"
 
@@ -12,6 +12,10 @@
 
 CSceneTest::CSceneTest()
 {
+    //----- Skydome -----
+    C3D_Object* skydome = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::BACKGROUND, "Skydome"));
+    skydome->SetTransform({ 0.0f, 0.0f, 0.0f }, { -500.0f, 500.0f, 500.0f }, { 0.0f, 0.0f, 0.0f });
+
     //----- Player -----
     C3D_Object* player = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::PLAYER, "Player"));
     player->SetTransform({ 0.0f, 0.0f, 0.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 0.0f, 0.0f });
