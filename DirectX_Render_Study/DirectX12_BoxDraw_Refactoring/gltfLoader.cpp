@@ -383,7 +383,29 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
             if (tex.source >= 0)
             {
                 const tinygltf::Image& image = model.images[tex.source];
-                materialData.baseColorTexturePath = image.uri;     // ‰æ‘œƒtƒ@ƒCƒ‹–¼
+                if (!image.uri.empty())
+                {
+                    materialData.baseColorTexturePath = image.uri;
+                }
+                else if (!image.image.empty())
+                {
+                    std::string baseName = "embedded";
+                    size_t lastSlash = _fileName.find_last_of("/\\");
+                    if (lastSlash != std::string::npos)
+                    {
+                        baseName = _fileName.substr(lastSlash + 1);
+                        size_t lastDot = baseName.find_last_of(".");
+                        if (lastDot != std::string::npos)
+                        {
+                            baseName = baseName.substr(0, lastDot);
+                        }
+                    }
+                    std::string outPath = "Assets/Texture/" + baseName + "_tex_" + std::to_string(tex.source) + ".png";
+                    if (stbi_write_png(outPath.c_str(), image.width, image.height, image.component, image.image.data(), image.width * image.component))
+                    {
+                        materialData.baseColorTexturePath = outPath;
+                    }
+                }
             }
         }
 

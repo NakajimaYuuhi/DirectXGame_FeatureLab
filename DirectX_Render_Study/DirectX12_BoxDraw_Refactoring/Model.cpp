@@ -275,9 +275,54 @@ void CModel::ModelLoad(std::string _Path)
 
 	//----- マテリアル佁EE -----
 	//マテリアル仮佁EE
-	UINT mat_num = RegisterMatarial(L"Assets/Texture/Sample1.jpg", { 1.0f,1.0f,1.0f,1.0f });
+	// ���f���̃f�B���N�g���p�X�𒊏o
+	std::string directory = "";
+	size_t lastSlash = _Path.find_last_of("/\\");
+	if (lastSlash != std::string::npos)
+	{
+		directory = _Path.substr(0, lastSlash + 1);
+	}
 
-	// -- 5.すべてのメチE  ュの登録 E Ereakを削除して全部読み込む E E  E
+	std::vector<UINT> registeredMaterialIndices;
+	if (loadedModelData.materials.empty())
+	{
+		UINT defaultMat = RegisterMatarial(L"Assets/Texture/Sample1.jpg", { 1.0f, 1.0f, 1.0f, 1.0f });
+		registeredMaterialIndices.push_back(defaultMat);
+	}
+	else
+	{
+		for (const auto& matData : loadedModelData.materials)
+		{
+			std::string texPathStr = "";
+			if (!matData.baseColorTexturePath.empty())
+			{
+				if (matData.baseColorTexturePath.rfind("Assets/", 0) == 0 || matData.baseColorTexturePath.rfind("Assets\\", 0) == 0)
+				{
+					texPathStr = matData.baseColorTexturePath;
+				}
+				else
+				{
+					texPathStr = directory + matData.baseColorTexturePath;
+				}
+			}
+			else
+			{
+				texPathStr = "Assets/Texture/Sample1.jpg";
+			}
+
+			std::wstring texPathW(texPathStr.begin(), texPathStr.end());
+			DirectX::XMFLOAT4 color = {
+				matData.baseColorFactor[0],
+				matData.baseColorFactor[1],
+				matData.baseColorFactor[2],
+				matData.baseColorFactor[3]
+			};
+
+			UINT matNum = RegisterMatarial(texPathW, color);
+			registeredMaterialIndices.push_back(matNum);
+		}
+	}
+
 	for (int i = 0; i < loadedModelData.nodes.size(); ++i)
 	{
 		const auto& node = loadedModelData.nodes[i];
@@ -286,9 +331,18 @@ void CModel::ModelLoad(std::string _Path)
 		{
 			const auto& mesh = loadedModelData.meshes[node.meshIndex];
 
-			// すべてのメチE  ュ E E5?69番など E をRegisterMeshしまぁE
+			UINT matIdx = 0;
+			if (mesh.materialIndex < registeredMaterialIndices.size())
+			{
+				matIdx = registeredMaterialIndices[mesh.materialIndex];
+			}
+			else if (!registeredMaterialIndices.empty())
+			{
+				matIdx = registeredMaterialIndices[0];
+			}
+
 			RegisterMesh(
-				mat_num,
+				matIdx,
 				mesh.vertices.data(),
 				mesh.vertices.size(),
 				mesh.indices.data(),
@@ -297,28 +351,7 @@ void CModel::ModelLoad(std::string _Path)
 		}
 	}
 
-
-	////Meshの登録
-	////頂点チE Eタも渡せるようにする
-	////引数なしで仮チE Eタ(Cubeを登録するようにする)
-	////メチE  ュごとにループすめE
-	//for (auto mesh : loadedModelData.meshes)
-	//{
-
-
-	//	RegisterMesh(
-	//		mat_num, 
-	//		mesh.vertices.data(), 
-	//		mesh.vertices.size(),
-	//		mesh.indices .data(), 
-	//		mesh.indices .size()
-	//	);
-	//	break;
-	//}
-
-
-
-
+	
 	//int index = 2;
 	//RegisterMesh(mat_num, &(loadedModelData.meshes[index].vertices[0]), loadedModelData.meshes[index].vertices.size(),
 	//	&(loadedModelData.meshes[index].indices[0]), loadedModelData.meshes[index].indices.size());
@@ -495,3 +528,4 @@ void CModel::UpdateAnimation(float deltaTime)
 
     UpdateBones();
 }
+
