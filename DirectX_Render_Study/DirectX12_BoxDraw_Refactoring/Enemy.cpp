@@ -19,6 +19,7 @@
 //ObjectManager
 #include "ObjectManager.h"
 
+#include "Transform.h"
 #include "BoxCollider3D.h"
 
 #include "Explosion.h"
@@ -34,8 +35,8 @@ Enemy::Enemy(String _Name)
 
 	//----- Model -----
 	//モチE  のパスの初期匁E
-	ModelPath = "Assets/Model/OffensiveIdle.glb";
-
+	//ModelPath = "Assets/Model/OffensiveIdle.glb";
+	ModelPath = "Assets/Model/uploads_files_4381633_GreenExplosion.glb"; 
 	//ステージで使うモデルを一覧にしてどこかでロードしておくといいかも
 	//モチE  のローチE
 	CModel* model = GetComponent<CModel>();
@@ -50,6 +51,7 @@ Enemy::Enemy(String _Name)
 	collider->SetOffset({ 0.0f, 1.0f, 0.0f });
 	collider->SetSize({ 1.0f, 2.0f, 1.0f });
 
+	SetScale({-1.0f,-1.0f,-1.0f});
 }
 
 void Enemy::Update()
