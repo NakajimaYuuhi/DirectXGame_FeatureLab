@@ -5,7 +5,7 @@
 //ÉVÅ[Éì
 #include "Scene.h"
 #include "SceneTest.h"
-
+#include "SceneTitle.h"
 
 
 #include "InputManager.h"
@@ -97,6 +97,8 @@ void SceneManager::InstantiateScene(Scenes::ID _SceneID)
 	{
 	case Scenes::ID::TEST:
 		scene = std::make_unique<CSceneTest>();
+	case Scenes::ID::TITLE:
+		scene = std::make_unique<SceneTitle>();
 		break;
 
 	}
