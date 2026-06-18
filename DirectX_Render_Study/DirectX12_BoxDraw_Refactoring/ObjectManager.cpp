@@ -13,6 +13,8 @@
 #include "UIObject.h"
 #include "TextObject.h"
 
+#include "Skydome.h"
+
 CObject* ObjectManager::Instantiate(Scene::ID _SceneID, ObjectTag _Tag, std::string _TypeName)
 {
     //Todo : FactoryÇçÏÇÈ
@@ -33,6 +35,9 @@ CObject* ObjectManager::Instantiate(Scene::ID _SceneID, ObjectTag _Tag, std::str
 			break;
 
         case ObjectTag::BACKGROUND:
+			tmpObject = std::make_unique<Skydome>(_TypeName);
+			returnObject = tmpObject.get();
+			vecObject[static_cast<int>(ObjectTag::BACKGROUND)].push_back(std::move(tmpObject));
 			break;
 		case ObjectTag::UI:
 			tmpObject = std::make_unique<CUIObject>(_TypeName);

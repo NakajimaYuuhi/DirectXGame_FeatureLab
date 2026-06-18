@@ -202,6 +202,9 @@
     <Filter Include="Source\Shader\3DObject">
       <UniqueIdentifier>{92cde2a3-90d2-466f-9f90-49d01347eeb4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Object\GameObject\3DObjects\Skydome">
+      <UniqueIdentifier>{bb667fb2-b908-4200-8828-97f8137ff0cf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Box.cpp">
@@ -344,6 +347,9 @@
     </ClCompile>
     <ClCompile Include="TextureManager.cpp">
       <Filter>Source\System\DrawSystem\ResourceManager\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Skydome.cpp">
+      <Filter>Source\Object\GameObject\3DObjects\Skydome</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -526,6 +532,9 @@
     </ClInclude>
     <ClInclude Include="TextureManager.h">
       <Filter>Source\System\DrawSystem\ResourceManager\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Skydome.h">
+      <Filter>Source\Object\GameObject\3DObjects\Skydome</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -35,8 +35,8 @@ Enemy::Enemy(String _Name)
 
 	//----- Model -----
 	//モチE  のパスの初期匁E
-	//ModelPath = "Assets/Model/OffensiveIdle.glb";
-	ModelPath = "Assets/Model/uploads_files_4381633_GreenExplosion.glb"; 
+	ModelPath = "Assets/Model/OffensiveIdle.glb";
+	//ModelPath = "Assets/Model/uploads_files_4381633_GreenExplosion.glb"; 
 	//ステージで使うモデルを一覧にしてどこかでロードしておくといいかも
 	//モチE  のローチE
 	CModel* model = GetComponent<CModel>();

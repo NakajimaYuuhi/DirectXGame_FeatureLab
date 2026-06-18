@@ -1,4 +1,4 @@
-﻿#include "SceneTest.h"
+#include "SceneTest.h"
 #include "TextObject.h"
 #include "3D_Object.h"
 
@@ -19,6 +19,11 @@ CSceneTest::CSceneTest()
     //------ Enemy -----
     C3D_Object* enemy = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::ENEMY, "Enemy"));
     enemy->SetTransform({ 0.0f, 0.0f, 10.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 3.14f, 0.0f });
+
+    //------ Skydome -----
+    C3D_Object* skydome = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::BACKGROUND, "Skydome"));
+    skydome->SetTransform({ 0.0f, 0.0f, 0.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 3.14f, 0.0f });
+
 
     //------ TextObject (D2D/DirectWrite Overlay) -----
     TextObject* textObj1 = (TextObject*)(ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::TEXT, "TextObject1"));
