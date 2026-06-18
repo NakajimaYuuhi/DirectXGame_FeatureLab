@@ -26,7 +26,7 @@ Skydome::Skydome(String _Name)
     // Set inside-out scaling so we can see the cube from the inside
     CTransform* transform = GetComponent<CTransform>();
     if (transform) {
-        transform->SetScale({ -500.0f, 500.0f, 500.0f });
+        transform->SetScale({ -100.0f, 100.0f, 100.0f });
     }
 }
 

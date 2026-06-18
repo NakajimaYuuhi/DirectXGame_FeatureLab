@@ -279,7 +279,7 @@ bool DX12Manager::Initialize(HWND hwnd)
 		DirectX::XM_PIDIV4,
 		(float)SCREEN_WIDTH / SCREEN_HEIGHT,
 		0.1f,
-		100.0f);
+		1000.0f);
 	
 	//m_commandQueue->ExecuteCommandLists(m_commandList);
 
