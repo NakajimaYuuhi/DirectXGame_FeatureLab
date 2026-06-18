@@ -51,7 +51,7 @@ Enemy::Enemy(String _Name)
 	collider->SetOffset({ 0.0f, 1.0f, 0.0f });
 	collider->SetSize({ 1.0f, 2.0f, 1.0f });
 
-	SetScale({-1.0f,-1.0f,-1.0f});
+	SetScale({1.0f,1.0f,1.0f });
 }
 
 void Enemy::Update()
