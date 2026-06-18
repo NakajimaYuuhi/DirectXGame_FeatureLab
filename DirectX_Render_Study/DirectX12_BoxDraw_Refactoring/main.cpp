@@ -21,9 +21,7 @@
 #include "DX12Manager.h"
 #include "InputManager.h"	//TODO:mainが知ってる必要は無い気がする
 
-//Scene
-#include "Scene.h"
-#include "SceneTest.h"
+
 
 //スマートポインタ
 #include<memory>
@@ -36,7 +34,7 @@ using UniquePtr = std::unique_ptr<T>;
 
 #include <string>
 
-#include "gltfLoader.h"
+#include "SceneManager.h"
 
 //===== 名前空間宣言 =====
 
@@ -45,7 +43,6 @@ using UniquePtr = std::unique_ptr<T>;
 //===== 構造体定義 =====
 
 //===== グローバル変数宣言 =====
-UniquePtr<CScene> g_CScene;
 
 //===== プロトタイプ宣言 =====
 
@@ -156,11 +153,8 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 	DX12Manager::GetInstance().Initialize(hwnd);
 	PSOManager::GetInstance().Init(DX12Manager::GetInstance().GetDevice());
 	
-	//最初のシーンの作成
-	g_CScene = std::make_unique<CSceneTest>();
-
-	//シーンの初期化
-	g_CScene->Init();
+	//----- SceneManagerの開始 -----
+	SceneManager::GetInstance();
 
 	CInputManager::GetInstance();
 
@@ -169,7 +163,6 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
 	//DisplaySize();
 
-	//TestLoadGLTF();
 
 	bool done = false;
 	while (!done)
@@ -207,7 +200,6 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 		//ImGuiのフレーム開始
 
 		CImGuiManager::GetInstance().Begin();
-
 		{
 			bool IsValidTransform;
 			//ImGuiの描画命令を溜める
@@ -249,7 +241,8 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 		}
 
 		//シーンの更新処理
-		g_CScene->Update();
+		//g_CScene->Update();
+		SceneManager::GetInstance().Update();
 
 
 		//---描画処理---
@@ -257,7 +250,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 		DX12Manager::GetInstance().BeginDraw();
 
 		//シーンの描画
-		g_CScene->Draw();
+		SceneManager::GetInstance().Draw();
 
 		//ImGuiの描画
 		CImGuiManager::GetInstance().End(DX12Manager::GetInstance().GetCommandList());
@@ -266,6 +259,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 		DX12Manager::GetInstance().EndDraw();
 		
 	}
+	SceneManager::GetInstance().Uninit();
 
 	DX12Manager::GetInstance().Finalize();
 

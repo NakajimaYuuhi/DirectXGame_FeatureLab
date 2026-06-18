@@ -17,6 +17,6 @@ public:
 protected:
 	String ModelPath;
 
-	float Speed = 0.01;
+	float Speed = 0.01f;
 };
 

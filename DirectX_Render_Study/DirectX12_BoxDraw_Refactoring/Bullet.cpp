@@ -62,7 +62,7 @@ void Bullet::OnCollision(CObject* _Other)
 		//パーティクルを出す(20個)
 		for (int i = 0; i < 20; i++)
 		{
-			CObject* particle = ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::BILLBOARD, "RandomParticle");
+			CObject* particle = ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::BILLBOARD, "RandomParticle");
 			if (particle)
 			{
 				CTransform* transform = particle->GetComponent<CTransform>();

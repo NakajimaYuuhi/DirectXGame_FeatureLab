@@ -14,8 +14,9 @@
 #include "TextObject.h"
 
 #include "Skydome.h"
+#include "EventManager.h"
 
-CObject* ObjectManager::Instantiate(Scene::ID _SceneID, ObjectTag _Tag, std::string _TypeName)
+CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::string _TypeName)
 {
     //Todo : FactoryÇçÏÇÈ
 
@@ -117,7 +118,9 @@ void ObjectManager::Uninit()
 	
 }
 
-void ObjectManager::Init(Scene::ID _SceneID)
+
+
+void ObjectManager::Init(Scenes::ID _SceneID)
 {
 	for (auto& vec : vecObject)
 	{
@@ -130,7 +133,7 @@ void ObjectManager::Init(Scene::ID _SceneID)
 
 }
 
-void ObjectManager::Update(Scene::ID _SceneID)
+void ObjectManager::Update(Scenes::ID _SceneID)
 {
 	for(auto& vec : vecObject)
 	{
@@ -165,7 +168,7 @@ void ObjectManager::Update(Scene::ID _SceneID)
 	}
 }
 
-void ObjectManager::CollisionUpdate(Scene::ID _SceneID)
+void ObjectManager::CollisionUpdate(Scenes::ID _SceneID)
 {
 	//CollisionÇÃçXêV
 	//CollisionOrderÇéÊìæ
@@ -196,7 +199,7 @@ void ObjectManager::CollisionUpdate(Scene::ID _SceneID)
 	}
 }
 
-void ObjectManager::Draw(Scene::ID _SceneID)
+void ObjectManager::Draw(Scenes::ID _SceneID)
 {
 	for (auto& vec : vecObject)
 	{

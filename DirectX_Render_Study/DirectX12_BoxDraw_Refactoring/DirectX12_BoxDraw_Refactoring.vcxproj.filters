@@ -205,6 +205,30 @@
     <Filter Include="Source\Object\GameObject\3DObjects\Skydome">
       <UniqueIdentifier>{bb667fb2-b908-4200-8828-97f8137ff0cf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\System\SceneManager">
+      <UniqueIdentifier>{e354e77d-18f4-4596-8c89-8fd17c6b420e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\EventManager">
+      <UniqueIdentifier>{fe169213-5379-49e4-8379-9bf3216bc9af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\EventManager\Event">
+      <UniqueIdentifier>{f2181cfe-7e1e-4a18-b297-72ff1c0da72e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\EventManager\Event\EventObj">
+      <UniqueIdentifier>{02c94390-ccb0-4e9c-a7e7-02b57887e5ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\EventManager\Event\EventData">
+      <UniqueIdentifier>{1701001e-1f4d-4aba-90d3-a2fb9f336956}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\EventManager\Event\EventData\Base">
+      <UniqueIdentifier>{9f78dbee-1037-4cf6-a8f8-42a9e5a8c471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\EventManager\Event\EventData\NextScene">
+      <UniqueIdentifier>{dfa98462-f712-4b2f-aae5-6e2fcda7f860}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System\EventManager\Event\Enums">
+      <UniqueIdentifier>{365007f7-27b1-4898-b5c9-9489817eb2bd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Box.cpp">
@@ -350,6 +374,21 @@
     </ClCompile>
     <ClCompile Include="Skydome.cpp">
       <Filter>Source\Object\GameObject\3DObjects\Skydome</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Source\System\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="EventManager.cpp">
+      <Filter>Source\System\EventManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Event.cpp">
+      <Filter>Source\System\EventManager\Event\EventObj</Filter>
+    </ClCompile>
+    <ClCompile Include="EventData.cpp">
+      <Filter>Source\System\EventManager\Event\EventData\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="EventData_NextScene.cpp">
+      <Filter>Source\System\EventManager\Event\EventData\NextScene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -536,6 +575,25 @@
     <ClInclude Include="Skydome.h">
       <Filter>Source\Object\GameObject\3DObjects\Skydome</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="SceneManager.h">
+      <Filter>Source\System\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="EventManager.h">
+      <Filter>Source\System\EventManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>Source\System\EventManager\Event\EventObj</Filter>
+    </ClInclude>
+    <ClInclude Include="EventEnums.h">
+      <Filter>Source\System\EventManager\Event\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="EventData.h">
+      <Filter>Source\System\EventManager\Event\EventData\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="EventData_NextScene.h">
+      <Filter>Source\System\EventManager\Event\EventData\NextScene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Sprite.hlsl">
@@ -544,5 +602,8 @@
     <FxCompile Include="Triangle.hlsl">
       <Filter>Source\Shader\3DObject</Filter>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DirectX12_BoxDraw_Refactoring.rc" />
   </ItemGroup>
 </Project>

@@ -11,20 +11,20 @@ public:
 
 
 	//生成処理
-	CObject* Instantiate(Scene::ID _SceneID, ObjectTag _Tag, std::string _TypeName);
+	CObject* Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::string _TypeName);
 
 	//初期化処理
-	void Init(Scene::ID _SceneID);
+	void Init(Scenes::ID _SceneID);
 
 	//終了処理
 	void Uninit();
 
 	//更新処理
-	void Update(Scene::ID _SceneID);
+	void Update(Scenes::ID _SceneID);
 
-	void CollisionUpdate(Scene::ID _SceneID);	//Collisionの更新
+	void CollisionUpdate(Scenes::ID _SceneID);	//Collisionの更新
 
-	void Draw(Scene::ID _SceneID);			//描画
+	void Draw(Scenes::ID _SceneID);			//描画
 
 private:
 	//一旦配列は1つ(2次元)

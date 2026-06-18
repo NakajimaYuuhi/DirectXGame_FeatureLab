@@ -145,6 +145,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="D2DTextRenderer.cpp" />
+    <ClCompile Include="EventManager.cpp" />
+    <ClCompile Include="Event.cpp" />
+    <ClCompile Include="EventData.cpp" />
+    <ClCompile Include="EventData_NextScene.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Skydome.cpp" />
     <ClCompile Include="TextObject.cpp" />
     <ClCompile Include="TextRenderer.cpp" />
@@ -195,6 +200,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D2DTextRenderer.h" />
+    <ClInclude Include="EventManager.h" />
+    <ClInclude Include="Event.h" />
+    <ClInclude Include="EventData.h" />
+    <ClInclude Include="EventData_NextScene.h" />
+    <ClInclude Include="EventEnums.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Skydome.h" />
     <ClInclude Include="TextObject.h" />
     <ClInclude Include="TextRenderer.h" />
@@ -273,6 +285,9 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DirectX12_BoxDraw_Refactoring.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

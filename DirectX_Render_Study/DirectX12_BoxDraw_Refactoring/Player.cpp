@@ -107,7 +107,7 @@ void Player::Update()
 	//‚Ô‚Á”ò E
 	if (CInputManager::GetInstance().IsKeyTrigger('F'))
 	{
-		Bullet* bullet = (Bullet*)(ObjectManager::GetInstance().Instantiate(Scene::ID::GAME, ObjectTag::PLAYER_BULLET, "Bullet"));
+		Bullet* bullet = (Bullet*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::GAME, ObjectTag::PLAYER_BULLET, "Bullet"));
 
 		DirectX::XMFLOAT3 bulletPos = GetPos();
 		bullet->SetTransform({bulletPos.x,bulletPos.y + 1.4f, bulletPos.z}, {0.1f, 0.1f, 0.1f}, {0.0f, 0.0f, 0.0f});

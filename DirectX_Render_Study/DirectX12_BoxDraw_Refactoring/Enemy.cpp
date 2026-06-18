@@ -78,7 +78,7 @@ void Enemy::OnCollision(CObject* _Other)
 			SetIsDestroyed(true);
 			
 			//explosion‚ð¶¬
-			C3D_Object* billBoard = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scene::ID::NONE, ObjectTag::EFFECT, "Explosion"));
+			C3D_Object* billBoard = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::EFFECT, "Explosion"));
 			if (billBoard)
 			{
 				CTransform* transform = billBoard->GetComponent<CTransform>();
