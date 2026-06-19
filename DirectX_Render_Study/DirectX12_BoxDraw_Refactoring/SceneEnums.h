@@ -2,7 +2,7 @@
 
 namespace Scenes
 {
-#define INITIAL_SCENE Scenes::ID::TEST
+#define INITIAL_SCENE Scenes::ID::TITLE
 
 	typedef enum
 	{

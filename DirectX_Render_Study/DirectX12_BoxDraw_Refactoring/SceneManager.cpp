@@ -17,7 +17,6 @@
 
 
 //===== 定数・マクロ定義 =====
-//#define INITIAL_SCENE (Scene::ID::InGame) //一旦GameSceneで定義
 
 
 //===== 関数の定義 =====
@@ -97,6 +96,8 @@ void SceneManager::InstantiateScene(Scenes::ID _SceneID)
 	{
 	case Scenes::ID::TEST:
 		scene = std::make_unique<CSceneTest>();
+		break;
+
 	case Scenes::ID::TITLE:
 		scene = std::make_unique<SceneTitle>();
 		break;
@@ -150,7 +151,7 @@ void SceneManager::UninitAndPop(void)
 	
 	//Uninitする
 	//scene->Uninit();
-
+	ObjectManager::GetInstance().Uninit();
 	//リスト空外す
 }
 
@@ -190,7 +191,7 @@ void SceneManager::ProcessSceneEvents()
 			break;
 	}
 
-	//EventManager::GetInstance().RemoveEvent(pEvent);
+	EventManager::GetInstance().ClearEvents();
 }
 
 

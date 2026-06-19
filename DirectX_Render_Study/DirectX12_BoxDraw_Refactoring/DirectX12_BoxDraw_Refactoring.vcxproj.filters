@@ -390,7 +390,9 @@
     <ClCompile Include="EventData_NextScene.cpp">
       <Filter>Source\System\EventManager\Event\EventData\NextScene</Filter>
     </ClCompile>
-    <ClCompile Include="SceneTitle.cpp" />
+    <ClCompile Include="SceneTitle.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h">
@@ -595,7 +597,9 @@
     <ClInclude Include="EventData_NextScene.h">
       <Filter>Source\System\EventManager\Event\EventData\NextScene</Filter>
     </ClInclude>
-    <ClInclude Include="SceneTitle.h" />
+    <ClInclude Include="SceneTitle.h">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Sprite.hlsl">

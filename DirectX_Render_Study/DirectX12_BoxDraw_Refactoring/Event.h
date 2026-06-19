@@ -19,11 +19,11 @@ public:
 	void SetEventID		(Events::ID eventID)	{iD = eventID;}
 
 	//EventData
-	EventData* GetEventData() {return &eventData;}
-	void SetEventData(EventData _EventData) { eventData = _EventData; }	
+	EventData* GetEventData() {return eventData;}
+	void SetEventData(EventData* _EventData) { eventData = _EventData; }	
 
 private:
 	Events::ID iD;
-	EventData eventData;
+	EventData* eventData;
 };
 

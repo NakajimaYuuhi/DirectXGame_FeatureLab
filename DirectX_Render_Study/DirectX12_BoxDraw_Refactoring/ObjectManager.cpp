@@ -115,7 +115,8 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 
 void ObjectManager::Uninit()
 {
-	
+	vecObject.clear();
+	vecObject.resize(ObjectTag::NUM);
 }
 
 

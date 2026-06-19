@@ -10,16 +10,29 @@
 
 #include "ObjectManager.h"
 
+#include "InputManager.h"
+
+#include "EventManager.h"
+
+#include "EventData_NextScene.h"
+
 CSceneTest::CSceneTest()
     :CScene(Scenes::ID::TEST)
 {
-    //----- Player -----
-    C3D_Object* player = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::PLAYER, "Player"));
-    player->SetTransform({ 0.0f, 0.0f, 0.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 0.0f, 0.0f });
 
-    //------ Enemy -----
-    C3D_Object* enemy = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::ENEMY, "Enemy"));
-    enemy->SetTransform({ 0.0f, 0.0f, 10.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 3.14f, 0.0f });
+}
+
+CSceneTest::~CSceneTest() = default;
+
+void CSceneTest::Init()
+{
+    ////----- Player -----
+    //C3D_Object* player = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::PLAYER, "Player"));
+    //player->SetTransform({ 0.0f, 0.0f, 0.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 0.0f, 0.0f });
+
+    ////------ Enemy -----
+    //C3D_Object* enemy = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::ENEMY, "Enemy"));
+    //enemy->SetTransform({ 0.0f, 0.0f, 10.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 3.14f, 0.0f });
 
     //------ Skydome -----
     C3D_Object* skydome = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::BACKGROUND, "Skydome"));
@@ -44,17 +57,27 @@ CSceneTest::CSceneTest()
     textObj3->SetPosition(50.0f, 140.0f);
     textObj3->SetFontSize(18.0f);
     textObj3->SetColor(D2D1::ColorF::LightPink);
-}
 
-CSceneTest::~CSceneTest() = default;
 
-void CSceneTest::Init()
-{
+
     ObjectManager::GetInstance().Init(Scenes::ID::NONE);
 }
 
 void CSceneTest::Update() 
 {
+    if (CInputManager::GetInstance().IsKeyTrigger('P'))
+    {
+        Event event;
+        EventData_NextScene* eventData_NextScene = new EventData_NextScene(Scenes::ID::TITLE);
+
+        event.SetEventData(eventData_NextScene);
+
+        event.SetEventID(Events::ID::ChangeScene);
+
+        EventManager::GetInstance().AddEvent(event);
+    }
+
+
 	ObjectManager::GetInstance().Update(Scenes::ID::NONE);
 }
 
