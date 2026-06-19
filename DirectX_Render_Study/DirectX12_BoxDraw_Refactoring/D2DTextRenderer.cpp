@@ -161,7 +161,15 @@ bool D2DTextRenderer::CreateSizeDependentResources(UINT width, UINT height, IDXG
 
 void D2DTextRenderer::ReleaseSizeDependentResources()
 {
-    m_d2dContext->SetTarget(nullptr);
+    if (m_d2dContext)
+    {
+        m_d2dContext->SetTarget(nullptr);
+    }
+    if (m_d3d11DeviceContext)
+    {
+        m_d3d11DeviceContext->ClearState();
+        m_d3d11DeviceContext->Flush();
+    }
     for (auto& res : m_frameResources)
     {
         res.d2dBitmap.Reset();

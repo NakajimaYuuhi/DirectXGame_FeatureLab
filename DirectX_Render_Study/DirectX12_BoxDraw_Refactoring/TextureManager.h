@@ -16,6 +16,7 @@ public:
     }
 
     std::shared_ptr<CTexture> GetTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdList, const wchar_t* filePath, int srvIndex);
+	void Clear() { m_textures.clear(); }
 
 private:
     TextureManager() = default;

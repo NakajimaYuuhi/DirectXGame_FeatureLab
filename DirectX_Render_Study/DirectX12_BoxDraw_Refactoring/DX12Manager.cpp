@@ -475,6 +475,7 @@ void DX12Manager::CreateFence()
 
 void DX12Manager::ResizeRenderTarget(LPARAM lParam)
 {
+	D2DTextRenderer::GetInstance().Finalize();
 	CleanupRenderTarget();              //RenderTarget‚Ì”jŠü
 	DXGI_SWAP_CHAIN_DESC1 desc = {};
 	m_swapChain->GetDesc1(&desc);
@@ -486,7 +487,7 @@ void DX12Manager::ResizeRenderTarget(LPARAM lParam)
 
 	CreateRenderTarget();
 
-	D2DTextRenderer::GetInstance().Resize((UINT)LOWORD(lParam), (UINT)HIWORD(lParam), m_swapChain.Get());
+	D2DTextRenderer::GetInstance().Initialize(m_device.Get(), m_commandQueue.Get(), m_swapChain.Get(), (UINT)LOWORD(lParam), (UINT)HIWORD(lParam), m_FrameBufferCount);
 }
 void DX12Manager::ResizeViewPort(LPARAM lParam)
 {

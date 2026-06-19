@@ -13,6 +13,9 @@
 #include "EventManager.h"
 #include "Event.h"
 #include "EventData_NextScene.h"
+#include "TextureManager.h"
+#include "ModelManager.h"
+#include "DX12Manager.h"
 
 
 
@@ -148,11 +151,11 @@ void SceneManager::PopScene(void)
 //シーンの終了、ポップ
 void SceneManager::UninitAndPop(void)
 {
-	
-	//Uninitする
-	//scene->Uninit();
+	DX12Manager::GetInstance().WaitForPendingOperations();
 	ObjectManager::GetInstance().Uninit();
-	//リスト空外す
+	TextureManager::GetInstance().Clear();
+	ModelManager::GetInstance().Clear();
+	DX12Manager::GetInstance().ResetSrvNextIndex();
 }
 
 //シーンイベントの処理

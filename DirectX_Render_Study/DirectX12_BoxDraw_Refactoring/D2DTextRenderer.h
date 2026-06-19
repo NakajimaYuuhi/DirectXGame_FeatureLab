@@ -20,6 +20,7 @@ public:
     void Finalize();
 
     void Resize(UINT width, UINT height, IDXGISwapChain4* swapChain);
+    void ReleaseSizeDependentResources();
 
     // テキスト描画のリクエストを登録
     void DrawTextStr(const std::wstring& text, float x, float y, float fontSize = 24.0f, D2D1::ColorF color = D2D1::ColorF::White, const std::wstring& fontFamily = L"Meiryo");
@@ -35,7 +36,6 @@ private:
     D2DTextRenderer& operator=(const D2DTextRenderer&) = delete;
 
     bool CreateSizeDependentResources(UINT width, UINT height, IDXGISwapChain4* swapChain);
-    void ReleaseSizeDependentResources();
 
 private:
     // D3D11オン12 関連

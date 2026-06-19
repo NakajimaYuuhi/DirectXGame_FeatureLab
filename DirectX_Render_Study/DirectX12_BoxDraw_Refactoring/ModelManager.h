@@ -15,6 +15,7 @@ public:
 
     // Get or load a model
     std::shared_ptr<CModel> GetModel(const std::string& filePath);
+	void Clear() { m_modelCache.clear(); }
 
 private:
     ModelManager() = default;

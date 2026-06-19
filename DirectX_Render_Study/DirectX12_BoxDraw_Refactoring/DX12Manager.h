@@ -82,6 +82,10 @@ public:
 	{
 		return m_srvNextIndex++;
 	}
+	void ResetSrvNextIndex()
+	{
+		m_srvNextIndex = 0;
+	}
 
 private:
 
