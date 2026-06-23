@@ -16,6 +16,8 @@
 
 #include "EventData_NextScene.h"
 
+#include "ObjectTag.h"
+
 SceneTitle::SceneTitle()
     :CScene(Scenes::ID::TITLE)
 {
@@ -31,6 +33,9 @@ SceneTitle::~SceneTitle() = default;
 
 void SceneTitle::Init()
 {
+    //Camera‚Ì’è‹`
+    ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::CAMERA,"Camera");
+
     //------ TextObject (D2D/DirectWrite Overlay) -----
     TextObject* textObj1 = (TextObject*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::TEXT, "TextObject1"));
     textObj1->SetText(L"Title");

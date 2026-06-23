@@ -12,6 +12,9 @@
 #include "imgui_impl_dx12.h"
 #include "D2DTextRenderer.h"
 
+#include "ObjectManager.h"
+#include "Camera.h"
+
 //===== 定数・マクロ定義 =====
 const UINT DX12Manager::m_FrameBufferCount = FRAME_BUFFER_COUNT;   //フレームバッファの数
 
@@ -314,6 +317,11 @@ void DX12Manager::ForceWait()
 	// 次のために値を更新しておく
 	m_fenceValue++;
 }
+
+//仮のview,projのGetter
+DirectX::XMMATRIX DX12Manager::GetView() { return ObjectManager::GetInstance().GetCamera()->GetView(); }
+
+DirectX::XMMATRIX DX12Manager::GetProj() { return ObjectManager::GetInstance().GetCamera()->GetProj(); }
 
 
 //----- 描画処理 -----

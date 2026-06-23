@@ -16,6 +16,26 @@
 #include "Skydome.h"
 #include "EventManager.h"
 
+#include "Camera.h"
+
+Player* ObjectManager::GetPlayer()
+{
+	//何も無いならnullptr
+	if (vecObject[Object::objectTag::PLAYER].size() < 1)return nullptr;
+
+
+	return (Player*)(vecObject[Object::objectTag::PLAYER][0].get());
+}
+
+Camera* ObjectManager::GetCamera()
+{
+	//何も無いならnullptr
+	if (vecObject[Object::objectTag::CAMERA].size() < 1)return nullptr;
+
+
+	return (Camera*)(vecObject[Object::objectTag::CAMERA][0].get());
+}
+
 CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::string _TypeName)
 {
     //Todo : Factoryを作る
@@ -102,6 +122,9 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 			vecObject[static_cast<int>(ObjectTag::TEXT)].push_back(std::move(tmpObject));				//配列に追加
 			break;
 		case ObjectTag::CAMERA:
+			tmpObject = std::make_unique<Camera>("Camera");		//生成
+			returnObject = tmpObject.get();							//生ポインタ取得
+			vecObject[static_cast<int>(ObjectTag::CAMERA)].push_back(std::move(tmpObject));				//配列に追加
 			break;
 		case ObjectTag::FADE:
 			break;

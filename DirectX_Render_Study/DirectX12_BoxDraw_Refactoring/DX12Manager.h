@@ -54,8 +54,8 @@ public:
 	void ForceWait();
 
 	//‰¼‚Ìview,proj‚ÌGetter
-	DirectX::XMMATRIX GetView() { return m_view; }
-	DirectX::XMMATRIX GetProj() { return m_proj; }
+	DirectX::XMMATRIX GetView();
+	DirectX::XMMATRIX GetProj();
 
 	ID3D12Device* GetDevice() { return m_device.Get(); }
 	ID3D12GraphicsCommandList* GetCommandList() { return m_commandList.Get(); }

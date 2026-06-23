@@ -4,10 +4,15 @@
 
 #include "Object.h"
 
+class Camera;
+class Player;
+
 class ObjectManager
 {
 public:
 
+	Player* GetPlayer();
+	Camera* GetCamera();
 
 
 	//¶¬ˆ—

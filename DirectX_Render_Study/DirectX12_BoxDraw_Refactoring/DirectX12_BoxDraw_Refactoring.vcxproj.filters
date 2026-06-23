@@ -229,6 +229,9 @@
     <Filter Include="Source\System\EventManager\Event\Enums">
       <UniqueIdentifier>{365007f7-27b1-4898-b5c9-9489817eb2bd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Object\GameObject\3DObjects\Camera">
+      <UniqueIdentifier>{d2ac1a81-674b-409d-9a86-d2a2a0df3078}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Box.cpp">
@@ -393,6 +396,7 @@
     <ClCompile Include="SceneTitle.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h">
@@ -600,6 +604,7 @@
     <ClInclude Include="SceneTitle.h">
       <Filter>Source\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Camera.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Sprite.hlsl">
