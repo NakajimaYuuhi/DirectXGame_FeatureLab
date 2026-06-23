@@ -170,25 +170,28 @@ void ObjectManager::Update(Scenes::ID _SceneID)
 	//Collisionの更新
 	CollisionUpdate(_SceneID);
 
-	//削除処理
-	for (auto& vec : vecObject)
-	{
-		// erase-removeイディオムを使うのが定石だよ
-		vec.erase(
-			std::remove_if(vec.begin(), vec.end(),
-				[](const std::unique_ptr<CObject>& obj) {
-					return obj->GetIsDestroyed(); // 削除フラグが立っているか判定
-				}),
-			vec.end()
-		);
-	}
-
 	for (auto& vec : vecObject)
 	{
 		for (auto& object : vec)
 		{
-			object->LateUpdate();
+			if (!object->GetIsDestroyed()) {
+				object->LateUpdate();
+			}
 		}
+	}
+}
+
+void ObjectManager::FlushDestroyedObjects()
+{
+	for (auto& vec : vecObject)
+	{
+		vec.erase(
+			std::remove_if(vec.begin(), vec.end(),
+				[](const std::unique_ptr<CObject>& obj) {
+					return obj->GetIsDestroyed();
+				}),
+			vec.end()
+		);
 	}
 }
 
@@ -229,7 +232,9 @@ void ObjectManager::Draw(Scenes::ID _SceneID)
 	{
 		for (auto& object : vec)
 		{
-			object->Draw();
+			if (!object->GetIsDestroyed()) {
+				object->Draw();
+			}
 		}
 	}
 }

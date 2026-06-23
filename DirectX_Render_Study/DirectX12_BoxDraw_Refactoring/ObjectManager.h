@@ -29,7 +29,9 @@ public:
 
 	void CollisionUpdate(Scenes::ID _SceneID);	//Collision‚ÌXV
 
-	void Draw(Scenes::ID _SceneID);			//•`‰æ
+	void Draw(Scenes::ID _SceneID);			//`
+
+	void FlushDestroyedObjects();
 
 private:
 	//ˆê’U”z—ñ‚Í1‚Â(2ŸŒ³)

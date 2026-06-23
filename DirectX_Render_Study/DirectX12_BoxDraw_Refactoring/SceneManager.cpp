@@ -78,9 +78,12 @@ void SceneManager::Update()
 //描画処理
 void SceneManager::Draw(void)
 {
-	//Todo : Root処理を入れる
+	// 破棄されたオブジェクトの遅延削除（GPUの描画完了待機後に実行されるため安全）
+	ObjectManager::GetInstance().FlushDestroyedObjects();
 
-	scene->Draw();
+	//Todo : Root処理を入れる
+	if (scene)
+		scene->Draw();
 }
 
 //----- シーンの管理 -----
