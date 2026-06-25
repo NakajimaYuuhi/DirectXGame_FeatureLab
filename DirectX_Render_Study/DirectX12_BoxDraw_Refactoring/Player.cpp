@@ -10,6 +10,8 @@
 #include "BoxCollider3D.h"
 #include <cmath>
 
+#include "audio.h"
+
 Player::Player(String _Name)
 	:C3D_Object(_Name)
 {
@@ -27,6 +29,10 @@ Player::Player(String _Name)
 	BoxCollider3D* collider = AddComponent<BoxCollider3D>();
 	collider->SetOffset({0.0f, 1.0f, 0.0f});
 	collider->SetSize({ 1.0f, 2.0f, 1.0f });
+
+	Audio* audio = AddComponent<Audio>();
+	audio->Load("Assets/Audio/SE/Fire1.wav");
+
 }
 
 void Player::Init()
@@ -81,6 +87,8 @@ void Player::Update()
 
 	if (CInputManager::GetInstance().IsKeyTrigger('F'))
 	{
+		Audio* audio = GetComponent<Audio>();
+
 		Bullet* bullet = (Bullet*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::GAME, ObjectTag::PLAYER_BULLET, "Bullet"));
 
 		DirectX::XMFLOAT3 bulletPos = GetPos();
@@ -92,6 +100,8 @@ void Player::Update()
 		Bullet_Model->CopyFrom(sharedModel);
 
 		bullet->SetDirection(GetFront());
+
+		audio->Play();
 	}
 
 	CModel* model = GetComponent<CModel>();

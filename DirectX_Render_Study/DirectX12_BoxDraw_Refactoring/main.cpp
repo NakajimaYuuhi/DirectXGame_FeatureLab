@@ -36,6 +36,12 @@ using UniquePtr = std::unique_ptr<T>;
 
 #include "SceneManager.h"
 
+//音
+#include <xaudio2.h>
+#include <wrl/client.h> // Microsoft::WRL::ComPtr を使うと管理が楽です
+
+#include "audio.h"
+
 //===== 名前空間宣言 =====
 
 //===== 定数・マクロ定義 =====
@@ -163,6 +169,23 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
 	//DisplaySize();
 
+	//音
+	Audio::InitMaster();
+	//Microsoft::WRL::ComPtr<IXAudio2> pXAudio2;
+	//IXAudio2MasteringVoice* pMasterVoice = nullptr; // ※COMではないので生ポインタか専用の管理が必要です
+
+	//// COMの初期化（すでに行っている場合は不要）
+	//CoInitializeEx(nullptr, COINIT_MULTITHREADED);
+
+	//// XAudio2 エンジンの作成
+	//HRESULT hr = XAudio2Create(&pXAudio2, 0, XAUDIO2_DEFAULT_PROCESSOR);
+	//if (FAILED(hr)) { /* エラー処理 */ }
+
+	//// マスタリングボイス（最終出力先）の作成
+	//hr = pXAudio2->CreateMasteringVoice(&pMasterVoice);
+	//if (FAILED(hr)) { /* エラー処理 */ }
+
+
 
 	bool done = false;
 	while (!done)
@@ -259,6 +282,8 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 		DX12Manager::GetInstance().EndDraw();
 		
 	}
+	Audio::UninitMaster();
+
 	SceneManager::GetInstance().Uninit();
 
 	DX12Manager::GetInstance().Finalize();

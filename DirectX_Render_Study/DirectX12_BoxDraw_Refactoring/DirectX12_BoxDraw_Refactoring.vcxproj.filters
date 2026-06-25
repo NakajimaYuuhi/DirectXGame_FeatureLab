@@ -232,6 +232,9 @@
     <Filter Include="Source\Object\GameObject\3DObjects\Camera">
       <UniqueIdentifier>{d2ac1a81-674b-409d-9a86-d2a2a0df3078}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Component\Audio">
+      <UniqueIdentifier>{bef20290-5df2-4faa-afa2-860b82f1ec60}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Box.cpp">
@@ -397,6 +400,9 @@
       <Filter>Source\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="audio.cpp">
+      <Filter>Source\Component\Audio</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h">
@@ -605,6 +611,9 @@
       <Filter>Source\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="audio.h">
+      <Filter>Source\Component\Audio</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Sprite.hlsl">
