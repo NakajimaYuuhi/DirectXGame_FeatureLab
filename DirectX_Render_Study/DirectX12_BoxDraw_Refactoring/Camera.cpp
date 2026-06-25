@@ -6,6 +6,8 @@
 #include "BasicSettings.h"
 #include <cmath>
 
+#include "audio.h"
+
 Camera::Camera(String _Name)
 	:C3D_Object(_Name)
 {
@@ -22,11 +24,18 @@ Camera::Camera(String _Name)
 		(float)SCREEN_WIDTH / SCREEN_HEIGHT,
 		0.1f,
 		1000.0f);
+
+	Audio* audio = AddComponent<Audio>();
+	audio->Load("Assets/Audio/BGM/Ska_01.wav");
+	
 }
 
 void Camera::Init()
 {
 	m_player = ObjectManager::GetInstance().GetPlayer();
+
+	Audio* audio = GetComponent<Audio>();
+	audio->Play(true);
 }
 
 void Camera::Update()

@@ -108,10 +108,17 @@ Audio::Audio()
 
 Audio::~Audio()
 {
-	_sourceVoice->Stop();
-	_sourceVoice->DestroyVoice();
-
-	delete[] _soundData;
+	// 追加：_sourceVoice が有効な時だけ破棄する
+	if (_sourceVoice)
+	{
+		_sourceVoice->Stop();
+		_sourceVoice->DestroyVoice();
+	}
+	// 追加：_soundData が有効な時だけ破棄する
+	if (_soundData)
+	{
+		delete[] _soundData;
+	}
 }
 
 

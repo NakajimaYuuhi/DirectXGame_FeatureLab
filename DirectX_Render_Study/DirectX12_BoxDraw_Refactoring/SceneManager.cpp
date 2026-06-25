@@ -55,7 +55,12 @@ void SceneManager::Init()
 //終了処理
 void SceneManager::Uninit(void)
 {
-
+	// シーン内のオブジェクトやリソースをすべて破棄する
+	UninitAndPop();
+	// 現在のシーン自体を破棄する
+	if (scene) {
+		scene.reset();
+	}
 }
 
 

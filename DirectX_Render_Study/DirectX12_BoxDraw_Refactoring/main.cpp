@@ -159,6 +159,10 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 	DX12Manager::GetInstance().Initialize(hwnd);
 	PSOManager::GetInstance().Init(DX12Manager::GetInstance().GetDevice());
 	
+	//音
+	Audio::InitMaster();
+
+
 	//----- SceneManagerの開始 -----
 	SceneManager::GetInstance();
 
@@ -169,8 +173,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
 	//DisplaySize();
 
-	//音
-	Audio::InitMaster();
+
 	//Microsoft::WRL::ComPtr<IXAudio2> pXAudio2;
 	//IXAudio2MasteringVoice* pMasterVoice = nullptr; // ※COMではないので生ポインタか専用の管理が必要です
 
@@ -282,10 +285,11 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 		DX12Manager::GetInstance().EndDraw();
 		
 	}
-	Audio::UninitMaster();
 
 	SceneManager::GetInstance().Uninit();
 
+	//Audioはオブジェクトを破棄した後に、終了させないといけない
+	Audio::UninitMaster();
 	DX12Manager::GetInstance().Finalize();
 
 	return 0;
