@@ -3,7 +3,6 @@
 #include "TextRenderer.h"
 
 TextObject::TextObject(const std::string& _Name)
-    : m_name(_Name)
 {
     SetName(_Name);
 

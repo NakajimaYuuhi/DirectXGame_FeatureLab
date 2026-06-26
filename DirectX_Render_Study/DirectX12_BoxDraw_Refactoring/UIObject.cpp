@@ -3,7 +3,6 @@
 #include "SpriteRenderer.h"
 
 CUIObject::CUIObject(const std::string& _Name)
-    : m_name(_Name)
 {
     SetName(_Name);
 

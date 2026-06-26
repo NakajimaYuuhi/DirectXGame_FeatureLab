@@ -11,8 +11,6 @@ class ObjectManager
 {
 public:
 
-	Player* GetPlayer();
-	Camera* GetCamera();
 
 
 	//生成処理
@@ -36,6 +34,18 @@ public:
 private:
 	//一旦配列は1つ(2次元)
 	Vector <Vector<UniquePtr<CObject>>> vecObject;	//オブジェクトの配列
+
+
+public:
+
+	//Player
+	Player* GetPlayer();
+
+	//Camera
+	Camera* GetCamera();
+
+	//Manager
+	CObject* GetManager(String name);
 
 //----- シングルトンの実装に必要 -----
 public:

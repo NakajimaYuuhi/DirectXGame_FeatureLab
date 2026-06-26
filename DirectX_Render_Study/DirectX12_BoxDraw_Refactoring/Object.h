@@ -103,7 +103,7 @@ public:
 	//----- Getter,Setter -----
 
 	// --IsValid
-	bool GetIsVarid() const			{ return isValid; }
+	bool GetIsValid() const			{ return isValid; }
 	void SetIsValid(bool _IsValid)	{ isValid = _IsValid; }
 
 	// --IsDestroyed

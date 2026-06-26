@@ -58,6 +58,9 @@ void C3D_Object::SetTransform(DirectX::XMFLOAT3 _Position, DirectX::XMFLOAT3 _Sc
 	transform->SetRotation(_Rotation);
 }
 
+
+//===== Getter,Setter =====
+
 //Pos
 DirectX::XMFLOAT3 C3D_Object::GetPos() 
 { 
