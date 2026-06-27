@@ -1,4 +1,4 @@
-#include "ObjectManager.h"
+ï»¿#include "ObjectManager.h"
 
 #include "3D_Object.h"
 #include "Player.h"
@@ -11,6 +11,8 @@
 #include "Collision.h"
 
 #include "UIObject.h"
+#include "TitleUI.h"
+#include "TitleUI.h"
 #include "TextObject.h"
 
 #include "Skydome.h"
@@ -20,7 +22,7 @@
 
 Player* ObjectManager::GetPlayer()
 {
-	//‰½‚à–³‚¢‚È‚çnullptr
+	//ä½•ã‚‚ç„¡ã„ãªã‚‰nullptr
 	if (vecObject[Object::objectTag::PLAYER].size() < 1)return nullptr;
 
 
@@ -29,7 +31,7 @@ Player* ObjectManager::GetPlayer()
 
 Camera* ObjectManager::GetCamera()
 {
-	//‰½‚à–³‚¢‚È‚çnullptr
+	//ä½•ã‚‚ç„¡ã„ãªã‚‰nullptr
 	if (vecObject[Object::objectTag::CAMERA].size() < 1)return nullptr;
 
 
@@ -38,10 +40,10 @@ Camera* ObjectManager::GetCamera()
 
 CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::string _TypeName)
 {
-    //Todo : Factory‚ğì‚é
+    //Todo : Factoryã‚’ä½œã‚‹
 
-    //¶¬
-    //Map‚Æ‚©‚Å‚«‚ê‚¢‚É•ªŠò‚³‚¹‚½‚¢
+    //ç”Ÿæˆ
+    //Mapã¨ã‹ã§ãã‚Œã„ã«åˆ†å²ã•ã›ãŸã„
 	std::unique_ptr<CObject> tmpObject = std::unique_ptr<CObject>(nullptr);
 	CObject* returnObject = nullptr;
 
@@ -50,8 +52,8 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
     {
 		case ObjectTag::NONE:
 			tmpObject = std::make_unique<C3D_Object>("3DObject");
-			returnObject = tmpObject.get();							//¶ƒ|ƒCƒ“ƒ^æ“¾
-			vecObject[static_cast<int>(ObjectTag::FIELD)].push_back(std::move(tmpObject));				//”z—ñ‚É’Ç‰Á
+			returnObject = tmpObject.get();							//ç”Ÿãƒã‚¤ãƒ³ã‚¿å–å¾—
+			vecObject[static_cast<int>(ObjectTag::FIELD)].push_back(std::move(tmpObject));				//é…åˆ—ã«è¿½åŠ 
 
 			break;
 
@@ -61,27 +63,31 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 			vecObject[static_cast<int>(ObjectTag::BACKGROUND)].push_back(std::move(tmpObject));
 			break;
 		case ObjectTag::UI:
-			tmpObject = std::make_unique<CUIObject>(_TypeName);
+			if (_TypeName == "TitleUI") {
+				tmpObject = std::make_unique<TitleUI>(_TypeName);
+			} else {
+				tmpObject = std::make_unique<CUIObject>(_TypeName);
+			}
 			returnObject = tmpObject.get();
 			vecObject[static_cast<int>(ObjectTag::UI)].push_back(std::move(tmpObject));
 			break;
 		case ObjectTag::PLAYER:
-			tmpObject = std::make_unique<Player>("Player");		//¶¬
-			returnObject = tmpObject.get();							//¶ƒ|ƒCƒ“ƒ^æ“¾
-			vecObject[static_cast<int>(ObjectTag::PLAYER)].push_back(std::move(tmpObject));				//”z—ñ‚É’Ç‰Á
+			tmpObject = std::make_unique<Player>("Player");		//ç”Ÿæˆ
+			returnObject = tmpObject.get();							//ç”Ÿãƒã‚¤ãƒ³ã‚¿å–å¾—
+			vecObject[static_cast<int>(ObjectTag::PLAYER)].push_back(std::move(tmpObject));				//é…åˆ—ã«è¿½åŠ 
 			break;
 		case ObjectTag::PLAYER_BULLET:
 
 
 
-			tmpObject = std::make_unique<Bullet>("Bullet");		//¶¬
-			returnObject = tmpObject.get();							//¶ƒ|ƒCƒ“ƒ^æ“¾
-			vecObject[static_cast<int>(ObjectTag::PLAYER_BULLET)].push_back(std::move(tmpObject));		//”z—ñ‚É’Ç‰Á
+			tmpObject = std::make_unique<Bullet>("Bullet");		//ç”Ÿæˆ
+			returnObject = tmpObject.get();							//ç”Ÿãƒã‚¤ãƒ³ã‚¿å–å¾—
+			vecObject[static_cast<int>(ObjectTag::PLAYER_BULLET)].push_back(std::move(tmpObject));		//é…åˆ—ã«è¿½åŠ 
 			break;
 		case ObjectTag::ENEMY:
-			tmpObject = std::make_unique<Enemy>("Enemy");		//¶¬
-			returnObject = tmpObject.get();							//¶ƒ|ƒCƒ“ƒ^æ“¾
-			vecObject[static_cast<int>(ObjectTag::ENEMY)].push_back(std::move(tmpObject));				//”z—ñ‚É’Ç‰Á
+			tmpObject = std::make_unique<Enemy>("Enemy");		//ç”Ÿæˆ
+			returnObject = tmpObject.get();							//ç”Ÿãƒã‚¤ãƒ³ã‚¿å–å¾—
+			vecObject[static_cast<int>(ObjectTag::ENEMY)].push_back(std::move(tmpObject));				//é…åˆ—ã«è¿½åŠ 
             break;
 		case ObjectTag::ENEMY_BULLET:
 			break;
@@ -92,46 +98,46 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 		case ObjectTag::BILLBOARD:
 			if (_TypeName == "RandomParticle")
 			{
-				tmpObject = std::make_unique<RandomParticle>("Particle");		//¶¬
-				returnObject = tmpObject.get();							//¶ƒ|ƒCƒ“ƒ^æ“¾
-				vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//”z—ñ‚É’Ç‰Á
+				tmpObject = std::make_unique<RandomParticle>("Particle");		//ç”Ÿæˆ
+				returnObject = tmpObject.get();							//ç”Ÿãƒã‚¤ãƒ³ã‚¿å–å¾—
+				vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//é…åˆ—ã«è¿½åŠ 
 				break;
 			}
 			else if (_TypeName == "Explosion")
 			{
-				tmpObject = std::make_unique<Explosion>("Explosion");		//¶¬
-				returnObject = tmpObject.get();							//¶ƒ|ƒCƒ“ƒ^æ“¾
-				vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//”z—ñ‚É’Ç‰Á
+				tmpObject = std::make_unique<Explosion>("Explosion");		//ç”Ÿæˆ
+				returnObject = tmpObject.get();							//ç”Ÿãƒã‚¤ãƒ³ã‚¿å–å¾—
+				vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//é…åˆ—ã«è¿½åŠ 
 				break;
 			}
 
 
-			tmpObject = std::make_unique<BillBoard>("BillBoard");		//¶¬
-			returnObject = tmpObject.get();							//¶ƒ|ƒCƒ“ƒ^æ“¾
-			vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//”z—ñ‚É’Ç‰Á
+			tmpObject = std::make_unique<BillBoard>("BillBoard");		//ç”Ÿæˆ
+			returnObject = tmpObject.get();							//ç”Ÿãƒã‚¤ãƒ³ã‚¿å–å¾—
+			vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//é…åˆ—ã«è¿½åŠ 
 			break;
 		case ObjectTag::EFFECT:
-			tmpObject = std::make_unique<Explosion>("Explosion");		//¶¬
-			returnObject = tmpObject.get();							//¶ƒ|ƒCƒ“ƒ^æ“¾
-			vecObject[static_cast<int>(ObjectTag::EFFECT)].push_back(std::move(tmpObject));				//”z—ñ‚É’Ç‰Á
+			tmpObject = std::make_unique<Explosion>("Explosion");		//ç”Ÿæˆ
+			returnObject = tmpObject.get();							//ç”Ÿãƒã‚¤ãƒ³ã‚¿å–å¾—
+			vecObject[static_cast<int>(ObjectTag::EFFECT)].push_back(std::move(tmpObject));				//é…åˆ—ã«è¿½åŠ 
 			break;
 			break;
 		case ObjectTag::TEXT:
-			tmpObject = std::make_unique<TextObject>("TextObject1");		//¶¬
-			returnObject = tmpObject.get();							//¶ƒ|ƒCƒ“ƒ^æ“¾
-			vecObject[static_cast<int>(ObjectTag::TEXT)].push_back(std::move(tmpObject));				//”z—ñ‚É’Ç‰Á
+			tmpObject = std::make_unique<TextObject>("TextObject1");		//ç”Ÿæˆ
+			returnObject = tmpObject.get();							//ç”Ÿãƒã‚¤ãƒ³ã‚¿å–å¾—
+			vecObject[static_cast<int>(ObjectTag::TEXT)].push_back(std::move(tmpObject));				//é…åˆ—ã«è¿½åŠ 
 			break;
 		case ObjectTag::CAMERA:
-			tmpObject = std::make_unique<Camera>("Camera");		//¶¬
-			returnObject = tmpObject.get();							//¶ƒ|ƒCƒ“ƒ^æ“¾
-			vecObject[static_cast<int>(ObjectTag::CAMERA)].push_back(std::move(tmpObject));				//”z—ñ‚É’Ç‰Á
+			tmpObject = std::make_unique<Camera>("Camera");		//ç”Ÿæˆ
+			returnObject = tmpObject.get();							//ç”Ÿãƒã‚¤ãƒ³ã‚¿å–å¾—
+			vecObject[static_cast<int>(ObjectTag::CAMERA)].push_back(std::move(tmpObject));				//é…åˆ—ã«è¿½åŠ 
 			break;
 		case ObjectTag::FADE:
 			break;
 
     }
 
-    //”z—ñ‚É’Ç‰Á
+    //é…åˆ—ã«è¿½åŠ 
 
     return returnObject;
 }
@@ -167,7 +173,7 @@ void ObjectManager::Update(Scenes::ID _SceneID)
 		}
 	}
 
-	//Collision‚ÌXV
+	//Collisionã®æ›´æ–°
 	CollisionUpdate(_SceneID);
 
 	for (auto& vec : vecObject)
@@ -197,26 +203,26 @@ void ObjectManager::FlushDestroyedObjects()
 
 void ObjectManager::CollisionUpdate(Scenes::ID _SceneID)
 {
-	//Collision‚ÌXV
-	//CollisionOrder‚ğæ“¾
+	//Collisionã®æ›´æ–°
+	//CollisionOrderã‚’å–å¾—
 	Vector<Vector<ObjectTag>>& CollisionOrder = Collision::GetInstance().GetCollisionOrder();
 
-	//CollisionOrder‚Ì‡”Ô‚ÅÕ“Ë”»’è
+	//CollisionOrderã®é †ç•ªã§è¡çªåˆ¤å®š
 	for (auto& order : CollisionOrder)
 	{
-		//order‚Ì‡”Ô‚ÅÕ“Ë”»’è
+		//orderã®é †ç•ªã§è¡çªåˆ¤å®š
 		for (size_t i = 0; i < vecObject[static_cast<int>(order[0])].size(); i++)
 		{
 			for (size_t j = 0; j < vecObject[static_cast<int>(order[1])].size(); j++)
 			{
-				//Õ“Ë”»’è
+				//è¡çªåˆ¤å®š
 				BoxCollider3D* colliderA = vecObject[static_cast<int>(order[0])][i]->GetComponent<BoxCollider3D>();
 				BoxCollider3D* colliderB = vecObject[static_cast<int>(order[1])][j]->GetComponent<BoxCollider3D>();
 				if (colliderA && colliderB)
 				{
 					if (Collision::CheckCollision(colliderA, colliderB))
 					{
-						//Õ“Ë‚µ‚Ä‚¢‚é‚Æ‚«‚Ìˆ—
+						//è¡çªã—ã¦ã„ã‚‹ã¨ãã®å‡¦ç†
 						vecObject[static_cast<int>(order[0])][i]->OnCollision(vecObject[static_cast<int>(order[1])][j].get());
 						vecObject[static_cast<int>(order[1])][j]->OnCollision(vecObject[static_cast<int>(order[0])][i].get());
 					}
@@ -241,11 +247,12 @@ void ObjectManager::Draw(Scenes::ID _SceneID)
 
 ObjectManager::ObjectManager()
 {
-	//Resize‚ğŠ|‚¯‚é
+	//Resizeã‚’æ›ã‘ã‚‹
 	vecObject.resize(ObjectTag::NUM);
 }
 
 ObjectManager::~ObjectManager()
 {
 }
+
 

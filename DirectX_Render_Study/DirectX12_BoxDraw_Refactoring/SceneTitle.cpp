@@ -44,6 +44,12 @@ void SceneTitle::Init()
     textObj1->SetColor(D2D1::ColorF::Cyan);
 
 
+    // TitleUI
+    CUIObject* titleUI = (CUIObject*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "TitleUI"));
+    titleUI->SetTexture(L"Assets/Texture/TmpActionGameTItleImage.png");
+    titleUI->SetPosition(0.0f, 0.0f);
+    titleUI->SetSize(1920.0f, 1080.0f);
+
     ObjectManager::GetInstance().Init(Scenes::ID::NONE);
 }
 

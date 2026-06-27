@@ -22,12 +22,23 @@ void CSpriteRenderer::Init()
 
 void CSpriteRenderer::SetTexture(const std::wstring& filePath)
 {
+    DX12Manager::GetInstance().ForceWait();
+    auto allocator = DX12Manager::GetInstance().GetCommandAllocator();
+    auto cmdList = DX12Manager::GetInstance().GetCommandList();
+    allocator->Reset();
+    cmdList->Reset(allocator, nullptr);
+
     m_texture = TextureManager::GetInstance().GetTexture(
         DX12Manager::GetInstance().GetDevice(),
-        DX12Manager::GetInstance().GetCommandList(),
+        cmdList,
         filePath.c_str(),
         0 // we will re-assign index or rely on descriptor heap
     );
+
+    cmdList->Close();
+    ID3D12CommandList* list[] = { cmdList };
+    DX12Manager::GetInstance().GetCommandQueue()->ExecuteCommandLists(1, list);
+    DX12Manager::GetInstance().ForceWait();
 }
 
 void CSpriteRenderer::CreateBuffers()
@@ -101,6 +112,9 @@ void CSpriteRenderer::Draw()
 
     auto cmdList = DX12Manager::GetInstance().GetCommandList();
     
+    ID3D12DescriptorHeap* heaps[] = { DX12Manager::GetInstance().GetSRVHeap() };
+    cmdList->SetDescriptorHeaps(1, heaps);
+
     // Set Pipeline and Root Signature
     cmdList->SetGraphicsRootSignature(PSOManager::GetInstance().GetSpriteRootSignature());
     cmdList->SetPipelineState(PSOManager::GetInstance().GetSpritePSO());
@@ -135,3 +149,5 @@ void CSpriteRenderer::Draw()
 
     cmdList->DrawIndexedInstanced(6, 1, 0, 0, 0);
 }
+
+
