@@ -18,5 +18,4 @@ public:
     void SetSize(float width, float height);
 
 private:
-    std::string m_name;
 };

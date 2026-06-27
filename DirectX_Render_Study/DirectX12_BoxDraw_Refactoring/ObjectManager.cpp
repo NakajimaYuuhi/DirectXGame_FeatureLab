@@ -1,146 +1,9 @@
-﻿#include "ObjectManager.h"
+#include "ObjectManager.h"
 
-#include "3D_Object.h"
-#include "Player.h"
-#include "Bullet.h"
-#include "Enemy.h"
-#include "BillBoard.h"
-#include "RandomParticle.h"
-#include "Explosion.h"
-
+//???
 #include "Collision.h"
 
-#include "UIObject.h"
-#include "TitleUI.h"
-#include "TitleUI.h"
-#include "TextObject.h"
 
-#include "Skydome.h"
-#include "EventManager.h"
-
-#include "Camera.h"
-
-Player* ObjectManager::GetPlayer()
-{
-	//何も無いならnullptr
-	if (vecObject[Object::objectTag::PLAYER].size() < 1)return nullptr;
-
-
-	return (Player*)(vecObject[Object::objectTag::PLAYER][0].get());
-}
-
-Camera* ObjectManager::GetCamera()
-{
-	//何も無いならnullptr
-	if (vecObject[Object::objectTag::CAMERA].size() < 1)return nullptr;
-
-
-	return (Camera*)(vecObject[Object::objectTag::CAMERA][0].get());
-}
-
-CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::string _TypeName)
-{
-    //Todo : Factoryを作る
-
-    //生成
-    //Mapとかできれいに分岐させたい
-	std::unique_ptr<CObject> tmpObject = std::unique_ptr<CObject>(nullptr);
-	CObject* returnObject = nullptr;
-
-
-    switch (_Tag)
-    {
-		case ObjectTag::NONE:
-			tmpObject = std::make_unique<C3D_Object>("3DObject");
-			returnObject = tmpObject.get();							//生ポインタ取得
-			vecObject[static_cast<int>(ObjectTag::FIELD)].push_back(std::move(tmpObject));				//配列に追加
-
-			break;
-
-        case ObjectTag::BACKGROUND:
-			tmpObject = std::make_unique<Skydome>(_TypeName);
-			returnObject = tmpObject.get();
-			vecObject[static_cast<int>(ObjectTag::BACKGROUND)].push_back(std::move(tmpObject));
-			break;
-		case ObjectTag::UI:
-			if (_TypeName == "TitleUI") {
-				tmpObject = std::make_unique<TitleUI>(_TypeName);
-			} else {
-				tmpObject = std::make_unique<CUIObject>(_TypeName);
-			}
-			returnObject = tmpObject.get();
-			vecObject[static_cast<int>(ObjectTag::UI)].push_back(std::move(tmpObject));
-			break;
-		case ObjectTag::PLAYER:
-			tmpObject = std::make_unique<Player>("Player");		//生成
-			returnObject = tmpObject.get();							//生ポインタ取得
-			vecObject[static_cast<int>(ObjectTag::PLAYER)].push_back(std::move(tmpObject));				//配列に追加
-			break;
-		case ObjectTag::PLAYER_BULLET:
-
-
-
-			tmpObject = std::make_unique<Bullet>("Bullet");		//生成
-			returnObject = tmpObject.get();							//生ポインタ取得
-			vecObject[static_cast<int>(ObjectTag::PLAYER_BULLET)].push_back(std::move(tmpObject));		//配列に追加
-			break;
-		case ObjectTag::ENEMY:
-			tmpObject = std::make_unique<Enemy>("Enemy");		//生成
-			returnObject = tmpObject.get();							//生ポインタ取得
-			vecObject[static_cast<int>(ObjectTag::ENEMY)].push_back(std::move(tmpObject));				//配列に追加
-            break;
-		case ObjectTag::ENEMY_BULLET:
-			break;
-		case ObjectTag::FIELD:
-			//Floor
-
-			break;
-		case ObjectTag::BILLBOARD:
-			if (_TypeName == "RandomParticle")
-			{
-				tmpObject = std::make_unique<RandomParticle>("Particle");		//生成
-				returnObject = tmpObject.get();							//生ポインタ取得
-				vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//配列に追加
-				break;
-			}
-			else if (_TypeName == "Explosion")
-			{
-				tmpObject = std::make_unique<Explosion>("Explosion");		//生成
-				returnObject = tmpObject.get();							//生ポインタ取得
-				vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//配列に追加
-				break;
-			}
-
-
-			tmpObject = std::make_unique<BillBoard>("BillBoard");		//生成
-			returnObject = tmpObject.get();							//生ポインタ取得
-			vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//配列に追加
-			break;
-		case ObjectTag::EFFECT:
-			tmpObject = std::make_unique<Explosion>("Explosion");		//生成
-			returnObject = tmpObject.get();							//生ポインタ取得
-			vecObject[static_cast<int>(ObjectTag::EFFECT)].push_back(std::move(tmpObject));				//配列に追加
-			break;
-			break;
-		case ObjectTag::TEXT:
-			tmpObject = std::make_unique<TextObject>("TextObject1");		//生成
-			returnObject = tmpObject.get();							//生ポインタ取得
-			vecObject[static_cast<int>(ObjectTag::TEXT)].push_back(std::move(tmpObject));				//配列に追加
-			break;
-		case ObjectTag::CAMERA:
-			tmpObject = std::make_unique<Camera>("Camera");		//生成
-			returnObject = tmpObject.get();							//生ポインタ取得
-			vecObject[static_cast<int>(ObjectTag::CAMERA)].push_back(std::move(tmpObject));				//配列に追加
-			break;
-		case ObjectTag::FADE:
-			break;
-
-    }
-
-    //配列に追加
-
-    return returnObject;
-}
 
 void ObjectManager::Uninit()
 {
@@ -150,6 +13,8 @@ void ObjectManager::Uninit()
 
 
 
+//===== Getter =====
+//??????????
 void ObjectManager::Init(Scenes::ID _SceneID)
 {
 	for (auto& vec : vecObject)
@@ -163,6 +28,10 @@ void ObjectManager::Init(Scenes::ID _SceneID)
 
 }
 
+
+
+
+//?X?V????
 void ObjectManager::Update(Scenes::ID _SceneID)
 {
 	for(auto& vec : vecObject)
@@ -173,7 +42,7 @@ void ObjectManager::Update(Scenes::ID _SceneID)
 		}
 	}
 
-	//Collisionの更新
+	//Collision�̍X�V
 	CollisionUpdate(_SceneID);
 
 	for (auto& vec : vecObject)
@@ -187,6 +56,7 @@ void ObjectManager::Update(Scenes::ID _SceneID)
 	}
 }
 
+//??????
 void ObjectManager::FlushDestroyedObjects()
 {
 	for (auto& vec : vecObject)
@@ -201,28 +71,29 @@ void ObjectManager::FlushDestroyedObjects()
 	}
 }
 
+//??????
 void ObjectManager::CollisionUpdate(Scenes::ID _SceneID)
 {
-	//Collisionの更新
-	//CollisionOrderを取得
+	//Collision�̍X�V
+	//CollisionOrder���擾
 	Vector<Vector<ObjectTag>>& CollisionOrder = Collision::GetInstance().GetCollisionOrder();
 
-	//CollisionOrderの順番で衝突判定
+	//CollisionOrder�̏��ԂŏՓ˔���
 	for (auto& order : CollisionOrder)
 	{
-		//orderの順番で衝突判定
+		//order�̏��ԂŏՓ˔���
 		for (size_t i = 0; i < vecObject[static_cast<int>(order[0])].size(); i++)
 		{
 			for (size_t j = 0; j < vecObject[static_cast<int>(order[1])].size(); j++)
 			{
-				//衝突判定
+				//�Փ˔���
 				BoxCollider3D* colliderA = vecObject[static_cast<int>(order[0])][i]->GetComponent<BoxCollider3D>();
 				BoxCollider3D* colliderB = vecObject[static_cast<int>(order[1])][j]->GetComponent<BoxCollider3D>();
 				if (colliderA && colliderB)
 				{
 					if (Collision::CheckCollision(colliderA, colliderB))
 					{
-						//衝突しているときの処理
+						//�Փ˂��Ă���Ƃ��̏���
 						vecObject[static_cast<int>(order[0])][i]->OnCollision(vecObject[static_cast<int>(order[1])][j].get());
 						vecObject[static_cast<int>(order[1])][j]->OnCollision(vecObject[static_cast<int>(order[0])][i].get());
 					}
@@ -232,6 +103,7 @@ void ObjectManager::CollisionUpdate(Scenes::ID _SceneID)
 	}
 }
 
+//?`????
 void ObjectManager::Draw(Scenes::ID _SceneID)
 {
 	for (auto& vec : vecObject)
@@ -245,12 +117,16 @@ void ObjectManager::Draw(Scenes::ID _SceneID)
 	}
 }
 
+
+
+//?R???X?g???N?^
 ObjectManager::ObjectManager()
 {
-	//Resizeを掛ける
+	//Resize���|����
 	vecObject.resize(ObjectTag::NUM);
 }
 
+//?f?X?g???N?^
 ObjectManager::~ObjectManager()
 {
 }

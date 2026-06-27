@@ -235,6 +235,24 @@
     <Filter Include="Source\Component\Audio">
       <UniqueIdentifier>{bef20290-5df2-4faa-afa2-860b82f1ec60}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Object\GameObject\2DObject\TextObject\ExtendText">
+      <UniqueIdentifier>{8559ebf7-de12-4e03-b169-9be287dc73a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object\GameObject\2DObject\TextObject\Base">
+      <UniqueIdentifier>{d8cc18b1-3c5b-43cd-a65f-a756d8a01c9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object\GameObject\2DObject\TextObject\ExtendText\Score">
+      <UniqueIdentifier>{ecabc549-3542-462d-bb38-3e65332a6b9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object\GameObject\Manager">
+      <UniqueIdentifier>{bbf6642d-a19d-4731-9329-3a4365268a2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object\GameObject\Manager\Base">
+      <UniqueIdentifier>{f889466e-2084-4667-a2ef-e7589537daf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object\GameObject\Manager\EnemyCounter">
+      <UniqueIdentifier>{6360b556-8bfd-44d1-8e39-d4da29db9139}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Box.cpp">
@@ -366,9 +384,6 @@
     <ClCompile Include="UIObject.cpp">
       <Filter>Source\Object\GameObject\2DObject\UIObject</Filter>
     </ClCompile>
-    <ClCompile Include="TextObject.cpp">
-      <Filter>Source\Object\GameObject\2DObject\TextObject</Filter>
-    </ClCompile>
     <ClCompile Include="Bullet.cpp">
       <Filter>Source\Object\GameObject\3DObjects\Bullet\Base</Filter>
     </ClCompile>
@@ -399,13 +414,36 @@
     <ClCompile Include="SceneTitle.cpp">
       <Filter>Source\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="audio.cpp">
       <Filter>Source\Component\Audio</Filter>
     </ClCompile>
+
     <ClCompile Include="TitleUI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source\Object\GameObject\3DObjects\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="TextObject.cpp">
+      <Filter>Source\Object\GameObject\2DObject\TextObject\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectManager_Getter_Setter.cpp">
+      <Filter>Source\System\ObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectManager_Instantiate.cpp">
+      <Filter>Source\System\ObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager.cpp">
+      <Filter>Source\Object\GameObject\Manager\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyCounter.cpp">
+      <Filter>Source\Object\GameObject\Manager\EnemyCounter</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyCount.cpp">
+          <Filter>Source\Object\GameObject\Manager\EnemyCounter</Filter>
+    </ClCompile>
+
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h">
@@ -576,9 +614,6 @@
     <ClInclude Include="UIObject.h">
       <Filter>Source\Object\GameObject\2DObject\UIObject</Filter>
     </ClInclude>
-    <ClInclude Include="TextObject.h">
-      <Filter>Source\Object\GameObject\2DObject\TextObject</Filter>
-    </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>Source\Object\GameObject\3DObjects\Bullet\Base</Filter>
     </ClInclude>
@@ -613,13 +648,29 @@
     <ClInclude Include="SceneTitle.h">
       <Filter>Source\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Camera.h" />
     <ClInclude Include="audio.h">
       <Filter>Source\Component\Audio</Filter>
     </ClInclude>
+
     <ClInclude Include="TitleUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Source\Object\GameObject\3DObjects\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="TextObject.h">
+      <Filter>Source\Object\GameObject\2DObject\TextObject\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager.h">
+      <Filter>Source\Object\GameObject\Manager\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyCounter.h">
+      <Filter>Source\Object\GameObject\Manager\EnemyCounter</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyCount.h" >
+          <Filter>Source\Object\GameObject\Manager\EnemyCounter</Filter>
+    </ClInclude>
+
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Sprite.hlsl">

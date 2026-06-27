@@ -24,6 +24,9 @@
 
 #include "Explosion.h"
 
+//
+#include "EnemyCounter.h"
+
 
 Enemy::Enemy(String _Name)
 	:C3D_Object(_Name)
@@ -52,6 +55,21 @@ Enemy::Enemy(String _Name)
 	collider->SetSize({ 1.0f, 2.0f, 1.0f });
 
 	SetScale({1.0f,1.0f,1.0f });
+
+
+}
+
+void Enemy::Init()
+{
+	//ÉJÉEÉìÉgèàóù
+	//EnemyCounterÇ…â¡éZÇ∑ÇÈ
+	EnemyCounter* enemyCounter = (EnemyCounter*)ObjectManager::GetInstance().GetManager("EnemyCounter");
+	enemyCounter->Instantiated();
+	
+	//
+	CObject::Init();
+
+	
 }
 
 void Enemy::Update()
@@ -75,8 +93,14 @@ void Enemy::OnCollision(CObject* _Other)
 		HP--;
 		if (HP <= 0)
 		{
+
+			//éÄñSèàóù
 			SetIsDestroyed(true);
 			
+			//EnemyCounterÇ…â¡éZÇ∑ÇÈ
+			EnemyCounter* enemyCounter = (EnemyCounter*)ObjectManager::GetInstance().GetManager("EnemyCounter");
+			enemyCounter->Defeat();
+
 			//explosionÇê∂ê¨
 			C3D_Object* billBoard = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::EFFECT, "Explosion"));
 			if (billBoard)

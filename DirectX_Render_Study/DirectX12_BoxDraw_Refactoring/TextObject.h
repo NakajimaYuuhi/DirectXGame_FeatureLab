@@ -22,5 +22,4 @@ public:
     void SetFontFamily(const std::wstring& family);
 
 private:
-    std::string m_name;
 };

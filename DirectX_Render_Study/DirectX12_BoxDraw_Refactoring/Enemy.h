@@ -8,6 +8,8 @@ public:
 	~Enemy() = default;
 
 	//“ü—Í‚ÌXV
+
+	virtual void Init();
 	virtual void Update();
 
 	virtual void OnCollision(CObject* _Other) override;

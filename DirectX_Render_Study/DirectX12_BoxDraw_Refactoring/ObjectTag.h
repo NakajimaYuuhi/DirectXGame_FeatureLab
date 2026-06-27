@@ -24,6 +24,8 @@ namespace Object
 		CAMERA,
 		FADE,
 
+		MANAGER,
+
 		NUM,//オブジェクトのタグの最大数
 
 	}objectTag;
