@@ -40,6 +40,8 @@ Camera* ObjectManager::GetCamera()
 }
 
 //----- Manager -----
+//名前で探して,Getする
+//将来的には、ObjectInfoで探して、Getすればいいか？
 CObject* ObjectManager::GetManager(String name)
 {
 	for (auto& object : vecObject[Object::objectTag::MANAGER])

@@ -1,20 +1,11 @@
-#include "ObjectManager.h"
-
-//???
-#include "Collision.h"
-
+//===== インクルード =====
+#include "ObjectManager.h"	//ヘッダ
+#include "Collision.h"		//衝突処理
 
 
-void ObjectManager::Uninit()
-{
-	vecObject.clear();
-	vecObject.resize(ObjectTag::NUM);
-}
+//===== 初期化処理・終了処理 =====
 
-
-
-//===== Getter =====
-//??????????
+//初期化処理
 void ObjectManager::Init(Scenes::ID _SceneID)
 {
 	for (auto& vec : vecObject)
@@ -28,10 +19,17 @@ void ObjectManager::Init(Scenes::ID _SceneID)
 
 }
 
+//終了処理
+void ObjectManager::Uninit()
+{
+	vecObject.clear();
+	vecObject.resize(ObjectTag::NUM);
+}
 
 
+//===== 更新・描画処理 =====
 
-//?X?V????
+//更新処理
 void ObjectManager::Update(Scenes::ID _SceneID)
 {
 	for(auto& vec : vecObject)
@@ -56,7 +54,7 @@ void ObjectManager::Update(Scenes::ID _SceneID)
 	}
 }
 
-//??????
+//オブジェクトの削除処理
 void ObjectManager::FlushDestroyedObjects()
 {
 	for (auto& vec : vecObject)
@@ -71,7 +69,7 @@ void ObjectManager::FlushDestroyedObjects()
 	}
 }
 
-//??????
+//衝突処理
 void ObjectManager::CollisionUpdate(Scenes::ID _SceneID)
 {
 	//Collisionの更新
@@ -103,7 +101,7 @@ void ObjectManager::CollisionUpdate(Scenes::ID _SceneID)
 	}
 }
 
-//?`????
+//描画処理
 void ObjectManager::Draw(Scenes::ID _SceneID)
 {
 	for (auto& vec : vecObject)
@@ -118,15 +116,16 @@ void ObjectManager::Draw(Scenes::ID _SceneID)
 }
 
 
+//===== コンストラクタ・デストラクタ処理 =====
 
-//?R???X?g???N?^
+//コンストラクタ
 ObjectManager::ObjectManager()
 {
 	//Resizeを掛ける
 	vecObject.resize(ObjectTag::NUM);
 }
 
-//?f?X?g???N?^
+//デストラクタ
 ObjectManager::~ObjectManager()
 {
 }
