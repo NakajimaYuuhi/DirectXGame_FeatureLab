@@ -38,6 +38,7 @@
 #include "TextObject.h"
 #include "EnemyCount.h"
 #include "TitleUI.h"
+#include "CUIButton.h"
 
 // --Manager
 #include "EnemyCounter.h"
@@ -72,8 +73,8 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 		if (_TypeName == "TitleUI") {
 			tmpObject = std::make_unique<TitleUI>(_TypeName);
 		}
-		else {
-			tmpObject = std::make_unique<CUIObject>(_TypeName);
+		else if (_TypeName == "UIButton") {
+			tmpObject = std::make_unique<CUIButton>(_TypeName);
 		}
 		returnObject = tmpObject.get();
 		vecObject[static_cast<int>(ObjectTag::UI)].push_back(std::move(tmpObject));

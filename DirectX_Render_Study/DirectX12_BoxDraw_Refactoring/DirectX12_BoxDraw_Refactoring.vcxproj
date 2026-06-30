@@ -146,6 +146,8 @@
   <ItemGroup>
     <ClCompile Include="audio.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="ButtonEventManager.cpp" />
+    <ClCompile Include="CUIButton.cpp" />
     <ClCompile Include="D2DTextRenderer.cpp" />
     <ClCompile Include="EnemyCount.cpp" />
     <ClCompile Include="EnemyCounter.cpp" />
@@ -210,6 +212,8 @@
   <ItemGroup>
     <ClInclude Include="audio.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="ButtonEventManager.h" />
+    <ClInclude Include="CUIButton.h" />
     <ClInclude Include="D2DTextRenderer.h" />
     <ClInclude Include="EnemyCount.h" />
     <ClInclude Include="EnemyCounter.h" />
@@ -218,6 +222,7 @@
     <ClInclude Include="EventData.h" />
     <ClInclude Include="EventData_NextScene.h" />
     <ClInclude Include="EventEnums.h" />
+    <ClInclude Include="ISelectable.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SceneManager.h" />

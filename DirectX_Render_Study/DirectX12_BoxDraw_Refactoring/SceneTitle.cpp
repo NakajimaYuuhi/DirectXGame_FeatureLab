@@ -4,6 +4,7 @@
 
 #include "Object.h"
 #include "UIObject.h"
+#include "CUIButton.h"
 
 #include "Model.h"
 #include "DX12Manager.h"
@@ -49,6 +50,11 @@ void SceneTitle::Init()
     titleUI->SetTexture(L"Assets/Texture/TmpActionGameTItleImage.png");
     titleUI->SetPosition(0.0f, 0.0f);
     titleUI->SetSize(1920.0f, 1080.0f);
+
+    CUIObject* titleButton = (CUIObject*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "UIButton"));
+    titleButton->SetTexture(L"Assets/Texture/TmpActionGameTItleImage.png");
+    titleButton->SetPosition(0.0f, 0.0f);
+    titleButton->SetSize(500.0f, 500.0f);
 
     ObjectManager::GetInstance().Init(Scenes::ID::NONE);
 }

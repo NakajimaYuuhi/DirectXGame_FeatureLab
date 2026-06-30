@@ -417,11 +417,6 @@
     <ClCompile Include="audio.cpp">
       <Filter>Source\Component\Audio</Filter>
     </ClCompile>
-
-    <ClCompile Include="TitleUI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-
     <ClCompile Include="Camera.cpp">
       <Filter>Source\Object\GameObject\3DObjects\Camera</Filter>
     </ClCompile>
@@ -441,9 +436,11 @@
       <Filter>Source\Object\GameObject\Manager\EnemyCounter</Filter>
     </ClCompile>
     <ClCompile Include="EnemyCount.cpp">
-          <Filter>Source\Object\GameObject\Manager\EnemyCounter</Filter>
+      <Filter>Source\Object\GameObject\Manager\EnemyCounter</Filter>
     </ClCompile>
-
+    <ClCompile Include="TitleUI.cpp" />
+    <ClCompile Include="ButtonEventManager.cpp" />
+    <ClCompile Include="CUIButton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h">
@@ -651,10 +648,6 @@
     <ClInclude Include="audio.h">
       <Filter>Source\Component\Audio</Filter>
     </ClInclude>
-
-    <ClInclude Include="TitleUI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Source\Object\GameObject\3DObjects\Camera</Filter>
     </ClInclude>
@@ -667,10 +660,13 @@
     <ClInclude Include="EnemyCounter.h">
       <Filter>Source\Object\GameObject\Manager\EnemyCounter</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyCount.h" >
-          <Filter>Source\Object\GameObject\Manager\EnemyCounter</Filter>
+    <ClInclude Include="EnemyCount.h">
+      <Filter>Source\Object\GameObject\Manager\EnemyCounter</Filter>
     </ClInclude>
-
+    <ClInclude Include="TitleUI.h" />
+    <ClInclude Include="ButtonEventManager.h" />
+    <ClInclude Include="CUIButton.h" />
+    <ClInclude Include="ISelectable.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Sprite.hlsl">
