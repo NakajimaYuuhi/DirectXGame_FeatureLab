@@ -1,5 +1,7 @@
 #include "CUIButton.h"
 
+#include "SpriteRenderer.h"
+
 CUIButton::CUIButton(const std::string& _Name)
     : CUIObject(_Name)
     , m_selectOnUp(nullptr)
@@ -18,6 +20,10 @@ void CUIButton::Init()
 {
     CUIObject::Init();
     // 初期化処理
+    // SpriteRenderer
+    CSpriteRenderer * spriteRenderer = GetComponent<CSpriteRenderer>();
+
+    spriteRenderer->SetColor({ 1.0f,1.0f,1.0f,0.3f });
 }
 
 void CUIButton::Update()
@@ -38,12 +44,24 @@ void CUIButton::OnSelect()
 {
     m_isSelected = true;
     // フォーカス時の見た目変更（画像切り替え、色変更など）
+
+        //SpriteRenderer
+    CSpriteRenderer* spriteRenderer = GetComponent<CSpriteRenderer>();
+
+    spriteRenderer->SetColor({ 1.0f,1.0f,1.0f,1.0f });
+
 }
 
 void CUIButton::OnDeselect()
 {
     m_isSelected = false;
     // フォーカスが外れた時の見た目変更
+
+    //SpriteRenderer
+    CSpriteRenderer* spriteRenderer = GetComponent<CSpriteRenderer>();
+
+    spriteRenderer->SetColor({ 1.0f,1.0f,1.0f,0.3f });
+
 }
 
 void CUIButton::OnSubmit()

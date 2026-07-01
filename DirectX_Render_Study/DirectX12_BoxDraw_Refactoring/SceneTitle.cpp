@@ -19,6 +19,8 @@
 
 #include "ObjectTag.h"
 
+#include "ButtonEventManager.h"
+
 SceneTitle::SceneTitle()
     :CScene(Scenes::ID::TITLE)
 {
@@ -34,6 +36,8 @@ SceneTitle::~SceneTitle() = default;
 
 void SceneTitle::Init()
 {
+    ButtonEventManager::GetInstance();
+
     //Cameraの定義
     ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::CAMERA,"Camera");
 
@@ -51,16 +55,29 @@ void SceneTitle::Init()
     titleUI->SetPosition(0.0f, 0.0f);
     titleUI->SetSize(1920.0f, 1080.0f);
 
-    CUIObject* titleButton = (CUIObject*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "UIButton"));
+    CUIButton* titleButton = (CUIButton*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "UIButton"));
     titleButton->SetTexture(L"Assets/Texture/TmpActionGameTItleImage.png");
     titleButton->SetPosition(0.0f, 0.0f);
     titleButton->SetSize(500.0f, 500.0f);
 
+    CUIButton* titleButton2 = (CUIButton*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "UIButton"));
+    titleButton2->SetTexture(L"Assets/Texture/TmpActionGameTItleImage.png");
+    titleButton2->SetPosition(800.0f, 0.0f);
+    titleButton2->SetSize(500.0f, 500.0f);
+
+    titleButton->SetNavigation(titleButton2, titleButton2, nullptr, nullptr);
+    titleButton2->SetNavigation(titleButton, titleButton, nullptr, nullptr);
+
     ObjectManager::GetInstance().Init(Scenes::ID::NONE);
+    
+    ButtonEventManager::GetInstance().SetSelectedGameObject((CUIButton*)titleButton);
 }
 
 void SceneTitle::Update()
 {
+
+    ButtonEventManager::GetInstance().Update();
+
     //キー入力でイベントを入れる
     if (CInputManager::GetInstance().IsKeyTrigger('P'))
     {
