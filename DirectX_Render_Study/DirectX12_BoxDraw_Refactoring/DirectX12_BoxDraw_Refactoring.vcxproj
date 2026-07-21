@@ -159,6 +159,7 @@
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="ObjectManager_Getter_Setter.cpp" />
     <ClCompile Include="ObjectManager_Instantiate.cpp" />
+    <ClCompile Include="PostProcessPass.cpp" />
     <ClCompile Include="RenderPipeline.cpp" />
     <ClCompile Include="RenderTexture.cpp" />
     <ClCompile Include="SceneManager.cpp" />
@@ -229,6 +230,7 @@
     <ClInclude Include="IRenderPass.h" />
     <ClInclude Include="ISelectable.h" />
     <ClInclude Include="Manager.h" />
+    <ClInclude Include="PostProcessPass.h" />
     <ClInclude Include="RenderContext.h" />
     <ClInclude Include="RenderPipeline.h" />
     <ClInclude Include="RenderTexture.h" />
@@ -298,6 +300,12 @@
     <ClInclude Include="TitleUI.h" />
   </ItemGroup>
   <ItemGroup>
+    <FxCompile Include="PostProcess.hlsl">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">PSMain</EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">PSMain</EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+    </FxCompile>
     <FxCompile Include="Sprite.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>

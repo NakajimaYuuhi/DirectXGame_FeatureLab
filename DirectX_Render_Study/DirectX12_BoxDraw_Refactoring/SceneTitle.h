@@ -29,5 +29,6 @@ public:
 private:
 	std::unique_ptr<RenderPipeline> m_renderPipeline;
 	std::unique_ptr<RenderTexture> m_renderTexture;
+	std::unique_ptr<RenderTexture> m_pOffscreenTexture;
 };
 

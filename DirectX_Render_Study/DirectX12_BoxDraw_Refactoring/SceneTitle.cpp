@@ -24,6 +24,7 @@
 
 //
 #include "ForwardRenderPass.h"
+#include "PostProcessPass.h" // 追加
 
 //設定(width,height取得)
 #include "BasicSettings.h"
@@ -83,10 +84,21 @@ void SceneTitle::Init()
 
 
     m_renderPipeline = std::make_unique<RenderPipeline>();
-    // 1. パスの構築と登録
-// ※今回は Phase1 なのでオフスクリーンテクスチャは nullptr を渡すか、
-// バックバッファ直書き用の ForwardRenderPass を作って登録します。
-    m_renderPipeline->AddPass(std::make_unique<ForwardRenderPass>());
+    // 1. オフスクリーンテクスチャの生成
+    ID3D12Device* pDevice = DX12Manager::GetInstance().GetDevice(); 
+    UINT width = SCREEN_WIDTH; // 画面幅
+    UINT height = SCREEN_HEIGHT; // 画面高さ
+    m_pOffscreenTexture = std::make_unique<RenderTexture>(pDevice, width, height, DXGI_FORMAT_R8G8B8A8_UNORM);
+    // 2. パイプラインの生成とパスの登録
+    m_renderPipeline = std::make_unique<RenderPipeline>();
+
+    // 【変更】ForwardRenderPassにオフスクリーンテクスチャを渡す
+    m_renderPipeline->AddPass(std::make_unique<ForwardRenderPass>(m_pOffscreenTexture.get()));
+
+    // 【追加】モノクロ化するPostProcessPassを追加
+    m_renderPipeline->AddPass(std::make_unique<PostProcessPass>(m_pOffscreenTexture.get()));
+    // 3. パイプライン内の全パスを初期化 (PSOの生成などが走る)
+    m_renderPipeline->Init(pDevice);
 }
 
 void SceneTitle::Update()

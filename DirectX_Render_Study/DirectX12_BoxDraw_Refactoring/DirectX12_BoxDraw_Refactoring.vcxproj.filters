@@ -453,6 +453,9 @@
     <ClCompile Include="ForwardRenderPass.cpp">
       <Filter>Rendering</Filter>
     </ClCompile>
+    <ClCompile Include="PostProcessPass.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h">
@@ -694,6 +697,9 @@
     <ClInclude Include="ForwardRenderPass.h">
       <Filter>Rendering</Filter>
     </ClInclude>
+    <ClInclude Include="PostProcessPass.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Sprite.hlsl">
@@ -701,6 +707,9 @@
     </FxCompile>
     <FxCompile Include="Triangle.hlsl">
       <Filter>Source\Shader\3DObject</Filter>
+    </FxCompile>
+    <FxCompile Include="PostProcess.hlsl">
+      <Filter>Source\Shader</Filter>
     </FxCompile>
   </ItemGroup>
   <ItemGroup>

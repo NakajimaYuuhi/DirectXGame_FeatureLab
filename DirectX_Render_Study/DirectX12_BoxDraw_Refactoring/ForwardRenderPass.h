@@ -1,22 +1,18 @@
 #pragma once
 #include "IRenderPass.h"
-
-// もし ForwardRenderPass の中で ObjectManager を直接呼ぶ場合、
-// 前方宣言するか、ここでインクルードします。
-// class ObjectManager; 
+#include "RenderTexture.h" // 霑ｽ蜉
 
 class ForwardRenderPass : public IRenderPass {
 public:
-    // コンストラクタ
-    ForwardRenderPass();
+    // コンストラクタで出力先のテクスチャを受け取る (nullptrなら画面へ直接出力)
+    ForwardRenderPass(RenderTexture* pDestTex = nullptr);
     virtual ~ForwardRenderPass() = default;
 
-    // IRenderPass のオーバーライド
     virtual void Init(ID3D12Device* pDevice) override;
     virtual void Execute(const RenderContext& ctx) override;
     virtual std::string GetName() const override;
 
 private:
-    // 将来的にオフスクリーン用の RenderTexture や ObjectManager のポインタなどを
-    // メンバとして持たせる場合はここに追加します。
+    // 出力先のテクスチャを保存しておくメンバ変数
+    RenderTexture* m_pDestTex = nullptr;
 };
