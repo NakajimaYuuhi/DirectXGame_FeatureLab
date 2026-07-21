@@ -253,6 +253,9 @@
     <Filter Include="Source\Object\GameObject\Manager\EnemyCounter">
       <UniqueIdentifier>{6360b556-8bfd-44d1-8e39-d4da29db9139}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Rendering">
+      <UniqueIdentifier>{70857c1c-f7c9-42e8-99bf-a6e74e3c679e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Box.cpp">
@@ -441,6 +444,15 @@
     <ClCompile Include="TitleUI.cpp" />
     <ClCompile Include="ButtonEventManager.cpp" />
     <ClCompile Include="CUIButton.cpp" />
+    <ClCompile Include="RenderPipeline.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderTexture.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="ForwardRenderPass.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h">
@@ -667,6 +679,21 @@
     <ClInclude Include="ButtonEventManager.h" />
     <ClInclude Include="CUIButton.h" />
     <ClInclude Include="ISelectable.h" />
+    <ClInclude Include="RenderContext.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="IRenderPass.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderPipeline.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderTexture.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="ForwardRenderPass.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Sprite.hlsl">

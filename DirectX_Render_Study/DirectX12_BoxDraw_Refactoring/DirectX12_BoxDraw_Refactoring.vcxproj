@@ -155,9 +155,12 @@
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="EventData.cpp" />
     <ClCompile Include="EventData_NextScene.cpp" />
+    <ClCompile Include="ForwardRenderPass.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="ObjectManager_Getter_Setter.cpp" />
     <ClCompile Include="ObjectManager_Instantiate.cpp" />
+    <ClCompile Include="RenderPipeline.cpp" />
+    <ClCompile Include="RenderTexture.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
     <ClCompile Include="Skydome.cpp" />
@@ -222,8 +225,13 @@
     <ClInclude Include="EventData.h" />
     <ClInclude Include="EventData_NextScene.h" />
     <ClInclude Include="EventEnums.h" />
+    <ClInclude Include="ForwardRenderPass.h" />
+    <ClInclude Include="IRenderPass.h" />
     <ClInclude Include="ISelectable.h" />
     <ClInclude Include="Manager.h" />
+    <ClInclude Include="RenderContext.h" />
+    <ClInclude Include="RenderPipeline.h" />
+    <ClInclude Include="RenderTexture.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SceneTitle.h" />
