@@ -1,4 +1,5 @@
 #include "ForwardRenderPass.h"
+#include "ObjectManager.h"
 
 ForwardRenderPass::ForwardRenderPass()
 {
@@ -28,6 +29,7 @@ void ForwardRenderPass::Execute(const RenderContext& ctx)
     // 4. ★既存の描画ロジックの呼び出し★
     // ここで ObjectManager::Draw() などを呼び出します！
     // (現在はまだ Context に ObjectManager を渡していないため、後ほど繋ぎ込みます)
+    ObjectManager::GetInstance().Draw(ctx.sceneID);
 }
 
 std::string ForwardRenderPass::GetName() const

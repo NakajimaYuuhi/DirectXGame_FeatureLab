@@ -25,6 +25,11 @@
 //
 #include "ForwardRenderPass.h"
 
+//設定(width,height取得)
+#include "BasicSettings.h"
+
+#include <memory>
+
 SceneTitle::SceneTitle()
     :CScene(Scenes::ID::TITLE)
 {
@@ -76,6 +81,8 @@ void SceneTitle::Init()
     
     ButtonEventManager::GetInstance().SetSelectedGameObject((CUIButton*)titleButton);
 
+
+    m_renderPipeline = std::make_unique<RenderPipeline>();
     // 1. パスの構築と登録
 // ※今回は Phase1 なのでオフスクリーンテクスチャは nullptr を渡すか、
 // バックバッファ直書き用の ForwardRenderPass を作って登録します。
@@ -113,11 +120,11 @@ void SceneTitle::Draw()
      ctx.cmdList       = DX12Manager::GetInstance().GetCommandList();
      ctx.sceneID       = Scenes::ID::NONE;
      ctx.deltaTime     = 1.0f / 60.0f; // 実際の deltaTime に置き換えてください
-     ctx.backBufferRTV = backBufferRTV;
-     ctx.mainDSV       = mainDSV;
-     ctx.screenWidth   = width;
-     ctx.screenHeight  = height;
-     ctx.pCamera       = ObjectManager::GetInstance().GetCamera(); // カメラ情報のセット
+     ctx.backBufferRTV = DX12Manager::GetInstance().GetCurrentBackBufferRTV();
+     ctx.mainDSV       = DX12Manager::GetInstance().GetMainDSV();
+     ctx.screenWidth   = SCREEN_WIDTH;
+     ctx.screenHeight  = SCREEN_HEIGHT;
+     //ctx.pCamera       = ObjectManager::GetInstance().GetCamera(); // カメラ情報のセット
     // 2. パイプラインの実行！
     m_renderPipeline->Execute(ctx);
 }

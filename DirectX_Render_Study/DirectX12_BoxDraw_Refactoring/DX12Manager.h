@@ -70,6 +70,26 @@ public:
 		return  m_commandAllocator.Get();
 	}
 
+
+	// 現在のバックバッファの RTV ハンドルを取得する
+	D3D12_CPU_DESCRIPTOR_HANDLE GetCurrentBackBufferRTV() const {
+		// 例: RTVヒープの先頭から、現在のフレーム(m_frameIndex)分だけズラした場所を返す
+		SIZE_T rtvDescriptorSize = m_device->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
+		D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle = m_rtvHeap->GetCPUDescriptorHandleForHeapStart();
+		rtvHandle.ptr += m_frameIndex * rtvDescriptorSize;
+		return rtvHandle;
+
+		// ※もし CD3DX12_CPU_DESCRIPTOR_HANDLE を使っているなら以下のように書けます
+		// return CD3DX12_CPU_DESCRIPTOR_HANDLE(m_rtvHeap->GetCPUDescriptorHandleForHeapStart(), m_frameIndex, rtvDescriptorSize);
+	}
+	// 深度バッファの DSV ハンドルを取得する
+	D3D12_CPU_DESCRIPTOR_HANDLE GetMainDSV() const {
+		// DSVは通常1つなので、ヒープの先頭をそのまま返すことが多いです
+		return m_dsvHeap->GetCPUDescriptorHandleForHeapStart();
+	}
+
+
+
 	IDXGISwapChain4* GetSwapChain()
 	{
 		return m_swapChain.Get();
