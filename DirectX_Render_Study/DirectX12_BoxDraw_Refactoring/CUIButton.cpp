@@ -1,6 +1,7 @@
 #include "CUIButton.h"
 
 #include "SpriteRenderer.h"
+#include "ButtonEventManager.h"
 
 CUIButton::CUIButton(const std::string& _Name)
     : CUIObject(_Name)
@@ -14,6 +15,10 @@ CUIButton::CUIButton(const std::string& _Name)
 
 CUIButton::~CUIButton()
 {
+	if (ButtonEventManager::GetInstance().GetSelectedGameObject() == this)
+	{
+		ButtonEventManager::GetInstance().SetSelectedGameObject(nullptr);
+	}
 }
 
 void CUIButton::Init()

@@ -6,6 +6,7 @@
 #include "Scene.h"
 #include "SceneTest.h"
 #include "SceneTitle.h"
+#include "ButtonEventManager.h"
 
 
 #include "InputManager.h"
@@ -164,6 +165,9 @@ void SceneManager::UninitAndPop(void)
 	TextureManager::GetInstance().Clear();
 	ModelManager::GetInstance().Clear();
 	DX12Manager::GetInstance().ResetSrvNextIndex();
+
+	// Clear UI selection state of previous scene
+	ButtonEventManager::GetInstance().ClearSelectedGameObject();
 }
 
 //シーンイベントの処理

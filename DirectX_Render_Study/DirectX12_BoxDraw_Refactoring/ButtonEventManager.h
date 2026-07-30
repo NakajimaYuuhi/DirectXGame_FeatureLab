@@ -19,6 +19,9 @@ public:
     // 毎フレームの更新（入力によるナビゲーション処理など）
     void Update();
 
+    // 驕ｸ謚樒憾諷九ｒ繧ｯ繝ｪ繧｢縺吶ｋ
+    void ClearSelectedGameObject() { m_currentSelected = nullptr; }
+
 private:
     ButtonEventManager();
     ~ButtonEventManager() = default;
