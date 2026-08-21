@@ -1,0 +1,463 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: CComponent クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classCComponent.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pro-attribs">限定公開変数類</a> &#124;
+<a href="classCComponent-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">CComponent クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="Component_8h_source.html">Component.h</a>&gt;</code></p>
+<div class="dynheader">
+CComponent の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCComponent__inherit__graph.svg" width="100%" height="492"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+CComponent 連携図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCComponent__coll__graph.svg" width="131" height="124"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:ab87a6940be69962c3f4f5a8552643245" id="r_ab87a6940be69962c3f4f5a8552643245"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ab87a6940be69962c3f4f5a8552643245">CComponent</a> ()</td></tr>
+<tr class="separator:ab87a6940be69962c3f4f5a8552643245"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accf17908f97e4d07d7f04fbde292dcda" id="r_accf17908f97e4d07d7f04fbde292dcda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#accf17908f97e4d07d7f04fbde292dcda">CComponent</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:accf17908f97e4d07d7f04fbde292dcda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2ad4d80f616aedbf6b08f33bdd9d2d5" id="r_af2ad4d80f616aedbf6b08f33bdd9d2d5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#af2ad4d80f616aedbf6b08f33bdd9d2d5">~CComponent</a> ()=default</td></tr>
+<tr class="separator:af2ad4d80f616aedbf6b08f33bdd9d2d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9bf36b35de54f49a3d604da091228a4" id="r_ac9bf36b35de54f49a3d604da091228a4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ac9bf36b35de54f49a3d604da091228a4">Init</a> ()</td></tr>
+<tr class="separator:ac9bf36b35de54f49a3d604da091228a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a281a46452f6f59625e5488936cd70aa7" id="r_a281a46452f6f59625e5488936cd70aa7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a281a46452f6f59625e5488936cd70aa7">GetName</a> () const</td></tr>
+<tr class="separator:a281a46452f6f59625e5488936cd70aa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf4188a21189f533eed52041962cafd4" id="r_abf4188a21189f533eed52041962cafd4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#abf4188a21189f533eed52041962cafd4">GetIsVarid</a> () const</td></tr>
+<tr class="separator:abf4188a21189f533eed52041962cafd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5bf6fd967c58b6784aa399a27ce0eaa" id="r_ad5bf6fd967c58b6784aa399a27ce0eaa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ad5bf6fd967c58b6784aa399a27ce0eaa">SetName</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:ad5bf6fd967c58b6784aa399a27ce0eaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96b82c9108e83190f29a5dd8bafe59fe" id="r_a96b82c9108e83190f29a5dd8bafe59fe"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a96b82c9108e83190f29a5dd8bafe59fe">SetIsValid</a> (bool _IsValid)</td></tr>
+<tr class="separator:a96b82c9108e83190f29a5dd8bafe59fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ababe3aca6f026b146eb458dab2a57587" id="r_ababe3aca6f026b146eb458dab2a57587"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ababe3aca6f026b146eb458dab2a57587">SetOwner</a> (<a class="el" href="classCObject.html">CObject</a> *_Object)</td></tr>
+<tr class="separator:ababe3aca6f026b146eb458dab2a57587"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+限定公開変数類</h2></td></tr>
+<tr class="memitem:a76959a9e98ef06163c56858026e9da5b" id="r_a76959a9e98ef06163c56858026e9da5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a76959a9e98ef06163c56858026e9da5b">m_Owner</a></td></tr>
+<tr class="separator:a76959a9e98ef06163c56858026e9da5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4918d7f95edb1a545724dab2be500e75" id="r_a4918d7f95edb1a545724dab2be500e75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a4918d7f95edb1a545724dab2be500e75">m_ComponentName</a> = &quot;&quot;</td></tr>
+<tr class="separator:a4918d7f95edb1a545724dab2be500e75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f8c7080b1f9972952ceda4e155568cb" id="r_a8f8c7080b1f9972952ceda4e155568cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a8f8c7080b1f9972952ceda4e155568cb">m_ComponentIsValid</a></td></tr>
+<tr class="separator:a8f8c7080b1f9972952ceda4e155568cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="ab87a6940be69962c3f4f5a8552643245" name="ab87a6940be69962c3f4f5a8552643245"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab87a6940be69962c3f4f5a8552643245">&#9670;&#160;</a></span>CComponent() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComponent::CComponent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="accf17908f97e4d07d7f04fbde292dcda" name="accf17908f97e4d07d7f04fbde292dcda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accf17908f97e4d07d7f04fbde292dcda">&#9670;&#160;</a></span>CComponent() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComponent::CComponent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td>
+          <td class="paramname"><em>_Name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af2ad4d80f616aedbf6b08f33bdd9d2d5" name="af2ad4d80f616aedbf6b08f33bdd9d2d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2ad4d80f616aedbf6b08f33bdd9d2d5">&#9670;&#160;</a></span>~CComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual CComponent::~CComponent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="abf4188a21189f533eed52041962cafd4" name="abf4188a21189f533eed52041962cafd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf4188a21189f533eed52041962cafd4">&#9670;&#160;</a></span>GetIsVarid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CComponent::GetIsVarid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCComponent_abf4188a21189f533eed52041962cafd4_icgraph.svg" width="399" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a281a46452f6f59625e5488936cd70aa7" name="a281a46452f6f59625e5488936cd70aa7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a281a46452f6f59625e5488936cd70aa7">&#9670;&#160;</a></span>GetName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> CComponent::GetName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac9bf36b35de54f49a3d604da091228a4" name="ac9bf36b35de54f49a3d604da091228a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9bf36b35de54f49a3d604da091228a4">&#9670;&#160;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CComponent::Init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCModel.html#a7ff596f41b98d33cde03bf7b4ab6699e">CModel</a>, <a class="el" href="classCSpriteRenderer.html#a4f4123344b82a22517fbd54f14f0c2c2">CSpriteRenderer</a>, <a class="el" href="classCTextRenderer.html#a2619d2f9af23efac9a6cedd7b09e0260">CTextRenderer</a>で再実装されています。</p>
+
+</div>
+</div>
+<a id="a96b82c9108e83190f29a5dd8bafe59fe" name="a96b82c9108e83190f29a5dd8bafe59fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96b82c9108e83190f29a5dd8bafe59fe">&#9670;&#160;</a></span>SetIsValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CComponent::SetIsValid </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_IsValid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCObjectInfo.html#a59680d1b72c03348b807270fd902605e">CObjectInfo</a>で再実装されています。</p>
+
+</div>
+</div>
+<a id="ad5bf6fd967c58b6784aa399a27ce0eaa" name="ad5bf6fd967c58b6784aa399a27ce0eaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5bf6fd967c58b6784aa399a27ce0eaa">&#9670;&#160;</a></span>SetName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CComponent::SetName </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td>
+          <td class="paramname"><em>_Name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ababe3aca6f026b146eb458dab2a57587" name="ababe3aca6f026b146eb458dab2a57587"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ababe3aca6f026b146eb458dab2a57587">&#9670;&#160;</a></span>SetOwner()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CComponent::SetOwner </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCObject.html">CObject</a> *&#160;</td>
+          <td class="paramname"><em>_Object</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a8f8c7080b1f9972952ceda4e155568cb" name="a8f8c7080b1f9972952ceda4e155568cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f8c7080b1f9972952ceda4e155568cb">&#9670;&#160;</a></span>m_ComponentIsValid</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CComponent::m_ComponentIsValid</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4918d7f95edb1a545724dab2be500e75" name="a4918d7f95edb1a545724dab2be500e75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4918d7f95edb1a545724dab2be500e75">&#9670;&#160;</a></span>m_ComponentName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> CComponent::m_ComponentName = &quot;&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a76959a9e98ef06163c56858026e9da5b" name="a76959a9e98ef06163c56858026e9da5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76959a9e98ef06163c56858026e9da5b">&#9670;&#160;</a></span>m_Owner</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCObject.html">CObject</a>* CComponent::m_Owner</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/Components/<a class="el" href="Component_8h_source.html">Component.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classCComponent.html">CComponent</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

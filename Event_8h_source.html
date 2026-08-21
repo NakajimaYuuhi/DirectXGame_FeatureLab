@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Objects/Event.h ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- æ§‹ç¯‰: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','æ¤œç´¢');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('Event_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">èª­ã¿å–ã‚Šä¸­â€¦</div>
+<div class="SRStatus" id="Searching">æ¤œç´¢ä¸­â€¦</div>
+<div class="SRStatus" id="NoMatches">ä¸€è‡´ã™ã‚‹æ–‡å­—åˆ—ã‚’è¦‹ã¤ã‘ã‚‰ã‚Œã¾ã›ã‚“</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Event.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Event_8h.html">[è©³è§£]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//===== ƒCƒ“ƒNƒ‹[ƒh =====</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="EventEnums_8h.html">EventEnums.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="EventData_8h.html">EventData.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">//===== ƒNƒ‰ƒX’è‹` =====</span></div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="classEvent.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="classEvent.html">Event</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="comment">//ƒRƒ“ƒXƒgƒ‰ƒNƒ^</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classEvent.html#aee6a4269152dcdb7a11de3e24d90c229">   12</a></span>    <a class="code hl_function" href="classEvent.html#aee6a4269152dcdb7a11de3e24d90c229">Event</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="comment">//‰¼‘zƒfƒXƒgƒ‰ƒNƒ^</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classEvent.html#a105223995bbf1a1e4714d0c77f91cf0b">   14</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classEvent.html#a105223995bbf1a1e4714d0c77f91cf0b">~Event</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">//----- Getter,Setter -----</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="comment">//EventID</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classEvent.html#a04d2713e7e3eb3a95a0bb09227e3b244">   18</a></span>    <a class="code hl_enumeration" href="namespaceEvents.html#a07879e410151aabbb30589cfa90d7fa1">Events::ID</a> <a class="code hl_function" href="classEvent.html#a04d2713e7e3eb3a95a0bb09227e3b244">GetEventID</a>()<span class="keyword"> const</span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="classEvent.html#a5f23ac6bab1df2911ed540e0c7a71499">iD</a>;}</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classEvent.html#ae40649cf6929cd6b14a6879e3c9310eb">   19</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classEvent.html#ae40649cf6929cd6b14a6879e3c9310eb">SetEventID</a>     (<a class="code hl_enumeration" href="namespaceEvents.html#a07879e410151aabbb30589cfa90d7fa1">Events::ID</a> eventID)    {<a class="code hl_variable" href="classEvent.html#a5f23ac6bab1df2911ed540e0c7a71499">iD</a> = eventID;}</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="comment">//EventData</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classEvent.html#abdc76bb9551e16168e804fd1e5da4877">   22</a></span>    <a class="code hl_class" href="classEventData.html">EventData</a>* <a class="code hl_function" href="classEvent.html#abdc76bb9551e16168e804fd1e5da4877">GetEventData</a>() {<span class="keywordflow">return</span> <a class="code hl_variable" href="classEvent.html#ae3cd7a0b8cd0228d98aa47a2bbea3d95">eventData</a>;}</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classEvent.html#a58b86fbb1556aca9c9e17a6dd0dfbc32">   23</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classEvent.html#a58b86fbb1556aca9c9e17a6dd0dfbc32">SetEventData</a>(<a class="code hl_class" href="classEventData.html">EventData</a>* _EventData) { <a class="code hl_variable" href="classEvent.html#ae3cd7a0b8cd0228d98aa47a2bbea3d95">eventData</a> = _EventData; }    </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classEvent.html#a5f23ac6bab1df2911ed540e0c7a71499">   26</a></span>    <a class="code hl_enumeration" href="namespaceEvents.html#a07879e410151aabbb30589cfa90d7fa1">Events::ID</a> <a class="code hl_variable" href="classEvent.html#a5f23ac6bab1df2911ed540e0c7a71499">iD</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classEvent.html#ae3cd7a0b8cd0228d98aa47a2bbea3d95">   27</a></span>    <a class="code hl_class" href="classEventData.html">EventData</a>* <a class="code hl_variable" href="classEvent.html#ae3cd7a0b8cd0228d98aa47a2bbea3d95">eventData</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>};</div>
+</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="ttc" id="aEventData_8h_html"><div class="ttname"><a href="EventData_8h.html">EventData.h</a></div></div>
+<div class="ttc" id="aEventEnums_8h_html"><div class="ttname"><a href="EventEnums_8h.html">EventEnums.h</a></div></div>
+<div class="ttc" id="aclassEventData_html"><div class="ttname"><a href="classEventData.html">EventData</a></div><div class="ttdef"><b>Definition</b> EventData.h:3</div></div>
+<div class="ttc" id="aclassEvent_html"><div class="ttname"><a href="classEvent.html">Event</a></div><div class="ttdef"><b>Definition</b> Event.h:9</div></div>
+<div class="ttc" id="aclassEvent_html_a04d2713e7e3eb3a95a0bb09227e3b244"><div class="ttname"><a href="classEvent.html#a04d2713e7e3eb3a95a0bb09227e3b244">Event::GetEventID</a></div><div class="ttdeci">Events::ID GetEventID() const</div><div class="ttdef"><b>Definition</b> Event.h:18</div></div>
+<div class="ttc" id="aclassEvent_html_a105223995bbf1a1e4714d0c77f91cf0b"><div class="ttname"><a href="classEvent.html#a105223995bbf1a1e4714d0c77f91cf0b">Event::~Event</a></div><div class="ttdeci">virtual ~Event()=default</div></div>
+<div class="ttc" id="aclassEvent_html_a58b86fbb1556aca9c9e17a6dd0dfbc32"><div class="ttname"><a href="classEvent.html#a58b86fbb1556aca9c9e17a6dd0dfbc32">Event::SetEventData</a></div><div class="ttdeci">void SetEventData(EventData *_EventData)</div><div class="ttdef"><b>Definition</b> Event.h:23</div></div>
+<div class="ttc" id="aclassEvent_html_a5f23ac6bab1df2911ed540e0c7a71499"><div class="ttname"><a href="classEvent.html#a5f23ac6bab1df2911ed540e0c7a71499">Event::iD</a></div><div class="ttdeci">Events::ID iD</div><div class="ttdef"><b>Definition</b> Event.h:26</div></div>
+<div class="ttc" id="aclassEvent_html_abdc76bb9551e16168e804fd1e5da4877"><div class="ttname"><a href="classEvent.html#abdc76bb9551e16168e804fd1e5da4877">Event::GetEventData</a></div><div class="ttdeci">EventData * GetEventData()</div><div class="ttdef"><b>Definition</b> Event.h:22</div></div>
+<div class="ttc" id="aclassEvent_html_ae3cd7a0b8cd0228d98aa47a2bbea3d95"><div class="ttname"><a href="classEvent.html#ae3cd7a0b8cd0228d98aa47a2bbea3d95">Event::eventData</a></div><div class="ttdeci">EventData * eventData</div><div class="ttdef"><b>Definition</b> Event.h:27</div></div>
+<div class="ttc" id="aclassEvent_html_ae40649cf6929cd6b14a6879e3c9310eb"><div class="ttname"><a href="classEvent.html#ae40649cf6929cd6b14a6879e3c9310eb">Event::SetEventID</a></div><div class="ttdeci">void SetEventID(Events::ID eventID)</div><div class="ttdef"><b>Definition</b> Event.h:19</div></div>
+<div class="ttc" id="aclassEvent_html_aee6a4269152dcdb7a11de3e24d90c229"><div class="ttname"><a href="classEvent.html#aee6a4269152dcdb7a11de3e24d90c229">Event::Event</a></div><div class="ttdeci">Event()=default</div></div>
+<div class="ttc" id="anamespaceEvents_html_a07879e410151aabbb30589cfa90d7fa1"><div class="ttname"><a href="namespaceEvents.html#a07879e410151aabbb30589cfa90d7fa1">Events::ID</a></div><div class="ttdeci">ID</div><div class="ttdef"><b>Definition</b> EventEnums.h:9</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_90027755b37a19e59f21b2a53bff1c05.html">Objects</a></li><li class="navelem"><a class="el" href="Event_8h.html">Event.h</a></li>
+    <li class="footer">æ§‹ç¯‰: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

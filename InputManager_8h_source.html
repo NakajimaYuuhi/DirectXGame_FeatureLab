@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Core/InputManager.h ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- æ§‹ç¯‰: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','æ¤œç´¢');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('InputManager_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">èª­ã¿å–ã‚Šä¸­â€¦</div>
+<div class="SRStatus" id="Searching">æ¤œç´¢ä¸­â€¦</div>
+<div class="SRStatus" id="NoMatches">ä¸€è‡´ã™ã‚‹æ–‡å­—åˆ—ã‚’è¦‹ã¤ã‘ã‚‰ã‚Œã¾ã›ã‚“</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">InputManager.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="InputManager_8h.html">[è©³è§£]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;windows.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;Xinput.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#pragma comment(lib, &quot;xinput.lib&quot;)</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// CInputManager</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">// ƒL[ƒ{[ƒh‚¨‚æ‚ÑƒQ[ƒ€ƒpƒbƒh“ü—Í‚ğŠÇ—‚·‚éƒVƒ“ƒOƒ‹ƒgƒ“ƒNƒ‰ƒX</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// ƒVƒ“ƒOƒ‹ƒgƒ“‰»‚µ‚Ä‚¢‚é‚Ì‚ÅAƒCƒ“ƒXƒ^ƒ“ƒX‚Í GetInstance() ‚©‚çæ“¾</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classCInputManager.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="classCInputManager.html">CInputManager</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="comment">// ƒCƒ“ƒXƒ^ƒ“ƒXæ“¾i—Bˆê‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ•Ô‚·j</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">static</span> <a class="code hl_class" href="classCInputManager.html">CInputManager</a>&amp; <a class="code hl_function" href="classCInputManager.html#a50853a68c8b695374ecb472da373aafb">GetInstance</a>();</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">// –ˆƒtƒŒ[ƒ€ŒÄ‚ÔXVˆ—</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCInputManager.html#a66f9941cab524acd981e9afabc7102b0">Update</a>();</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="comment">//--------------------------------------</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="comment">// ƒL[ƒ{[ƒh“ü—Í”»’è</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="comment">//--------------------------------------</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classCInputManager.html#ab41b6ca0efdb0bdf1ca7feac1de71ccd">IsKeyPress</a>(<span class="keywordtype">int</span> key) <span class="keyword">const</span>;   <span class="comment">// ƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é‚©</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classCInputManager.html#a8ace97f79aa00fcc197cdaab8d5ed7ed">IsKeyTrigger</a>(<span class="keywordtype">int</span> key) <span class="keyword">const</span>; <span class="comment">// ƒL[‚ª‰Ÿ‚³‚ê‚½uŠÔ‚©</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classCInputManager.html#a6df6220de13a5ec0dffb3079728b6557">IsKeyRelease</a>(<span class="keywordtype">int</span> key) <span class="keyword">const</span>; <span class="comment">// ƒL[‚ª—£‚³‚ê‚½uŠÔ‚©</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="comment">//--------------------------------------</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment">// ƒQ[ƒ€ƒpƒbƒh“ü—Í”»’è</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="comment">//--------------------------------------</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classCInputManager.html#afc32ecb38872d01eae439172290335f2">IsPadPress</a>(WORD button) <span class="keyword">const</span>; <span class="comment">// ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é‚©</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classCInputManager.html#a030cc6b3d73bde1772e846ded6913439">IsPadTrigger</a>(WORD button) <span class="keyword">const</span>; <span class="comment">// ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½uŠÔ‚©</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classCInputManager.html#a06d8616214fe8ab0dcae7875d5e0ca79">IsPadRelease</a>(WORD button) <span class="keyword">const</span>; <span class="comment">// ƒ{ƒ^ƒ“‚ª—£‚³‚ê‚½uŠÔ‚©</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="comment">// ƒAƒiƒƒOƒXƒeƒBƒbƒNi-1.0f ~ 1.0f ‚É³‹K‰»Ï‚İj</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classCInputManager.html#a2441532111e82c69f2a4180e1e95b505">GetThumbLX</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classCInputManager.html#a763480fb6fc7d0adce7c4234d37f3135">GetThumbLY</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="comment">// ƒgƒŠƒK[“ü—Íi0~255j</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    BYTE <a class="code hl_function" href="classCInputManager.html#ad67d0e584daf0bb8240bb290cef0219e">GetLeftTrigger</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    BYTE <a class="code hl_function" href="classCInputManager.html#a772fadcdace2867ba5d82254f6830ab6">GetRightTrigger</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="comment">// ƒQ[ƒ€ƒpƒbƒhU“®İ’è</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCInputManager.html#a081ab9e84132148b9c0c7249a434cbfd">SetVibration</a>(WORD leftMotor, WORD rightMotor);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="comment">// ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Í private ‚É‚µ‚ÄƒVƒ“ƒOƒ‹ƒgƒ“‰»</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_function" href="classCInputManager.html#ae1c77a4417dfd1c7548121b65c89a9d8">CInputManager</a>();</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="comment">// ƒfƒXƒgƒ‰ƒNƒ^</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classCInputManager.html#a0bbe0a7c22c946c57cf0a5e68735f056">   49</a></span>    <a class="code hl_function" href="classCInputManager.html#a0bbe0a7c22c946c57cf0a5e68735f056">~CInputManager</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="comment">// ƒRƒs[E‘ã“ü‹Ö~</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classCInputManager.html#ae81acd00872fce81381401f5d5884f80">   52</a></span>    <a class="code hl_function" href="classCInputManager.html#ae81acd00872fce81381401f5d5884f80">CInputManager</a>(<span class="keyword">const</span> <a class="code hl_class" href="classCInputManager.html">CInputManager</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classCInputManager.html#aff8abf4fd79a252a7326aee68187653e">   53</a></span>    <a class="code hl_class" href="classCInputManager.html">CInputManager</a>&amp; <a class="code hl_function" href="classCInputManager.html#aff8abf4fd79a252a7326aee68187653e">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classCInputManager.html">CInputManager</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="comment">//--------------------------------------</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="comment">// ƒƒ“ƒo•Ï”</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="comment">//--------------------------------------</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classCInputManager.html#a280c4c94e6fa2b0ccdc5a520ac608675">   58</a></span>    BYTE <a class="code hl_variable" href="classCInputManager.html#a280c4c94e6fa2b0ccdc5a520ac608675">m_keyTable</a>[256];     <span class="comment">// Œ»İ‚ÌƒL[ó‘Ô</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classCInputManager.html#a1013a9acca87e4b1fe0ed20465b77aab">   59</a></span>    BYTE <a class="code hl_variable" href="classCInputManager.html#a1013a9acca87e4b1fe0ed20465b77aab">m_oldKeyTable</a>[256];  <span class="comment">// ‘OƒtƒŒ[ƒ€‚ÌƒL[ó‘Ô</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classCInputManager.html#afbe2a740bbd753d521e9a107f610b203">   61</a></span>    XINPUT_STATE <a class="code hl_variable" href="classCInputManager.html#afbe2a740bbd753d521e9a107f610b203">m_state</a>;     <span class="comment">// Œ»İ‚ÌƒQ[ƒ€ƒpƒbƒhó‘Ô</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classCInputManager.html#ae6fa1f73c26ff3f87c0529c7561021bc">   62</a></span>    XINPUT_STATE <a class="code hl_variable" href="classCInputManager.html#ae6fa1f73c26ff3f87c0529c7561021bc">m_oldstate</a>;    <span class="comment">//‘OƒtƒŒ[ƒ€‚ÌƒQ[ƒ€ƒpƒbƒhó‘Ô</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classCInputManager.html#a4406e2a1246434047b7d573e59eaa365">   63</a></span>    XINPUT_VIBRATION <a class="code hl_variable" href="classCInputManager.html#a4406e2a1246434047b7d573e59eaa365">m_vibration</a>; <span class="comment">// U“®İ’è</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>};</div>
+</div>
+<div class="ttc" id="aclassCInputManager_html"><div class="ttname"><a href="classCInputManager.html">CInputManager</a></div><div class="ttdef"><b>Definition</b> InputManager.h:11</div></div>
+<div class="ttc" id="aclassCInputManager_html_a030cc6b3d73bde1772e846ded6913439"><div class="ttname"><a href="classCInputManager.html#a030cc6b3d73bde1772e846ded6913439">CInputManager::IsPadTrigger</a></div><div class="ttdeci">bool IsPadTrigger(WORD button) const</div><div class="ttdef"><b>Definition</b> InputManager.cpp:102</div></div>
+<div class="ttc" id="aclassCInputManager_html_a06d8616214fe8ab0dcae7875d5e0ca79"><div class="ttname"><a href="classCInputManager.html#a06d8616214fe8ab0dcae7875d5e0ca79">CInputManager::IsPadRelease</a></div><div class="ttdeci">bool IsPadRelease(WORD button) const</div><div class="ttdef"><b>Definition</b> InputManager.cpp:107</div></div>
+<div class="ttc" id="aclassCInputManager_html_a081ab9e84132148b9c0c7249a434cbfd"><div class="ttname"><a href="classCInputManager.html#a081ab9e84132148b9c0c7249a434cbfd">CInputManager::SetVibration</a></div><div class="ttdeci">void SetVibration(WORD leftMotor, WORD rightMotor)</div><div class="ttdef"><b>Definition</b> InputManager.cpp:138</div></div>
+<div class="ttc" id="aclassCInputManager_html_a0bbe0a7c22c946c57cf0a5e68735f056"><div class="ttname"><a href="classCInputManager.html#a0bbe0a7c22c946c57cf0a5e68735f056">CInputManager::~CInputManager</a></div><div class="ttdeci">~CInputManager()=default</div></div>
+<div class="ttc" id="aclassCInputManager_html_a1013a9acca87e4b1fe0ed20465b77aab"><div class="ttname"><a href="classCInputManager.html#a1013a9acca87e4b1fe0ed20465b77aab">CInputManager::m_oldKeyTable</a></div><div class="ttdeci">BYTE m_oldKeyTable[256]</div><div class="ttdef"><b>Definition</b> InputManager.h:59</div></div>
+<div class="ttc" id="aclassCInputManager_html_a2441532111e82c69f2a4180e1e95b505"><div class="ttname"><a href="classCInputManager.html#a2441532111e82c69f2a4180e1e95b505">CInputManager::GetThumbLX</a></div><div class="ttdeci">float GetThumbLX() const</div><div class="ttdef"><b>Definition</b> InputManager.cpp:113</div></div>
+<div class="ttc" id="aclassCInputManager_html_a280c4c94e6fa2b0ccdc5a520ac608675"><div class="ttname"><a href="classCInputManager.html#a280c4c94e6fa2b0ccdc5a520ac608675">CInputManager::m_keyTable</a></div><div class="ttdeci">BYTE m_keyTable[256]</div><div class="ttdef"><b>Definition</b> InputManager.h:58</div></div>
+<div class="ttc" id="aclassCInputManager_html_a4406e2a1246434047b7d573e59eaa365"><div class="ttname"><a href="classCInputManager.html#a4406e2a1246434047b7d573e59eaa365">CInputManager::m_vibration</a></div><div class="ttdeci">XINPUT_VIBRATION m_vibration</div><div class="ttdef"><b>Definition</b> InputManager.h:63</div></div>
+<div class="ttc" id="aclassCInputManager_html_a50853a68c8b695374ecb472da373aafb"><div class="ttname"><a href="classCInputManager.html#a50853a68c8b695374ecb472da373aafb">CInputManager::GetInstance</a></div><div class="ttdeci">static CInputManager &amp; GetInstance()</div><div class="ttdef"><b>Definition</b> InputManager.cpp:7</div></div>
+<div class="ttc" id="aclassCInputManager_html_a66f9941cab524acd981e9afabc7102b0"><div class="ttname"><a href="classCInputManager.html#a66f9941cab524acd981e9afabc7102b0">CInputManager::Update</a></div><div class="ttdeci">void Update()</div><div class="ttdef"><b>Definition</b> InputManager.cpp:34</div></div>
+<div class="ttc" id="aclassCInputManager_html_a6df6220de13a5ec0dffb3079728b6557"><div class="ttname"><a href="classCInputManager.html#a6df6220de13a5ec0dffb3079728b6557">CInputManager::IsKeyRelease</a></div><div class="ttdeci">bool IsKeyRelease(int key) const</div><div class="ttdef"><b>Definition</b> InputManager.cpp:89</div></div>
+<div class="ttc" id="aclassCInputManager_html_a763480fb6fc7d0adce7c4234d37f3135"><div class="ttname"><a href="classCInputManager.html#a763480fb6fc7d0adce7c4234d37f3135">CInputManager::GetThumbLY</a></div><div class="ttdeci">float GetThumbLY() const</div><div class="ttdef"><b>Definition</b> InputManager.cpp:118</div></div>
+<div class="ttc" id="aclassCInputManager_html_a772fadcdace2867ba5d82254f6830ab6"><div class="ttname"><a href="classCInputManager.html#a772fadcdace2867ba5d82254f6830ab6">CInputManager::GetRightTrigger</a></div><div class="ttdeci">BYTE GetRightTrigger() const</div><div class="ttdef"><b>Definition</b> InputManager.cpp:129</div></div>
+<div class="ttc" id="aclassCInputManager_html_a8ace97f79aa00fcc197cdaab8d5ed7ed"><div class="ttname"><a href="classCInputManager.html#a8ace97f79aa00fcc197cdaab8d5ed7ed">CInputManager::IsKeyTrigger</a></div><div class="ttdeci">bool IsKeyTrigger(int key) const</div><div class="ttdef"><b>Definition</b> InputManager.cpp:84</div></div>
+<div class="ttc" id="aclassCInputManager_html_ab41b6ca0efdb0bdf1ca7feac1de71ccd"><div class="ttname"><a href="classCInputManager.html#ab41b6ca0efdb0bdf1ca7feac1de71ccd">CInputManager::IsKeyPress</a></div><div class="ttdeci">bool IsKeyPress(int key) const</div><div class="ttdef"><b>Definition</b> InputManager.cpp:79</div></div>
+<div class="ttc" id="aclassCInputManager_html_ad67d0e584daf0bb8240bb290cef0219e"><div class="ttname"><a href="classCInputManager.html#ad67d0e584daf0bb8240bb290cef0219e">CInputManager::GetLeftTrigger</a></div><div class="ttdeci">BYTE GetLeftTrigger() const</div><div class="ttdef"><b>Definition</b> InputManager.cpp:124</div></div>
+<div class="ttc" id="aclassCInputManager_html_ae1c77a4417dfd1c7548121b65c89a9d8"><div class="ttname"><a href="classCInputManager.html#ae1c77a4417dfd1c7548121b65c89a9d8">CInputManager::CInputManager</a></div><div class="ttdeci">CInputManager()</div><div class="ttdef"><b>Definition</b> InputManager.cpp:16</div></div>
+<div class="ttc" id="aclassCInputManager_html_ae6fa1f73c26ff3f87c0529c7561021bc"><div class="ttname"><a href="classCInputManager.html#ae6fa1f73c26ff3f87c0529c7561021bc">CInputManager::m_oldstate</a></div><div class="ttdeci">XINPUT_STATE m_oldstate</div><div class="ttdef"><b>Definition</b> InputManager.h:62</div></div>
+<div class="ttc" id="aclassCInputManager_html_ae81acd00872fce81381401f5d5884f80"><div class="ttname"><a href="classCInputManager.html#ae81acd00872fce81381401f5d5884f80">CInputManager::CInputManager</a></div><div class="ttdeci">CInputManager(const CInputManager &amp;)=delete</div></div>
+<div class="ttc" id="aclassCInputManager_html_afbe2a740bbd753d521e9a107f610b203"><div class="ttname"><a href="classCInputManager.html#afbe2a740bbd753d521e9a107f610b203">CInputManager::m_state</a></div><div class="ttdeci">XINPUT_STATE m_state</div><div class="ttdef"><b>Definition</b> InputManager.h:61</div></div>
+<div class="ttc" id="aclassCInputManager_html_afc32ecb38872d01eae439172290335f2"><div class="ttname"><a href="classCInputManager.html#afc32ecb38872d01eae439172290335f2">CInputManager::IsPadPress</a></div><div class="ttdeci">bool IsPadPress(WORD button) const</div><div class="ttdef"><b>Definition</b> InputManager.cpp:97</div></div>
+<div class="ttc" id="aclassCInputManager_html_aff8abf4fd79a252a7326aee68187653e"><div class="ttname"><a href="classCInputManager.html#aff8abf4fd79a252a7326aee68187653e">CInputManager::operator=</a></div><div class="ttdeci">CInputManager &amp; operator=(const CInputManager &amp;)=delete</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_1ad6433457b0067ef8f54a4fa85f5c9a.html">Core</a></li><li class="navelem"><a class="el" href="InputManager_8h.html">InputManager.h</a></li>
+    <li class="footer">æ§‹ç¯‰: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

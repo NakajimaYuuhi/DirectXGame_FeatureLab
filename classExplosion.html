@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Explosion クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classExplosion.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pro-attribs">限定公開変数類</a> &#124;
+<a href="classExplosion-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">Explosion クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="Explosion_8h_source.html">Explosion.h</a>&gt;</code></p>
+<div class="dynheader">
+Explosion の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classExplosion__inherit__graph.svg" width="110" height="256"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+Explosion 連携図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classExplosion__coll__graph.svg" width="110" height="256"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a4e6c784aaab8df2e55cad295d7360b0f" id="r_a4e6c784aaab8df2e55cad295d7360b0f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExplosion.html#a4e6c784aaab8df2e55cad295d7360b0f">Explosion</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:a4e6c784aaab8df2e55cad295d7360b0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a841a80fe87ec4f458ccfaaedf54baffa" id="r_a841a80fe87ec4f458ccfaaedf54baffa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExplosion.html#a841a80fe87ec4f458ccfaaedf54baffa">Update</a> () override</td></tr>
+<tr class="separator:a841a80fe87ec4f458ccfaaedf54baffa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classBillBoard"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classBillBoard')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classBillBoard.html">BillBoard</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:a56e7037cd161f03d6fa9196300e3273e inherit pub_methods_classBillBoard" id="r_a56e7037cd161f03d6fa9196300e3273e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBillBoard.html#a56e7037cd161f03d6fa9196300e3273e">BillBoard</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:a56e7037cd161f03d6fa9196300e3273e inherit pub_methods_classBillBoard"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada1914e63a1568fe3866be608cf09b4e inherit pub_methods_classBillBoard" id="r_ada1914e63a1568fe3866be608cf09b4e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBillBoard.html#ada1914e63a1568fe3866be608cf09b4e">LateUpdate</a> () override</td></tr>
+<tr class="separator:ada1914e63a1568fe3866be608cf09b4e inherit pub_methods_classBillBoard"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classC3D__Object"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classC3D__Object')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classC3D__Object.html">C3D_Object</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:af32857683c7f4b2eccd435ab479813d5 inherit pub_methods_classC3D__Object" id="r_af32857683c7f4b2eccd435ab479813d5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classC3D__Object.html#af32857683c7f4b2eccd435ab479813d5">C3D_Object</a> ()</td></tr>
+<tr class="separator:af32857683c7f4b2eccd435ab479813d5 inherit pub_methods_classC3D__Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0250fa3e8d5a9f19e698e44cf756cc39 inherit pub_methods_classC3D__Object" id="r_a0250fa3e8d5a9f19e698e44cf756cc39"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classC3D__Object.html#a0250fa3e8d5a9f19e698e44cf756cc39">C3D_Object</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:a0250fa3e8d5a9f19e698e44cf756cc39 inherit pub_methods_classC3D__Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a04a89c46ab0ab31f6a12a7bc251ef7 inherit pub_methods_classC3D__Object" id="r_a7a04a89c46ab0ab31f6a12a7bc251ef7"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classC3D__Object.html#a7a04a89c46ab0ab31f6a12a7bc251ef7">~C3D_Object</a> ()</td></tr>
+<tr class="separator:a7a04a89c46ab0ab31f6a12a7bc251ef7 inherit pub_methods_classC3D__Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e0d8c6aa664256ebe1b15ebb6f78da0 inherit pub_methods_classC3D__Object" id="r_a7e0d8c6aa664256ebe1b15ebb6f78da0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classC3D__Object.html#a7e0d8c6aa664256ebe1b15ebb6f78da0">Draw</a> ()</td></tr>
+<tr class="separator:a7e0d8c6aa664256ebe1b15ebb6f78da0 inherit pub_methods_classC3D__Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec9d3cf2acae8b2fb6c8152fe9e053d1 inherit pub_methods_classC3D__Object" id="r_aec9d3cf2acae8b2fb6c8152fe9e053d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classC3D__Object.html#aec9d3cf2acae8b2fb6c8152fe9e053d1">SetTransform</a> (DirectX::XMFLOAT3 _Position, DirectX::XMFLOAT3 _Scale, DirectX::XMFLOAT3 _Rotation)</td></tr>
+<tr class="separator:aec9d3cf2acae8b2fb6c8152fe9e053d1 inherit pub_methods_classC3D__Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9a6d422266959a6a9465a69c6eca0fd inherit pub_methods_classC3D__Object" id="r_aa9a6d422266959a6a9465a69c6eca0fd"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classC3D__Object.html#aa9a6d422266959a6a9465a69c6eca0fd">GetPos</a> ()</td></tr>
+<tr class="separator:aa9a6d422266959a6a9465a69c6eca0fd inherit pub_methods_classC3D__Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5de6050773037fdf06885b9f09102b98 inherit pub_methods_classC3D__Object" id="r_a5de6050773037fdf06885b9f09102b98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classC3D__Object.html#a5de6050773037fdf06885b9f09102b98">SetPos</a> (DirectX::XMFLOAT3 _Position)</td></tr>
+<tr class="separator:a5de6050773037fdf06885b9f09102b98 inherit pub_methods_classC3D__Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3c19495ec6be30aa8a8e8d27dc3d0b1 inherit pub_methods_classC3D__Object" id="r_ab3c19495ec6be30aa8a8e8d27dc3d0b1"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classC3D__Object.html#ab3c19495ec6be30aa8a8e8d27dc3d0b1">GetScale</a> ()</td></tr>
+<tr class="separator:ab3c19495ec6be30aa8a8e8d27dc3d0b1 inherit pub_methods_classC3D__Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a894e7e1379753e8a3771b640172ce8e4 inherit pub_methods_classC3D__Object" id="r_a894e7e1379753e8a3771b640172ce8e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classC3D__Object.html#a894e7e1379753e8a3771b640172ce8e4">SetScale</a> (DirectX::XMFLOAT3 _Scale)</td></tr>
+<tr class="separator:a894e7e1379753e8a3771b640172ce8e4 inherit pub_methods_classC3D__Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7be6afe95f76758f51394fed2e82f8c inherit pub_methods_classC3D__Object" id="r_ab7be6afe95f76758f51394fed2e82f8c"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classC3D__Object.html#ab7be6afe95f76758f51394fed2e82f8c">GetRotation</a> ()</td></tr>
+<tr class="separator:ab7be6afe95f76758f51394fed2e82f8c inherit pub_methods_classC3D__Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9afb6e637e3e3c73c173e784b8cfe18e inherit pub_methods_classC3D__Object" id="r_a9afb6e637e3e3c73c173e784b8cfe18e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classC3D__Object.html#a9afb6e637e3e3c73c173e784b8cfe18e">SetRotation</a> (DirectX::XMFLOAT3 _Rotation)</td></tr>
+<tr class="separator:a9afb6e637e3e3c73c173e784b8cfe18e inherit pub_methods_classC3D__Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed172671bc3dcd08e5b49fbce7c34972 inherit pub_methods_classC3D__Object" id="r_aed172671bc3dcd08e5b49fbce7c34972"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classC3D__Object.html#aed172671bc3dcd08e5b49fbce7c34972">GetFront</a> ()</td></tr>
+<tr class="separator:aed172671bc3dcd08e5b49fbce7c34972 inherit pub_methods_classC3D__Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ff9e2aa71055f44f38ccdfff20fe60c inherit pub_methods_classC3D__Object" id="r_a8ff9e2aa71055f44f38ccdfff20fe60c"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classC3D__Object.html#a8ff9e2aa71055f44f38ccdfff20fe60c">GetRight</a> ()</td></tr>
+<tr class="separator:a8ff9e2aa71055f44f38ccdfff20fe60c inherit pub_methods_classC3D__Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13d2505054ed4471925bf36ef6f37777 inherit pub_methods_classC3D__Object" id="r_a13d2505054ed4471925bf36ef6f37777"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classC3D__Object.html#a13d2505054ed4471925bf36ef6f37777">GetUp</a> ()</td></tr>
+<tr class="separator:a13d2505054ed4471925bf36ef6f37777 inherit pub_methods_classC3D__Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classCObject"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCObject')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCObject.html">CObject</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:ac44111d5ac75248a616df61b038c4153 inherit pub_methods_classCObject" id="r_ac44111d5ac75248a616df61b038c4153"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#ac44111d5ac75248a616df61b038c4153">CObject</a> ()</td></tr>
+<tr class="separator:ac44111d5ac75248a616df61b038c4153 inherit pub_methods_classCObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93a3c3bc7d9a6462ef00e25404d9b0eb inherit pub_methods_classCObject" id="r_a93a3c3bc7d9a6462ef00e25404d9b0eb"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#a93a3c3bc7d9a6462ef00e25404d9b0eb">~CObject</a> ()</td></tr>
+<tr class="separator:a93a3c3bc7d9a6462ef00e25404d9b0eb inherit pub_methods_classCObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdc9ca6fa3fc2e3d915596a5ec07c5e8 inherit pub_methods_classCObject" id="r_acdc9ca6fa3fc2e3d915596a5ec07c5e8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#acdc9ca6fa3fc2e3d915596a5ec07c5e8">Init</a> ()</td></tr>
+<tr class="separator:acdc9ca6fa3fc2e3d915596a5ec07c5e8 inherit pub_methods_classCObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa84425e5df8ad139445766d3ead07720 inherit pub_methods_classCObject" id="r_aa84425e5df8ad139445766d3ead07720"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#aa84425e5df8ad139445766d3ead07720">OnCollision</a> (<a class="el" href="classCObject.html">CObject</a> *_Other)</td></tr>
+<tr class="separator:aa84425e5df8ad139445766d3ead07720 inherit pub_methods_classCObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71540f70991d2a909cf7a7fcbf683dc7 inherit pub_methods_classCObject" id="r_a71540f70991d2a909cf7a7fcbf683dc7"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a71540f70991d2a909cf7a7fcbf683dc7 inherit pub_methods_classCObject"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCObject.html#a71540f70991d2a909cf7a7fcbf683dc7">GetComponent</a> ()</td></tr>
+<tr class="separator:a71540f70991d2a909cf7a7fcbf683dc7 inherit pub_methods_classCObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16ae51f353373a27d0a7c68586005028 inherit pub_methods_classCObject" id="r_a16ae51f353373a27d0a7c68586005028"><td class="memTemplParams" colspan="2">template&lt;class T , class... Args&gt; </td></tr>
+<tr class="memitem:a16ae51f353373a27d0a7c68586005028 inherit pub_methods_classCObject"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCObject.html#a16ae51f353373a27d0a7c68586005028">AddComponent</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="separator:a16ae51f353373a27d0a7c68586005028 inherit pub_methods_classCObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a981fafe6348bc06c5a95270157b2a45e inherit pub_methods_classCObject" id="r_a981fafe6348bc06c5a95270157b2a45e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#a981fafe6348bc06c5a95270157b2a45e">GetIsValid</a> () const</td></tr>
+<tr class="separator:a981fafe6348bc06c5a95270157b2a45e inherit pub_methods_classCObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66a74cefe4224c6910aaf92d685d3da7 inherit pub_methods_classCObject" id="r_a66a74cefe4224c6910aaf92d685d3da7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#a66a74cefe4224c6910aaf92d685d3da7">SetIsValid</a> (bool _IsValid)</td></tr>
+<tr class="separator:a66a74cefe4224c6910aaf92d685d3da7 inherit pub_methods_classCObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b1bab560d2e131770959488dce32736 inherit pub_methods_classCObject" id="r_a4b1bab560d2e131770959488dce32736"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#a4b1bab560d2e131770959488dce32736">GetIsDestroyed</a> () const</td></tr>
+<tr class="separator:a4b1bab560d2e131770959488dce32736 inherit pub_methods_classCObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace0ab229d32898fc4f5b2b7cbafb89ef inherit pub_methods_classCObject" id="r_ace0ab229d32898fc4f5b2b7cbafb89ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#ace0ab229d32898fc4f5b2b7cbafb89ef">SetIsDestroyed</a> (bool _IsDestroyed)</td></tr>
+<tr class="separator:ace0ab229d32898fc4f5b2b7cbafb89ef inherit pub_methods_classCObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e2ea675ac09c48ac3bc7917da6d2a27 inherit pub_methods_classCObject" id="r_a3e2ea675ac09c48ac3bc7917da6d2a27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#a3e2ea675ac09c48ac3bc7917da6d2a27">SetName</a> (<a class="el" href="Object_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _ObjectName)</td></tr>
+<tr class="separator:a3e2ea675ac09c48ac3bc7917da6d2a27 inherit pub_methods_classCObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+限定公開変数類</h2></td></tr>
+<tr class="memitem:a0f08ab3d70cd8fee4e82970a972f52e8" id="r_a0f08ab3d70cd8fee4e82970a972f52e8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExplosion.html#a0f08ab3d70cd8fee4e82970a972f52e8">LifeTime</a> = 120</td></tr>
+<tr class="separator:a0f08ab3d70cd8fee4e82970a972f52e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4d9eb736d4392ddcb47838f221965e6" id="r_ac4d9eb736d4392ddcb47838f221965e6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExplosion.html#ac4d9eb736d4392ddcb47838f221965e6">Frame</a> = 0</td></tr>
+<tr class="separator:ac4d9eb736d4392ddcb47838f221965e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33beb85698c8eb2ba31df45e43c78744" id="r_a33beb85698c8eb2ba31df45e43c78744"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExplosion.html#a33beb85698c8eb2ba31df45e43c78744">MaxFrame</a> = 16</td></tr>
+<tr class="separator:a33beb85698c8eb2ba31df45e43c78744"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7ce61d81d0a9f8ecfe4b205935f1f64" id="r_af7ce61d81d0a9f8ecfe4b205935f1f64"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExplosion.html#af7ce61d81d0a9f8ecfe4b205935f1f64">UpdateInterval</a> = 6</td></tr>
+<tr class="separator:af7ce61d81d0a9f8ecfe4b205935f1f64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classBillBoard"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classBillBoard')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classBillBoard.html">BillBoard</a> に属する継承限定公開変数類</td></tr>
+<tr class="memitem:a835b0d9050d150983bb0184458353643 inherit pro_attribs_classBillBoard" id="r_a835b0d9050d150983bb0184458353643"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBillBoard.html#a835b0d9050d150983bb0184458353643">ModelPath</a></td></tr>
+<tr class="separator:a835b0d9050d150983bb0184458353643 inherit pro_attribs_classBillBoard"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classCObject"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classCObject')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCObject.html">CObject</a> に属する継承限定公開変数類</td></tr>
+<tr class="memitem:a6adfc64a703216dd3d31f0c8511769cc inherit pro_attribs_classCObject" id="r_a6adfc64a703216dd3d31f0c8511769cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Object_8h.html#a81fe4d2f62958ae48f36d6a3beb16bb1">Vector</a>&lt; <a class="el" href="Object_8h.html#a74b90b47b1100dfbcfdf6892a7b2e479">UniquePtr</a>&lt; <a class="el" href="classCComponent.html">CComponent</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#a6adfc64a703216dd3d31f0c8511769cc">components</a></td></tr>
+<tr class="separator:a6adfc64a703216dd3d31f0c8511769cc inherit pro_attribs_classCObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3aa14ca63828feebd6fc9cc7326c4e14 inherit pro_attribs_classCObject" id="r_a3aa14ca63828feebd6fc9cc7326c4e14"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#a3aa14ca63828feebd6fc9cc7326c4e14">isValid</a></td></tr>
+<tr class="separator:a3aa14ca63828feebd6fc9cc7326c4e14 inherit pro_attribs_classCObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61a5dac8eeb79d2ce3891821cbc46e2a inherit pro_attribs_classCObject" id="r_a61a5dac8eeb79d2ce3891821cbc46e2a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#a61a5dac8eeb79d2ce3891821cbc46e2a">IsDestroyed</a> = false</td></tr>
+<tr class="separator:a61a5dac8eeb79d2ce3891821cbc46e2a inherit pro_attribs_classCObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="a4e6c784aaab8df2e55cad295d7360b0f" name="a4e6c784aaab8df2e55cad295d7360b0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e6c784aaab8df2e55cad295d7360b0f">&#9670;&#160;</a></span>Explosion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Explosion::Explosion </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td>
+          <td class="paramname"><em>_Name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classExplosion_a4e6c784aaab8df2e55cad295d7360b0f_cgraph.svg" width="418" height="234"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a841a80fe87ec4f458ccfaaedf54baffa" name="a841a80fe87ec4f458ccfaaedf54baffa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a841a80fe87ec4f458ccfaaedf54baffa">&#9670;&#160;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Explosion::Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classBillBoard.html#ad8ddd2331f3c3c9e7387424287a35c23">BillBoard</a>を再実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classExplosion_a841a80fe87ec4f458ccfaaedf54baffa_cgraph.svg" width="382" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="ac4d9eb736d4392ddcb47838f221965e6" name="ac4d9eb736d4392ddcb47838f221965e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4d9eb736d4392ddcb47838f221965e6">&#9670;&#160;</a></span>Frame</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Explosion::Frame = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f08ab3d70cd8fee4e82970a972f52e8" name="a0f08ab3d70cd8fee4e82970a972f52e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f08ab3d70cd8fee4e82970a972f52e8">&#9670;&#160;</a></span>LifeTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Explosion::LifeTime = 120</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a33beb85698c8eb2ba31df45e43c78744" name="a33beb85698c8eb2ba31df45e43c78744"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33beb85698c8eb2ba31df45e43c78744">&#9670;&#160;</a></span>MaxFrame</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Explosion::MaxFrame = 16</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af7ce61d81d0a9f8ecfe4b205935f1f64" name="af7ce61d81d0a9f8ecfe4b205935f1f64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7ce61d81d0a9f8ecfe4b205935f1f64">&#9670;&#160;</a></span>UpdateInterval</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Explosion::UpdateInterval = 6</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/Objects/<a class="el" href="Explosion_8h_source.html">Explosion.h</a></li>
+<li>Source/Objects/<a class="el" href="Explosion_8cpp.html">Explosion.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classExplosion.html">Explosion</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

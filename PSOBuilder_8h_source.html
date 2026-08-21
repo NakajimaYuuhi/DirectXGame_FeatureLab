@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Rendering/PSOBuilder.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('PSOBuilder_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">PSOBuilder.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="PSOBuilder_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;d3d12.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;wrl.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">using </span>Microsoft::WRL::ComPtr;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// ========================================================</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">// RootSignatureBuilder</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">// ========================================================</span></div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classRootSignatureBuilder.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="classRootSignatureBuilder.html">RootSignatureBuilder</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_function" href="classRootSignatureBuilder.html#a4e549f0f8c54186839cecfb2bc0bb77d">RootSignatureBuilder</a>();</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classRootSignatureBuilder.html#a5d17eeff6c6b3df05a99c17d632c16a7">AddConstants</a>(UINT num32BitValues, UINT shaderRegister, UINT registerSpace, D3D12_SHADER_VISIBILITY visibility);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classRootSignatureBuilder.html#a1d694876446e39f483fe7c6a3102eb98">AddDescriptorTable</a>(D3D12_DESCRIPTOR_RANGE_TYPE rangeType, UINT numDescriptors, UINT baseShaderRegister, UINT registerSpace, D3D12_SHADER_VISIBILITY visibility);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classRootSignatureBuilder.html#aa9e24dba3fa95b1897c18e0961e0a547">AddStaticSampler</a>(<span class="keyword">const</span> D3D12_STATIC_SAMPLER_DESC&amp; sampler);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classRootSignatureBuilder.html#accd44a50cee2575c2da481c9fc790f09">Build</a>(ID3D12Device* device, ID3D12RootSignature** ppRootSig);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classRootSignatureBuilder.html#a5ea2e454391c7de6bba2f347076780fc">   24</a></span>    std::vector&lt;D3D12_ROOT_PARAMETER&gt; <a class="code hl_variable" href="classRootSignatureBuilder.html#a5ea2e454391c7de6bba2f347076780fc">m_parameters</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classRootSignatureBuilder.html#a70f29e41193ba6f82cd9a03ea322e427">   25</a></span>    std::vector&lt;std::vector&lt;D3D12_DESCRIPTOR_RANGE&gt;&gt; <a class="code hl_variable" href="classRootSignatureBuilder.html#a70f29e41193ba6f82cd9a03ea322e427">m_descriptorRanges</a>; </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classRootSignatureBuilder.html#adae68c5b7e01af9c69c595b2bf328009">   26</a></span>    std::vector&lt;D3D12_STATIC_SAMPLER_DESC&gt; <a class="code hl_variable" href="classRootSignatureBuilder.html#adae68c5b7e01af9c69c595b2bf328009">m_samplers</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>};</div>
+</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">// ========================================================</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">// PSOBuilder</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">// ========================================================</span></div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classPSOBuilder.html">   33</a></span><span class="keyword">class </span><a class="code hl_class" href="classPSOBuilder.html">PSOBuilder</a></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_function" href="classPSOBuilder.html#a192685577ca95d9f2e869dd504fb366e">PSOBuilder</a>();</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_class" href="classPSOBuilder.html">PSOBuilder</a>&amp; <a class="code hl_function" href="classPSOBuilder.html#ad2d9e8f72794a6b759f311d507a9ac27">SetRootSignature</a>(ID3D12RootSignature* rootSig);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_class" href="classPSOBuilder.html">PSOBuilder</a>&amp; <a class="code hl_function" href="classPSOBuilder.html#afc9f3b47ccb9e1f6f357cb4dbaee66c4">SetInputLayout</a>(<span class="keyword">const</span> D3D12_INPUT_ELEMENT_DESC* pInputElementDescs, UINT NumElements);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_class" href="classPSOBuilder.html">PSOBuilder</a>&amp; <a class="code hl_function" href="classPSOBuilder.html#ac20917459bd5cf2bb790b25b44d0a8d3">SetShaders</a>(D3D12_SHADER_BYTECODE vs, D3D12_SHADER_BYTECODE ps);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="classPSOBuilder.html">PSOBuilder</a>&amp; <a class="code hl_function" href="classPSOBuilder.html#a2510fd6281e09c2701e8fc848349ed11">SetBlendState</a>(<span class="keyword">const</span> D3D12_BLEND_DESC&amp; blendDesc);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="classPSOBuilder.html">PSOBuilder</a>&amp; <a class="code hl_function" href="classPSOBuilder.html#a5b056aa622e33b5f0f72584874aae3f9">SetRasterizerState</a>(<span class="keyword">const</span> D3D12_RASTERIZER_DESC&amp; rasterDesc);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="classPSOBuilder.html">PSOBuilder</a>&amp; <a class="code hl_function" href="classPSOBuilder.html#a484861508094c233a0f4dd7b015a6f22">SetDepthStencilState</a>(<span class="keyword">const</span> D3D12_DEPTH_STENCIL_DESC&amp; depthDesc);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_class" href="classPSOBuilder.html">PSOBuilder</a>&amp; <a class="code hl_function" href="classPSOBuilder.html#a0ce942a1d5b1b8e966b111034c43b9fa">SetPrimitiveTopologyType</a>(D3D12_PRIMITIVE_TOPOLOGY_TYPE topologyType);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_class" href="classPSOBuilder.html">PSOBuilder</a>&amp; <a class="code hl_function" href="classPSOBuilder.html#a4068e947c02209dff526b51258fd5209">SetRenderTargetFormats</a>(UINT numRenderTargets, <span class="keyword">const</span> DXGI_FORMAT* rtvFormats, DXGI_FORMAT dsvFormat);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_class" href="classPSOBuilder.html">PSOBuilder</a>&amp; <a class="code hl_function" href="classPSOBuilder.html#ab8a1e6d214ffc2a4e5e5aa99de66128d">SetDefaultRasterizer</a>();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_class" href="classPSOBuilder.html">PSOBuilder</a>&amp; <a class="code hl_function" href="classPSOBuilder.html#a7315666195eac5e59ad71be0b54a0819">SetDefaultDepthStencil</a>();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_class" href="classPSOBuilder.html">PSOBuilder</a>&amp; <a class="code hl_function" href="classPSOBuilder.html#a34a734beef2f9dae445efd2a6da80797">SetDefaultBlendState</a>();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classPSOBuilder.html#a0ae2d7a9f8ea71e86abe73487e0ce5e9">Build</a>(ID3D12Device* device, ID3D12PipelineState** ppPipelineState);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classPSOBuilder.html#ad3ef95f31d7306634de6baac10e6452b">   54</a></span>    D3D12_GRAPHICS_PIPELINE_STATE_DESC <a class="code hl_variable" href="classPSOBuilder.html#ad3ef95f31d7306634de6baac10e6452b">m_psoDesc</a>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>};</div>
+</div>
+<div class="ttc" id="aclassPSOBuilder_html"><div class="ttname"><a href="classPSOBuilder.html">PSOBuilder</a></div><div class="ttdef"><b>Definition</b> PSOBuilder.h:34</div></div>
+<div class="ttc" id="aclassPSOBuilder_html_a0ae2d7a9f8ea71e86abe73487e0ce5e9"><div class="ttname"><a href="classPSOBuilder.html#a0ae2d7a9f8ea71e86abe73487e0ce5e9">PSOBuilder::Build</a></div><div class="ttdeci">bool Build(ID3D12Device *device, ID3D12PipelineState **ppPipelineState)</div><div class="ttdef"><b>Definition</b> PSOBuilder.cpp:209</div></div>
+<div class="ttc" id="aclassPSOBuilder_html_a0ce942a1d5b1b8e966b111034c43b9fa"><div class="ttname"><a href="classPSOBuilder.html#a0ce942a1d5b1b8e966b111034c43b9fa">PSOBuilder::SetPrimitiveTopologyType</a></div><div class="ttdeci">PSOBuilder &amp; SetPrimitiveTopologyType(D3D12_PRIMITIVE_TOPOLOGY_TYPE topologyType)</div><div class="ttdef"><b>Definition</b> PSOBuilder.cpp:136</div></div>
+<div class="ttc" id="aclassPSOBuilder_html_a192685577ca95d9f2e869dd504fb366e"><div class="ttname"><a href="classPSOBuilder.html#a192685577ca95d9f2e869dd504fb366e">PSOBuilder::PSOBuilder</a></div><div class="ttdeci">PSOBuilder()</div><div class="ttdef"><b>Definition</b> PSOBuilder.cpp:87</div></div>
+<div class="ttc" id="aclassPSOBuilder_html_a2510fd6281e09c2701e8fc848349ed11"><div class="ttname"><a href="classPSOBuilder.html#a2510fd6281e09c2701e8fc848349ed11">PSOBuilder::SetBlendState</a></div><div class="ttdeci">PSOBuilder &amp; SetBlendState(const D3D12_BLEND_DESC &amp;blendDesc)</div><div class="ttdef"><b>Definition</b> PSOBuilder.cpp:118</div></div>
+<div class="ttc" id="aclassPSOBuilder_html_a34a734beef2f9dae445efd2a6da80797"><div class="ttname"><a href="classPSOBuilder.html#a34a734beef2f9dae445efd2a6da80797">PSOBuilder::SetDefaultBlendState</a></div><div class="ttdeci">PSOBuilder &amp; SetDefaultBlendState()</div><div class="ttdef"><b>Definition</b> PSOBuilder.cpp:184</div></div>
+<div class="ttc" id="aclassPSOBuilder_html_a4068e947c02209dff526b51258fd5209"><div class="ttname"><a href="classPSOBuilder.html#a4068e947c02209dff526b51258fd5209">PSOBuilder::SetRenderTargetFormats</a></div><div class="ttdeci">PSOBuilder &amp; SetRenderTargetFormats(UINT numRenderTargets, const DXGI_FORMAT *rtvFormats, DXGI_FORMAT dsvFormat)</div><div class="ttdef"><b>Definition</b> PSOBuilder.cpp:142</div></div>
+<div class="ttc" id="aclassPSOBuilder_html_a484861508094c233a0f4dd7b015a6f22"><div class="ttname"><a href="classPSOBuilder.html#a484861508094c233a0f4dd7b015a6f22">PSOBuilder::SetDepthStencilState</a></div><div class="ttdeci">PSOBuilder &amp; SetDepthStencilState(const D3D12_DEPTH_STENCIL_DESC &amp;depthDesc)</div><div class="ttdef"><b>Definition</b> PSOBuilder.cpp:130</div></div>
+<div class="ttc" id="aclassPSOBuilder_html_a5b056aa622e33b5f0f72584874aae3f9"><div class="ttname"><a href="classPSOBuilder.html#a5b056aa622e33b5f0f72584874aae3f9">PSOBuilder::SetRasterizerState</a></div><div class="ttdeci">PSOBuilder &amp; SetRasterizerState(const D3D12_RASTERIZER_DESC &amp;rasterDesc)</div><div class="ttdef"><b>Definition</b> PSOBuilder.cpp:124</div></div>
+<div class="ttc" id="aclassPSOBuilder_html_a7315666195eac5e59ad71be0b54a0819"><div class="ttname"><a href="classPSOBuilder.html#a7315666195eac5e59ad71be0b54a0819">PSOBuilder::SetDefaultDepthStencil</a></div><div class="ttdeci">PSOBuilder &amp; SetDefaultDepthStencil()</div><div class="ttdef"><b>Definition</b> PSOBuilder.cpp:172</div></div>
+<div class="ttc" id="aclassPSOBuilder_html_ab8a1e6d214ffc2a4e5e5aa99de66128d"><div class="ttname"><a href="classPSOBuilder.html#ab8a1e6d214ffc2a4e5e5aa99de66128d">PSOBuilder::SetDefaultRasterizer</a></div><div class="ttdeci">PSOBuilder &amp; SetDefaultRasterizer()</div><div class="ttdef"><b>Definition</b> PSOBuilder.cpp:153</div></div>
+<div class="ttc" id="aclassPSOBuilder_html_ac20917459bd5cf2bb790b25b44d0a8d3"><div class="ttname"><a href="classPSOBuilder.html#ac20917459bd5cf2bb790b25b44d0a8d3">PSOBuilder::SetShaders</a></div><div class="ttdeci">PSOBuilder &amp; SetShaders(D3D12_SHADER_BYTECODE vs, D3D12_SHADER_BYTECODE ps)</div><div class="ttdef"><b>Definition</b> PSOBuilder.cpp:111</div></div>
+<div class="ttc" id="aclassPSOBuilder_html_ad2d9e8f72794a6b759f311d507a9ac27"><div class="ttname"><a href="classPSOBuilder.html#ad2d9e8f72794a6b759f311d507a9ac27">PSOBuilder::SetRootSignature</a></div><div class="ttdeci">PSOBuilder &amp; SetRootSignature(ID3D12RootSignature *rootSig)</div><div class="ttdef"><b>Definition</b> PSOBuilder.cpp:98</div></div>
+<div class="ttc" id="aclassPSOBuilder_html_ad3ef95f31d7306634de6baac10e6452b"><div class="ttname"><a href="classPSOBuilder.html#ad3ef95f31d7306634de6baac10e6452b">PSOBuilder::m_psoDesc</a></div><div class="ttdeci">D3D12_GRAPHICS_PIPELINE_STATE_DESC m_psoDesc</div><div class="ttdef"><b>Definition</b> PSOBuilder.h:54</div></div>
+<div class="ttc" id="aclassPSOBuilder_html_afc9f3b47ccb9e1f6f357cb4dbaee66c4"><div class="ttname"><a href="classPSOBuilder.html#afc9f3b47ccb9e1f6f357cb4dbaee66c4">PSOBuilder::SetInputLayout</a></div><div class="ttdeci">PSOBuilder &amp; SetInputLayout(const D3D12_INPUT_ELEMENT_DESC *pInputElementDescs, UINT NumElements)</div><div class="ttdef"><b>Definition</b> PSOBuilder.cpp:104</div></div>
+<div class="ttc" id="aclassRootSignatureBuilder_html"><div class="ttname"><a href="classRootSignatureBuilder.html">RootSignatureBuilder</a></div><div class="ttdef"><b>Definition</b> PSOBuilder.h:13</div></div>
+<div class="ttc" id="aclassRootSignatureBuilder_html_a1d694876446e39f483fe7c6a3102eb98"><div class="ttname"><a href="classRootSignatureBuilder.html#a1d694876446e39f483fe7c6a3102eb98">RootSignatureBuilder::AddDescriptorTable</a></div><div class="ttdeci">void AddDescriptorTable(D3D12_DESCRIPTOR_RANGE_TYPE rangeType, UINT numDescriptors, UINT baseShaderRegister, UINT registerSpace, D3D12_SHADER_VISIBILITY visibility)</div><div class="ttdef"><b>Definition</b> PSOBuilder.cpp:22</div></div>
+<div class="ttc" id="aclassRootSignatureBuilder_html_a4e549f0f8c54186839cecfb2bc0bb77d"><div class="ttname"><a href="classRootSignatureBuilder.html#a4e549f0f8c54186839cecfb2bc0bb77d">RootSignatureBuilder::RootSignatureBuilder</a></div><div class="ttdeci">RootSignatureBuilder()</div><div class="ttdef"><b>Definition</b> PSOBuilder.cpp:7</div></div>
+<div class="ttc" id="aclassRootSignatureBuilder_html_a5d17eeff6c6b3df05a99c17d632c16a7"><div class="ttname"><a href="classRootSignatureBuilder.html#a5d17eeff6c6b3df05a99c17d632c16a7">RootSignatureBuilder::AddConstants</a></div><div class="ttdeci">void AddConstants(UINT num32BitValues, UINT shaderRegister, UINT registerSpace, D3D12_SHADER_VISIBILITY visibility)</div><div class="ttdef"><b>Definition</b> PSOBuilder.cpp:11</div></div>
+<div class="ttc" id="aclassRootSignatureBuilder_html_a5ea2e454391c7de6bba2f347076780fc"><div class="ttname"><a href="classRootSignatureBuilder.html#a5ea2e454391c7de6bba2f347076780fc">RootSignatureBuilder::m_parameters</a></div><div class="ttdeci">std::vector&lt; D3D12_ROOT_PARAMETER &gt; m_parameters</div><div class="ttdef"><b>Definition</b> PSOBuilder.h:24</div></div>
+<div class="ttc" id="aclassRootSignatureBuilder_html_a70f29e41193ba6f82cd9a03ea322e427"><div class="ttname"><a href="classRootSignatureBuilder.html#a70f29e41193ba6f82cd9a03ea322e427">RootSignatureBuilder::m_descriptorRanges</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; D3D12_DESCRIPTOR_RANGE &gt; &gt; m_descriptorRanges</div><div class="ttdef"><b>Definition</b> PSOBuilder.h:25</div></div>
+<div class="ttc" id="aclassRootSignatureBuilder_html_aa9e24dba3fa95b1897c18e0961e0a547"><div class="ttname"><a href="classRootSignatureBuilder.html#aa9e24dba3fa95b1897c18e0961e0a547">RootSignatureBuilder::AddStaticSampler</a></div><div class="ttdeci">void AddStaticSampler(const D3D12_STATIC_SAMPLER_DESC &amp;sampler)</div><div class="ttdef"><b>Definition</b> PSOBuilder.cpp:41</div></div>
+<div class="ttc" id="aclassRootSignatureBuilder_html_accd44a50cee2575c2da481c9fc790f09"><div class="ttname"><a href="classRootSignatureBuilder.html#accd44a50cee2575c2da481c9fc790f09">RootSignatureBuilder::Build</a></div><div class="ttdeci">bool Build(ID3D12Device *device, ID3D12RootSignature **ppRootSig)</div><div class="ttdef"><b>Definition</b> PSOBuilder.cpp:46</div></div>
+<div class="ttc" id="aclassRootSignatureBuilder_html_adae68c5b7e01af9c69c595b2bf328009"><div class="ttname"><a href="classRootSignatureBuilder.html#adae68c5b7e01af9c69c595b2bf328009">RootSignatureBuilder::m_samplers</a></div><div class="ttdeci">std::vector&lt; D3D12_STATIC_SAMPLER_DESC &gt; m_samplers</div><div class="ttdef"><b>Definition</b> PSOBuilder.h:26</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_e350ea9347b5bfd16d4777c6b135cca8.html">Rendering</a></li><li class="navelem"><a class="el" href="PSOBuilder_8h.html">PSOBuilder.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

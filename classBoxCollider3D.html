@@ -1,0 +1,387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: BoxCollider3D クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classBoxCollider3D.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pro-attribs">限定公開変数類</a> &#124;
+<a href="classBoxCollider3D-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">BoxCollider3D クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="BoxCollider3D_8h_source.html">BoxCollider3D.h</a>&gt;</code></p>
+<div class="dynheader">
+BoxCollider3D の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBoxCollider3D__inherit__graph.svg" width="126" height="256"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+BoxCollider3D 連携図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBoxCollider3D__coll__graph.svg" width="135" height="348"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:acaac3f2c92709c5599aebc92d4da5fd3" id="r_acaac3f2c92709c5599aebc92d4da5fd3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoxCollider3D.html#acaac3f2c92709c5599aebc92d4da5fd3">BoxCollider3D</a> ()</td></tr>
+<tr class="separator:acaac3f2c92709c5599aebc92d4da5fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1c54ab2af2b00311ec1ea4cd1c4cd42" id="r_aa1c54ab2af2b00311ec1ea4cd1c4cd42"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoxCollider3D.html#aa1c54ab2af2b00311ec1ea4cd1c4cd42">~BoxCollider3D</a> ()</td></tr>
+<tr class="separator:aa1c54ab2af2b00311ec1ea4cd1c4cd42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae605bdb54ca7167f80e9e0aa43deb33" id="r_aae605bdb54ca7167f80e9e0aa43deb33"><td class="memItemLeft" align="right" valign="top">virtual DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoxCollider3D.html#aae605bdb54ca7167f80e9e0aa43deb33">GetWorldPos</a> ()</td></tr>
+<tr class="separator:aae605bdb54ca7167f80e9e0aa43deb33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af49ce1d04ef24c80bc015fee062d7882" id="r_af49ce1d04ef24c80bc015fee062d7882"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoxCollider3D.html#af49ce1d04ef24c80bc015fee062d7882">GetSize</a> () const</td></tr>
+<tr class="separator:af49ce1d04ef24c80bc015fee062d7882"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2207d83950f9a209c90a5ca8dfca0e7d" id="r_a2207d83950f9a209c90a5ca8dfca0e7d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoxCollider3D.html#a2207d83950f9a209c90a5ca8dfca0e7d">SetSize</a> (DirectX::XMFLOAT3 _Size)</td></tr>
+<tr class="separator:a2207d83950f9a209c90a5ca8dfca0e7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classCollider3D"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCollider3D')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCollider3D.html">Collider3D</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:a20ab657ff1e7f1e56d6b8123eeac30b3 inherit pub_methods_classCollider3D" id="r_a20ab657ff1e7f1e56d6b8123eeac30b3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCollider3D.html#a20ab657ff1e7f1e56d6b8123eeac30b3">Collider3D</a> ()</td></tr>
+<tr class="separator:a20ab657ff1e7f1e56d6b8123eeac30b3 inherit pub_methods_classCollider3D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a52f06293131ec758b4e55390881fd5 inherit pub_methods_classCollider3D" id="r_a1a52f06293131ec758b4e55390881fd5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCollider3D.html#a1a52f06293131ec758b4e55390881fd5">~Collider3D</a> ()=default</td></tr>
+<tr class="separator:a1a52f06293131ec758b4e55390881fd5 inherit pub_methods_classCollider3D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaac5ad600bfd8099a71f380349b84536 inherit pub_methods_classCollider3D" id="r_aaac5ad600bfd8099a71f380349b84536"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCollider3D.html#aaac5ad600bfd8099a71f380349b84536">SetOffset</a> (DirectX::XMFLOAT3 _Offset)</td></tr>
+<tr class="separator:aaac5ad600bfd8099a71f380349b84536 inherit pub_methods_classCollider3D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a870acd7ae3c06400fb72bceb47baffb9 inherit pub_methods_classCollider3D" id="r_a870acd7ae3c06400fb72bceb47baffb9"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCollider3D.html#a870acd7ae3c06400fb72bceb47baffb9">GetOffset</a> ()</td></tr>
+<tr class="separator:a870acd7ae3c06400fb72bceb47baffb9 inherit pub_methods_classCollider3D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classCollider"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCollider')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCollider.html">Collider</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:aa7186870221f868bbc74c3ae8609fa66 inherit pub_methods_classCollider" id="r_aa7186870221f868bbc74c3ae8609fa66"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCollider.html#aa7186870221f868bbc74c3ae8609fa66">Collider</a> ()</td></tr>
+<tr class="separator:aa7186870221f868bbc74c3ae8609fa66 inherit pub_methods_classCollider"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf1ce43b287c870fd72918b023217a33 inherit pub_methods_classCollider" id="r_abf1ce43b287c870fd72918b023217a33"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCollider.html#abf1ce43b287c870fd72918b023217a33">~Collider</a> ()</td></tr>
+<tr class="separator:abf1ce43b287c870fd72918b023217a33 inherit pub_methods_classCollider"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af57c408281497420b7661c482d6cec58 inherit pub_methods_classCollider" id="r_af57c408281497420b7661c482d6cec58"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3">CololiderType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCollider.html#af57c408281497420b7661c482d6cec58">GetColliderType</a> ()</td></tr>
+<tr class="separator:af57c408281497420b7661c482d6cec58 inherit pub_methods_classCollider"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10ea3adfd31714f3483c86dd6985d0aa inherit pub_methods_classCollider" id="r_a10ea3adfd31714f3483c86dd6985d0aa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCollider.html#a10ea3adfd31714f3483c86dd6985d0aa">GetIsTrigger</a> ()</td></tr>
+<tr class="separator:a10ea3adfd31714f3483c86dd6985d0aa inherit pub_methods_classCollider"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classCComponent"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCComponent')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCComponent.html">CComponent</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:ab87a6940be69962c3f4f5a8552643245 inherit pub_methods_classCComponent" id="r_ab87a6940be69962c3f4f5a8552643245"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ab87a6940be69962c3f4f5a8552643245">CComponent</a> ()</td></tr>
+<tr class="separator:ab87a6940be69962c3f4f5a8552643245 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accf17908f97e4d07d7f04fbde292dcda inherit pub_methods_classCComponent" id="r_accf17908f97e4d07d7f04fbde292dcda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#accf17908f97e4d07d7f04fbde292dcda">CComponent</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:accf17908f97e4d07d7f04fbde292dcda inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2ad4d80f616aedbf6b08f33bdd9d2d5 inherit pub_methods_classCComponent" id="r_af2ad4d80f616aedbf6b08f33bdd9d2d5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#af2ad4d80f616aedbf6b08f33bdd9d2d5">~CComponent</a> ()=default</td></tr>
+<tr class="separator:af2ad4d80f616aedbf6b08f33bdd9d2d5 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9bf36b35de54f49a3d604da091228a4 inherit pub_methods_classCComponent" id="r_ac9bf36b35de54f49a3d604da091228a4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ac9bf36b35de54f49a3d604da091228a4">Init</a> ()</td></tr>
+<tr class="separator:ac9bf36b35de54f49a3d604da091228a4 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a281a46452f6f59625e5488936cd70aa7 inherit pub_methods_classCComponent" id="r_a281a46452f6f59625e5488936cd70aa7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a281a46452f6f59625e5488936cd70aa7">GetName</a> () const</td></tr>
+<tr class="separator:a281a46452f6f59625e5488936cd70aa7 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf4188a21189f533eed52041962cafd4 inherit pub_methods_classCComponent" id="r_abf4188a21189f533eed52041962cafd4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#abf4188a21189f533eed52041962cafd4">GetIsVarid</a> () const</td></tr>
+<tr class="separator:abf4188a21189f533eed52041962cafd4 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5bf6fd967c58b6784aa399a27ce0eaa inherit pub_methods_classCComponent" id="r_ad5bf6fd967c58b6784aa399a27ce0eaa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ad5bf6fd967c58b6784aa399a27ce0eaa">SetName</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:ad5bf6fd967c58b6784aa399a27ce0eaa inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96b82c9108e83190f29a5dd8bafe59fe inherit pub_methods_classCComponent" id="r_a96b82c9108e83190f29a5dd8bafe59fe"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a96b82c9108e83190f29a5dd8bafe59fe">SetIsValid</a> (bool _IsValid)</td></tr>
+<tr class="separator:a96b82c9108e83190f29a5dd8bafe59fe inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ababe3aca6f026b146eb458dab2a57587 inherit pub_methods_classCComponent" id="r_ababe3aca6f026b146eb458dab2a57587"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ababe3aca6f026b146eb458dab2a57587">SetOwner</a> (<a class="el" href="classCObject.html">CObject</a> *_Object)</td></tr>
+<tr class="separator:ababe3aca6f026b146eb458dab2a57587 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+限定公開変数類</h2></td></tr>
+<tr class="memitem:acd63f941176b251c339f7b4264018616" id="r_acd63f941176b251c339f7b4264018616"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoxCollider3D.html#acd63f941176b251c339f7b4264018616">Size</a> = { 1.0f, 1.0f, 1.0f }</td></tr>
+<tr class="separator:acd63f941176b251c339f7b4264018616"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classCollider3D"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classCollider3D')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCollider3D.html">Collider3D</a> に属する継承限定公開変数類</td></tr>
+<tr class="memitem:add40151d2a04a14b4d51f4644466f0e3 inherit pro_attribs_classCollider3D" id="r_add40151d2a04a14b4d51f4644466f0e3"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCollider3D.html#add40151d2a04a14b4d51f4644466f0e3">Offset</a> = { 0.0f,0.0f,0.0f }</td></tr>
+<tr class="separator:add40151d2a04a14b4d51f4644466f0e3 inherit pro_attribs_classCollider3D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classCollider"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classCollider')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCollider.html">Collider</a> に属する継承限定公開変数類</td></tr>
+<tr class="memitem:a5747357519552281e409256f378d3da1 inherit pro_attribs_classCollider" id="r_a5747357519552281e409256f378d3da1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3">CololiderType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCollider.html#a5747357519552281e409256f378d3da1">ColliderType</a></td></tr>
+<tr class="separator:a5747357519552281e409256f378d3da1 inherit pro_attribs_classCollider"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classCComponent"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classCComponent')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCComponent.html">CComponent</a> に属する継承限定公開変数類</td></tr>
+<tr class="memitem:a76959a9e98ef06163c56858026e9da5b inherit pro_attribs_classCComponent" id="r_a76959a9e98ef06163c56858026e9da5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a76959a9e98ef06163c56858026e9da5b">m_Owner</a></td></tr>
+<tr class="separator:a76959a9e98ef06163c56858026e9da5b inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4918d7f95edb1a545724dab2be500e75 inherit pro_attribs_classCComponent" id="r_a4918d7f95edb1a545724dab2be500e75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a4918d7f95edb1a545724dab2be500e75">m_ComponentName</a> = &quot;&quot;</td></tr>
+<tr class="separator:a4918d7f95edb1a545724dab2be500e75 inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f8c7080b1f9972952ceda4e155568cb inherit pro_attribs_classCComponent" id="r_a8f8c7080b1f9972952ceda4e155568cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a8f8c7080b1f9972952ceda4e155568cb">m_ComponentIsValid</a></td></tr>
+<tr class="separator:a8f8c7080b1f9972952ceda4e155568cb inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+その他の継承メンバ</h2></td></tr>
+<tr class="inherit_header pub_types_classCollider"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCollider')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCollider.html">Collider</a> に属する継承公開型</td></tr>
+<tr class="memitem:a9a45786155a7a5dd34e53985485b2aa3 inherit pub_types_classCollider" id="r_a9a45786155a7a5dd34e53985485b2aa3"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3">CololiderType</a> { <br />
+&#160;&#160;<a class="el" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3add3cf00c8e9e2c7de2badcda5766b9e9">CIRCLE_2D</a>
+, <a class="el" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a3d4dec24757e8b933db02aa21269bfdf">CIRCLE_2D_Trigger</a>
+, <a class="el" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a911ad963f0dbafcd48217581ff6477a1">CIRCLE_3D</a>
+, <a class="el" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3aa1685d1b963cdf6c39dcc175980fa6a9">CIRCLE_3D_Trigger</a>
+, <br />
+&#160;&#160;<a class="el" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3ac0cbb8f86e70f3963a518b07f34a73a2">BOX_2D</a>
+, <a class="el" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a0b0492908d0094fadbce9fba3a2fc413">BOX_2D_Trigger</a>
+, <a class="el" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a7ea623b1a41dba766ab1a6efd6763553">BOX_3D</a>
+, <a class="el" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a4856b89d6628207c5f23f056b0878a57">BOX_3D_Trigger</a>
+<br />
+ }</td></tr>
+<tr class="separator:a9a45786155a7a5dd34e53985485b2aa3 inherit pub_types_classCollider"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_attribs_classCollider"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classCollider')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCollider.html">Collider</a> に属する継承公開変数類</td></tr>
+<tr class="memitem:a7ab6cf215708e570738a44d660dcf5e0 inherit pub_attribs_classCollider" id="r_a7ab6cf215708e570738a44d660dcf5e0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCollider.html#a7ab6cf215708e570738a44d660dcf5e0">IsTrriger</a> = false</td></tr>
+<tr class="separator:a7ab6cf215708e570738a44d660dcf5e0 inherit pub_attribs_classCollider"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="acaac3f2c92709c5599aebc92d4da5fd3" name="acaac3f2c92709c5599aebc92d4da5fd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acaac3f2c92709c5599aebc92d4da5fd3">&#9670;&#160;</a></span>BoxCollider3D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">BoxCollider3D::BoxCollider3D </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa1c54ab2af2b00311ec1ea4cd1c4cd42" name="aa1c54ab2af2b00311ec1ea4cd1c4cd42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1c54ab2af2b00311ec1ea4cd1c4cd42">&#9670;&#160;</a></span>~BoxCollider3D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual BoxCollider3D::~BoxCollider3D </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="af49ce1d04ef24c80bc015fee062d7882" name="af49ce1d04ef24c80bc015fee062d7882"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af49ce1d04ef24c80bc015fee062d7882">&#9670;&#160;</a></span>GetSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 BoxCollider3D::GetSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classBoxCollider3D_af49ce1d04ef24c80bc015fee062d7882_icgraph.svg" width="100%" height="364"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aae605bdb54ca7167f80e9e0aa43deb33" name="aae605bdb54ca7167f80e9e0aa43deb33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae605bdb54ca7167f80e9e0aa43deb33">&#9670;&#160;</a></span>GetWorldPos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual DirectX::XMFLOAT3 BoxCollider3D::GetWorldPos </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCollider3D.html#a5a90e28b2985acfb92b129beed6b94d3">Collider3D</a>を実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBoxCollider3D_aae605bdb54ca7167f80e9e0aa43deb33_cgraph.svg" width="444" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classBoxCollider3D_aae605bdb54ca7167f80e9e0aa43deb33_icgraph.svg" width="100%" height="364"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a2207d83950f9a209c90a5ca8dfca0e7d" name="a2207d83950f9a209c90a5ca8dfca0e7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2207d83950f9a209c90a5ca8dfca0e7d">&#9670;&#160;</a></span>SetSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BoxCollider3D::SetSize </td>
+          <td>(</td>
+          <td class="paramtype">DirectX::XMFLOAT3&#160;</td>
+          <td class="paramname"><em>_Size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBoxCollider3D_a2207d83950f9a209c90a5ca8dfca0e7d_icgraph.svg" width="348" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="acd63f941176b251c339f7b4264018616" name="acd63f941176b251c339f7b4264018616"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd63f941176b251c339f7b4264018616">&#9670;&#160;</a></span>Size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 BoxCollider3D::Size = { 1.0f, 1.0f, 1.0f }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/Components/<a class="el" href="BoxCollider3D_8h_source.html">BoxCollider3D.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classBoxCollider3D.html">BoxCollider3D</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

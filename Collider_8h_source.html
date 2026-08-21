@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Components/Collider.h ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- æ§‹ç¯‰: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','æ¤œç´¢');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('Collider_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">èª­ã¿å–ã‚Šä¸­â€¦</div>
+<div class="SRStatus" id="Searching">æ¤œç´¢ä¸­â€¦</div>
+<div class="SRStatus" id="NoMatches">ä¸€è‡´ã™ã‚‹æ–‡å­—åˆ—ã‚’è¦‹ã¤ã‘ã‚‰ã‚Œã¾ã›ã‚“</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Collider.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Collider_8h.html">[è©³è§£]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="Component_8h.html">Component.h</a>&quot;</span></div>
+<div class="foldopen" id="foldopen00003" data-start="{" data-end="};">
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="classCollider.html">    3</a></span><span class="keyword">class </span><a class="code hl_class" href="classCollider.html">Collider</a> : <span class="keyword">public</span> <a class="code hl_class" href="classCComponent.html">CComponent</a></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>{</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00006" data-start="{" data-end="};">
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3">    6</a></span>    <span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>        <span class="comment">//NONE,//ƒfƒtƒHƒ‹ƒg—p</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3add3cf00c8e9e2c7de2badcda5766b9e9">    9</a></span>        <a class="code hl_enumvalue" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3add3cf00c8e9e2c7de2badcda5766b9e9">CIRCLE_2D</a>,</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a3d4dec24757e8b933db02aa21269bfdf">   10</a></span>        <a class="code hl_enumvalue" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a3d4dec24757e8b933db02aa21269bfdf">CIRCLE_2D_Trigger</a>,</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a911ad963f0dbafcd48217581ff6477a1">   11</a></span>        <a class="code hl_enumvalue" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a911ad963f0dbafcd48217581ff6477a1">CIRCLE_3D</a>,</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3aa1685d1b963cdf6c39dcc175980fa6a9">   12</a></span>        <a class="code hl_enumvalue" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3aa1685d1b963cdf6c39dcc175980fa6a9">CIRCLE_3D_Trigger</a>,</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3ac0cbb8f86e70f3963a518b07f34a73a2">   13</a></span>        <a class="code hl_enumvalue" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3ac0cbb8f86e70f3963a518b07f34a73a2">BOX_2D</a>,</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a0b0492908d0094fadbce9fba3a2fc413">   14</a></span>        <a class="code hl_enumvalue" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a0b0492908d0094fadbce9fba3a2fc413">BOX_2D_Trigger</a>,</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a7ea623b1a41dba766ab1a6efd6763553">   15</a></span>        <a class="code hl_enumvalue" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a7ea623b1a41dba766ab1a6efd6763553">BOX_3D</a>,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a4856b89d6628207c5f23f056b0878a57">   16</a></span>        <a class="code hl_enumvalue" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a4856b89d6628207c5f23f056b0878a57">BOX_3D_Trigger</a>,</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    }<a class="code hl_enumeration" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3">CololiderType</a>;</div>
+</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="comment">//ƒRƒ“ƒXƒgƒ‰ƒNƒ^</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classCollider.html#aa7186870221f868bbc74c3ae8609fa66">   23</a></span>    <a class="code hl_function" href="classCollider.html#aa7186870221f868bbc74c3ae8609fa66">Collider</a>() {}</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="comment">//ƒfƒXƒgƒ‰ƒNƒ^</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classCollider.html#abf1ce43b287c870fd72918b023217a33">   26</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classCollider.html#abf1ce43b287c870fd72918b023217a33">~Collider</a>(){}</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="comment">//Update Transform‚É]‘®‚µ‚ÄUpdate</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="comment">//Getter</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classCollider.html#af57c408281497420b7661c482d6cec58">   30</a></span>    <span class="keyword">virtual</span> <a class="code hl_enumeration" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3">CololiderType</a> <a class="code hl_function" href="classCollider.html#af57c408281497420b7661c482d6cec58">GetColliderType</a>() { <span class="keywordflow">return</span> <a class="code hl_variable" href="classCollider.html#a5747357519552281e409256f378d3da1">ColliderType</a>; }</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classCollider.html#a10ea3adfd31714f3483c86dd6985d0aa">   31</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classCollider.html#a10ea3adfd31714f3483c86dd6985d0aa">GetIsTrigger</a>() { <span class="keywordflow">return</span> <a class="code hl_variable" href="classCollider.html#a7ab6cf215708e570738a44d660dcf5e0">IsTrriger</a>; }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classCollider.html#a7ab6cf215708e570738a44d660dcf5e0">   34</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classCollider.html#a7ab6cf215708e570738a44d660dcf5e0">IsTrriger</a> = <span class="keyword">false</span>;<span class="comment">//ƒfƒtƒHƒ‹ƒg‚Ífalse</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classCollider.html#a5747357519552281e409256f378d3da1">   37</a></span>    <a class="code hl_enumeration" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3">CololiderType</a> <a class="code hl_variable" href="classCollider.html#a5747357519552281e409256f378d3da1">ColliderType</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
+</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="ttc" id="aComponent_8h_html"><div class="ttname"><a href="Component_8h.html">Component.h</a></div></div>
+<div class="ttc" id="aclassCComponent_html"><div class="ttname"><a href="classCComponent.html">CComponent</a></div><div class="ttdef"><b>Definition</b> Component.h:22</div></div>
+<div class="ttc" id="aclassCollider_html"><div class="ttname"><a href="classCollider.html">Collider</a></div><div class="ttdef"><b>Definition</b> Collider.h:4</div></div>
+<div class="ttc" id="aclassCollider_html_a10ea3adfd31714f3483c86dd6985d0aa"><div class="ttname"><a href="classCollider.html#a10ea3adfd31714f3483c86dd6985d0aa">Collider::GetIsTrigger</a></div><div class="ttdeci">bool GetIsTrigger()</div><div class="ttdef"><b>Definition</b> Collider.h:31</div></div>
+<div class="ttc" id="aclassCollider_html_a5747357519552281e409256f378d3da1"><div class="ttname"><a href="classCollider.html#a5747357519552281e409256f378d3da1">Collider::ColliderType</a></div><div class="ttdeci">CololiderType ColliderType</div><div class="ttdef"><b>Definition</b> Collider.h:37</div></div>
+<div class="ttc" id="aclassCollider_html_a7ab6cf215708e570738a44d660dcf5e0"><div class="ttname"><a href="classCollider.html#a7ab6cf215708e570738a44d660dcf5e0">Collider::IsTrriger</a></div><div class="ttdeci">bool IsTrriger</div><div class="ttdef"><b>Definition</b> Collider.h:34</div></div>
+<div class="ttc" id="aclassCollider_html_a9a45786155a7a5dd34e53985485b2aa3"><div class="ttname"><a href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3">Collider::CololiderType</a></div><div class="ttdeci">CololiderType</div><div class="ttdef"><b>Definition</b> Collider.h:7</div></div>
+<div class="ttc" id="aclassCollider_html_a9a45786155a7a5dd34e53985485b2aa3a0b0492908d0094fadbce9fba3a2fc413"><div class="ttname"><a href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a0b0492908d0094fadbce9fba3a2fc413">Collider::BOX_2D_Trigger</a></div><div class="ttdeci">@ BOX_2D_Trigger</div><div class="ttdef"><b>Definition</b> Collider.h:14</div></div>
+<div class="ttc" id="aclassCollider_html_a9a45786155a7a5dd34e53985485b2aa3a3d4dec24757e8b933db02aa21269bfdf"><div class="ttname"><a href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a3d4dec24757e8b933db02aa21269bfdf">Collider::CIRCLE_2D_Trigger</a></div><div class="ttdeci">@ CIRCLE_2D_Trigger</div><div class="ttdef"><b>Definition</b> Collider.h:10</div></div>
+<div class="ttc" id="aclassCollider_html_a9a45786155a7a5dd34e53985485b2aa3a4856b89d6628207c5f23f056b0878a57"><div class="ttname"><a href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a4856b89d6628207c5f23f056b0878a57">Collider::BOX_3D_Trigger</a></div><div class="ttdeci">@ BOX_3D_Trigger</div><div class="ttdef"><b>Definition</b> Collider.h:16</div></div>
+<div class="ttc" id="aclassCollider_html_a9a45786155a7a5dd34e53985485b2aa3a7ea623b1a41dba766ab1a6efd6763553"><div class="ttname"><a href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a7ea623b1a41dba766ab1a6efd6763553">Collider::BOX_3D</a></div><div class="ttdeci">@ BOX_3D</div><div class="ttdef"><b>Definition</b> Collider.h:15</div></div>
+<div class="ttc" id="aclassCollider_html_a9a45786155a7a5dd34e53985485b2aa3a911ad963f0dbafcd48217581ff6477a1"><div class="ttname"><a href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a911ad963f0dbafcd48217581ff6477a1">Collider::CIRCLE_3D</a></div><div class="ttdeci">@ CIRCLE_3D</div><div class="ttdef"><b>Definition</b> Collider.h:11</div></div>
+<div class="ttc" id="aclassCollider_html_a9a45786155a7a5dd34e53985485b2aa3aa1685d1b963cdf6c39dcc175980fa6a9"><div class="ttname"><a href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3aa1685d1b963cdf6c39dcc175980fa6a9">Collider::CIRCLE_3D_Trigger</a></div><div class="ttdeci">@ CIRCLE_3D_Trigger</div><div class="ttdef"><b>Definition</b> Collider.h:12</div></div>
+<div class="ttc" id="aclassCollider_html_a9a45786155a7a5dd34e53985485b2aa3ac0cbb8f86e70f3963a518b07f34a73a2"><div class="ttname"><a href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3ac0cbb8f86e70f3963a518b07f34a73a2">Collider::BOX_2D</a></div><div class="ttdeci">@ BOX_2D</div><div class="ttdef"><b>Definition</b> Collider.h:13</div></div>
+<div class="ttc" id="aclassCollider_html_a9a45786155a7a5dd34e53985485b2aa3add3cf00c8e9e2c7de2badcda5766b9e9"><div class="ttname"><a href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3add3cf00c8e9e2c7de2badcda5766b9e9">Collider::CIRCLE_2D</a></div><div class="ttdeci">@ CIRCLE_2D</div><div class="ttdef"><b>Definition</b> Collider.h:9</div></div>
+<div class="ttc" id="aclassCollider_html_aa7186870221f868bbc74c3ae8609fa66"><div class="ttname"><a href="classCollider.html#aa7186870221f868bbc74c3ae8609fa66">Collider::Collider</a></div><div class="ttdeci">Collider()</div><div class="ttdef"><b>Definition</b> Collider.h:23</div></div>
+<div class="ttc" id="aclassCollider_html_abf1ce43b287c870fd72918b023217a33"><div class="ttname"><a href="classCollider.html#abf1ce43b287c870fd72918b023217a33">Collider::~Collider</a></div><div class="ttdeci">virtual ~Collider()</div><div class="ttdef"><b>Definition</b> Collider.h:26</div></div>
+<div class="ttc" id="aclassCollider_html_af57c408281497420b7661c482d6cec58"><div class="ttname"><a href="classCollider.html#af57c408281497420b7661c482d6cec58">Collider::GetColliderType</a></div><div class="ttdeci">virtual CololiderType GetColliderType()</div><div class="ttdef"><b>Definition</b> Collider.h:30</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_5063f357ccae33c483b97cdd1e318acc.html">Components</a></li><li class="navelem"><a class="el" href="Collider_8h.html">Collider.h</a></li>
+    <li class="footer">æ§‹ç¯‰: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

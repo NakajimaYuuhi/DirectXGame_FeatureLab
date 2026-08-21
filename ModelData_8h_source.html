@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Resources/ModelData.h „ÇΩ„Éº„Çπ„Éï„Ç°„Ç§„É´</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- ÊßãÁØâ: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Ê§úÁ¥¢');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('ModelData_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Ë™≠„ÅøÂèñ„Çä‰∏≠‚Ä¶</div>
+<div class="SRStatus" id="Searching">Ê§úÁ¥¢‰∏≠‚Ä¶</div>
+<div class="SRStatus" id="NoMatches">‰∏ÄËá¥„Åô„ÇãÊñáÂ≠óÂàó„ÇíË¶ã„Å§„Åë„Çâ„Çå„Åæ„Åõ„Çì</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ModelData.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="ModelData_8h.html">[Ë©≥Ëß£]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;DirectXMath.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//í∏ì_èÓïÒ</span></div>
+<div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="structMeshVertex.html">    7</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structMeshVertex.html">MeshVertex</a></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="structMeshVertex.html#af593118c46c7089410a9e2775380531f">    9</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structMeshVertex.html#af593118c46c7089410a9e2775380531f">position</a>[3];</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="structMeshVertex.html#a7a4b16c47faf2390dce5e26448799c4c">   10</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structMeshVertex.html#a7a4b16c47faf2390dce5e26448799c4c">normal</a>[3];</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="structMeshVertex.html#ad9df9fdf5501cec0723633cf98f7f288">   11</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structMeshVertex.html#ad9df9fdf5501cec0723633cf98f7f288">uv</a>[2];</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="structMeshVertex.html#a4a2fc960dafe6887e8c93ee233bb514b">   13</a></span>    uint32_t <a class="code hl_variable" href="structMeshVertex.html#a4a2fc960dafe6887e8c93ee233bb514b">boneIndices</a>[4];  <span class="comment">// É{Å[Éìî‘çÜÅiç≈ëÂ255ëÃÇ‹Ç≈Åj</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structMeshVertex.html#ae9fc63e5c83c65bbfa55cd96bbcfccbe">   14</a></span>    <span class="keywordtype">float</span>   <a class="code hl_variable" href="structMeshVertex.html#ae9fc63e5c83c65bbfa55cd96bbcfccbe">boneWeights</a>[4];  <span class="comment">// É{Å[ÉìÇÃèdÇ›</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>};</div>
+</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="structMeshData.html">   17</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structMeshData.html">MeshData</a></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="structMeshData.html#af385b067065e16b66873f21455766334">   19</a></span>    std::string <a class="code hl_variable" href="structMeshData.html#af385b067065e16b66873f21455766334">name</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structMeshData.html#a1ed341a6b37a3a979270efa311423f27">   21</a></span>    std::vector&lt;MeshVertex&gt; <a class="code hl_variable" href="structMeshData.html#a1ed341a6b37a3a979270efa311423f27">vertices</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="structMeshData.html#a79e9a85738fa0fa5b5e81d79c6960741">   22</a></span>    std::vector&lt;uint32_t&gt; <a class="code hl_variable" href="structMeshData.html#a79e9a85738fa0fa5b5e81d79c6960741">indices</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structMeshData.html#aacb94cd5badfb90f6f7adc68f7ebc4d4">   24</a></span>    uint32_t <a class="code hl_variable" href="structMeshData.html#aacb94cd5badfb90f6f7adc68f7ebc4d4">materialIndex</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
+</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structMaterialData.html">   27</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structMaterialData.html">MaterialData</a></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="comment">//É}ÉeÉäÉAÉãñº</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structMaterialData.html#a9668c2d3157bb971922def87675fc24d">   30</a></span>    std::string <a class="code hl_variable" href="structMaterialData.html#a9668c2d3157bb971922def87675fc24d">name</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="comment">//ÉxÅ[ÉXÉJÉâÅ[ÇÃÉeÉNÉXÉ`ÉÉÇÃÉpÉX</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="structMaterialData.html#ad94df6b7aa5888cfb71add6d8d8fe422">   33</a></span>    std::string <a class="code hl_variable" href="structMaterialData.html#ad94df6b7aa5888cfb71add6d8d8fe422">baseColorTexturePath</a>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="comment">//ÉxÅ[ÉXÉJÉâÅ[</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structMaterialData.html#a9e643a5f9e09b9cc86879a7c603d67cf">   36</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structMaterialData.html#a9e643a5f9e09b9cc86879a7c603d67cf">baseColorFactor</a>[4] = { 1.0f, 1.0f, 1.0f, 1.0f };</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="comment">//PBRÇÃã‡ëÆîΩéÀóp</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="structMaterialData.html#a15e3b7464130d3c53bed6842a2f8ab55">   39</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structMaterialData.html#a15e3b7464130d3c53bed6842a2f8ab55">metallicFactor</a> = 1.0f;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="structMaterialData.html#aa9962d4976be6808114ece1e588a1899">   40</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structMaterialData.html#aa9962d4976be6808114ece1e588a1899">roughnessFactor</a> = 1.0f;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="structMaterialData.html#aaf84b9d0245f98f44d83c9150fc00872">   41</a></span>    std::string <a class="code hl_variable" href="structMaterialData.html#aaf84b9d0245f98f44d83c9150fc00872">metallicRoughnessTexturePath</a>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
+</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="};">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="structNodeData.html">   44</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structNodeData.html">NodeData</a></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>{</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="comment">//ÉmÅ[Éhñº</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="structNodeData.html#ab9d310d21190b9374a50a31364f5cfe5">   48</a></span>    std::string <a class="code hl_variable" href="structNodeData.html#ab9d310d21190b9374a50a31364f5cfe5">name</a>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment">//ÉÅÉbÉVÉÖÇÃÉmÅ[Éh</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="structNodeData.html#a071f807d5e247a3adfb60c68e0646e78">   51</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structNodeData.html#a071f807d5e247a3adfb60c68e0646e78">meshIndex</a> = -1;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="comment">//éqÉmÅ[Éh</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="structNodeData.html#a2127a39a844b5979be3dac2143d357ef">   54</a></span>    std::vector&lt;int&gt; <a class="code hl_variable" href="structNodeData.html#a2127a39a844b5979be3dac2143d357ef">children</a>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="comment">//TRS</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="structNodeData.html#a9eb783b14a733b429777656feaa65f93">   57</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structNodeData.html#a9eb783b14a733b429777656feaa65f93">translation</a>[3]    = { 0.0f, 0.0f, 0.0f };</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="structNodeData.html#a6239863c59c4d0cce9ee0dbdae187302">   58</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structNodeData.html#a6239863c59c4d0cce9ee0dbdae187302">rotation</a>[4]       = { 0.0f ,0.0f, 0.0f, 1.0f };</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="structNodeData.html#ad08417b258bac791ef79557e75e681d4">   59</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structNodeData.html#ad08417b258bac791ef79557e75e681d4">scale</a>[3]          = { 1.0f, 1.0f, 1.0f };</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="comment">//Matrix(TRSÇ™égÇ¶Ç»Ç¢Ç∆Ç´óp)</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="structNodeData.html#ae172fbd724ef3e12f466186aa6dceb9f">   62</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structNodeData.html#ae172fbd724ef3e12f466186aa6dceb9f">matrix</a>[16] = {};  <span class="comment">// ÉfÉtÉHÉãÉgÇÕ identity çsóÒÇ≈Ç‡ó«Ç¢</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="comment">//SkinÇÃÉCÉìÉfÉbÉNÉX</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="structNodeData.html#a4f9b04a8fe402d799ddacf952884c5e4">   65</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structNodeData.html#a4f9b04a8fe402d799ddacf952884c5e4">skinIndex</a> = -1;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>};</div>
+</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">//</span></div>
+<div class="foldopen" id="foldopen00070" data-start="{" data-end="};">
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="structSkinData.html">   70</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structSkinData.html">SkinData</a> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>{</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="structSkinData.html#a3e594f06bafbf994168211c78b25f21c">   72</a></span>    std::vector&lt;int&gt; <a class="code hl_variable" href="structSkinData.html#a3e594f06bafbf994168211c78b25f21c">joints</a>;                                <span class="comment">// joints node index</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="structSkinData.html#a85bdc2471d0fbcd11c3734de9a923821">   73</a></span>    std::vector&lt;DirectX::XMFLOAT4X4&gt; <a class="code hl_variable" href="structSkinData.html#a85bdc2471d0fbcd11c3734de9a923821">inverseBindMatrices</a>;   <span class="comment">// inverse bind matrices</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>};</div>
+</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="foldopen" id="foldopen00076" data-start="{" data-end="};">
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="ModelData_8h.html#a7dca5cb9d4d9db5af72040c09db4ea20">   76</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="ModelData_8h.html#a7dca5cb9d4d9db5af72040c09db4ea20">AnimationPath</a> {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <a class="code hl_enumvalue" href="ModelData_8h.html#a7dca5cb9d4d9db5af72040c09db4ea20a0da044e5b37e6bcb3a8d01dc7362b276">TRANSLATION</a>,</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_enumvalue" href="ModelData_8h.html#a7dca5cb9d4d9db5af72040c09db4ea20aa27939099e0fe4086159364fcf8d5f73">ROTATION</a>,</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <a class="code hl_enumvalue" href="ModelData_8h.html#a7dca5cb9d4d9db5af72040c09db4ea20a127ea1d20becc4dba06d9d152db0c2e5">SCALE</a>,</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <a class="code hl_enumvalue" href="ModelData_8h.html#a7dca5cb9d4d9db5af72040c09db4ea20ae6f0fa61f6eff3cfdd98ebb42957ad48">WEIGHTS</a></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>};</div>
+</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="foldopen" id="foldopen00083" data-start="{" data-end="};">
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="ModelData_8h.html#a8472f01c511d77bbfb981a46618ea1ea">   83</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="ModelData_8h.html#a8472f01c511d77bbfb981a46618ea1ea">InterpolationType</a> {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_enumvalue" href="ModelData_8h.html#a8472f01c511d77bbfb981a46618ea1eaaaac544aacc3615aada24897a215f5046">LINEAR</a>,</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_enumvalue" href="ModelData_8h.html#a8472f01c511d77bbfb981a46618ea1eaa522f694f92e679d874a1cc2b2616c3d7">STEP</a>,</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <a class="code hl_enumvalue" href="ModelData_8h.html#a8472f01c511d77bbfb981a46618ea1eaadbec938b5d93ee323a15ef285cab513a">CUBICSPLINE</a></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>};</div>
+</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="foldopen" id="foldopen00089" data-start="{" data-end="};">
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="structAnimationSamplerData.html">   89</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structAnimationSamplerData.html">AnimationSamplerData</a> {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="structAnimationSamplerData.html#a63cf35a59104584dd788324e6ae9c93e">   90</a></span>    std::vector&lt;float&gt; <a class="code hl_variable" href="structAnimationSamplerData.html#a63cf35a59104584dd788324e6ae9c93e">input</a>;               <span class="comment">// Time keyframes</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="structAnimationSamplerData.html#a756638d7fcf349c5ea8ea0efd3656100">   91</a></span>    std::vector&lt;std::vector&lt;float&gt;&gt; <a class="code hl_variable" href="structAnimationSamplerData.html#a756638d7fcf349c5ea8ea0efd3656100">output</a>; <span class="comment">// Values at keyframes</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="structAnimationSamplerData.html#ad4c9a9691d2c32cb683f4d252363894c">   92</a></span>    <a class="code hl_enumeration" href="ModelData_8h.html#a8472f01c511d77bbfb981a46618ea1ea">InterpolationType</a> <a class="code hl_variable" href="structAnimationSamplerData.html#ad4c9a9691d2c32cb683f4d252363894c">interpolation</a>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>};</div>
+</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="foldopen" id="foldopen00095" data-start="{" data-end="};">
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="structAnimationChannelData.html">   95</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structAnimationChannelData.html">AnimationChannelData</a> {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="structAnimationChannelData.html#a6baada9f5e88ce0f024add888faf2c12">   96</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structAnimationChannelData.html#a6baada9f5e88ce0f024add888faf2c12">targetNodeIndex</a>;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="structAnimationChannelData.html#af81d9bc0088d73424c71eb006eb6f740">   97</a></span>    <a class="code hl_enumeration" href="ModelData_8h.html#a7dca5cb9d4d9db5af72040c09db4ea20">AnimationPath</a> <a class="code hl_variable" href="structAnimationChannelData.html#af81d9bc0088d73424c71eb006eb6f740">path</a>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="structAnimationChannelData.html#aa3a58f54c1c1a416535095742b625218">   98</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structAnimationChannelData.html#aa3a58f54c1c1a416535095742b625218">samplerIndex</a>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>};</div>
+</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="foldopen" id="foldopen00101" data-start="{" data-end="};">
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="structAnimationData.html">  101</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structAnimationData.html">AnimationData</a> {</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="structAnimationData.html#a2a6917a833484f4174be87da92a3ce0d">  102</a></span>    std::string <a class="code hl_variable" href="structAnimationData.html#a2a6917a833484f4174be87da92a3ce0d">name</a>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="structAnimationData.html#a4d545ca373d7606121d734d011918b47">  103</a></span>    std::vector&lt;AnimationSamplerData&gt; <a class="code hl_variable" href="structAnimationData.html#a4d545ca373d7606121d734d011918b47">samplers</a>;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="structAnimationData.html#abd3777f56d906a84b537f08c2d437698">  104</a></span>    std::vector&lt;AnimationChannelData&gt; <a class="code hl_variable" href="structAnimationData.html#abd3777f56d906a84b537f08c2d437698">channels</a>;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>};</div>
+</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="foldopen" id="foldopen00108" data-start="{" data-end="};">
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="structLoadedModelData.html">  108</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structLoadedModelData.html">LoadedModelData</a></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>{</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="structLoadedModelData.html#a3072e0b735ec9edfd9e67f84d16dc97b">  110</a></span>    std::vector&lt;MeshData&gt; <a class="code hl_variable" href="structLoadedModelData.html#a3072e0b735ec9edfd9e67f84d16dc97b">meshes</a>;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="structLoadedModelData.html#ad10abe3d9fd05b922fca8f978b06b445">  111</a></span>    std::vector&lt;MaterialData&gt; <a class="code hl_variable" href="structLoadedModelData.html#ad10abe3d9fd05b922fca8f978b06b445">materials</a>;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="structLoadedModelData.html#a24b225f31436f573bc0bb58a0990a5b8">  112</a></span>    std::vector&lt;NodeData&gt; <a class="code hl_variable" href="structLoadedModelData.html#a24b225f31436f573bc0bb58a0990a5b8">nodes</a>;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="structLoadedModelData.html#a43f374776f112a253929d44a080689f1">  113</a></span>    std::vector&lt;SkinData&gt; <a class="code hl_variable" href="structLoadedModelData.html#a43f374776f112a253929d44a080689f1">skins</a>;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="structLoadedModelData.html#ac8ddea30df21757b16712ce223b9b066">  114</a></span>    std::vector&lt;AnimationData&gt; <a class="code hl_variable" href="structLoadedModelData.html#ac8ddea30df21757b16712ce223b9b066">animations</a>;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>};</div>
+</div>
+<div class="ttc" id="aModelData_8h_html_a7dca5cb9d4d9db5af72040c09db4ea20"><div class="ttname"><a href="ModelData_8h.html#a7dca5cb9d4d9db5af72040c09db4ea20">AnimationPath</a></div><div class="ttdeci">AnimationPath</div><div class="ttdef"><b>Definition</b> ModelData.h:76</div></div>
+<div class="ttc" id="aModelData_8h_html_a7dca5cb9d4d9db5af72040c09db4ea20a0da044e5b37e6bcb3a8d01dc7362b276"><div class="ttname"><a href="ModelData_8h.html#a7dca5cb9d4d9db5af72040c09db4ea20a0da044e5b37e6bcb3a8d01dc7362b276">AnimationPath::TRANSLATION</a></div><div class="ttdeci">@ TRANSLATION</div></div>
+<div class="ttc" id="aModelData_8h_html_a7dca5cb9d4d9db5af72040c09db4ea20a127ea1d20becc4dba06d9d152db0c2e5"><div class="ttname"><a href="ModelData_8h.html#a7dca5cb9d4d9db5af72040c09db4ea20a127ea1d20becc4dba06d9d152db0c2e5">AnimationPath::SCALE</a></div><div class="ttdeci">@ SCALE</div></div>
+<div class="ttc" id="aModelData_8h_html_a7dca5cb9d4d9db5af72040c09db4ea20aa27939099e0fe4086159364fcf8d5f73"><div class="ttname"><a href="ModelData_8h.html#a7dca5cb9d4d9db5af72040c09db4ea20aa27939099e0fe4086159364fcf8d5f73">AnimationPath::ROTATION</a></div><div class="ttdeci">@ ROTATION</div></div>
+<div class="ttc" id="aModelData_8h_html_a7dca5cb9d4d9db5af72040c09db4ea20ae6f0fa61f6eff3cfdd98ebb42957ad48"><div class="ttname"><a href="ModelData_8h.html#a7dca5cb9d4d9db5af72040c09db4ea20ae6f0fa61f6eff3cfdd98ebb42957ad48">AnimationPath::WEIGHTS</a></div><div class="ttdeci">@ WEIGHTS</div></div>
+<div class="ttc" id="aModelData_8h_html_a8472f01c511d77bbfb981a46618ea1ea"><div class="ttname"><a href="ModelData_8h.html#a8472f01c511d77bbfb981a46618ea1ea">InterpolationType</a></div><div class="ttdeci">InterpolationType</div><div class="ttdef"><b>Definition</b> ModelData.h:83</div></div>
+<div class="ttc" id="aModelData_8h_html_a8472f01c511d77bbfb981a46618ea1eaa522f694f92e679d874a1cc2b2616c3d7"><div class="ttname"><a href="ModelData_8h.html#a8472f01c511d77bbfb981a46618ea1eaa522f694f92e679d874a1cc2b2616c3d7">InterpolationType::STEP</a></div><div class="ttdeci">@ STEP</div></div>
+<div class="ttc" id="aModelData_8h_html_a8472f01c511d77bbfb981a46618ea1eaaaac544aacc3615aada24897a215f5046"><div class="ttname"><a href="ModelData_8h.html#a8472f01c511d77bbfb981a46618ea1eaaaac544aacc3615aada24897a215f5046">InterpolationType::LINEAR</a></div><div class="ttdeci">@ LINEAR</div></div>
+<div class="ttc" id="aModelData_8h_html_a8472f01c511d77bbfb981a46618ea1eaadbec938b5d93ee323a15ef285cab513a"><div class="ttname"><a href="ModelData_8h.html#a8472f01c511d77bbfb981a46618ea1eaadbec938b5d93ee323a15ef285cab513a">InterpolationType::CUBICSPLINE</a></div><div class="ttdeci">@ CUBICSPLINE</div></div>
+<div class="ttc" id="astructAnimationChannelData_html"><div class="ttname"><a href="structAnimationChannelData.html">AnimationChannelData</a></div><div class="ttdef"><b>Definition</b> ModelData.h:95</div></div>
+<div class="ttc" id="astructAnimationChannelData_html_a6baada9f5e88ce0f024add888faf2c12"><div class="ttname"><a href="structAnimationChannelData.html#a6baada9f5e88ce0f024add888faf2c12">AnimationChannelData::targetNodeIndex</a></div><div class="ttdeci">int targetNodeIndex</div><div class="ttdef"><b>Definition</b> ModelData.h:96</div></div>
+<div class="ttc" id="astructAnimationChannelData_html_aa3a58f54c1c1a416535095742b625218"><div class="ttname"><a href="structAnimationChannelData.html#aa3a58f54c1c1a416535095742b625218">AnimationChannelData::samplerIndex</a></div><div class="ttdeci">int samplerIndex</div><div class="ttdef"><b>Definition</b> ModelData.h:98</div></div>
+<div class="ttc" id="astructAnimationChannelData_html_af81d9bc0088d73424c71eb006eb6f740"><div class="ttname"><a href="structAnimationChannelData.html#af81d9bc0088d73424c71eb006eb6f740">AnimationChannelData::path</a></div><div class="ttdeci">AnimationPath path</div><div class="ttdef"><b>Definition</b> ModelData.h:97</div></div>
+<div class="ttc" id="astructAnimationData_html"><div class="ttname"><a href="structAnimationData.html">AnimationData</a></div><div class="ttdef"><b>Definition</b> ModelData.h:101</div></div>
+<div class="ttc" id="astructAnimationData_html_a2a6917a833484f4174be87da92a3ce0d"><div class="ttname"><a href="structAnimationData.html#a2a6917a833484f4174be87da92a3ce0d">AnimationData::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition</b> ModelData.h:102</div></div>
+<div class="ttc" id="astructAnimationData_html_a4d545ca373d7606121d734d011918b47"><div class="ttname"><a href="structAnimationData.html#a4d545ca373d7606121d734d011918b47">AnimationData::samplers</a></div><div class="ttdeci">std::vector&lt; AnimationSamplerData &gt; samplers</div><div class="ttdef"><b>Definition</b> ModelData.h:103</div></div>
+<div class="ttc" id="astructAnimationData_html_abd3777f56d906a84b537f08c2d437698"><div class="ttname"><a href="structAnimationData.html#abd3777f56d906a84b537f08c2d437698">AnimationData::channels</a></div><div class="ttdeci">std::vector&lt; AnimationChannelData &gt; channels</div><div class="ttdef"><b>Definition</b> ModelData.h:104</div></div>
+<div class="ttc" id="astructAnimationSamplerData_html"><div class="ttname"><a href="structAnimationSamplerData.html">AnimationSamplerData</a></div><div class="ttdef"><b>Definition</b> ModelData.h:89</div></div>
+<div class="ttc" id="astructAnimationSamplerData_html_a63cf35a59104584dd788324e6ae9c93e"><div class="ttname"><a href="structAnimationSamplerData.html#a63cf35a59104584dd788324e6ae9c93e">AnimationSamplerData::input</a></div><div class="ttdeci">std::vector&lt; float &gt; input</div><div class="ttdef"><b>Definition</b> ModelData.h:90</div></div>
+<div class="ttc" id="astructAnimationSamplerData_html_a756638d7fcf349c5ea8ea0efd3656100"><div class="ttname"><a href="structAnimationSamplerData.html#a756638d7fcf349c5ea8ea0efd3656100">AnimationSamplerData::output</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; float &gt; &gt; output</div><div class="ttdef"><b>Definition</b> ModelData.h:91</div></div>
+<div class="ttc" id="astructAnimationSamplerData_html_ad4c9a9691d2c32cb683f4d252363894c"><div class="ttname"><a href="structAnimationSamplerData.html#ad4c9a9691d2c32cb683f4d252363894c">AnimationSamplerData::interpolation</a></div><div class="ttdeci">InterpolationType interpolation</div><div class="ttdef"><b>Definition</b> ModelData.h:92</div></div>
+<div class="ttc" id="astructLoadedModelData_html"><div class="ttname"><a href="structLoadedModelData.html">LoadedModelData</a></div><div class="ttdef"><b>Definition</b> ModelData.h:109</div></div>
+<div class="ttc" id="astructLoadedModelData_html_a24b225f31436f573bc0bb58a0990a5b8"><div class="ttname"><a href="structLoadedModelData.html#a24b225f31436f573bc0bb58a0990a5b8">LoadedModelData::nodes</a></div><div class="ttdeci">std::vector&lt; NodeData &gt; nodes</div><div class="ttdef"><b>Definition</b> ModelData.h:112</div></div>
+<div class="ttc" id="astructLoadedModelData_html_a3072e0b735ec9edfd9e67f84d16dc97b"><div class="ttname"><a href="structLoadedModelData.html#a3072e0b735ec9edfd9e67f84d16dc97b">LoadedModelData::meshes</a></div><div class="ttdeci">std::vector&lt; MeshData &gt; meshes</div><div class="ttdef"><b>Definition</b> ModelData.h:110</div></div>
+<div class="ttc" id="astructLoadedModelData_html_a43f374776f112a253929d44a080689f1"><div class="ttname"><a href="structLoadedModelData.html#a43f374776f112a253929d44a080689f1">LoadedModelData::skins</a></div><div class="ttdeci">std::vector&lt; SkinData &gt; skins</div><div class="ttdef"><b>Definition</b> ModelData.h:113</div></div>
+<div class="ttc" id="astructLoadedModelData_html_ac8ddea30df21757b16712ce223b9b066"><div class="ttname"><a href="structLoadedModelData.html#ac8ddea30df21757b16712ce223b9b066">LoadedModelData::animations</a></div><div class="ttdeci">std::vector&lt; AnimationData &gt; animations</div><div class="ttdef"><b>Definition</b> ModelData.h:114</div></div>
+<div class="ttc" id="astructLoadedModelData_html_ad10abe3d9fd05b922fca8f978b06b445"><div class="ttname"><a href="structLoadedModelData.html#ad10abe3d9fd05b922fca8f978b06b445">LoadedModelData::materials</a></div><div class="ttdeci">std::vector&lt; MaterialData &gt; materials</div><div class="ttdef"><b>Definition</b> ModelData.h:111</div></div>
+<div class="ttc" id="astructMaterialData_html"><div class="ttname"><a href="structMaterialData.html">MaterialData</a></div><div class="ttdef"><b>Definition</b> ModelData.h:28</div></div>
+<div class="ttc" id="astructMaterialData_html_a15e3b7464130d3c53bed6842a2f8ab55"><div class="ttname"><a href="structMaterialData.html#a15e3b7464130d3c53bed6842a2f8ab55">MaterialData::metallicFactor</a></div><div class="ttdeci">float metallicFactor</div><div class="ttdef"><b>Definition</b> ModelData.h:39</div></div>
+<div class="ttc" id="astructMaterialData_html_a9668c2d3157bb971922def87675fc24d"><div class="ttname"><a href="structMaterialData.html#a9668c2d3157bb971922def87675fc24d">MaterialData::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition</b> ModelData.h:30</div></div>
+<div class="ttc" id="astructMaterialData_html_a9e643a5f9e09b9cc86879a7c603d67cf"><div class="ttname"><a href="structMaterialData.html#a9e643a5f9e09b9cc86879a7c603d67cf">MaterialData::baseColorFactor</a></div><div class="ttdeci">float baseColorFactor[4]</div><div class="ttdef"><b>Definition</b> ModelData.h:36</div></div>
+<div class="ttc" id="astructMaterialData_html_aa9962d4976be6808114ece1e588a1899"><div class="ttname"><a href="structMaterialData.html#aa9962d4976be6808114ece1e588a1899">MaterialData::roughnessFactor</a></div><div class="ttdeci">float roughnessFactor</div><div class="ttdef"><b>Definition</b> ModelData.h:40</div></div>
+<div class="ttc" id="astructMaterialData_html_aaf84b9d0245f98f44d83c9150fc00872"><div class="ttname"><a href="structMaterialData.html#aaf84b9d0245f98f44d83c9150fc00872">MaterialData::metallicRoughnessTexturePath</a></div><div class="ttdeci">std::string metallicRoughnessTexturePath</div><div class="ttdef"><b>Definition</b> ModelData.h:41</div></div>
+<div class="ttc" id="astructMaterialData_html_ad94df6b7aa5888cfb71add6d8d8fe422"><div class="ttname"><a href="structMaterialData.html#ad94df6b7aa5888cfb71add6d8d8fe422">MaterialData::baseColorTexturePath</a></div><div class="ttdeci">std::string baseColorTexturePath</div><div class="ttdef"><b>Definition</b> ModelData.h:33</div></div>
+<div class="ttc" id="astructMeshData_html"><div class="ttname"><a href="structMeshData.html">MeshData</a></div><div class="ttdef"><b>Definition</b> ModelData.h:18</div></div>
+<div class="ttc" id="astructMeshData_html_a1ed341a6b37a3a979270efa311423f27"><div class="ttname"><a href="structMeshData.html#a1ed341a6b37a3a979270efa311423f27">MeshData::vertices</a></div><div class="ttdeci">std::vector&lt; MeshVertex &gt; vertices</div><div class="ttdef"><b>Definition</b> ModelData.h:21</div></div>
+<div class="ttc" id="astructMeshData_html_a79e9a85738fa0fa5b5e81d79c6960741"><div class="ttname"><a href="structMeshData.html#a79e9a85738fa0fa5b5e81d79c6960741">MeshData::indices</a></div><div class="ttdeci">std::vector&lt; uint32_t &gt; indices</div><div class="ttdef"><b>Definition</b> ModelData.h:22</div></div>
+<div class="ttc" id="astructMeshData_html_aacb94cd5badfb90f6f7adc68f7ebc4d4"><div class="ttname"><a href="structMeshData.html#aacb94cd5badfb90f6f7adc68f7ebc4d4">MeshData::materialIndex</a></div><div class="ttdeci">uint32_t materialIndex</div><div class="ttdef"><b>Definition</b> ModelData.h:24</div></div>
+<div class="ttc" id="astructMeshData_html_af385b067065e16b66873f21455766334"><div class="ttname"><a href="structMeshData.html#af385b067065e16b66873f21455766334">MeshData::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition</b> ModelData.h:19</div></div>
+<div class="ttc" id="astructMeshVertex_html"><div class="ttname"><a href="structMeshVertex.html">MeshVertex</a></div><div class="ttdef"><b>Definition</b> ModelData.h:8</div></div>
+<div class="ttc" id="astructMeshVertex_html_a4a2fc960dafe6887e8c93ee233bb514b"><div class="ttname"><a href="structMeshVertex.html#a4a2fc960dafe6887e8c93ee233bb514b">MeshVertex::boneIndices</a></div><div class="ttdeci">uint32_t boneIndices[4]</div><div class="ttdef"><b>Definition</b> ModelData.h:13</div></div>
+<div class="ttc" id="astructMeshVertex_html_a7a4b16c47faf2390dce5e26448799c4c"><div class="ttname"><a href="structMeshVertex.html#a7a4b16c47faf2390dce5e26448799c4c">MeshVertex::normal</a></div><div class="ttdeci">float normal[3]</div><div class="ttdef"><b>Definition</b> ModelData.h:10</div></div>
+<div class="ttc" id="astructMeshVertex_html_ad9df9fdf5501cec0723633cf98f7f288"><div class="ttname"><a href="structMeshVertex.html#ad9df9fdf5501cec0723633cf98f7f288">MeshVertex::uv</a></div><div class="ttdeci">float uv[2]</div><div class="ttdef"><b>Definition</b> ModelData.h:11</div></div>
+<div class="ttc" id="astructMeshVertex_html_ae9fc63e5c83c65bbfa55cd96bbcfccbe"><div class="ttname"><a href="structMeshVertex.html#ae9fc63e5c83c65bbfa55cd96bbcfccbe">MeshVertex::boneWeights</a></div><div class="ttdeci">float boneWeights[4]</div><div class="ttdef"><b>Definition</b> ModelData.h:14</div></div>
+<div class="ttc" id="astructMeshVertex_html_af593118c46c7089410a9e2775380531f"><div class="ttname"><a href="structMeshVertex.html#af593118c46c7089410a9e2775380531f">MeshVertex::position</a></div><div class="ttdeci">float position[3]</div><div class="ttdef"><b>Definition</b> ModelData.h:9</div></div>
+<div class="ttc" id="astructNodeData_html"><div class="ttname"><a href="structNodeData.html">NodeData</a></div><div class="ttdef"><b>Definition</b> ModelData.h:45</div></div>
+<div class="ttc" id="astructNodeData_html_a071f807d5e247a3adfb60c68e0646e78"><div class="ttname"><a href="structNodeData.html#a071f807d5e247a3adfb60c68e0646e78">NodeData::meshIndex</a></div><div class="ttdeci">int meshIndex</div><div class="ttdef"><b>Definition</b> ModelData.h:51</div></div>
+<div class="ttc" id="astructNodeData_html_a2127a39a844b5979be3dac2143d357ef"><div class="ttname"><a href="structNodeData.html#a2127a39a844b5979be3dac2143d357ef">NodeData::children</a></div><div class="ttdeci">std::vector&lt; int &gt; children</div><div class="ttdef"><b>Definition</b> ModelData.h:54</div></div>
+<div class="ttc" id="astructNodeData_html_a4f9b04a8fe402d799ddacf952884c5e4"><div class="ttname"><a href="structNodeData.html#a4f9b04a8fe402d799ddacf952884c5e4">NodeData::skinIndex</a></div><div class="ttdeci">int skinIndex</div><div class="ttdef"><b>Definition</b> ModelData.h:65</div></div>
+<div class="ttc" id="astructNodeData_html_a6239863c59c4d0cce9ee0dbdae187302"><div class="ttname"><a href="structNodeData.html#a6239863c59c4d0cce9ee0dbdae187302">NodeData::rotation</a></div><div class="ttdeci">float rotation[4]</div><div class="ttdef"><b>Definition</b> ModelData.h:58</div></div>
+<div class="ttc" id="astructNodeData_html_a9eb783b14a733b429777656feaa65f93"><div class="ttname"><a href="structNodeData.html#a9eb783b14a733b429777656feaa65f93">NodeData::translation</a></div><div class="ttdeci">float translation[3]</div><div class="ttdef"><b>Definition</b> ModelData.h:57</div></div>
+<div class="ttc" id="astructNodeData_html_ab9d310d21190b9374a50a31364f5cfe5"><div class="ttname"><a href="structNodeData.html#ab9d310d21190b9374a50a31364f5cfe5">NodeData::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition</b> ModelData.h:48</div></div>
+<div class="ttc" id="astructNodeData_html_ad08417b258bac791ef79557e75e681d4"><div class="ttname"><a href="structNodeData.html#ad08417b258bac791ef79557e75e681d4">NodeData::scale</a></div><div class="ttdeci">float scale[3]</div><div class="ttdef"><b>Definition</b> ModelData.h:59</div></div>
+<div class="ttc" id="astructNodeData_html_ae172fbd724ef3e12f466186aa6dceb9f"><div class="ttname"><a href="structNodeData.html#ae172fbd724ef3e12f466186aa6dceb9f">NodeData::matrix</a></div><div class="ttdeci">float matrix[16]</div><div class="ttdef"><b>Definition</b> ModelData.h:62</div></div>
+<div class="ttc" id="astructSkinData_html"><div class="ttname"><a href="structSkinData.html">SkinData</a></div><div class="ttdef"><b>Definition</b> ModelData.h:71</div></div>
+<div class="ttc" id="astructSkinData_html_a3e594f06bafbf994168211c78b25f21c"><div class="ttname"><a href="structSkinData.html#a3e594f06bafbf994168211c78b25f21c">SkinData::joints</a></div><div class="ttdeci">std::vector&lt; int &gt; joints</div><div class="ttdef"><b>Definition</b> ModelData.h:72</div></div>
+<div class="ttc" id="astructSkinData_html_a85bdc2471d0fbcd11c3734de9a923821"><div class="ttname"><a href="structSkinData.html#a85bdc2471d0fbcd11c3734de9a923821">SkinData::inverseBindMatrices</a></div><div class="ttdeci">std::vector&lt; DirectX::XMFLOAT4X4 &gt; inverseBindMatrices</div><div class="ttdef"><b>Definition</b> ModelData.h:73</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_33653ba12167a1fe8548138e0d08f67a.html">Resources</a></li><li class="navelem"><a class="el" href="ModelData_8h.html">ModelData.h</a></li>
+    <li class="footer">ÊßãÁØâ: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

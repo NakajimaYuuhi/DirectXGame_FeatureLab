@@ -1,0 +1,486 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: CImGuiManager クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classCImGuiManager.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">クラス</a> &#124;
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
+<a href="#pri-methods">非公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classCImGuiManager-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">CImGuiManager クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="ImGuiManager_8h_source.html">ImGuiManager.h</a>&gt;</code></p>
+<div class="dynheader">
+CImGuiManager 連携図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCImGuiManager__coll__graph.svg" width="320" height="212"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+クラス</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCImGuiManager_1_1SrvAllocUserData.html">SrvAllocUserData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a1b96280a980c6c91a68d673633856035" id="r_a1b96280a980c6c91a68d673633856035"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCImGuiManager.html#a1b96280a980c6c91a68d673633856035">GetSystemScaleFactor</a> ()</td></tr>
+<tr class="separator:a1b96280a980c6c91a68d673633856035"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acffe3c94525f1e853f09afabda528080" id="r_acffe3c94525f1e853f09afabda528080"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCImGuiManager.html#acffe3c94525f1e853f09afabda528080">GetActualScaleFactor</a> ()</td></tr>
+<tr class="separator:acffe3c94525f1e853f09afabda528080"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4352fabcab1c1388132d25609de90f87" id="r_a4352fabcab1c1388132d25609de90f87"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCImGuiManager.html#a4352fabcab1c1388132d25609de90f87">Initialize</a> (HWND hwnd)</td></tr>
+<tr class="separator:a4352fabcab1c1388132d25609de90f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ed92a60fb38ccbbc811d39b49418df1" id="r_a2ed92a60fb38ccbbc811d39b49418df1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCImGuiManager.html#a2ed92a60fb38ccbbc811d39b49418df1">Finalize</a> ()</td></tr>
+<tr class="separator:a2ed92a60fb38ccbbc811d39b49418df1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8fa4e17313895d74c06663af5c38f77" id="r_ae8fa4e17313895d74c06663af5c38f77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCImGuiManager.html#ae8fa4e17313895d74c06663af5c38f77">Begin</a> ()</td></tr>
+<tr class="separator:ae8fa4e17313895d74c06663af5c38f77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68c30eb6de22c921ee3dea98895417e9" id="r_a68c30eb6de22c921ee3dea98895417e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCImGuiManager.html#a68c30eb6de22c921ee3dea98895417e9">End</a> (ID3D12GraphicsCommandList *commandList)</td></tr>
+<tr class="separator:a68c30eb6de22c921ee3dea98895417e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accf11b02aa280e150fd447bdc6090a1a" id="r_accf11b02aa280e150fd447bdc6090a1a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDescriptorHeapAllocator.html">CDescriptorHeapAllocator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCImGuiManager.html#accf11b02aa280e150fd447bdc6090a1a">GetDescriptorHeapAllocator</a> ()</td></tr>
+<tr class="separator:accf11b02aa280e150fd447bdc6090a1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静的公開メンバ関数</h2></td></tr>
+<tr class="memitem:aacc770a179a9869968274ccd3ee24e30" id="r_aacc770a179a9869968274ccd3ee24e30"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCImGuiManager.html">CImGuiManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCImGuiManager.html#aacc770a179a9869968274ccd3ee24e30">GetInstance</a> ()</td></tr>
+<tr class="separator:aacc770a179a9869968274ccd3ee24e30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+非公開メンバ関数</h2></td></tr>
+<tr class="memitem:a2f43a6efa4df2a67460f1d6c16cf400c" id="r_a2f43a6efa4df2a67460f1d6c16cf400c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCImGuiManager.html#a2f43a6efa4df2a67460f1d6c16cf400c">CImGuiManager</a> ()=default</td></tr>
+<tr class="separator:a2f43a6efa4df2a67460f1d6c16cf400c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a001800d54ca39a7ef94d34d0a789379c" id="r_a001800d54ca39a7ef94d34d0a789379c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCImGuiManager.html#a001800d54ca39a7ef94d34d0a789379c">~CImGuiManager</a> ()=default</td></tr>
+<tr class="separator:a001800d54ca39a7ef94d34d0a789379c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:a99ff56b1eb2cee5ca4ddb52aec5d6ea8" id="r_a99ff56b1eb2cee5ca4ddb52aec5d6ea8"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12DescriptorHeap &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCImGuiManager.html#a99ff56b1eb2cee5ca4ddb52aec5d6ea8">m_srvHeap</a></td></tr>
+<tr class="separator:a99ff56b1eb2cee5ca4ddb52aec5d6ea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb7f26d2ec25bf3ed5bc05d58b358302" id="r_afb7f26d2ec25bf3ed5bc05d58b358302"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDescriptorHeapAllocator.html">CDescriptorHeapAllocator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCImGuiManager.html#afb7f26d2ec25bf3ed5bc05d58b358302">m_DescriptorHeapAllocator</a></td></tr>
+<tr class="separator:afb7f26d2ec25bf3ed5bc05d58b358302"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e23cb13670295c904d1c815c10c1579" id="r_a6e23cb13670295c904d1c815c10c1579"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structCImGuiManager_1_1SrvAllocUserData.html">SrvAllocUserData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCImGuiManager.html#a6e23cb13670295c904d1c815c10c1579">m_SrvAllocUserData</a></td></tr>
+<tr class="separator:a6e23cb13670295c904d1c815c10c1579"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="a2f43a6efa4df2a67460f1d6c16cf400c" name="a2f43a6efa4df2a67460f1d6c16cf400c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f43a6efa4df2a67460f1d6c16cf400c">&#9670;&#160;</a></span>CImGuiManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CImGuiManager::CImGuiManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a001800d54ca39a7ef94d34d0a789379c" name="a001800d54ca39a7ef94d34d0a789379c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a001800d54ca39a7ef94d34d0a789379c">&#9670;&#160;</a></span>~CImGuiManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CImGuiManager::~CImGuiManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="ae8fa4e17313895d74c06663af5c38f77" name="ae8fa4e17313895d74c06663af5c38f77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8fa4e17313895d74c06663af5c38f77">&#9670;&#160;</a></span>Begin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CImGuiManager::Begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCImGuiManager_ae8fa4e17313895d74c06663af5c38f77_icgraph.svg" width="310" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a68c30eb6de22c921ee3dea98895417e9" name="a68c30eb6de22c921ee3dea98895417e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68c30eb6de22c921ee3dea98895417e9">&#9670;&#160;</a></span>End()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CImGuiManager::End </td>
+          <td>(</td>
+          <td class="paramtype">ID3D12GraphicsCommandList *&#160;</td>
+          <td class="paramname"><em>commandList</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCImGuiManager_a68c30eb6de22c921ee3dea98895417e9_icgraph.svg" width="296" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a2ed92a60fb38ccbbc811d39b49418df1" name="a2ed92a60fb38ccbbc811d39b49418df1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ed92a60fb38ccbbc811d39b49418df1">&#9670;&#160;</a></span>Finalize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CImGuiManager::Finalize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acffe3c94525f1e853f09afabda528080" name="acffe3c94525f1e853f09afabda528080"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acffe3c94525f1e853f09afabda528080">&#9670;&#160;</a></span>GetActualScaleFactor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CImGuiManager::GetActualScaleFactor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCImGuiManager_acffe3c94525f1e853f09afabda528080_cgraph.svg" width="464" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCImGuiManager_acffe3c94525f1e853f09afabda528080_icgraph.svg" width="575" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="accf11b02aa280e150fd447bdc6090a1a" name="accf11b02aa280e150fd447bdc6090a1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accf11b02aa280e150fd447bdc6090a1a">&#9670;&#160;</a></span>GetDescriptorHeapAllocator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCDescriptorHeapAllocator.html">CDescriptorHeapAllocator</a> &amp; CImGuiManager::GetDescriptorHeapAllocator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCImGuiManager_accf11b02aa280e150fd447bdc6090a1a_icgraph.svg" width="602" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aacc770a179a9869968274ccd3ee24e30" name="aacc770a179a9869968274ccd3ee24e30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacc770a179a9869968274ccd3ee24e30">&#9670;&#160;</a></span>GetInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCImGuiManager.html">CImGuiManager</a> &amp; CImGuiManager::GetInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCImGuiManager_aacc770a179a9869968274ccd3ee24e30_icgraph.svg" width="590" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a1b96280a980c6c91a68d673633856035" name="a1b96280a980c6c91a68d673633856035"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b96280a980c6c91a68d673633856035">&#9670;&#160;</a></span>GetSystemScaleFactor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CImGuiManager::GetSystemScaleFactor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCImGuiManager_a1b96280a980c6c91a68d673633856035_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a4352fabcab1c1388132d25609de90f87" name="a4352fabcab1c1388132d25609de90f87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4352fabcab1c1388132d25609de90f87">&#9670;&#160;</a></span>Initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CImGuiManager::Initialize </td>
+          <td>(</td>
+          <td class="paramtype">HWND&#160;</td>
+          <td class="paramname"><em>hwnd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCImGuiManager_a4352fabcab1c1388132d25609de90f87_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCImGuiManager_a4352fabcab1c1388132d25609de90f87_icgraph.svg" width="328" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="afb7f26d2ec25bf3ed5bc05d58b358302" name="afb7f26d2ec25bf3ed5bc05d58b358302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb7f26d2ec25bf3ed5bc05d58b358302">&#9670;&#160;</a></span>m_DescriptorHeapAllocator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCDescriptorHeapAllocator.html">CDescriptorHeapAllocator</a> CImGuiManager::m_DescriptorHeapAllocator</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6e23cb13670295c904d1c815c10c1579" name="a6e23cb13670295c904d1c815c10c1579"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e23cb13670295c904d1c815c10c1579">&#9670;&#160;</a></span>m_SrvAllocUserData</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structCImGuiManager_1_1SrvAllocUserData.html">SrvAllocUserData</a> CImGuiManager::m_SrvAllocUserData</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a99ff56b1eb2cee5ca4ddb52aec5d6ea8" name="a99ff56b1eb2cee5ca4ddb52aec5d6ea8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99ff56b1eb2cee5ca4ddb52aec5d6ea8">&#9670;&#160;</a></span>m_srvHeap</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Microsoft::WRL::ComPtr&lt;ID3D12DescriptorHeap&gt; CImGuiManager::m_srvHeap</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/UI/<a class="el" href="ImGuiManager_8h_source.html">ImGuiManager.h</a></li>
+<li>Source/UI/<a class="el" href="ImGuiManager_8cpp.html">ImGuiManager.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classCImGuiManager.html">CImGuiManager</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

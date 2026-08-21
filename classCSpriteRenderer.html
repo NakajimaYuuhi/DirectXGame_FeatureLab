@@ -1,0 +1,599 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: CSpriteRenderer クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classCSpriteRenderer.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pri-methods">非公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classCSpriteRenderer-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">CSpriteRenderer クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="SpriteRenderer_8h_source.html">SpriteRenderer.h</a>&gt;</code></p>
+<div class="dynheader">
+CSpriteRenderer の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCSpriteRenderer__inherit__graph.svg" width="139" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+CSpriteRenderer 連携図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCSpriteRenderer__coll__graph.svg" width="142" height="199"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:afceb489cbaff1f12f489e0922cd4f114" id="r_afceb489cbaff1f12f489e0922cd4f114"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSpriteRenderer.html#afceb489cbaff1f12f489e0922cd4f114">CSpriteRenderer</a> ()</td></tr>
+<tr class="separator:afceb489cbaff1f12f489e0922cd4f114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae73fe4f681ccbf416a89b1731c683198" id="r_ae73fe4f681ccbf416a89b1731c683198"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSpriteRenderer.html#ae73fe4f681ccbf416a89b1731c683198">~CSpriteRenderer</a> ()</td></tr>
+<tr class="separator:ae73fe4f681ccbf416a89b1731c683198"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f4123344b82a22517fbd54f14f0c2c2" id="r_a4f4123344b82a22517fbd54f14f0c2c2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSpriteRenderer.html#a4f4123344b82a22517fbd54f14f0c2c2">Init</a> () override</td></tr>
+<tr class="separator:a4f4123344b82a22517fbd54f14f0c2c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad28ac66f5263004f5001cdbc5220fbb" id="r_aad28ac66f5263004f5001cdbc5220fbb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSpriteRenderer.html#aad28ac66f5263004f5001cdbc5220fbb">SetTexture</a> (const std::wstring &amp;filePath)</td></tr>
+<tr class="separator:aad28ac66f5263004f5001cdbc5220fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad680b030bad938711b0934dc6949cf94" id="r_ad680b030bad938711b0934dc6949cf94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSpriteRenderer.html#ad680b030bad938711b0934dc6949cf94">SetSize</a> (float width, float height)</td></tr>
+<tr class="separator:ad680b030bad938711b0934dc6949cf94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c31ad42a1a64081994e552e017522f9" id="r_a4c31ad42a1a64081994e552e017522f9"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSpriteRenderer.html#a4c31ad42a1a64081994e552e017522f9">GetSize</a> () const</td></tr>
+<tr class="separator:a4c31ad42a1a64081994e552e017522f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf57a1f22b749a878f6476af99995f5e" id="r_aaf57a1f22b749a878f6476af99995f5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSpriteRenderer.html#aaf57a1f22b749a878f6476af99995f5e">SetColor</a> (const DirectX::XMFLOAT4 &amp;color)</td></tr>
+<tr class="separator:aaf57a1f22b749a878f6476af99995f5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d5be9cbf966750032c2f4b19eabd793" id="r_a3d5be9cbf966750032c2f4b19eabd793"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSpriteRenderer.html#a3d5be9cbf966750032c2f4b19eabd793">Draw</a> ()</td></tr>
+<tr class="separator:a3d5be9cbf966750032c2f4b19eabd793"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classCComponent"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCComponent')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCComponent.html">CComponent</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:ab87a6940be69962c3f4f5a8552643245 inherit pub_methods_classCComponent" id="r_ab87a6940be69962c3f4f5a8552643245"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ab87a6940be69962c3f4f5a8552643245">CComponent</a> ()</td></tr>
+<tr class="separator:ab87a6940be69962c3f4f5a8552643245 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accf17908f97e4d07d7f04fbde292dcda inherit pub_methods_classCComponent" id="r_accf17908f97e4d07d7f04fbde292dcda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#accf17908f97e4d07d7f04fbde292dcda">CComponent</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:accf17908f97e4d07d7f04fbde292dcda inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2ad4d80f616aedbf6b08f33bdd9d2d5 inherit pub_methods_classCComponent" id="r_af2ad4d80f616aedbf6b08f33bdd9d2d5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#af2ad4d80f616aedbf6b08f33bdd9d2d5">~CComponent</a> ()=default</td></tr>
+<tr class="separator:af2ad4d80f616aedbf6b08f33bdd9d2d5 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a281a46452f6f59625e5488936cd70aa7 inherit pub_methods_classCComponent" id="r_a281a46452f6f59625e5488936cd70aa7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a281a46452f6f59625e5488936cd70aa7">GetName</a> () const</td></tr>
+<tr class="separator:a281a46452f6f59625e5488936cd70aa7 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf4188a21189f533eed52041962cafd4 inherit pub_methods_classCComponent" id="r_abf4188a21189f533eed52041962cafd4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#abf4188a21189f533eed52041962cafd4">GetIsVarid</a> () const</td></tr>
+<tr class="separator:abf4188a21189f533eed52041962cafd4 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5bf6fd967c58b6784aa399a27ce0eaa inherit pub_methods_classCComponent" id="r_ad5bf6fd967c58b6784aa399a27ce0eaa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ad5bf6fd967c58b6784aa399a27ce0eaa">SetName</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:ad5bf6fd967c58b6784aa399a27ce0eaa inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96b82c9108e83190f29a5dd8bafe59fe inherit pub_methods_classCComponent" id="r_a96b82c9108e83190f29a5dd8bafe59fe"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a96b82c9108e83190f29a5dd8bafe59fe">SetIsValid</a> (bool _IsValid)</td></tr>
+<tr class="separator:a96b82c9108e83190f29a5dd8bafe59fe inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ababe3aca6f026b146eb458dab2a57587 inherit pub_methods_classCComponent" id="r_ababe3aca6f026b146eb458dab2a57587"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ababe3aca6f026b146eb458dab2a57587">SetOwner</a> (<a class="el" href="classCObject.html">CObject</a> *_Object)</td></tr>
+<tr class="separator:ababe3aca6f026b146eb458dab2a57587 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+非公開メンバ関数</h2></td></tr>
+<tr class="memitem:a7d2cd0d320b4d038f9709957496704bd" id="r_a7d2cd0d320b4d038f9709957496704bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSpriteRenderer.html#a7d2cd0d320b4d038f9709957496704bd">CreateBuffers</a> ()</td></tr>
+<tr class="separator:a7d2cd0d320b4d038f9709957496704bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:a41c730ec8f52963284dc6a92d9c30da8" id="r_a41c730ec8f52963284dc6a92d9c30da8"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12Resource &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSpriteRenderer.html#a41c730ec8f52963284dc6a92d9c30da8">m_vertexBuffer</a></td></tr>
+<tr class="separator:a41c730ec8f52963284dc6a92d9c30da8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8f3ac9130ab333d57e0384c6d63147f" id="r_ac8f3ac9130ab333d57e0384c6d63147f"><td class="memItemLeft" align="right" valign="top">D3D12_VERTEX_BUFFER_VIEW&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSpriteRenderer.html#ac8f3ac9130ab333d57e0384c6d63147f">m_vertexBufferView</a></td></tr>
+<tr class="separator:ac8f3ac9130ab333d57e0384c6d63147f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72615224e2523afdf7d330efd247f84b" id="r_a72615224e2523afdf7d330efd247f84b"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12Resource &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSpriteRenderer.html#a72615224e2523afdf7d330efd247f84b">m_indexBuffer</a></td></tr>
+<tr class="separator:a72615224e2523afdf7d330efd247f84b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cfd1306eae8a868a6e2a5f3db5033ea" id="r_a0cfd1306eae8a868a6e2a5f3db5033ea"><td class="memItemLeft" align="right" valign="top">D3D12_INDEX_BUFFER_VIEW&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSpriteRenderer.html#a0cfd1306eae8a868a6e2a5f3db5033ea">m_indexBufferView</a></td></tr>
+<tr class="separator:a0cfd1306eae8a868a6e2a5f3db5033ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10ceb8dd848064f8074ac49cb387fb51" id="r_a10ceb8dd848064f8074ac49cb387fb51"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classCTexture.html">CTexture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSpriteRenderer.html#a10ceb8dd848064f8074ac49cb387fb51">m_texture</a></td></tr>
+<tr class="separator:a10ceb8dd848064f8074ac49cb387fb51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6c3eea46524253e181b3d29e8aa6e6f" id="r_ae6c3eea46524253e181b3d29e8aa6e6f"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSpriteRenderer.html#ae6c3eea46524253e181b3d29e8aa6e6f">m_size</a></td></tr>
+<tr class="separator:ae6c3eea46524253e181b3d29e8aa6e6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c4f77fb3cde393918a92c4e3d7f11f5" id="r_a6c4f77fb3cde393918a92c4e3d7f11f5"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCSpriteRenderer.html#a6c4f77fb3cde393918a92c4e3d7f11f5">m_color</a></td></tr>
+<tr class="separator:a6c4f77fb3cde393918a92c4e3d7f11f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+その他の継承メンバ</h2></td></tr>
+<tr class="inherit_header pro_attribs_classCComponent"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classCComponent')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCComponent.html">CComponent</a> に属する継承限定公開変数類</td></tr>
+<tr class="memitem:a76959a9e98ef06163c56858026e9da5b inherit pro_attribs_classCComponent" id="r_a76959a9e98ef06163c56858026e9da5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a76959a9e98ef06163c56858026e9da5b">m_Owner</a></td></tr>
+<tr class="separator:a76959a9e98ef06163c56858026e9da5b inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4918d7f95edb1a545724dab2be500e75 inherit pro_attribs_classCComponent" id="r_a4918d7f95edb1a545724dab2be500e75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a4918d7f95edb1a545724dab2be500e75">m_ComponentName</a> = &quot;&quot;</td></tr>
+<tr class="separator:a4918d7f95edb1a545724dab2be500e75 inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f8c7080b1f9972952ceda4e155568cb inherit pro_attribs_classCComponent" id="r_a8f8c7080b1f9972952ceda4e155568cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a8f8c7080b1f9972952ceda4e155568cb">m_ComponentIsValid</a></td></tr>
+<tr class="separator:a8f8c7080b1f9972952ceda4e155568cb inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="afceb489cbaff1f12f489e0922cd4f114" name="afceb489cbaff1f12f489e0922cd4f114"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afceb489cbaff1f12f489e0922cd4f114">&#9670;&#160;</a></span>CSpriteRenderer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CSpriteRenderer::CSpriteRenderer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae73fe4f681ccbf416a89b1731c683198" name="ae73fe4f681ccbf416a89b1731c683198"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae73fe4f681ccbf416a89b1731c683198">&#9670;&#160;</a></span>~CSpriteRenderer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CSpriteRenderer::~CSpriteRenderer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a7d2cd0d320b4d038f9709957496704bd" name="a7d2cd0d320b4d038f9709957496704bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d2cd0d320b4d038f9709957496704bd">&#9670;&#160;</a></span>CreateBuffers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CSpriteRenderer::CreateBuffers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCSpriteRenderer_a7d2cd0d320b4d038f9709957496704bd_cgraph.svg" width="484" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCSpriteRenderer_a7d2cd0d320b4d038f9709957496704bd_icgraph.svg" width="442" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3d5be9cbf966750032c2f4b19eabd793" name="a3d5be9cbf966750032c2f4b19eabd793"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d5be9cbf966750032c2f4b19eabd793">&#9670;&#160;</a></span>Draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CSpriteRenderer::Draw </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCSpriteRenderer_a3d5be9cbf966750032c2f4b19eabd793_cgraph.svg" width="464" height="283"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a4c31ad42a1a64081994e552e017522f9" name="a4c31ad42a1a64081994e552e017522f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c31ad42a1a64081994e552e017522f9">&#9670;&#160;</a></span>GetSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT2 CSpriteRenderer::GetSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4f4123344b82a22517fbd54f14f0c2c2" name="a4f4123344b82a22517fbd54f14f0c2c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f4123344b82a22517fbd54f14f0c2c2">&#9670;&#160;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CSpriteRenderer::Init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCComponent.html#ac9bf36b35de54f49a3d604da091228a4">CComponent</a>を再実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCSpriteRenderer_a4f4123344b82a22517fbd54f14f0c2c2_cgraph.svg" width="100%" height="364"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aaf57a1f22b749a878f6476af99995f5e" name="aaf57a1f22b749a878f6476af99995f5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf57a1f22b749a878f6476af99995f5e">&#9670;&#160;</a></span>SetColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CSpriteRenderer::SetColor </td>
+          <td>(</td>
+          <td class="paramtype">const DirectX::XMFLOAT4 &amp;&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCSpriteRenderer_aaf57a1f22b749a878f6476af99995f5e_icgraph.svg" width="420" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad680b030bad938711b0934dc6949cf94" name="ad680b030bad938711b0934dc6949cf94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad680b030bad938711b0934dc6949cf94">&#9670;&#160;</a></span>SetSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CSpriteRenderer::SetSize </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aad28ac66f5263004f5001cdbc5220fbb" name="aad28ac66f5263004f5001cdbc5220fbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad28ac66f5263004f5001cdbc5220fbb">&#9670;&#160;</a></span>SetTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CSpriteRenderer::SetTexture </td>
+          <td>(</td>
+          <td class="paramtype">const std::wstring &amp;&#160;</td>
+          <td class="paramname"><em>filePath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCSpriteRenderer_aad28ac66f5263004f5001cdbc5220fbb_cgraph.svg" width="535" height="332"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a6c4f77fb3cde393918a92c4e3d7f11f5" name="a6c4f77fb3cde393918a92c4e3d7f11f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c4f77fb3cde393918a92c4e3d7f11f5">&#9670;&#160;</a></span>m_color</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT4 CSpriteRenderer::m_color</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a72615224e2523afdf7d330efd247f84b" name="a72615224e2523afdf7d330efd247f84b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72615224e2523afdf7d330efd247f84b">&#9670;&#160;</a></span>m_indexBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Microsoft::WRL::ComPtr&lt;ID3D12Resource&gt; CSpriteRenderer::m_indexBuffer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0cfd1306eae8a868a6e2a5f3db5033ea" name="a0cfd1306eae8a868a6e2a5f3db5033ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cfd1306eae8a868a6e2a5f3db5033ea">&#9670;&#160;</a></span>m_indexBufferView</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_INDEX_BUFFER_VIEW CSpriteRenderer::m_indexBufferView</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae6c3eea46524253e181b3d29e8aa6e6f" name="ae6c3eea46524253e181b3d29e8aa6e6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6c3eea46524253e181b3d29e8aa6e6f">&#9670;&#160;</a></span>m_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT2 CSpriteRenderer::m_size</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a10ceb8dd848064f8074ac49cb387fb51" name="a10ceb8dd848064f8074ac49cb387fb51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10ceb8dd848064f8074ac49cb387fb51">&#9670;&#160;</a></span>m_texture</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="classCTexture.html">CTexture</a>&gt; CSpriteRenderer::m_texture</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a41c730ec8f52963284dc6a92d9c30da8" name="a41c730ec8f52963284dc6a92d9c30da8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41c730ec8f52963284dc6a92d9c30da8">&#9670;&#160;</a></span>m_vertexBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Microsoft::WRL::ComPtr&lt;ID3D12Resource&gt; CSpriteRenderer::m_vertexBuffer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac8f3ac9130ab333d57e0384c6d63147f" name="ac8f3ac9130ab333d57e0384c6d63147f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8f3ac9130ab333d57e0384c6d63147f">&#9670;&#160;</a></span>m_vertexBufferView</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_VERTEX_BUFFER_VIEW CSpriteRenderer::m_vertexBufferView</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/UI/<a class="el" href="SpriteRenderer_8h_source.html">SpriteRenderer.h</a></li>
+<li>Source/UI/<a class="el" href="SpriteRenderer_8cpp.html">SpriteRenderer.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classCSpriteRenderer.html">CSpriteRenderer</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

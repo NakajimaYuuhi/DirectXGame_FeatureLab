@@ -1,0 +1,892 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: D2DTextRenderer クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classD2DTextRenderer.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">クラス</a> &#124;
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
+<a href="#pri-methods">非公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classD2DTextRenderer-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">D2DTextRenderer クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="D2DTextRenderer_8h_source.html">D2DTextRenderer.h</a>&gt;</code></p>
+<div class="dynheader">
+D2DTextRenderer 連携図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classD2DTextRenderer__coll__graph.svg" width="600" height="396"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+クラス</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structD2DTextRenderer_1_1FrameResources.html">FrameResources</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structD2DTextRenderer_1_1TextInfo.html">TextInfo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a52ac405f137d53997b3b13a845d450d8" id="r_a52ac405f137d53997b3b13a845d450d8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#a52ac405f137d53997b3b13a845d450d8">Initialize</a> (ID3D12Device *d3d12Device, ID3D12CommandQueue *commandQueue, IDXGISwapChain4 *swapChain, UINT width, UINT height, UINT frameBufferCount)</td></tr>
+<tr class="separator:a52ac405f137d53997b3b13a845d450d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75deff89479eb6e710a33a3a48b1901e" id="r_a75deff89479eb6e710a33a3a48b1901e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#a75deff89479eb6e710a33a3a48b1901e">Finalize</a> ()</td></tr>
+<tr class="separator:a75deff89479eb6e710a33a3a48b1901e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af495f36dddda70ff4abd49775498f5b9" id="r_af495f36dddda70ff4abd49775498f5b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#af495f36dddda70ff4abd49775498f5b9">Resize</a> (UINT width, UINT height, IDXGISwapChain4 *swapChain)</td></tr>
+<tr class="separator:af495f36dddda70ff4abd49775498f5b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acab4d487d5f24e27dc5775ea3a6806f0" id="r_acab4d487d5f24e27dc5775ea3a6806f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#acab4d487d5f24e27dc5775ea3a6806f0">ReleaseSizeDependentResources</a> ()</td></tr>
+<tr class="separator:acab4d487d5f24e27dc5775ea3a6806f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f734623307b2c5ad1f6d49d346358e0" id="r_a6f734623307b2c5ad1f6d49d346358e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#a6f734623307b2c5ad1f6d49d346358e0">DrawTextStr</a> (const std::wstring &amp;text, float x, float y, float fontSize=24.0f, D2D1::ColorF color=D2D1::ColorF::White, const std::wstring &amp;fontFamily=L&quot;Meiryo&quot;)</td></tr>
+<tr class="separator:a6f734623307b2c5ad1f6d49d346358e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0456ecf42ec83b4e7f7f585646b929a" id="r_ab0456ecf42ec83b4e7f7f585646b929a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#ab0456ecf42ec83b4e7f7f585646b929a">Render</a> (UINT frameIndex)</td></tr>
+<tr class="separator:ab0456ecf42ec83b4e7f7f585646b929a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静的公開メンバ関数</h2></td></tr>
+<tr class="memitem:ad5c23ccc47fc7e51b3be942651841e1e" id="r_ad5c23ccc47fc7e51b3be942651841e1e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classD2DTextRenderer.html">D2DTextRenderer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#ad5c23ccc47fc7e51b3be942651841e1e">GetInstance</a> ()</td></tr>
+<tr class="separator:ad5c23ccc47fc7e51b3be942651841e1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+非公開メンバ関数</h2></td></tr>
+<tr class="memitem:a75f89eb9db4da02c58bfa2a724ab0d31" id="r_a75f89eb9db4da02c58bfa2a724ab0d31"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#a75f89eb9db4da02c58bfa2a724ab0d31">D2DTextRenderer</a> ()=default</td></tr>
+<tr class="separator:a75f89eb9db4da02c58bfa2a724ab0d31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc604585e125573aac2e21b31d255613" id="r_adc604585e125573aac2e21b31d255613"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#adc604585e125573aac2e21b31d255613">~D2DTextRenderer</a> ()=default</td></tr>
+<tr class="separator:adc604585e125573aac2e21b31d255613"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a361f3b069caf2c56efc86dd3b5439282" id="r_a361f3b069caf2c56efc86dd3b5439282"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#a361f3b069caf2c56efc86dd3b5439282">D2DTextRenderer</a> (const <a class="el" href="classD2DTextRenderer.html">D2DTextRenderer</a> &amp;)=delete</td></tr>
+<tr class="separator:a361f3b069caf2c56efc86dd3b5439282"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2de617a7f40f04b6c5c264b112f4cd5" id="r_af2de617a7f40f04b6c5c264b112f4cd5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classD2DTextRenderer.html">D2DTextRenderer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#af2de617a7f40f04b6c5c264b112f4cd5">operator=</a> (const <a class="el" href="classD2DTextRenderer.html">D2DTextRenderer</a> &amp;)=delete</td></tr>
+<tr class="separator:af2de617a7f40f04b6c5c264b112f4cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c52a3b417bb655412d7b8cb8326205a" id="r_a9c52a3b417bb655412d7b8cb8326205a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#a9c52a3b417bb655412d7b8cb8326205a">CreateSizeDependentResources</a> (UINT width, UINT height, IDXGISwapChain4 *swapChain)</td></tr>
+<tr class="separator:a9c52a3b417bb655412d7b8cb8326205a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:a2089c469530d5db412bdec918fefe04c" id="r_a2089c469530d5db412bdec918fefe04c"><td class="memItemLeft" align="right" valign="top">ComPtr&lt; ID3D11Device &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#a2089c469530d5db412bdec918fefe04c">m_d3d11Device</a></td></tr>
+<tr class="separator:a2089c469530d5db412bdec918fefe04c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79305b085a8482adac7a3f4cfc104e97" id="r_a79305b085a8482adac7a3f4cfc104e97"><td class="memItemLeft" align="right" valign="top">ComPtr&lt; ID3D11DeviceContext &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#a79305b085a8482adac7a3f4cfc104e97">m_d3d11DeviceContext</a></td></tr>
+<tr class="separator:a79305b085a8482adac7a3f4cfc104e97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f6b3d2f4c4660f9b46fb785e97b8dcc" id="r_a2f6b3d2f4c4660f9b46fb785e97b8dcc"><td class="memItemLeft" align="right" valign="top">ComPtr&lt; ID3D11On12Device &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#a2f6b3d2f4c4660f9b46fb785e97b8dcc">m_d3d11On12Device</a></td></tr>
+<tr class="separator:a2f6b3d2f4c4660f9b46fb785e97b8dcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0841655c4c731e9fbfd84795bae54205" id="r_a0841655c4c731e9fbfd84795bae54205"><td class="memItemLeft" align="right" valign="top">ComPtr&lt; ID2D1Factory3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#a0841655c4c731e9fbfd84795bae54205">m_d2dFactory</a></td></tr>
+<tr class="separator:a0841655c4c731e9fbfd84795bae54205"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeec078de037dab6f948ae8e6f19d9878" id="r_aeec078de037dab6f948ae8e6f19d9878"><td class="memItemLeft" align="right" valign="top">ComPtr&lt; ID2D1Device2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#aeec078de037dab6f948ae8e6f19d9878">m_d2dDevice</a></td></tr>
+<tr class="separator:aeec078de037dab6f948ae8e6f19d9878"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c3c773034aa5922f4923d98a66bf069" id="r_a6c3c773034aa5922f4923d98a66bf069"><td class="memItemLeft" align="right" valign="top">ComPtr&lt; ID2D1DeviceContext2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#a6c3c773034aa5922f4923d98a66bf069">m_d2dContext</a></td></tr>
+<tr class="separator:a6c3c773034aa5922f4923d98a66bf069"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42b140ba0af1f20769ad7380b48045a4" id="r_a42b140ba0af1f20769ad7380b48045a4"><td class="memItemLeft" align="right" valign="top">ComPtr&lt; IDWriteFactory &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#a42b140ba0af1f20769ad7380b48045a4">m_dwriteFactory</a></td></tr>
+<tr class="separator:a42b140ba0af1f20769ad7380b48045a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4b52f177ed2ad84e4c2b4fcf4031ecc" id="r_ae4b52f177ed2ad84e4c2b4fcf4031ecc"><td class="memItemLeft" align="right" valign="top">ComPtr&lt; IDWriteTextFormat &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#ae4b52f177ed2ad84e4c2b4fcf4031ecc">m_defaultTextFormat</a></td></tr>
+<tr class="separator:ae4b52f177ed2ad84e4c2b4fcf4031ecc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cf480367cbf84e0dd84fc64589a789b" id="r_a1cf480367cbf84e0dd84fc64589a789b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structD2DTextRenderer_1_1FrameResources.html">FrameResources</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#a1cf480367cbf84e0dd84fc64589a789b">m_frameResources</a></td></tr>
+<tr class="separator:a1cf480367cbf84e0dd84fc64589a789b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a365cf446424eeb1872656088a99ea396" id="r_a365cf446424eeb1872656088a99ea396"><td class="memItemLeft" align="right" valign="top">UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#a365cf446424eeb1872656088a99ea396">m_frameBufferCount</a> = 0</td></tr>
+<tr class="separator:a365cf446424eeb1872656088a99ea396"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4587bca318f82f3655e10b295dc97d0" id="r_af4587bca318f82f3655e10b295dc97d0"><td class="memItemLeft" align="right" valign="top">UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#af4587bca318f82f3655e10b295dc97d0">m_width</a> = 0</td></tr>
+<tr class="separator:af4587bca318f82f3655e10b295dc97d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5947f62511d7ba78a2e2519df6ff1787" id="r_a5947f62511d7ba78a2e2519df6ff1787"><td class="memItemLeft" align="right" valign="top">UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#a5947f62511d7ba78a2e2519df6ff1787">m_height</a> = 0</td></tr>
+<tr class="separator:a5947f62511d7ba78a2e2519df6ff1787"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10ffcc53a28a861c66f9aabc23a85e69" id="r_a10ffcc53a28a861c66f9aabc23a85e69"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structD2DTextRenderer_1_1TextInfo.html">TextInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#a10ffcc53a28a861c66f9aabc23a85e69">m_textQueue</a></td></tr>
+<tr class="separator:a10ffcc53a28a861c66f9aabc23a85e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="a75f89eb9db4da02c58bfa2a724ab0d31" name="a75f89eb9db4da02c58bfa2a724ab0d31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75f89eb9db4da02c58bfa2a724ab0d31">&#9670;&#160;</a></span>D2DTextRenderer() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D2DTextRenderer::D2DTextRenderer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adc604585e125573aac2e21b31d255613" name="adc604585e125573aac2e21b31d255613"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc604585e125573aac2e21b31d255613">&#9670;&#160;</a></span>~D2DTextRenderer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D2DTextRenderer::~D2DTextRenderer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a361f3b069caf2c56efc86dd3b5439282" name="a361f3b069caf2c56efc86dd3b5439282"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a361f3b069caf2c56efc86dd3b5439282">&#9670;&#160;</a></span>D2DTextRenderer() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D2DTextRenderer::D2DTextRenderer </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classD2DTextRenderer.html">D2DTextRenderer</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a9c52a3b417bb655412d7b8cb8326205a" name="a9c52a3b417bb655412d7b8cb8326205a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c52a3b417bb655412d7b8cb8326205a">&#9670;&#160;</a></span>CreateSizeDependentResources()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool D2DTextRenderer::CreateSizeDependentResources </td>
+          <td>(</td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IDXGISwapChain4 *&#160;</td>
+          <td class="paramname"><em>swapChain</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classD2DTextRenderer_a9c52a3b417bb655412d7b8cb8326205a_icgraph.svg" width="100%" height="370"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a6f734623307b2c5ad1f6d49d346358e0" name="a6f734623307b2c5ad1f6d49d346358e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f734623307b2c5ad1f6d49d346358e0">&#9670;&#160;</a></span>DrawTextStr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D2DTextRenderer::DrawTextStr </td>
+          <td>(</td>
+          <td class="paramtype">const std::wstring &amp;&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>fontSize</em> = <code>24.0f</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D2D1::ColorF&#160;</td>
+          <td class="paramname"><em>color</em> = <code>D2D1::ColorF::White</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::wstring &amp;&#160;</td>
+          <td class="paramname"><em>fontFamily</em> = <code>L&quot;Meiryo&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classD2DTextRenderer_a6f734623307b2c5ad1f6d49d346358e0_icgraph.svg" width="440" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a75deff89479eb6e710a33a3a48b1901e" name="a75deff89479eb6e710a33a3a48b1901e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75deff89479eb6e710a33a3a48b1901e">&#9670;&#160;</a></span>Finalize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D2DTextRenderer::Finalize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classD2DTextRenderer_a75deff89479eb6e710a33a3a48b1901e_cgraph.svg" width="450" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classD2DTextRenderer_a75deff89479eb6e710a33a3a48b1901e_icgraph.svg" width="100%" height="374"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ad5c23ccc47fc7e51b3be942651841e1e" name="ad5c23ccc47fc7e51b3be942651841e1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5c23ccc47fc7e51b3be942651841e1e">&#9670;&#160;</a></span>GetInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classD2DTextRenderer.html">D2DTextRenderer</a> &amp; D2DTextRenderer::GetInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classD2DTextRenderer_ad5c23ccc47fc7e51b3be942651841e1e_icgraph.svg" width="100%" height="508"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a52ac405f137d53997b3b13a845d450d8" name="a52ac405f137d53997b3b13a845d450d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52ac405f137d53997b3b13a845d450d8">&#9670;&#160;</a></span>Initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool D2DTextRenderer::Initialize </td>
+          <td>(</td>
+          <td class="paramtype">ID3D12Device *&#160;</td>
+          <td class="paramname"><em>d3d12Device</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ID3D12CommandQueue *&#160;</td>
+          <td class="paramname"><em>commandQueue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IDXGISwapChain4 *&#160;</td>
+          <td class="paramname"><em>swapChain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>frameBufferCount</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classD2DTextRenderer_a52ac405f137d53997b3b13a845d450d8_cgraph.svg" width="474" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classD2DTextRenderer_a52ac405f137d53997b3b13a845d450d8_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="af2de617a7f40f04b6c5c264b112f4cd5" name="af2de617a7f40f04b6c5c264b112f4cd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2de617a7f40f04b6c5c264b112f4cd5">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classD2DTextRenderer.html">D2DTextRenderer</a> &amp; D2DTextRenderer::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classD2DTextRenderer.html">D2DTextRenderer</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acab4d487d5f24e27dc5775ea3a6806f0" name="acab4d487d5f24e27dc5775ea3a6806f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acab4d487d5f24e27dc5775ea3a6806f0">&#9670;&#160;</a></span>ReleaseSizeDependentResources()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D2DTextRenderer::ReleaseSizeDependentResources </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classD2DTextRenderer_acab4d487d5f24e27dc5775ea3a6806f0_icgraph.svg" width="100%" height="383"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ab0456ecf42ec83b4e7f7f585646b929a" name="ab0456ecf42ec83b4e7f7f585646b929a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0456ecf42ec83b4e7f7f585646b929a">&#9670;&#160;</a></span>Render()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D2DTextRenderer::Render </td>
+          <td>(</td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>frameIndex</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classD2DTextRenderer_ab0456ecf42ec83b4e7f7f585646b929a_icgraph.svg" width="556" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af495f36dddda70ff4abd49775498f5b9" name="af495f36dddda70ff4abd49775498f5b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af495f36dddda70ff4abd49775498f5b9">&#9670;&#160;</a></span>Resize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D2DTextRenderer::Resize </td>
+          <td>(</td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IDXGISwapChain4 *&#160;</td>
+          <td class="paramname"><em>swapChain</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classD2DTextRenderer_af495f36dddda70ff4abd49775498f5b9_cgraph.svg" width="460" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a6c3c773034aa5922f4923d98a66bf069" name="a6c3c773034aa5922f4923d98a66bf069"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c3c773034aa5922f4923d98a66bf069">&#9670;&#160;</a></span>m_d2dContext</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComPtr&lt;ID2D1DeviceContext2&gt; D2DTextRenderer::m_d2dContext</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeec078de037dab6f948ae8e6f19d9878" name="aeec078de037dab6f948ae8e6f19d9878"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeec078de037dab6f948ae8e6f19d9878">&#9670;&#160;</a></span>m_d2dDevice</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComPtr&lt;ID2D1Device2&gt; D2DTextRenderer::m_d2dDevice</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0841655c4c731e9fbfd84795bae54205" name="a0841655c4c731e9fbfd84795bae54205"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0841655c4c731e9fbfd84795bae54205">&#9670;&#160;</a></span>m_d2dFactory</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComPtr&lt;ID2D1Factory3&gt; D2DTextRenderer::m_d2dFactory</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2089c469530d5db412bdec918fefe04c" name="a2089c469530d5db412bdec918fefe04c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2089c469530d5db412bdec918fefe04c">&#9670;&#160;</a></span>m_d3d11Device</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComPtr&lt;ID3D11Device&gt; D2DTextRenderer::m_d3d11Device</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a79305b085a8482adac7a3f4cfc104e97" name="a79305b085a8482adac7a3f4cfc104e97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79305b085a8482adac7a3f4cfc104e97">&#9670;&#160;</a></span>m_d3d11DeviceContext</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComPtr&lt;ID3D11DeviceContext&gt; D2DTextRenderer::m_d3d11DeviceContext</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2f6b3d2f4c4660f9b46fb785e97b8dcc" name="a2f6b3d2f4c4660f9b46fb785e97b8dcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f6b3d2f4c4660f9b46fb785e97b8dcc">&#9670;&#160;</a></span>m_d3d11On12Device</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComPtr&lt;ID3D11On12Device&gt; D2DTextRenderer::m_d3d11On12Device</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae4b52f177ed2ad84e4c2b4fcf4031ecc" name="ae4b52f177ed2ad84e4c2b4fcf4031ecc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4b52f177ed2ad84e4c2b4fcf4031ecc">&#9670;&#160;</a></span>m_defaultTextFormat</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComPtr&lt;IDWriteTextFormat&gt; D2DTextRenderer::m_defaultTextFormat</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a42b140ba0af1f20769ad7380b48045a4" name="a42b140ba0af1f20769ad7380b48045a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42b140ba0af1f20769ad7380b48045a4">&#9670;&#160;</a></span>m_dwriteFactory</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComPtr&lt;IDWriteFactory&gt; D2DTextRenderer::m_dwriteFactory</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a365cf446424eeb1872656088a99ea396" name="a365cf446424eeb1872656088a99ea396"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a365cf446424eeb1872656088a99ea396">&#9670;&#160;</a></span>m_frameBufferCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UINT D2DTextRenderer::m_frameBufferCount = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1cf480367cbf84e0dd84fc64589a789b" name="a1cf480367cbf84e0dd84fc64589a789b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cf480367cbf84e0dd84fc64589a789b">&#9670;&#160;</a></span>m_frameResources</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structD2DTextRenderer_1_1FrameResources.html">FrameResources</a>&gt; D2DTextRenderer::m_frameResources</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5947f62511d7ba78a2e2519df6ff1787" name="a5947f62511d7ba78a2e2519df6ff1787"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5947f62511d7ba78a2e2519df6ff1787">&#9670;&#160;</a></span>m_height</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UINT D2DTextRenderer::m_height = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a10ffcc53a28a861c66f9aabc23a85e69" name="a10ffcc53a28a861c66f9aabc23a85e69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10ffcc53a28a861c66f9aabc23a85e69">&#9670;&#160;</a></span>m_textQueue</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structD2DTextRenderer_1_1TextInfo.html">TextInfo</a>&gt; D2DTextRenderer::m_textQueue</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af4587bca318f82f3655e10b295dc97d0" name="af4587bca318f82f3655e10b295dc97d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4587bca318f82f3655e10b295dc97d0">&#9670;&#160;</a></span>m_width</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UINT D2DTextRenderer::m_width = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/Util/<a class="el" href="D2DTextRenderer_8h_source.html">D2DTextRenderer.h</a></li>
+<li>Source/Util/<a class="el" href="D2DTextRenderer_8cpp.html">D2DTextRenderer.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classD2DTextRenderer.html">D2DTextRenderer</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

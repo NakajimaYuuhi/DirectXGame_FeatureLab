@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/UI/SpriteRenderer.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('SpriteRenderer_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">SpriteRenderer.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="SpriteRenderer_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="Component_8h.html">Component.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="Texture_8h.html">Texture.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;DirectXMath.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="structSpriteVertex.html">    8</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structSpriteVertex.html">SpriteVertex</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="structSpriteVertex.html#a423da2a615a355a6f3b85d125e184a64">   10</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="structSpriteVertex.html#a423da2a615a355a6f3b85d125e184a64">pos</a>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="structSpriteVertex.html#aa2359d8b932faa59e43c3e9e6e70d59b">   11</a></span>    DirectX::XMFLOAT2 <a class="code hl_variable" href="structSpriteVertex.html#aa2359d8b932faa59e43c3e9e6e70d59b">uv</a>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>};</div>
+</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classCSpriteRenderer.html">   14</a></span><span class="keyword">class </span><a class="code hl_class" href="classCSpriteRenderer.html">CSpriteRenderer</a> : <span class="keyword">public</span> <a class="code hl_class" href="classCComponent.html">CComponent</a></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_function" href="classCSpriteRenderer.html#afceb489cbaff1f12f489e0922cd4f114">CSpriteRenderer</a>();</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classCSpriteRenderer.html#ae73fe4f681ccbf416a89b1731c683198">~CSpriteRenderer</a>();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classCSpriteRenderer.html#a4f4123344b82a22517fbd54f14f0c2c2">Init</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCSpriteRenderer.html#aad28ac66f5263004f5001cdbc5220fbb">SetTexture</a>(<span class="keyword">const</span> std::wstring&amp; filePath);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classCSpriteRenderer.html#ad680b030bad938711b0934dc6949cf94">   23</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCSpriteRenderer.html#ad680b030bad938711b0934dc6949cf94">SetSize</a>(<span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height) { <a class="code hl_variable" href="classCSpriteRenderer.html#ae6c3eea46524253e181b3d29e8aa6e6f">m_size</a> = { width, height }; }</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classCSpriteRenderer.html#a4c31ad42a1a64081994e552e017522f9">   24</a></span>    DirectX::XMFLOAT2 <a class="code hl_function" href="classCSpriteRenderer.html#a4c31ad42a1a64081994e552e017522f9">GetSize</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCSpriteRenderer.html#ae6c3eea46524253e181b3d29e8aa6e6f">m_size</a>; }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classCSpriteRenderer.html#aaf57a1f22b749a878f6476af99995f5e">   25</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCSpriteRenderer.html#aaf57a1f22b749a878f6476af99995f5e">SetColor</a>(<span class="keyword">const</span> DirectX::XMFLOAT4&amp; color) { <a class="code hl_variable" href="classCSpriteRenderer.html#a6c4f77fb3cde393918a92c4e3d7f11f5">m_color</a> = color; }</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCSpriteRenderer.html#a3d5be9cbf966750032c2f4b19eabd793">Draw</a>();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCSpriteRenderer.html#a7d2cd0d320b4d038f9709957496704bd">CreateBuffers</a>();</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classCSpriteRenderer.html#a41c730ec8f52963284dc6a92d9c30da8">   32</a></span>    Microsoft::WRL::ComPtr&lt;ID3D12Resource&gt; <a class="code hl_variable" href="classCSpriteRenderer.html#a41c730ec8f52963284dc6a92d9c30da8">m_vertexBuffer</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classCSpriteRenderer.html#ac8f3ac9130ab333d57e0384c6d63147f">   33</a></span>    D3D12_VERTEX_BUFFER_VIEW <a class="code hl_variable" href="classCSpriteRenderer.html#ac8f3ac9130ab333d57e0384c6d63147f">m_vertexBufferView</a>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classCSpriteRenderer.html#a72615224e2523afdf7d330efd247f84b">   35</a></span>    Microsoft::WRL::ComPtr&lt;ID3D12Resource&gt; <a class="code hl_variable" href="classCSpriteRenderer.html#a72615224e2523afdf7d330efd247f84b">m_indexBuffer</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classCSpriteRenderer.html#a0cfd1306eae8a868a6e2a5f3db5033ea">   36</a></span>    D3D12_INDEX_BUFFER_VIEW <a class="code hl_variable" href="classCSpriteRenderer.html#a0cfd1306eae8a868a6e2a5f3db5033ea">m_indexBufferView</a>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classCSpriteRenderer.html#a10ceb8dd848064f8074ac49cb387fb51">   38</a></span>    std::shared_ptr&lt;CTexture&gt; <a class="code hl_variable" href="classCSpriteRenderer.html#a10ceb8dd848064f8074ac49cb387fb51">m_texture</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classCSpriteRenderer.html#ae6c3eea46524253e181b3d29e8aa6e6f">   39</a></span>    DirectX::XMFLOAT2 <a class="code hl_variable" href="classCSpriteRenderer.html#ae6c3eea46524253e181b3d29e8aa6e6f">m_size</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classCSpriteRenderer.html#a6c4f77fb3cde393918a92c4e3d7f11f5">   40</a></span>    DirectX::XMFLOAT4 <a class="code hl_variable" href="classCSpriteRenderer.html#a6c4f77fb3cde393918a92c4e3d7f11f5">m_color</a>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
+</div>
+<div class="ttc" id="aComponent_8h_html"><div class="ttname"><a href="Component_8h.html">Component.h</a></div></div>
+<div class="ttc" id="aTexture_8h_html"><div class="ttname"><a href="Texture_8h.html">Texture.h</a></div></div>
+<div class="ttc" id="aclassCComponent_html"><div class="ttname"><a href="classCComponent.html">CComponent</a></div><div class="ttdef"><b>Definition</b> Component.h:22</div></div>
+<div class="ttc" id="aclassCSpriteRenderer_html"><div class="ttname"><a href="classCSpriteRenderer.html">CSpriteRenderer</a></div><div class="ttdef"><b>Definition</b> SpriteRenderer.h:15</div></div>
+<div class="ttc" id="aclassCSpriteRenderer_html_a0cfd1306eae8a868a6e2a5f3db5033ea"><div class="ttname"><a href="classCSpriteRenderer.html#a0cfd1306eae8a868a6e2a5f3db5033ea">CSpriteRenderer::m_indexBufferView</a></div><div class="ttdeci">D3D12_INDEX_BUFFER_VIEW m_indexBufferView</div><div class="ttdef"><b>Definition</b> SpriteRenderer.h:36</div></div>
+<div class="ttc" id="aclassCSpriteRenderer_html_a10ceb8dd848064f8074ac49cb387fb51"><div class="ttname"><a href="classCSpriteRenderer.html#a10ceb8dd848064f8074ac49cb387fb51">CSpriteRenderer::m_texture</a></div><div class="ttdeci">std::shared_ptr&lt; CTexture &gt; m_texture</div><div class="ttdef"><b>Definition</b> SpriteRenderer.h:38</div></div>
+<div class="ttc" id="aclassCSpriteRenderer_html_a3d5be9cbf966750032c2f4b19eabd793"><div class="ttname"><a href="classCSpriteRenderer.html#a3d5be9cbf966750032c2f4b19eabd793">CSpriteRenderer::Draw</a></div><div class="ttdeci">void Draw()</div><div class="ttdef"><b>Definition</b> SpriteRenderer.cpp:105</div></div>
+<div class="ttc" id="aclassCSpriteRenderer_html_a41c730ec8f52963284dc6a92d9c30da8"><div class="ttname"><a href="classCSpriteRenderer.html#a41c730ec8f52963284dc6a92d9c30da8">CSpriteRenderer::m_vertexBuffer</a></div><div class="ttdeci">Microsoft::WRL::ComPtr&lt; ID3D12Resource &gt; m_vertexBuffer</div><div class="ttdef"><b>Definition</b> SpriteRenderer.h:32</div></div>
+<div class="ttc" id="aclassCSpriteRenderer_html_a4c31ad42a1a64081994e552e017522f9"><div class="ttname"><a href="classCSpriteRenderer.html#a4c31ad42a1a64081994e552e017522f9">CSpriteRenderer::GetSize</a></div><div class="ttdeci">DirectX::XMFLOAT2 GetSize() const</div><div class="ttdef"><b>Definition</b> SpriteRenderer.h:24</div></div>
+<div class="ttc" id="aclassCSpriteRenderer_html_a4f4123344b82a22517fbd54f14f0c2c2"><div class="ttname"><a href="classCSpriteRenderer.html#a4f4123344b82a22517fbd54f14f0c2c2">CSpriteRenderer::Init</a></div><div class="ttdeci">virtual void Init() override</div><div class="ttdef"><b>Definition</b> SpriteRenderer.cpp:18</div></div>
+<div class="ttc" id="aclassCSpriteRenderer_html_a6c4f77fb3cde393918a92c4e3d7f11f5"><div class="ttname"><a href="classCSpriteRenderer.html#a6c4f77fb3cde393918a92c4e3d7f11f5">CSpriteRenderer::m_color</a></div><div class="ttdeci">DirectX::XMFLOAT4 m_color</div><div class="ttdef"><b>Definition</b> SpriteRenderer.h:40</div></div>
+<div class="ttc" id="aclassCSpriteRenderer_html_a72615224e2523afdf7d330efd247f84b"><div class="ttname"><a href="classCSpriteRenderer.html#a72615224e2523afdf7d330efd247f84b">CSpriteRenderer::m_indexBuffer</a></div><div class="ttdeci">Microsoft::WRL::ComPtr&lt; ID3D12Resource &gt; m_indexBuffer</div><div class="ttdef"><b>Definition</b> SpriteRenderer.h:35</div></div>
+<div class="ttc" id="aclassCSpriteRenderer_html_a7d2cd0d320b4d038f9709957496704bd"><div class="ttname"><a href="classCSpriteRenderer.html#a7d2cd0d320b4d038f9709957496704bd">CSpriteRenderer::CreateBuffers</a></div><div class="ttdeci">void CreateBuffers()</div><div class="ttdef"><b>Definition</b> SpriteRenderer.cpp:43</div></div>
+<div class="ttc" id="aclassCSpriteRenderer_html_aad28ac66f5263004f5001cdbc5220fbb"><div class="ttname"><a href="classCSpriteRenderer.html#aad28ac66f5263004f5001cdbc5220fbb">CSpriteRenderer::SetTexture</a></div><div class="ttdeci">void SetTexture(const std::wstring &amp;filePath)</div><div class="ttdef"><b>Definition</b> SpriteRenderer.cpp:23</div></div>
+<div class="ttc" id="aclassCSpriteRenderer_html_aaf57a1f22b749a878f6476af99995f5e"><div class="ttname"><a href="classCSpriteRenderer.html#aaf57a1f22b749a878f6476af99995f5e">CSpriteRenderer::SetColor</a></div><div class="ttdeci">void SetColor(const DirectX::XMFLOAT4 &amp;color)</div><div class="ttdef"><b>Definition</b> SpriteRenderer.h:25</div></div>
+<div class="ttc" id="aclassCSpriteRenderer_html_ac8f3ac9130ab333d57e0384c6d63147f"><div class="ttname"><a href="classCSpriteRenderer.html#ac8f3ac9130ab333d57e0384c6d63147f">CSpriteRenderer::m_vertexBufferView</a></div><div class="ttdeci">D3D12_VERTEX_BUFFER_VIEW m_vertexBufferView</div><div class="ttdef"><b>Definition</b> SpriteRenderer.h:33</div></div>
+<div class="ttc" id="aclassCSpriteRenderer_html_ad680b030bad938711b0934dc6949cf94"><div class="ttname"><a href="classCSpriteRenderer.html#ad680b030bad938711b0934dc6949cf94">CSpriteRenderer::SetSize</a></div><div class="ttdeci">void SetSize(float width, float height)</div><div class="ttdef"><b>Definition</b> SpriteRenderer.h:23</div></div>
+<div class="ttc" id="aclassCSpriteRenderer_html_ae6c3eea46524253e181b3d29e8aa6e6f"><div class="ttname"><a href="classCSpriteRenderer.html#ae6c3eea46524253e181b3d29e8aa6e6f">CSpriteRenderer::m_size</a></div><div class="ttdeci">DirectX::XMFLOAT2 m_size</div><div class="ttdef"><b>Definition</b> SpriteRenderer.h:39</div></div>
+<div class="ttc" id="aclassCSpriteRenderer_html_ae73fe4f681ccbf416a89b1731c683198"><div class="ttname"><a href="classCSpriteRenderer.html#ae73fe4f681ccbf416a89b1731c683198">CSpriteRenderer::~CSpriteRenderer</a></div><div class="ttdeci">virtual ~CSpriteRenderer()</div><div class="ttdef"><b>Definition</b> SpriteRenderer.cpp:14</div></div>
+<div class="ttc" id="aclassCSpriteRenderer_html_afceb489cbaff1f12f489e0922cd4f114"><div class="ttname"><a href="classCSpriteRenderer.html#afceb489cbaff1f12f489e0922cd4f114">CSpriteRenderer::CSpriteRenderer</a></div><div class="ttdeci">CSpriteRenderer()</div><div class="ttdef"><b>Definition</b> SpriteRenderer.cpp:8</div></div>
+<div class="ttc" id="astructSpriteVertex_html"><div class="ttname"><a href="structSpriteVertex.html">SpriteVertex</a></div><div class="ttdef"><b>Definition</b> SpriteRenderer.h:9</div></div>
+<div class="ttc" id="astructSpriteVertex_html_a423da2a615a355a6f3b85d125e184a64"><div class="ttname"><a href="structSpriteVertex.html#a423da2a615a355a6f3b85d125e184a64">SpriteVertex::pos</a></div><div class="ttdeci">DirectX::XMFLOAT3 pos</div><div class="ttdef"><b>Definition</b> SpriteRenderer.h:10</div></div>
+<div class="ttc" id="astructSpriteVertex_html_aa2359d8b932faa59e43c3e9e6e70d59b"><div class="ttname"><a href="structSpriteVertex.html#aa2359d8b932faa59e43c3e9e6e70d59b">SpriteVertex::uv</a></div><div class="ttdeci">DirectX::XMFLOAT2 uv</div><div class="ttdef"><b>Definition</b> SpriteRenderer.h:11</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_ad68fd99ee46e73a145661c4c85612bf.html">UI</a></li><li class="navelem"><a class="el" href="SpriteRenderer_8h.html">SpriteRenderer.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

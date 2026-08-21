@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Resources/Material.h „ÇΩ„Éº„Çπ„Éï„Ç°„Ç§„É´</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- ÊßãÁØâ: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Ê§úÁ¥¢');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('Material_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Ë™≠„ÅøÂèñ„Çä‰∏≠‚Ä¶</div>
+<div class="SRStatus" id="Searching">Ê§úÁ¥¢‰∏≠‚Ä¶</div>
+<div class="SRStatus" id="NoMatches">‰∏ÄËá¥„Åô„ÇãÊñáÂ≠óÂàó„ÇíË¶ã„Å§„Åë„Çâ„Çå„Åæ„Åõ„Çì</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Material.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Material_8h.html">[Ë©≥Ëß£]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//àÍíUTexture,ColorÇéùÇ¬</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//í∏ì_Ç≤Ç∆Ç…êFÇéùÇ¬</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">//Material</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;DirectXMath.h&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="StringAlias_8h.html">StringAlias.h</a>&quot;</span>    <span class="comment">//ï∂éöóÒ</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="SmartPtrAlias_8h.html">SmartPtrAlias.h</a>&quot;</span>  <span class="comment">//ÉXÉ}Å[ÉgÉ|ÉCÉìÉ^</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="Texture_8h.html">Texture.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="BasicSettings_8h.html">BasicSettings.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">//===== ÉGÉCÉäÉAÉX =====</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="Material_8h.html#ac8b60b8e94f1c20a4c6060ee931ba609">   14</a></span><span class="keyword">using </span><a class="code hl_typedef" href="Material_8h.html#ac8b60b8e94f1c20a4c6060ee931ba609">XMFLOAT4</a> = DirectX::XMFLOAT4;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="Material_8h.html#aa06ee67baf54d5ede87c0bcb743d6b45">   16</a></span><span class="keyword">using </span><a class="code hl_typedef" href="Material_8h.html#aa06ee67baf54d5ede87c0bcb743d6b45">Color</a> = <a class="code hl_typedef" href="Material_8h.html#ac8b60b8e94f1c20a4c6060ee931ba609">XMFLOAT4</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="Material_8h.html#affde712b32c38228461fafa7f703afe0">   18</a></span><span class="keyword">using </span><a class="code hl_typedef" href="Material_8h.html#affde712b32c38228461fafa7f703afe0">pTexture</a> = <a class="code hl_typedef" href="SmartPtrAlias_8h.html#ad71c1f3b8d46b57fd328d48cee283c1f">SharedPtr&lt;CTexture&gt;</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classCMaterial.html">   22</a></span><span class="keyword">class </span><a class="code hl_class" href="classCMaterial.html">CMaterial</a></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_class" href="classCMaterial.html">CMaterial</a>(<a class="code hl_typedef" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a> _FilePath, <a class="code hl_typedef" href="Material_8h.html#ac8b60b8e94f1c20a4c6060ee931ba609">XMFLOAT4</a> _Color, <a class="code hl_typedef" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a> shaderFile = L<span class="stringliteral">&quot;Assets/Shader/Triangle.hlsl&quot;</span>, <span class="keywordtype">string</span> vsEntry = <span class="stringliteral">&quot;VSMain&quot;</span>, <span class="keywordtype">string</span> psEntry = <span class="stringliteral">&quot;PSMain&quot;</span>, <a class="code hl_enumeration" href="BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85">BlendMode</a> blendMode = <a class="code hl_enumvalue" href="BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85afaa90538de35640e4b1e31ccf35b6eb5">BlendMode::Opaque</a>);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classCMaterial.html#a963b3fbc9cf1bd42e5805a1782f72b95">   27</a></span>    D3D12_GPU_DESCRIPTOR_HANDLE <a class="code hl_function" href="classCMaterial.html#a963b3fbc9cf1bd42e5805a1782f72b95">GetGpuHandle</a>()</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classCMaterial.html#ab007c0e5d4fb93ef2d74a7f3417b2f6e">m_Texture</a>-&gt;GetGpuHandle();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    }</div>
+</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="comment">//âºÇ≈íuÇ¢ÇƒÇ®Ç≠</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCMaterial.html#af16b888b2da2a65e8dbe3d62cd008c54">LoadTexture</a>(<a class="code hl_typedef" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a> _FilePath);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="comment">//Texture</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classCMaterial.html#ab007c0e5d4fb93ef2d74a7f3417b2f6e">   37</a></span>    <a class="code hl_typedef" href="Material_8h.html#affde712b32c38228461fafa7f703afe0">pTexture</a> <a class="code hl_variable" href="classCMaterial.html#ab007c0e5d4fb93ef2d74a7f3417b2f6e">m_Texture</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="comment">//color</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classCMaterial.html#acf2fcdd629e5ffc98b91d1370d0f2268">   39</a></span>    <a class="code hl_typedef" href="Material_8h.html#aa06ee67baf54d5ede87c0bcb743d6b45">Color</a> <a class="code hl_variable" href="classCMaterial.html#acf2fcdd629e5ffc98b91d1370d0f2268">m_Color</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="comment">// Shader Settings</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classCMaterial.html#a7d48d6c5419ac5d5e3fec8b9a4c35c88">   42</a></span>    <a class="code hl_typedef" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a> <a class="code hl_variable" href="classCMaterial.html#a7d48d6c5419ac5d5e3fec8b9a4c35c88">m_ShaderFile</a>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classCMaterial.html#ab5070649cfbef6173b87dd47f0339aaf">   43</a></span>    <span class="keywordtype">string</span> <a class="code hl_variable" href="classCMaterial.html#ab5070649cfbef6173b87dd47f0339aaf">m_VsEntry</a>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classCMaterial.html#a25ff8455bd259284d26e3408f08ead98">   44</a></span>    <span class="keywordtype">string</span> <a class="code hl_variable" href="classCMaterial.html#a25ff8455bd259284d26e3408f08ead98">m_PsEntry</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classCMaterial.html#ae8aec0728b71c9916212d9d21a6aa804">   45</a></span>    <a class="code hl_enumeration" href="BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85">BlendMode</a> <a class="code hl_variable" href="classCMaterial.html#ae8aec0728b71c9916212d9d21a6aa804">m_BlendMode</a>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classCMaterial.html#a3a32b88c18bde200485e91f66ea6b0da">   48</a></span>    <a class="code hl_typedef" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a> <a class="code hl_function" href="classCMaterial.html#a3a32b88c18bde200485e91f66ea6b0da">GetShaderFile</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCMaterial.html#a7d48d6c5419ac5d5e3fec8b9a4c35c88">m_ShaderFile</a>; }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classCMaterial.html#abecf1d09e7feb89fa2220df7ed84fb02">   49</a></span>    <span class="keywordtype">string</span> <a class="code hl_function" href="classCMaterial.html#abecf1d09e7feb89fa2220df7ed84fb02">GetVsEntry</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCMaterial.html#ab5070649cfbef6173b87dd47f0339aaf">m_VsEntry</a>; }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classCMaterial.html#af8fbb3e2088fedd7a70fb8b7f5f62c8e">   50</a></span>    <span class="keywordtype">string</span> <a class="code hl_function" href="classCMaterial.html#af8fbb3e2088fedd7a70fb8b7f5f62c8e">GetPsEntry</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCMaterial.html#a25ff8455bd259284d26e3408f08ead98">m_PsEntry</a>; }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classCMaterial.html#af82f9fc7cb487d5ce2085cd4dfac5d67">   51</a></span>    <a class="code hl_enumeration" href="BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85">BlendMode</a> <a class="code hl_function" href="classCMaterial.html#af82f9fc7cb487d5ce2085cd4dfac5d67">GetBlendMode</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCMaterial.html#ae8aec0728b71c9916212d9d21a6aa804">m_BlendMode</a>; }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>};</div>
+</div>
+<div class="ttc" id="aBasicSettings_8h_html"><div class="ttname"><a href="BasicSettings_8h.html">BasicSettings.h</a></div></div>
+<div class="ttc" id="aBasicSettings_8h_html_a30323fa90e24ca484998b9fba6c40e85"><div class="ttname"><a href="BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85">BlendMode</a></div><div class="ttdeci">BlendMode</div><div class="ttdef"><b>Definition</b> BasicSettings.h:9</div></div>
+<div class="ttc" id="aBasicSettings_8h_html_a30323fa90e24ca484998b9fba6c40e85afaa90538de35640e4b1e31ccf35b6eb5"><div class="ttname"><a href="BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85afaa90538de35640e4b1e31ccf35b6eb5">BlendMode::Opaque</a></div><div class="ttdeci">@ Opaque</div></div>
+<div class="ttc" id="aMaterial_8h_html_aa06ee67baf54d5ede87c0bcb743d6b45"><div class="ttname"><a href="Material_8h.html#aa06ee67baf54d5ede87c0bcb743d6b45">Color</a></div><div class="ttdeci">XMFLOAT4 Color</div><div class="ttdef"><b>Definition</b> Material.h:16</div></div>
+<div class="ttc" id="aMaterial_8h_html_ac8b60b8e94f1c20a4c6060ee931ba609"><div class="ttname"><a href="Material_8h.html#ac8b60b8e94f1c20a4c6060ee931ba609">XMFLOAT4</a></div><div class="ttdeci">DirectX::XMFLOAT4 XMFLOAT4</div><div class="ttdef"><b>Definition</b> Material.h:14</div></div>
+<div class="ttc" id="aMaterial_8h_html_affde712b32c38228461fafa7f703afe0"><div class="ttname"><a href="Material_8h.html#affde712b32c38228461fafa7f703afe0">pTexture</a></div><div class="ttdeci">SharedPtr&lt; CTexture &gt; pTexture</div><div class="ttdef"><b>Definition</b> Material.h:18</div></div>
+<div class="ttc" id="aSmartPtrAlias_8h_html"><div class="ttname"><a href="SmartPtrAlias_8h.html">SmartPtrAlias.h</a></div></div>
+<div class="ttc" id="aSmartPtrAlias_8h_html_ad71c1f3b8d46b57fd328d48cee283c1f"><div class="ttname"><a href="SmartPtrAlias_8h.html#ad71c1f3b8d46b57fd328d48cee283c1f">SharedPtr</a></div><div class="ttdeci">std::shared_ptr&lt; T &gt; SharedPtr</div><div class="ttdef"><b>Definition</b> SmartPtrAlias.h:11</div></div>
+<div class="ttc" id="aStringAlias_8h_html"><div class="ttname"><a href="StringAlias_8h.html">StringAlias.h</a></div></div>
+<div class="ttc" id="aStringAlias_8h_html_a8bf8f5b1549fb24bd5aeb73d9d4563b8"><div class="ttname"><a href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a></div><div class="ttdeci">std::wstring wstring</div><div class="ttdef"><b>Definition</b> StringAlias.h:5</div></div>
+<div class="ttc" id="aTexture_8h_html"><div class="ttname"><a href="Texture_8h.html">Texture.h</a></div></div>
+<div class="ttc" id="aclassCMaterial_html"><div class="ttname"><a href="classCMaterial.html">CMaterial</a></div><div class="ttdef"><b>Definition</b> Material.h:23</div></div>
+<div class="ttc" id="aclassCMaterial_html_a25ff8455bd259284d26e3408f08ead98"><div class="ttname"><a href="classCMaterial.html#a25ff8455bd259284d26e3408f08ead98">CMaterial::m_PsEntry</a></div><div class="ttdeci">string m_PsEntry</div><div class="ttdef"><b>Definition</b> Material.h:44</div></div>
+<div class="ttc" id="aclassCMaterial_html_a3a32b88c18bde200485e91f66ea6b0da"><div class="ttname"><a href="classCMaterial.html#a3a32b88c18bde200485e91f66ea6b0da">CMaterial::GetShaderFile</a></div><div class="ttdeci">wstring GetShaderFile() const</div><div class="ttdef"><b>Definition</b> Material.h:48</div></div>
+<div class="ttc" id="aclassCMaterial_html_a7d48d6c5419ac5d5e3fec8b9a4c35c88"><div class="ttname"><a href="classCMaterial.html#a7d48d6c5419ac5d5e3fec8b9a4c35c88">CMaterial::m_ShaderFile</a></div><div class="ttdeci">wstring m_ShaderFile</div><div class="ttdef"><b>Definition</b> Material.h:42</div></div>
+<div class="ttc" id="aclassCMaterial_html_a963b3fbc9cf1bd42e5805a1782f72b95"><div class="ttname"><a href="classCMaterial.html#a963b3fbc9cf1bd42e5805a1782f72b95">CMaterial::GetGpuHandle</a></div><div class="ttdeci">D3D12_GPU_DESCRIPTOR_HANDLE GetGpuHandle()</div><div class="ttdef"><b>Definition</b> Material.h:27</div></div>
+<div class="ttc" id="aclassCMaterial_html_ab007c0e5d4fb93ef2d74a7f3417b2f6e"><div class="ttname"><a href="classCMaterial.html#ab007c0e5d4fb93ef2d74a7f3417b2f6e">CMaterial::m_Texture</a></div><div class="ttdeci">pTexture m_Texture</div><div class="ttdef"><b>Definition</b> Material.h:37</div></div>
+<div class="ttc" id="aclassCMaterial_html_ab5070649cfbef6173b87dd47f0339aaf"><div class="ttname"><a href="classCMaterial.html#ab5070649cfbef6173b87dd47f0339aaf">CMaterial::m_VsEntry</a></div><div class="ttdeci">string m_VsEntry</div><div class="ttdef"><b>Definition</b> Material.h:43</div></div>
+<div class="ttc" id="aclassCMaterial_html_abecf1d09e7feb89fa2220df7ed84fb02"><div class="ttname"><a href="classCMaterial.html#abecf1d09e7feb89fa2220df7ed84fb02">CMaterial::GetVsEntry</a></div><div class="ttdeci">string GetVsEntry() const</div><div class="ttdef"><b>Definition</b> Material.h:49</div></div>
+<div class="ttc" id="aclassCMaterial_html_acf2fcdd629e5ffc98b91d1370d0f2268"><div class="ttname"><a href="classCMaterial.html#acf2fcdd629e5ffc98b91d1370d0f2268">CMaterial::m_Color</a></div><div class="ttdeci">Color m_Color</div><div class="ttdef"><b>Definition</b> Material.h:39</div></div>
+<div class="ttc" id="aclassCMaterial_html_ae8aec0728b71c9916212d9d21a6aa804"><div class="ttname"><a href="classCMaterial.html#ae8aec0728b71c9916212d9d21a6aa804">CMaterial::m_BlendMode</a></div><div class="ttdeci">BlendMode m_BlendMode</div><div class="ttdef"><b>Definition</b> Material.h:45</div></div>
+<div class="ttc" id="aclassCMaterial_html_af16b888b2da2a65e8dbe3d62cd008c54"><div class="ttname"><a href="classCMaterial.html#af16b888b2da2a65e8dbe3d62cd008c54">CMaterial::LoadTexture</a></div><div class="ttdeci">void LoadTexture(wstring _FilePath)</div><div class="ttdef"><b>Definition</b> Material.cpp:14</div></div>
+<div class="ttc" id="aclassCMaterial_html_af82f9fc7cb487d5ce2085cd4dfac5d67"><div class="ttname"><a href="classCMaterial.html#af82f9fc7cb487d5ce2085cd4dfac5d67">CMaterial::GetBlendMode</a></div><div class="ttdeci">BlendMode GetBlendMode() const</div><div class="ttdef"><b>Definition</b> Material.h:51</div></div>
+<div class="ttc" id="aclassCMaterial_html_af8fbb3e2088fedd7a70fb8b7f5f62c8e"><div class="ttname"><a href="classCMaterial.html#af8fbb3e2088fedd7a70fb8b7f5f62c8e">CMaterial::GetPsEntry</a></div><div class="ttdeci">string GetPsEntry() const</div><div class="ttdef"><b>Definition</b> Material.h:50</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_33653ba12167a1fe8548138e0d08f67a.html">Resources</a></li><li class="navelem"><a class="el" href="Material_8h.html">Material.h</a></li>
+    <li class="footer">ÊßãÁØâ: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

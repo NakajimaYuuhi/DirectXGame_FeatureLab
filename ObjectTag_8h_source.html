@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Core/ObjectTag.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('ObjectTag_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ObjectTag.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="ObjectTag_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="foldopen" id="foldopen00003" data-start="{" data-end="}">
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="namespaceObject.html">    3</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceObject.html">Object</a></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>{</div>
+<div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0">    5</a></span>    <span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    {</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a4874a336a560cf294bb4e43e3a78cce7">    7</a></span>        <a class="code hl_enumvalue" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a4874a336a560cf294bb4e43e3a78cce7">NONE</a> = -1,</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a7992cd106fbae53a970c172f68cbd115">    9</a></span>        <a class="code hl_enumvalue" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a7992cd106fbae53a970c172f68cbd115">BACKGROUND</a>,</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a6c8e0f12f0544ca4849ef9677e133c4a">   10</a></span>        <a class="code hl_enumvalue" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a6c8e0f12f0544ca4849ef9677e133c4a">PLAYER</a>,</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a0bb0b16399dd392ba1ef755807fc99b3">   11</a></span>        <a class="code hl_enumvalue" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a0bb0b16399dd392ba1ef755807fc99b3">PLAYER_BULLET</a>,</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a9b7146ee1e108e317fb159f0bcea6e0e">   13</a></span>        <a class="code hl_enumvalue" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a9b7146ee1e108e317fb159f0bcea6e0e">ENEMY</a>,</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a4f677fdf6338fb3cedf9131d7ac42878">   14</a></span>        <a class="code hl_enumvalue" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a4f677fdf6338fb3cedf9131d7ac42878">ENEMY_BULLET</a>,</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a44e8fd0d39ad0e8f074ca074d30aa3fc">   16</a></span>        <a class="code hl_enumvalue" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a44e8fd0d39ad0e8f074ca074d30aa3fc">FIELD</a>,</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0aa73435eb0734ce9ae4084e82b45192f1">   17</a></span>        <a class="code hl_enumvalue" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0aa73435eb0734ce9ae4084e82b45192f1">TRIANGLE</a>,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0adc0a9baa86dc14c5ec3301d111da1213">   19</a></span>        <a class="code hl_enumvalue" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0adc0a9baa86dc14c5ec3301d111da1213">BILLBOARD</a>,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a064f52c9f8de43a4ed97cb1631336ebb">   21</a></span>        <a class="code hl_enumvalue" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a064f52c9f8de43a4ed97cb1631336ebb">EFFECT</a>,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0aaecfe81978a0cf11444f9aec29dd3182">   22</a></span>        <a class="code hl_enumvalue" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0aaecfe81978a0cf11444f9aec29dd3182">UI</a>,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0aa4034cf6bdf72b8dd86f2aba39f1c8b5">   23</a></span>        <a class="code hl_enumvalue" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0aa4034cf6bdf72b8dd86f2aba39f1c8b5">TEXT</a>,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a9d820291fd75d33b2108aec3577bdeb6">   24</a></span>        <a class="code hl_enumvalue" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a9d820291fd75d33b2108aec3577bdeb6">CAMERA</a>,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a142bb1585eb5776aa9dedde4839a0ed3">   25</a></span>        <a class="code hl_enumvalue" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a142bb1585eb5776aa9dedde4839a0ed3">FADE</a>,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0ae0f079647ea1fa2abde91b1d2d99727b">   27</a></span>        <a class="code hl_enumvalue" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0ae0f079647ea1fa2abde91b1d2d99727b">MANAGER</a>,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a55d5915589a4add53f5c635f6f3c08c2">   29</a></span>        <a class="code hl_enumvalue" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a55d5915589a4add53f5c635f6f3c08c2">NUM</a>,<span class="comment">//�I�u�W�F�N�g�̃^�O�̍ő吔</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    }<a class="code hl_enumeration" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0">objectTag</a>;</div>
+</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
+</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="ObjectTag_8h.html#a5b743a8e18b1721ab93f64fa1e7d4afb">   35</a></span><span class="keyword">using </span><a class="code hl_enumeration" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0">ObjectTag</a> = <a class="code hl_enumeration" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0">Object::objectTag</a>;</div>
+<div class="ttc" id="anamespaceObject_html"><div class="ttname"><a href="namespaceObject.html">Object</a></div><div class="ttdef"><b>Definition</b> ObjectTag.h:4</div></div>
+<div class="ttc" id="anamespaceObject_html_a601de737429833556e7418bb4a8975b0"><div class="ttname"><a href="namespaceObject.html#a601de737429833556e7418bb4a8975b0">Object::objectTag</a></div><div class="ttdeci">objectTag</div><div class="ttdef"><b>Definition</b> ObjectTag.h:6</div></div>
+<div class="ttc" id="anamespaceObject_html_a601de737429833556e7418bb4a8975b0a064f52c9f8de43a4ed97cb1631336ebb"><div class="ttname"><a href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a064f52c9f8de43a4ed97cb1631336ebb">Object::EFFECT</a></div><div class="ttdeci">@ EFFECT</div><div class="ttdef"><b>Definition</b> ObjectTag.h:21</div></div>
+<div class="ttc" id="anamespaceObject_html_a601de737429833556e7418bb4a8975b0a0bb0b16399dd392ba1ef755807fc99b3"><div class="ttname"><a href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a0bb0b16399dd392ba1ef755807fc99b3">Object::PLAYER_BULLET</a></div><div class="ttdeci">@ PLAYER_BULLET</div><div class="ttdef"><b>Definition</b> ObjectTag.h:11</div></div>
+<div class="ttc" id="anamespaceObject_html_a601de737429833556e7418bb4a8975b0a142bb1585eb5776aa9dedde4839a0ed3"><div class="ttname"><a href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a142bb1585eb5776aa9dedde4839a0ed3">Object::FADE</a></div><div class="ttdeci">@ FADE</div><div class="ttdef"><b>Definition</b> ObjectTag.h:25</div></div>
+<div class="ttc" id="anamespaceObject_html_a601de737429833556e7418bb4a8975b0a44e8fd0d39ad0e8f074ca074d30aa3fc"><div class="ttname"><a href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a44e8fd0d39ad0e8f074ca074d30aa3fc">Object::FIELD</a></div><div class="ttdeci">@ FIELD</div><div class="ttdef"><b>Definition</b> ObjectTag.h:16</div></div>
+<div class="ttc" id="anamespaceObject_html_a601de737429833556e7418bb4a8975b0a4874a336a560cf294bb4e43e3a78cce7"><div class="ttname"><a href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a4874a336a560cf294bb4e43e3a78cce7">Object::NONE</a></div><div class="ttdeci">@ NONE</div><div class="ttdef"><b>Definition</b> ObjectTag.h:7</div></div>
+<div class="ttc" id="anamespaceObject_html_a601de737429833556e7418bb4a8975b0a4f677fdf6338fb3cedf9131d7ac42878"><div class="ttname"><a href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a4f677fdf6338fb3cedf9131d7ac42878">Object::ENEMY_BULLET</a></div><div class="ttdeci">@ ENEMY_BULLET</div><div class="ttdef"><b>Definition</b> ObjectTag.h:14</div></div>
+<div class="ttc" id="anamespaceObject_html_a601de737429833556e7418bb4a8975b0a55d5915589a4add53f5c635f6f3c08c2"><div class="ttname"><a href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a55d5915589a4add53f5c635f6f3c08c2">Object::NUM</a></div><div class="ttdeci">@ NUM</div><div class="ttdef"><b>Definition</b> ObjectTag.h:29</div></div>
+<div class="ttc" id="anamespaceObject_html_a601de737429833556e7418bb4a8975b0a6c8e0f12f0544ca4849ef9677e133c4a"><div class="ttname"><a href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a6c8e0f12f0544ca4849ef9677e133c4a">Object::PLAYER</a></div><div class="ttdeci">@ PLAYER</div><div class="ttdef"><b>Definition</b> ObjectTag.h:10</div></div>
+<div class="ttc" id="anamespaceObject_html_a601de737429833556e7418bb4a8975b0a7992cd106fbae53a970c172f68cbd115"><div class="ttname"><a href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a7992cd106fbae53a970c172f68cbd115">Object::BACKGROUND</a></div><div class="ttdeci">@ BACKGROUND</div><div class="ttdef"><b>Definition</b> ObjectTag.h:9</div></div>
+<div class="ttc" id="anamespaceObject_html_a601de737429833556e7418bb4a8975b0a9b7146ee1e108e317fb159f0bcea6e0e"><div class="ttname"><a href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a9b7146ee1e108e317fb159f0bcea6e0e">Object::ENEMY</a></div><div class="ttdeci">@ ENEMY</div><div class="ttdef"><b>Definition</b> ObjectTag.h:13</div></div>
+<div class="ttc" id="anamespaceObject_html_a601de737429833556e7418bb4a8975b0a9d820291fd75d33b2108aec3577bdeb6"><div class="ttname"><a href="namespaceObject.html#a601de737429833556e7418bb4a8975b0a9d820291fd75d33b2108aec3577bdeb6">Object::CAMERA</a></div><div class="ttdeci">@ CAMERA</div><div class="ttdef"><b>Definition</b> ObjectTag.h:24</div></div>
+<div class="ttc" id="anamespaceObject_html_a601de737429833556e7418bb4a8975b0aa4034cf6bdf72b8dd86f2aba39f1c8b5"><div class="ttname"><a href="namespaceObject.html#a601de737429833556e7418bb4a8975b0aa4034cf6bdf72b8dd86f2aba39f1c8b5">Object::TEXT</a></div><div class="ttdeci">@ TEXT</div><div class="ttdef"><b>Definition</b> ObjectTag.h:23</div></div>
+<div class="ttc" id="anamespaceObject_html_a601de737429833556e7418bb4a8975b0aa73435eb0734ce9ae4084e82b45192f1"><div class="ttname"><a href="namespaceObject.html#a601de737429833556e7418bb4a8975b0aa73435eb0734ce9ae4084e82b45192f1">Object::TRIANGLE</a></div><div class="ttdeci">@ TRIANGLE</div><div class="ttdef"><b>Definition</b> ObjectTag.h:17</div></div>
+<div class="ttc" id="anamespaceObject_html_a601de737429833556e7418bb4a8975b0aaecfe81978a0cf11444f9aec29dd3182"><div class="ttname"><a href="namespaceObject.html#a601de737429833556e7418bb4a8975b0aaecfe81978a0cf11444f9aec29dd3182">Object::UI</a></div><div class="ttdeci">@ UI</div><div class="ttdef"><b>Definition</b> ObjectTag.h:22</div></div>
+<div class="ttc" id="anamespaceObject_html_a601de737429833556e7418bb4a8975b0adc0a9baa86dc14c5ec3301d111da1213"><div class="ttname"><a href="namespaceObject.html#a601de737429833556e7418bb4a8975b0adc0a9baa86dc14c5ec3301d111da1213">Object::BILLBOARD</a></div><div class="ttdeci">@ BILLBOARD</div><div class="ttdef"><b>Definition</b> ObjectTag.h:19</div></div>
+<div class="ttc" id="anamespaceObject_html_a601de737429833556e7418bb4a8975b0ae0f079647ea1fa2abde91b1d2d99727b"><div class="ttname"><a href="namespaceObject.html#a601de737429833556e7418bb4a8975b0ae0f079647ea1fa2abde91b1d2d99727b">Object::MANAGER</a></div><div class="ttdeci">@ MANAGER</div><div class="ttdef"><b>Definition</b> ObjectTag.h:27</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_1ad6433457b0067ef8f54a4fa85f5c9a.html">Core</a></li><li class="navelem"><a class="el" href="ObjectTag_8h.html">ObjectTag.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

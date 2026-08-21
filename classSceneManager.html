@@ -1,0 +1,758 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: SceneManager クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classSceneManager.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
+<a href="#pri-methods">非公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classSceneManager-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">SceneManager クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="SceneManager_8h_source.html">SceneManager.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a53a4c6b79c01fda81442706f35d90333" id="r_a53a4c6b79c01fda81442706f35d90333"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSceneManager.html#a53a4c6b79c01fda81442706f35d90333">Init</a> (void)</td></tr>
+<tr class="separator:a53a4c6b79c01fda81442706f35d90333"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab05b59fb4a130216e22fc856e98ba0b1" id="r_ab05b59fb4a130216e22fc856e98ba0b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSceneManager.html#ab05b59fb4a130216e22fc856e98ba0b1">Uninit</a> (void)</td></tr>
+<tr class="separator:ab05b59fb4a130216e22fc856e98ba0b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a760bdaba192d4f535921ff32742d4bd2" id="r_a760bdaba192d4f535921ff32742d4bd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSceneManager.html#a760bdaba192d4f535921ff32742d4bd2">Update</a> (void)</td></tr>
+<tr class="separator:a760bdaba192d4f535921ff32742d4bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0514cff74bbaa000333587c829891b6c" id="r_a0514cff74bbaa000333587c829891b6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSceneManager.html#a0514cff74bbaa000333587c829891b6c">Draw</a> (void)</td></tr>
+<tr class="separator:a0514cff74bbaa000333587c829891b6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e060231a61d3318d1e80b771b8ad99c" id="r_a2e060231a61d3318d1e80b771b8ad99c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSceneManager.html#a2e060231a61d3318d1e80b771b8ad99c">PushScene</a> (<a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275">Scenes::ID</a> _SceneID)</td></tr>
+<tr class="separator:a2e060231a61d3318d1e80b771b8ad99c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2654d5c106cda24d230c228886427e43" id="r_a2654d5c106cda24d230c228886427e43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSceneManager.html#a2654d5c106cda24d230c228886427e43">PopScene</a> (void)</td></tr>
+<tr class="separator:a2654d5c106cda24d230c228886427e43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静的公開メンバ関数</h2></td></tr>
+<tr class="memitem:a2f8148c8b2d4a4f18bdb7309bb32fc45" id="r_a2f8148c8b2d4a4f18bdb7309bb32fc45"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classSceneManager.html">SceneManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSceneManager.html#a2f8148c8b2d4a4f18bdb7309bb32fc45">GetInstance</a> ()</td></tr>
+<tr class="separator:a2f8148c8b2d4a4f18bdb7309bb32fc45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+非公開メンバ関数</h2></td></tr>
+<tr class="memitem:a3dcd4791a9fac2ad24bbe9792082a8fb" id="r_a3dcd4791a9fac2ad24bbe9792082a8fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSceneManager.html#a3dcd4791a9fac2ad24bbe9792082a8fb">ChangeScene</a> (<a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275">Scenes::ID</a> _SceneID)</td></tr>
+<tr class="separator:a3dcd4791a9fac2ad24bbe9792082a8fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46ff0d004ee408b54a3bfb2f8d670771" id="r_a46ff0d004ee408b54a3bfb2f8d670771"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSceneManager.html#a46ff0d004ee408b54a3bfb2f8d670771">InstantiateScene</a> (<a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275">Scenes::ID</a> _SceneID)</td></tr>
+<tr class="separator:a46ff0d004ee408b54a3bfb2f8d670771"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cf34c48d4c0912f6d1d75fa55c017a0" id="r_a0cf34c48d4c0912f6d1d75fa55c017a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSceneManager.html#a0cf34c48d4c0912f6d1d75fa55c017a0">UninitAndPop</a> ()</td></tr>
+<tr class="separator:a0cf34c48d4c0912f6d1d75fa55c017a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a144fc1c621ed5de6b1e48b408f17418e" id="r_a144fc1c621ed5de6b1e48b408f17418e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSceneManager.html#a144fc1c621ed5de6b1e48b408f17418e">ProcessSceneEvents</a> ()</td></tr>
+<tr class="separator:a144fc1c621ed5de6b1e48b408f17418e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed04802b94494425f9b5cd1172a4e23f" id="r_aed04802b94494425f9b5cd1172a4e23f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSceneManager.html#aed04802b94494425f9b5cd1172a4e23f">GetIsGameEnd</a> (void)</td></tr>
+<tr class="separator:aed04802b94494425f9b5cd1172a4e23f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad56a4d85b7fb7fec82c0a681062ffdc3" id="r_ad56a4d85b7fb7fec82c0a681062ffdc3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCScene.html">CScene</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSceneManager.html#ad56a4d85b7fb7fec82c0a681062ffdc3">GetScene</a> ()</td></tr>
+<tr class="separator:ad56a4d85b7fb7fec82c0a681062ffdc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6083ad81579f5ab22fa8f22ca48c6512" id="r_a6083ad81579f5ab22fa8f22ca48c6512"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSceneManager.html#a6083ad81579f5ab22fa8f22ca48c6512">IsExistScene</a> (<a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275">Scenes::ID</a> _SceneID)</td></tr>
+<tr class="separator:a6083ad81579f5ab22fa8f22ca48c6512"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02b66fec92c8ba91f7457ae69b4492ef" id="r_a02b66fec92c8ba91f7457ae69b4492ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275">Scenes::ID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSceneManager.html#a02b66fec92c8ba91f7457ae69b4492ef">GetCurrentSceneID</a> (void)</td></tr>
+<tr class="separator:a02b66fec92c8ba91f7457ae69b4492ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52085e6737c23b491c228e86781af808" id="r_a52085e6737c23b491c228e86781af808"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSceneManager.html#a52085e6737c23b491c228e86781af808">SceneManager</a> ()</td></tr>
+<tr class="separator:a52085e6737c23b491c228e86781af808"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bb376a85d29e85f47753e26c7539229" id="r_a2bb376a85d29e85f47753e26c7539229"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSceneManager.html#a2bb376a85d29e85f47753e26c7539229">~SceneManager</a> ()</td></tr>
+<tr class="separator:a2bb376a85d29e85f47753e26c7539229"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a453ab6cc351aa4a8a2dd5d44bcf929f3" id="r_a453ab6cc351aa4a8a2dd5d44bcf929f3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSceneManager.html#a453ab6cc351aa4a8a2dd5d44bcf929f3">SceneManager</a> (const <a class="el" href="classSceneManager.html">SceneManager</a> &amp;)=delete</td></tr>
+<tr class="separator:a453ab6cc351aa4a8a2dd5d44bcf929f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7be3f88ace1f3a7f57714d8a4ac5c633" id="r_a7be3f88ace1f3a7f57714d8a4ac5c633"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSceneManager.html">SceneManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSceneManager.html#a7be3f88ace1f3a7f57714d8a4ac5c633">operator=</a> (const <a class="el" href="classSceneManager.html">SceneManager</a> &amp;)=delete</td></tr>
+<tr class="separator:a7be3f88ace1f3a7f57714d8a4ac5c633"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:a40dda37322e3dec22dade3778c7dca1b" id="r_a40dda37322e3dec22dade3778c7dca1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8cpp.html#a74b90b47b1100dfbcfdf6892a7b2e479">UniquePtr</a>&lt; <a class="el" href="classCScene.html">CScene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSceneManager.html#a40dda37322e3dec22dade3778c7dca1b">scene</a></td></tr>
+<tr class="separator:a40dda37322e3dec22dade3778c7dca1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5262545d212101162f472b62403d29b9" id="r_a5262545d212101162f472b62403d29b9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSceneManager.html#a5262545d212101162f472b62403d29b9">IsGameEnd</a> = false</td></tr>
+<tr class="separator:a5262545d212101162f472b62403d29b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="a52085e6737c23b491c228e86781af808" name="a52085e6737c23b491c228e86781af808"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52085e6737c23b491c228e86781af808">&#9670;&#160;</a></span>SceneManager() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SceneManager::SceneManager </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSceneManager_a52085e6737c23b491c228e86781af808_cgraph.svg" width="100%" height="401"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a2bb376a85d29e85f47753e26c7539229" name="a2bb376a85d29e85f47753e26c7539229"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bb376a85d29e85f47753e26c7539229">&#9670;&#160;</a></span>~SceneManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SceneManager::~SceneManager </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a453ab6cc351aa4a8a2dd5d44bcf929f3" name="a453ab6cc351aa4a8a2dd5d44bcf929f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a453ab6cc351aa4a8a2dd5d44bcf929f3">&#9670;&#160;</a></span>SceneManager() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SceneManager::SceneManager </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classSceneManager.html">SceneManager</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a3dcd4791a9fac2ad24bbe9792082a8fb" name="a3dcd4791a9fac2ad24bbe9792082a8fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dcd4791a9fac2ad24bbe9792082a8fb">&#9670;&#160;</a></span>ChangeScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneManager::ChangeScene </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275">Scenes::ID</a>&#160;</td>
+          <td class="paramname"><em>_SceneID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSceneManager_a3dcd4791a9fac2ad24bbe9792082a8fb_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSceneManager_a3dcd4791a9fac2ad24bbe9792082a8fb_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a0514cff74bbaa000333587c829891b6c" name="a0514cff74bbaa000333587c829891b6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0514cff74bbaa000333587c829891b6c">&#9670;&#160;</a></span>Draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneManager::Draw </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSceneManager_a0514cff74bbaa000333587c829891b6c_cgraph.svg" width="450" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSceneManager_a0514cff74bbaa000333587c829891b6c_icgraph.svg" width="298" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a02b66fec92c8ba91f7457ae69b4492ef" name="a02b66fec92c8ba91f7457ae69b4492ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02b66fec92c8ba91f7457ae69b4492ef">&#9670;&#160;</a></span>GetCurrentSceneID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275">Scenes::ID</a> SceneManager::GetCurrentSceneID </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2f8148c8b2d4a4f18bdb7309bb32fc45" name="a2f8148c8b2d4a4f18bdb7309bb32fc45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f8148c8b2d4a4f18bdb7309bb32fc45">&#9670;&#160;</a></span>GetInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classSceneManager.html">SceneManager</a> &amp; SceneManager::GetInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSceneManager_a2f8148c8b2d4a4f18bdb7309bb32fc45_icgraph.svg" width="342" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aed04802b94494425f9b5cd1172a4e23f" name="aed04802b94494425f9b5cd1172a4e23f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed04802b94494425f9b5cd1172a4e23f">&#9670;&#160;</a></span>GetIsGameEnd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SceneManager::GetIsGameEnd </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad56a4d85b7fb7fec82c0a681062ffdc3" name="ad56a4d85b7fb7fec82c0a681062ffdc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad56a4d85b7fb7fec82c0a681062ffdc3">&#9670;&#160;</a></span>GetScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCScene.html">CScene</a> * SceneManager::GetScene </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a53a4c6b79c01fda81442706f35d90333" name="a53a4c6b79c01fda81442706f35d90333"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53a4c6b79c01fda81442706f35d90333">&#9670;&#160;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneManager::Init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSceneManager_a53a4c6b79c01fda81442706f35d90333_cgraph.svg" width="402" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSceneManager_a53a4c6b79c01fda81442706f35d90333_icgraph.svg" width="428" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a46ff0d004ee408b54a3bfb2f8d670771" name="a46ff0d004ee408b54a3bfb2f8d670771"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46ff0d004ee408b54a3bfb2f8d670771">&#9670;&#160;</a></span>InstantiateScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneManager::InstantiateScene </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275">Scenes::ID</a>&#160;</td>
+          <td class="paramname"><em>_SceneID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSceneManager_a46ff0d004ee408b54a3bfb2f8d670771_icgraph.svg" width="100%" height="411"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a6083ad81579f5ab22fa8f22ca48c6512" name="a6083ad81579f5ab22fa8f22ca48c6512"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6083ad81579f5ab22fa8f22ca48c6512">&#9670;&#160;</a></span>IsExistScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SceneManager::IsExistScene </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275">Scenes::ID</a>&#160;</td>
+          <td class="paramname"><em>_SceneID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7be3f88ace1f3a7f57714d8a4ac5c633" name="a7be3f88ace1f3a7f57714d8a4ac5c633"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7be3f88ace1f3a7f57714d8a4ac5c633">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSceneManager.html">SceneManager</a> &amp; SceneManager::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classSceneManager.html">SceneManager</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2654d5c106cda24d230c228886427e43" name="a2654d5c106cda24d230c228886427e43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2654d5c106cda24d230c228886427e43">&#9670;&#160;</a></span>PopScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneManager::PopScene </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSceneManager_a2654d5c106cda24d230c228886427e43_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a144fc1c621ed5de6b1e48b408f17418e" name="a144fc1c621ed5de6b1e48b408f17418e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a144fc1c621ed5de6b1e48b408f17418e">&#9670;&#160;</a></span>ProcessSceneEvents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneManager::ProcessSceneEvents </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSceneManager_a144fc1c621ed5de6b1e48b408f17418e_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSceneManager_a144fc1c621ed5de6b1e48b408f17418e_icgraph.svg" width="574" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a2e060231a61d3318d1e80b771b8ad99c" name="a2e060231a61d3318d1e80b771b8ad99c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e060231a61d3318d1e80b771b8ad99c">&#9670;&#160;</a></span>PushScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneManager::PushScene </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275">Scenes::ID</a>&#160;</td>
+          <td class="paramname"><em>_SceneID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSceneManager_a2e060231a61d3318d1e80b771b8ad99c_cgraph.svg" width="451" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ab05b59fb4a130216e22fc856e98ba0b1" name="ab05b59fb4a130216e22fc856e98ba0b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab05b59fb4a130216e22fc856e98ba0b1">&#9670;&#160;</a></span>Uninit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneManager::Uninit </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSceneManager_ab05b59fb4a130216e22fc856e98ba0b1_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSceneManager_ab05b59fb4a130216e22fc856e98ba0b1_icgraph.svg" width="303" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0cf34c48d4c0912f6d1d75fa55c017a0" name="a0cf34c48d4c0912f6d1d75fa55c017a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cf34c48d4c0912f6d1d75fa55c017a0">&#9670;&#160;</a></span>UninitAndPop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneManager::UninitAndPop </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSceneManager_a0cf34c48d4c0912f6d1d75fa55c017a0_cgraph.svg" width="496" height="528"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSceneManager_a0cf34c48d4c0912f6d1d75fa55c017a0_icgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a760bdaba192d4f535921ff32742d4bd2" name="a760bdaba192d4f535921ff32742d4bd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a760bdaba192d4f535921ff32742d4bd2">&#9670;&#160;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneManager::Update </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classSceneManager_a760bdaba192d4f535921ff32742d4bd2_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classSceneManager_a760bdaba192d4f535921ff32742d4bd2_icgraph.svg" width="311" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a5262545d212101162f472b62403d29b9" name="a5262545d212101162f472b62403d29b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5262545d212101162f472b62403d29b9">&#9670;&#160;</a></span>IsGameEnd</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SceneManager::IsGameEnd = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a40dda37322e3dec22dade3778c7dca1b" name="a40dda37322e3dec22dade3778c7dca1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40dda37322e3dec22dade3778c7dca1b">&#9670;&#160;</a></span>scene</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="main_8cpp.html#a74b90b47b1100dfbcfdf6892a7b2e479">UniquePtr</a>&lt;<a class="el" href="classCScene.html">CScene</a>&gt; SceneManager::scene</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/Core/<a class="el" href="SceneManager_8h_source.html">SceneManager.h</a></li>
+<li>Source/Core/<a class="el" href="SceneManager_8cpp.html">SceneManager.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classSceneManager.html">SceneManager</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

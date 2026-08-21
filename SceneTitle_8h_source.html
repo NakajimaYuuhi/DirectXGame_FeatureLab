@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Core/SceneTitle.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('SceneTitle_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">SceneTitle.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="SceneTitle_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//===== �C���N���[�h =====</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="Scene_8h.html">Scene.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="SmartPtrAlias_8h.html">SmartPtrAlias.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="ContainerAlias_8h.html">ContainerAlias.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="RenderPipeline_8h.html">RenderPipeline.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="RenderTexture_8h.html">RenderTexture.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">//===== �O���錾 =====</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">class </span><a class="code hl_class" href="classCObject.html">CObject</a>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">//===== �N���X��` =====</span></div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classSceneTitle.html">   15</a></span><span class="keyword">class </span><a class="code hl_class" href="classSceneTitle.html">SceneTitle</a> : <span class="keyword">public</span> <a class="code hl_class" href="classCScene.html">CScene</a></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_function" href="classSceneTitle.html#a841bc9115f6a988d61944ecc39a4bd16">SceneTitle</a>();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classSceneTitle.html#a7b68be9869ca545234914b352c57ccc6">   20</a></span>    <a class="code hl_function" href="classSceneTitle.html#a7b68be9869ca545234914b352c57ccc6">~SceneTitle</a>();</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSceneTitle.html#a06205b4d192b9d9b9ca9bccbb61af2d2">Init</a>();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSceneTitle.html#a28eb942a6d221a6dbaab9c509623b50f">Update</a>();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSceneTitle.html#a75b890d7e0f69c0c8e6dc012d830662a">Draw</a>();</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classSceneTitle.html#ad545b5b83f642973b51731b37bd0b0c5">   30</a></span>    std::unique_ptr&lt;RenderPipeline&gt; <a class="code hl_variable" href="classSceneTitle.html#ad545b5b83f642973b51731b37bd0b0c5">m_renderPipeline</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classSceneTitle.html#a57f28ef806b4c93c56d89c82d3e57999">   31</a></span>    std::unique_ptr&lt;RenderTexture&gt; <a class="code hl_variable" href="classSceneTitle.html#a57f28ef806b4c93c56d89c82d3e57999">m_renderTexture</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classSceneTitle.html#ac0f15f4daf78f96b4fa01f942dfde650">   32</a></span>    std::unique_ptr&lt;RenderTexture&gt; <a class="code hl_variable" href="classSceneTitle.html#ac0f15f4daf78f96b4fa01f942dfde650">m_pOffscreenTexture</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
+</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="ttc" id="aContainerAlias_8h_html"><div class="ttname"><a href="ContainerAlias_8h.html">ContainerAlias.h</a></div></div>
+<div class="ttc" id="aRenderPipeline_8h_html"><div class="ttname"><a href="RenderPipeline_8h.html">RenderPipeline.h</a></div></div>
+<div class="ttc" id="aRenderTexture_8h_html"><div class="ttname"><a href="RenderTexture_8h.html">RenderTexture.h</a></div></div>
+<div class="ttc" id="aScene_8h_html"><div class="ttname"><a href="Scene_8h.html">Scene.h</a></div></div>
+<div class="ttc" id="aSmartPtrAlias_8h_html"><div class="ttname"><a href="SmartPtrAlias_8h.html">SmartPtrAlias.h</a></div></div>
+<div class="ttc" id="aclassCObject_html"><div class="ttname"><a href="classCObject.html">CObject</a></div><div class="ttdef"><b>Definition</b> Object.h:43</div></div>
+<div class="ttc" id="aclassCScene_html"><div class="ttname"><a href="classCScene.html">CScene</a></div><div class="ttdef"><b>Definition</b> Scene.h:12</div></div>
+<div class="ttc" id="aclassSceneTitle_html"><div class="ttname"><a href="classSceneTitle.html">SceneTitle</a></div><div class="ttdef"><b>Definition</b> SceneTitle.h:16</div></div>
+<div class="ttc" id="aclassSceneTitle_html_a06205b4d192b9d9b9ca9bccbb61af2d2"><div class="ttname"><a href="classSceneTitle.html#a06205b4d192b9d9b9ca9bccbb61af2d2">SceneTitle::Init</a></div><div class="ttdeci">void Init()</div><div class="ttdef"><b>Definition</b> SceneTitle.cpp:47</div></div>
+<div class="ttc" id="aclassSceneTitle_html_a28eb942a6d221a6dbaab9c509623b50f"><div class="ttname"><a href="classSceneTitle.html#a28eb942a6d221a6dbaab9c509623b50f">SceneTitle::Update</a></div><div class="ttdeci">void Update()</div><div class="ttdef"><b>Definition</b> SceneTitle.cpp:104</div></div>
+<div class="ttc" id="aclassSceneTitle_html_a57f28ef806b4c93c56d89c82d3e57999"><div class="ttname"><a href="classSceneTitle.html#a57f28ef806b4c93c56d89c82d3e57999">SceneTitle::m_renderTexture</a></div><div class="ttdeci">std::unique_ptr&lt; RenderTexture &gt; m_renderTexture</div><div class="ttdef"><b>Definition</b> SceneTitle.h:31</div></div>
+<div class="ttc" id="aclassSceneTitle_html_a75b890d7e0f69c0c8e6dc012d830662a"><div class="ttname"><a href="classSceneTitle.html#a75b890d7e0f69c0c8e6dc012d830662a">SceneTitle::Draw</a></div><div class="ttdeci">void Draw()</div><div class="ttdef"><b>Definition</b> SceneTitle.cpp:128</div></div>
+<div class="ttc" id="aclassSceneTitle_html_a7b68be9869ca545234914b352c57ccc6"><div class="ttname"><a href="classSceneTitle.html#a7b68be9869ca545234914b352c57ccc6">SceneTitle::~SceneTitle</a></div><div class="ttdeci">~SceneTitle()</div></div>
+<div class="ttc" id="aclassSceneTitle_html_a841bc9115f6a988d61944ecc39a4bd16"><div class="ttname"><a href="classSceneTitle.html#a841bc9115f6a988d61944ecc39a4bd16">SceneTitle::SceneTitle</a></div><div class="ttdeci">SceneTitle()</div><div class="ttdef"><b>Definition</b> SceneTitle.cpp:34</div></div>
+<div class="ttc" id="aclassSceneTitle_html_ac0f15f4daf78f96b4fa01f942dfde650"><div class="ttname"><a href="classSceneTitle.html#ac0f15f4daf78f96b4fa01f942dfde650">SceneTitle::m_pOffscreenTexture</a></div><div class="ttdeci">std::unique_ptr&lt; RenderTexture &gt; m_pOffscreenTexture</div><div class="ttdef"><b>Definition</b> SceneTitle.h:32</div></div>
+<div class="ttc" id="aclassSceneTitle_html_ad545b5b83f642973b51731b37bd0b0c5"><div class="ttname"><a href="classSceneTitle.html#ad545b5b83f642973b51731b37bd0b0c5">SceneTitle::m_renderPipeline</a></div><div class="ttdeci">std::unique_ptr&lt; RenderPipeline &gt; m_renderPipeline</div><div class="ttdef"><b>Definition</b> SceneTitle.h:30</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_1ad6433457b0067ef8f54a4fa85f5c9a.html">Core</a></li><li class="navelem"><a class="el" href="SceneTitle_8h.html">SceneTitle.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

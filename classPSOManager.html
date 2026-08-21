@@ -1,0 +1,625 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: PSOManager クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classPSOManager.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
+<a href="#pri-methods">非公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classPSOManager-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">PSOManager クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="PSOManager_8h_source.html">PSOManager.h</a>&gt;</code></p>
+<div class="dynheader">
+PSOManager 連携図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPSOManager__coll__graph.svg" width="550" height="154"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a07102bf5eb04e6ae16611ef7edc64482" id="r_a07102bf5eb04e6ae16611ef7edc64482"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#a07102bf5eb04e6ae16611ef7edc64482">Init</a> (ID3D12Device *device)</td></tr>
+<tr class="separator:a07102bf5eb04e6ae16611ef7edc64482"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a565aee5f527d1e601b5ea763cffa1c86" id="r_a565aee5f527d1e601b5ea763cffa1c86"><td class="memItemLeft" align="right" valign="top">ID3D12PipelineState *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#a565aee5f527d1e601b5ea763cffa1c86">GetPSO</a> (<a class="el" href="classCMaterial.html">CMaterial</a> *material, ID3D12RootSignature *rootSig)</td></tr>
+<tr class="separator:a565aee5f527d1e601b5ea763cffa1c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07930bc32602ef8f224aaaacb9395c2e" id="r_a07930bc32602ef8f224aaaacb9395c2e"><td class="memItemLeft" align="right" valign="top">ID3D12RootSignature *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#a07930bc32602ef8f224aaaacb9395c2e">GetMeshRootSignature</a> () const</td></tr>
+<tr class="separator:a07930bc32602ef8f224aaaacb9395c2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a961a07373aae5e0200a2543f22cf004c" id="r_a961a07373aae5e0200a2543f22cf004c"><td class="memItemLeft" align="right" valign="top">ID3D12PipelineState *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#a961a07373aae5e0200a2543f22cf004c">GetMeshPSO</a> () const</td></tr>
+<tr class="separator:a961a07373aae5e0200a2543f22cf004c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6a5d8da89d123e456ab3726257fea91" id="r_af6a5d8da89d123e456ab3726257fea91"><td class="memItemLeft" align="right" valign="top">ID3D12PipelineState *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#af6a5d8da89d123e456ab3726257fea91">GetAdditivePSO</a> () const</td></tr>
+<tr class="separator:af6a5d8da89d123e456ab3726257fea91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea733853ff234be971701040a908c73e" id="r_aea733853ff234be971701040a908c73e"><td class="memItemLeft" align="right" valign="top">ID3D12RootSignature *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#aea733853ff234be971701040a908c73e">GetSpriteRootSignature</a> () const</td></tr>
+<tr class="separator:aea733853ff234be971701040a908c73e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a186d20412bd5cdce798f1410247d7230" id="r_a186d20412bd5cdce798f1410247d7230"><td class="memItemLeft" align="right" valign="top">ID3D12PipelineState *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#a186d20412bd5cdce798f1410247d7230">GetSpritePSO</a> () const</td></tr>
+<tr class="separator:a186d20412bd5cdce798f1410247d7230"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静的公開メンバ関数</h2></td></tr>
+<tr class="memitem:a359f046382fe2e8c49f8d0e6407765c1" id="r_a359f046382fe2e8c49f8d0e6407765c1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classPSOManager.html">PSOManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#a359f046382fe2e8c49f8d0e6407765c1">GetInstance</a> ()</td></tr>
+<tr class="separator:a359f046382fe2e8c49f8d0e6407765c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+非公開メンバ関数</h2></td></tr>
+<tr class="memitem:a8ac97176fa368941647bd8d178e608ce" id="r_a8ac97176fa368941647bd8d178e608ce"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#a8ac97176fa368941647bd8d178e608ce">PSOManager</a> ()=default</td></tr>
+<tr class="separator:a8ac97176fa368941647bd8d178e608ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2949b711c64ddae019caafd11ead17cb" id="r_a2949b711c64ddae019caafd11ead17cb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#a2949b711c64ddae019caafd11ead17cb">~PSOManager</a> ()=default</td></tr>
+<tr class="separator:a2949b711c64ddae019caafd11ead17cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8af8dbbcac57fa2a45d243d8fd161c45" id="r_a8af8dbbcac57fa2a45d243d8fd161c45"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#a8af8dbbcac57fa2a45d243d8fd161c45">PSOManager</a> (const <a class="el" href="classPSOManager.html">PSOManager</a> &amp;)=delete</td></tr>
+<tr class="separator:a8af8dbbcac57fa2a45d243d8fd161c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa18b19afc0f24b2f1ebfe37a65ff3463" id="r_aa18b19afc0f24b2f1ebfe37a65ff3463"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPSOManager.html">PSOManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#aa18b19afc0f24b2f1ebfe37a65ff3463">operator=</a> (const <a class="el" href="classPSOManager.html">PSOManager</a> &amp;)=delete</td></tr>
+<tr class="separator:aa18b19afc0f24b2f1ebfe37a65ff3463"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:aeb51977243b3c4525fe3cd8dc3369879" id="r_aeb51977243b3c4525fe3cd8dc3369879"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::wstring, ComPtr&lt; ID3D12PipelineState &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#aeb51977243b3c4525fe3cd8dc3369879">m_psoCache</a></td></tr>
+<tr class="separator:aeb51977243b3c4525fe3cd8dc3369879"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31377a1cff36d44ca6323bbd602dce10" id="r_a31377a1cff36d44ca6323bbd602dce10"><td class="memItemLeft" align="right" valign="top">ComPtr&lt; ID3D12RootSignature &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#a31377a1cff36d44ca6323bbd602dce10">m_meshRootSignature</a></td></tr>
+<tr class="separator:a31377a1cff36d44ca6323bbd602dce10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a834e073c8cc13d78a1edd057a858e46a" id="r_a834e073c8cc13d78a1edd057a858e46a"><td class="memItemLeft" align="right" valign="top">ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#a834e073c8cc13d78a1edd057a858e46a">m_meshPipelineState</a></td></tr>
+<tr class="separator:a834e073c8cc13d78a1edd057a858e46a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1da1a173aadbdf693f26370266f5d600" id="r_a1da1a173aadbdf693f26370266f5d600"><td class="memItemLeft" align="right" valign="top">ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#a1da1a173aadbdf693f26370266f5d600">m_additivePipelineState</a></td></tr>
+<tr class="separator:a1da1a173aadbdf693f26370266f5d600"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abab2a25f504b6215a001dd362c905fc6" id="r_abab2a25f504b6215a001dd362c905fc6"><td class="memItemLeft" align="right" valign="top">ComPtr&lt; ID3D12RootSignature &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#abab2a25f504b6215a001dd362c905fc6">m_spriteRootSignature</a></td></tr>
+<tr class="separator:abab2a25f504b6215a001dd362c905fc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae7f5c086a2c5adc1d6607c32d997f2b" id="r_aae7f5c086a2c5adc1d6607c32d997f2b"><td class="memItemLeft" align="right" valign="top">ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#aae7f5c086a2c5adc1d6607c32d997f2b">m_spritePipelineState</a></td></tr>
+<tr class="separator:aae7f5c086a2c5adc1d6607c32d997f2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="a8ac97176fa368941647bd8d178e608ce" name="a8ac97176fa368941647bd8d178e608ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ac97176fa368941647bd8d178e608ce">&#9670;&#160;</a></span>PSOManager() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">PSOManager::PSOManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2949b711c64ddae019caafd11ead17cb" name="a2949b711c64ddae019caafd11ead17cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2949b711c64ddae019caafd11ead17cb">&#9670;&#160;</a></span>~PSOManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">PSOManager::~PSOManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8af8dbbcac57fa2a45d243d8fd161c45" name="a8af8dbbcac57fa2a45d243d8fd161c45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8af8dbbcac57fa2a45d243d8fd161c45">&#9670;&#160;</a></span>PSOManager() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">PSOManager::PSOManager </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classPSOManager.html">PSOManager</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="af6a5d8da89d123e456ab3726257fea91" name="af6a5d8da89d123e456ab3726257fea91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6a5d8da89d123e456ab3726257fea91">&#9670;&#160;</a></span>GetAdditivePSO()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D12PipelineState * PSOManager::GetAdditivePSO </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a359f046382fe2e8c49f8d0e6407765c1" name="a359f046382fe2e8c49f8d0e6407765c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a359f046382fe2e8c49f8d0e6407765c1">&#9670;&#160;</a></span>GetInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classPSOManager.html">PSOManager</a> &amp; PSOManager::GetInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPSOManager_a359f046382fe2e8c49f8d0e6407765c1_icgraph.svg" width="420" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a961a07373aae5e0200a2543f22cf004c" name="a961a07373aae5e0200a2543f22cf004c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a961a07373aae5e0200a2543f22cf004c">&#9670;&#160;</a></span>GetMeshPSO()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D12PipelineState * PSOManager::GetMeshPSO </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a07930bc32602ef8f224aaaacb9395c2e" name="a07930bc32602ef8f224aaaacb9395c2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07930bc32602ef8f224aaaacb9395c2e">&#9670;&#160;</a></span>GetMeshRootSignature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D12RootSignature * PSOManager::GetMeshRootSignature </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a565aee5f527d1e601b5ea763cffa1c86" name="a565aee5f527d1e601b5ea763cffa1c86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a565aee5f527d1e601b5ea763cffa1c86">&#9670;&#160;</a></span>GetPSO()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D12PipelineState * PSOManager::GetPSO </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCMaterial.html">CMaterial</a> *&#160;</td>
+          <td class="paramname"><em>material</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ID3D12RootSignature *&#160;</td>
+          <td class="paramname"><em>rootSig</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPSOManager_a565aee5f527d1e601b5ea763cffa1c86_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a186d20412bd5cdce798f1410247d7230" name="a186d20412bd5cdce798f1410247d7230"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a186d20412bd5cdce798f1410247d7230">&#9670;&#160;</a></span>GetSpritePSO()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D12PipelineState * PSOManager::GetSpritePSO </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aea733853ff234be971701040a908c73e" name="aea733853ff234be971701040a908c73e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea733853ff234be971701040a908c73e">&#9670;&#160;</a></span>GetSpriteRootSignature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D12RootSignature * PSOManager::GetSpriteRootSignature </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a07102bf5eb04e6ae16611ef7edc64482" name="a07102bf5eb04e6ae16611ef7edc64482"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07102bf5eb04e6ae16611ef7edc64482">&#9670;&#160;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PSOManager::Init </td>
+          <td>(</td>
+          <td class="paramtype">ID3D12Device *&#160;</td>
+          <td class="paramname"><em>device</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPSOManager_a07102bf5eb04e6ae16611ef7edc64482_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPSOManager_a07102bf5eb04e6ae16611ef7edc64482_icgraph.svg" width="272" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa18b19afc0f24b2f1ebfe37a65ff3463" name="aa18b19afc0f24b2f1ebfe37a65ff3463"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa18b19afc0f24b2f1ebfe37a65ff3463">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPSOManager.html">PSOManager</a> &amp; PSOManager::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classPSOManager.html">PSOManager</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a1da1a173aadbdf693f26370266f5d600" name="a1da1a173aadbdf693f26370266f5d600"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1da1a173aadbdf693f26370266f5d600">&#9670;&#160;</a></span>m_additivePipelineState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComPtr&lt;ID3D12PipelineState&gt; PSOManager::m_additivePipelineState</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a834e073c8cc13d78a1edd057a858e46a" name="a834e073c8cc13d78a1edd057a858e46a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a834e073c8cc13d78a1edd057a858e46a">&#9670;&#160;</a></span>m_meshPipelineState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComPtr&lt;ID3D12PipelineState&gt; PSOManager::m_meshPipelineState</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a31377a1cff36d44ca6323bbd602dce10" name="a31377a1cff36d44ca6323bbd602dce10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31377a1cff36d44ca6323bbd602dce10">&#9670;&#160;</a></span>m_meshRootSignature</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComPtr&lt;ID3D12RootSignature&gt; PSOManager::m_meshRootSignature</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeb51977243b3c4525fe3cd8dc3369879" name="aeb51977243b3c4525fe3cd8dc3369879"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb51977243b3c4525fe3cd8dc3369879">&#9670;&#160;</a></span>m_psoCache</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::wstring, ComPtr&lt;ID3D12PipelineState&gt; &gt; PSOManager::m_psoCache</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aae7f5c086a2c5adc1d6607c32d997f2b" name="aae7f5c086a2c5adc1d6607c32d997f2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae7f5c086a2c5adc1d6607c32d997f2b">&#9670;&#160;</a></span>m_spritePipelineState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComPtr&lt;ID3D12PipelineState&gt; PSOManager::m_spritePipelineState</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abab2a25f504b6215a001dd362c905fc6" name="abab2a25f504b6215a001dd362c905fc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abab2a25f504b6215a001dd362c905fc6">&#9670;&#160;</a></span>m_spriteRootSignature</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComPtr&lt;ID3D12RootSignature&gt; PSOManager::m_spriteRootSignature</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/Rendering/<a class="el" href="PSOManager_8h_source.html">PSOManager.h</a></li>
+<li>Source/Rendering/<a class="el" href="PSOManager_8cpp.html">PSOManager.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classPSOManager.html">PSOManager</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

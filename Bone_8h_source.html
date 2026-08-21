@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Resources/Bone.h „ÇΩ„Éº„Çπ„Éï„Ç°„Ç§„É´</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- ÊßãÁØâ: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Ê§úÁ¥¢');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('Bone_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Ë™≠„ÅøÂèñ„Çä‰∏≠‚Ä¶</div>
+<div class="SRStatus" id="Searching">Ê§úÁ¥¢‰∏≠‚Ä¶</div>
+<div class="SRStatus" id="NoMatches">‰∏ÄËá¥„Åô„ÇãÊñáÂ≠óÂàó„ÇíË¶ã„Å§„Åë„Çâ„Çå„Åæ„Åõ„Çì</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Bone.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Bone_8h.html">[Ë©≥Ëß£]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;DirectXMath.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="StringAlias_8h.html">StringAlias.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="ContainerAlias_8h.html">ContainerAlias.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//É{Å[ÉìÇÃèÓïÒ</span></div>
+<div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="classCBone.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="classCBone.html">CBone</a></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classCBone.html#a63d58937a7656baf5a3ac90afb63a2c3">   10</a></span>    <span class="keywordtype">string</span> <a class="code hl_variable" href="classCBone.html#a63d58937a7656baf5a3ac90afb63a2c3">name</a>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classCBone.html#ab3a233914958249d45bce73c111691e7">   12</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classCBone.html#ab3a233914958249d45bce73c111691e7">parentIndex</a>; <span class="comment">// -1Ç»ÇÁÉãÅ[Ég</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classCBone.html#af5638a8435efc19191ca45d29f279d0a">   13</a></span>    <a class="code hl_typedef" href="Object_8h.html#a81fe4d2f62958ae48f36d6a3beb16bb1">Vector&lt;int&gt;</a> <a class="code hl_variable" href="classCBone.html#af5638a8435efc19191ca45d29f279d0a">children</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classCBone.html#aaf18a5e420df4521c481641002ccd622">   15</a></span>    DirectX::XMMATRIX <a class="code hl_variable" href="classCBone.html#aaf18a5e420df4521c481641002ccd622">localBindPose</a>;     <span class="comment">// èâä˙ÉçÅ[ÉJÉã</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classCBone.html#a333901bd3904b00ca5c4d95504029e5b">   16</a></span>    DirectX::XMMATRIX <a class="code hl_variable" href="classCBone.html#a333901bd3904b00ca5c4d95504029e5b">globalBindPose</a>;    <span class="comment">// èâä˙ÉOÉçÅ[ÉoÉã</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classCBone.html#a3730a7353f98088ab725e35b7f1473bf">   17</a></span>    DirectX::XMMATRIX <a class="code hl_variable" href="classCBone.html#a3730a7353f98088ab725e35b7f1473bf">inverseBindPose</a>;   <span class="comment">// ãtçsóÒÅií¥èdóvÅj</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classCBone.html#ad1fb57d928358383601c7766377f8b24">   19</a></span>    DirectX::XMMATRIX <a class="code hl_variable" href="classCBone.html#ad1fb57d928358383601c7766377f8b24">localPose</a>;   <span class="comment">// åªç›ÇÃÉçÅ[ÉJÉãÅiÉAÉjÉÅÅ[ÉVÉáÉìÅj</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classCBone.html#a38f575fe34544df0876c362964fb3fb0">   20</a></span>    DirectX::XMMATRIX <a class="code hl_variable" href="classCBone.html#a38f575fe34544df0876c362964fb3fb0">globalPose</a>;  <span class="comment">// êeéqì`îdå„</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="comment">// TRS for animation</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classCBone.html#a60a4afcee7b51b7d52039e52f03f7b80">   23</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="classCBone.html#a60a4afcee7b51b7d52039e52f03f7b80">translation</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classCBone.html#a88389a987709db62d01c2aaf82202e30">   24</a></span>    DirectX::XMFLOAT4 <a class="code hl_variable" href="classCBone.html#a88389a987709db62d01c2aaf82202e30">rotation</a>; <span class="comment">// Quaternion</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classCBone.html#a51acc3d6d2440225ebfbb96f9a7eb260">   25</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="classCBone.html#a51acc3d6d2440225ebfbb96f9a7eb260">scale</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classCBone.html#a6337419012ef76fc4ebce195ac72d412">   27</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCBone.html#a6337419012ef76fc4ebce195ac72d412">UpdateLocalPose</a>()</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        DirectX::XMVECTOR s = DirectX::XMLoadFloat3(&amp;<a class="code hl_variable" href="classCBone.html#a51acc3d6d2440225ebfbb96f9a7eb260">scale</a>);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        DirectX::XMVECTOR r = DirectX::XMLoadFloat4(&amp;<a class="code hl_variable" href="classCBone.html#a88389a987709db62d01c2aaf82202e30">rotation</a>);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        DirectX::XMVECTOR t = DirectX::XMLoadFloat3(&amp;<a class="code hl_variable" href="classCBone.html#a60a4afcee7b51b7d52039e52f03f7b80">translation</a>);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <a class="code hl_variable" href="classCBone.html#ad1fb57d928358383601c7766377f8b24">localPose</a> = DirectX::XMMatrixAffineTransformation(s, DirectX::XMVectorZero(), r, t);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
+</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>};</div>
+</div>
+<div class="ttc" id="aContainerAlias_8h_html"><div class="ttname"><a href="ContainerAlias_8h.html">ContainerAlias.h</a></div></div>
+<div class="ttc" id="aObject_8h_html_a81fe4d2f62958ae48f36d6a3beb16bb1"><div class="ttname"><a href="Object_8h.html#a81fe4d2f62958ae48f36d6a3beb16bb1">Vector</a></div><div class="ttdeci">std::vector&lt; T &gt; Vector</div><div class="ttdef"><b>Definition</b> Object.h:29</div></div>
+<div class="ttc" id="aStringAlias_8h_html"><div class="ttname"><a href="StringAlias_8h.html">StringAlias.h</a></div></div>
+<div class="ttc" id="aclassCBone_html"><div class="ttname"><a href="classCBone.html">CBone</a></div><div class="ttdef"><b>Definition</b> Bone.h:8</div></div>
+<div class="ttc" id="aclassCBone_html_a333901bd3904b00ca5c4d95504029e5b"><div class="ttname"><a href="classCBone.html#a333901bd3904b00ca5c4d95504029e5b">CBone::globalBindPose</a></div><div class="ttdeci">DirectX::XMMATRIX globalBindPose</div><div class="ttdef"><b>Definition</b> Bone.h:16</div></div>
+<div class="ttc" id="aclassCBone_html_a3730a7353f98088ab725e35b7f1473bf"><div class="ttname"><a href="classCBone.html#a3730a7353f98088ab725e35b7f1473bf">CBone::inverseBindPose</a></div><div class="ttdeci">DirectX::XMMATRIX inverseBindPose</div><div class="ttdef"><b>Definition</b> Bone.h:17</div></div>
+<div class="ttc" id="aclassCBone_html_a38f575fe34544df0876c362964fb3fb0"><div class="ttname"><a href="classCBone.html#a38f575fe34544df0876c362964fb3fb0">CBone::globalPose</a></div><div class="ttdeci">DirectX::XMMATRIX globalPose</div><div class="ttdef"><b>Definition</b> Bone.h:20</div></div>
+<div class="ttc" id="aclassCBone_html_a51acc3d6d2440225ebfbb96f9a7eb260"><div class="ttname"><a href="classCBone.html#a51acc3d6d2440225ebfbb96f9a7eb260">CBone::scale</a></div><div class="ttdeci">DirectX::XMFLOAT3 scale</div><div class="ttdef"><b>Definition</b> Bone.h:25</div></div>
+<div class="ttc" id="aclassCBone_html_a60a4afcee7b51b7d52039e52f03f7b80"><div class="ttname"><a href="classCBone.html#a60a4afcee7b51b7d52039e52f03f7b80">CBone::translation</a></div><div class="ttdeci">DirectX::XMFLOAT3 translation</div><div class="ttdef"><b>Definition</b> Bone.h:23</div></div>
+<div class="ttc" id="aclassCBone_html_a6337419012ef76fc4ebce195ac72d412"><div class="ttname"><a href="classCBone.html#a6337419012ef76fc4ebce195ac72d412">CBone::UpdateLocalPose</a></div><div class="ttdeci">void UpdateLocalPose()</div><div class="ttdef"><b>Definition</b> Bone.h:27</div></div>
+<div class="ttc" id="aclassCBone_html_a63d58937a7656baf5a3ac90afb63a2c3"><div class="ttname"><a href="classCBone.html#a63d58937a7656baf5a3ac90afb63a2c3">CBone::name</a></div><div class="ttdeci">string name</div><div class="ttdef"><b>Definition</b> Bone.h:10</div></div>
+<div class="ttc" id="aclassCBone_html_a88389a987709db62d01c2aaf82202e30"><div class="ttname"><a href="classCBone.html#a88389a987709db62d01c2aaf82202e30">CBone::rotation</a></div><div class="ttdeci">DirectX::XMFLOAT4 rotation</div><div class="ttdef"><b>Definition</b> Bone.h:24</div></div>
+<div class="ttc" id="aclassCBone_html_aaf18a5e420df4521c481641002ccd622"><div class="ttname"><a href="classCBone.html#aaf18a5e420df4521c481641002ccd622">CBone::localBindPose</a></div><div class="ttdeci">DirectX::XMMATRIX localBindPose</div><div class="ttdef"><b>Definition</b> Bone.h:15</div></div>
+<div class="ttc" id="aclassCBone_html_ab3a233914958249d45bce73c111691e7"><div class="ttname"><a href="classCBone.html#ab3a233914958249d45bce73c111691e7">CBone::parentIndex</a></div><div class="ttdeci">int parentIndex</div><div class="ttdef"><b>Definition</b> Bone.h:12</div></div>
+<div class="ttc" id="aclassCBone_html_ad1fb57d928358383601c7766377f8b24"><div class="ttname"><a href="classCBone.html#ad1fb57d928358383601c7766377f8b24">CBone::localPose</a></div><div class="ttdeci">DirectX::XMMATRIX localPose</div><div class="ttdef"><b>Definition</b> Bone.h:19</div></div>
+<div class="ttc" id="aclassCBone_html_af5638a8435efc19191ca45d29f279d0a"><div class="ttname"><a href="classCBone.html#af5638a8435efc19191ca45d29f279d0a">CBone::children</a></div><div class="ttdeci">Vector&lt; int &gt; children</div><div class="ttdef"><b>Definition</b> Bone.h:13</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_33653ba12167a1fe8548138e0d08f67a.html">Resources</a></li><li class="navelem"><a class="el" href="Bone_8h.html">Bone.h</a></li>
+    <li class="footer">ÊßãÁØâ: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

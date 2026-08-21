@@ -1,0 +1,519 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: CMaterial クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classCMaterial.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classCMaterial-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">CMaterial クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="Material_8h_source.html">Material.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:ab63eb3abe9435904350cc8bd013a89eb" id="r_ab63eb3abe9435904350cc8bd013a89eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#ab63eb3abe9435904350cc8bd013a89eb">CMaterial</a> (<a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a> _FilePath, <a class="el" href="Material_8h.html#ac8b60b8e94f1c20a4c6060ee931ba609">XMFLOAT4</a> _Color, <a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a> shaderFile=L&quot;Assets/<a class="el" href="classShader.html">Shader</a>/Triangle.hlsl&quot;, <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">string</a> vsEntry=&quot;VSMain&quot;, <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">string</a> psEntry=&quot;PSMain&quot;, <a class="el" href="BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85">BlendMode</a> blendMode=<a class="el" href="BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85afaa90538de35640e4b1e31ccf35b6eb5">BlendMode::Opaque</a>)</td></tr>
+<tr class="separator:ab63eb3abe9435904350cc8bd013a89eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a963b3fbc9cf1bd42e5805a1782f72b95" id="r_a963b3fbc9cf1bd42e5805a1782f72b95"><td class="memItemLeft" align="right" valign="top">D3D12_GPU_DESCRIPTOR_HANDLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a963b3fbc9cf1bd42e5805a1782f72b95">GetGpuHandle</a> ()</td></tr>
+<tr class="separator:a963b3fbc9cf1bd42e5805a1782f72b95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af16b888b2da2a65e8dbe3d62cd008c54" id="r_af16b888b2da2a65e8dbe3d62cd008c54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#af16b888b2da2a65e8dbe3d62cd008c54">LoadTexture</a> (<a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a> _FilePath)</td></tr>
+<tr class="separator:af16b888b2da2a65e8dbe3d62cd008c54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a32b88c18bde200485e91f66ea6b0da" id="r_a3a32b88c18bde200485e91f66ea6b0da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a3a32b88c18bde200485e91f66ea6b0da">GetShaderFile</a> () const</td></tr>
+<tr class="separator:a3a32b88c18bde200485e91f66ea6b0da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abecf1d09e7feb89fa2220df7ed84fb02" id="r_abecf1d09e7feb89fa2220df7ed84fb02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#abecf1d09e7feb89fa2220df7ed84fb02">GetVsEntry</a> () const</td></tr>
+<tr class="separator:abecf1d09e7feb89fa2220df7ed84fb02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8fbb3e2088fedd7a70fb8b7f5f62c8e" id="r_af8fbb3e2088fedd7a70fb8b7f5f62c8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#af8fbb3e2088fedd7a70fb8b7f5f62c8e">GetPsEntry</a> () const</td></tr>
+<tr class="separator:af8fbb3e2088fedd7a70fb8b7f5f62c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af82f9fc7cb487d5ce2085cd4dfac5d67" id="r_af82f9fc7cb487d5ce2085cd4dfac5d67"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85">BlendMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#af82f9fc7cb487d5ce2085cd4dfac5d67">GetBlendMode</a> () const</td></tr>
+<tr class="separator:af82f9fc7cb487d5ce2085cd4dfac5d67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:ab007c0e5d4fb93ef2d74a7f3417b2f6e" id="r_ab007c0e5d4fb93ef2d74a7f3417b2f6e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Material_8h.html#affde712b32c38228461fafa7f703afe0">pTexture</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#ab007c0e5d4fb93ef2d74a7f3417b2f6e">m_Texture</a></td></tr>
+<tr class="separator:ab007c0e5d4fb93ef2d74a7f3417b2f6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf2fcdd629e5ffc98b91d1370d0f2268" id="r_acf2fcdd629e5ffc98b91d1370d0f2268"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Material_8h.html#aa06ee67baf54d5ede87c0bcb743d6b45">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#acf2fcdd629e5ffc98b91d1370d0f2268">m_Color</a></td></tr>
+<tr class="separator:acf2fcdd629e5ffc98b91d1370d0f2268"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d48d6c5419ac5d5e3fec8b9a4c35c88" id="r_a7d48d6c5419ac5d5e3fec8b9a4c35c88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a7d48d6c5419ac5d5e3fec8b9a4c35c88">m_ShaderFile</a></td></tr>
+<tr class="separator:a7d48d6c5419ac5d5e3fec8b9a4c35c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5070649cfbef6173b87dd47f0339aaf" id="r_ab5070649cfbef6173b87dd47f0339aaf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#ab5070649cfbef6173b87dd47f0339aaf">m_VsEntry</a></td></tr>
+<tr class="separator:ab5070649cfbef6173b87dd47f0339aaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25ff8455bd259284d26e3408f08ead98" id="r_a25ff8455bd259284d26e3408f08ead98"><td class="memItemLeft" align="right" valign="top"><a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a25ff8455bd259284d26e3408f08ead98">m_PsEntry</a></td></tr>
+<tr class="separator:a25ff8455bd259284d26e3408f08ead98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8aec0728b71c9916212d9d21a6aa804" id="r_ae8aec0728b71c9916212d9d21a6aa804"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85">BlendMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#ae8aec0728b71c9916212d9d21a6aa804">m_BlendMode</a></td></tr>
+<tr class="separator:ae8aec0728b71c9916212d9d21a6aa804"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="ab63eb3abe9435904350cc8bd013a89eb" name="ab63eb3abe9435904350cc8bd013a89eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab63eb3abe9435904350cc8bd013a89eb">&#9670;&#160;</a></span>CMaterial()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CMaterial::CMaterial </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a>&#160;</td>
+          <td class="paramname"><em>_FilePath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="Material_8h.html#ac8b60b8e94f1c20a4c6060ee931ba609">XMFLOAT4</a>&#160;</td>
+          <td class="paramname"><em>_Color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a>&#160;</td>
+          <td class="paramname"><em>shaderFile</em> = <code>L&quot;Assets/<a class="el" href="classShader.html">Shader</a>/Triangle.hlsl&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">string</a>&#160;</td>
+          <td class="paramname"><em>vsEntry</em> = <code>&quot;VSMain&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">string</a>&#160;</td>
+          <td class="paramname"><em>psEntry</em> = <code>&quot;PSMain&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85">BlendMode</a>&#160;</td>
+          <td class="paramname"><em>blendMode</em> = <code><a class="el" href="BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85afaa90538de35640e4b1e31ccf35b6eb5">BlendMode::Opaque</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCMaterial_ab63eb3abe9435904350cc8bd013a89eb_cgraph.svg" width="100%" height="586"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="af82f9fc7cb487d5ce2085cd4dfac5d67" name="af82f9fc7cb487d5ce2085cd4dfac5d67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af82f9fc7cb487d5ce2085cd4dfac5d67">&#9670;&#160;</a></span>GetBlendMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85">BlendMode</a> CMaterial::GetBlendMode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCMaterial_af82f9fc7cb487d5ce2085cd4dfac5d67_icgraph.svg" width="411" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a963b3fbc9cf1bd42e5805a1782f72b95" name="a963b3fbc9cf1bd42e5805a1782f72b95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a963b3fbc9cf1bd42e5805a1782f72b95">&#9670;&#160;</a></span>GetGpuHandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_GPU_DESCRIPTOR_HANDLE CMaterial::GetGpuHandle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCMaterial_a963b3fbc9cf1bd42e5805a1782f72b95_icgraph.svg" width="355" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af8fbb3e2088fedd7a70fb8b7f5f62c8e" name="af8fbb3e2088fedd7a70fb8b7f5f62c8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8fbb3e2088fedd7a70fb8b7f5f62c8e">&#9670;&#160;</a></span>GetPsEntry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">string</a> CMaterial::GetPsEntry </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCMaterial_af8fbb3e2088fedd7a70fb8b7f5f62c8e_icgraph.svg" width="387" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3a32b88c18bde200485e91f66ea6b0da" name="a3a32b88c18bde200485e91f66ea6b0da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a32b88c18bde200485e91f66ea6b0da">&#9670;&#160;</a></span>GetShaderFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a> CMaterial::GetShaderFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCMaterial_a3a32b88c18bde200485e91f66ea6b0da_icgraph.svg" width="406" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="abecf1d09e7feb89fa2220df7ed84fb02" name="abecf1d09e7feb89fa2220df7ed84fb02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abecf1d09e7feb89fa2220df7ed84fb02">&#9670;&#160;</a></span>GetVsEntry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">string</a> CMaterial::GetVsEntry </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCMaterial_abecf1d09e7feb89fa2220df7ed84fb02_icgraph.svg" width="388" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af16b888b2da2a65e8dbe3d62cd008c54" name="af16b888b2da2a65e8dbe3d62cd008c54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af16b888b2da2a65e8dbe3d62cd008c54">&#9670;&#160;</a></span>LoadTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CMaterial::LoadTexture </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a>&#160;</td>
+          <td class="paramname"><em>_FilePath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCMaterial_af16b888b2da2a65e8dbe3d62cd008c54_cgraph.svg" width="502" height="382"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCMaterial_af16b888b2da2a65e8dbe3d62cd008c54_icgraph.svg" width="387" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="ae8aec0728b71c9916212d9d21a6aa804" name="ae8aec0728b71c9916212d9d21a6aa804"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8aec0728b71c9916212d9d21a6aa804">&#9670;&#160;</a></span>m_BlendMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85">BlendMode</a> CMaterial::m_BlendMode</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acf2fcdd629e5ffc98b91d1370d0f2268" name="acf2fcdd629e5ffc98b91d1370d0f2268"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf2fcdd629e5ffc98b91d1370d0f2268">&#9670;&#160;</a></span>m_Color</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Material_8h.html#aa06ee67baf54d5ede87c0bcb743d6b45">Color</a> CMaterial::m_Color</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a25ff8455bd259284d26e3408f08ead98" name="a25ff8455bd259284d26e3408f08ead98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25ff8455bd259284d26e3408f08ead98">&#9670;&#160;</a></span>m_PsEntry</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">string</a> CMaterial::m_PsEntry</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7d48d6c5419ac5d5e3fec8b9a4c35c88" name="a7d48d6c5419ac5d5e3fec8b9a4c35c88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d48d6c5419ac5d5e3fec8b9a4c35c88">&#9670;&#160;</a></span>m_ShaderFile</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a> CMaterial::m_ShaderFile</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab007c0e5d4fb93ef2d74a7f3417b2f6e" name="ab007c0e5d4fb93ef2d74a7f3417b2f6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab007c0e5d4fb93ef2d74a7f3417b2f6e">&#9670;&#160;</a></span>m_Texture</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Material_8h.html#affde712b32c38228461fafa7f703afe0">pTexture</a> CMaterial::m_Texture</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab5070649cfbef6173b87dd47f0339aaf" name="ab5070649cfbef6173b87dd47f0339aaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5070649cfbef6173b87dd47f0339aaf">&#9670;&#160;</a></span>m_VsEntry</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">string</a> CMaterial::m_VsEntry</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/Resources/<a class="el" href="Material_8h_source.html">Material.h</a></li>
+<li>Source/Resources/<a class="el" href="Material_8cpp.html">Material.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classCMaterial.html">CMaterial</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

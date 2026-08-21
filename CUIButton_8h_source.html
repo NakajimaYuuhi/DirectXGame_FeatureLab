@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/UI/CUIButton.h „ÇΩ„Éº„Çπ„Éï„Ç°„Ç§„É´</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- ÊßãÁØâ: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Ê§úÁ¥¢');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('CUIButton_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Ë™≠„ÅøÂèñ„Çä‰∏≠‚Ä¶</div>
+<div class="SRStatus" id="Searching">Ê§úÁ¥¢‰∏≠‚Ä¶</div>
+<div class="SRStatus" id="NoMatches">‰∏ÄËá¥„Åô„ÇãÊñáÂ≠óÂàó„ÇíË¶ã„Å§„Åë„Çâ„Çå„Åæ„Åõ„Çì</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">CUIButton.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="CUIButton_8h.html">[Ë©≥Ëß£]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="UIObject_8h.html">UIObject.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="ISelectable_8h.html">ISelectable.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="foldopen" id="foldopen00006" data-start="{" data-end="};">
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="classCUIButton.html">    6</a></span><span class="keyword">class </span><a class="code hl_class" href="classCUIButton.html">CUIButton</a> : <span class="keyword">public</span> <a class="code hl_class" href="classCUIObject.html">CUIObject</a>, <span class="keyword">public</span> <a class="code hl_class" href="classISelectable.html">ISelectable</a></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_class" href="classCUIButton.html">CUIButton</a>(<span class="keyword">const</span> std::string&amp; _Name = <span class="stringliteral">&quot;UIButton&quot;</span>);</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classCUIButton.html#ada80caa7e74aa2077b33789b8e4d5823">~CUIButton</a>();</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classCUIButton.html#ad5f296138bd2b1bca929f9068d5892ab">Init</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classCUIButton.html#af4a144cdbd09441680a108c1ffbc269e">Update</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classCUIButton.html#ad8496cfcbdba63c1c71829d833e72d2d">Draw</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">// --- ISelectableÇÃé¿ëï ---</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCUIButton.html#ad4da7aecc938692b25ffab68106bd84c">OnSelect</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCUIButton.html#a7916c79d387e462317cf177e24679f7d">OnDeselect</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCUIButton.html#a738f6183261179fc6d29a4f5bca4c9cd">OnSubmit</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="comment">// ÉNÉäÉbÉNÅiåàíËÅjéûÇÃÉRÅ[ÉãÉoÉbÉNê›íË</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCUIButton.html#a4e19e8eaf7b7e7632e378cd74787474a">SetOnClickCallback</a>(std::function&lt;<span class="keywordtype">void</span>()&gt; callback);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="comment">// ÉiÉrÉQÅ[ÉVÉáÉìópÇÃÉ|ÉCÉìÉ^ê›íËÅiè„â∫ç∂âEÅj</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCUIButton.html#ab8b8ea77203323e7ab63109419ca1f1a">SetNavigation</a>(<a class="code hl_class" href="classCUIButton.html">CUIButton</a>* up, <a class="code hl_class" href="classCUIButton.html">CUIButton</a>* down, <a class="code hl_class" href="classCUIButton.html">CUIButton</a>* left, <a class="code hl_class" href="classCUIButton.html">CUIButton</a>* right);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment">// ÉiÉrÉQÅ[ÉVÉáÉìéÊìæóp</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classCUIButton.html#a4809f5e5b5b26796a921bbb295fc8c2a">   28</a></span>    <a class="code hl_class" href="classCUIButton.html">CUIButton</a>* <a class="code hl_function" href="classCUIButton.html#a4809f5e5b5b26796a921bbb295fc8c2a">GetSelectOnUp</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCUIButton.html#adb9ef612e90c8c77a9df6ccc36620366">m_selectOnUp</a>; }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classCUIButton.html#adf1ec81979c189ae9e3944754d622421">   29</a></span>    <a class="code hl_class" href="classCUIButton.html">CUIButton</a>* <a class="code hl_function" href="classCUIButton.html#adf1ec81979c189ae9e3944754d622421">GetSelectOnDown</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCUIButton.html#ac4a20d73a2b26f54543e2c63e0e72363">m_selectOnDown</a>; }</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classCUIButton.html#afc25e051e0103c8982806443ba324db5">   30</a></span>    <a class="code hl_class" href="classCUIButton.html">CUIButton</a>* <a class="code hl_function" href="classCUIButton.html#afc25e051e0103c8982806443ba324db5">GetSelectOnLeft</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCUIButton.html#a5b60bf2b88647108f22ec3c3606be9a7">m_selectOnLeft</a>; }</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classCUIButton.html#a8033ba608597dbad123f2a8f3269eda1">   31</a></span>    <a class="code hl_class" href="classCUIButton.html">CUIButton</a>* <a class="code hl_function" href="classCUIButton.html#a8033ba608597dbad123f2a8f3269eda1">GetSelectOnRight</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCUIButton.html#ab21f1f5a5dca50ae504c89dc13bfee87">m_selectOnRight</a>; }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classCUIButton.html#af9d1144db59751a7b4f34139fc881eb8">   34</a></span>    std::function&lt;void()&gt; <a class="code hl_variable" href="classCUIButton.html#af9d1144db59751a7b4f34139fc881eb8">m_onClickCallback</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="comment">// UnityÇÃExplicitÉiÉrÉQÅ[ÉVÉáÉìÇ…ëäìñ</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classCUIButton.html#adb9ef612e90c8c77a9df6ccc36620366">   37</a></span>    <a class="code hl_class" href="classCUIButton.html">CUIButton</a>* <a class="code hl_variable" href="classCUIButton.html#adb9ef612e90c8c77a9df6ccc36620366">m_selectOnUp</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classCUIButton.html#ac4a20d73a2b26f54543e2c63e0e72363">   38</a></span>    <a class="code hl_class" href="classCUIButton.html">CUIButton</a>* <a class="code hl_variable" href="classCUIButton.html#ac4a20d73a2b26f54543e2c63e0e72363">m_selectOnDown</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classCUIButton.html#a5b60bf2b88647108f22ec3c3606be9a7">   39</a></span>    <a class="code hl_class" href="classCUIButton.html">CUIButton</a>* <a class="code hl_variable" href="classCUIButton.html#a5b60bf2b88647108f22ec3c3606be9a7">m_selectOnLeft</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classCUIButton.html#ab21f1f5a5dca50ae504c89dc13bfee87">   40</a></span>    <a class="code hl_class" href="classCUIButton.html">CUIButton</a>* <a class="code hl_variable" href="classCUIButton.html#ab21f1f5a5dca50ae504c89dc13bfee87">m_selectOnRight</a>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="comment">// ÉtÉHÅ[ÉJÉXèÛë‘Åiï`âÊÇÃêÿÇËë÷Ç¶Ç»Ç«Ç…égópÅj</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classCUIButton.html#ab893a14e8bd815093da638d6963d57d3">   43</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classCUIButton.html#ab893a14e8bd815093da638d6963d57d3">m_isSelected</a>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>};</div>
+</div>
+<div class="ttc" id="aISelectable_8h_html"><div class="ttname"><a href="ISelectable_8h.html">ISelectable.h</a></div></div>
+<div class="ttc" id="aUIObject_8h_html"><div class="ttname"><a href="UIObject_8h.html">UIObject.h</a></div></div>
+<div class="ttc" id="aclassCUIButton_html"><div class="ttname"><a href="classCUIButton.html">CUIButton</a></div><div class="ttdef"><b>Definition</b> CUIButton.h:7</div></div>
+<div class="ttc" id="aclassCUIButton_html_a4809f5e5b5b26796a921bbb295fc8c2a"><div class="ttname"><a href="classCUIButton.html#a4809f5e5b5b26796a921bbb295fc8c2a">CUIButton::GetSelectOnUp</a></div><div class="ttdeci">CUIButton * GetSelectOnUp() const</div><div class="ttdef"><b>Definition</b> CUIButton.h:28</div></div>
+<div class="ttc" id="aclassCUIButton_html_a4e19e8eaf7b7e7632e378cd74787474a"><div class="ttname"><a href="classCUIButton.html#a4e19e8eaf7b7e7632e378cd74787474a">CUIButton::SetOnClickCallback</a></div><div class="ttdeci">void SetOnClickCallback(std::function&lt; void()&gt; callback)</div><div class="ttdef"><b>Definition</b> CUIButton.cpp:81</div></div>
+<div class="ttc" id="aclassCUIButton_html_a5b60bf2b88647108f22ec3c3606be9a7"><div class="ttname"><a href="classCUIButton.html#a5b60bf2b88647108f22ec3c3606be9a7">CUIButton::m_selectOnLeft</a></div><div class="ttdeci">CUIButton * m_selectOnLeft</div><div class="ttdef"><b>Definition</b> CUIButton.h:39</div></div>
+<div class="ttc" id="aclassCUIButton_html_a738f6183261179fc6d29a4f5bca4c9cd"><div class="ttname"><a href="classCUIButton.html#a738f6183261179fc6d29a4f5bca4c9cd">CUIButton::OnSubmit</a></div><div class="ttdeci">void OnSubmit() override</div><div class="ttdef"><b>Definition</b> CUIButton.cpp:72</div></div>
+<div class="ttc" id="aclassCUIButton_html_a7916c79d387e462317cf177e24679f7d"><div class="ttname"><a href="classCUIButton.html#a7916c79d387e462317cf177e24679f7d">CUIButton::OnDeselect</a></div><div class="ttdeci">void OnDeselect() override</div><div class="ttdef"><b>Definition</b> CUIButton.cpp:60</div></div>
+<div class="ttc" id="aclassCUIButton_html_a8033ba608597dbad123f2a8f3269eda1"><div class="ttname"><a href="classCUIButton.html#a8033ba608597dbad123f2a8f3269eda1">CUIButton::GetSelectOnRight</a></div><div class="ttdeci">CUIButton * GetSelectOnRight() const</div><div class="ttdef"><b>Definition</b> CUIButton.h:31</div></div>
+<div class="ttc" id="aclassCUIButton_html_ab21f1f5a5dca50ae504c89dc13bfee87"><div class="ttname"><a href="classCUIButton.html#ab21f1f5a5dca50ae504c89dc13bfee87">CUIButton::m_selectOnRight</a></div><div class="ttdeci">CUIButton * m_selectOnRight</div><div class="ttdef"><b>Definition</b> CUIButton.h:40</div></div>
+<div class="ttc" id="aclassCUIButton_html_ab893a14e8bd815093da638d6963d57d3"><div class="ttname"><a href="classCUIButton.html#ab893a14e8bd815093da638d6963d57d3">CUIButton::m_isSelected</a></div><div class="ttdeci">bool m_isSelected</div><div class="ttdef"><b>Definition</b> CUIButton.h:43</div></div>
+<div class="ttc" id="aclassCUIButton_html_ab8b8ea77203323e7ab63109419ca1f1a"><div class="ttname"><a href="classCUIButton.html#ab8b8ea77203323e7ab63109419ca1f1a">CUIButton::SetNavigation</a></div><div class="ttdeci">void SetNavigation(CUIButton *up, CUIButton *down, CUIButton *left, CUIButton *right)</div><div class="ttdef"><b>Definition</b> CUIButton.cpp:86</div></div>
+<div class="ttc" id="aclassCUIButton_html_ac4a20d73a2b26f54543e2c63e0e72363"><div class="ttname"><a href="classCUIButton.html#ac4a20d73a2b26f54543e2c63e0e72363">CUIButton::m_selectOnDown</a></div><div class="ttdeci">CUIButton * m_selectOnDown</div><div class="ttdef"><b>Definition</b> CUIButton.h:38</div></div>
+<div class="ttc" id="aclassCUIButton_html_ad4da7aecc938692b25ffab68106bd84c"><div class="ttname"><a href="classCUIButton.html#ad4da7aecc938692b25ffab68106bd84c">CUIButton::OnSelect</a></div><div class="ttdeci">void OnSelect() override</div><div class="ttdef"><b>Definition</b> CUIButton.cpp:48</div></div>
+<div class="ttc" id="aclassCUIButton_html_ad5f296138bd2b1bca929f9068d5892ab"><div class="ttname"><a href="classCUIButton.html#ad5f296138bd2b1bca929f9068d5892ab">CUIButton::Init</a></div><div class="ttdeci">virtual void Init() override</div><div class="ttdef"><b>Definition</b> CUIButton.cpp:24</div></div>
+<div class="ttc" id="aclassCUIButton_html_ad8496cfcbdba63c1c71829d833e72d2d"><div class="ttname"><a href="classCUIButton.html#ad8496cfcbdba63c1c71829d833e72d2d">CUIButton::Draw</a></div><div class="ttdeci">virtual void Draw() override</div><div class="ttdef"><b>Definition</b> CUIButton.cpp:40</div></div>
+<div class="ttc" id="aclassCUIButton_html_ada80caa7e74aa2077b33789b8e4d5823"><div class="ttname"><a href="classCUIButton.html#ada80caa7e74aa2077b33789b8e4d5823">CUIButton::~CUIButton</a></div><div class="ttdeci">virtual ~CUIButton()</div><div class="ttdef"><b>Definition</b> CUIButton.cpp:16</div></div>
+<div class="ttc" id="aclassCUIButton_html_adb9ef612e90c8c77a9df6ccc36620366"><div class="ttname"><a href="classCUIButton.html#adb9ef612e90c8c77a9df6ccc36620366">CUIButton::m_selectOnUp</a></div><div class="ttdeci">CUIButton * m_selectOnUp</div><div class="ttdef"><b>Definition</b> CUIButton.h:37</div></div>
+<div class="ttc" id="aclassCUIButton_html_adf1ec81979c189ae9e3944754d622421"><div class="ttname"><a href="classCUIButton.html#adf1ec81979c189ae9e3944754d622421">CUIButton::GetSelectOnDown</a></div><div class="ttdeci">CUIButton * GetSelectOnDown() const</div><div class="ttdef"><b>Definition</b> CUIButton.h:29</div></div>
+<div class="ttc" id="aclassCUIButton_html_af4a144cdbd09441680a108c1ffbc269e"><div class="ttname"><a href="classCUIButton.html#af4a144cdbd09441680a108c1ffbc269e">CUIButton::Update</a></div><div class="ttdeci">virtual void Update() override</div><div class="ttdef"><b>Definition</b> CUIButton.cpp:34</div></div>
+<div class="ttc" id="aclassCUIButton_html_af9d1144db59751a7b4f34139fc881eb8"><div class="ttname"><a href="classCUIButton.html#af9d1144db59751a7b4f34139fc881eb8">CUIButton::m_onClickCallback</a></div><div class="ttdeci">std::function&lt; void()&gt; m_onClickCallback</div><div class="ttdef"><b>Definition</b> CUIButton.h:34</div></div>
+<div class="ttc" id="aclassCUIButton_html_afc25e051e0103c8982806443ba324db5"><div class="ttname"><a href="classCUIButton.html#afc25e051e0103c8982806443ba324db5">CUIButton::GetSelectOnLeft</a></div><div class="ttdeci">CUIButton * GetSelectOnLeft() const</div><div class="ttdef"><b>Definition</b> CUIButton.h:30</div></div>
+<div class="ttc" id="aclassCUIObject_html"><div class="ttname"><a href="classCUIObject.html">CUIObject</a></div><div class="ttdef"><b>Definition</b> UIObject.h:6</div></div>
+<div class="ttc" id="aclassISelectable_html"><div class="ttname"><a href="classISelectable.html">ISelectable</a></div><div class="ttdef"><b>Definition</b> ISelectable.h:4</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_ad68fd99ee46e73a145661c4c85612bf.html">UI</a></li><li class="navelem"><a class="el" href="CUIButton_8h.html">CUIButton.h</a></li>
+    <li class="footer">ÊßãÁØâ: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

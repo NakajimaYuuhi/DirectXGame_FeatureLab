@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/UI/TextRenderer.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('TextRenderer_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">TextRenderer.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="TextRenderer_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="Component_8h.html">Component.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;d2d1.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="foldopen" id="foldopen00006" data-start="{" data-end="};">
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="classCTextRenderer.html">    6</a></span><span class="keyword">class </span><a class="code hl_class" href="classCTextRenderer.html">CTextRenderer</a> : <span class="keyword">public</span> <a class="code hl_class" href="classCComponent.html">CComponent</a></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_class" href="classCTextRenderer.html">CTextRenderer</a>(<span class="keyword">const</span> std::string&amp; name = <span class="stringliteral">&quot;TextRenderer&quot;</span>);</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classCTextRenderer.html#a80453a9177f117136a44591d36c02bf4">   10</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classCTextRenderer.html#a80453a9177f117136a44591d36c02bf4">~CTextRenderer</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classCTextRenderer.html#a2619d2f9af23efac9a6cedd7b09e0260">Init</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="comment">// テキストの描画要求を D2DTextRenderer に登録</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCTextRenderer.html#a0ceb0745ceb7a65cd25c9df9728fa4b0">Draw</a>();</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="comment">// ゲッター・セッター</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classCTextRenderer.html#af4b11115ec2066eb61dc57186859b10c">   18</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCTextRenderer.html#af4b11115ec2066eb61dc57186859b10c">SetText</a>(<span class="keyword">const</span> std::wstring&amp; text) { <a class="code hl_variable" href="classCTextRenderer.html#a63ce590cbe716affca6a7b95618e5b37">m_text</a> = text; }</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classCTextRenderer.html#acc64b353604721aeb05db8acdd61965a">   19</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCTextRenderer.html#acc64b353604721aeb05db8acdd61965a">SetPosition</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y) { <a class="code hl_variable" href="classCTextRenderer.html#af840200f7fab0160074b6a6680b0b2c6">m_x</a> = x; <a class="code hl_variable" href="classCTextRenderer.html#a904c29224cc6e18884b3c6ae56951c97">m_y</a> = y; }</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classCTextRenderer.html#a3c95ea314762659472fb2338dc9d4115">   20</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCTextRenderer.html#a3c95ea314762659472fb2338dc9d4115">SetFontSize</a>(<span class="keywordtype">float</span> size) { <a class="code hl_variable" href="classCTextRenderer.html#a03568141d58c1836f104b897367d93e8">m_fontSize</a> = size; }</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classCTextRenderer.html#a3844781f0f831246d7dc85124ca27d03">   21</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCTextRenderer.html#a3844781f0f831246d7dc85124ca27d03">SetColor</a>(<span class="keyword">const</span> D2D1::ColorF&amp; color) { <a class="code hl_variable" href="classCTextRenderer.html#a4cc8bde731835caa166f3cde0d839d7c">m_color</a> = color; }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classCTextRenderer.html#af0212e26ae695aface890a7ed134a630">   22</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCTextRenderer.html#af0212e26ae695aface890a7ed134a630">SetFontFamily</a>(<span class="keyword">const</span> std::wstring&amp; family) { <a class="code hl_variable" href="classCTextRenderer.html#a2f688309720dbf57e291a7fe5e869d11">m_fontFamily</a> = family; }</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classCTextRenderer.html#a84490a52cbb91f004ceb0840562a8384">   24</a></span>    <span class="keyword">const</span> std::wstring&amp; <a class="code hl_function" href="classCTextRenderer.html#a84490a52cbb91f004ceb0840562a8384">GetText</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCTextRenderer.html#a63ce590cbe716affca6a7b95618e5b37">m_text</a>; }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classCTextRenderer.html#a1bc5aaa040293e66c3d6f9acde5ce94f">   25</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classCTextRenderer.html#a1bc5aaa040293e66c3d6f9acde5ce94f">GetX</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCTextRenderer.html#af840200f7fab0160074b6a6680b0b2c6">m_x</a>; }</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classCTextRenderer.html#afb42de376fce2635a247d89327a4f247">   26</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classCTextRenderer.html#afb42de376fce2635a247d89327a4f247">GetY</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCTextRenderer.html#a904c29224cc6e18884b3c6ae56951c97">m_y</a>; }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classCTextRenderer.html#ac1a8c410eb93032d2a9c4b4993966d3e">   27</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classCTextRenderer.html#ac1a8c410eb93032d2a9c4b4993966d3e">GetFontSize</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCTextRenderer.html#a03568141d58c1836f104b897367d93e8">m_fontSize</a>; }</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classCTextRenderer.html#a3264b0fc64da0433f9a643e1ee19e979">   28</a></span>    D2D1::ColorF <a class="code hl_function" href="classCTextRenderer.html#a3264b0fc64da0433f9a643e1ee19e979">GetColor</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCTextRenderer.html#a4cc8bde731835caa166f3cde0d839d7c">m_color</a>; }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classCTextRenderer.html#a0ee5e5d70c99f4060987494fdc9fcc3e">   29</a></span>    <span class="keyword">const</span> std::wstring&amp; <a class="code hl_function" href="classCTextRenderer.html#a0ee5e5d70c99f4060987494fdc9fcc3e">GetFontFamily</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCTextRenderer.html#a2f688309720dbf57e291a7fe5e869d11">m_fontFamily</a>; }</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classCTextRenderer.html#a63ce590cbe716affca6a7b95618e5b37">   32</a></span>    std::wstring <a class="code hl_variable" href="classCTextRenderer.html#a63ce590cbe716affca6a7b95618e5b37">m_text</a> = L<span class="stringliteral">&quot;Default Text&quot;</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classCTextRenderer.html#af840200f7fab0160074b6a6680b0b2c6">   33</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classCTextRenderer.html#af840200f7fab0160074b6a6680b0b2c6">m_x</a> = 0.0f;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classCTextRenderer.html#a904c29224cc6e18884b3c6ae56951c97">   34</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classCTextRenderer.html#a904c29224cc6e18884b3c6ae56951c97">m_y</a> = 0.0f;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classCTextRenderer.html#a03568141d58c1836f104b897367d93e8">   35</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classCTextRenderer.html#a03568141d58c1836f104b897367d93e8">m_fontSize</a> = 24.0f;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classCTextRenderer.html#a4cc8bde731835caa166f3cde0d839d7c">   36</a></span>    D2D1::ColorF <a class="code hl_variable" href="classCTextRenderer.html#a4cc8bde731835caa166f3cde0d839d7c">m_color</a> = D2D1::ColorF::White;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classCTextRenderer.html#a2f688309720dbf57e291a7fe5e869d11">   37</a></span>    std::wstring <a class="code hl_variable" href="classCTextRenderer.html#a2f688309720dbf57e291a7fe5e869d11">m_fontFamily</a> = L<span class="stringliteral">&quot;Meiryo&quot;</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>};</div>
+</div>
+<div class="ttc" id="aComponent_8h_html"><div class="ttname"><a href="Component_8h.html">Component.h</a></div></div>
+<div class="ttc" id="aclassCComponent_html"><div class="ttname"><a href="classCComponent.html">CComponent</a></div><div class="ttdef"><b>Definition</b> Component.h:22</div></div>
+<div class="ttc" id="aclassCTextRenderer_html"><div class="ttname"><a href="classCTextRenderer.html">CTextRenderer</a></div><div class="ttdef"><b>Definition</b> TextRenderer.h:7</div></div>
+<div class="ttc" id="aclassCTextRenderer_html_a03568141d58c1836f104b897367d93e8"><div class="ttname"><a href="classCTextRenderer.html#a03568141d58c1836f104b897367d93e8">CTextRenderer::m_fontSize</a></div><div class="ttdeci">float m_fontSize</div><div class="ttdef"><b>Definition</b> TextRenderer.h:35</div></div>
+<div class="ttc" id="aclassCTextRenderer_html_a0ceb0745ceb7a65cd25c9df9728fa4b0"><div class="ttname"><a href="classCTextRenderer.html#a0ceb0745ceb7a65cd25c9df9728fa4b0">CTextRenderer::Draw</a></div><div class="ttdeci">void Draw()</div><div class="ttdef"><b>Definition</b> TextRenderer.cpp:15</div></div>
+<div class="ttc" id="aclassCTextRenderer_html_a0ee5e5d70c99f4060987494fdc9fcc3e"><div class="ttname"><a href="classCTextRenderer.html#a0ee5e5d70c99f4060987494fdc9fcc3e">CTextRenderer::GetFontFamily</a></div><div class="ttdeci">const std::wstring &amp; GetFontFamily() const</div><div class="ttdef"><b>Definition</b> TextRenderer.h:29</div></div>
+<div class="ttc" id="aclassCTextRenderer_html_a1bc5aaa040293e66c3d6f9acde5ce94f"><div class="ttname"><a href="classCTextRenderer.html#a1bc5aaa040293e66c3d6f9acde5ce94f">CTextRenderer::GetX</a></div><div class="ttdeci">float GetX() const</div><div class="ttdef"><b>Definition</b> TextRenderer.h:25</div></div>
+<div class="ttc" id="aclassCTextRenderer_html_a2619d2f9af23efac9a6cedd7b09e0260"><div class="ttname"><a href="classCTextRenderer.html#a2619d2f9af23efac9a6cedd7b09e0260">CTextRenderer::Init</a></div><div class="ttdeci">virtual void Init() override</div><div class="ttdef"><b>Definition</b> TextRenderer.cpp:11</div></div>
+<div class="ttc" id="aclassCTextRenderer_html_a2f688309720dbf57e291a7fe5e869d11"><div class="ttname"><a href="classCTextRenderer.html#a2f688309720dbf57e291a7fe5e869d11">CTextRenderer::m_fontFamily</a></div><div class="ttdeci">std::wstring m_fontFamily</div><div class="ttdef"><b>Definition</b> TextRenderer.h:37</div></div>
+<div class="ttc" id="aclassCTextRenderer_html_a3264b0fc64da0433f9a643e1ee19e979"><div class="ttname"><a href="classCTextRenderer.html#a3264b0fc64da0433f9a643e1ee19e979">CTextRenderer::GetColor</a></div><div class="ttdeci">D2D1::ColorF GetColor() const</div><div class="ttdef"><b>Definition</b> TextRenderer.h:28</div></div>
+<div class="ttc" id="aclassCTextRenderer_html_a3844781f0f831246d7dc85124ca27d03"><div class="ttname"><a href="classCTextRenderer.html#a3844781f0f831246d7dc85124ca27d03">CTextRenderer::SetColor</a></div><div class="ttdeci">void SetColor(const D2D1::ColorF &amp;color)</div><div class="ttdef"><b>Definition</b> TextRenderer.h:21</div></div>
+<div class="ttc" id="aclassCTextRenderer_html_a3c95ea314762659472fb2338dc9d4115"><div class="ttname"><a href="classCTextRenderer.html#a3c95ea314762659472fb2338dc9d4115">CTextRenderer::SetFontSize</a></div><div class="ttdeci">void SetFontSize(float size)</div><div class="ttdef"><b>Definition</b> TextRenderer.h:20</div></div>
+<div class="ttc" id="aclassCTextRenderer_html_a4cc8bde731835caa166f3cde0d839d7c"><div class="ttname"><a href="classCTextRenderer.html#a4cc8bde731835caa166f3cde0d839d7c">CTextRenderer::m_color</a></div><div class="ttdeci">D2D1::ColorF m_color</div><div class="ttdef"><b>Definition</b> TextRenderer.h:36</div></div>
+<div class="ttc" id="aclassCTextRenderer_html_a63ce590cbe716affca6a7b95618e5b37"><div class="ttname"><a href="classCTextRenderer.html#a63ce590cbe716affca6a7b95618e5b37">CTextRenderer::m_text</a></div><div class="ttdeci">std::wstring m_text</div><div class="ttdef"><b>Definition</b> TextRenderer.h:32</div></div>
+<div class="ttc" id="aclassCTextRenderer_html_a80453a9177f117136a44591d36c02bf4"><div class="ttname"><a href="classCTextRenderer.html#a80453a9177f117136a44591d36c02bf4">CTextRenderer::~CTextRenderer</a></div><div class="ttdeci">virtual ~CTextRenderer()=default</div></div>
+<div class="ttc" id="aclassCTextRenderer_html_a84490a52cbb91f004ceb0840562a8384"><div class="ttname"><a href="classCTextRenderer.html#a84490a52cbb91f004ceb0840562a8384">CTextRenderer::GetText</a></div><div class="ttdeci">const std::wstring &amp; GetText() const</div><div class="ttdef"><b>Definition</b> TextRenderer.h:24</div></div>
+<div class="ttc" id="aclassCTextRenderer_html_a904c29224cc6e18884b3c6ae56951c97"><div class="ttname"><a href="classCTextRenderer.html#a904c29224cc6e18884b3c6ae56951c97">CTextRenderer::m_y</a></div><div class="ttdeci">float m_y</div><div class="ttdef"><b>Definition</b> TextRenderer.h:34</div></div>
+<div class="ttc" id="aclassCTextRenderer_html_ac1a8c410eb93032d2a9c4b4993966d3e"><div class="ttname"><a href="classCTextRenderer.html#ac1a8c410eb93032d2a9c4b4993966d3e">CTextRenderer::GetFontSize</a></div><div class="ttdeci">float GetFontSize() const</div><div class="ttdef"><b>Definition</b> TextRenderer.h:27</div></div>
+<div class="ttc" id="aclassCTextRenderer_html_acc64b353604721aeb05db8acdd61965a"><div class="ttname"><a href="classCTextRenderer.html#acc64b353604721aeb05db8acdd61965a">CTextRenderer::SetPosition</a></div><div class="ttdeci">void SetPosition(float x, float y)</div><div class="ttdef"><b>Definition</b> TextRenderer.h:19</div></div>
+<div class="ttc" id="aclassCTextRenderer_html_af0212e26ae695aface890a7ed134a630"><div class="ttname"><a href="classCTextRenderer.html#af0212e26ae695aface890a7ed134a630">CTextRenderer::SetFontFamily</a></div><div class="ttdeci">void SetFontFamily(const std::wstring &amp;family)</div><div class="ttdef"><b>Definition</b> TextRenderer.h:22</div></div>
+<div class="ttc" id="aclassCTextRenderer_html_af4b11115ec2066eb61dc57186859b10c"><div class="ttname"><a href="classCTextRenderer.html#af4b11115ec2066eb61dc57186859b10c">CTextRenderer::SetText</a></div><div class="ttdeci">void SetText(const std::wstring &amp;text)</div><div class="ttdef"><b>Definition</b> TextRenderer.h:18</div></div>
+<div class="ttc" id="aclassCTextRenderer_html_af840200f7fab0160074b6a6680b0b2c6"><div class="ttname"><a href="classCTextRenderer.html#af840200f7fab0160074b6a6680b0b2c6">CTextRenderer::m_x</a></div><div class="ttdeci">float m_x</div><div class="ttdef"><b>Definition</b> TextRenderer.h:33</div></div>
+<div class="ttc" id="aclassCTextRenderer_html_afb42de376fce2635a247d89327a4f247"><div class="ttname"><a href="classCTextRenderer.html#afb42de376fce2635a247d89327a4f247">CTextRenderer::GetY</a></div><div class="ttdeci">float GetY() const</div><div class="ttdef"><b>Definition</b> TextRenderer.h:26</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_ad68fd99ee46e73a145661c4c85612bf.html">UI</a></li><li class="navelem"><a class="el" href="TextRenderer_8h.html">TextRenderer.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

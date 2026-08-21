@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/UI/ImGuiManager.h ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- æ§‹ç¯‰: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','æ¤œç´¢');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('ImGuiManager_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">èª­ã¿å–ã‚Šä¸­â€¦</div>
+<div class="SRStatus" id="Searching">æ¤œç´¢ä¸­â€¦</div>
+<div class="SRStatus" id="NoMatches">ä¸€è‡´ã™ã‚‹æ–‡å­—åˆ—ã‚’è¦‹ã¤ã‘ã‚‰ã‚Œã¾ã›ã‚“</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ImGuiManager.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="ImGuiManager_8h.html">[è©³è§£]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;d3d12.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;wrl.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;Windows.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;wrl/client.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;d3d12.h&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;wrl/client.h&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;imgui.h&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="DescriptorHeapAllocator_8h.html">DescriptorHeapAllocator.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classCImGuiManager.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="classCImGuiManager.html">CImGuiManager</a> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">//‚¢‚ç‚È‚¢‹C‚ª‚·‚é</span></div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="structCImGuiManager_1_1SrvAllocUserData.html">   17</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structCImGuiManager_1_1SrvAllocUserData.html">SrvAllocUserData</a></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="structCImGuiManager_1_1SrvAllocUserData.html#a6972a7c34f6c996c3d346d474872c6a7">   19</a></span>        <a class="code hl_class" href="classCImGuiManager.html">CImGuiManager</a>* <a class="code hl_variable" href="structCImGuiManager_1_1SrvAllocUserData.html#a6972a7c34f6c996c3d346d474872c6a7">self</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    };</div>
+</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">static</span> <a class="code hl_class" href="classCImGuiManager.html">CImGuiManager</a>&amp; <a class="code hl_function" href="classCImGuiManager.html#aacc770a179a9869968274ccd3ee24e30">GetInstance</a>();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="comment">//‰æ–Ê‚ÌŠg‘å—¦‚Ìæ“¾</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classCImGuiManager.html#a1b96280a980c6c91a68d673633856035">GetSystemScaleFactor</a>();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment">//ÀÛ‚ÉŠg‘å‚·‚é”{—¦‚Ìæ“¾</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="comment">//Šg‘å—¦‚É‚µ‚½‚ª‚Á‚ÄŠg‘å‚·‚é‚Ì‚ª—‘z‚¾‚ªA¡g‚Á‚Ä‚éƒm[ƒgƒpƒ\ƒRƒ“‚¾‚Æ‘å‚«‚­‚Ä¢‚é‚Ì‚ÅA“K—p‚·‚é‚©‚ğƒtƒ‰ƒO‚ÅŒˆ‚ß‚é</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classCImGuiManager.html#acffe3c94525f1e853f09afabda528080">GetActualScaleFactor</a>();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="comment">// ‰Šú‰» (ƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹‚ÆDX12‚ÌƒfƒoƒCƒXAƒoƒbƒtƒ@”AƒtƒH[ƒ}ƒbƒg‚ª•K—v)</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classCImGuiManager.html#a4352fabcab1c1388132d25609de90f87">Initialize</a>(HWND hwnd);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="comment">// I—¹ˆ—</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCImGuiManager.html#a2ed92a60fb38ccbbc811d39b49418df1">Finalize</a>();</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="comment">// ƒtƒŒ[ƒ€ŠJn‚Ìˆ—</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCImGuiManager.html#ae8fa4e17313895d74c06663af5c38f77">Begin</a>();</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="comment">// ƒtƒŒ[ƒ€I—¹‚Ì•`‰æˆ— (ƒRƒ}ƒ“ƒhƒŠƒXƒg‚ğ“n‚·)</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCImGuiManager.html#a68c30eb6de22c921ee3dea98895417e9">End</a>(ID3D12GraphicsCommandList* commandList);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classCImGuiManager.html#accf11b02aa280e150fd447bdc6090a1a">   44</a></span>    <a class="code hl_class" href="classCDescriptorHeapAllocator.html">CDescriptorHeapAllocator</a>&amp; <a class="code hl_function" href="classCImGuiManager.html#accf11b02aa280e150fd447bdc6090a1a">GetDescriptorHeapAllocator</a>() { <span class="keywordflow">return</span> <a class="code hl_variable" href="classCImGuiManager.html#afb7f26d2ec25bf3ed5bc05d58b358302">m_DescriptorHeapAllocator</a>; }</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classCImGuiManager.html#a2f43a6efa4df2a67460f1d6c16cf400c">   47</a></span>    <a class="code hl_function" href="classCImGuiManager.html#a2f43a6efa4df2a67460f1d6c16cf400c">CImGuiManager</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classCImGuiManager.html#a001800d54ca39a7ef94d34d0a789379c">   48</a></span>    <a class="code hl_function" href="classCImGuiManager.html#a001800d54ca39a7ef94d34d0a789379c">~CImGuiManager</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment">// ImGui—p‚ÌƒtƒHƒ“ƒgƒeƒNƒXƒ`ƒƒ“™‚ğ”z’u‚·‚é‚½‚ß‚ÌSRVƒq[ƒv</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classCImGuiManager.html#a99ff56b1eb2cee5ca4ddb52aec5d6ea8">   51</a></span>    Microsoft::WRL::ComPtr&lt;ID3D12DescriptorHeap&gt; <a class="code hl_variable" href="classCImGuiManager.html#a99ff56b1eb2cee5ca4ddb52aec5d6ea8">m_srvHeap</a>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classCImGuiManager.html#afb7f26d2ec25bf3ed5bc05d58b358302">   52</a></span>    <a class="code hl_class" href="classCDescriptorHeapAllocator.html">CDescriptorHeapAllocator</a> <a class="code hl_variable" href="classCImGuiManager.html#afb7f26d2ec25bf3ed5bc05d58b358302">m_DescriptorHeapAllocator</a>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classCImGuiManager.html#a6e23cb13670295c904d1c815c10c1579">   53</a></span>    <a class="code hl_struct" href="structCImGuiManager_1_1SrvAllocUserData.html">SrvAllocUserData</a> <a class="code hl_variable" href="classCImGuiManager.html#a6e23cb13670295c904d1c815c10c1579">m_SrvAllocUserData</a>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>};</div>
+</div>
+<div class="ttc" id="aDescriptorHeapAllocator_8h_html"><div class="ttname"><a href="DescriptorHeapAllocator_8h.html">DescriptorHeapAllocator.h</a></div></div>
+<div class="ttc" id="aclassCDescriptorHeapAllocator_html"><div class="ttname"><a href="classCDescriptorHeapAllocator.html">CDescriptorHeapAllocator</a></div><div class="ttdef"><b>Definition</b> DescriptorHeapAllocator.h:6</div></div>
+<div class="ttc" id="aclassCImGuiManager_html"><div class="ttname"><a href="classCImGuiManager.html">CImGuiManager</a></div><div class="ttdef"><b>Definition</b> ImGuiManager.h:13</div></div>
+<div class="ttc" id="aclassCImGuiManager_html_a001800d54ca39a7ef94d34d0a789379c"><div class="ttname"><a href="classCImGuiManager.html#a001800d54ca39a7ef94d34d0a789379c">CImGuiManager::~CImGuiManager</a></div><div class="ttdeci">~CImGuiManager()=default</div></div>
+<div class="ttc" id="aclassCImGuiManager_html_a1b96280a980c6c91a68d673633856035"><div class="ttname"><a href="classCImGuiManager.html#a1b96280a980c6c91a68d673633856035">CImGuiManager::GetSystemScaleFactor</a></div><div class="ttdeci">float GetSystemScaleFactor()</div><div class="ttdef"><b>Definition</b> ImGuiManager.cpp:13</div></div>
+<div class="ttc" id="aclassCImGuiManager_html_a2ed92a60fb38ccbbc811d39b49418df1"><div class="ttname"><a href="classCImGuiManager.html#a2ed92a60fb38ccbbc811d39b49418df1">CImGuiManager::Finalize</a></div><div class="ttdeci">void Finalize()</div><div class="ttdef"><b>Definition</b> ImGuiManager.cpp:166</div></div>
+<div class="ttc" id="aclassCImGuiManager_html_a2f43a6efa4df2a67460f1d6c16cf400c"><div class="ttname"><a href="classCImGuiManager.html#a2f43a6efa4df2a67460f1d6c16cf400c">CImGuiManager::CImGuiManager</a></div><div class="ttdeci">CImGuiManager()=default</div></div>
+<div class="ttc" id="aclassCImGuiManager_html_a4352fabcab1c1388132d25609de90f87"><div class="ttname"><a href="classCImGuiManager.html#a4352fabcab1c1388132d25609de90f87">CImGuiManager::Initialize</a></div><div class="ttdeci">bool Initialize(HWND hwnd)</div><div class="ttdef"><b>Definition</b> ImGuiManager.cpp:34</div></div>
+<div class="ttc" id="aclassCImGuiManager_html_a68c30eb6de22c921ee3dea98895417e9"><div class="ttname"><a href="classCImGuiManager.html#a68c30eb6de22c921ee3dea98895417e9">CImGuiManager::End</a></div><div class="ttdeci">void End(ID3D12GraphicsCommandList *commandList)</div><div class="ttdef"><b>Definition</b> ImGuiManager.cpp:151</div></div>
+<div class="ttc" id="aclassCImGuiManager_html_a6e23cb13670295c904d1c815c10c1579"><div class="ttname"><a href="classCImGuiManager.html#a6e23cb13670295c904d1c815c10c1579">CImGuiManager::m_SrvAllocUserData</a></div><div class="ttdeci">SrvAllocUserData m_SrvAllocUserData</div><div class="ttdef"><b>Definition</b> ImGuiManager.h:53</div></div>
+<div class="ttc" id="aclassCImGuiManager_html_a99ff56b1eb2cee5ca4ddb52aec5d6ea8"><div class="ttname"><a href="classCImGuiManager.html#a99ff56b1eb2cee5ca4ddb52aec5d6ea8">CImGuiManager::m_srvHeap</a></div><div class="ttdeci">Microsoft::WRL::ComPtr&lt; ID3D12DescriptorHeap &gt; m_srvHeap</div><div class="ttdef"><b>Definition</b> ImGuiManager.h:51</div></div>
+<div class="ttc" id="aclassCImGuiManager_html_aacc770a179a9869968274ccd3ee24e30"><div class="ttname"><a href="classCImGuiManager.html#aacc770a179a9869968274ccd3ee24e30">CImGuiManager::GetInstance</a></div><div class="ttdeci">static CImGuiManager &amp; GetInstance()</div><div class="ttdef"><b>Definition</b> ImGuiManager.cpp:7</div></div>
+<div class="ttc" id="aclassCImGuiManager_html_accf11b02aa280e150fd447bdc6090a1a"><div class="ttname"><a href="classCImGuiManager.html#accf11b02aa280e150fd447bdc6090a1a">CImGuiManager::GetDescriptorHeapAllocator</a></div><div class="ttdeci">CDescriptorHeapAllocator &amp; GetDescriptorHeapAllocator()</div><div class="ttdef"><b>Definition</b> ImGuiManager.h:44</div></div>
+<div class="ttc" id="aclassCImGuiManager_html_acffe3c94525f1e853f09afabda528080"><div class="ttname"><a href="classCImGuiManager.html#acffe3c94525f1e853f09afabda528080">CImGuiManager::GetActualScaleFactor</a></div><div class="ttdeci">float GetActualScaleFactor()</div><div class="ttdef"><b>Definition</b> ImGuiManager.cpp:23</div></div>
+<div class="ttc" id="aclassCImGuiManager_html_ae8fa4e17313895d74c06663af5c38f77"><div class="ttname"><a href="classCImGuiManager.html#ae8fa4e17313895d74c06663af5c38f77">CImGuiManager::Begin</a></div><div class="ttdeci">void Begin()</div><div class="ttdef"><b>Definition</b> ImGuiManager.cpp:144</div></div>
+<div class="ttc" id="aclassCImGuiManager_html_afb7f26d2ec25bf3ed5bc05d58b358302"><div class="ttname"><a href="classCImGuiManager.html#afb7f26d2ec25bf3ed5bc05d58b358302">CImGuiManager::m_DescriptorHeapAllocator</a></div><div class="ttdeci">CDescriptorHeapAllocator m_DescriptorHeapAllocator</div><div class="ttdef"><b>Definition</b> ImGuiManager.h:52</div></div>
+<div class="ttc" id="astructCImGuiManager_1_1SrvAllocUserData_html"><div class="ttname"><a href="structCImGuiManager_1_1SrvAllocUserData.html">CImGuiManager::SrvAllocUserData</a></div><div class="ttdef"><b>Definition</b> ImGuiManager.h:18</div></div>
+<div class="ttc" id="astructCImGuiManager_1_1SrvAllocUserData_html_a6972a7c34f6c996c3d346d474872c6a7"><div class="ttname"><a href="structCImGuiManager_1_1SrvAllocUserData.html#a6972a7c34f6c996c3d346d474872c6a7">CImGuiManager::SrvAllocUserData::self</a></div><div class="ttdeci">CImGuiManager * self</div><div class="ttdef"><b>Definition</b> ImGuiManager.h:19</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_ad68fd99ee46e73a145661c4c85612bf.html">UI</a></li><li class="navelem"><a class="el" href="ImGuiManager_8h.html">ImGuiManager.h</a></li>
+    <li class="footer">æ§‹ç¯‰: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

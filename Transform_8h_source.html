@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Components/Transform.h „ÇΩ„Éº„Çπ„Éï„Ç°„Ç§„É´</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- ÊßãÁØâ: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Ê§úÁ¥¢');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('Transform_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Ë™≠„ÅøÂèñ„Çä‰∏≠‚Ä¶</div>
+<div class="SRStatus" id="Searching">Ê§úÁ¥¢‰∏≠‚Ä¶</div>
+<div class="SRStatus" id="NoMatches">‰∏ÄËá¥„Åô„ÇãÊñáÂ≠óÂàó„ÇíË¶ã„Å§„Åë„Çâ„Çå„Åæ„Åõ„Çì</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Transform.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Transform_8h.html">[Ë©≥Ëß£]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//Transform.h</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//  Position,Rotation,ScaleÇÃä«óù</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//  Up,FrontÇ‡GetÇ≈Ç´ÇÈÇÊÇ§Ç…Ç∑ÇÈ</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">//  TODO : Up,Front,RightÇ©ÇÁÅAäpìxÇçƒê›íËÇ≈Ç´ÇÈÇ∆ÉxÉXÉg</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//  TODO : ÉNÉHÅ[É^ÉjÉIÉìÇ…ëŒâûÇ≈Ç´ÇÈÇ∆ó«Ç¢</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">//===== ÉCÉìÉNÉãÅ[Éh =====</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;DirectXMath.h&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="Component_8h.html">Component.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">//===== ÉNÉâÉXÇÃíËã` =====</span></div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classCTransform.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="classCTransform.html">CTransform</a> :<span class="keyword">public</span> <a class="code hl_class" href="classCComponent.html">CComponent</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">//ÉRÉìÉXÉgÉâÉNÉ^</span></div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classCTransform.html#a27c3b0a9b5f6a8ba184402931dc825e9">   17</a></span>    <a class="code hl_function" href="classCTransform.html#a27c3b0a9b5f6a8ba184402931dc825e9">CTransform</a></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    (</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        DirectX::XMFLOAT3 _Position = { 0.0f, 0.0f, 0.0f },</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        DirectX::XMFLOAT3 _Rotation = { 0.0f, 0.0f, 0.0f },</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        DirectX::XMFLOAT3 _Scale    = { 1.0f, 1.0f, 1.0f }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    )</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        : <a class="code hl_class" href="classCComponent.html">CComponent</a>(<span class="stringliteral">&quot;Transform&quot;</span>)<span class="comment">//äÓñ{ÇÕÉRÉìÉ|Å[ÉlÉìÉgÇÃéÌóﬁ</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        , <a class="code hl_variable" href="classCTransform.html#abecc2aeb1df30a4df98c4a8c9213e9b3">m_Position</a>(_Position) <span class="comment">//à íu</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        , <a class="code hl_variable" href="classCTransform.html#ac3f7e8a553ca7d367aec39d5d83c67e4">m_Rotation</a>(_Rotation) <span class="comment">//âÒì]</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        , <a class="code hl_variable" href="classCTransform.html#a164ab8e7d129fa46fa3243e4a566c5d3">m_Scale</a>   (_Scale)    <span class="comment">//ÉXÉPÅ[Éã</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
+</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment">//ÉfÉXÉgÉâÉNÉ^</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classCTransform.html#a33fc62cfa0c6e4b395a5cea72e88c4ab">   31</a></span>    <a class="code hl_function" href="classCTransform.html#a33fc62cfa0c6e4b395a5cea72e88c4ab">~CTransform</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="comment">//----- ï÷óòÇ»Getter -----</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="comment">//FrontÇÃéÊìæ</span></div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classCTransform.html#a3cdce4e534397e2a0862f8d19cb52a29">   35</a></span>    DirectX::XMFLOAT3 <a class="code hl_function" href="classCTransform.html#a3cdce4e534397e2a0862f8d19cb52a29">GetFront</a>()</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="comment">//âÒì]çsóÒÇÃçÏê¨</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        DirectX::XMMATRIX rotMat = DirectX::XMMatrixRotationRollPitchYaw(<a class="code hl_variable" href="classCTransform.html#ac3f7e8a553ca7d367aec39d5d83c67e4">m_Rotation</a>.x, <a class="code hl_variable" href="classCTransform.html#ac3f7e8a553ca7d367aec39d5d83c67e4">m_Rotation</a>.y, <a class="code hl_variable" href="classCTransform.html#ac3f7e8a553ca7d367aec39d5d83c67e4">m_Rotation</a>.z);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="comment">//âÒì]çsóÒÇ©ÇÁFrontÇéÊÇËèoÇ∑</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        DirectX::XMFLOAT3 front;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        front = { rotMat.r[2].m128_f32[0], rotMat.r[2].m128_f32[1], rotMat.r[2].m128_f32[2] };</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">return</span> front;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
+</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="comment">//UpÇÃéÊìæ</span></div>
+<div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classCTransform.html#a6d410903adb4501487e2d50efd4b770a">   48</a></span>    DirectX::XMFLOAT3 <a class="code hl_function" href="classCTransform.html#a6d410903adb4501487e2d50efd4b770a">GetUp</a>()</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="comment">//âÒì]çsóÒÇÃçÏê¨</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        DirectX::XMMATRIX rotMat = DirectX::XMMatrixRotationRollPitchYaw(<a class="code hl_variable" href="classCTransform.html#ac3f7e8a553ca7d367aec39d5d83c67e4">m_Rotation</a>.x, <a class="code hl_variable" href="classCTransform.html#ac3f7e8a553ca7d367aec39d5d83c67e4">m_Rotation</a>.y, <a class="code hl_variable" href="classCTransform.html#ac3f7e8a553ca7d367aec39d5d83c67e4">m_Rotation</a>.z);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="comment">//âÒì]çsóÒÇ©ÇÁFrontÇéÊÇËèoÇ∑</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        DirectX::XMFLOAT3 up;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        up = { rotMat.r[1].m128_f32[0], rotMat.r[1].m128_f32[1], rotMat.r[1].m128_f32[2] };</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">return</span> up;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
+</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classCTransform.html#afde584a6564af5c8fa575da905f67678">   60</a></span>    DirectX::XMFLOAT3 <a class="code hl_function" href="classCTransform.html#afde584a6564af5c8fa575da905f67678">GetRight</a>()</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="comment">//âÒì]çsóÒÇÃçÏê¨</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        DirectX::XMMATRIX rotMat = DirectX::XMMatrixRotationRollPitchYaw(<a class="code hl_variable" href="classCTransform.html#ac3f7e8a553ca7d367aec39d5d83c67e4">m_Rotation</a>.x, <a class="code hl_variable" href="classCTransform.html#ac3f7e8a553ca7d367aec39d5d83c67e4">m_Rotation</a>.y, <a class="code hl_variable" href="classCTransform.html#ac3f7e8a553ca7d367aec39d5d83c67e4">m_Rotation</a>.z);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="comment">//âÒì]çsóÒÇ©ÇÁFrontÇéÊÇËèoÇ∑</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        DirectX::XMFLOAT3 right;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        right = { rotMat.r[0].m128_f32[0], rotMat.r[0].m128_f32[1], rotMat.r[0].m128_f32[2] };</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordflow">return</span> right;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    }</div>
+</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="comment">//WorldçsóÒÇÃéÊìæ</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    DirectX::XMMATRIX <a class="code hl_function" href="classCTransform.html#ad2841e5d35abb8c447d89b9291d98874">GetWorld</a>();</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="comment">//TODO:Up,Front,RightÇ©ÇÁÅAäpìxÇçƒê›íË</span></div>
+<div class="foldopen" id="foldopen00074" data-start="{" data-end="}">
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classCTransform.html#a7bdc1b928f2c7418843b887ccafb71a7">   74</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCTransform.html#a7bdc1b928f2c7418843b887ccafb71a7">SetRotationFromUpFront</a>(DirectX::XMFLOAT3 _Up, DirectX::XMFLOAT3 _Front)</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="comment">//RightÇÃåvéZ</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        DirectX::XMFLOAT3 right;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        right.x = _Up.y * _Front.z - _Up.z * _Front.y;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        right.y = _Up.z * _Front.x - _Up.x * _Front.z;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        right.z = _Up.x * _Front.y - _Up.y * _Front.x;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="comment">//âÒì]çsóÒÇÃçÏê¨</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        DirectX::XMMATRIX rotMat = DirectX::XMMatrixIdentity();</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        rotMat.r[0] = DirectX::XMVectorSet(right.x, right.y, right.z, 0.0f);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        rotMat.r[1] = DirectX::XMVectorSet(_Up.x, _Up.y, _Up.z, 0.0f);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        rotMat.r[2] = DirectX::XMVectorSet(_Front.x, _Front.y, _Front.z, 0.0f);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="comment">//âÒì]çsóÒÇ©ÇÁÉIÉCÉâÅ[äpÇéÊÇËèoÇ∑</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <a class="code hl_variable" href="classCTransform.html#ac3f7e8a553ca7d367aec39d5d83c67e4">m_Rotation</a>.y = atan2f(rotMat.r[2].m128_f32[0], rotMat.r[2].m128_f32[2]);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <a class="code hl_variable" href="classCTransform.html#ac3f7e8a553ca7d367aec39d5d83c67e4">m_Rotation</a>.x = asinf(-rotMat.r[2].m128_f32[1]);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <a class="code hl_variable" href="classCTransform.html#ac3f7e8a553ca7d367aec39d5d83c67e4">m_Rotation</a>.z = atan2f(rotMat.r[1].m128_f32[1], rotMat.r[0].m128_f32[1]);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    }</div>
+</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="comment">//à íuÅAâÒì]ÅAÉXÉPÅ[Éã</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="classCTransform.html#abecc2aeb1df30a4df98c4a8c9213e9b3">   94</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="classCTransform.html#abecc2aeb1df30a4df98c4a8c9213e9b3">m_Position</a>    = { 0.0f, 0.0f, 0.0f };    <span class="comment">//à íu</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classCTransform.html#ac3f7e8a553ca7d367aec39d5d83c67e4">   95</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="classCTransform.html#ac3f7e8a553ca7d367aec39d5d83c67e4">m_Rotation</a>    = { 0.0f, 0.0f, 0.0f };    <span class="comment">//âÒì]</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classCTransform.html#a164ab8e7d129fa46fa3243e4a566c5d3">   96</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="classCTransform.html#a164ab8e7d129fa46fa3243e4a566c5d3">m_Scale</a>       = { 1.0f, 1.0f, 1.0f };    <span class="comment">//ÉXÉPÅ[Éã</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classCTransform.html#a62fd0b10d59c09bf1e176cfeae4d777c">   97</a></span>    DirectX::XMFLOAT2 <a class="code hl_variable" href="classCTransform.html#a62fd0b10d59c09bf1e176cfeae4d777c">m_UVOffset</a>    = { 0.0f, 0.0f };          <span class="comment">//UVÉIÉtÉZÉbÉg</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="classCTransform.html#a5c59bb71df7c05c73e72843313e86674">   98</a></span>    DirectX::XMFLOAT2 <a class="code hl_variable" href="classCTransform.html#a5c59bb71df7c05c73e72843313e86674">m_UVScale</a>     = { 1.0f, 1.0f };          <span class="comment">//UVÉXÉPÅ[Éã</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="comment">//TODO: ÉNÉHÅ[É^ÉjÉIÉìÇ…ëŒâû</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="comment">//----- ïÅí ÇÃGetter,Setter -----</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="classCTransform.html#ad7c94c2950821e1ed63e2e09eb263e09">  104</a></span>    DirectX::XMFLOAT3 <a class="code hl_function" href="classCTransform.html#ad7c94c2950821e1ed63e2e09eb263e09">GetPos</a>() { <span class="keywordflow">return</span> <a class="code hl_variable" href="classCTransform.html#abecc2aeb1df30a4df98c4a8c9213e9b3">m_Position</a>; }</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classCTransform.html#ae3df970e13e48d437f5bc40faf2bdd06">  105</a></span>    <span class="keywordtype">void</span>    <a class="code hl_function" href="classCTransform.html#ae3df970e13e48d437f5bc40faf2bdd06">SetPos</a>(DirectX::XMFLOAT3 _Position) { <a class="code hl_variable" href="classCTransform.html#abecc2aeb1df30a4df98c4a8c9213e9b3">m_Position</a> = _Position; }</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="classCTransform.html#ae5f93d6c4367c5488abf40fa0e7b9184">  107</a></span>    DirectX::XMFLOAT3   <a class="code hl_function" href="classCTransform.html#ae5f93d6c4367c5488abf40fa0e7b9184">GetScale</a>() { <span class="keywordflow">return</span> <a class="code hl_variable" href="classCTransform.html#a164ab8e7d129fa46fa3243e4a566c5d3">m_Scale</a>; }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="classCTransform.html#a46595c03d572680a0d4e42526f541633">  108</a></span>    <span class="keywordtype">void</span>    <a class="code hl_function" href="classCTransform.html#a46595c03d572680a0d4e42526f541633">SetScale</a>(DirectX::XMFLOAT3 _Scale) { <a class="code hl_variable" href="classCTransform.html#a164ab8e7d129fa46fa3243e4a566c5d3">m_Scale</a> = _Scale; }</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classCTransform.html#a04aee9c5819d14058c1e93976e8c88d0">  110</a></span>    DirectX::XMFLOAT3   <a class="code hl_function" href="classCTransform.html#a04aee9c5819d14058c1e93976e8c88d0">GetRotation</a>() { <span class="keywordflow">return</span> <a class="code hl_variable" href="classCTransform.html#ac3f7e8a553ca7d367aec39d5d83c67e4">m_Rotation</a>; }</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="classCTransform.html#a9062bb1bc1304205b6a43ecd88b581d0">  111</a></span>    <span class="keywordtype">void</span>    <a class="code hl_function" href="classCTransform.html#a9062bb1bc1304205b6a43ecd88b581d0">SetRotation</a>(DirectX::XMFLOAT3 _Rotation) { <a class="code hl_variable" href="classCTransform.html#ac3f7e8a553ca7d367aec39d5d83c67e4">m_Rotation</a> = _Rotation; }</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="classCTransform.html#a97323574f89d8ed7507841ee1e0fbd39">  113</a></span>    DirectX::XMFLOAT2   <a class="code hl_function" href="classCTransform.html#a97323574f89d8ed7507841ee1e0fbd39">GetUVOffset</a>() { <span class="keywordflow">return</span> <a class="code hl_variable" href="classCTransform.html#a62fd0b10d59c09bf1e176cfeae4d777c">m_UVOffset</a>; }</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="classCTransform.html#aa1de035fb540969248911da7e2df24dd">  114</a></span>    <span class="keywordtype">void</span>    <a class="code hl_function" href="classCTransform.html#aa1de035fb540969248911da7e2df24dd">SetUVOffset</a>(DirectX::XMFLOAT2 _UVOffset) { <a class="code hl_variable" href="classCTransform.html#a62fd0b10d59c09bf1e176cfeae4d777c">m_UVOffset</a> = _UVOffset; }</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="classCTransform.html#a49dbfe059e709cc908ad302cf31d1a63">  116</a></span>    DirectX::XMFLOAT2   <a class="code hl_function" href="classCTransform.html#a49dbfe059e709cc908ad302cf31d1a63">GetUVScale</a>() { <span class="keywordflow">return</span> <a class="code hl_variable" href="classCTransform.html#a5c59bb71df7c05c73e72843313e86674">m_UVScale</a>; }</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="classCTransform.html#ac63642c6cc22e421f94ead3bdf7e47bb">  117</a></span>    <span class="keywordtype">void</span>    <a class="code hl_function" href="classCTransform.html#ac63642c6cc22e421f94ead3bdf7e47bb">SetUVScale</a>(DirectX::XMFLOAT2 _UVScale) { <a class="code hl_variable" href="classCTransform.html#a5c59bb71df7c05c73e72843313e86674">m_UVScale</a> = _UVScale; }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>};</div>
+</div>
+<div class="ttc" id="aComponent_8h_html"><div class="ttname"><a href="Component_8h.html">Component.h</a></div></div>
+<div class="ttc" id="aclassCComponent_html"><div class="ttname"><a href="classCComponent.html">CComponent</a></div><div class="ttdef"><b>Definition</b> Component.h:22</div></div>
+<div class="ttc" id="aclassCTransform_html"><div class="ttname"><a href="classCTransform.html">CTransform</a></div><div class="ttdef"><b>Definition</b> Transform.h:14</div></div>
+<div class="ttc" id="aclassCTransform_html_a04aee9c5819d14058c1e93976e8c88d0"><div class="ttname"><a href="classCTransform.html#a04aee9c5819d14058c1e93976e8c88d0">CTransform::GetRotation</a></div><div class="ttdeci">DirectX::XMFLOAT3 GetRotation()</div><div class="ttdef"><b>Definition</b> Transform.h:110</div></div>
+<div class="ttc" id="aclassCTransform_html_a164ab8e7d129fa46fa3243e4a566c5d3"><div class="ttname"><a href="classCTransform.html#a164ab8e7d129fa46fa3243e4a566c5d3">CTransform::m_Scale</a></div><div class="ttdeci">DirectX::XMFLOAT3 m_Scale</div><div class="ttdef"><b>Definition</b> Transform.h:96</div></div>
+<div class="ttc" id="aclassCTransform_html_a27c3b0a9b5f6a8ba184402931dc825e9"><div class="ttname"><a href="classCTransform.html#a27c3b0a9b5f6a8ba184402931dc825e9">CTransform::CTransform</a></div><div class="ttdeci">CTransform(DirectX::XMFLOAT3 _Position={ 0.0f, 0.0f, 0.0f }, DirectX::XMFLOAT3 _Rotation={ 0.0f, 0.0f, 0.0f }, DirectX::XMFLOAT3 _Scale={ 1.0f, 1.0f, 1.0f })</div><div class="ttdef"><b>Definition</b> Transform.h:18</div></div>
+<div class="ttc" id="aclassCTransform_html_a33fc62cfa0c6e4b395a5cea72e88c4ab"><div class="ttname"><a href="classCTransform.html#a33fc62cfa0c6e4b395a5cea72e88c4ab">CTransform::~CTransform</a></div><div class="ttdeci">~CTransform()=default</div></div>
+<div class="ttc" id="aclassCTransform_html_a3cdce4e534397e2a0862f8d19cb52a29"><div class="ttname"><a href="classCTransform.html#a3cdce4e534397e2a0862f8d19cb52a29">CTransform::GetFront</a></div><div class="ttdeci">DirectX::XMFLOAT3 GetFront()</div><div class="ttdef"><b>Definition</b> Transform.h:35</div></div>
+<div class="ttc" id="aclassCTransform_html_a46595c03d572680a0d4e42526f541633"><div class="ttname"><a href="classCTransform.html#a46595c03d572680a0d4e42526f541633">CTransform::SetScale</a></div><div class="ttdeci">void SetScale(DirectX::XMFLOAT3 _Scale)</div><div class="ttdef"><b>Definition</b> Transform.h:108</div></div>
+<div class="ttc" id="aclassCTransform_html_a49dbfe059e709cc908ad302cf31d1a63"><div class="ttname"><a href="classCTransform.html#a49dbfe059e709cc908ad302cf31d1a63">CTransform::GetUVScale</a></div><div class="ttdeci">DirectX::XMFLOAT2 GetUVScale()</div><div class="ttdef"><b>Definition</b> Transform.h:116</div></div>
+<div class="ttc" id="aclassCTransform_html_a5c59bb71df7c05c73e72843313e86674"><div class="ttname"><a href="classCTransform.html#a5c59bb71df7c05c73e72843313e86674">CTransform::m_UVScale</a></div><div class="ttdeci">DirectX::XMFLOAT2 m_UVScale</div><div class="ttdef"><b>Definition</b> Transform.h:98</div></div>
+<div class="ttc" id="aclassCTransform_html_a62fd0b10d59c09bf1e176cfeae4d777c"><div class="ttname"><a href="classCTransform.html#a62fd0b10d59c09bf1e176cfeae4d777c">CTransform::m_UVOffset</a></div><div class="ttdeci">DirectX::XMFLOAT2 m_UVOffset</div><div class="ttdef"><b>Definition</b> Transform.h:97</div></div>
+<div class="ttc" id="aclassCTransform_html_a6d410903adb4501487e2d50efd4b770a"><div class="ttname"><a href="classCTransform.html#a6d410903adb4501487e2d50efd4b770a">CTransform::GetUp</a></div><div class="ttdeci">DirectX::XMFLOAT3 GetUp()</div><div class="ttdef"><b>Definition</b> Transform.h:48</div></div>
+<div class="ttc" id="aclassCTransform_html_a7bdc1b928f2c7418843b887ccafb71a7"><div class="ttname"><a href="classCTransform.html#a7bdc1b928f2c7418843b887ccafb71a7">CTransform::SetRotationFromUpFront</a></div><div class="ttdeci">void SetRotationFromUpFront(DirectX::XMFLOAT3 _Up, DirectX::XMFLOAT3 _Front)</div><div class="ttdef"><b>Definition</b> Transform.h:74</div></div>
+<div class="ttc" id="aclassCTransform_html_a9062bb1bc1304205b6a43ecd88b581d0"><div class="ttname"><a href="classCTransform.html#a9062bb1bc1304205b6a43ecd88b581d0">CTransform::SetRotation</a></div><div class="ttdeci">void SetRotation(DirectX::XMFLOAT3 _Rotation)</div><div class="ttdef"><b>Definition</b> Transform.h:111</div></div>
+<div class="ttc" id="aclassCTransform_html_a97323574f89d8ed7507841ee1e0fbd39"><div class="ttname"><a href="classCTransform.html#a97323574f89d8ed7507841ee1e0fbd39">CTransform::GetUVOffset</a></div><div class="ttdeci">DirectX::XMFLOAT2 GetUVOffset()</div><div class="ttdef"><b>Definition</b> Transform.h:113</div></div>
+<div class="ttc" id="aclassCTransform_html_aa1de035fb540969248911da7e2df24dd"><div class="ttname"><a href="classCTransform.html#aa1de035fb540969248911da7e2df24dd">CTransform::SetUVOffset</a></div><div class="ttdeci">void SetUVOffset(DirectX::XMFLOAT2 _UVOffset)</div><div class="ttdef"><b>Definition</b> Transform.h:114</div></div>
+<div class="ttc" id="aclassCTransform_html_abecc2aeb1df30a4df98c4a8c9213e9b3"><div class="ttname"><a href="classCTransform.html#abecc2aeb1df30a4df98c4a8c9213e9b3">CTransform::m_Position</a></div><div class="ttdeci">DirectX::XMFLOAT3 m_Position</div><div class="ttdef"><b>Definition</b> Transform.h:94</div></div>
+<div class="ttc" id="aclassCTransform_html_ac3f7e8a553ca7d367aec39d5d83c67e4"><div class="ttname"><a href="classCTransform.html#ac3f7e8a553ca7d367aec39d5d83c67e4">CTransform::m_Rotation</a></div><div class="ttdeci">DirectX::XMFLOAT3 m_Rotation</div><div class="ttdef"><b>Definition</b> Transform.h:95</div></div>
+<div class="ttc" id="aclassCTransform_html_ac63642c6cc22e421f94ead3bdf7e47bb"><div class="ttname"><a href="classCTransform.html#ac63642c6cc22e421f94ead3bdf7e47bb">CTransform::SetUVScale</a></div><div class="ttdeci">void SetUVScale(DirectX::XMFLOAT2 _UVScale)</div><div class="ttdef"><b>Definition</b> Transform.h:117</div></div>
+<div class="ttc" id="aclassCTransform_html_ad2841e5d35abb8c447d89b9291d98874"><div class="ttname"><a href="classCTransform.html#ad2841e5d35abb8c447d89b9291d98874">CTransform::GetWorld</a></div><div class="ttdeci">DirectX::XMMATRIX GetWorld()</div><div class="ttdef"><b>Definition</b> Transform.cpp:5</div></div>
+<div class="ttc" id="aclassCTransform_html_ad7c94c2950821e1ed63e2e09eb263e09"><div class="ttname"><a href="classCTransform.html#ad7c94c2950821e1ed63e2e09eb263e09">CTransform::GetPos</a></div><div class="ttdeci">DirectX::XMFLOAT3 GetPos()</div><div class="ttdef"><b>Definition</b> Transform.h:104</div></div>
+<div class="ttc" id="aclassCTransform_html_ae3df970e13e48d437f5bc40faf2bdd06"><div class="ttname"><a href="classCTransform.html#ae3df970e13e48d437f5bc40faf2bdd06">CTransform::SetPos</a></div><div class="ttdeci">void SetPos(DirectX::XMFLOAT3 _Position)</div><div class="ttdef"><b>Definition</b> Transform.h:105</div></div>
+<div class="ttc" id="aclassCTransform_html_ae5f93d6c4367c5488abf40fa0e7b9184"><div class="ttname"><a href="classCTransform.html#ae5f93d6c4367c5488abf40fa0e7b9184">CTransform::GetScale</a></div><div class="ttdeci">DirectX::XMFLOAT3 GetScale()</div><div class="ttdef"><b>Definition</b> Transform.h:107</div></div>
+<div class="ttc" id="aclassCTransform_html_afde584a6564af5c8fa575da905f67678"><div class="ttname"><a href="classCTransform.html#afde584a6564af5c8fa575da905f67678">CTransform::GetRight</a></div><div class="ttdeci">DirectX::XMFLOAT3 GetRight()</div><div class="ttdef"><b>Definition</b> Transform.h:60</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_5063f357ccae33c483b97cdd1e318acc.html">Components</a></li><li class="navelem"><a class="el" href="Transform_8h.html">Transform.h</a></li>
+    <li class="footer">ÊßãÁØâ: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Audio クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classAudio.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="#pri-static-attribs">静的非公開変数類</a> &#124;
+<a href="classAudio-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">Audio クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="audio_8h_source.html">audio.h</a>&gt;</code></p>
+<div class="dynheader">
+Audio の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classAudio__inherit__graph.svg" width="118" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+Audio 連携図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classAudio__coll__graph.svg" width="131" height="199"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:aa9d3935a2b91ab4b825bc0cb05f245ea" id="r_aa9d3935a2b91ab4b825bc0cb05f245ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html#aa9d3935a2b91ab4b825bc0cb05f245ea">Audio</a> ()</td></tr>
+<tr class="separator:aa9d3935a2b91ab4b825bc0cb05f245ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8f54deecb5f48511aaab469e80294d6" id="r_ae8f54deecb5f48511aaab469e80294d6"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html#ae8f54deecb5f48511aaab469e80294d6">~Audio</a> ()</td></tr>
+<tr class="separator:ae8f54deecb5f48511aaab469e80294d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20012212e1892319f8a3b7c79e04500d" id="r_a20012212e1892319f8a3b7c79e04500d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html#a20012212e1892319f8a3b7c79e04500d">Load</a> (const char *FileName)</td></tr>
+<tr class="separator:a20012212e1892319f8a3b7c79e04500d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1911ef8f952ea46ca519fda73c818825" id="r_a1911ef8f952ea46ca519fda73c818825"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html#a1911ef8f952ea46ca519fda73c818825">Play</a> (bool Loop=false)</td></tr>
+<tr class="separator:a1911ef8f952ea46ca519fda73c818825"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classCComponent"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCComponent')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCComponent.html">CComponent</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:ab87a6940be69962c3f4f5a8552643245 inherit pub_methods_classCComponent" id="r_ab87a6940be69962c3f4f5a8552643245"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ab87a6940be69962c3f4f5a8552643245">CComponent</a> ()</td></tr>
+<tr class="separator:ab87a6940be69962c3f4f5a8552643245 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accf17908f97e4d07d7f04fbde292dcda inherit pub_methods_classCComponent" id="r_accf17908f97e4d07d7f04fbde292dcda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#accf17908f97e4d07d7f04fbde292dcda">CComponent</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:accf17908f97e4d07d7f04fbde292dcda inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2ad4d80f616aedbf6b08f33bdd9d2d5 inherit pub_methods_classCComponent" id="r_af2ad4d80f616aedbf6b08f33bdd9d2d5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#af2ad4d80f616aedbf6b08f33bdd9d2d5">~CComponent</a> ()=default</td></tr>
+<tr class="separator:af2ad4d80f616aedbf6b08f33bdd9d2d5 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9bf36b35de54f49a3d604da091228a4 inherit pub_methods_classCComponent" id="r_ac9bf36b35de54f49a3d604da091228a4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ac9bf36b35de54f49a3d604da091228a4">Init</a> ()</td></tr>
+<tr class="separator:ac9bf36b35de54f49a3d604da091228a4 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a281a46452f6f59625e5488936cd70aa7 inherit pub_methods_classCComponent" id="r_a281a46452f6f59625e5488936cd70aa7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a281a46452f6f59625e5488936cd70aa7">GetName</a> () const</td></tr>
+<tr class="separator:a281a46452f6f59625e5488936cd70aa7 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf4188a21189f533eed52041962cafd4 inherit pub_methods_classCComponent" id="r_abf4188a21189f533eed52041962cafd4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#abf4188a21189f533eed52041962cafd4">GetIsVarid</a> () const</td></tr>
+<tr class="separator:abf4188a21189f533eed52041962cafd4 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5bf6fd967c58b6784aa399a27ce0eaa inherit pub_methods_classCComponent" id="r_ad5bf6fd967c58b6784aa399a27ce0eaa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ad5bf6fd967c58b6784aa399a27ce0eaa">SetName</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:ad5bf6fd967c58b6784aa399a27ce0eaa inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96b82c9108e83190f29a5dd8bafe59fe inherit pub_methods_classCComponent" id="r_a96b82c9108e83190f29a5dd8bafe59fe"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a96b82c9108e83190f29a5dd8bafe59fe">SetIsValid</a> (bool _IsValid)</td></tr>
+<tr class="separator:a96b82c9108e83190f29a5dd8bafe59fe inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ababe3aca6f026b146eb458dab2a57587 inherit pub_methods_classCComponent" id="r_ababe3aca6f026b146eb458dab2a57587"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ababe3aca6f026b146eb458dab2a57587">SetOwner</a> (<a class="el" href="classCObject.html">CObject</a> *_Object)</td></tr>
+<tr class="separator:ababe3aca6f026b146eb458dab2a57587 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静的公開メンバ関数</h2></td></tr>
+<tr class="memitem:ac6c527111f116bce0a4be14c6226853b" id="r_ac6c527111f116bce0a4be14c6226853b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html#ac6c527111f116bce0a4be14c6226853b">InitMaster</a> ()</td></tr>
+<tr class="separator:ac6c527111f116bce0a4be14c6226853b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac058785e0bd28e2dbee9eb5e9300dfce" id="r_ac058785e0bd28e2dbee9eb5e9300dfce"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html#ac058785e0bd28e2dbee9eb5e9300dfce">UninitMaster</a> ()</td></tr>
+<tr class="separator:ac058785e0bd28e2dbee9eb5e9300dfce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:adeb6d2aa6370a50b3aded3e7a51fcb3f" id="r_adeb6d2aa6370a50b3aded3e7a51fcb3f"><td class="memItemLeft" align="right" valign="top">IXAudio2SourceVoice *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html#adeb6d2aa6370a50b3aded3e7a51fcb3f">_sourceVoice</a> {}</td></tr>
+<tr class="separator:adeb6d2aa6370a50b3aded3e7a51fcb3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae13bef2fb1c4d0265daf47b71a46484f" id="r_ae13bef2fb1c4d0265daf47b71a46484f"><td class="memItemLeft" align="right" valign="top">BYTE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html#ae13bef2fb1c4d0265daf47b71a46484f">_soundData</a> {}</td></tr>
+<tr class="separator:ae13bef2fb1c4d0265daf47b71a46484f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95d5ed628f810bfe682c8874c0cc119a" id="r_a95d5ed628f810bfe682c8874c0cc119a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html#a95d5ed628f810bfe682c8874c0cc119a">_length</a> {}</td></tr>
+<tr class="separator:a95d5ed628f810bfe682c8874c0cc119a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa050c5345c7910bb27c82d63dee08e8a" id="r_aa050c5345c7910bb27c82d63dee08e8a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html#aa050c5345c7910bb27c82d63dee08e8a">_playLength</a> {}</td></tr>
+<tr class="separator:aa050c5345c7910bb27c82d63dee08e8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
+静的非公開変数類</h2></td></tr>
+<tr class="memitem:a59caa3f448059845afe7bc6d8dba701b" id="r_a59caa3f448059845afe7bc6d8dba701b"><td class="memItemLeft" align="right" valign="top">static IXAudio2 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html#a59caa3f448059845afe7bc6d8dba701b">_XAudio</a> = NULL</td></tr>
+<tr class="separator:a59caa3f448059845afe7bc6d8dba701b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1546b28356e456f7db468af824760bdb" id="r_a1546b28356e456f7db468af824760bdb"><td class="memItemLeft" align="right" valign="top">static IXAudio2MasteringVoice *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html#a1546b28356e456f7db468af824760bdb">_masteringVoice</a> = NULL</td></tr>
+<tr class="separator:a1546b28356e456f7db468af824760bdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+その他の継承メンバ</h2></td></tr>
+<tr class="inherit_header pro_attribs_classCComponent"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classCComponent')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCComponent.html">CComponent</a> に属する継承限定公開変数類</td></tr>
+<tr class="memitem:a76959a9e98ef06163c56858026e9da5b inherit pro_attribs_classCComponent" id="r_a76959a9e98ef06163c56858026e9da5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a76959a9e98ef06163c56858026e9da5b">m_Owner</a></td></tr>
+<tr class="separator:a76959a9e98ef06163c56858026e9da5b inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4918d7f95edb1a545724dab2be500e75 inherit pro_attribs_classCComponent" id="r_a4918d7f95edb1a545724dab2be500e75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a4918d7f95edb1a545724dab2be500e75">m_ComponentName</a> = &quot;&quot;</td></tr>
+<tr class="separator:a4918d7f95edb1a545724dab2be500e75 inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f8c7080b1f9972952ceda4e155568cb inherit pro_attribs_classCComponent" id="r_a8f8c7080b1f9972952ceda4e155568cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a8f8c7080b1f9972952ceda4e155568cb">m_ComponentIsValid</a></td></tr>
+<tr class="separator:a8f8c7080b1f9972952ceda4e155568cb inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="aa9d3935a2b91ab4b825bc0cb05f245ea" name="aa9d3935a2b91ab4b825bc0cb05f245ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9d3935a2b91ab4b825bc0cb05f245ea">&#9670;&#160;</a></span>Audio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Audio::Audio </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae8f54deecb5f48511aaab469e80294d6" name="ae8f54deecb5f48511aaab469e80294d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8f54deecb5f48511aaab469e80294d6">&#9670;&#160;</a></span>~Audio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Audio::~Audio </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="ac6c527111f116bce0a4be14c6226853b" name="ac6c527111f116bce0a4be14c6226853b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6c527111f116bce0a4be14c6226853b">&#9670;&#160;</a></span>InitMaster()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Audio::InitMaster </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classAudio_ac6c527111f116bce0a4be14c6226853b_icgraph.svg" width="271" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a20012212e1892319f8a3b7c79e04500d" name="a20012212e1892319f8a3b7c79e04500d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20012212e1892319f8a3b7c79e04500d">&#9670;&#160;</a></span>Load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Audio::Load </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>FileName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classAudio_a20012212e1892319f8a3b7c79e04500d_icgraph.svg" width="290" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a1911ef8f952ea46ca519fda73c818825" name="a1911ef8f952ea46ca519fda73c818825"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1911ef8f952ea46ca519fda73c818825">&#9670;&#160;</a></span>Play()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Audio::Play </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>Loop</em> = <code>false</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classAudio_a1911ef8f952ea46ca519fda73c818825_icgraph.svg" width="272" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac058785e0bd28e2dbee9eb5e9300dfce" name="ac058785e0bd28e2dbee9eb5e9300dfce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac058785e0bd28e2dbee9eb5e9300dfce">&#9670;&#160;</a></span>UninitMaster()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Audio::UninitMaster </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classAudio_ac058785e0bd28e2dbee9eb5e9300dfce_icgraph.svg" width="288" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a95d5ed628f810bfe682c8874c0cc119a" name="a95d5ed628f810bfe682c8874c0cc119a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95d5ed628f810bfe682c8874c0cc119a">&#9670;&#160;</a></span>_length</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Audio::_length {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1546b28356e456f7db468af824760bdb" name="a1546b28356e456f7db468af824760bdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1546b28356e456f7db468af824760bdb">&#9670;&#160;</a></span>_masteringVoice</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IXAudio2MasteringVoice * Audio::_masteringVoice = NULL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa050c5345c7910bb27c82d63dee08e8a" name="aa050c5345c7910bb27c82d63dee08e8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa050c5345c7910bb27c82d63dee08e8a">&#9670;&#160;</a></span>_playLength</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Audio::_playLength {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae13bef2fb1c4d0265daf47b71a46484f" name="ae13bef2fb1c4d0265daf47b71a46484f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae13bef2fb1c4d0265daf47b71a46484f">&#9670;&#160;</a></span>_soundData</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">BYTE* Audio::_soundData {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adeb6d2aa6370a50b3aded3e7a51fcb3f" name="adeb6d2aa6370a50b3aded3e7a51fcb3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adeb6d2aa6370a50b3aded3e7a51fcb3f">&#9670;&#160;</a></span>_sourceVoice</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IXAudio2SourceVoice* Audio::_sourceVoice {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a59caa3f448059845afe7bc6d8dba701b" name="a59caa3f448059845afe7bc6d8dba701b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59caa3f448059845afe7bc6d8dba701b">&#9670;&#160;</a></span>_XAudio</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IXAudio2 * Audio::_XAudio = NULL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/Util/<a class="el" href="audio_8h_source.html">audio.h</a></li>
+<li>Source/Util/<a class="el" href="audio_8cpp.html">audio.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classAudio.html">Audio</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>
