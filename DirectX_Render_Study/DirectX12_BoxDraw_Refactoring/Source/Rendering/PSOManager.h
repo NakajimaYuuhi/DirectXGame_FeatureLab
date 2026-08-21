@@ -1,4 +1,7 @@
 #pragma once
+#include "Material.h"
+#include <string>
+#include <unordered_map>
 
 #include <d3d12.h>
 #include <wrl.h>
@@ -16,6 +19,15 @@ public:
 
     void Init(ID3D12Device* device);
 
+	// 蜍慕噪PSO逕滓・
+	ID3D12PipelineState* GetPSO(CMaterial* material, ID3D12RootSignature* rootSig);
+
+private:
+	// PSO繧ｭ繝｣繝・す繝･: 繧ｭ繝ｼ縺ｯ "繧ｷ繧ｧ繝ｼ繝繝ｼ繝代せ_繝悶Ξ繝ｳ繝峨Δ繝ｼ繝・ 縺ｪ縺ｩ縺ｮ荳諢上・譁・ｭ怜・
+	std::unordered_map<std::wstring, ComPtr<ID3D12PipelineState>> m_psoCache;
+
+
+public:
     ID3D12RootSignature* GetMeshRootSignature() const { return m_meshRootSignature.Get(); }
     ID3D12PipelineState* GetMeshPSO() const { return m_meshPipelineState.Get(); }
     ID3D12PipelineState* GetAdditivePSO() const { return m_additivePipelineState.Get(); }

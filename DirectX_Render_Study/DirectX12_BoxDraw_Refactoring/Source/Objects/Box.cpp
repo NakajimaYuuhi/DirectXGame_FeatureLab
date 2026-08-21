@@ -96,7 +96,7 @@ void CBox::Initialize(ID3D12Device* _Device)
 
     //頂点シェーダのコンパイル
     hr = D3DCompileFromFile(
-        L"Triangle.hlsl",
+        L"Assets/Shader/Triangle.hlsl",
         nullptr,
         nullptr,
         "VSMain",
@@ -109,7 +109,7 @@ void CBox::Initialize(ID3D12Device* _Device)
 
 	//ピクセルシェーダのコンパイル
     hr = D3DCompileFromFile(
-        L"Triangle.hlsl",
+        L"Assets/Shader/Triangle.hlsl",
         nullptr,
         nullptr,
         "PSMain",

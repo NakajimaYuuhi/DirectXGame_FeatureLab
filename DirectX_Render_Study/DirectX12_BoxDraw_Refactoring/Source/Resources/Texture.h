@@ -13,8 +13,9 @@ public:
     CTexture()
     {
     }
+    ~CTexture();
 
-    bool LoadTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdList,const wchar_t* filePath, int srvIndex);
+    bool LoadTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdList,const wchar_t* filePath);
 
     void  CreateSRV(ID3D12Device* device);
 
@@ -25,10 +26,7 @@ public:
     }
 
 
-    int GetSrvIndex() {
-        return m_srvIndex;
-    }
-    // SRV の GPU ハンドル（Mesh で使う用）
+    // SRV  GPU nhiMesh ?gpjで使う用）
 
 private:
     ComPtr<ID3D12Resource> texture;
@@ -38,8 +36,6 @@ private:
     DirectX::TexMetadata metadata;
     DirectX::ScratchImage scratch;
 
+    D3D12_CPU_DESCRIPTOR_HANDLE m_cpuHandle;
     D3D12_GPU_DESCRIPTOR_HANDLE m_gpuHandle;
-
-    //インデックス
-    int m_srvIndex;
 };

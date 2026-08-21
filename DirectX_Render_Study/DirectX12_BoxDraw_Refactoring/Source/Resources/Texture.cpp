@@ -1,9 +1,18 @@
 #include "Texture.h"
 #include "DX12Manager.h"
 
-bool CTexture::LoadTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdList, const wchar_t* filePath, int srvIndex)
+CTexture::~CTexture()
 {
-    // WICŒn (PNG/JPG/BMP)
+    if (m_cpuHandle.ptr != 0 && m_gpuHandle.ptr != 0) {
+        DX12Manager::GetInstance().GetSRVAllocator()->Free(m_cpuHandle, m_gpuHandle);
+        m_cpuHandle.ptr = 0;
+        m_gpuHandle.ptr = 0;
+    }
+}
+
+bool CTexture::LoadTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdList, const wchar_t* filePath)
+{
+    // WICç³» (PNG/JPG/BMP)
     HRESULT hr = DirectX::LoadFromWICFile(
         filePath,
         DirectX::WIC_FLAGS_NONE,
@@ -14,7 +23,7 @@ bool CTexture::LoadTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdL
 
     const DirectX::Image* img = scratch.GetImage(0, 0, 0);
 
-    // --- GPU—p‚ÌƒeƒNƒXƒ`ƒƒ
+    // --- GPUç”¨ã®ãƒ†ã‚¯ã‚¹ãƒãƒ£
     D3D12_RESOURCE_DESC texDesc = {};
     texDesc.Dimension = D3D12_RESOURCE_DIMENSION_TEXTURE2D;
     texDesc.Width = metadata.width;
@@ -55,7 +64,7 @@ bool CTexture::LoadTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdL
     );
     if (FAILED(hr)) return false;
 
-    // --- ƒTƒuƒŠƒ\[ƒX‚ÌƒRƒs[
+    // --- ã‚µãƒ–ãƒªã‚½ãƒ¼ã‚¹ã®ã‚³ãƒ”ãƒ¼
     D3D12_SUBRESOURCE_DATA textureData = {};
     textureData.pData = img->pixels;
     textureData.RowPitch = img->rowPitch;
@@ -63,7 +72,7 @@ bool CTexture::LoadTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdL
 
     UpdateSubresources(cmdList, texture.Get(), uploadHeap.Get(), 0, 0, metadata.mipLevels, &textureData);
 
-    // ÅŒã‚ÉƒVƒF[ƒ_[‚Å“Ç‚ß‚é‚æ‚¤‚É
+    // æœ€å¾Œã«ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ã§èª­ã‚ã‚‹ã‚ˆã†ã«
     CD3DX12_RESOURCE_BARRIER barrier =
         CD3DX12_RESOURCE_BARRIER::Transition(
             texture.Get(),
@@ -78,36 +87,25 @@ bool CTexture::LoadTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdL
 void CTexture::CreateSRV(ID3D12Device* device)
 {
 
-    // ‚±‚ê‚ð“ü‚ê‚é‚¾‚¯‚ÅA‚Æ‚è‚ ‚¦‚¸ƒNƒ‰ƒbƒVƒ…‚Í–h‚°‚é‚Í‚¸
+    // ã“ã‚Œã‚’å…¥ã‚Œã‚‹ã ã‘ã§ã€ã¨ã‚Šã‚ãˆãšã‚¯ãƒ©ãƒƒã‚·ãƒ¥ã¯é˜²ã’ã‚‹ã¯ãš
     if (!texture) {
-        OutputDebugStringA("Œx: ƒeƒNƒXƒ`ƒƒ‚ªƒ[ƒh‚³‚ê‚Ä‚¢‚Ü‚¹‚ñI\n");
+        OutputDebugStringA("è­¦å‘Š: ãƒ†ã‚¯ã‚¹ãƒãƒ£ãŒãƒ­ãƒ¼ãƒ‰ã•ã‚Œã¦ã„ã¾ã›ã‚“ï¼\n");
         return;
     }
 
     DX12Manager& dx12 = DX12Manager::GetInstance();
 
-    int index = dx12.AllocsrvNextIndex();
-    m_srvIndex = index;
+    dx12.GetSRVAllocator()->Alloc(&m_cpuHandle, &m_gpuHandle);
 
-
-    // ---- 2. SRV Ý’è ----
+    // ---- 2. SRV 
     D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
     srvDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
-    srvDesc.Format = metadata.format; // “Ç‚Ýž‚ñ‚¾‰æ‘œ‚ÌƒtƒH[ƒ}ƒbƒg
-    //srvDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+    srvDesc.Format = metadata.format; 
     srvDesc.ViewDimension = D3D12_SRV_DIMENSION_TEXTURE2D;
 
     srvDesc.Texture2D.MipLevels = texture->GetDesc().MipLevels;
     srvDesc.Texture2D.MostDetailedMip = 0;
     srvDesc.Texture2D.ResourceMinLODClamp = 0.0f;
 
-
-    auto cpuHandle = dx12.GetCpuSrvHandle(m_srvIndex);
-
-
-    device->CreateShaderResourceView(texture.Get(), &srvDesc, cpuHandle);
-
-
-    m_gpuHandle = dx12.GetGpuSrvHandle(m_srvIndex);
-
+    device->CreateShaderResourceView(texture.Get(), &srvDesc, m_cpuHandle);
 }

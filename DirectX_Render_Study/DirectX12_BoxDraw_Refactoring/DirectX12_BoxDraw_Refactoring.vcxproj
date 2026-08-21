@@ -73,6 +73,8 @@
   <PropertyGroup Label="UserMacros" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -85,6 +87,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -101,6 +105,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -121,6 +127,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -144,118 +152,119 @@
     </FxCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="audio.cpp" />
-    <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="ButtonEventManager.cpp" />
-    <ClCompile Include="CUIButton.cpp" />
-    <ClCompile Include="D2DTextRenderer.cpp" />
-    <ClCompile Include="EnemyCount.cpp" />
-    <ClCompile Include="EnemyCounter.cpp" />
-    <ClCompile Include="EventManager.cpp" />
-    <ClCompile Include="Event.cpp" />
-    <ClCompile Include="EventData.cpp" />
-    <ClCompile Include="EventData_NextScene.cpp" />
-    <ClCompile Include="ForwardRenderPass.cpp" />
-    <ClCompile Include="Manager.cpp" />
-    <ClCompile Include="ObjectManager_Getter_Setter.cpp" />
-    <ClCompile Include="ObjectManager_Instantiate.cpp" />
-    <ClCompile Include="PostProcessPass.cpp" />
-    <ClCompile Include="RenderPipeline.cpp" />
-    <ClCompile Include="RenderTexture.cpp" />
-    <ClCompile Include="SceneManager.cpp" />
-    <ClCompile Include="SceneTitle.cpp" />
-    <ClCompile Include="Skydome.cpp" />
-    <ClCompile Include="TextObject.cpp" />
-    <ClCompile Include="TextRenderer.cpp" />
-    <ClCompile Include="BillBoard.cpp" />
-    <ClCompile Include="Bone.cpp" />
-    <ClCompile Include="BoxCollider3D.cpp" />
-    <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="Collider.cpp" />
-    <ClCompile Include="Collider3D.cpp" />
-    <ClCompile Include="Collision.cpp" />
-    <ClCompile Include="DescriptorHeapAllocator.cpp" />
-    <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="Explosion.cpp" />
-    <ClCompile Include="gltfLoader.cpp" />
+    <ClCompile Include="Source\Util\audio.cpp" />
+    <ClCompile Include="Source\Objects\Camera.cpp" />
+    <ClCompile Include="Source\Objects\ButtonEventManager.cpp" />
+    <ClCompile Include="Source\UI\CUIButton.cpp" />
+    <ClCompile Include="Source\Util\D2DTextRenderer.cpp" />
+    <ClCompile Include="Source\Objects\EnemyCount.cpp" />
+    <ClCompile Include="Source\Objects\EnemyCounter.cpp" />
+    <ClCompile Include="Source\Objects\EventManager.cpp" />
+    <ClCompile Include="Source\Objects\Event.cpp" />
+    <ClCompile Include="Source\Objects\EventData.cpp" />
+    <ClCompile Include="Source\Objects\EventData_NextScene.cpp" />
+    <ClCompile Include="Source\Rendering\ForwardRenderPass.cpp" />
+    <ClCompile Include="Source\Core\Manager.cpp" />
+    <ClCompile Include="Source\Objects\ObjectManager_Getter_Setter.cpp" />
+    <ClCompile Include="Source\Objects\ObjectManager_Instantiate.cpp" />
+    <ClCompile Include="Source\Rendering\PostProcessPass.cpp" />
+    <ClCompile Include="Source\Rendering\RenderPipeline.cpp" />
+    <ClCompile Include="Source\Rendering\RenderTexture.cpp" />
+    <ClCompile Include="Source\Core\SceneManager.cpp" />
+    <ClCompile Include="Source\Core\SceneTitle.cpp" />
+    <ClCompile Include="Source\Objects\Skydome.cpp" />
+    <ClCompile Include="Source\UI\TextObject.cpp" />
+    <ClCompile Include="Source\UI\TextRenderer.cpp" />
+    <ClCompile Include="Source\Objects\BillBoard.cpp" />
+    <ClCompile Include="Source\Resources\Bone.cpp" />
+    <ClCompile Include="Source\Components\BoxCollider3D.cpp" />
+    <ClCompile Include="Source\Objects\Bullet.cpp" />
+    <ClCompile Include="Source\Components\Collider.cpp" />
+    <ClCompile Include="Source\Components\Collider3D.cpp" />
+    <ClCompile Include="Source\Components\Collision.cpp" />
+    <ClCompile Include="Source\Rendering\DescriptorHeapAllocator.cpp" />
+    <ClCompile Include="Source\Objects\Enemy.cpp" />
+    <ClCompile Include="Source\Objects\Explosion.cpp" />
+    <ClCompile Include="Source\Resources\gltfLoader.cpp" />
     <ClCompile Include="imgui.cpp" />
-    <ClCompile Include="ImGuiManager.cpp" />
+    <ClCompile Include="Source\UI\ImGuiManager.cpp" />
     <ClCompile Include="imgui_demo.cpp" />
     <ClCompile Include="imgui_draw.cpp" />
     <ClCompile Include="imgui_impl_dx12.cpp" />
     <ClCompile Include="imgui_impl_win32.cpp" />
     <ClCompile Include="imgui_tables.cpp" />
     <ClCompile Include="imgui_widgets.cpp" />
-    <ClCompile Include="Material.cpp" />
-    <ClCompile Include="Model.cpp" />
-    <ClCompile Include="ModelManager.cpp" />
-    <ClCompile Include="ObjectInfo.cpp" />
-    <ClCompile Include="Box.cpp" />
-    <ClCompile Include="3D_Object.cpp" />
-    <ClCompile Include="Component.cpp" />
-    <ClCompile Include="DX12Manager.cpp" />
-    <ClCompile Include="InputManager.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Mesh.cpp" />
-    <ClCompile Include="Object.cpp" />
-    <ClCompile Include="ObjectManager.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="PSOManager.cpp" />
-    <ClCompile Include="RandomParticle.cpp" />
-    <ClCompile Include="Scene.cpp" />
-    <ClCompile Include="SceneTest.cpp" />
-    <ClCompile Include="Shader.cpp" />
-    <ClCompile Include="ShaderManager.cpp" />
-    <ClCompile Include="Texture.cpp" />
-    <ClCompile Include="TextureManager.cpp" />
-    <ClCompile Include="SpriteRenderer.cpp" />
-    <ClCompile Include="UIObject.cpp" />
-    <ClCompile Include="Transform.cpp" />
-    <ClCompile Include="TitleUI.cpp" />
+    <ClCompile Include="Source\Resources\Material.cpp" />
+    <ClCompile Include="Source\Resources\Model.cpp" />
+    <ClCompile Include="Source\Resources\ModelManager.cpp" />
+    <ClCompile Include="Source\Objects\ObjectInfo.cpp" />
+    <ClCompile Include="Source\Objects\Box.cpp" />
+    <ClCompile Include="Source\Objects\3D_Object.cpp" />
+    <ClCompile Include="Source\Components\Component.cpp" />
+    <ClCompile Include="Source\Core\DX12Manager.cpp" />
+    <ClCompile Include="Source\Core\InputManager.cpp" />
+    <ClCompile Include="Source\Core\main.cpp" />
+    <ClCompile Include="Source\Rendering\PSOBuilder.cpp" />
+    <ClCompile Include="Source\Resources\Mesh.cpp" />
+    <ClCompile Include="Source\Objects\Object.cpp" />
+    <ClCompile Include="Source\Objects\ObjectManager.cpp" />
+    <ClCompile Include="Source\Objects\Player.cpp" />
+    <ClCompile Include="Source\Rendering\PSOManager.cpp" />
+    <ClCompile Include="Source\Objects\RandomParticle.cpp" />
+    <ClCompile Include="Source\Core\Scene.cpp" />
+    <ClCompile Include="Source\Core\SceneTest.cpp" />
+    <ClCompile Include="Source\Rendering\Shader.cpp" />
+    <ClCompile Include="Source\Rendering\ShaderManager.cpp" />
+    <ClCompile Include="Source\Resources\Texture.cpp" />
+    <ClCompile Include="Source\Rendering\TextureManager.cpp" />
+    <ClCompile Include="Source\UI\SpriteRenderer.cpp" />
+    <ClCompile Include="Source\UI\UIObject.cpp" />
+    <ClCompile Include="Source\Components\Transform.cpp" />
+    <ClCompile Include="Source\UI\TitleUI.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="audio.h" />
-    <ClInclude Include="Camera.h" />
-    <ClInclude Include="ButtonEventManager.h" />
-    <ClInclude Include="CUIButton.h" />
-    <ClInclude Include="D2DTextRenderer.h" />
-    <ClInclude Include="EnemyCount.h" />
-    <ClInclude Include="EnemyCounter.h" />
-    <ClInclude Include="EventManager.h" />
-    <ClInclude Include="Event.h" />
-    <ClInclude Include="EventData.h" />
-    <ClInclude Include="EventData_NextScene.h" />
-    <ClInclude Include="EventEnums.h" />
-    <ClInclude Include="ForwardRenderPass.h" />
-    <ClInclude Include="IRenderPass.h" />
-    <ClInclude Include="ISelectable.h" />
-    <ClInclude Include="Manager.h" />
-    <ClInclude Include="PostProcessPass.h" />
-    <ClInclude Include="RenderContext.h" />
-    <ClInclude Include="RenderPipeline.h" />
-    <ClInclude Include="RenderTexture.h" />
+    <ClInclude Include="Source\Util\audio.h" />
+    <ClInclude Include="Source\Objects\Camera.h" />
+    <ClInclude Include="Source\Objects\ButtonEventManager.h" />
+    <ClInclude Include="Source\UI\CUIButton.h" />
+    <ClInclude Include="Source\Util\D2DTextRenderer.h" />
+    <ClInclude Include="Source\Objects\EnemyCount.h" />
+    <ClInclude Include="Source\Objects\EnemyCounter.h" />
+    <ClInclude Include="Source\Objects\EventManager.h" />
+    <ClInclude Include="Source\Objects\Event.h" />
+    <ClInclude Include="Source\Objects\EventData.h" />
+    <ClInclude Include="Source\Objects\EventData_NextScene.h" />
+    <ClInclude Include="Source\Core\EventEnums.h" />
+    <ClInclude Include="Source\Rendering\ForwardRenderPass.h" />
+    <ClInclude Include="Source\Rendering\IRenderPass.h" />
+    <ClInclude Include="Source\UI\ISelectable.h" />
+    <ClInclude Include="Source\Core\Manager.h" />
+    <ClInclude Include="Source\Rendering\PostProcessPass.h" />
+    <ClInclude Include="Source\Rendering\RenderContext.h" />
+    <ClInclude Include="Source\Rendering\RenderPipeline.h" />
+    <ClInclude Include="Source\Rendering\RenderTexture.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="SceneManager.h" />
-    <ClInclude Include="SceneTitle.h" />
-    <ClInclude Include="Skydome.h" />
-    <ClInclude Include="TextObject.h" />
-    <ClInclude Include="TextRenderer.h" />
-    <ClInclude Include="BillBoard.h" />
-    <ClInclude Include="Bone.h" />
-    <ClInclude Include="BoxCollider3D.h" />
-    <ClInclude Include="Bullet.h" />
-    <ClInclude Include="Collider.h" />
-    <ClInclude Include="Collider3D.h" />
-    <ClInclude Include="Collision.h" />
-    <ClInclude Include="ContainerAlias.h" />
-    <ClInclude Include="DescriptorHeapAllocator.h" />
-    <ClInclude Include="DirectXPtrAlias.h" />
-    <ClInclude Include="Enemy.h" />
-    <ClInclude Include="Explosion.h" />
-    <ClInclude Include="gltfLoader.h" />
+    <ClInclude Include="Source\Core\SceneManager.h" />
+    <ClInclude Include="Source\Core\SceneTitle.h" />
+    <ClInclude Include="Source\Objects\Skydome.h" />
+    <ClInclude Include="Source\UI\TextObject.h" />
+    <ClInclude Include="Source\UI\TextRenderer.h" />
+    <ClInclude Include="Source\Objects\BillBoard.h" />
+    <ClInclude Include="Source\Resources\Bone.h" />
+    <ClInclude Include="Source\Components\BoxCollider3D.h" />
+    <ClInclude Include="Source\Objects\Bullet.h" />
+    <ClInclude Include="Source\Components\Collider.h" />
+    <ClInclude Include="Source\Components\Collider3D.h" />
+    <ClInclude Include="Source\Components\Collision.h" />
+    <ClInclude Include="Source\Util\ContainerAlias.h" />
+    <ClInclude Include="Source\Rendering\DescriptorHeapAllocator.h" />
+    <ClInclude Include="Source\Util\DirectXPtrAlias.h" />
+    <ClInclude Include="Source\Objects\Enemy.h" />
+    <ClInclude Include="Source\Objects\Explosion.h" />
+    <ClInclude Include="Source\Resources\gltfLoader.h" />
     <ClInclude Include="imconfig.h" />
     <ClInclude Include="imgui.h" />
-    <ClInclude Include="ImGuiManager.h" />
+    <ClInclude Include="Source\UI\ImGuiManager.h" />
     <ClInclude Include="imgui_impl_dx12.h" />
     <ClInclude Include="imgui_impl_win32.h" />
     <ClInclude Include="imgui_internal.h" />
@@ -263,50 +272,51 @@
     <ClInclude Include="imstb_textedit.h" />
     <ClInclude Include="imstb_truetype.h" />
     <ClInclude Include="json.hpp" />
-    <ClInclude Include="Material.h" />
-    <ClInclude Include="Model.h" />
-    <ClInclude Include="ModelManager.h" />
-    <ClInclude Include="ModelData.h" />
-    <ClInclude Include="ObjectInfo.h" />
-    <ClInclude Include="BasicSettings.h" />
-    <ClInclude Include="Box.h" />
-    <ClInclude Include="3D_Object.h" />
-    <ClInclude Include="Component.h" />
-    <ClInclude Include="DX12Manager.h" />
-    <ClInclude Include="InputManager.h" />
-    <ClInclude Include="Mesh.h" />
-    <ClInclude Include="Object.h" />
-    <ClInclude Include="ObjectManager.h" />
-    <ClInclude Include="ObjectTag.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="PSOManager.h" />
-    <ClInclude Include="RandomParticle.h" />
-    <ClInclude Include="Scene.h" />
-    <ClInclude Include="SceneEnums.h" />
-    <ClInclude Include="SceneTest.h" />
-    <ClInclude Include="Shader.h" />
-    <ClInclude Include="ShaderManager.h" />
-    <ClInclude Include="SmartPtrAlias.h" />
+    <ClInclude Include="Source\Resources\Material.h" />
+    <ClInclude Include="Source\Resources\Model.h" />
+    <ClInclude Include="Source\Resources\ModelManager.h" />
+    <ClInclude Include="Source\Resources\ModelData.h" />
+    <ClInclude Include="Source\Objects\ObjectInfo.h" />
+    <ClInclude Include="Source\Util\BasicSettings.h" />
+    <ClInclude Include="Source\Objects\Box.h" />
+    <ClInclude Include="Source\Objects\3D_Object.h" />
+    <ClInclude Include="Source\Components\Component.h" />
+    <ClInclude Include="Source\Core\DX12Manager.h" />
+    <ClInclude Include="Source\Rendering\PSOBuilder.h" />
+    <ClInclude Include="Source\Core\InputManager.h" />
+    <ClInclude Include="Source\Resources\Mesh.h" />
+    <ClInclude Include="Source\Objects\Object.h" />
+    <ClInclude Include="Source\Objects\ObjectManager.h" />
+    <ClInclude Include="Source\Core\ObjectTag.h" />
+    <ClInclude Include="Source\Objects\Player.h" />
+    <ClInclude Include="Source\Rendering\PSOManager.h" />
+    <ClInclude Include="Source\Objects\RandomParticle.h" />
+    <ClInclude Include="Source\Core\Scene.h" />
+    <ClInclude Include="Source\Core\SceneEnums.h" />
+    <ClInclude Include="Source\Core\SceneTest.h" />
+    <ClInclude Include="Source\Rendering\Shader.h" />
+    <ClInclude Include="Source\Rendering\ShaderManager.h" />
+    <ClInclude Include="Source\Util\SmartPtrAlias.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="stb_image_write.h" />
-    <ClInclude Include="StringAlias.h" />
-    <ClInclude Include="Texture.h" />
-    <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="Source\Util\StringAlias.h" />
+    <ClInclude Include="Source\Resources\Texture.h" />
+    <ClInclude Include="Source\Rendering\TextureManager.h" />
     <ClInclude Include="tinygltf_json.h" />
     <ClInclude Include="tiny_gltf.h" />
-    <ClInclude Include="SpriteRenderer.h" />
-    <ClInclude Include="UIObject.h" />
-    <ClInclude Include="Transform.h" />
-    <ClInclude Include="TitleUI.h" />
+    <ClInclude Include="Source\UI\SpriteRenderer.h" />
+    <ClInclude Include="Source\UI\UIObject.h" />
+    <ClInclude Include="Source\Components\Transform.h" />
+    <ClInclude Include="Source\UI\TitleUI.h" />
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="PostProcess.hlsl">
+    <FxCompile Include="Assets\Shader\PostProcess.hlsl">
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">PSMain</EntryPointName>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">PSMain</EntryPointName>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
     </FxCompile>
-    <FxCompile Include="Sprite.hlsl">
+    <FxCompile Include="Assets\Shader\Sprite.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
@@ -314,7 +324,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </FxCompile>
-    <FxCompile Include="Triangle.hlsl">
+    <FxCompile Include="Assets\Shader\Triangle.hlsl">
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">VSMain</EntryPointName>

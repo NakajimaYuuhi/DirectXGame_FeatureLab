@@ -31,8 +31,7 @@ void CSpriteRenderer::SetTexture(const std::wstring& filePath)
     m_texture = TextureManager::GetInstance().GetTexture(
         DX12Manager::GetInstance().GetDevice(),
         cmdList,
-        filePath.c_str(),
-        0 // we will re-assign index or rely on descriptor heap
+        filePath.c_str()
     );
 
     cmdList->Close();

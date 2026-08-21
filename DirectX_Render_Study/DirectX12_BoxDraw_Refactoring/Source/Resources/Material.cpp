@@ -5,8 +5,8 @@
 
 //FilePathを取っておくかは要検討
 //キャッシュのヒットチェックで使うかもしれない
-CMaterial::CMaterial(wstring _FilePath, XMFLOAT4 _Color)
-	:m_Color(_Color)
+CMaterial::CMaterial(wstring _FilePath, XMFLOAT4 _Color, wstring shaderFile, string vsEntry, string psEntry, BlendMode blendMode)
+	: m_Color(_Color), m_ShaderFile(shaderFile), m_VsEntry(vsEntry), m_PsEntry(psEntry), m_BlendMode(blendMode)
 {
     LoadTexture(_FilePath);
 }
@@ -27,7 +27,7 @@ void CMaterial::LoadTexture(wstring _FilePath)
 
 
     //テクスチャのロード、SRVの作成
-    m_Texture = TextureManager::GetInstance().GetTexture(device, cmdList, _FilePath.c_str(), 0);
+    m_Texture = TextureManager::GetInstance().GetTexture(device, cmdList, _FilePath.c_str());
 
 
     // 2.コマンド実行

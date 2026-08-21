@@ -53,8 +53,8 @@ void PostProcessPass::Init(ID3D12Device* pDevice) {
     UINT compileFlags = 0;
 #endif
 
-    D3DCompileFromFile(L"PostProcess.hlsl", nullptr, nullptr, "VSMain", "vs_5_0", compileFlags, 0, &vsBlob, nullptr);
-    D3DCompileFromFile(L"PostProcess.hlsl", nullptr, nullptr, "PSMain", "ps_5_0", compileFlags, 0, &psBlob, nullptr);
+    D3DCompileFromFile(L"Assets/Shader/PostProcess.hlsl", nullptr, nullptr, "VSMain", "vs_5_0", compileFlags, 0, &vsBlob, nullptr);
+    D3DCompileFromFile(L"Assets/Shader/PostProcess.hlsl", nullptr, nullptr, "PSMain", "ps_5_0", compileFlags, 0, &psBlob, nullptr);
 
     // --------------------------------------------------------
     // 3. PSO (パイプラインステート) の作成

@@ -258,44 +258,47 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Box.cpp">
-      <Filter>Source\Object\Box</Filter>
+    <ClCompile Include="Source\Objects\Box.cpp">
+      <Filter>Objects</Filter>
     </ClCompile>
-    <ClCompile Include="DX12Manager.cpp">
-      <Filter>Source\System\DrawSystem\DX12Manager</Filter>
+    <ClCompile Include="Source\Core\DX12Manager.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="InputManager.cpp">
-      <Filter>Source\System\ImputSystem</Filter>
+    <ClCompile Include="Source\Core\InputManager.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source\System\Main</Filter>
+    <ClCompile Include="Source\Core\main.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Source\Scene</Filter>
+    <ClCompile Include="Source\Rendering\PSOBuilder.cpp">
+      <Filter>Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="SceneTest.cpp">
-      <Filter>Source\Scene</Filter>
+    <ClCompile Include="Source\Core\Scene.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="3D_Object.cpp">
-      <Filter>Source\Object\GameObject\BaseClass\3Dobject</Filter>
+    <ClCompile Include="Source\Core\SceneTest.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="Object.cpp">
-      <Filter>Source\Object\GameObject\BaseClass\Base</Filter>
+    <ClCompile Include="Source\Objects\3D_Object.cpp">
+      <Filter>Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Transform.cpp">
-      <Filter>Source\Component\Transform</Filter>
+    <ClCompile Include="Source\Objects\Object.cpp">
+      <Filter>Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Component.cpp">
-      <Filter>Source\Component\Base</Filter>
+    <ClCompile Include="Source\Components\Transform.cpp">
+      <Filter>Components</Filter>
     </ClCompile>
-    <ClCompile Include="ObjectInfo.cpp">
-      <Filter>Source\Component\ObjectInfo</Filter>
+    <ClCompile Include="Source\Components\Component.cpp">
+      <Filter>Components</Filter>
     </ClCompile>
-    <ClCompile Include="Mesh.cpp">
-      <Filter>Source\Component\Renderer\ModelRenderer\Model\Mesh</Filter>
+    <ClCompile Include="Source\Objects\ObjectInfo.cpp">
+      <Filter>Objects</Filter>
     </ClCompile>
-    <ClCompile Include="ImGuiManager.cpp">
-      <Filter>Source\System\ImGuiManager</Filter>
+    <ClCompile Include="Source\Resources\Mesh.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UI\ImGuiManager.cpp">
+      <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="imgui_tables.cpp">
       <Filter>Source\System\ImGui</Filter>
@@ -318,184 +321,193 @@
     <ClCompile Include="imgui_impl_win32.cpp">
       <Filter>Source\System\ImGui\BackEnds</Filter>
     </ClCompile>
-    <ClCompile Include="DescriptorHeapAllocator.cpp">
-      <Filter>Source\System\ImGui\DescriptorAllocator</Filter>
-    </ClCompile>
-    <ClCompile Include="Model.cpp">
-      <Filter>Source\Component\Renderer\ModelRenderer\Model</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Source\Component\Texture</Filter>
-    </ClCompile>
-    <ClCompile Include="Material.cpp">
-      <Filter>Source\Component\Renderer\ModelRenderer\Model\Material</Filter>
-    </ClCompile>
-    <ClCompile Include="Bone.cpp">
-      <Filter>Source\Component\Renderer\ModelRenderer\Model\Bone</Filter>
-    </ClCompile>
-    <ClCompile Include="PSOManager.cpp">
-      <Filter>Source\System\DrawSystem\PSO</Filter>
-    </ClCompile>
-    <ClCompile Include="Shader.cpp">
-      <Filter>Source\System\DrawSystem\Shader</Filter>
-    </ClCompile>
-    <ClCompile Include="ShaderManager.cpp">
-      <Filter>Source\System\DrawSystem\Shader</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source\Object\GameObject\3DObjects\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectManager.cpp">
-      <Filter>Source\System\ObjectManager</Filter>
-    </ClCompile>
-    <ClCompile Include="gltfLoader.cpp">
-      <Filter>Source\System\GLTFLoader</Filter>
-    </ClCompile>
-    <ClCompile Include="Collision.cpp">
-      <Filter>Source\System\Collision</Filter>
-    </ClCompile>
-    <ClCompile Include="D2DTextRenderer.cpp">
-      <Filter>Source\System\DrawSystem\D2DTextRenderer</Filter>
-    </ClCompile>
-    <ClCompile Include="Collider3D.cpp">
-      <Filter>Source\Component\Collider\3D\3DBase</Filter>
-    </ClCompile>
-    <ClCompile Include="BoxCollider3D.cpp">
-      <Filter>Source\Component\Collider\3D\Box</Filter>
-    </ClCompile>
-    <ClCompile Include="Collider.cpp">
-      <Filter>Source\Component\Collider\Collider</Filter>
-    </ClCompile>
-    <ClCompile Include="TextRenderer.cpp">
-      <Filter>Source\Component\Renderer\TextRenderer</Filter>
-    </ClCompile>
-    <ClCompile Include="SpriteRenderer.cpp">
-      <Filter>Source\Component\Renderer\SpriteRenderer</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Source\Object\GameObject\3DObjects\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="RandomParticle.cpp">
-      <Filter>Source\Object\GameObject\3DObjects\BillBoard\RandomParticle</Filter>
-    </ClCompile>
-    <ClCompile Include="BillBoard.cpp">
-      <Filter>Source\Object\GameObject\3DObjects\BillBoard\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Explosion.cpp">
-      <Filter>Source\Object\GameObject\3DObjects\BillBoard\Explosion</Filter>
-    </ClCompile>
-    <ClCompile Include="UIObject.cpp">
-      <Filter>Source\Object\GameObject\2DObject\UIObject</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>Source\Object\GameObject\3DObjects\Bullet\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="ModelManager.cpp">
-      <Filter>Source\System\DrawSystem\ResourceManager\Model</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureManager.cpp">
-      <Filter>Source\System\DrawSystem\ResourceManager\Texture</Filter>
-    </ClCompile>
-    <ClCompile Include="Skydome.cpp">
-      <Filter>Source\Object\GameObject\3DObjects\Skydome</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneManager.cpp">
-      <Filter>Source\System\SceneManager</Filter>
-    </ClCompile>
-    <ClCompile Include="EventManager.cpp">
-      <Filter>Source\System\EventManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Event.cpp">
-      <Filter>Source\System\EventManager\Event\EventObj</Filter>
-    </ClCompile>
-    <ClCompile Include="EventData.cpp">
-      <Filter>Source\System\EventManager\Event\EventData\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="EventData_NextScene.cpp">
-      <Filter>Source\System\EventManager\Event\EventData\NextScene</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneTitle.cpp">
-      <Filter>Source\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="audio.cpp">
-      <Filter>Source\Component\Audio</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Source\Object\GameObject\3DObjects\Camera</Filter>
-    </ClCompile>
-    <ClCompile Include="TextObject.cpp">
-      <Filter>Source\Object\GameObject\2DObject\TextObject\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectManager_Getter_Setter.cpp">
-      <Filter>Source\System\ObjectManager</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectManager_Instantiate.cpp">
-      <Filter>Source\System\ObjectManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Manager.cpp">
-      <Filter>Source\Object\GameObject\Manager\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyCounter.cpp">
-      <Filter>Source\Object\GameObject\Manager\EnemyCounter</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyCount.cpp">
-      <Filter>Source\Object\GameObject\Manager\EnemyCounter</Filter>
-    </ClCompile>
-    <ClCompile Include="TitleUI.cpp" />
-    <ClCompile Include="ButtonEventManager.cpp" />
-    <ClCompile Include="CUIButton.cpp" />
-    <ClCompile Include="RenderPipeline.cpp">
+    <ClCompile Include="Source\Rendering\DescriptorHeapAllocator.cpp">
       <Filter>Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="RenderTexture.cpp">
+    <ClCompile Include="Source\Resources\Model.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Resources\Texture.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Resources\Material.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Resources\Bone.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Rendering\PSOManager.cpp">
       <Filter>Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="ForwardRenderPass.cpp">
+    <ClCompile Include="Source\Rendering\Shader.cpp">
       <Filter>Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="PostProcessPass.cpp">
+    <ClCompile Include="Source\Rendering\ShaderManager.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Objects\Player.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Objects\ObjectManager.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Resources\gltfLoader.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Components\Collision.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Util\D2DTextRenderer.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Components\Collider3D.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Components\BoxCollider3D.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Components\Collider.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UI\TextRenderer.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UI\SpriteRenderer.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Objects\Enemy.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Objects\RandomParticle.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Objects\BillBoard.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Objects\Explosion.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UI\UIObject.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Objects\Bullet.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Resources\ModelManager.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Rendering\TextureManager.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Objects\Skydome.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\SceneManager.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Objects\EventManager.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Objects\Event.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Objects\EventData.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Objects\EventData_NextScene.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\SceneTitle.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Util\audio.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Objects\Camera.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UI\TextObject.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Objects\ObjectManager_Getter_Setter.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Objects\ObjectManager_Instantiate.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\Manager.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Objects\EnemyCounter.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Objects\EnemyCount.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UI\TitleUI.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Objects\ButtonEventManager.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UI\CUIButton.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Rendering\RenderPipeline.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Rendering\RenderTexture.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Rendering\ForwardRenderPass.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Rendering\PostProcessPass.cpp">
       <Filter>Rendering</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Box.h">
-      <Filter>Source\Object\Box</Filter>
+    <ClInclude Include="Source\Objects\Box.h">
+      <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="DX12Manager.h">
-      <Filter>Source\System\DrawSystem\DX12Manager</Filter>
+    <ClInclude Include="Source\Core\DX12Manager.h">
+      <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="InputManager.h">
-      <Filter>Source\System\ImputSystem</Filter>
+    <ClInclude Include="Source\Rendering\PSOBuilder.h">
+      <Filter>Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="BasicSettings.h">
-      <Filter>Source\System\Settings\BasicSettings</Filter>
+    <ClInclude Include="Source\Core\InputManager.h">
+      <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Source\Scene</Filter>
+    <ClInclude Include="Source\Util\BasicSettings.h">
+      <Filter>Util</Filter>
     </ClInclude>
-    <ClInclude Include="SceneTest.h">
-      <Filter>Source\Scene</Filter>
+    <ClInclude Include="Source\Core\Scene.h">
+      <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="3D_Object.h">
-      <Filter>Source\Object\GameObject\BaseClass\3Dobject</Filter>
+    <ClInclude Include="Source\Core\SceneTest.h">
+      <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>Source\Object\GameObject\BaseClass\Base</Filter>
+    <ClInclude Include="Source\Objects\3D_Object.h">
+      <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Transform.h">
-      <Filter>Source\Component\Transform</Filter>
+    <ClInclude Include="Source\Objects\Object.h">
+      <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Component.h">
-      <Filter>Source\Component\Base</Filter>
+    <ClInclude Include="Source\Components\Transform.h">
+      <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectInfo.h">
-      <Filter>Source\Component\ObjectInfo</Filter>
+    <ClInclude Include="Source\Components\Component.h">
+      <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="Mesh.h">
-      <Filter>Source\Component\Renderer\ModelRenderer\Model\Mesh</Filter>
+    <ClInclude Include="Source\Objects\ObjectInfo.h">
+      <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="ImGuiManager.h">
-      <Filter>Source\System\ImGuiManager</Filter>
+    <ClInclude Include="Source\Resources\Mesh.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UI\ImGuiManager.h">
+      <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="imgui.h">
       <Filter>Source\System\ImGui</Filter>
@@ -521,50 +533,50 @@
     <ClInclude Include="imstb_truetype.h">
       <Filter>Source\System\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="DescriptorHeapAllocator.h">
-      <Filter>Source\System\ImGui\DescriptorAllocator</Filter>
+    <ClInclude Include="Source\Rendering\DescriptorHeapAllocator.h">
+      <Filter>Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="Model.h">
-      <Filter>Source\Component\Renderer\ModelRenderer\Model</Filter>
+    <ClInclude Include="Source\Resources\Model.h">
+      <Filter>Resources</Filter>
     </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>Source\Component\Texture</Filter>
+    <ClInclude Include="Source\Resources\Texture.h">
+      <Filter>Resources</Filter>
     </ClInclude>
-    <ClInclude Include="Material.h">
-      <Filter>Source\Component\Renderer\ModelRenderer\Model\Material</Filter>
+    <ClInclude Include="Source\Resources\Material.h">
+      <Filter>Resources</Filter>
     </ClInclude>
-    <ClInclude Include="DirectXPtrAlias.h">
-      <Filter>Source\System\Settings\Alias</Filter>
+    <ClInclude Include="Source\Util\DirectXPtrAlias.h">
+      <Filter>Util</Filter>
     </ClInclude>
-    <ClInclude Include="SmartPtrAlias.h">
-      <Filter>Source\System\Settings\Alias</Filter>
+    <ClInclude Include="Source\Util\SmartPtrAlias.h">
+      <Filter>Util</Filter>
     </ClInclude>
-    <ClInclude Include="StringAlias.h">
-      <Filter>Source\System\Settings\Alias</Filter>
+    <ClInclude Include="Source\Util\StringAlias.h">
+      <Filter>Util</Filter>
     </ClInclude>
-    <ClInclude Include="ContainerAlias.h">
-      <Filter>Source\System\Settings\Alias</Filter>
+    <ClInclude Include="Source\Util\ContainerAlias.h">
+      <Filter>Util</Filter>
     </ClInclude>
-    <ClInclude Include="Bone.h">
-      <Filter>Source\Component\Renderer\ModelRenderer\Model\Bone</Filter>
+    <ClInclude Include="Source\Resources\Bone.h">
+      <Filter>Resources</Filter>
     </ClInclude>
-    <ClInclude Include="ModelData.h">
-      <Filter>Source\Component\Renderer\ModelRenderer\Model</Filter>
+    <ClInclude Include="Source\Resources\ModelData.h">
+      <Filter>Resources</Filter>
     </ClInclude>
-    <ClInclude Include="PSOManager.h">
-      <Filter>Source\System\DrawSystem\PSO</Filter>
+    <ClInclude Include="Source\Rendering\PSOManager.h">
+      <Filter>Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="Shader.h">
-      <Filter>Source\System\DrawSystem\Shader</Filter>
+    <ClInclude Include="Source\Rendering\Shader.h">
+      <Filter>Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="ShaderManager.h">
-      <Filter>Source\System\DrawSystem\Shader</Filter>
+    <ClInclude Include="Source\Rendering\ShaderManager.h">
+      <Filter>Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Source\Object\GameObject\3DObjects\Player</Filter>
+    <ClInclude Include="Source\Objects\Player.h">
+      <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectManager.h">
-      <Filter>Source\System\ObjectManager</Filter>
+    <ClInclude Include="Source\Objects\ObjectManager.h">
+      <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="json.hpp">
       <Filter>Source\System\TinyGLTF</Filter>
@@ -581,134 +593,142 @@
     <ClInclude Include="tinygltf_json.h">
       <Filter>Source\System\TinyGLTF</Filter>
     </ClInclude>
-    <ClInclude Include="gltfLoader.h">
-      <Filter>Source\System\GLTFLoader</Filter>
+    <ClInclude Include="Source\Resources\gltfLoader.h">
+      <Filter>Resources</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectTag.h">
-      <Filter>Source\Object\GameObject\BaseClass\Tag</Filter>
+    <ClInclude Include="Source\Core\ObjectTag.h">
+      <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="SceneEnums.h">
-      <Filter>Source\Scene</Filter>
+    <ClInclude Include="Source\Core\SceneEnums.h">
+      <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="Collision.h">
-      <Filter>Source\System\Collision</Filter>
+    <ClInclude Include="Source\Components\Collision.h">
+      <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="D2DTextRenderer.h">
-      <Filter>Source\System\DrawSystem\D2DTextRenderer</Filter>
+    <ClInclude Include="Source\Util\D2DTextRenderer.h">
+      <Filter>Util</Filter>
     </ClInclude>
-    <ClInclude Include="Collider3D.h">
-      <Filter>Source\Component\Collider\3D\3DBase</Filter>
+    <ClInclude Include="Source\Components\Collider3D.h">
+      <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="BoxCollider3D.h">
-      <Filter>Source\Component\Collider\3D\Box</Filter>
+    <ClInclude Include="Source\Components\BoxCollider3D.h">
+      <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="Collider.h">
-      <Filter>Source\Component\Collider\Collider</Filter>
+    <ClInclude Include="Source\Components\Collider.h">
+      <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="TextRenderer.h">
-      <Filter>Source\Component\Renderer\TextRenderer</Filter>
+    <ClInclude Include="Source\UI\TextRenderer.h">
+      <Filter>UI</Filter>
     </ClInclude>
-    <ClInclude Include="SpriteRenderer.h">
-      <Filter>Source\Component\Renderer\SpriteRenderer</Filter>
+    <ClInclude Include="Source\UI\SpriteRenderer.h">
+      <Filter>UI</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Source\Object\GameObject\3DObjects\Enemy</Filter>
+    <ClInclude Include="Source\Objects\Enemy.h">
+      <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="RandomParticle.h">
-      <Filter>Source\Object\GameObject\3DObjects\BillBoard\RandomParticle</Filter>
+    <ClInclude Include="Source\Objects\RandomParticle.h">
+      <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="BillBoard.h">
-      <Filter>Source\Object\GameObject\3DObjects\BillBoard\Base</Filter>
+    <ClInclude Include="Source\Objects\BillBoard.h">
+      <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Explosion.h">
-      <Filter>Source\Object\GameObject\3DObjects\BillBoard\Explosion</Filter>
+    <ClInclude Include="Source\Objects\Explosion.h">
+      <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="UIObject.h">
-      <Filter>Source\Object\GameObject\2DObject\UIObject</Filter>
+    <ClInclude Include="Source\UI\UIObject.h">
+      <Filter>UI</Filter>
     </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>Source\Object\GameObject\3DObjects\Bullet\Base</Filter>
+    <ClInclude Include="Source\Objects\Bullet.h">
+      <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="ModelManager.h">
-      <Filter>Source\System\DrawSystem\ResourceManager\Model</Filter>
+    <ClInclude Include="Source\Resources\ModelManager.h">
+      <Filter>Resources</Filter>
     </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>Source\System\DrawSystem\ResourceManager\Texture</Filter>
+    <ClInclude Include="Source\Rendering\TextureManager.h">
+      <Filter>Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="Skydome.h">
-      <Filter>Source\Object\GameObject\3DObjects\Skydome</Filter>
+    <ClInclude Include="Source\Objects\Skydome.h">
+      <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="resource.h" />
-    <ClInclude Include="SceneManager.h">
-      <Filter>Source\System\SceneManager</Filter>
+    <ClInclude Include="Source\Core\SceneManager.h">
+      <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="EventManager.h">
-      <Filter>Source\System\EventManager</Filter>
+    <ClInclude Include="Source\Objects\EventManager.h">
+      <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Event.h">
-      <Filter>Source\System\EventManager\Event\EventObj</Filter>
+    <ClInclude Include="Source\Objects\Event.h">
+      <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="EventEnums.h">
-      <Filter>Source\System\EventManager\Event\Enums</Filter>
+    <ClInclude Include="Source\Core\EventEnums.h">
+      <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="EventData.h">
-      <Filter>Source\System\EventManager\Event\EventData\Base</Filter>
+    <ClInclude Include="Source\Objects\EventData.h">
+      <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="EventData_NextScene.h">
-      <Filter>Source\System\EventManager\Event\EventData\NextScene</Filter>
+    <ClInclude Include="Source\Objects\EventData_NextScene.h">
+      <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="SceneTitle.h">
-      <Filter>Source\Scene</Filter>
+    <ClInclude Include="Source\Core\SceneTitle.h">
+      <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="audio.h">
-      <Filter>Source\Component\Audio</Filter>
+    <ClInclude Include="Source\Util\audio.h">
+      <Filter>Util</Filter>
     </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>Source\Object\GameObject\3DObjects\Camera</Filter>
+    <ClInclude Include="Source\Objects\Camera.h">
+      <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="TextObject.h">
-      <Filter>Source\Object\GameObject\2DObject\TextObject\Base</Filter>
+    <ClInclude Include="Source\UI\TextObject.h">
+      <Filter>UI</Filter>
     </ClInclude>
-    <ClInclude Include="Manager.h">
-      <Filter>Source\Object\GameObject\Manager\Base</Filter>
+    <ClInclude Include="Source\Core\Manager.h">
+      <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyCounter.h">
-      <Filter>Source\Object\GameObject\Manager\EnemyCounter</Filter>
+    <ClInclude Include="Source\Objects\EnemyCounter.h">
+      <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyCount.h">
-      <Filter>Source\Object\GameObject\Manager\EnemyCounter</Filter>
+    <ClInclude Include="Source\Objects\EnemyCount.h">
+      <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="TitleUI.h" />
-    <ClInclude Include="ButtonEventManager.h" />
-    <ClInclude Include="CUIButton.h" />
-    <ClInclude Include="ISelectable.h" />
-    <ClInclude Include="RenderContext.h">
+    <ClInclude Include="Source\UI\TitleUI.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Objects\ButtonEventManager.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UI\CUIButton.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UI\ISelectable.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\RenderContext.h">
       <Filter>Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="IRenderPass.h">
+    <ClInclude Include="Source\Rendering\IRenderPass.h">
       <Filter>Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="RenderPipeline.h">
+    <ClInclude Include="Source\Rendering\RenderPipeline.h">
       <Filter>Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="RenderTexture.h">
+    <ClInclude Include="Source\Rendering\RenderTexture.h">
       <Filter>Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="ForwardRenderPass.h">
+    <ClInclude Include="Source\Rendering\ForwardRenderPass.h">
       <Filter>Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="PostProcessPass.h">
+    <ClInclude Include="Source\Rendering\PostProcessPass.h">
       <Filter>Rendering</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="Sprite.hlsl">
+    <FxCompile Include="Assets\Shader\Sprite.hlsl">
       <Filter>Source\Shader\Sprite</Filter>
     </FxCompile>
-    <FxCompile Include="Triangle.hlsl">
+    <FxCompile Include="Assets\Shader\Triangle.hlsl">
       <Filter>Source\Shader\3DObject</Filter>
     </FxCompile>
-    <FxCompile Include="PostProcess.hlsl">
+    <FxCompile Include="Assets\Shader\PostProcess.hlsl">
       <Filter>Source\Shader</Filter>
     </FxCompile>
   </ItemGroup>

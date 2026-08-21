@@ -1,6 +1,6 @@
 #include "TextureManager.h"
 
-std::shared_ptr<CTexture> TextureManager::GetTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdList, const wchar_t* filePath, int srvIndex)
+std::shared_ptr<CTexture> TextureManager::GetTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdList, const wchar_t* filePath)
 {
     std::wstring pathStr(filePath);
 
@@ -12,7 +12,7 @@ std::shared_ptr<CTexture> TextureManager::GetTexture(ID3D12Device* device, ID3D1
 
     // Load new texture
     std::shared_ptr<CTexture> newTexture = std::make_shared<CTexture>();
-    if (newTexture->LoadTexture(device, cmdList, filePath, srvIndex))
+    if (newTexture->LoadTexture(device, cmdList, filePath))
     {
         newTexture->CreateSRV(device);
         m_textures[pathStr] = newTexture;

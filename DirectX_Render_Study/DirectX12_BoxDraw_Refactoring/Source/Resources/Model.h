@@ -1,5 +1,5 @@
 //Model.h
-//Model÷òAÃÉNX
+//Model?A?NX
 //Mesh,Material,Node
 //U
 
@@ -40,7 +40,7 @@ using Bones = Vector<Bone>;
 using SkinningMatrix = DirectX::XMMATRIX;
 using SkinningMatrices = Vector<SkinningMatrix>;
 
-//===== OÈåæ =====
+//===== O? =====
 
 
 //===== NX` =====
@@ -48,6 +48,7 @@ class CModel : public CComponent
 {
 public:
 	CModel();
+	~CModel();
 
 	void Init();
 	void Update();
@@ -55,33 +56,33 @@ public:
 
 	void SetBlendMode(BlendMode mode) { m_BlendMode = mode; }
 
-	//¬É|∆Ç»ÇAg
-	//LoadModel(Ãï)
+	//?|??Ag
+	//LoadModel(?)
 	//void RegisterMesh(UINT _MatIdx, Primitive _Primitive);
 	
-	//UÃÇftHg
-	//_ACfbNXnÊÇ§…Ç»Ç∆ÉObh
+	//U?ftHg
+	//_ACfbNXn????Obh
 	void RegisterMesh(UINT _MatIdx);
 	void RegisterMesh(UINT _MatIdx, const MeshVertex* vertices, size_t vertexCount,
 		const uint32_t* indices, size_t indexCount);
 
-	//_ACfbNXÃÉZbg
+	//_ACfbNX?Zbg
 	
 	UINT RegisterMatarial(wstring _FilePath,DirectX::XMFLOAT4 _Color);
 
 	void CalculateRecursive(int index);
 
-	//{[ÃçXV
+	//{[?XV
 	void UpdateBones();
 
 
 	void CreateTmpBoneData();
 
 	void CreateBoneBuffer();
-	void UpdateBoneBuffer();    // CPUGPU÷ÇÃì]
+	void UpdateBoneBuffer();    // CPUGPU??]
 
 
-	//ModelÃÉ[h
+	//Model?[h
 	void ModelLoad(std::string _Path);
 
 	void CopyFrom(const std::shared_ptr<CModel>& other)
@@ -104,7 +105,7 @@ public:
 		m_Animations = other->m_Animations;
 		m_SkinJoints = other->m_SkinJoints;
 
-		// „Ç¢„Éã„É°„Éº„Ç∑„Éß„É≥Áî®„Å´„Éú„Éº„É≥„Çí„Éá„Ç£„Éº„Éó„Ç≥„Éî„ÉºÔºàÂÖ±Êúâ„Åó„Å™„ÅÑÔºâ
+		// ÉAÉjÉÅÅ[ÉVÉáÉìópÇ…É{Å[ÉìÇÉfÉBÅ[ÉvÉRÉsÅ[Åiã§óLÇµÇ»Ç¢Åj
 		m_Bones.clear();
 		for (const auto& otherBone : other->m_Bones)
 		{
@@ -127,7 +128,7 @@ public:
 
 		m_SkinningMatrices = other->m_SkinningMatrices;
 
-		// Âõ∫Êúâ„ÅÆSRV„Å®„Éê„ÉÉ„Éï„Ç°„ÇíÁîüÊàê„Åô„Çã
+		// å≈óLÇÃSRVÇ∆ÉoÉbÉtÉ@Çê∂ê¨Ç∑ÇÈ
 		CreateBoneBuffer();
 	}
 
@@ -150,10 +151,10 @@ public:
 
 private:
 	//Mesh
-	//UMesh1¬Ç
+	//UMesh1?
 	Meshes m_Meshes;
 
-	// ebVg}eAÃÉCfbNX
+	// ebVg}eA?CfbNX
 	std::vector<UINT> m_MeshMaterialIndices;
 
 	BlendMode m_BlendMode = BlendMode::Opaque;
@@ -168,8 +169,8 @@ private:
 	SkinningMatrices m_SkinningMatrices;
 
 	ComPtr<ID3D12Resource> m_BoneBuffer;     // StructuredBuffer
-	D3D12_GPU_DESCRIPTOR_HANDLE m_BoneSrvGpuHandle{};
-	UINT m_boneSrvIndex = 0;
+	D3D12_CPU_DESCRIPTOR_HANDLE m_BoneSrvCpuHandle{0};
+	D3D12_GPU_DESCRIPTOR_HANDLE m_BoneSrvGpuHandle{0};
 
 	std::vector<AnimationData> m_Animations;
 	std::vector<int> m_SkinJoints;

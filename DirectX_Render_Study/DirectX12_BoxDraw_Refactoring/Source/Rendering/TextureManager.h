@@ -15,7 +15,7 @@ public:
         return instance;
     }
 
-    std::shared_ptr<CTexture> GetTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdList, const wchar_t* filePath, int srvIndex);
+    std::shared_ptr<CTexture> GetTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdList, const wchar_t* filePath);
 	void Clear() { m_textures.clear(); }
 
 private:
