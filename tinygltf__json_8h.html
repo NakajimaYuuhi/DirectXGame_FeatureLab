@@ -1,0 +1,1605 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/External/tinygltf_json.h ファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('tinygltf__json_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">クラス</a> &#124;
+<a href="#namespaces">名前空間</a> &#124;
+<a href="#define-members">マクロ定義</a> &#124;
+<a href="#typedef-members">型定義</a> &#124;
+<a href="#func-members">関数</a> &#124;
+<a href="#var-members">変数</a>  </div>
+  <div class="headertitle"><div class="title">tinygltf_json.h ファイル</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stddef.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;inttypes.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;assert.h&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;cstddef&gt;</code><br />
+<code>#include &lt;new&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+tinygltf_json.h の依存先関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h__incl.svg" width="100%" height="393"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</div>
+<p><a href="tinygltf__json_8h_source.html">[ソースコード]</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+クラス</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf__json.html">tinygltf_json</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtinygltf__json__member.html">tinygltf_json_member</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf__json_1_1iterator.html">tinygltf_json::iterator</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcj__frame.html">cj_frame</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcj__parse__ctx.html">cj_parse_ctx</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcj__strbuf.html">cj_strbuf</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtinygltf_1_1detail_1_1CJ__NoAllocator.html">tinygltf::detail::CJ_NoAllocator</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+名前空間</h2></td></tr>
+<tr class="memitem:namespacetinygltf" id="r_namespacetinygltf"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf.html">tinygltf</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacetinygltf_1_1detail" id="r_namespacetinygltf_1_1detail"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html">tinygltf::detail</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+マクロ定義</h2></td></tr>
+<tr class="memitem:a8378491702198af1ca461393d9519d7b" id="r_a8378491702198af1ca461393d9519d7b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#a8378491702198af1ca461393d9519d7b">TINYGLTF_JSON_NO_EXCEPTIONS</a></td></tr>
+<tr class="separator:a8378491702198af1ca461393d9519d7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64b7e284ba302b257aa255db4bcee9c2" id="r_a64b7e284ba302b257aa255db4bcee9c2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#a64b7e284ba302b257aa255db4bcee9c2">CJ_NULL</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a64b7e284ba302b257aa255db4bcee9c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaeae1471fee6d568884078ae2e6db3b9" id="r_aaeae1471fee6d568884078ae2e6db3b9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#aaeae1471fee6d568884078ae2e6db3b9">CJ_BOOL</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:aaeae1471fee6d568884078ae2e6db3b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acae03382048eba6b7329b3580ba44614" id="r_acae03382048eba6b7329b3580ba44614"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#acae03382048eba6b7329b3580ba44614">CJ_INT</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:acae03382048eba6b7329b3580ba44614"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bcbbc67d36a8d2cbd10f799321fcb75" id="r_a6bcbbc67d36a8d2cbd10f799321fcb75"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#a6bcbbc67d36a8d2cbd10f799321fcb75">CJ_REAL</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:a6bcbbc67d36a8d2cbd10f799321fcb75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a140334418338dc4b9465df258c8dd4fc" id="r_a140334418338dc4b9465df258c8dd4fc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#a140334418338dc4b9465df258c8dd4fc">CJ_STRING</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:a140334418338dc4b9465df258c8dd4fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06ce8f1b711c625c508d55b91ac95f2d" id="r_a06ce8f1b711c625c508d55b91ac95f2d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#a06ce8f1b711c625c508d55b91ac95f2d">CJ_ARRAY</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:a06ce8f1b711c625c508d55b91ac95f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a990c40288eb19edbb9df16cc2ac61990" id="r_a990c40288eb19edbb9df16cc2ac61990"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#a990c40288eb19edbb9df16cc2ac61990">CJ_OBJECT</a>&#160;&#160;&#160;6</td></tr>
+<tr class="separator:a990c40288eb19edbb9df16cc2ac61990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9228ee7cc51aaa53391b8349d60d8d38" id="r_a9228ee7cc51aaa53391b8349d60d8d38"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#a9228ee7cc51aaa53391b8349d60d8d38">CJ_MAX_ITER</a>&#160;&#160;&#160;512</td></tr>
+<tr class="separator:a9228ee7cc51aaa53391b8349d60d8d38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+型定義</h2></td></tr>
+<tr class="memitem:ae05483ae326b8d715a32738f0e48c1b1" id="r_ae05483ae326b8d715a32738f0e48c1b1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">tinygltf::detail::json</a> = <a class="el" href="classtinygltf__json.html">tinygltf_json</a></td></tr>
+<tr class="separator:ae05483ae326b8d715a32738f0e48c1b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cb159633f5289b2cf18ee97463e37c1" id="r_a6cb159633f5289b2cf18ee97463e37c1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#a6cb159633f5289b2cf18ee97463e37c1">tinygltf::detail::json_iterator</a> = <a class="el" href="classtinygltf__json_1_1iterator.html">tinygltf_json::iterator</a></td></tr>
+<tr class="separator:a6cb159633f5289b2cf18ee97463e37c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadf4468516bcc2e03c4e109f46a048af" id="r_aadf4468516bcc2e03c4e109f46a048af"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#aadf4468516bcc2e03c4e109f46a048af">tinygltf::detail::json_const_iterator</a> = <a class="el" href="classtinygltf__json_1_1iterator.html">tinygltf_json::iterator</a></td></tr>
+<tr class="separator:aadf4468516bcc2e03c4e109f46a048af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a968e37dfc278ec59a150b638ebf490" id="r_a7a968e37dfc278ec59a150b638ebf490"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#a7a968e37dfc278ec59a150b638ebf490">tinygltf::detail::json_const_array_iterator</a> = <a class="el" href="classtinygltf__json_1_1iterator.html">tinygltf_json::iterator</a></td></tr>
+<tr class="separator:a7a968e37dfc278ec59a150b638ebf490"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61b815ecaba21427fcfdedec179b5fbb" id="r_a61b815ecaba21427fcfdedec179b5fbb"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#a61b815ecaba21427fcfdedec179b5fbb">tinygltf::detail::JsonDocument</a> = <a class="el" href="classtinygltf__json.html">tinygltf_json</a></td></tr>
+<tr class="separator:a61b815ecaba21427fcfdedec179b5fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+関数</h2></td></tr>
+<tr class="memitem:acfbad8d0da61e9bf150ab701e626adb9" id="r_acfbad8d0da61e9bf150ab701e626adb9"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#acfbad8d0da61e9bf150ab701e626adb9">cj_skip_ws_scalar</a> (const char *p, const char *end)</td></tr>
+<tr class="separator:acfbad8d0da61e9bf150ab701e626adb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ba0e4f665a7b99fe8c43fb66be7afbc" id="r_a4ba0e4f665a7b99fe8c43fb66be7afbc"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#a4ba0e4f665a7b99fe8c43fb66be7afbc">cj_skip_ws</a> (const char *p, const char *end)</td></tr>
+<tr class="separator:a4ba0e4f665a7b99fe8c43fb66be7afbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a231171a933f1be8211864a3b7c4c72a9" id="r_a231171a933f1be8211864a3b7c4c72a9"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#a231171a933f1be8211864a3b7c4c72a9">cj_scan_str_scalar</a> (const char *p, const char *end)</td></tr>
+<tr class="separator:a231171a933f1be8211864a3b7c4c72a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d01ab0d6a5655b5996441a1eb4f0f8e" id="r_a3d01ab0d6a5655b5996441a1eb4f0f8e"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#a3d01ab0d6a5655b5996441a1eb4f0f8e">cj_scan_str</a> (const char *p, const char *end)</td></tr>
+<tr class="separator:a3d01ab0d6a5655b5996441a1eb4f0f8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab32171b4a6329f9b39a496b81de64830" id="r_ab32171b4a6329f9b39a496b81de64830"><td class="memItemLeft" align="right" valign="top">static int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#ab32171b4a6329f9b39a496b81de64830">cj_dbl_to_i64</a> (double d)</td></tr>
+<tr class="separator:ab32171b4a6329f9b39a496b81de64830"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74fcd836441150faaca4185f41e75f91" id="r_a74fcd836441150faaca4185f41e75f91"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#a74fcd836441150faaca4185f41e75f91">cj_fast_dbl_convert</a> (uint64_t mantissa, int exp10, int neg, double *out)</td></tr>
+<tr class="separator:a74fcd836441150faaca4185f41e75f91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1537d186a039b9fdd9d73ae6ca8177d7" id="r_a1537d186a039b9fdd9d73ae6ca8177d7"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#a1537d186a039b9fdd9d73ae6ca8177d7">cj_fast_flt_convert</a> (uint64_t mantissa, int exp10, int neg, float *out)</td></tr>
+<tr class="separator:a1537d186a039b9fdd9d73ae6ca8177d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54cd2ee939718c56352c2c32e357084a" id="r_a54cd2ee939718c56352c2c32e357084a"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#a54cd2ee939718c56352c2c32e357084a">cj_parse_number</a> (const char *p, const char *end, int *is_int, int64_t *ival, double *dval, int float32_mode)</td></tr>
+<tr class="separator:a54cd2ee939718c56352c2c32e357084a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae585746eb528cb2e8a938d32b0a618c3" id="r_ae585746eb528cb2e8a938d32b0a618c3"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#ae585746eb528cb2e8a938d32b0a618c3">cj_hex4</a> (const char *p)</td></tr>
+<tr class="separator:ae585746eb528cb2e8a938d32b0a618c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70f9e1c9d8601d2d1186d9e36a69baca" id="r_a70f9e1c9d8601d2d1186d9e36a69baca"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#a70f9e1c9d8601d2d1186d9e36a69baca">cj_encode_utf8</a> (unsigned int cp, char *buf)</td></tr>
+<tr class="separator:a70f9e1c9d8601d2d1186d9e36a69baca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa173d0370b910e25dfdfa3fc30060795" id="r_aa173d0370b910e25dfdfa3fc30060795"><td class="memItemLeft" align="right" valign="top">static char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#aa173d0370b910e25dfdfa3fc30060795">cj_unescape_string</a> (const char *p, const char *str_end, size_t *out_len)</td></tr>
+<tr class="separator:aa173d0370b910e25dfdfa3fc30060795"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7460c093bea80973be165b8a3beaffb" id="r_aa7460c093bea80973be165b8a3beaffb"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:aa7460c093bea80973be165b8a3beaffb"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#aa7460c093bea80973be165b8a3beaffb">tinygltf_json::get&lt; std::string &gt;</a> () const</td></tr>
+<tr class="separator:aa7460c093bea80973be165b8a3beaffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebafb93b37b12f4bf6ff52bff616ca23" id="r_aebafb93b37b12f4bf6ff52bff616ca23"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#aebafb93b37b12f4bf6ff52bff616ca23">cj_ctx_error</a> (<a class="el" href="structcj__parse__ctx.html">cj_parse_ctx</a> *ctx, const char *msg)</td></tr>
+<tr class="separator:aebafb93b37b12f4bf6ff52bff616ca23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23fd81cc5ebef619bfc8b7f8c5721114" id="r_a23fd81cc5ebef619bfc8b7f8c5721114"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#a23fd81cc5ebef619bfc8b7f8c5721114">cj_parse_string_to</a> (<a class="el" href="structcj__parse__ctx.html">cj_parse_ctx</a> *ctx, char **out_str, size_t *out_len)</td></tr>
+<tr class="separator:a23fd81cc5ebef619bfc8b7f8c5721114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abeeb2e50f9da501b63c7128de65ea092" id="r_abeeb2e50f9da501b63c7128de65ea092"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#abeeb2e50f9da501b63c7128de65ea092">cj_parse_scalar</a> (<a class="el" href="structcj__parse__ctx.html">cj_parse_ctx</a> *ctx, <a class="el" href="classtinygltf__json.html">tinygltf_json</a> *slot)</td></tr>
+<tr class="separator:abeeb2e50f9da501b63c7128de65ea092"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a873b191c85f7b37ee476c2774af40834" id="r_a873b191c85f7b37ee476c2774af40834"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#a873b191c85f7b37ee476c2774af40834">cj_parse_json</a> (<a class="el" href="structcj__parse__ctx.html">cj_parse_ctx</a> *ctx, <a class="el" href="classtinygltf__json.html">tinygltf_json</a> *root)</td></tr>
+<tr class="separator:a873b191c85f7b37ee476c2774af40834"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36b3da4825b1d36070e5dbcd08a1c58b" id="r_a36b3da4825b1d36070e5dbcd08a1c58b"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#a36b3da4825b1d36070e5dbcd08a1c58b">cj_strbuf_init</a> (<a class="el" href="structcj__strbuf.html">cj_strbuf</a> *sb, size_t initial)</td></tr>
+<tr class="separator:a36b3da4825b1d36070e5dbcd08a1c58b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3938fa31e3d3641f7016a6c39c52e88" id="r_ac3938fa31e3d3641f7016a6c39c52e88"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#ac3938fa31e3d3641f7016a6c39c52e88">cj_strbuf_free_data</a> (<a class="el" href="structcj__strbuf.html">cj_strbuf</a> *sb)</td></tr>
+<tr class="separator:ac3938fa31e3d3641f7016a6c39c52e88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d22e1983ac59184a512fd5c048dfda2" id="r_a8d22e1983ac59184a512fd5c048dfda2"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#a8d22e1983ac59184a512fd5c048dfda2">cj_strbuf_grow</a> (<a class="el" href="structcj__strbuf.html">cj_strbuf</a> *sb, size_t extra)</td></tr>
+<tr class="separator:a8d22e1983ac59184a512fd5c048dfda2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0d8bceaa666f577447faae8a22f4795" id="r_ac0d8bceaa666f577447faae8a22f4795"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#ac0d8bceaa666f577447faae8a22f4795">cj_sb_appendn</a> (<a class="el" href="structcj__strbuf.html">cj_strbuf</a> *sb, const char *s, size_t n)</td></tr>
+<tr class="separator:ac0d8bceaa666f577447faae8a22f4795"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dd1907cbd11fb7aa78d05551919351f" id="r_a2dd1907cbd11fb7aa78d05551919351f"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#a2dd1907cbd11fb7aa78d05551919351f">cj_sb_appendc</a> (<a class="el" href="structcj__strbuf.html">cj_strbuf</a> *sb, char c)</td></tr>
+<tr class="separator:a2dd1907cbd11fb7aa78d05551919351f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e85e57e26653ce28664f07110663dbf" id="r_a6e85e57e26653ce28664f07110663dbf"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#a6e85e57e26653ce28664f07110663dbf">cj_sb_appends</a> (<a class="el" href="structcj__strbuf.html">cj_strbuf</a> *sb, const char *s)</td></tr>
+<tr class="separator:a6e85e57e26653ce28664f07110663dbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f10b568040d86e7040e9753b50e150b" id="r_a7f10b568040d86e7040e9753b50e150b"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#a7f10b568040d86e7040e9753b50e150b">cj_append_str_escaped</a> (<a class="el" href="structcj__strbuf.html">cj_strbuf</a> *sb, const char *s, size_t len)</td></tr>
+<tr class="separator:a7f10b568040d86e7040e9753b50e150b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad26e93745ce05d86d96f27df7a052699" id="r_ad26e93745ce05d86d96f27df7a052699"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#ad26e93745ce05d86d96f27df7a052699">cj_indent_line</a> (<a class="el" href="structcj__strbuf.html">cj_strbuf</a> *sb, int indent, int depth)</td></tr>
+<tr class="separator:ad26e93745ce05d86d96f27df7a052699"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a742fdb12abfd02360b582bd3564d5b1d" id="r_a742fdb12abfd02360b582bd3564d5b1d"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#a742fdb12abfd02360b582bd3564d5b1d">cj_serialize</a> (<a class="el" href="structcj__strbuf.html">cj_strbuf</a> *sb, const <a class="el" href="classtinygltf__json.html">tinygltf_json</a> *v, int indent, int depth)</td></tr>
+<tr class="separator:a742fdb12abfd02360b582bd3564d5b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e046c0b8130c0efe7cb50635b1df73e" id="r_a5e046c0b8130c0efe7cb50635b1df73e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#a5e046c0b8130c0efe7cb50635b1df73e">tinygltf::detail::JsonParse</a> (<a class="el" href="namespacetinygltf_1_1detail.html#a61b815ecaba21427fcfdedec179b5fbb">JsonDocument</a> &amp;doc, const char *str, size_t length, bool throwExc=false)</td></tr>
+<tr class="separator:a5e046c0b8130c0efe7cb50635b1df73e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5a9ca22e8d6f297211effe6c3cbd4c7" id="r_ab5a9ca22e8d6f297211effe6c3cbd4c7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#ab5a9ca22e8d6f297211effe6c3cbd4c7">tinygltf::detail::GetInt</a> (const <a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;o, int &amp;val)</td></tr>
+<tr class="separator:ab5a9ca22e8d6f297211effe6c3cbd4c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53f977db50aaa48a5f38fb4ab154cc51" id="r_a53f977db50aaa48a5f38fb4ab154cc51"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#a53f977db50aaa48a5f38fb4ab154cc51">tinygltf::detail::GetDouble</a> (const <a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;o, double &amp;val)</td></tr>
+<tr class="separator:a53f977db50aaa48a5f38fb4ab154cc51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33a63167056d0dff2efdd3a41b63b20e" id="r_a33a63167056d0dff2efdd3a41b63b20e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#a33a63167056d0dff2efdd3a41b63b20e">tinygltf::detail::GetNumber</a> (const <a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;o, double &amp;val)</td></tr>
+<tr class="separator:a33a63167056d0dff2efdd3a41b63b20e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf389be190bd1071b008a557a776e0c5" id="r_adf389be190bd1071b008a557a776e0c5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#adf389be190bd1071b008a557a776e0c5">tinygltf::detail::GetString</a> (const <a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;o, std::string &amp;val)</td></tr>
+<tr class="separator:adf389be190bd1071b008a557a776e0c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96a3c423e81308ec4526075a35fe2266" id="r_a96a3c423e81308ec4526075a35fe2266"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#a96a3c423e81308ec4526075a35fe2266">tinygltf::detail::IsArray</a> (const <a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;o)</td></tr>
+<tr class="separator:a96a3c423e81308ec4526075a35fe2266"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59a4ace49cef99221986c550deb76da3" id="r_a59a4ace49cef99221986c550deb76da3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#a59a4ace49cef99221986c550deb76da3">tinygltf::detail::IsObject</a> (const <a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;o)</td></tr>
+<tr class="separator:a59a4ace49cef99221986c550deb76da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0e1820caf738daac7d02a3210aa1ab6" id="r_ae0e1820caf738daac7d02a3210aa1ab6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#ae0e1820caf738daac7d02a3210aa1ab6">tinygltf::detail::IsEmpty</a> (const <a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;o)</td></tr>
+<tr class="separator:ae0e1820caf738daac7d02a3210aa1ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6248f204a3e210749722c722ad397acc" id="r_a6248f204a3e210749722c722ad397acc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetinygltf_1_1detail.html#a7a968e37dfc278ec59a150b638ebf490">json_const_array_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#a6248f204a3e210749722c722ad397acc">tinygltf::detail::ArrayBegin</a> (const <a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;o)</td></tr>
+<tr class="separator:a6248f204a3e210749722c722ad397acc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57ae16119b539d3a9f7d86a6057e572b" id="r_a57ae16119b539d3a9f7d86a6057e572b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetinygltf_1_1detail.html#a7a968e37dfc278ec59a150b638ebf490">json_const_array_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#a57ae16119b539d3a9f7d86a6057e572b">tinygltf::detail::ArrayEnd</a> (const <a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;o)</td></tr>
+<tr class="separator:a57ae16119b539d3a9f7d86a6057e572b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2149db0772c8c4f7c2f540dfd0de3e5c" id="r_a2149db0772c8c4f7c2f540dfd0de3e5c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetinygltf_1_1detail.html#aadf4468516bcc2e03c4e109f46a048af">json_const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#a2149db0772c8c4f7c2f540dfd0de3e5c">tinygltf::detail::ObjectBegin</a> (const <a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;o)</td></tr>
+<tr class="separator:a2149db0772c8c4f7c2f540dfd0de3e5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00391843ddf31cd3576ac2ce67f33b7e" id="r_a00391843ddf31cd3576ac2ce67f33b7e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetinygltf_1_1detail.html#aadf4468516bcc2e03c4e109f46a048af">json_const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#a00391843ddf31cd3576ac2ce67f33b7e">tinygltf::detail::ObjectEnd</a> (const <a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;o)</td></tr>
+<tr class="separator:a00391843ddf31cd3576ac2ce67f33b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcb0befd7590838462f64da86e77e242" id="r_adcb0befd7590838462f64da86e77e242"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetinygltf_1_1detail.html#a6cb159633f5289b2cf18ee97463e37c1">json_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#adcb0befd7590838462f64da86e77e242">tinygltf::detail::ObjectBegin</a> (<a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;o)</td></tr>
+<tr class="separator:adcb0befd7590838462f64da86e77e242"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6424002f4481d17f178778f9ac58b89" id="r_af6424002f4481d17f178778f9ac58b89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetinygltf_1_1detail.html#a6cb159633f5289b2cf18ee97463e37c1">json_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#af6424002f4481d17f178778f9ac58b89">tinygltf::detail::ObjectEnd</a> (<a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;o)</td></tr>
+<tr class="separator:af6424002f4481d17f178778f9ac58b89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac428953630eb0520f856c6f64216f4c3" id="r_ac428953630eb0520f856c6f64216f4c3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#ac428953630eb0520f856c6f64216f4c3">tinygltf::detail::GetKey</a> (const <a class="el" href="namespacetinygltf_1_1detail.html#aadf4468516bcc2e03c4e109f46a048af">json_const_iterator</a> &amp;it)</td></tr>
+<tr class="separator:ac428953630eb0520f856c6f64216f4c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae666ddb529b42017785f2c005737c8a1" id="r_ae666ddb529b42017785f2c005737c8a1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#ae666ddb529b42017785f2c005737c8a1">tinygltf::detail::GetKey</a> (<a class="el" href="namespacetinygltf_1_1detail.html#a6cb159633f5289b2cf18ee97463e37c1">json_iterator</a> &amp;it)</td></tr>
+<tr class="separator:ae666ddb529b42017785f2c005737c8a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d2acfa5aeaa91d28409bdcabcf5e53f" id="r_a6d2acfa5aeaa91d28409bdcabcf5e53f"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#a6d2acfa5aeaa91d28409bdcabcf5e53f">tinygltf::detail::GetValue</a> (const <a class="el" href="namespacetinygltf_1_1detail.html#aadf4468516bcc2e03c4e109f46a048af">json_const_iterator</a> &amp;it)</td></tr>
+<tr class="separator:a6d2acfa5aeaa91d28409bdcabcf5e53f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b65f1eb1791ccb383735383047226c7" id="r_a9b65f1eb1791ccb383735383047226c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#a9b65f1eb1791ccb383735383047226c7">tinygltf::detail::GetValue</a> (<a class="el" href="namespacetinygltf_1_1detail.html#a6cb159633f5289b2cf18ee97463e37c1">json_iterator</a> &amp;it)</td></tr>
+<tr class="separator:a9b65f1eb1791ccb383735383047226c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ad9a133629d356dc3d8a2fb1555cbdd" id="r_a4ad9a133629d356dc3d8a2fb1555cbdd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#a4ad9a133629d356dc3d8a2fb1555cbdd">tinygltf::detail::FindMember</a> (const <a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;o, const char *member, <a class="el" href="namespacetinygltf_1_1detail.html#aadf4468516bcc2e03c4e109f46a048af">json_const_iterator</a> &amp;it)</td></tr>
+<tr class="separator:a4ad9a133629d356dc3d8a2fb1555cbdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d1638f0dff9a77a387ffa889056b36c" id="r_a9d1638f0dff9a77a387ffa889056b36c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#a9d1638f0dff9a77a387ffa889056b36c">tinygltf::detail::FindMember</a> (<a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;o, const char *member, <a class="el" href="namespacetinygltf_1_1detail.html#a6cb159633f5289b2cf18ee97463e37c1">json_iterator</a> &amp;it)</td></tr>
+<tr class="separator:a9d1638f0dff9a77a387ffa889056b36c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57a922a1096821edbc6baea2bb066dd1" id="r_a57a922a1096821edbc6baea2bb066dd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#a57a922a1096821edbc6baea2bb066dd1">tinygltf::detail::Erase</a> (<a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;o, <a class="el" href="namespacetinygltf_1_1detail.html#a6cb159633f5289b2cf18ee97463e37c1">json_iterator</a> &amp;it)</td></tr>
+<tr class="separator:a57a922a1096821edbc6baea2bb066dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56a923dbdbd5d55883cd75c95eaa9e69" id="r_a56a923dbdbd5d55883cd75c95eaa9e69"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#a56a923dbdbd5d55883cd75c95eaa9e69">tinygltf::detail::JsonToString</a> (const <a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;o, int spacing=-1)</td></tr>
+<tr class="separator:a56a923dbdbd5d55883cd75c95eaa9e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0fd913cebdec1b418ffb850723a24a2" id="r_ad0fd913cebdec1b418ffb850723a24a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#ad0fd913cebdec1b418ffb850723a24a2">tinygltf::detail::JsonFromString</a> (const char *s)</td></tr>
+<tr class="separator:ad0fd913cebdec1b418ffb850723a24a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad24c37515ffd3c71493403ef1b5a021" id="r_aad24c37515ffd3c71493403ef1b5a021"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#aad24c37515ffd3c71493403ef1b5a021">tinygltf::detail::JsonAssign</a> (<a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;dest, const <a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;src)</td></tr>
+<tr class="separator:aad24c37515ffd3c71493403ef1b5a021"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac90c55e15bca7b1933224ddfc970e3d4" id="r_ac90c55e15bca7b1933224ddfc970e3d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#ac90c55e15bca7b1933224ddfc970e3d4">tinygltf::detail::JsonAddMember</a> (<a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;o, const char *key, <a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;&amp;value)</td></tr>
+<tr class="separator:ac90c55e15bca7b1933224ddfc970e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e53b516d24555ba3502287bff3b0e6c" id="r_a5e53b516d24555ba3502287bff3b0e6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#a5e53b516d24555ba3502287bff3b0e6c">tinygltf::detail::JsonPushBack</a> (<a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;o, <a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;&amp;value)</td></tr>
+<tr class="separator:a5e53b516d24555ba3502287bff3b0e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09bea0991eea4692102cf94cc9f4b364" id="r_a09bea0991eea4692102cf94cc9f4b364"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#a09bea0991eea4692102cf94cc9f4b364">tinygltf::detail::JsonIsNull</a> (const <a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;o)</td></tr>
+<tr class="separator:a09bea0991eea4692102cf94cc9f4b364"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac64fa82c6d88c6846c3db25e14cd57f0" id="r_ac64fa82c6d88c6846c3db25e14cd57f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#ac64fa82c6d88c6846c3db25e14cd57f0">tinygltf::detail::JsonSetObject</a> (<a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;o)</td></tr>
+<tr class="separator:ac64fa82c6d88c6846c3db25e14cd57f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5aabf3648feaadc9a1c8854f7c31913" id="r_ab5aabf3648feaadc9a1c8854f7c31913"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#ab5aabf3648feaadc9a1c8854f7c31913">tinygltf::detail::JsonReserveArray</a> (<a class="el" href="namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1">json</a> &amp;o, size_t)</td></tr>
+<tr class="separator:ab5aabf3648feaadc9a1c8854f7c31913"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04add369d2c4c2f16003321e5211b6f1" id="r_a04add369d2c4c2f16003321e5211b6f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtinygltf_1_1detail_1_1CJ__NoAllocator.html">CJ_NoAllocator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetinygltf_1_1detail.html#a04add369d2c4c2f16003321e5211b6f1">tinygltf::detail::GetAllocator</a> ()</td></tr>
+<tr class="separator:a04add369d2c4c2f16003321e5211b6f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+変数</h2></td></tr>
+<tr class="memitem:ada0030812f4164f2f86ac918beabeb19" id="r_ada0030812f4164f2f86ac918beabeb19"><td class="memItemLeft" align="right" valign="top">static const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinygltf__json_8h.html#ada0030812f4164f2f86ac918beabeb19">cj_exact_pow10</a> [23]</td></tr>
+<tr class="separator:ada0030812f4164f2f86ac918beabeb19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">マクロ定義詳解</h2>
+<a id="a06ce8f1b711c625c508d55b91ac95f2d" name="a06ce8f1b711c625c508d55b91ac95f2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06ce8f1b711c625c508d55b91ac95f2d">&#9670;&#160;</a></span>CJ_ARRAY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CJ_ARRAY&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaeae1471fee6d568884078ae2e6db3b9" name="aaeae1471fee6d568884078ae2e6db3b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaeae1471fee6d568884078ae2e6db3b9">&#9670;&#160;</a></span>CJ_BOOL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CJ_BOOL&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acae03382048eba6b7329b3580ba44614" name="acae03382048eba6b7329b3580ba44614"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acae03382048eba6b7329b3580ba44614">&#9670;&#160;</a></span>CJ_INT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CJ_INT&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9228ee7cc51aaa53391b8349d60d8d38" name="a9228ee7cc51aaa53391b8349d60d8d38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9228ee7cc51aaa53391b8349d60d8d38">&#9670;&#160;</a></span>CJ_MAX_ITER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CJ_MAX_ITER&#160;&#160;&#160;512</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a64b7e284ba302b257aa255db4bcee9c2" name="a64b7e284ba302b257aa255db4bcee9c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64b7e284ba302b257aa255db4bcee9c2">&#9670;&#160;</a></span>CJ_NULL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CJ_NULL&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a990c40288eb19edbb9df16cc2ac61990" name="a990c40288eb19edbb9df16cc2ac61990"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a990c40288eb19edbb9df16cc2ac61990">&#9670;&#160;</a></span>CJ_OBJECT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CJ_OBJECT&#160;&#160;&#160;6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6bcbbc67d36a8d2cbd10f799321fcb75" name="a6bcbbc67d36a8d2cbd10f799321fcb75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bcbbc67d36a8d2cbd10f799321fcb75">&#9670;&#160;</a></span>CJ_REAL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CJ_REAL&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a140334418338dc4b9465df258c8dd4fc" name="a140334418338dc4b9465df258c8dd4fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a140334418338dc4b9465df258c8dd4fc">&#9670;&#160;</a></span>CJ_STRING</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CJ_STRING&#160;&#160;&#160;4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8378491702198af1ca461393d9519d7b" name="a8378491702198af1ca461393d9519d7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8378491702198af1ca461393d9519d7b">&#9670;&#160;</a></span>TINYGLTF_JSON_NO_EXCEPTIONS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TINYGLTF_JSON_NO_EXCEPTIONS</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a7f10b568040d86e7040e9753b50e150b" name="a7f10b568040d86e7040e9753b50e150b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f10b568040d86e7040e9753b50e150b">&#9670;&#160;</a></span>cj_append_str_escaped()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int cj_append_str_escaped </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcj__strbuf.html">cj_strbuf</a> *&#160;</td>
+          <td class="paramname"><em>sb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a7f10b568040d86e7040e9753b50e150b_cgraph.svg" width="100%" height="403"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a7f10b568040d86e7040e9753b50e150b_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aebafb93b37b12f4bf6ff52bff616ca23" name="aebafb93b37b12f4bf6ff52bff616ca23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebafb93b37b12f4bf6ff52bff616ca23">&#9670;&#160;</a></span>cj_ctx_error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void cj_ctx_error </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcj__parse__ctx.html">cj_parse_ctx</a> *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>msg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_aebafb93b37b12f4bf6ff52bff616ca23_icgraph.svg" width="100%" height="387"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ab32171b4a6329f9b39a496b81de64830" name="ab32171b4a6329f9b39a496b81de64830"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab32171b4a6329f9b39a496b81de64830">&#9670;&#160;</a></span>cj_dbl_to_i64()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int64_t cj_dbl_to_i64 </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_ab32171b4a6329f9b39a496b81de64830_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a70f9e1c9d8601d2d1186d9e36a69baca" name="a70f9e1c9d8601d2d1186d9e36a69baca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70f9e1c9d8601d2d1186d9e36a69baca">&#9670;&#160;</a></span>cj_encode_utf8()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int cj_encode_utf8 </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>cp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buf</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a70f9e1c9d8601d2d1186d9e36a69baca_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a74fcd836441150faaca4185f41e75f91" name="a74fcd836441150faaca4185f41e75f91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74fcd836441150faaca4185f41e75f91">&#9670;&#160;</a></span>cj_fast_dbl_convert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int cj_fast_dbl_convert </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>mantissa</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>exp10</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>neg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>out</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a74fcd836441150faaca4185f41e75f91_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a1537d186a039b9fdd9d73ae6ca8177d7" name="a1537d186a039b9fdd9d73ae6ca8177d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1537d186a039b9fdd9d73ae6ca8177d7">&#9670;&#160;</a></span>cj_fast_flt_convert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int cj_fast_flt_convert </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>mantissa</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>exp10</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>neg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>out</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a1537d186a039b9fdd9d73ae6ca8177d7_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ae585746eb528cb2e8a938d32b0a618c3" name="ae585746eb528cb2e8a938d32b0a618c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae585746eb528cb2e8a938d32b0a618c3">&#9670;&#160;</a></span>cj_hex4()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int cj_hex4 </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_ae585746eb528cb2e8a938d32b0a618c3_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ad26e93745ce05d86d96f27df7a052699" name="ad26e93745ce05d86d96f27df7a052699"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad26e93745ce05d86d96f27df7a052699">&#9670;&#160;</a></span>cj_indent_line()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int cj_indent_line </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcj__strbuf.html">cj_strbuf</a> *&#160;</td>
+          <td class="paramname"><em>sb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>indent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>depth</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_ad26e93745ce05d86d96f27df7a052699_cgraph.svg" width="620" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_ad26e93745ce05d86d96f27df7a052699_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a873b191c85f7b37ee476c2774af40834" name="a873b191c85f7b37ee476c2774af40834"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a873b191c85f7b37ee476c2774af40834">&#9670;&#160;</a></span>cj_parse_json()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void cj_parse_json </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcj__parse__ctx.html">cj_parse_ctx</a> *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classtinygltf__json.html">tinygltf_json</a> *&#160;</td>
+          <td class="paramname"><em>root</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a873b191c85f7b37ee476c2774af40834_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a873b191c85f7b37ee476c2774af40834_icgraph.svg" width="547" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a54cd2ee939718c56352c2c32e357084a" name="a54cd2ee939718c56352c2c32e357084a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54cd2ee939718c56352c2c32e357084a">&#9670;&#160;</a></span>cj_parse_number()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const char * cj_parse_number </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>is_int</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int64_t *&#160;</td>
+          <td class="paramname"><em>ival</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>dval</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>float32_mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a54cd2ee939718c56352c2c32e357084a_cgraph.svg" width="340" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a54cd2ee939718c56352c2c32e357084a_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="abeeb2e50f9da501b63c7128de65ea092" name="abeeb2e50f9da501b63c7128de65ea092"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abeeb2e50f9da501b63c7128de65ea092">&#9670;&#160;</a></span>cj_parse_scalar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void cj_parse_scalar </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcj__parse__ctx.html">cj_parse_ctx</a> *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classtinygltf__json.html">tinygltf_json</a> *&#160;</td>
+          <td class="paramname"><em>slot</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_abeeb2e50f9da501b63c7128de65ea092_cgraph.svg" width="100%" height="590"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_abeeb2e50f9da501b63c7128de65ea092_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a23fd81cc5ebef619bfc8b7f8c5721114" name="a23fd81cc5ebef619bfc8b7f8c5721114"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23fd81cc5ebef619bfc8b7f8c5721114">&#9670;&#160;</a></span>cj_parse_string_to()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void cj_parse_string_to </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcj__parse__ctx.html">cj_parse_ctx</a> *&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>out_str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t *&#160;</td>
+          <td class="paramname"><em>out_len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a23fd81cc5ebef619bfc8b7f8c5721114_cgraph.svg" width="100%" height="439"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a23fd81cc5ebef619bfc8b7f8c5721114_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a2dd1907cbd11fb7aa78d05551919351f" name="a2dd1907cbd11fb7aa78d05551919351f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dd1907cbd11fb7aa78d05551919351f">&#9670;&#160;</a></span>cj_sb_appendc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int cj_sb_appendc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcj__strbuf.html">cj_strbuf</a> *&#160;</td>
+          <td class="paramname"><em>sb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a2dd1907cbd11fb7aa78d05551919351f_cgraph.svg" width="460" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a2dd1907cbd11fb7aa78d05551919351f_icgraph.svg" width="100%" height="403"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ac0d8bceaa666f577447faae8a22f4795" name="ac0d8bceaa666f577447faae8a22f4795"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0d8bceaa666f577447faae8a22f4795">&#9670;&#160;</a></span>cj_sb_appendn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int cj_sb_appendn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcj__strbuf.html">cj_strbuf</a> *&#160;</td>
+          <td class="paramname"><em>sb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_ac0d8bceaa666f577447faae8a22f4795_cgraph.svg" width="295" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_ac0d8bceaa666f577447faae8a22f4795_icgraph.svg" width="100%" height="441"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a6e85e57e26653ce28664f07110663dbf" name="a6e85e57e26653ce28664f07110663dbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e85e57e26653ce28664f07110663dbf">&#9670;&#160;</a></span>cj_sb_appends()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int cj_sb_appends </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcj__strbuf.html">cj_strbuf</a> *&#160;</td>
+          <td class="paramname"><em>sb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a6e85e57e26653ce28664f07110663dbf_cgraph.svg" width="460" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a6e85e57e26653ce28664f07110663dbf_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a3d01ab0d6a5655b5996441a1eb4f0f8e" name="a3d01ab0d6a5655b5996441a1eb4f0f8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d01ab0d6a5655b5996441a1eb4f0f8e">&#9670;&#160;</a></span>cj_scan_str()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const char * cj_scan_str </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a3d01ab0d6a5655b5996441a1eb4f0f8e_cgraph.svg" width="294" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a3d01ab0d6a5655b5996441a1eb4f0f8e_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a231171a933f1be8211864a3b7c4c72a9" name="a231171a933f1be8211864a3b7c4c72a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a231171a933f1be8211864a3b7c4c72a9">&#9670;&#160;</a></span>cj_scan_str_scalar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const char * cj_scan_str_scalar </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a231171a933f1be8211864a3b7c4c72a9_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a742fdb12abfd02360b582bd3564d5b1d" name="a742fdb12abfd02360b582bd3564d5b1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a742fdb12abfd02360b582bd3564d5b1d">&#9670;&#160;</a></span>cj_serialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int cj_serialize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcj__strbuf.html">cj_strbuf</a> *&#160;</td>
+          <td class="paramname"><em>sb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classtinygltf__json.html">tinygltf_json</a> *&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>indent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>depth</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a742fdb12abfd02360b582bd3564d5b1d_cgraph.svg" width="100%" height="419"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a742fdb12abfd02360b582bd3564d5b1d_icgraph.svg" width="512" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a4ba0e4f665a7b99fe8c43fb66be7afbc" name="a4ba0e4f665a7b99fe8c43fb66be7afbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ba0e4f665a7b99fe8c43fb66be7afbc">&#9670;&#160;</a></span>cj_skip_ws()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const char * cj_skip_ws </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a4ba0e4f665a7b99fe8c43fb66be7afbc_cgraph.svg" width="290" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a4ba0e4f665a7b99fe8c43fb66be7afbc_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="acfbad8d0da61e9bf150ab701e626adb9" name="acfbad8d0da61e9bf150ab701e626adb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfbad8d0da61e9bf150ab701e626adb9">&#9670;&#160;</a></span>cj_skip_ws_scalar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const char * cj_skip_ws_scalar </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_acfbad8d0da61e9bf150ab701e626adb9_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ac3938fa31e3d3641f7016a6c39c52e88" name="ac3938fa31e3d3641f7016a6c39c52e88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3938fa31e3d3641f7016a6c39c52e88">&#9670;&#160;</a></span>cj_strbuf_free_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void cj_strbuf_free_data </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcj__strbuf.html">cj_strbuf</a> *&#160;</td>
+          <td class="paramname"><em>sb</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_ac3938fa31e3d3641f7016a6c39c52e88_icgraph.svg" width="564" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8d22e1983ac59184a512fd5c048dfda2" name="a8d22e1983ac59184a512fd5c048dfda2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d22e1983ac59184a512fd5c048dfda2">&#9670;&#160;</a></span>cj_strbuf_grow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int cj_strbuf_grow </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcj__strbuf.html">cj_strbuf</a> *&#160;</td>
+          <td class="paramname"><em>sb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>extra</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a8d22e1983ac59184a512fd5c048dfda2_icgraph.svg" width="100%" height="441"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a36b3da4825b1d36070e5dbcd08a1c58b" name="a36b3da4825b1d36070e5dbcd08a1c58b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36b3da4825b1d36070e5dbcd08a1c58b">&#9670;&#160;</a></span>cj_strbuf_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int cj_strbuf_init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcj__strbuf.html">cj_strbuf</a> *&#160;</td>
+          <td class="paramname"><em>sb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>initial</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_a36b3da4825b1d36070e5dbcd08a1c58b_icgraph.svg" width="524" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa173d0370b910e25dfdfa3fc30060795" name="aa173d0370b910e25dfdfa3fc30060795"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa173d0370b910e25dfdfa3fc30060795">&#9670;&#160;</a></span>cj_unescape_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static char * cj_unescape_string </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str_end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t *&#160;</td>
+          <td class="paramname"><em>out_len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_aa173d0370b910e25dfdfa3fc30060795_cgraph.svg" width="514" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_aa173d0370b910e25dfdfa3fc30060795_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aa7460c093bea80973be165b8a3beaffb" name="aa7460c093bea80973be165b8a3beaffb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7460c093bea80973be165b8a3beaffb">&#9670;&#160;</a></span>tinygltf_json::get&lt; std::string &gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> <a class="el" href="classtinygltf__json.html#a094b8aceaf412c16eab53791f0d6210c">tinygltf_json::get</a>&lt; <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &gt; </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="tinygltf__json_8h_aa7460c093bea80973be165b8a3beaffb_icgraph.svg" width="360" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">変数詳解</h2>
+<a id="ada0030812f4164f2f86ac918beabeb19" name="ada0030812f4164f2f86ac918beabeb19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada0030812f4164f2f86ac918beabeb19">&#9670;&#160;</a></span>cj_exact_pow10</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double cj_exact_pow10[23]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初期値:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    1e0,  1e1,  1e2,  1e3,  1e4,  1e5,  1e6,  1e7,</div>
+<div class="line">    1e8,  1e9,  1e10, 1e11, 1e12, 1e13, 1e14, 1e15,</div>
+<div class="line">    1e16, 1e17, 1e18, 1e19, 1e20, 1e21, 1e22</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_7c0aa22dc34fe5ebab8f7beef50f1444.html">External</a></li><li class="navelem"><a class="el" href="tinygltf__json_8h.html">tinygltf_json.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

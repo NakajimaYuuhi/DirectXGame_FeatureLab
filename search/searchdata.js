@@ -1,15 +1,17 @@
 var indexSectionsWithContent =
 {
-  0: "3_abcdefghijlmnoprstuvwxy~",
-  1: "abcdefilmnoprstv",
-  2: "eos",
-  3: "3abcdefgimoprstu",
-  4: "abcdefgilmoprstuw~",
-  5: "_abcdefghijlmnoprstuvwxy",
-  6: "bcmopsuvwx",
-  7: "abcio",
-  8: "abcefglmnoprstuw",
-  9: "dfijst"
+  0: "3:_abcdefghijklmnopqrstuvwxyz~非",
+  1: "abcdefghijlmnoprstuvw",
+  2: "einost",
+  3: "3abcdefgijmoprstu",
+  4: "_abcdefghijklmnoprstuvw~",
+  5: "_abcdefghijklmnopqrstuvwxyz",
+  6: "_abcdefgijklmnoprstuvwx",
+  7: "abceimopstv",
+  8: "abcdefgijklmnoprstuvw",
+  9: ":bdosw",
+  10: "_cdfijmnpstvw",
+  11: "非"
 };
 
 var indexSectionNames =
@@ -23,7 +25,9 @@ var indexSectionNames =
   6: "typedefs",
   7: "enums",
   8: "enumvalues",
-  9: "defines"
+  9: "related",
+  10: "defines",
+  11: "pages"
 };
 
 var indexSectionLabels =
@@ -37,6 +41,8 @@ var indexSectionLabels =
   6: "型定義",
   7: "列挙型",
   8: "列挙値",
-  9: "マクロ定義"
+  9: "フレンド",
+  10: "マクロ定義",
+  11: "ページ"
 };
 

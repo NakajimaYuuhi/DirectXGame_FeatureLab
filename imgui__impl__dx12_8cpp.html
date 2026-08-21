@@ -1,0 +1,689 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/External/imgui_impl_dx12.cpp ファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('imgui__impl__dx12_8cpp.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">クラス</a> &#124;
+<a href="#typedef-members">型定義</a> &#124;
+<a href="#func-members">関数</a>  </div>
+  <div class="headertitle"><div class="title">imgui_impl_dx12.cpp ファイル</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="imgui_8h_source.html">imgui.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="imgui__impl__dx12_8h_source.html">imgui_impl_dx12.h</a>&quot;</code><br />
+<code>#include &lt;d3d12.h&gt;</code><br />
+<code>#include &lt;dxgi1_5.h&gt;</code><br />
+<code>#include &lt;d3dcompiler.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+imgui_impl_dx12.cpp の依存先関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp__incl.svg" width="100%" height="503"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+クラス</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImGui__ImplDX12__Texture.html">ImGui_ImplDX12_Texture</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImGui__ImplDX12__Data.html">ImGui_ImplDX12_Data</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImGui__ImplDX12__RenderBuffers.html">ImGui_ImplDX12_RenderBuffers</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVERTEX__CONSTANT__BUFFER__DX12.html">VERTEX_CONSTANT_BUFFER_DX12</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+型定義</h2></td></tr>
+<tr class="memitem:a501a6eed92213fc423abc6c2614c3a5a" id="r_a501a6eed92213fc423abc6c2614c3a5a"><td class="memItemLeft" align="right" valign="top">typedef decltype(D3D12SerializeRootSignature) *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8cpp.html#a501a6eed92213fc423abc6c2614c3a5a">_PFN_D3D12_SERIALIZE_ROOT_SIGNATURE</a></td></tr>
+<tr class="separator:a501a6eed92213fc423abc6c2614c3a5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+関数</h2></td></tr>
+<tr class="memitem:a14167df5e99c1e9c9e305aedc82599f2" id="r_a14167df5e99c1e9c9e305aedc82599f2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structImGui__ImplDX12__Data.html">ImGui_ImplDX12_Data</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8cpp.html#a14167df5e99c1e9c9e305aedc82599f2">ImGui_ImplDX12_GetBackendData</a> ()</td></tr>
+<tr class="separator:a14167df5e99c1e9c9e305aedc82599f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77bfc88816ce704f9cb2871b899f4366" id="r_a77bfc88816ce704f9cb2871b899f4366"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8cpp.html#a77bfc88816ce704f9cb2871b899f4366">ImGui_ImplDX12_SetupSamplerLinear</a> (ID3D12GraphicsCommandList *command_list)</td></tr>
+<tr class="separator:a77bfc88816ce704f9cb2871b899f4366"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c0b94b10ab14e276cd8ba50c657d6df" id="r_a3c0b94b10ab14e276cd8ba50c657d6df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8cpp.html#a3c0b94b10ab14e276cd8ba50c657d6df">ImGui_ImplDX12_SetupSamplerNearest</a> (ID3D12GraphicsCommandList *command_list)</td></tr>
+<tr class="separator:a3c0b94b10ab14e276cd8ba50c657d6df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab832d7d51c9c45255510844d489482e" id="r_aab832d7d51c9c45255510844d489482e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8cpp.html#aab832d7d51c9c45255510844d489482e">ImGui_ImplDX12_SetupRenderState</a> (<a class="el" href="structImDrawData.html">ImDrawData</a> *draw_data, ID3D12GraphicsCommandList *command_list, <a class="el" href="structImGui__ImplDX12__RenderBuffers.html">ImGui_ImplDX12_RenderBuffers</a> *fr)</td></tr>
+<tr class="separator:aab832d7d51c9c45255510844d489482e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b7b2cbda67e86c4835baedc87d17f7b" id="r_a1b7b2cbda67e86c4835baedc87d17f7b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a1b7b2cbda67e86c4835baedc87d17f7b"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8cpp.html#a1b7b2cbda67e86c4835baedc87d17f7b">SafeRelease</a> (T *&amp;res)</td></tr>
+<tr class="separator:a1b7b2cbda67e86c4835baedc87d17f7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a823d8bc2e350a998ec96894eb0e8f9bf" id="r_a823d8bc2e350a998ec96894eb0e8f9bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8cpp.html#a823d8bc2e350a998ec96894eb0e8f9bf">ImGui_ImplDX12_RenderDrawData</a> (<a class="el" href="structImDrawData.html">ImDrawData</a> *draw_data, ID3D12GraphicsCommandList *command_list)</td></tr>
+<tr class="separator:a823d8bc2e350a998ec96894eb0e8f9bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92694d017b97b8e80e62dbb3e80c3baa" id="r_a92694d017b97b8e80e62dbb3e80c3baa"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8cpp.html#a92694d017b97b8e80e62dbb3e80c3baa">ImGui_ImplDX12_DestroyTexture</a> (<a class="el" href="structImTextureData.html">ImTextureData</a> *tex)</td></tr>
+<tr class="separator:a92694d017b97b8e80e62dbb3e80c3baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee6523239995a20e03fd16dfb900b51f" id="r_aee6523239995a20e03fd16dfb900b51f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8cpp.html#aee6523239995a20e03fd16dfb900b51f">ImGui_ImplDX12_UpdateTexture</a> (<a class="el" href="structImTextureData.html">ImTextureData</a> *tex)</td></tr>
+<tr class="separator:aee6523239995a20e03fd16dfb900b51f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab272c7b74e08931d1036bc06ba34402e" id="r_ab272c7b74e08931d1036bc06ba34402e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8cpp.html#ab272c7b74e08931d1036bc06ba34402e">ImGui_ImplDX12_CreateDeviceObjects</a> ()</td></tr>
+<tr class="separator:ab272c7b74e08931d1036bc06ba34402e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af97805bc6088d9f57e53e90df5a69176" id="r_af97805bc6088d9f57e53e90df5a69176"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8cpp.html#af97805bc6088d9f57e53e90df5a69176">ImGui_ImplDX12_InvalidateDeviceObjects</a> ()</td></tr>
+<tr class="separator:af97805bc6088d9f57e53e90df5a69176"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9a4fadcbd37b4730d7f6572b2a19d93" id="r_af9a4fadcbd37b4730d7f6572b2a19d93"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8cpp.html#af9a4fadcbd37b4730d7f6572b2a19d93">ImGui_ImplDX12_InitLegacySingleDescriptorMode</a> (<a class="el" href="structImGui__ImplDX12__InitInfo.html">ImGui_ImplDX12_InitInfo</a> *init_info)</td></tr>
+<tr class="separator:af9a4fadcbd37b4730d7f6572b2a19d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae17e6eca65e754d9174ef39773bdde5e" id="r_ae17e6eca65e754d9174ef39773bdde5e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8cpp.html#ae17e6eca65e754d9174ef39773bdde5e">ImGui_ImplDX12_Init</a> (<a class="el" href="structImGui__ImplDX12__InitInfo.html">ImGui_ImplDX12_InitInfo</a> *init_info)</td></tr>
+<tr class="separator:ae17e6eca65e754d9174ef39773bdde5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a931c56f0a08f487602de645233fd0b9b" id="r_a931c56f0a08f487602de645233fd0b9b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8cpp.html#a931c56f0a08f487602de645233fd0b9b">ImGui_ImplDX12_Init</a> (ID3D12Device *device, int num_frames_in_flight, DXGI_FORMAT rtv_format, ID3D12DescriptorHeap *srv_descriptor_heap, D3D12_CPU_DESCRIPTOR_HANDLE font_srv_cpu_desc_handle, D3D12_GPU_DESCRIPTOR_HANDLE font_srv_gpu_desc_handle)</td></tr>
+<tr class="separator:a931c56f0a08f487602de645233fd0b9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35feaca4a5ef1d61ed0528238a829fa7" id="r_a35feaca4a5ef1d61ed0528238a829fa7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8cpp.html#a35feaca4a5ef1d61ed0528238a829fa7">ImGui_ImplDX12_Shutdown</a> ()</td></tr>
+<tr class="separator:a35feaca4a5ef1d61ed0528238a829fa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90c28de6beeafe228957536ce6edab33" id="r_a90c28de6beeafe228957536ce6edab33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8cpp.html#a90c28de6beeafe228957536ce6edab33">ImGui_ImplDX12_NewFrame</a> ()</td></tr>
+<tr class="separator:a90c28de6beeafe228957536ce6edab33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">型定義詳解</h2>
+<a id="a501a6eed92213fc423abc6c2614c3a5a" name="a501a6eed92213fc423abc6c2614c3a5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a501a6eed92213fc423abc6c2614c3a5a">&#9670;&#160;</a></span>_PFN_D3D12_SERIALIZE_ROOT_SIGNATURE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef decltype(D3D12SerializeRootSignature) * <a class="el" href="imgui__impl__dx12_8cpp.html#a501a6eed92213fc423abc6c2614c3a5a">_PFN_D3D12_SERIALIZE_ROOT_SIGNATURE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="ab272c7b74e08931d1036bc06ba34402e" name="ab272c7b74e08931d1036bc06ba34402e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab272c7b74e08931d1036bc06ba34402e">&#9670;&#160;</a></span>ImGui_ImplDX12_CreateDeviceObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ImGui_ImplDX12_CreateDeviceObjects </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_ab272c7b74e08931d1036bc06ba34402e_cgraph.svg" width="100%" height="512"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_ab272c7b74e08931d1036bc06ba34402e_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a92694d017b97b8e80e62dbb3e80c3baa" name="a92694d017b97b8e80e62dbb3e80c3baa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92694d017b97b8e80e62dbb3e80c3baa">&#9670;&#160;</a></span>ImGui_ImplDX12_DestroyTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void ImGui_ImplDX12_DestroyTexture </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structImTextureData.html">ImTextureData</a> *&#160;</td>
+          <td class="paramname"><em>tex</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_a92694d017b97b8e80e62dbb3e80c3baa_cgraph.svg" width="100%" height="475"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_a92694d017b97b8e80e62dbb3e80c3baa_icgraph.svg" width="100%" height="413"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a14167df5e99c1e9c9e305aedc82599f2" name="a14167df5e99c1e9c9e305aedc82599f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14167df5e99c1e9c9e305aedc82599f2">&#9670;&#160;</a></span>ImGui_ImplDX12_GetBackendData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structImGui__ImplDX12__Data.html">ImGui_ImplDX12_Data</a> * ImGui_ImplDX12_GetBackendData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_a14167df5e99c1e9c9e305aedc82599f2_cgraph.svg" width="498" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_a14167df5e99c1e9c9e305aedc82599f2_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a931c56f0a08f487602de645233fd0b9b" name="a931c56f0a08f487602de645233fd0b9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a931c56f0a08f487602de645233fd0b9b">&#9670;&#160;</a></span>ImGui_ImplDX12_Init() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ImGui_ImplDX12_Init </td>
+          <td>(</td>
+          <td class="paramtype">ID3D12Device *&#160;</td>
+          <td class="paramname"><em>device</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num_frames_in_flight</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DXGI_FORMAT&#160;</td>
+          <td class="paramname"><em>rtv_format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ID3D12DescriptorHeap *&#160;</td>
+          <td class="paramname"><em>srv_descriptor_heap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_CPU_DESCRIPTOR_HANDLE&#160;</td>
+          <td class="paramname"><em>font_srv_cpu_desc_handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">D3D12_GPU_DESCRIPTOR_HANDLE&#160;</td>
+          <td class="paramname"><em>font_srv_gpu_desc_handle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_a931c56f0a08f487602de645233fd0b9b_cgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ae17e6eca65e754d9174ef39773bdde5e" name="ae17e6eca65e754d9174ef39773bdde5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae17e6eca65e754d9174ef39773bdde5e">&#9670;&#160;</a></span>ImGui_ImplDX12_Init() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ImGui_ImplDX12_Init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structImGui__ImplDX12__InitInfo.html">ImGui_ImplDX12_InitInfo</a> *&#160;</td>
+          <td class="paramname"><em>init_info</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_ae17e6eca65e754d9174ef39773bdde5e_cgraph.svg" width="100%" height="373"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_ae17e6eca65e754d9174ef39773bdde5e_icgraph.svg" width="536" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af9a4fadcbd37b4730d7f6572b2a19d93" name="af9a4fadcbd37b4730d7f6572b2a19d93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9a4fadcbd37b4730d7f6572b2a19d93">&#9670;&#160;</a></span>ImGui_ImplDX12_InitLegacySingleDescriptorMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void ImGui_ImplDX12_InitLegacySingleDescriptorMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structImGui__ImplDX12__InitInfo.html">ImGui_ImplDX12_InitInfo</a> *&#160;</td>
+          <td class="paramname"><em>init_info</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_af9a4fadcbd37b4730d7f6572b2a19d93_cgraph.svg" width="100%" height="364"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_af9a4fadcbd37b4730d7f6572b2a19d93_icgraph.svg" width="100%" height="364"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="af97805bc6088d9f57e53e90df5a69176" name="af97805bc6088d9f57e53e90df5a69176"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af97805bc6088d9f57e53e90df5a69176">&#9670;&#160;</a></span>ImGui_ImplDX12_InvalidateDeviceObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImGui_ImplDX12_InvalidateDeviceObjects </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_af97805bc6088d9f57e53e90df5a69176_cgraph.svg" width="100%" height="493"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_af97805bc6088d9f57e53e90df5a69176_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a90c28de6beeafe228957536ce6edab33" name="a90c28de6beeafe228957536ce6edab33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90c28de6beeafe228957536ce6edab33">&#9670;&#160;</a></span>ImGui_ImplDX12_NewFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImGui_ImplDX12_NewFrame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_a90c28de6beeafe228957536ce6edab33_cgraph.svg" width="100%" height="512"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_a90c28de6beeafe228957536ce6edab33_icgraph.svg" width="567" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a823d8bc2e350a998ec96894eb0e8f9bf" name="a823d8bc2e350a998ec96894eb0e8f9bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a823d8bc2e350a998ec96894eb0e8f9bf">&#9670;&#160;</a></span>ImGui_ImplDX12_RenderDrawData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImGui_ImplDX12_RenderDrawData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structImDrawData.html">ImDrawData</a> *&#160;</td>
+          <td class="paramname"><em>draw_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ID3D12GraphicsCommandList *&#160;</td>
+          <td class="paramname"><em>command_list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_a823d8bc2e350a998ec96894eb0e8f9bf_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_a823d8bc2e350a998ec96894eb0e8f9bf_icgraph.svg" width="595" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aab832d7d51c9c45255510844d489482e" name="aab832d7d51c9c45255510844d489482e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab832d7d51c9c45255510844d489482e">&#9670;&#160;</a></span>ImGui_ImplDX12_SetupRenderState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void ImGui_ImplDX12_SetupRenderState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structImDrawData.html">ImDrawData</a> *&#160;</td>
+          <td class="paramname"><em>draw_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ID3D12GraphicsCommandList *&#160;</td>
+          <td class="paramname"><em>command_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structImGui__ImplDX12__RenderBuffers.html">ImGui_ImplDX12_RenderBuffers</a> *&#160;</td>
+          <td class="paramname"><em>fr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_aab832d7d51c9c45255510844d489482e_cgraph.svg" width="100%" height="364"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_aab832d7d51c9c45255510844d489482e_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a77bfc88816ce704f9cb2871b899f4366" name="a77bfc88816ce704f9cb2871b899f4366"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77bfc88816ce704f9cb2871b899f4366">&#9670;&#160;</a></span>ImGui_ImplDX12_SetupSamplerLinear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImGui_ImplDX12_SetupSamplerLinear </td>
+          <td>(</td>
+          <td class="paramtype">ID3D12GraphicsCommandList *&#160;</td>
+          <td class="paramname"><em>command_list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_a77bfc88816ce704f9cb2871b899f4366_cgraph.svg" width="100%" height="364"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_a77bfc88816ce704f9cb2871b899f4366_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a3c0b94b10ab14e276cd8ba50c657d6df" name="a3c0b94b10ab14e276cd8ba50c657d6df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c0b94b10ab14e276cd8ba50c657d6df">&#9670;&#160;</a></span>ImGui_ImplDX12_SetupSamplerNearest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImGui_ImplDX12_SetupSamplerNearest </td>
+          <td>(</td>
+          <td class="paramtype">ID3D12GraphicsCommandList *&#160;</td>
+          <td class="paramname"><em>command_list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_a3c0b94b10ab14e276cd8ba50c657d6df_cgraph.svg" width="100%" height="364"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a35feaca4a5ef1d61ed0528238a829fa7" name="a35feaca4a5ef1d61ed0528238a829fa7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35feaca4a5ef1d61ed0528238a829fa7">&#9670;&#160;</a></span>ImGui_ImplDX12_Shutdown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImGui_ImplDX12_Shutdown </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_a35feaca4a5ef1d61ed0528238a829fa7_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_a35feaca4a5ef1d61ed0528238a829fa7_icgraph.svg" width="447" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aee6523239995a20e03fd16dfb900b51f" name="aee6523239995a20e03fd16dfb900b51f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee6523239995a20e03fd16dfb900b51f">&#9670;&#160;</a></span>ImGui_ImplDX12_UpdateTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImGui_ImplDX12_UpdateTexture </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structImTextureData.html">ImTextureData</a> *&#160;</td>
+          <td class="paramname"><em>tex</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_aee6523239995a20e03fd16dfb900b51f_cgraph.svg" width="100%" height="516"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_aee6523239995a20e03fd16dfb900b51f_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a1b7b2cbda67e86c4835baedc87d17f7b" name="a1b7b2cbda67e86c4835baedc87d17f7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b7b2cbda67e86c4835baedc87d17f7b">&#9670;&#160;</a></span>SafeRelease()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void SafeRelease </td>
+          <td>(</td>
+          <td class="paramtype">T *&amp;&#160;</td>
+          <td class="paramname"><em>res</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8cpp_a1b7b2cbda67e86c4835baedc87d17f7b_icgraph.svg" width="100%" height="414"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_7c0aa22dc34fe5ebab8f7beef50f1444.html">External</a></li><li class="navelem"><a class="el" href="imgui__impl__dx12_8cpp.html">imgui_impl_dx12.cpp</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

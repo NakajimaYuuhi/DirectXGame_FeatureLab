@@ -1,0 +1,1303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: tinygltf::Value クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classtinygltf_1_1Value.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">公開型</a> &#124;
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pro-attribs">限定公開変数類</a> &#124;
+<a href="classtinygltf_1_1Value-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">tinygltf::Value クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="tiny__gltf_8h_source.html">tiny_gltf.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+公開型</h2></td></tr>
+<tr class="memitem:ad09a2238eb07711579ce6dfd88e7c4e0" id="r_ad09a2238eb07711579ce6dfd88e7c4e0"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="classtinygltf_1_1Value.html">Value</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#ad09a2238eb07711579ce6dfd88e7c4e0">Array</a></td></tr>
+<tr class="separator:ad09a2238eb07711579ce6dfd88e7c4e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1af8390d517aa6110eec792fbbea93f1" id="r_a1af8390d517aa6110eec792fbbea93f1"><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; std::string, <a class="el" href="classtinygltf_1_1Value.html">Value</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a1af8390d517aa6110eec792fbbea93f1">Object</a></td></tr>
+<tr class="separator:a1af8390d517aa6110eec792fbbea93f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a6d8b1eefadac65b36ffdb60d281681df" id="r_a6d8b1eefadac65b36ffdb60d281681df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a6d8b1eefadac65b36ffdb60d281681df">Value</a> ()=default</td></tr>
+<tr class="separator:a6d8b1eefadac65b36ffdb60d281681df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb31bbaed70de016d213cacf3c0ac14c" id="r_acb31bbaed70de016d213cacf3c0ac14c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#acb31bbaed70de016d213cacf3c0ac14c">Value</a> (bool b)</td></tr>
+<tr class="separator:acb31bbaed70de016d213cacf3c0ac14c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2e1a1a99142d1440aa06755118873e6" id="r_ae2e1a1a99142d1440aa06755118873e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#ae2e1a1a99142d1440aa06755118873e6">Value</a> (int i)</td></tr>
+<tr class="separator:ae2e1a1a99142d1440aa06755118873e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0662d23d7cab532b9da290eb8549393a" id="r_a0662d23d7cab532b9da290eb8549393a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a0662d23d7cab532b9da290eb8549393a">Value</a> (double n)</td></tr>
+<tr class="separator:a0662d23d7cab532b9da290eb8549393a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfcf374fbf6705235292c8bd0fdbc8ff" id="r_abfcf374fbf6705235292c8bd0fdbc8ff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#abfcf374fbf6705235292c8bd0fdbc8ff">Value</a> (const std::string &amp;s)</td></tr>
+<tr class="separator:abfcf374fbf6705235292c8bd0fdbc8ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f64e01382d2ce636c15e0747e388891" id="r_a9f64e01382d2ce636c15e0747e388891"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a9f64e01382d2ce636c15e0747e388891">Value</a> (std::string &amp;&amp;s)</td></tr>
+<tr class="separator:a9f64e01382d2ce636c15e0747e388891"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e13b80fb6ae2f07388a7cf4021073c0" id="r_a7e13b80fb6ae2f07388a7cf4021073c0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a7e13b80fb6ae2f07388a7cf4021073c0">Value</a> (const char *s)</td></tr>
+<tr class="separator:a7e13b80fb6ae2f07388a7cf4021073c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81822725466cdd74b2bf1d5782533e04" id="r_a81822725466cdd74b2bf1d5782533e04"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a81822725466cdd74b2bf1d5782533e04">Value</a> (const unsigned char *p, size_t n)</td></tr>
+<tr class="separator:a81822725466cdd74b2bf1d5782533e04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ab6827fb73b51855e2ef66bed8e1ce7" id="r_a2ab6827fb73b51855e2ef66bed8e1ce7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a2ab6827fb73b51855e2ef66bed8e1ce7">Value</a> (std::vector&lt; unsigned char &gt; &amp;&amp;v) noexcept</td></tr>
+<tr class="separator:a2ab6827fb73b51855e2ef66bed8e1ce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abceef0441cc4d385263f85680a9cadb6" id="r_abceef0441cc4d385263f85680a9cadb6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#abceef0441cc4d385263f85680a9cadb6">Value</a> (const <a class="el" href="classtinygltf_1_1Value.html#ad09a2238eb07711579ce6dfd88e7c4e0">Array</a> &amp;a)</td></tr>
+<tr class="separator:abceef0441cc4d385263f85680a9cadb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a3da8139d9d60d794fef0a44785a70f" id="r_a2a3da8139d9d60d794fef0a44785a70f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a2a3da8139d9d60d794fef0a44785a70f">Value</a> (<a class="el" href="classtinygltf_1_1Value.html#ad09a2238eb07711579ce6dfd88e7c4e0">Array</a> &amp;&amp;a) noexcept</td></tr>
+<tr class="separator:a2a3da8139d9d60d794fef0a44785a70f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a459f48ddeec09749584c1ddc5ab24e5a" id="r_a459f48ddeec09749584c1ddc5ab24e5a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a459f48ddeec09749584c1ddc5ab24e5a">Value</a> (const <a class="el" href="classtinygltf_1_1Value.html#a1af8390d517aa6110eec792fbbea93f1">Object</a> &amp;o)</td></tr>
+<tr class="separator:a459f48ddeec09749584c1ddc5ab24e5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73d64b819ad21bf63371314e868857d1" id="r_a73d64b819ad21bf63371314e868857d1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a73d64b819ad21bf63371314e868857d1">Value</a> (<a class="el" href="classtinygltf_1_1Value.html#a1af8390d517aa6110eec792fbbea93f1">Object</a> &amp;&amp;o) noexcept</td></tr>
+<tr class="separator:a73d64b819ad21bf63371314e868857d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a2cf61680e4f25a5efebf7f7210cd2d" id="r_a7a2cf61680e4f25a5efebf7f7210cd2d"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a7a2cf61680e4f25a5efebf7f7210cd2d">Type</a> () const</td></tr>
+<tr class="separator:a7a2cf61680e4f25a5efebf7f7210cd2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55be9a990ea297c75b754509883ba2fc" id="r_a55be9a990ea297c75b754509883ba2fc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a55be9a990ea297c75b754509883ba2fc">IsBool</a> () const</td></tr>
+<tr class="separator:a55be9a990ea297c75b754509883ba2fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2907df0272e69b81c96053dfb208309f" id="r_a2907df0272e69b81c96053dfb208309f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a2907df0272e69b81c96053dfb208309f">IsInt</a> () const</td></tr>
+<tr class="separator:a2907df0272e69b81c96053dfb208309f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdaca730e8e46a5827ada566ea97ec2d" id="r_afdaca730e8e46a5827ada566ea97ec2d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#afdaca730e8e46a5827ada566ea97ec2d">IsNumber</a> () const</td></tr>
+<tr class="separator:afdaca730e8e46a5827ada566ea97ec2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62a423efe05ebbdb98f5e56114b3f0a5" id="r_a62a423efe05ebbdb98f5e56114b3f0a5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a62a423efe05ebbdb98f5e56114b3f0a5">IsReal</a> () const</td></tr>
+<tr class="separator:a62a423efe05ebbdb98f5e56114b3f0a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b783b4d683538870151cb2efc3df676" id="r_a7b783b4d683538870151cb2efc3df676"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a7b783b4d683538870151cb2efc3df676">IsString</a> () const</td></tr>
+<tr class="separator:a7b783b4d683538870151cb2efc3df676"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa63dee73585e980573d882c718101867" id="r_aa63dee73585e980573d882c718101867"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#aa63dee73585e980573d882c718101867">IsBinary</a> () const</td></tr>
+<tr class="separator:aa63dee73585e980573d882c718101867"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec6d24d7fda47506a91ed51aae5b8730" id="r_aec6d24d7fda47506a91ed51aae5b8730"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#aec6d24d7fda47506a91ed51aae5b8730">IsArray</a> () const</td></tr>
+<tr class="separator:aec6d24d7fda47506a91ed51aae5b8730"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c340b7e0cf07cca233c24004b501fb7" id="r_a2c340b7e0cf07cca233c24004b501fb7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a2c340b7e0cf07cca233c24004b501fb7">IsObject</a> () const</td></tr>
+<tr class="separator:a2c340b7e0cf07cca233c24004b501fb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d67519361e55a9aae72e0ffda7f2b05" id="r_a4d67519361e55a9aae72e0ffda7f2b05"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a4d67519361e55a9aae72e0ffda7f2b05">GetNumberAsDouble</a> () const</td></tr>
+<tr class="separator:a4d67519361e55a9aae72e0ffda7f2b05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75425d997a0919757028d6c5af16ad29" id="r_a75425d997a0919757028d6c5af16ad29"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a75425d997a0919757028d6c5af16ad29">GetNumberAsInt</a> () const</td></tr>
+<tr class="separator:a75425d997a0919757028d6c5af16ad29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a3c5b38bd637b99d778c30fc486d4fb" id="r_a7a3c5b38bd637b99d778c30fc486d4fb"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a7a3c5b38bd637b99d778c30fc486d4fb"><td class="memTemplItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a7a3c5b38bd637b99d778c30fc486d4fb">Get</a> () const</td></tr>
+<tr class="separator:a7a3c5b38bd637b99d778c30fc486d4fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3adaff43f3bf670eb7a8e7279bc5f79" id="r_aa3adaff43f3bf670eb7a8e7279bc5f79"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aa3adaff43f3bf670eb7a8e7279bc5f79"><td class="memTemplItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#aa3adaff43f3bf670eb7a8e7279bc5f79">Get</a> ()</td></tr>
+<tr class="separator:aa3adaff43f3bf670eb7a8e7279bc5f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace421f943ddc0a73b287c9625df10e3b" id="r_ace421f943ddc0a73b287c9625df10e3b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classtinygltf_1_1Value.html">Value</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#ace421f943ddc0a73b287c9625df10e3b">Get</a> (size_t idx) const</td></tr>
+<tr class="separator:ace421f943ddc0a73b287c9625df10e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d4848c8372ab49204767feb07c4089b" id="r_a5d4848c8372ab49204767feb07c4089b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classtinygltf_1_1Value.html">Value</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a5d4848c8372ab49204767feb07c4089b">Get</a> (const std::string &amp;key) const</td></tr>
+<tr class="separator:a5d4848c8372ab49204767feb07c4089b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6622ae4eb21a3305b1758563f091bd7d" id="r_a6622ae4eb21a3305b1758563f091bd7d"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a6622ae4eb21a3305b1758563f091bd7d">ArrayLen</a> () const</td></tr>
+<tr class="separator:a6622ae4eb21a3305b1758563f091bd7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab58601c660a189bf125cd4b84a26fe4a" id="r_ab58601c660a189bf125cd4b84a26fe4a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#ab58601c660a189bf125cd4b84a26fe4a">Has</a> (const std::string &amp;key) const</td></tr>
+<tr class="separator:ab58601c660a189bf125cd4b84a26fe4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4322872140167ef1a1c5dc28264c67ea" id="r_a4322872140167ef1a1c5dc28264c67ea"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a4322872140167ef1a1c5dc28264c67ea">Keys</a> () const</td></tr>
+<tr class="separator:a4322872140167ef1a1c5dc28264c67ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f685b1a08cd39dfec98dd23b3f8304c" id="r_a4f685b1a08cd39dfec98dd23b3f8304c"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a4f685b1a08cd39dfec98dd23b3f8304c">Size</a> () const</td></tr>
+<tr class="separator:a4f685b1a08cd39dfec98dd23b3f8304c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a753a59022f5d0cc22bc54eef42343ba7" id="r_a753a59022f5d0cc22bc54eef42343ba7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a753a59022f5d0cc22bc54eef42343ba7">operator==</a> (const <a class="el" href="classtinygltf_1_1Value.html">tinygltf::Value</a> &amp;other) const</td></tr>
+<tr class="separator:a753a59022f5d0cc22bc54eef42343ba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+限定公開変数類</h2></td></tr>
+<tr class="memitem:ab3efa7e2cb38ae2574d16bcc8555839c" id="r_ab3efa7e2cb38ae2574d16bcc8555839c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#ab3efa7e2cb38ae2574d16bcc8555839c">type_</a> = <a class="el" href="namespacetinygltf.html#a2c1d6e5499b1e1b6618815042fe3bde7a2caae2d74d8ce46ebe9f27653d27d6b2">NULL_TYPE</a></td></tr>
+<tr class="separator:ab3efa7e2cb38ae2574d16bcc8555839c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb10625813c4f7f1c285a42f8ea11f97" id="r_afb10625813c4f7f1c285a42f8ea11f97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#afb10625813c4f7f1c285a42f8ea11f97">int_value_</a> = 0</td></tr>
+<tr class="separator:afb10625813c4f7f1c285a42f8ea11f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a463574f062cd98aa536c7e4f8488aec7" id="r_a463574f062cd98aa536c7e4f8488aec7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a463574f062cd98aa536c7e4f8488aec7">real_value_</a> = 0.0</td></tr>
+<tr class="separator:a463574f062cd98aa536c7e4f8488aec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b8185da9182bd609b39ee57c2eb72f8" id="r_a8b8185da9182bd609b39ee57c2eb72f8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a8b8185da9182bd609b39ee57c2eb72f8">string_value_</a></td></tr>
+<tr class="separator:a8b8185da9182bd609b39ee57c2eb72f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a478e99be08eb9611ff30678a6ded21de" id="r_a478e99be08eb9611ff30678a6ded21de"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a478e99be08eb9611ff30678a6ded21de">binary_value_</a></td></tr>
+<tr class="separator:a478e99be08eb9611ff30678a6ded21de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e7674babd934c04d53d149e0bd3d2c0" id="r_a4e7674babd934c04d53d149e0bd3d2c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtinygltf_1_1Value.html#ad09a2238eb07711579ce6dfd88e7c4e0">Array</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a4e7674babd934c04d53d149e0bd3d2c0">array_value_</a></td></tr>
+<tr class="separator:a4e7674babd934c04d53d149e0bd3d2c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac57d9a665b665016373c263f1792bff4" id="r_ac57d9a665b665016373c263f1792bff4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtinygltf_1_1Value.html#a1af8390d517aa6110eec792fbbea93f1">Object</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#ac57d9a665b665016373c263f1792bff4">object_value_</a></td></tr>
+<tr class="separator:ac57d9a665b665016373c263f1792bff4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f252c0530d25a01b3047cbf8a43aefd" id="r_a9f252c0530d25a01b3047cbf8a43aefd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1Value.html#a9f252c0530d25a01b3047cbf8a43aefd">boolean_value_</a> = false</td></tr>
+<tr class="separator:a9f252c0530d25a01b3047cbf8a43aefd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">型定義メンバ詳解</h2>
+<a id="ad09a2238eb07711579ce6dfd88e7c4e0" name="ad09a2238eb07711579ce6dfd88e7c4e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad09a2238eb07711579ce6dfd88e7c4e0">&#9670;&#160;</a></span>Array</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::vector&lt;<a class="el" href="classtinygltf_1_1Value.html">Value</a>&gt; <a class="el" href="classtinygltf_1_1Value.html#ad09a2238eb07711579ce6dfd88e7c4e0">tinygltf::Value::Array</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1af8390d517aa6110eec792fbbea93f1" name="a1af8390d517aa6110eec792fbbea93f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1af8390d517aa6110eec792fbbea93f1">&#9670;&#160;</a></span>Object</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::map&lt;std::string, <a class="el" href="classtinygltf_1_1Value.html">Value</a>&gt; <a class="el" href="classtinygltf_1_1Value.html#a1af8390d517aa6110eec792fbbea93f1">tinygltf::Value::Object</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="a6d8b1eefadac65b36ffdb60d281681df" name="a6d8b1eefadac65b36ffdb60d281681df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d8b1eefadac65b36ffdb60d281681df">&#9670;&#160;</a></span>Value() <span class="overload">[1/13]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tinygltf::Value::Value </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acb31bbaed70de016d213cacf3c0ac14c" name="acb31bbaed70de016d213cacf3c0ac14c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb31bbaed70de016d213cacf3c0ac14c">&#9670;&#160;</a></span>Value() <span class="overload">[2/13]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tinygltf::Value::Value </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae2e1a1a99142d1440aa06755118873e6" name="ae2e1a1a99142d1440aa06755118873e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2e1a1a99142d1440aa06755118873e6">&#9670;&#160;</a></span>Value() <span class="overload">[3/13]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tinygltf::Value::Value </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0662d23d7cab532b9da290eb8549393a" name="a0662d23d7cab532b9da290eb8549393a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0662d23d7cab532b9da290eb8549393a">&#9670;&#160;</a></span>Value() <span class="overload">[4/13]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tinygltf::Value::Value </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abfcf374fbf6705235292c8bd0fdbc8ff" name="abfcf374fbf6705235292c8bd0fdbc8ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfcf374fbf6705235292c8bd0fdbc8ff">&#9670;&#160;</a></span>Value() <span class="overload">[5/13]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tinygltf::Value::Value </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9f64e01382d2ce636c15e0747e388891" name="a9f64e01382d2ce636c15e0747e388891"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f64e01382d2ce636c15e0747e388891">&#9670;&#160;</a></span>Value() <span class="overload">[6/13]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tinygltf::Value::Value </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7e13b80fb6ae2f07388a7cf4021073c0" name="a7e13b80fb6ae2f07388a7cf4021073c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e13b80fb6ae2f07388a7cf4021073c0">&#9670;&#160;</a></span>Value() <span class="overload">[7/13]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tinygltf::Value::Value </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a81822725466cdd74b2bf1d5782533e04" name="a81822725466cdd74b2bf1d5782533e04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81822725466cdd74b2bf1d5782533e04">&#9670;&#160;</a></span>Value() <span class="overload">[8/13]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tinygltf::Value::Value </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned char *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2ab6827fb73b51855e2ef66bed8e1ce7" name="a2ab6827fb73b51855e2ef66bed8e1ce7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ab6827fb73b51855e2ef66bed8e1ce7">&#9670;&#160;</a></span>Value() <span class="overload">[9/13]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tinygltf::Value::Value </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; unsigned char &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abceef0441cc4d385263f85680a9cadb6" name="abceef0441cc4d385263f85680a9cadb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abceef0441cc4d385263f85680a9cadb6">&#9670;&#160;</a></span>Value() <span class="overload">[10/13]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tinygltf::Value::Value </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtinygltf_1_1Value.html#ad09a2238eb07711579ce6dfd88e7c4e0">Array</a> &amp;&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2a3da8139d9d60d794fef0a44785a70f" name="a2a3da8139d9d60d794fef0a44785a70f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a3da8139d9d60d794fef0a44785a70f">&#9670;&#160;</a></span>Value() <span class="overload">[11/13]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tinygltf::Value::Value </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtinygltf_1_1Value.html#ad09a2238eb07711579ce6dfd88e7c4e0">Array</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a459f48ddeec09749584c1ddc5ab24e5a" name="a459f48ddeec09749584c1ddc5ab24e5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a459f48ddeec09749584c1ddc5ab24e5a">&#9670;&#160;</a></span>Value() <span class="overload">[12/13]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tinygltf::Value::Value </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtinygltf_1_1Value.html#a1af8390d517aa6110eec792fbbea93f1">Object</a> &amp;&#160;</td>
+          <td class="paramname"><em>o</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a73d64b819ad21bf63371314e868857d1" name="a73d64b819ad21bf63371314e868857d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73d64b819ad21bf63371314e868857d1">&#9670;&#160;</a></span>Value() <span class="overload">[13/13]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tinygltf::Value::Value </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtinygltf_1_1Value.html#a1af8390d517aa6110eec792fbbea93f1">Object</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>o</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a6622ae4eb21a3305b1758563f091bd7d" name="a6622ae4eb21a3305b1758563f091bd7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6622ae4eb21a3305b1758563f091bd7d">&#9670;&#160;</a></span>ArrayLen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t tinygltf::Value::ArrayLen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classtinygltf_1_1Value_a6622ae4eb21a3305b1758563f091bd7d_cgraph.svg" width="404" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classtinygltf_1_1Value_a6622ae4eb21a3305b1758563f091bd7d_icgraph.svg" width="384" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa3adaff43f3bf670eb7a8e7279bc5f79" name="aa3adaff43f3bf670eb7a8e7279bc5f79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3adaff43f3bf670eb7a8e7279bc5f79">&#9670;&#160;</a></span>Get() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T &amp; tinygltf::Value::Get </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7a3c5b38bd637b99d778c30fc486d4fb" name="a7a3c5b38bd637b99d778c30fc486d4fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a3c5b38bd637b99d778c30fc486d4fb">&#9670;&#160;</a></span>Get() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const T &amp; tinygltf::Value::Get </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d4848c8372ab49204767feb07c4089b" name="a5d4848c8372ab49204767feb07c4089b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d4848c8372ab49204767feb07c4089b">&#9670;&#160;</a></span>Get() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classtinygltf_1_1Value.html">Value</a> &amp; tinygltf::Value::Get </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classtinygltf_1_1Value_a5d4848c8372ab49204767feb07c4089b_cgraph.svg" width="375" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ace421f943ddc0a73b287c9625df10e3b" name="ace421f943ddc0a73b287c9625df10e3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace421f943ddc0a73b287c9625df10e3b">&#9670;&#160;</a></span>Get() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classtinygltf_1_1Value.html">Value</a> &amp; tinygltf::Value::Get </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>idx</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classtinygltf_1_1Value_ace421f943ddc0a73b287c9625df10e3b_cgraph.svg" width="368" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a4d67519361e55a9aae72e0ffda7f2b05" name="a4d67519361e55a9aae72e0ffda7f2b05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d67519361e55a9aae72e0ffda7f2b05">&#9670;&#160;</a></span>GetNumberAsDouble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double tinygltf::Value::GetNumberAsDouble </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a75425d997a0919757028d6c5af16ad29" name="a75425d997a0919757028d6c5af16ad29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75425d997a0919757028d6c5af16ad29">&#9670;&#160;</a></span>GetNumberAsInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int tinygltf::Value::GetNumberAsInt </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab58601c660a189bf125cd4b84a26fe4a" name="ab58601c660a189bf125cd4b84a26fe4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab58601c660a189bf125cd4b84a26fe4a">&#9670;&#160;</a></span>Has()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::Value::Has </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classtinygltf_1_1Value_ab58601c660a189bf125cd4b84a26fe4a_cgraph.svg" width="378" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aec6d24d7fda47506a91ed51aae5b8730" name="aec6d24d7fda47506a91ed51aae5b8730"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec6d24d7fda47506a91ed51aae5b8730">&#9670;&#160;</a></span>IsArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::Value::IsArray </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classtinygltf_1_1Value_aec6d24d7fda47506a91ed51aae5b8730_icgraph.svg" width="599" height="138"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa63dee73585e980573d882c718101867" name="aa63dee73585e980573d882c718101867"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa63dee73585e980573d882c718101867">&#9670;&#160;</a></span>IsBinary()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::Value::IsBinary </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a55be9a990ea297c75b754509883ba2fc" name="a55be9a990ea297c75b754509883ba2fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55be9a990ea297c75b754509883ba2fc">&#9670;&#160;</a></span>IsBool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::Value::IsBool </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2907df0272e69b81c96053dfb208309f" name="a2907df0272e69b81c96053dfb208309f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2907df0272e69b81c96053dfb208309f">&#9670;&#160;</a></span>IsInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::Value::IsInt </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afdaca730e8e46a5827ada566ea97ec2d" name="afdaca730e8e46a5827ada566ea97ec2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdaca730e8e46a5827ada566ea97ec2d">&#9670;&#160;</a></span>IsNumber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::Value::IsNumber </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2c340b7e0cf07cca233c24004b501fb7" name="a2c340b7e0cf07cca233c24004b501fb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c340b7e0cf07cca233c24004b501fb7">&#9670;&#160;</a></span>IsObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::Value::IsObject </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classtinygltf_1_1Value_a2c340b7e0cf07cca233c24004b501fb7_icgraph.svg" width="578" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a62a423efe05ebbdb98f5e56114b3f0a5" name="a62a423efe05ebbdb98f5e56114b3f0a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62a423efe05ebbdb98f5e56114b3f0a5">&#9670;&#160;</a></span>IsReal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::Value::IsReal </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7b783b4d683538870151cb2efc3df676" name="a7b783b4d683538870151cb2efc3df676"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b783b4d683538870151cb2efc3df676">&#9670;&#160;</a></span>IsString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::Value::IsString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4322872140167ef1a1c5dc28264c67ea" name="a4322872140167ef1a1c5dc28264c67ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4322872140167ef1a1c5dc28264c67ea">&#9670;&#160;</a></span>Keys()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; tinygltf::Value::Keys </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classtinygltf_1_1Value_a4322872140167ef1a1c5dc28264c67ea_cgraph.svg" width="383" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classtinygltf_1_1Value_a4322872140167ef1a1c5dc28264c67ea_icgraph.svg" width="356" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a753a59022f5d0cc22bc54eef42343ba7" name="a753a59022f5d0cc22bc54eef42343ba7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a753a59022f5d0cc22bc54eef42343ba7">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::Value::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtinygltf_1_1Value.html">tinygltf::Value</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4f685b1a08cd39dfec98dd23b3f8304c" name="a4f685b1a08cd39dfec98dd23b3f8304c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f685b1a08cd39dfec98dd23b3f8304c">&#9670;&#160;</a></span>Size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t tinygltf::Value::Size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classtinygltf_1_1Value_a4f685b1a08cd39dfec98dd23b3f8304c_cgraph.svg" width="606" height="138"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7a2cf61680e4f25a5efebf7f7210cd2d" name="a7a2cf61680e4f25a5efebf7f7210cd2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a2cf61680e4f25a5efebf7f7210cd2d">&#9670;&#160;</a></span>Type()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char tinygltf::Value::Type </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a4e7674babd934c04d53d149e0bd3d2c0" name="a4e7674babd934c04d53d149e0bd3d2c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e7674babd934c04d53d149e0bd3d2c0">&#9670;&#160;</a></span>array_value_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtinygltf_1_1Value.html#ad09a2238eb07711579ce6dfd88e7c4e0">Array</a> tinygltf::Value::array_value_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a478e99be08eb9611ff30678a6ded21de" name="a478e99be08eb9611ff30678a6ded21de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a478e99be08eb9611ff30678a6ded21de">&#9670;&#160;</a></span>binary_value_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;unsigned char&gt; tinygltf::Value::binary_value_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9f252c0530d25a01b3047cbf8a43aefd" name="a9f252c0530d25a01b3047cbf8a43aefd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f252c0530d25a01b3047cbf8a43aefd">&#9670;&#160;</a></span>boolean_value_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::Value::boolean_value_ = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afb10625813c4f7f1c285a42f8ea11f97" name="afb10625813c4f7f1c285a42f8ea11f97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb10625813c4f7f1c285a42f8ea11f97">&#9670;&#160;</a></span>int_value_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int tinygltf::Value::int_value_ = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac57d9a665b665016373c263f1792bff4" name="ac57d9a665b665016373c263f1792bff4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac57d9a665b665016373c263f1792bff4">&#9670;&#160;</a></span>object_value_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtinygltf_1_1Value.html#a1af8390d517aa6110eec792fbbea93f1">Object</a> tinygltf::Value::object_value_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a463574f062cd98aa536c7e4f8488aec7" name="a463574f062cd98aa536c7e4f8488aec7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a463574f062cd98aa536c7e4f8488aec7">&#9670;&#160;</a></span>real_value_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double tinygltf::Value::real_value_ = 0.0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8b8185da9182bd609b39ee57c2eb72f8" name="a8b8185da9182bd609b39ee57c2eb72f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b8185da9182bd609b39ee57c2eb72f8">&#9670;&#160;</a></span>string_value_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string tinygltf::Value::string_value_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab3efa7e2cb38ae2574d16bcc8555839c" name="ab3efa7e2cb38ae2574d16bcc8555839c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3efa7e2cb38ae2574d16bcc8555839c">&#9670;&#160;</a></span>type_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int tinygltf::Value::type_ = <a class="el" href="namespacetinygltf.html#a2c1d6e5499b1e1b6618815042fe3bde7a2caae2d74d8ce46ebe9f27653d27d6b2">NULL_TYPE</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/External/<a class="el" href="tiny__gltf_8h_source.html">tiny_gltf.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacetinygltf.html">tinygltf</a></li><li class="navelem"><a class="el" href="classtinygltf_1_1Value.html">Value</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

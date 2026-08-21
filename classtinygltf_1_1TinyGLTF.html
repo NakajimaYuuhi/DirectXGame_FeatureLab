@@ -1,0 +1,1512 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: tinygltf::TinyGLTF クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classtinygltf_1_1TinyGLTF.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pri-methods">非公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classtinygltf_1_1TinyGLTF-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">tinygltf::TinyGLTF クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="tiny__gltf_8h_source.html">tiny_gltf.h</a>&gt;</code></p>
+<div class="dynheader">
+tinygltf::TinyGLTF 連携図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classtinygltf_1_1TinyGLTF__coll__graph.svg" width="352" height="124"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:ace182f0317285e1824c82521613314ed" id="r_ace182f0317285e1824c82521613314ed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#ace182f0317285e1824c82521613314ed">TinyGLTF</a> ()=default</td></tr>
+<tr class="separator:ace182f0317285e1824c82521613314ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa58cad8fb3ca5fec2f4c89a9a8512248" id="r_aa58cad8fb3ca5fec2f4c89a9a8512248"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#aa58cad8fb3ca5fec2f4c89a9a8512248">~TinyGLTF</a> ()=default</td></tr>
+<tr class="separator:aa58cad8fb3ca5fec2f4c89a9a8512248"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb694767274be3674f6e98ad2e32ffa8" id="r_afb694767274be3674f6e98ad2e32ffa8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#afb694767274be3674f6e98ad2e32ffa8">LoadASCIIFromFile</a> (<a class="el" href="classtinygltf_1_1Model.html">Model</a> *model, std::string *err, std::string *warn, const std::string &amp;filename, unsigned int check_sections=<a class="el" href="namespacetinygltf.html#a673082113ce9b7a462eff741a771d6d2a609149331fcb3c07b2f96f6da07d1bef">REQUIRE_VERSION</a>)</td></tr>
+<tr class="separator:afb694767274be3674f6e98ad2e32ffa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a868ceaa7231473720375cfe47ba26840" id="r_a868ceaa7231473720375cfe47ba26840"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a868ceaa7231473720375cfe47ba26840">LoadASCIIFromString</a> (<a class="el" href="classtinygltf_1_1Model.html">Model</a> *model, std::string *err, std::string *warn, const char *str, const unsigned int length, const std::string &amp;base_dir, unsigned int check_sections=<a class="el" href="namespacetinygltf.html#a673082113ce9b7a462eff741a771d6d2a609149331fcb3c07b2f96f6da07d1bef">REQUIRE_VERSION</a>)</td></tr>
+<tr class="separator:a868ceaa7231473720375cfe47ba26840"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fcc0f27b3973a1a0c1afe39f7c52c51" id="r_a6fcc0f27b3973a1a0c1afe39f7c52c51"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a6fcc0f27b3973a1a0c1afe39f7c52c51">LoadBinaryFromFile</a> (<a class="el" href="classtinygltf_1_1Model.html">Model</a> *model, std::string *err, std::string *warn, const std::string &amp;filename, unsigned int check_sections=<a class="el" href="namespacetinygltf.html#a673082113ce9b7a462eff741a771d6d2a609149331fcb3c07b2f96f6da07d1bef">REQUIRE_VERSION</a>)</td></tr>
+<tr class="separator:a6fcc0f27b3973a1a0c1afe39f7c52c51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a363def44f18e944fa49e0cebe8f1b5b6" id="r_a363def44f18e944fa49e0cebe8f1b5b6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a363def44f18e944fa49e0cebe8f1b5b6">LoadBinaryFromMemory</a> (<a class="el" href="classtinygltf_1_1Model.html">Model</a> *model, std::string *err, std::string *warn, const unsigned char *bytes, const unsigned int length, const std::string &amp;base_dir=&quot;&quot;, unsigned int check_sections=<a class="el" href="namespacetinygltf.html#a673082113ce9b7a462eff741a771d6d2a609149331fcb3c07b2f96f6da07d1bef">REQUIRE_VERSION</a>)</td></tr>
+<tr class="separator:a363def44f18e944fa49e0cebe8f1b5b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a884631c28f4e441b4cceef69dcd889" id="r_a6a884631c28f4e441b4cceef69dcd889"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a6a884631c28f4e441b4cceef69dcd889">WriteGltfSceneToStream</a> (const <a class="el" href="classtinygltf_1_1Model.html">Model</a> *model, std::ostream &amp;stream, bool prettyPrint, bool writeBinary)</td></tr>
+<tr class="separator:a6a884631c28f4e441b4cceef69dcd889"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a419ab1f1b49b03e27f4de568a2f0c600" id="r_a419ab1f1b49b03e27f4de568a2f0c600"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a419ab1f1b49b03e27f4de568a2f0c600">WriteGltfSceneToFile</a> (const <a class="el" href="classtinygltf_1_1Model.html">Model</a> *model, const std::string &amp;filename, bool embedImages, bool embedBuffers, bool prettyPrint, bool writeBinary)</td></tr>
+<tr class="separator:a419ab1f1b49b03e27f4de568a2f0c600"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83ec84ac0c59feb54f36fb8af9d69bce" id="r_a83ec84ac0c59feb54f36fb8af9d69bce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a83ec84ac0c59feb54f36fb8af9d69bce">SetParseStrictness</a> (<a class="el" href="namespacetinygltf.html#a6cec4aed000632cebb63348120bb946f">ParseStrictness</a> strictness)</td></tr>
+<tr class="separator:a83ec84ac0c59feb54f36fb8af9d69bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2db832bfff9de2c8612a35c823ba91b8" id="r_a2db832bfff9de2c8612a35c823ba91b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a2db832bfff9de2c8612a35c823ba91b8">SetImageLoader</a> (<a class="el" href="namespacetinygltf.html#a78dd9e1dfb0b7d1f38bc0dd00ebd3786">LoadImageDataFunction</a> <a class="el" href="classtinygltf_1_1TinyGLTF.html#abacc66181e8064928f097e4ed2464354">LoadImageData</a>, void *user_data)</td></tr>
+<tr class="separator:a2db832bfff9de2c8612a35c823ba91b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00e9d5c3d8f0c94698bba435e7a73d6d" id="r_a00e9d5c3d8f0c94698bba435e7a73d6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a00e9d5c3d8f0c94698bba435e7a73d6d">RemoveImageLoader</a> ()</td></tr>
+<tr class="separator:a00e9d5c3d8f0c94698bba435e7a73d6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c98eaf13689129e47d9f31c6487fcdd" id="r_a5c98eaf13689129e47d9f31c6487fcdd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a5c98eaf13689129e47d9f31c6487fcdd">SetImageWriter</a> (<a class="el" href="namespacetinygltf.html#a184fc6df93a3fbe8b3f1a71bea165fde">WriteImageDataFunction</a> <a class="el" href="classtinygltf_1_1TinyGLTF.html#ab3ae31a914319f5b0ab58b85dde423ff">WriteImageData</a>, void *user_data)</td></tr>
+<tr class="separator:a5c98eaf13689129e47d9f31c6487fcdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b40d2e0e960add8249c1a2c22c42daf" id="r_a5b40d2e0e960add8249c1a2c22c42daf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a5b40d2e0e960add8249c1a2c22c42daf">SetURICallbacks</a> (<a class="el" href="structtinygltf_1_1URICallbacks.html">URICallbacks</a> callbacks, std::string *err=nullptr)</td></tr>
+<tr class="separator:a5b40d2e0e960add8249c1a2c22c42daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32350b519a5484f21fcff5d90aff0118" id="r_a32350b519a5484f21fcff5d90aff0118"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a32350b519a5484f21fcff5d90aff0118">SetFsCallbacks</a> (<a class="el" href="structtinygltf_1_1FsCallbacks.html">FsCallbacks</a> callbacks, std::string *err=nullptr)</td></tr>
+<tr class="separator:a32350b519a5484f21fcff5d90aff0118"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f8066a075a946881b0154c722d5f072" id="r_a5f8066a075a946881b0154c722d5f072"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a5f8066a075a946881b0154c722d5f072">SetSerializeDefaultValues</a> (const bool enabled)</td></tr>
+<tr class="separator:a5f8066a075a946881b0154c722d5f072"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c06a1a759fe123506c034d7806a2d29" id="r_a4c06a1a759fe123506c034d7806a2d29"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a4c06a1a759fe123506c034d7806a2d29">GetSerializeDefaultValues</a> () const</td></tr>
+<tr class="separator:a4c06a1a759fe123506c034d7806a2d29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5167271a0f1a2a768e726d05f906352" id="r_ad5167271a0f1a2a768e726d05f906352"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#ad5167271a0f1a2a768e726d05f906352">SetStoreOriginalJSONForExtrasAndExtensions</a> (const bool enabled)</td></tr>
+<tr class="separator:ad5167271a0f1a2a768e726d05f906352"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a454547baccd6b4a41e4cc8046376f142" id="r_a454547baccd6b4a41e4cc8046376f142"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a454547baccd6b4a41e4cc8046376f142">GetStoreOriginalJSONForExtrasAndExtensions</a> () const</td></tr>
+<tr class="separator:a454547baccd6b4a41e4cc8046376f142"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a996586ad0fdde3c7e33480bc1a2bd11a" id="r_a996586ad0fdde3c7e33480bc1a2bd11a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a996586ad0fdde3c7e33480bc1a2bd11a">SetPreserveImageChannels</a> (bool onoff)</td></tr>
+<tr class="separator:a996586ad0fdde3c7e33480bc1a2bd11a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87587171ca2179a94776f31cc28825a7" id="r_a87587171ca2179a94776f31cc28825a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a87587171ca2179a94776f31cc28825a7">GetPreserveImageChannels</a> () const</td></tr>
+<tr class="separator:a87587171ca2179a94776f31cc28825a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c39542f0489a0fe86d982bc3d5386ff" id="r_a1c39542f0489a0fe86d982bc3d5386ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a1c39542f0489a0fe86d982bc3d5386ff">SetImagesAsIs</a> (bool onoff)</td></tr>
+<tr class="separator:a1c39542f0489a0fe86d982bc3d5386ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36eccd2b44aeda9c3afc16d0539089f6" id="r_a36eccd2b44aeda9c3afc16d0539089f6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a36eccd2b44aeda9c3afc16d0539089f6">GetImagesAsIs</a> () const</td></tr>
+<tr class="separator:a36eccd2b44aeda9c3afc16d0539089f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae22df1e535ec89f54be332442c20aa1a" id="r_ae22df1e535ec89f54be332442c20aa1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#ae22df1e535ec89f54be332442c20aa1a">SetMaxExternalFileSize</a> (size_t max_bytes)</td></tr>
+<tr class="separator:ae22df1e535ec89f54be332442c20aa1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3204b09ec0124b2be0b2573429a0257c" id="r_a3204b09ec0124b2be0b2573429a0257c"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a3204b09ec0124b2be0b2573429a0257c">GetMaxExternalFileSize</a> () const</td></tr>
+<tr class="separator:a3204b09ec0124b2be0b2573429a0257c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+非公開メンバ関数</h2></td></tr>
+<tr class="memitem:a82b283765f6192230e312a3f53218df6" id="r_a82b283765f6192230e312a3f53218df6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a82b283765f6192230e312a3f53218df6">LoadFromString</a> (<a class="el" href="classtinygltf_1_1Model.html">Model</a> *model, std::string *err, std::string *warn, const char *str, const unsigned int length, const std::string &amp;base_dir, unsigned int check_sections)</td></tr>
+<tr class="separator:a82b283765f6192230e312a3f53218df6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:ad8376ef0466a9ffb539cdae3d705cd3b" id="r_ad8376ef0466a9ffb539cdae3d705cd3b"><td class="memItemLeft" align="right" valign="top">const unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#ad8376ef0466a9ffb539cdae3d705cd3b">bin_data_</a> = nullptr</td></tr>
+<tr class="separator:ad8376ef0466a9ffb539cdae3d705cd3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a802b8473ac891ccd3e2e57ca4fd64c2a" id="r_a802b8473ac891ccd3e2e57ca4fd64c2a"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a802b8473ac891ccd3e2e57ca4fd64c2a">bin_size_</a> = 0</td></tr>
+<tr class="separator:a802b8473ac891ccd3e2e57ca4fd64c2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e03a54e49c083336382fcd80cd4da18" id="r_a0e03a54e49c083336382fcd80cd4da18"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a0e03a54e49c083336382fcd80cd4da18">is_binary_</a> = false</td></tr>
+<tr class="separator:a0e03a54e49c083336382fcd80cd4da18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af60bc193a9fd839ecaa75131548cd863" id="r_af60bc193a9fd839ecaa75131548cd863"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetinygltf.html#a6cec4aed000632cebb63348120bb946f">ParseStrictness</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#af60bc193a9fd839ecaa75131548cd863">strictness_</a> = <a class="el" href="namespacetinygltf.html#a6cec4aed000632cebb63348120bb946fa516e1ea1b0f87e33423972607a704dc4">ParseStrictness::Strict</a></td></tr>
+<tr class="separator:af60bc193a9fd839ecaa75131548cd863"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bdc384dae55c21a70f7b326dc4993be" id="r_a7bdc384dae55c21a70f7b326dc4993be"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a7bdc384dae55c21a70f7b326dc4993be">serialize_default_values_</a> = false</td></tr>
+<tr class="memdesc:a7bdc384dae55c21a70f7b326dc4993be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize default values?  <br /></td></tr>
+<tr class="separator:a7bdc384dae55c21a70f7b326dc4993be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a363c9381473608ad12468b09958bced3" id="r_a363c9381473608ad12468b09958bced3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a363c9381473608ad12468b09958bced3">store_original_json_for_extras_and_extensions_</a> = false</td></tr>
+<tr class="separator:a363c9381473608ad12468b09958bced3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a227aa499960d0f95c1a0bcb43719d5d8" id="r_a227aa499960d0f95c1a0bcb43719d5d8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a227aa499960d0f95c1a0bcb43719d5d8">preserve_image_channels_</a> = false</td></tr>
+<tr class="separator:a227aa499960d0f95c1a0bcb43719d5d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a820422fb2fc1a1a9cc8a9f5ee42ac81b" id="r_a820422fb2fc1a1a9cc8a9f5ee42ac81b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a820422fb2fc1a1a9cc8a9f5ee42ac81b">images_as_is_</a> = false</td></tr>
+<tr class="separator:a820422fb2fc1a1a9cc8a9f5ee42ac81b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8771b81b64f28b6f6f1c34eb7c73520" id="r_ac8771b81b64f28b6f6f1c34eb7c73520"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#ac8771b81b64f28b6f6f1c34eb7c73520">max_external_file_size_</a></td></tr>
+<tr class="memdesc:ac8771b81b64f28b6f6f1c34eb7c73520"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default false (decode/decompress images)  <br /></td></tr>
+<tr class="separator:ac8771b81b64f28b6f6f1c34eb7c73520"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba69ba72d59ea0de4f457264b7691382" id="r_aba69ba72d59ea0de4f457264b7691382"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#aba69ba72d59ea0de4f457264b7691382">warn_</a></td></tr>
+<tr class="separator:aba69ba72d59ea0de4f457264b7691382"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52b08280b9134efede1313cbbf481b81" id="r_a52b08280b9134efede1313cbbf481b81"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a52b08280b9134efede1313cbbf481b81">err_</a></td></tr>
+<tr class="separator:a52b08280b9134efede1313cbbf481b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a534c412759e41e7262374eb851637478" id="r_a534c412759e41e7262374eb851637478"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtinygltf_1_1FsCallbacks.html">FsCallbacks</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a534c412759e41e7262374eb851637478">fs</a></td></tr>
+<tr class="separator:a534c412759e41e7262374eb851637478"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8ba70da1e3a5aefd83e8e84549aec5b" id="r_ad8ba70da1e3a5aefd83e8e84549aec5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtinygltf_1_1URICallbacks.html">URICallbacks</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#ad8ba70da1e3a5aefd83e8e84549aec5b">uri_cb</a></td></tr>
+<tr class="separator:ad8ba70da1e3a5aefd83e8e84549aec5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abacc66181e8064928f097e4ed2464354" id="r_abacc66181e8064928f097e4ed2464354"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetinygltf.html#a78dd9e1dfb0b7d1f38bc0dd00ebd3786">LoadImageDataFunction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#abacc66181e8064928f097e4ed2464354">LoadImageData</a></td></tr>
+<tr class="separator:abacc66181e8064928f097e4ed2464354"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a827e45c3eb5e8313b3dac89f4d5b411a" id="r_a827e45c3eb5e8313b3dac89f4d5b411a"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a827e45c3eb5e8313b3dac89f4d5b411a">load_image_user_data_</a> {nullptr}</td></tr>
+<tr class="separator:a827e45c3eb5e8313b3dac89f4d5b411a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a413958e0f191fd8ec3672c5cb5f75fd7" id="r_a413958e0f191fd8ec3672c5cb5f75fd7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a413958e0f191fd8ec3672c5cb5f75fd7">user_image_loader_</a> {false}</td></tr>
+<tr class="separator:a413958e0f191fd8ec3672c5cb5f75fd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3ae31a914319f5b0ab58b85dde423ff" id="r_ab3ae31a914319f5b0ab58b85dde423ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetinygltf.html#a184fc6df93a3fbe8b3f1a71bea165fde">WriteImageDataFunction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#ab3ae31a914319f5b0ab58b85dde423ff">WriteImageData</a></td></tr>
+<tr class="separator:ab3ae31a914319f5b0ab58b85dde423ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f619821df7921087b9bd5348f17838e" id="r_a8f619821df7921087b9bd5348f17838e"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinygltf_1_1TinyGLTF.html#a8f619821df7921087b9bd5348f17838e">write_image_user_data_</a> {nullptr}</td></tr>
+<tr class="separator:a8f619821df7921087b9bd5348f17838e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>glTF Parser/Serializer context. </p>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="ace182f0317285e1824c82521613314ed" name="ace182f0317285e1824c82521613314ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace182f0317285e1824c82521613314ed">&#9670;&#160;</a></span>TinyGLTF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tinygltf::TinyGLTF::TinyGLTF </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa58cad8fb3ca5fec2f4c89a9a8512248" name="aa58cad8fb3ca5fec2f4c89a9a8512248"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa58cad8fb3ca5fec2f4c89a9a8512248">&#9670;&#160;</a></span>~TinyGLTF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tinygltf::TinyGLTF::~TinyGLTF </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a36eccd2b44aeda9c3afc16d0539089f6" name="a36eccd2b44aeda9c3afc16d0539089f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36eccd2b44aeda9c3afc16d0539089f6">&#9670;&#160;</a></span>GetImagesAsIs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::TinyGLTF::GetImagesAsIs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3204b09ec0124b2be0b2573429a0257c" name="a3204b09ec0124b2be0b2573429a0257c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3204b09ec0124b2be0b2573429a0257c">&#9670;&#160;</a></span>GetMaxExternalFileSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t tinygltf::TinyGLTF::GetMaxExternalFileSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a87587171ca2179a94776f31cc28825a7" name="a87587171ca2179a94776f31cc28825a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87587171ca2179a94776f31cc28825a7">&#9670;&#160;</a></span>GetPreserveImageChannels()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::TinyGLTF::GetPreserveImageChannels </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4c06a1a759fe123506c034d7806a2d29" name="a4c06a1a759fe123506c034d7806a2d29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c06a1a759fe123506c034d7806a2d29">&#9670;&#160;</a></span>GetSerializeDefaultValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::TinyGLTF::GetSerializeDefaultValues </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a454547baccd6b4a41e4cc8046376f142" name="a454547baccd6b4a41e4cc8046376f142"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a454547baccd6b4a41e4cc8046376f142">&#9670;&#160;</a></span>GetStoreOriginalJSONForExtrasAndExtensions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::TinyGLTF::GetStoreOriginalJSONForExtrasAndExtensions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afb694767274be3674f6e98ad2e32ffa8" name="afb694767274be3674f6e98ad2e32ffa8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb694767274be3674f6e98ad2e32ffa8">&#9670;&#160;</a></span>LoadASCIIFromFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::TinyGLTF::LoadASCIIFromFile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtinygltf_1_1Model.html">Model</a> *&#160;</td>
+          <td class="paramname"><em>model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>err</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>warn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>check_sections</em> = <code><a class="el" href="namespacetinygltf.html#a673082113ce9b7a462eff741a771d6d2a609149331fcb3c07b2f96f6da07d1bef">REQUIRE_VERSION</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Loads glTF ASCII asset from a file. Set warning message to <code>warn</code> for example it fails to load asserts. Returns false and set error string to <code>err</code> if there's an error. </p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classtinygltf_1_1TinyGLTF_afb694767274be3674f6e98ad2e32ffa8_icgraph.svg" width="519" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a868ceaa7231473720375cfe47ba26840" name="a868ceaa7231473720375cfe47ba26840"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a868ceaa7231473720375cfe47ba26840">&#9670;&#160;</a></span>LoadASCIIFromString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::TinyGLTF::LoadASCIIFromString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtinygltf_1_1Model.html">Model</a> *&#160;</td>
+          <td class="paramname"><em>model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>err</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>warn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>base_dir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>check_sections</em> = <code><a class="el" href="namespacetinygltf.html#a673082113ce9b7a462eff741a771d6d2a609149331fcb3c07b2f96f6da07d1bef">REQUIRE_VERSION</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Loads glTF ASCII asset from <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">string(memory)</a>. <code>length</code> = strlen(str); <code>base_dir</code> is a search path of glTF asset(e.g. images). Path Must be an expanded path (e.g. no tilde(<code>~</code>), no environment variables). Set warning message to <code>warn</code> for example it fails to load asserts. Returns false and set error string to <code>err</code> if there's an error. </p>
+
+</div>
+</div>
+<a id="a6fcc0f27b3973a1a0c1afe39f7c52c51" name="a6fcc0f27b3973a1a0c1afe39f7c52c51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fcc0f27b3973a1a0c1afe39f7c52c51">&#9670;&#160;</a></span>LoadBinaryFromFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::TinyGLTF::LoadBinaryFromFile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtinygltf_1_1Model.html">Model</a> *&#160;</td>
+          <td class="paramname"><em>model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>err</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>warn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>check_sections</em> = <code><a class="el" href="namespacetinygltf.html#a673082113ce9b7a462eff741a771d6d2a609149331fcb3c07b2f96f6da07d1bef">REQUIRE_VERSION</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Loads glTF binary asset from a file. Set warning message to <code>warn</code> for example it fails to load asserts. Returns false and set error string to <code>err</code> if there's an error. </p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classtinygltf_1_1TinyGLTF_a6fcc0f27b3973a1a0c1afe39f7c52c51_icgraph.svg" width="527" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a363def44f18e944fa49e0cebe8f1b5b6" name="a363def44f18e944fa49e0cebe8f1b5b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a363def44f18e944fa49e0cebe8f1b5b6">&#9670;&#160;</a></span>LoadBinaryFromMemory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::TinyGLTF::LoadBinaryFromMemory </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtinygltf_1_1Model.html">Model</a> *&#160;</td>
+          <td class="paramname"><em>model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>err</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>warn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned char *&#160;</td>
+          <td class="paramname"><em>bytes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>base_dir</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>check_sections</em> = <code><a class="el" href="namespacetinygltf.html#a673082113ce9b7a462eff741a771d6d2a609149331fcb3c07b2f96f6da07d1bef">REQUIRE_VERSION</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Loads glTF binary asset from memory. <code>length</code> = strlen(str); <code>base_dir</code> is a search path of glTF asset(e.g. images). Path Must be an expanded path (e.g. no tilde(<code>~</code>), no environment variables). Set warning message to <code>warn</code> for example it fails to load asserts. Returns false and set error string to <code>err</code> if there's an error. </p>
+
+</div>
+</div>
+<a id="a82b283765f6192230e312a3f53218df6" name="a82b283765f6192230e312a3f53218df6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82b283765f6192230e312a3f53218df6">&#9670;&#160;</a></span>LoadFromString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::TinyGLTF::LoadFromString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtinygltf_1_1Model.html">Model</a> *&#160;</td>
+          <td class="paramname"><em>model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>err</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>warn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>base_dir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>check_sections</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Loads glTF asset from <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">string(memory)</a>. <code>length</code> = strlen(str); Set warning message to <code>warn</code> for example it fails to load asserts Returns false and set error string to <code>err</code> if there's an error. </p>
+
+</div>
+</div>
+<a id="a00e9d5c3d8f0c94698bba435e7a73d6d" name="a00e9d5c3d8f0c94698bba435e7a73d6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00e9d5c3d8f0c94698bba435e7a73d6d">&#9670;&#160;</a></span>RemoveImageLoader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tinygltf::TinyGLTF::RemoveImageLoader </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Unset(remove) callback of loading image data </p>
+
+</div>
+</div>
+<a id="a32350b519a5484f21fcff5d90aff0118" name="a32350b519a5484f21fcff5d90aff0118"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32350b519a5484f21fcff5d90aff0118">&#9670;&#160;</a></span>SetFsCallbacks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::TinyGLTF::SetFsCallbacks </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structtinygltf_1_1FsCallbacks.html">FsCallbacks</a>&#160;</td>
+          <td class="paramname"><em>callbacks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>err</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set callbacks to use for filesystem (fs) access and their user data. Returns false if there is an error with the callbacks. If err is not nullptr, explanation will be written there. </p>
+
+</div>
+</div>
+<a id="a2db832bfff9de2c8612a35c823ba91b8" name="a2db832bfff9de2c8612a35c823ba91b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2db832bfff9de2c8612a35c823ba91b8">&#9670;&#160;</a></span>SetImageLoader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tinygltf::TinyGLTF::SetImageLoader </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetinygltf.html#a78dd9e1dfb0b7d1f38bc0dd00ebd3786">LoadImageDataFunction</a>&#160;</td>
+          <td class="paramname"><em>LoadImageData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>user_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set callback to use for loading image data. Passing the nullptr is akin to calling <a class="el" href="classtinygltf_1_1TinyGLTF.html#a00e9d5c3d8f0c94698bba435e7a73d6d">RemoveImageLoader()</a>. </p>
+
+</div>
+</div>
+<a id="a1c39542f0489a0fe86d982bc3d5386ff" name="a1c39542f0489a0fe86d982bc3d5386ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c39542f0489a0fe86d982bc3d5386ff">&#9670;&#160;</a></span>SetImagesAsIs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tinygltf::TinyGLTF::SetImagesAsIs </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>onoff</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Specifiy whether image data is decoded/decompressed during load, or left as is </p>
+
+</div>
+</div>
+<a id="a5c98eaf13689129e47d9f31c6487fcdd" name="a5c98eaf13689129e47d9f31c6487fcdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c98eaf13689129e47d9f31c6487fcdd">&#9670;&#160;</a></span>SetImageWriter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tinygltf::TinyGLTF::SetImageWriter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetinygltf.html#a184fc6df93a3fbe8b3f1a71bea165fde">WriteImageDataFunction</a>&#160;</td>
+          <td class="paramname"><em>WriteImageData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>user_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set callback to use for writing image data </p>
+
+</div>
+</div>
+<a id="ae22df1e535ec89f54be332442c20aa1a" name="ae22df1e535ec89f54be332442c20aa1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae22df1e535ec89f54be332442c20aa1a">&#9670;&#160;</a></span>SetMaxExternalFileSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tinygltf::TinyGLTF::SetMaxExternalFileSize </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>max_bytes</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set maximum allowed external file size in bytes. Default: 2GB Only effective for built-in ReadWholeFileFunction FS function. </p>
+
+</div>
+</div>
+<a id="a83ec84ac0c59feb54f36fb8af9d69bce" name="a83ec84ac0c59feb54f36fb8af9d69bce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83ec84ac0c59feb54f36fb8af9d69bce">&#9670;&#160;</a></span>SetParseStrictness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tinygltf::TinyGLTF::SetParseStrictness </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetinygltf.html#a6cec4aed000632cebb63348120bb946f">ParseStrictness</a>&#160;</td>
+          <td class="paramname"><em>strictness</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the parsing strictness. </p>
+
+</div>
+</div>
+<a id="a996586ad0fdde3c7e33480bc1a2bd11a" name="a996586ad0fdde3c7e33480bc1a2bd11a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a996586ad0fdde3c7e33480bc1a2bd11a">&#9670;&#160;</a></span>SetPreserveImageChannels()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tinygltf::TinyGLTF::SetPreserveImageChannels </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>onoff</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Specify whether preserve image channels when loading images or not. (Not effective when the user supplies their own LoadImageData callbacks) </p>
+
+</div>
+</div>
+<a id="a5f8066a075a946881b0154c722d5f072" name="a5f8066a075a946881b0154c722d5f072"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f8066a075a946881b0154c722d5f072">&#9670;&#160;</a></span>SetSerializeDefaultValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tinygltf::TinyGLTF::SetSerializeDefaultValues </td>
+          <td>(</td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>enabled</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set serializing default values(default = false). When true, default values are force serialized to .glTF. This may be helpful if you want to serialize a full description of glTF data.</p>
+<p>TODO(LTE): Supply parsing option as function arguments to <code><a class="el" href="classtinygltf_1_1TinyGLTF.html#afb694767274be3674f6e98ad2e32ffa8">LoadASCIIFromFile()</a></code> and others, not by a class method </p>
+
+</div>
+</div>
+<a id="ad5167271a0f1a2a768e726d05f906352" name="ad5167271a0f1a2a768e726d05f906352"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5167271a0f1a2a768e726d05f906352">&#9670;&#160;</a></span>SetStoreOriginalJSONForExtrasAndExtensions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tinygltf::TinyGLTF::SetStoreOriginalJSONForExtrasAndExtensions </td>
+          <td>(</td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>enabled</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Store original JSON string for <code>extras</code> and <code>extensions</code>. This feature will be useful when the user want to reconstruct custom data structure from JSON string. </p>
+
+</div>
+</div>
+<a id="a5b40d2e0e960add8249c1a2c22c42daf" name="a5b40d2e0e960add8249c1a2c22c42daf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b40d2e0e960add8249c1a2c22c42daf">&#9670;&#160;</a></span>SetURICallbacks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::TinyGLTF::SetURICallbacks </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structtinygltf_1_1URICallbacks.html">URICallbacks</a>&#160;</td>
+          <td class="paramname"><em>callbacks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>err</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set callbacks to use for URI encoding and decoding and their user data. Returns false if there is an error with the callbacks. If err is not nullptr, explanation will be written there. </p>
+
+</div>
+</div>
+<a id="a419ab1f1b49b03e27f4de568a2f0c600" name="a419ab1f1b49b03e27f4de568a2f0c600"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a419ab1f1b49b03e27f4de568a2f0c600">&#9670;&#160;</a></span>WriteGltfSceneToFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::TinyGLTF::WriteGltfSceneToFile </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtinygltf_1_1Model.html">Model</a> *&#160;</td>
+          <td class="paramname"><em>model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>embedImages</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>embedBuffers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>prettyPrint</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>writeBinary</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Write glTF to file. </p>
+
+</div>
+</div>
+<a id="a6a884631c28f4e441b4cceef69dcd889" name="a6a884631c28f4e441b4cceef69dcd889"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a884631c28f4e441b4cceef69dcd889">&#9670;&#160;</a></span>WriteGltfSceneToStream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::TinyGLTF::WriteGltfSceneToStream </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtinygltf_1_1Model.html">Model</a> *&#160;</td>
+          <td class="paramname"><em>model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>prettyPrint</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>writeBinary</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Write glTF to stream, buffers and images will be embedded </p>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="ad8376ef0466a9ffb539cdae3d705cd3b" name="ad8376ef0466a9ffb539cdae3d705cd3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8376ef0466a9ffb539cdae3d705cd3b">&#9670;&#160;</a></span>bin_data_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned char* tinygltf::TinyGLTF::bin_data_ = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a802b8473ac891ccd3e2e57ca4fd64c2a" name="a802b8473ac891ccd3e2e57ca4fd64c2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a802b8473ac891ccd3e2e57ca4fd64c2a">&#9670;&#160;</a></span>bin_size_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t tinygltf::TinyGLTF::bin_size_ = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a52b08280b9134efede1313cbbf481b81" name="a52b08280b9134efede1313cbbf481b81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52b08280b9134efede1313cbbf481b81">&#9670;&#160;</a></span>err_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string tinygltf::TinyGLTF::err_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a534c412759e41e7262374eb851637478" name="a534c412759e41e7262374eb851637478"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a534c412759e41e7262374eb851637478">&#9670;&#160;</a></span>fs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structtinygltf_1_1FsCallbacks.html">FsCallbacks</a> tinygltf::TinyGLTF::fs</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初期値:</b><div class="fragment"><div class="line">= {</div>
+<div class="line"> </div>
+<div class="line">      &amp;<a class="code hl_function" href="namespacetinygltf.html#a73d9058e4f4fdb98ef035622360de928">tinygltf::FileExists</a>,</div>
+<div class="line">      &amp;<a class="code hl_function" href="namespacetinygltf.html#a2cc3baf7856ea03c802b5c6ad01851cb">tinygltf::ExpandFilePath</a>,</div>
+<div class="line">      &amp;<a class="code hl_function" href="namespacetinygltf.html#a6eaa919e030e52e39843f0a302c65eb8">tinygltf::ReadWholeFile</a>,</div>
+<div class="line">      &amp;<a class="code hl_function" href="namespacetinygltf.html#a0c9787423194dbd8bbda277e89b92fb5">tinygltf::WriteWholeFile</a>,</div>
+<div class="line">      &amp;<a class="code hl_function" href="namespacetinygltf.html#a8263a3b6226d5459ab58dc8369a219d1">tinygltf::GetFileSizeInBytes</a>,</div>
+<div class="line"> </div>
+<div class="line">      <span class="keyword">nullptr</span>  </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">  }</div>
+<div class="ttc" id="anamespacetinygltf_html_a0c9787423194dbd8bbda277e89b92fb5"><div class="ttname"><a href="namespacetinygltf.html#a0c9787423194dbd8bbda277e89b92fb5">tinygltf::WriteWholeFile</a></div><div class="ttdeci">bool WriteWholeFile(std::string *err, const std::string &amp;filepath, const std::vector&lt; unsigned char &gt; &amp;contents, void *)</div></div>
+<div class="ttc" id="anamespacetinygltf_html_a2cc3baf7856ea03c802b5c6ad01851cb"><div class="ttname"><a href="namespacetinygltf.html#a2cc3baf7856ea03c802b5c6ad01851cb">tinygltf::ExpandFilePath</a></div><div class="ttdeci">std::string ExpandFilePath(const std::string &amp;filepath, void *userdata)</div></div>
+<div class="ttc" id="anamespacetinygltf_html_a6eaa919e030e52e39843f0a302c65eb8"><div class="ttname"><a href="namespacetinygltf.html#a6eaa919e030e52e39843f0a302c65eb8">tinygltf::ReadWholeFile</a></div><div class="ttdeci">bool ReadWholeFile(std::vector&lt; unsigned char &gt; *out, std::string *err, const std::string &amp;filepath, void *)</div></div>
+<div class="ttc" id="anamespacetinygltf_html_a73d9058e4f4fdb98ef035622360de928"><div class="ttname"><a href="namespacetinygltf.html#a73d9058e4f4fdb98ef035622360de928">tinygltf::FileExists</a></div><div class="ttdeci">bool FileExists(const std::string &amp;abs_filename, void *)</div></div>
+<div class="ttc" id="anamespacetinygltf_html_a8263a3b6226d5459ab58dc8369a219d1"><div class="ttname"><a href="namespacetinygltf.html#a8263a3b6226d5459ab58dc8369a219d1">tinygltf::GetFileSizeInBytes</a></div><div class="ttdeci">bool GetFileSizeInBytes(size_t *filesize_out, std::string *err, const std::string &amp;filepath, void *)</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a820422fb2fc1a1a9cc8a9f5ee42ac81b" name="a820422fb2fc1a1a9cc8a9f5ee42ac81b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a820422fb2fc1a1a9cc8a9f5ee42ac81b">&#9670;&#160;</a></span>images_as_is_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::TinyGLTF::images_as_is_ = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Default false(expand channels to
+        RGBA) for backward compatibility. </p>
+
+</div>
+</div>
+<a id="a0e03a54e49c083336382fcd80cd4da18" name="a0e03a54e49c083336382fcd80cd4da18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e03a54e49c083336382fcd80cd4da18">&#9670;&#160;</a></span>is_binary_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::TinyGLTF::is_binary_ = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a827e45c3eb5e8313b3dac89f4d5b411a" name="a827e45c3eb5e8313b3dac89f4d5b411a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a827e45c3eb5e8313b3dac89f4d5b411a">&#9670;&#160;</a></span>load_image_user_data_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* tinygltf::TinyGLTF::load_image_user_data_ {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abacc66181e8064928f097e4ed2464354" name="abacc66181e8064928f097e4ed2464354"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abacc66181e8064928f097e4ed2464354">&#9670;&#160;</a></span>LoadImageData</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetinygltf.html#a78dd9e1dfb0b7d1f38bc0dd00ebd3786">LoadImageDataFunction</a> tinygltf::TinyGLTF::LoadImageData</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初期値:</b><div class="fragment"><div class="line">=</div>
+<div class="line"> </div>
+<div class="line">      &amp;<a class="code hl_function" href="namespacetinygltf.html#aee35a1a1bc4b90c187f18bcc00a5904c">tinygltf::LoadImageData</a></div>
+<div class="ttc" id="anamespacetinygltf_html_aee35a1a1bc4b90c187f18bcc00a5904c"><div class="ttname"><a href="namespacetinygltf.html#aee35a1a1bc4b90c187f18bcc00a5904c">tinygltf::LoadImageData</a></div><div class="ttdeci">bool LoadImageData(Image *image, const int image_idx, std::string *err, std::string *warn, int req_width, int req_height, const unsigned char *bytes, int size, void *)</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ac8771b81b64f28b6f6f1c34eb7c73520" name="ac8771b81b64f28b6f6f1c34eb7c73520"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8771b81b64f28b6f6f1c34eb7c73520">&#9670;&#160;</a></span>max_external_file_size_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t tinygltf::TinyGLTF::max_external_file_size_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初期値:</b><div class="fragment"><div class="line">{</div>
+<div class="line">      size_t((std::numeric_limits&lt;int32_t&gt;::max)())}</div>
+</div><!-- fragment -->
+<p>Default false (decode/decompress images) </p>
+
+</div>
+</div>
+<a id="a227aa499960d0f95c1a0bcb43719d5d8" name="a227aa499960d0f95c1a0bcb43719d5d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a227aa499960d0f95c1a0bcb43719d5d8">&#9670;&#160;</a></span>preserve_image_channels_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::TinyGLTF::preserve_image_channels_ = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7bdc384dae55c21a70f7b326dc4993be" name="a7bdc384dae55c21a70f7b326dc4993be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bdc384dae55c21a70f7b326dc4993be">&#9670;&#160;</a></span>serialize_default_values_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::TinyGLTF::serialize_default_values_ = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serialize default values? </p>
+
+</div>
+</div>
+<a id="a363c9381473608ad12468b09958bced3" name="a363c9381473608ad12468b09958bced3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a363c9381473608ad12468b09958bced3">&#9670;&#160;</a></span>store_original_json_for_extras_and_extensions_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::TinyGLTF::store_original_json_for_extras_and_extensions_ = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af60bc193a9fd839ecaa75131548cd863" name="af60bc193a9fd839ecaa75131548cd863"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af60bc193a9fd839ecaa75131548cd863">&#9670;&#160;</a></span>strictness_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetinygltf.html#a6cec4aed000632cebb63348120bb946f">ParseStrictness</a> tinygltf::TinyGLTF::strictness_ = <a class="el" href="namespacetinygltf.html#a6cec4aed000632cebb63348120bb946fa516e1ea1b0f87e33423972607a704dc4">ParseStrictness::Strict</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad8ba70da1e3a5aefd83e8e84549aec5b" name="ad8ba70da1e3a5aefd83e8e84549aec5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8ba70da1e3a5aefd83e8e84549aec5b">&#9670;&#160;</a></span>uri_cb</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structtinygltf_1_1URICallbacks.html">URICallbacks</a> tinygltf::TinyGLTF::uri_cb</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初期値:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">      </div>
+<div class="line">      <span class="keyword">nullptr</span>,</div>
+<div class="line">      </div>
+<div class="line">      </div>
+<div class="line">      &amp;<a class="code hl_function" href="namespacetinygltf.html#a706fe59212e1787230a99547cbe29a6c">tinygltf::URIDecode</a>,</div>
+<div class="line">      </div>
+<div class="line">      <span class="keyword">nullptr</span>}</div>
+<div class="ttc" id="anamespacetinygltf_html_a706fe59212e1787230a99547cbe29a6c"><div class="ttname"><a href="namespacetinygltf.html#a706fe59212e1787230a99547cbe29a6c">tinygltf::URIDecode</a></div><div class="ttdeci">bool URIDecode(const std::string &amp;in_uri, std::string *out_uri, void *user_data)</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a413958e0f191fd8ec3672c5cb5f75fd7" name="a413958e0f191fd8ec3672c5cb5f75fd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a413958e0f191fd8ec3672c5cb5f75fd7">&#9670;&#160;</a></span>user_image_loader_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tinygltf::TinyGLTF::user_image_loader_ {false}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aba69ba72d59ea0de4f457264b7691382" name="aba69ba72d59ea0de4f457264b7691382"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba69ba72d59ea0de4f457264b7691382">&#9670;&#160;</a></span>warn_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string tinygltf::TinyGLTF::warn_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8f619821df7921087b9bd5348f17838e" name="a8f619821df7921087b9bd5348f17838e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f619821df7921087b9bd5348f17838e">&#9670;&#160;</a></span>write_image_user_data_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* tinygltf::TinyGLTF::write_image_user_data_ {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab3ae31a914319f5b0ab58b85dde423ff" name="ab3ae31a914319f5b0ab58b85dde423ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3ae31a914319f5b0ab58b85dde423ff">&#9670;&#160;</a></span>WriteImageData</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetinygltf.html#a184fc6df93a3fbe8b3f1a71bea165fde">WriteImageDataFunction</a> tinygltf::TinyGLTF::WriteImageData</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初期値:</b><div class="fragment"><div class="line">=</div>
+<div class="line"> </div>
+<div class="line">      &amp;<a class="code hl_function" href="namespacetinygltf.html#ac642919d4f7df1cfc6dd21c4f029690b">tinygltf::WriteImageData</a></div>
+<div class="ttc" id="anamespacetinygltf_html_ac642919d4f7df1cfc6dd21c4f029690b"><div class="ttname"><a href="namespacetinygltf.html#ac642919d4f7df1cfc6dd21c4f029690b">tinygltf::WriteImageData</a></div><div class="ttdeci">bool WriteImageData(const std::string *basepath, const std::string *filename, const Image *image, bool embedImages, const FsCallbacks *fs_cb, const URICallbacks *uri_cb, std::string *out_uri, void *)</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/External/<a class="el" href="tiny__gltf_8h_source.html">tiny_gltf.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacetinygltf.html">tinygltf</a></li><li class="navelem"><a class="el" href="classtinygltf_1_1TinyGLTF.html">TinyGLTF</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

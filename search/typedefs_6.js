@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['uniqueptr_0',['uniqueptr',['../main_8cpp.html#a74b90b47b1100dfbcfdf6892a7b2e479',1,'UniquePtr:&#160;main.cpp'],['../Object_8h.html#a74b90b47b1100dfbcfdf6892a7b2e479',1,'UniquePtr:&#160;Object.h'],['../SmartPtrAlias_8h.html#a74b90b47b1100dfbcfdf6892a7b2e479',1,'UniquePtr:&#160;SmartPtrAlias.h']]]
+  ['fileexistsfunction_0',['FileExistsFunction',['../namespacetinygltf.html#aa2ac98b87d5ef0b89a73242e4f6feff0',1,'tinygltf']]],
+  ['from_5fjson_5ffunction_1',['from_json_function',['../namespacenlohmann_1_1detail.html#a1711ee5cef66a0523055c8d9f024f322',1,'nlohmann::detail']]]
 ];
