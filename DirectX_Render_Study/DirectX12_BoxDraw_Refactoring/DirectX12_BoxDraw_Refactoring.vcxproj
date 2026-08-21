@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<?xml version='1.0' encoding='utf-8'?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -73,8 +73,8 @@
   <PropertyGroup Label="UserMacros" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -87,8 +87,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -105,8 +105,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -127,8 +127,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -186,14 +186,14 @@
     <ClCompile Include="Source\Objects\Enemy.cpp" />
     <ClCompile Include="Source\Objects\Explosion.cpp" />
     <ClCompile Include="Source\Resources\gltfLoader.cpp" />
-    <ClCompile Include="imgui.cpp" />
+    <ClCompile Include="Source\External\imgui.cpp" />
     <ClCompile Include="Source\UI\ImGuiManager.cpp" />
-    <ClCompile Include="imgui_demo.cpp" />
-    <ClCompile Include="imgui_draw.cpp" />
-    <ClCompile Include="imgui_impl_dx12.cpp" />
-    <ClCompile Include="imgui_impl_win32.cpp" />
-    <ClCompile Include="imgui_tables.cpp" />
-    <ClCompile Include="imgui_widgets.cpp" />
+    <ClCompile Include="Source\External\imgui_demo.cpp" />
+    <ClCompile Include="Source\External\imgui_draw.cpp" />
+    <ClCompile Include="Source\External\imgui_impl_dx12.cpp" />
+    <ClCompile Include="Source\External\imgui_impl_win32.cpp" />
+    <ClCompile Include="Source\External\imgui_tables.cpp" />
+    <ClCompile Include="Source\External\imgui_widgets.cpp" />
     <ClCompile Include="Source\Resources\Material.cpp" />
     <ClCompile Include="Source\Resources\Model.cpp" />
     <ClCompile Include="Source\Resources\ModelManager.cpp" />
@@ -262,16 +262,16 @@
     <ClInclude Include="Source\Objects\Enemy.h" />
     <ClInclude Include="Source\Objects\Explosion.h" />
     <ClInclude Include="Source\Resources\gltfLoader.h" />
-    <ClInclude Include="imconfig.h" />
-    <ClInclude Include="imgui.h" />
+    <ClInclude Include="Source\External\imconfig.h" />
+    <ClInclude Include="Source\External\imgui.h" />
     <ClInclude Include="Source\UI\ImGuiManager.h" />
-    <ClInclude Include="imgui_impl_dx12.h" />
-    <ClInclude Include="imgui_impl_win32.h" />
-    <ClInclude Include="imgui_internal.h" />
-    <ClInclude Include="imstb_rectpack.h" />
-    <ClInclude Include="imstb_textedit.h" />
-    <ClInclude Include="imstb_truetype.h" />
-    <ClInclude Include="json.hpp" />
+    <ClInclude Include="Source\External\imgui_impl_dx12.h" />
+    <ClInclude Include="Source\External\imgui_impl_win32.h" />
+    <ClInclude Include="Source\External\imgui_internal.h" />
+    <ClInclude Include="Source\External\imstb_rectpack.h" />
+    <ClInclude Include="Source\External\imstb_textedit.h" />
+    <ClInclude Include="Source\External\imstb_truetype.h" />
+    <ClInclude Include="Source\External\json.hpp" />
     <ClInclude Include="Source\Resources\Material.h" />
     <ClInclude Include="Source\Resources\Model.h" />
     <ClInclude Include="Source\Resources\ModelManager.h" />
@@ -297,13 +297,13 @@
     <ClInclude Include="Source\Rendering\Shader.h" />
     <ClInclude Include="Source\Rendering\ShaderManager.h" />
     <ClInclude Include="Source\Util\SmartPtrAlias.h" />
-    <ClInclude Include="stb_image.h" />
-    <ClInclude Include="stb_image_write.h" />
+    <ClInclude Include="Source\External\stb_image.h" />
+    <ClInclude Include="Source\External\stb_image_write.h" />
     <ClInclude Include="Source\Util\StringAlias.h" />
     <ClInclude Include="Source\Resources\Texture.h" />
     <ClInclude Include="Source\Rendering\TextureManager.h" />
-    <ClInclude Include="tinygltf_json.h" />
-    <ClInclude Include="tiny_gltf.h" />
+    <ClInclude Include="Source\External\tinygltf_json.h" />
+    <ClInclude Include="Source\External\tiny_gltf.h" />
     <ClInclude Include="Source\UI\SpriteRenderer.h" />
     <ClInclude Include="Source\UI\UIObject.h" />
     <ClInclude Include="Source\Components\Transform.h" />
