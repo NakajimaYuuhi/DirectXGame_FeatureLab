@@ -24,11 +24,13 @@ jobs:
           sudo apt-get install -y doxygen graphviz
 
       - name: Generate Documentation
-        run: doxygen Doxyfile
+        run: |
+          cd DirectX_Render_Study/DirectX12_BoxDraw_Refactoring
+          doxygen Doxyfile
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/html
+          publish_dir: ./DirectX_Render_Study/DirectX12_BoxDraw_Refactoring/docs/html
           commit_message: "docs: update doxygen documentation"
