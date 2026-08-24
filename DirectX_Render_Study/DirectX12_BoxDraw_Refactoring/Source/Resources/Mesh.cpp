@@ -167,12 +167,14 @@ void CMesh::Draw(CTransform* transform, CMaterial* material, BlendMode blendMode
 
     // --螳壽焚繝舌ャ繝輔ぃ逕ｨ縺ｮ繝・・繧ｿ縺ｫ繧ｻ繝・ヨ縺吶ｋ
     
-    if (blendMode == BlendMode::Additive)
-    {
-        commandList->SetPipelineState(PSOManager::GetInstance().GetAdditivePSO());
+    ID3D12PipelineState* pso = PSOManager::GetInstance().GetPSO(material, PSOManager::GetInstance().GetMeshRootSignature());
+    if (pso) 
+    { 
+        commandList->SetPipelineState(pso); 
     }
     else
     {
+        // 取得・コンパイルに失敗した場合は、安全のためデフォルトのPSOを使用する
         commandList->SetPipelineState(PSOManager::GetInstance().GetMeshPSO());
     }
     

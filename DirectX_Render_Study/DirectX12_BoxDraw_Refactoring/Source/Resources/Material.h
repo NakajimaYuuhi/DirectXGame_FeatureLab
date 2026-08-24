@@ -45,8 +45,21 @@ private:
 	BlendMode m_BlendMode;
 
 public:
-	wstring GetShaderFile() const { return m_ShaderFile; }
-	string GetVsEntry() const { return m_VsEntry; }
-	string GetPsEntry() const { return m_PsEntry; }
+	const wstring& GetShaderFile() const { return m_ShaderFile; }
+	const string& GetVsEntry() const { return m_VsEntry; }
+	const string& GetPsEntry() const { return m_PsEntry; }
 	BlendMode GetBlendMode() const { return m_BlendMode; }
+
+	// Shader Settings (Setter)
+	void SetShader(wstring shaderFile, string vsEntry = "VSMain", string psEntry = "PSMain")
+	{
+		m_ShaderFile = shaderFile;
+		m_VsEntry = vsEntry;
+		m_PsEntry = psEntry;
+	}
+
+	void SetBlendMode(BlendMode blendMode)
+	{
+		m_BlendMode = blendMode;
+	}
 };

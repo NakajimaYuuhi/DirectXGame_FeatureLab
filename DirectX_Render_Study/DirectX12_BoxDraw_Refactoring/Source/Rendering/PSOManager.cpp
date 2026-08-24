@@ -13,17 +13,17 @@ void PSOManager::Init(ID3D12Device* device)
     HRESULT hr;                 // DirectX関連
 
     // --シェーダ関連
-    // メチE  ュ用
+    // メッシュ用
     auto vertexShader = ShaderManager::GetInstance().GetShader(L"Assets/Shader/Triangle.hlsl", "VSMain", "vs_5_0");
     auto pixelShader = ShaderManager::GetInstance().GetShader(L"Assets/Shader/Triangle.hlsl", "PSMain", "ps_5_0");
     auto spriteVertexShader = ShaderManager::GetInstance().GetShader(L"Assets/Shader/Sprite.hlsl", "VSMain", "vs_5_0");
     auto spritePixelShader = ShaderManager::GetInstance().GetShader(L"Assets/Shader/Sprite.hlsl", "PSMain", "ps_5_0");
 
     // =========================================================
-    //  2. ルートシグネチャ作 E 
+    //  2. ルートシグネチャ作成
     // =========================================================
 
-    // ----- メチE  ュ用ルートシグネチャ -----
+    // ----- メッシュ用ルートシグネチャ -----
     {
         RootSignatureBuilder rsBuilder;
         rsBuilder.AddConstants(20, 0, 0, D3D12_SHADER_VISIBILITY_VERTEX); // WVP + uvOffset + uvScale
@@ -62,10 +62,10 @@ void PSOManager::Init(ID3D12Device* device)
 
 
     // =========================================================
-    //  3. PSOの構篁E
+    //  3. PSOの構築
     // =========================================================
 
-    // ----- メチE  ュ用 InputLayout -----
+    // ----- メッシュ用 InputLayout -----
     D3D12_INPUT_ELEMENT_DESC inputLayout[] =
     {
         { "POSITION",     0, DXGI_FORMAT_R32G32B32_FLOAT,    0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
@@ -77,7 +77,7 @@ void PSOManager::Init(ID3D12Device* device)
 
     DXGI_FORMAT rtvFormat = DXGI_FORMAT_R8G8B8A8_UNORM;
 
-    // ----- 通常メチE  ュPSO -----
+    // ----- 通常メッシュPSO -----
     {
         PSOBuilder psoBuilder;
         psoBuilder.SetRootSignature(m_meshRootSignature.Get())
@@ -89,7 +89,7 @@ void PSOManager::Init(ID3D12Device* device)
         psoBuilder.Build(device, &m_meshPipelineState);
     }
 
-    // ----- 加算合成メチE  ュPSO -----
+    // ----- 加算合成メッシュPSO -----
     {
         D3D12_BLEND_DESC blendDesc = {};
         blendDesc.RenderTarget[0].BlendEnable = TRUE;
@@ -103,7 +103,7 @@ void PSOManager::Init(ID3D12Device* device)
 
         D3D12_DEPTH_STENCIL_DESC depthDesc = {};
         depthDesc.DepthEnable = TRUE;
-        depthDesc.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ZERO; // Z書き込みなぁE
+        depthDesc.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ZERO; // Z書き込みなし
         depthDesc.DepthFunc = D3D12_COMPARISON_FUNC_LESS;
 
         PSOBuilder psoBuilder;
@@ -125,11 +125,11 @@ void PSOManager::Init(ID3D12Device* device)
         { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT,    0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
     };
 
-    // ----- スプライチESO -----
+    // ----- スプライト用 PSO -----
     {
         D3D12_RASTERIZER_DESC rasterDesc = {};
         rasterDesc.FillMode = D3D12_FILL_MODE_SOLID;
-        rasterDesc.CullMode = D3D12_CULL_MODE_NONE; // カリングなぁE
+        rasterDesc.CullMode = D3D12_CULL_MODE_NONE; // カリングなし
         rasterDesc.DepthClipEnable = FALSE;
 
         D3D12_DEPTH_STENCIL_DESC depthDesc = {};
@@ -165,12 +165,13 @@ ID3D12PipelineState* PSOManager::GetPSO(CMaterial* material, ID3D12RootSignature
 {
     if (!material) return nullptr;
 
-    // キャチE  ュキーの作 E (シェーダー吁E+ エントリ + ブレンドモーチE
+    // キャッシュキーの作成 (シェーダーファイル + エントリ + ブレンドモード)
+    const std::string& vsEntry = material->GetVsEntry();
     std::wstring key = material->GetShaderFile() + L"_" + 
-                       std::wstring(material->GetVsEntry().begin(), material->GetVsEntry().end()) + L"_" + 
+                       std::wstring(vsEntry.begin(), vsEntry.end()) + L"_" + 
                        std::to_wstring(static_cast<int>(material->GetBlendMode()));
 
-    // キャチE  ュヒッチE
+    // キャッシュヒット
     if (m_psoCache.find(key) != m_psoCache.end())
     {
         return m_psoCache[key].Get();
@@ -181,6 +182,12 @@ ID3D12PipelineState* PSOManager::GetPSO(CMaterial* material, ID3D12RootSignature
     
     auto vs = ShaderManager::GetInstance().GetShader(material->GetShaderFile().c_str(), material->GetVsEntry().c_str(), "vs_5_0");
     auto ps = ShaderManager::GetInstance().GetShader(material->GetShaderFile().c_str(), material->GetPsEntry().c_str(), "ps_5_0");
+
+    if (!vs || !ps)
+    {
+        OutputDebugStringA(("Failed to load shader for material: " + material->GetVsEntry() + " / " + material->GetPsEntry() + "\n").c_str());
+        return nullptr;
+    }
 
     D3D12_INPUT_ELEMENT_DESC inputLayout[] =
     {

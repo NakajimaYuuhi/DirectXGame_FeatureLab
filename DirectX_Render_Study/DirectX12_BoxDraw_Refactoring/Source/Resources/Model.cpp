@@ -60,7 +60,7 @@ void CModel::UpdateBones()
   			m_Bones[i]->inverseBindPose * m_Bones[i]->globalPose);
 	}
 
-		//繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ縺後♀縺九＠縺九▲縺溘ｉ縲√％縺薙ｒ縺・  繧・
+		//アニメーションがおかしかったら、ここをぁE  めE
 		//m_SkinningMatrices[i] =
 		//	 m_Bones[i]->inverseBindPose* m_Bones[i]->globalPose;
 	
@@ -68,7 +68,7 @@ void CModel::UpdateBones()
 
 void CModel::CreateTmpBoneData()
 {
-	//----- 繝・E繝ｳ縺ｮ繝・ E繧ｿ莉ｮ菴・E -----
+	//----- チEEンのチE Eタ仮佁EE -----
 	Bone bone;
 	bone = std::make_shared<CBone>();
 
@@ -76,18 +76,18 @@ void CModel::CreateTmpBoneData()
 	bone->parentIndex = -1;
 	bone->children = {};
 
-	// 蛻晄悄蟋ｿ蜍｢ E EindPose E E
+	// 初期姿勢 E EindPose E E
 	bone->localBindPose = DirectX::XMMatrixIdentity();
 
-	// 騾・   E
+	// 送E   E
 	bone->inverseBindPose = DirectX::XMMatrixInverse(nullptr, bone->localBindPose);
 
-	// 迴ｾ蝨ｨ繝・E繧ｺ
+	// 現在チEEズ
 	bone->localPose = DirectX::XMMatrixIdentity();
 	bone->globalPose = DirectX::XMMatrixIdentity();
 	m_Bones.push_back(bone);
 
-	//繝・E繝ｳ繝舌ャ繝輔ぃ縺ｮ菴・E
+	//チEEンバッファの佁EE
 	CreateBoneBuffer();
 }
 
@@ -101,7 +101,7 @@ void CModel::CreateBoneBuffer()
 	UINT bufferSize = sizeof(DirectX::XMMATRIX) * boneCount;
 
 	//=============================
-	// 竭  繝ｪ繧ｽ繝ｼ繧ｹ菴・E E EPLOAD E E
+	// �  リソース佁EE E EPLOAD E E
 	//=============================
 	CD3DX12_HEAP_PROPERTIES heapProps(D3D12_HEAP_TYPE_UPLOAD);
 	CD3DX12_RESOURCE_DESC resourceDesc = CD3DX12_RESOURCE_DESC::Buffer(bufferSize);
@@ -116,16 +116,16 @@ void CModel::CreateBoneBuffer()
 	);
 
 	//=============================
-	// 竭｡ SRV縺ｮ逋ｻ骭ｲ
+	// ② SRVの登録
 	//=============================
 
 	DX12Manager::GetInstance().GetSRVAllocator()->Alloc(&m_BoneSrvCpuHandle, &m_BoneSrvGpuHandle);
 
 	//========================
-	// 竭｢ SRV菴・E
+	// ③ SRV佁EE
 	//========================
 	D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
-	srvDesc.Format = DXGI_FORMAT_UNKNOWN; // StructuredBuffer縺ｯUNORM荳崎ｦ・
+	srvDesc.Format = DXGI_FORMAT_UNKNOWN; // StructuredBufferはUNORM不要E
 	srvDesc.ViewDimension = D3D12_SRV_DIMENSION_BUFFER;
 	srvDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
 
@@ -217,65 +217,65 @@ void CModel::ModelLoad(std::string _Path)
 		}
 	}
 
-	//繝ｩ繝 繝髢｢謨ｰ縺ｮ螳夂ｾｩ
+	//ラ� ダ関数の定義
 	auto lambdaComputeBindPose = [&](auto& self, int nodeIdx, const DirectX::XMMATRIX& parentMatrix) -> void 
 	{
-		//Bone縺ｮ蜿門ｾ・
+		//Boneの取征E
 		auto& bone = m_Bones[nodeIdx];
 
-		// 繧ｰ繝ｭ繝ｼ繝舌Ν陦・E = 閾ｪ霄ｫ縺ｮ繝ｭ繝ｼ繧ｫ繝ｫ * 隕ｪ縺ｮ繧ｰ繝ｭ繝ｼ繝舌Ν
+		// グローバル衁EE = 自身のローカル * 親のグローバル
 		bone->globalBindPose = bone->localBindPose * parentMatrix;
-		bone->globalPose = bone->globalBindPose; // 迴ｾ蝨ｨ縺ｮ繝・E繧ｺ繧ょ酔?E
+		bone->globalPose = bone->globalBindPose; // 現在のチEEズも同?E
 
-		// 蟄舌ヮ繝ｼ繝峨∈莨晄眺
+		// 子ノードへ伝播
 		for (int childIdx : bone->children) 
 		{
 			self(self, childIdx, bone->globalBindPose);
 		}
 	};
 
-	//隕ｪ縺後＞縺ｪ縺・  繝ｼ繝会ｼ・arentIndex == -1 縺ｮ Root繝・E繝会ｼ峨ｒ襍ｷ轤ｹ縺ｫ襍ｰ繧峨○繧・
+	//親がいなぁE  ード！EarentIndex == -1 の RootチEEド）を起点に走らせめE
 	for (int i = 0; i < m_Bones.size(); ++i)
 	{
-		//-1縺瑚ｵｷ轤ｹ
+		//-1が起点
 		if (m_Bones[i]->parentIndex == -1)
 		{
 			lambdaComputeBindPose(lambdaComputeBindPose, i, DirectX::XMMatrixIdentity());
 		}
 	}
 
-	//-- 4.SkinData 縺九ｉ豁｣蠑上↑ inverseBindPose E 騾・   E E 繧貞牡繧雁ｽ薙※繧・
-	// 縺ｾ縺・E繝・E繝峨↓蟇ｾ縺励※縲√せ繝・  繝・縺ｮglobalBindPose縺ｮ騾・   E繧貞ｮ・E逕ｨ縺ｫ蜈･繧後※縺翫￥
+	//-- 4.SkinData から正式な inverseBindPose E 送E   E E を割り当てめE
+	// まぁEEチEEドに対して、スチE  チEのglobalBindPoseの送E   Eを宁EE用に入れておく
 	for (auto& bone : m_Bones)
 	{
 		bone->inverseBindPose = DirectX::XMMatrixInverse(nullptr, bone->globalBindPose);
 	}
 
-	// 繧ｹ繧ｭ繝ｳ繝・ E繧ｿ E  E繝ｼ繝ｳ?E   E 縺後≠繧句 ｴ蜷医“LTF縺ｮ豁｣遒ｺ縺ｪ騾・  繧､繝ｳ繝芽｡・E縺ｧ荳頑嶌縺・
+	// スキンチE Eタ E  Eーン?E   E がある� �合、gLTFの正確な送E  インド衁EEで上書ぁE
 	if (!loadedModelData.skins.empty())
 	{
-		//蜊倅ｸ繧ｹ繧ｭ繝ｳ繧呈Φ螳・
-		//蜊倅ｸ?繧ｹ繧ｭ繝ｳ繧呈Φ螳・
-		const auto& skin = loadedModelData.skins[0]; // 繧ｭ繝｣繝ｩ繧ｯ繧ｿ繝ｼ逕ｨ縺ｮ蜊倅ｸ?skin
+		//単一スキンを想宁E
+		//単�?スキンを想宁E
+		const auto& skin = loadedModelData.skins[0]; // キャラクター用の単�?skin
 		m_SkinJoints = skin.joints;
 
 		for (size_t i = 0; i < skin.joints.size(); ++i)
 		{
-			int nodeIdx = skin.joints[i]; // skin上のi番目のボーンが指す、全ノード(m_Bones)の中のインデックス
+			int nodeIdx = skin.joints[i]; // skin���i�Ԗڂ̃{�[�����w���A�S�m�[�h(m_Bones)�̒��̃C���f�b�N�X
 
-			// GLTFの行列は列優先(column-major)なので、XMLoadFloat4x4で読むと自動的に行優先(row-major)に変換される。
-			// そのため、ここではTransposeをしてはいけない！
+			// GLTF�̍s��͗�D��(column-major)�Ȃ̂ŁAXMLoadFloat4x4�œǂނƎ����I�ɍs�D��(row-major)�ɕϊ������B
+			// ���̂��߁A�����ł�Transpose�����Ă͂����Ȃ��I
 			m_Bones[nodeIdx]->inverseBindPose = DirectX::XMLoadFloat4x4(&skin.inverseBindMatrices[i]);
 		}
 	}
 
-	//繝・E繝ｳ繝舌ャ繝輔ぃ菴・E
+	//チEEンバッファ佁EE
 	CreateBoneBuffer();
 
 
-	//----- 繝槭ユ繝ｪ繧｢繝ｫ菴・E -----
-	//繝槭ユ繝ｪ繧｢繝ｫ莉ｮ菴・E
-	// モデルのディレクトリパスを抽出
+	//----- マテリアル佁EE -----
+	//マテリアル仮佁EE
+	// ���f���̃f�B���N�g���p�X�𒊏o
 	std::string directory = "";
 	size_t lastSlash = _Path.find_last_of("/\\");
 	if (lastSlash != std::string::npos)
@@ -362,13 +362,13 @@ void CModel::ModelLoad(std::string _Path)
 
 
 
-	//霑斐▲縺ｦ譚･縺溘ｂ縺ｮ縺九ｉ縲｀esh,Material,Bone縺ｮ繝・ E繧ｿ繧剃ｽ・E縺吶ｋ
-	//MakeBones(繝・E繝・E繝・ E繧ｿ縺九ｉ菴・E) 
-	//Skin縺ｮ?E  繧呈爾邏｢縺励※縲。one縺ｮ繧､繝ｳ繝・  繧ｯ繧ｹ縺ｮ繝ｪ繧ｹ繝医ｒ菴・E縺吶ｋ
+	//返って来たものから、Mesh,Material,BoneのチE Eタを佁EEする
+	//MakeBones(チEEチEEチE Eタから佁EE) 
+	//Skinの?E  を探索して、BoneのインチE  クスのリストを佁EEする
 
 	
 
-	//MakeMashes(繝槭ユ繝ｪ繧｢繝ｫ縺ｮ繝・ E繧ｿ縺九ｉ菴・E)
+	//MakeMashes(マテリアルのチE Eタから佁EE)
 
 	//MakeMaterials
 
@@ -383,7 +383,7 @@ void CModel::Init()
 
 void CModel::Update() 
 {
-	//Mesh縺ｮ譖ｴ譁ｰ
+	//Meshの更新
 	for (auto& mesh : m_Meshes)
 	{
 		mesh->Update();
@@ -392,15 +392,15 @@ void CModel::Update()
 
 void CModel::Draw() 
 {
-	//繝・E繝ｳ縺ｮ譖ｴ譁ｰ
+	//チEEンの更新
 	UpdateBones();
 
-	//static float time = 0.01f; // 驕ｩ蠖薙↓譎る俣
+	//static float time = 0.01f; // 適当に時間
 	//time += 0.01f;
 	//DirectX::XMMATRIX rot = DirectX::XMMatrixRotationX(time);
 	//m_Bones[0]->localPose = rot;
 
-	// GPU縺ｸ繝・E繝ｳ陦・E繧帝√ｋ
+	// GPUへチEEン衁EEを送る
 	UpdateBoneBuffer();
 
 	ID3D12GraphicsCommandList* commandList =
@@ -415,7 +415,7 @@ void CModel::Draw()
 
 	CTransform* transform = m_Owner->GetComponent<CTransform>();
 
-	//Mesh縺ｮ謠冗判
+	//Meshの描画
 	for (size_t i = 0; i < m_Meshes.size(); ++i)
 	{
 		m_Meshes[i]->SetBoneSRV(m_BoneSrvGpuHandle);
@@ -453,15 +453,15 @@ void CModel::RegisterMesh(UINT _MatIdx, const MeshVertex* vertices, size_t verte
 	m_MeshMaterialIndices.push_back(_MatIdx);
 }
 
-//繝輔ぃ繧､繝ｫ繝・ E繧ｿ騾壹ｊ縺ｫ隱ｭ縺ｿ霎ｼ繧縺薙→蜑肴署
-//濶ｲ縺 縺大､峨∴縺溘く繝｣繝ｩ繧ｯ繧ｿ繝ｼ繧堤畑諢上＠縺溘＞縺ｪ繧峨∽ｽ輔°謇区ｮｵ繧定・  繧・E  縺後≠繧九°繧・
+//ファイルチE Eタ通りに読み込むこと前提
+//色� け変えたキャラクターを用意したいなら、何か手段を老E  めEE  があるかめE
 UINT CModel::RegisterMatarial(wstring _FilePath, DirectX::XMFLOAT4 _Color)
 {
-	//Material縺ｮVector縺ｫ霑ｽ蜉 
-	//縺薙％縺ｧ繝・  繧ｹ繝√Ε縺ｮ隱ｭ縺ｿ霎ｼ縺ｿ繧り｡後≧
+	//MaterialのVectorに追� 
+	//ここでチE  スチャの読み込みも行う
 	m_Materials.push_back(std::make_shared<CMaterial>(_FilePath, _Color));
 
-	//LastIndex繧定ｿ斐○縺ｰ縺・  縺・繧ｭ繝｣繝・  繝･縺後≠繧・E隧ｱ縺ｯ蛻･縺九ｂ)
+	//LastIndexを返せばぁE  ぁEキャチE  ュがあめEE話は別かも)
 	return m_Materials.size() - 1;
 }
 

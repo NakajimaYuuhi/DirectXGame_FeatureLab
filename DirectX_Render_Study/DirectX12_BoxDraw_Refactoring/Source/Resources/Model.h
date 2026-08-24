@@ -140,6 +140,25 @@ public:
 		}
 	}
 
+	void SetShaderAll(const std::wstring& shaderFile, const std::string& vsEntry = "VSMain", const std::string& psEntry = "PSMain")
+	{
+		for (auto& mat : m_Materials)
+		{
+			if (mat)
+			{
+				mat->SetShader(shaderFile, vsEntry, psEntry);
+			}
+		}
+	}
+
+	void SetShader(UINT materialIndex, const std::wstring& shaderFile, const std::string& vsEntry = "VSMain", const std::string& psEntry = "PSMain")
+	{
+		if (materialIndex < m_Materials.size() && m_Materials[materialIndex])
+		{
+			m_Materials[materialIndex]->SetShader(shaderFile, vsEntry, psEntry);
+		}
+	}
+
 	void PlayAnimation(int index) {
 		if (index >= 0 && index < m_Animations.size()) {
 			m_currentAnimationIndex = index;
