@@ -1,5 +1,9 @@
 var NAVTREEINDEX34 =
 {
+"structImDrawListSharedData.html#aef9a6fbf913823bd0b22aafb7f797c05":[2,0,71,3],
+"structImDrawListSplitter.html":[2,0,72],
+"structImDrawListSplitter.html#a2f832d1adedde7663c991af366847c75":[2,0,72,0],
+"structImDrawListSplitter.html#a712b8ba85de1e4095db67a86a3b80e21":[2,0,72,1],
 "structImDrawListSplitter.html#a95dbdaa7ea2a0328a85732ed210a549b":[2,0,72,3],
 "structImDrawListSplitter.html#a99a46d62e09810f31d0a6efd4a0d2b09":[2,0,72,9],
 "structImDrawListSplitter.html#aa491c5b1e10b2f5340e7db4949d31255":[2,0,72,6],
@@ -245,9 +249,5 @@ var NAVTREEINDEX34 =
 "structImFontLoader.html#a6171a890aa08324de2b5c050c22ae8b5":[2,0,84,1],
 "structImFontLoader.html#a887e08e0283aa65086f0e4ca8d8cdb9f":[2,0,84,4],
 "structImFontLoader.html#acdc4cafcd88d7a6c555503f3c64bc558":[2,0,84,0],
-"structImFontLoader.html#adf776fb33feacc76c85ae9a453081357":[2,0,84,2],
-"structImFontLoader.html#ae002d058bf4425177ee216b0cb7b1c5f":[2,0,84,6],
-"structImFontLoader.html#ae2cfffcf9b2cb3253b11c90cc7e1f86d":[2,0,84,5],
-"structImFontStackData.html":[2,0,85],
-"structImFontStackData.html#a5463003c72e27d77c103d032ed09de4e":[2,0,85,1]
+"structImFontLoader.html#adf776fb33feacc76c85ae9a453081357":[2,0,84,2]
 };

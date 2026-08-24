@@ -108,6 +108,6 @@ var searchData=
   ['number_5finteger_105',['number_integer',['../classnlohmann_1_1basic__json.html#ad88685d4cc24d7e86ddc5b0edb64192a',1,'nlohmann::basic_json']]],
   ['number_5funsigned_106',['number_unsigned',['../classnlohmann_1_1basic__json.html#a077b1e7977afafb97a6a38a3a617ba66',1,'nlohmann::basic_json']]],
   ['number_5fvalue_107',['number_value',['../structtinygltf_1_1Parameter.html#a445b16f857b4f4386446f0e6da5fe17a',1,'tinygltf::Parameter']]],
-  ['numframesinflight_108',['numframesinflight',['../structImGui__ImplDX12__Data.html#a6a541239da42836b2127d1428032cf7d',1,'ImGui_ImplDX12_Data::numFramesInFlight'],['../structImGui__ImplDX12__InitInfo.html#a03516ab81a3743e00aeac73a4cf77c20',1,'ImGui_ImplDX12_InitInfo::NumFramesInFlight']]],
+  ['numframesinflight_108',['numframesinflight',['../structImGui__ImplDX12__InitInfo.html#a03516ab81a3743e00aeac73a4cf77c20',1,'ImGui_ImplDX12_InitInfo::NumFramesInFlight'],['../structImGui__ImplDX12__Data.html#a6a541239da42836b2127d1428032cf7d',1,'ImGui_ImplDX12_Data::numFramesInFlight']]],
   ['numglyphs_109',['numGlyphs',['../structstbtt__fontinfo.html#a60ad8301a98eb7cd91472ce846d9080d',1,'stbtt_fontinfo']]]
 ];

@@ -1,5 +1,9 @@
 var NAVTREEINDEX47 =
 {
+"structtinygltf_1_1Buffer.html":[2,0,2,8],
+"structtinygltf_1_1Buffer.html#a10453f60300009c64e62560fbd3ff76d":[1,0,7,8,8],
+"structtinygltf_1_1Buffer.html#a10453f60300009c64e62560fbd3ff76d":[2,0,2,8,8],
+"structtinygltf_1_1Buffer.html#a1051dd31dcdba09b90dfd5da8e0ed1db":[2,0,2,8,7],
 "structtinygltf_1_1Buffer.html#a1051dd31dcdba09b90dfd5da8e0ed1db":[1,0,7,8,7],
 "structtinygltf_1_1Buffer.html#a4581fc8716430394bcc2a5148f099d8c":[2,0,2,8,0],
 "structtinygltf_1_1Buffer.html#a4581fc8716430394bcc2a5148f099d8c":[1,0,7,8,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX47 =
 "structtinygltf_1_1OrthographicCamera.html#a09843cce026f34b6240e146bcbb9a6d1":[2,0,2,20,5],
 "structtinygltf_1_1OrthographicCamera.html#a0ea904ecb69217f1909604880aa58f27":[1,0,7,20,6],
 "structtinygltf_1_1OrthographicCamera.html#a0ea904ecb69217f1909604880aa58f27":[2,0,2,20,6],
-"structtinygltf_1_1OrthographicCamera.html#a186aa1efea4a1ef67c5f1bf1adf77e76":[2,0,2,20,1],
-"structtinygltf_1_1OrthographicCamera.html#a186aa1efea4a1ef67c5f1bf1adf77e76":[1,0,7,20,1],
-"structtinygltf_1_1OrthographicCamera.html#a1b76a7aa22e99094140ce5e0e8b1e0c4":[2,0,2,20,0],
-"structtinygltf_1_1OrthographicCamera.html#a1b76a7aa22e99094140ce5e0e8b1e0c4":[1,0,7,20,0],
-"structtinygltf_1_1OrthographicCamera.html#a290b8d3f867255603b0f590058b08fb5":[1,0,7,20,8]
+"structtinygltf_1_1OrthographicCamera.html#a186aa1efea4a1ef67c5f1bf1adf77e76":[2,0,2,20,1]
 };

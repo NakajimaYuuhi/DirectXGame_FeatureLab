@@ -1,5 +1,9 @@
 var NAVTREEINDEX49 =
 {
+"structtinygltf_1_1TextureInfo.html#a4ce3bd674719cbd822fb133f5d750bf8":[1,0,7,31,4],
+"structtinygltf_1_1TextureInfo.html#a5b0818a06d65eced47a0e815e9e17e25":[2,0,2,31,5],
+"structtinygltf_1_1TextureInfo.html#a5b0818a06d65eced47a0e815e9e17e25":[1,0,7,31,5],
+"structtinygltf_1_1TextureInfo.html#a959ce2266edef8456d31cef24199fa3e":[1,0,7,31,2],
 "structtinygltf_1_1TextureInfo.html#a959ce2266edef8456d31cef24199fa3e":[2,0,2,31,2],
 "structtinygltf_1_1TextureInfo.html#aa30003e39bf6378f30901c607537008f":[1,0,7,31,1],
 "structtinygltf_1_1TextureInfo.html#aa30003e39bf6378f30901c607537008f":[2,0,2,31,1],

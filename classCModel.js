@@ -15,6 +15,8 @@ var classCModel =
     [ "RegisterMesh", "classCModel.html#a37afdebd227b61f6df7db536df686b8b", null ],
     [ "SetBlendMode", "classCModel.html#ae87aae71bb8f2ae920d953ffd315f610", null ],
     [ "SetMaterialTexture", "classCModel.html#ad5d3cbe526e22ac0ff323c87d47614f6", null ],
+    [ "SetShader", "classCModel.html#a16d72010f715a0676692d5191dee1573", null ],
+    [ "SetShaderAll", "classCModel.html#a2dfcb7793699a81b3ddb62a9806cec35", null ],
     [ "Update", "classCModel.html#a1ee375bdff3ed165e2f6a7c67132310f", null ],
     [ "UpdateAnimation", "classCModel.html#aa8c947dc41c1f7c9309d80e50a1f1385", null ],
     [ "UpdateBoneBuffer", "classCModel.html#aa4a8f97c8af86e94d84d5b46f5f89b11", null ],

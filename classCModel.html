@@ -146,6 +146,10 @@ CModel 連携図</div>
 <tr class="separator:a33c901c5e51e4e912100130dc5ea77dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5d3cbe526e22ac0ff323c87d47614f6" id="r_ad5d3cbe526e22ac0ff323c87d47614f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCModel.html#ad5d3cbe526e22ac0ff323c87d47614f6">SetMaterialTexture</a> (const std::wstring &amp;texturePath, UINT materialIndex=0)</td></tr>
 <tr class="separator:ad5d3cbe526e22ac0ff323c87d47614f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dfcb7793699a81b3ddb62a9806cec35" id="r_a2dfcb7793699a81b3ddb62a9806cec35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCModel.html#a2dfcb7793699a81b3ddb62a9806cec35">SetShaderAll</a> (const std::wstring &amp;shaderFile, const std::string &amp;vsEntry=&quot;VSMain&quot;, const std::string &amp;psEntry=&quot;PSMain&quot;)</td></tr>
+<tr class="separator:a2dfcb7793699a81b3ddb62a9806cec35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16d72010f715a0676692d5191dee1573" id="r_a16d72010f715a0676692d5191dee1573"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCModel.html#a16d72010f715a0676692d5191dee1573">SetShader</a> (UINT materialIndex, const std::wstring &amp;shaderFile, const std::string &amp;vsEntry=&quot;VSMain&quot;, const std::string &amp;psEntry=&quot;PSMain&quot;)</td></tr>
+<tr class="separator:a16d72010f715a0676692d5191dee1573"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43af7f22239537d4436018ef020990d8" id="r_a43af7f22239537d4436018ef020990d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCModel.html#a43af7f22239537d4436018ef020990d8">PlayAnimation</a> (int index)</td></tr>
 <tr class="separator:a43af7f22239537d4436018ef020990d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8c947dc41c1f7c9309d80e50a1f1385" id="r_aa8c947dc41c1f7c9309d80e50a1f1385"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCModel.html#aa8c947dc41c1f7c9309d80e50a1f1385">UpdateAnimation</a> (float deltaTime)</td></tr>
@@ -640,6 +644,96 @@ CModel 連携図</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classCModel_ad5d3cbe526e22ac0ff323c87d47614f6_icgraph.svg" width="418" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="a16d72010f715a0676692d5191dee1573" name="a16d72010f715a0676692d5191dee1573"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16d72010f715a0676692d5191dee1573">&#9670;&#160;</a></span>SetShader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CModel::SetShader </td>
+          <td>(</td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>materialIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::wstring &amp;&#160;</td>
+          <td class="paramname"><em>shaderFile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>vsEntry</em> = <code>&quot;VSMain&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>psEntry</em> = <code>&quot;PSMain&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2dfcb7793699a81b3ddb62a9806cec35" name="a2dfcb7793699a81b3ddb62a9806cec35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dfcb7793699a81b3ddb62a9806cec35">&#9670;&#160;</a></span>SetShaderAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CModel::SetShaderAll </td>
+          <td>(</td>
+          <td class="paramtype">const std::wstring &amp;&#160;</td>
+          <td class="paramname"><em>shaderFile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>vsEntry</em> = <code>&quot;VSMain&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>psEntry</em> = <code>&quot;PSMain&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
