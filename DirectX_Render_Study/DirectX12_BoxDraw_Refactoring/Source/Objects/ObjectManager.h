@@ -47,6 +47,9 @@ public:
 	//Manager
 	CObject* GetManager(String name);
 
+	//All Objects for ImGui Inspector
+	const Vector<Vector<UniquePtr<CObject>>>& GetObjectList() const { return vecObject; }
+
 //----- シングルトンの実装に必要 -----
 public:
 	static ObjectManager& GetInstance()

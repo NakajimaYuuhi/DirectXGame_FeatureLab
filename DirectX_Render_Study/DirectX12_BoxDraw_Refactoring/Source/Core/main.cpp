@@ -1,3 +1,4 @@
+#include "../UI/InspectorUI.h"
 ///////////////////////////////////////////
 //main.cpp                               
 //                                       
@@ -227,43 +228,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
 		CImGuiManager::GetInstance().Begin();
 		{
-			bool IsValidTransform;
-			//ImGuiの描画命令を溜める
-			ImGui::Begin("ComponentList"); // ここでGUIを作る
-			ImGui::Text("Transform"); ImGui::SameLine(); ImGui::Checkbox(" ", &IsValidTransform);
-			ImGui::Text("Position");
-			ImGui::Text("Scale");
-			ImGui::Text("Rotation");
-			ImGui::End();
-
-		}
-		{
-			static ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-
-			static bool show_demo_window = true;
-			static bool show_another_window = true;
-
-			static float f = 0.0f;
-			static int counter = 0;
-
-			ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
-
-			ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
-			ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our window open/close state
-			ImGui::Checkbox("Another Window", &show_another_window);
-
-			ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
-			ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
-
-			//クリックされたらTrueが返ってくる
-			if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
-				counter++;
-			ImGui::SameLine();//同じ行に各命令？
-			ImGui::Text("counter = %d", counter);//テキストは、Printfみたいに書ける ってかC++がそういうもんなのか？
-
-			//FrameRateはioから持ってこれる
-			//ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / io.Framerate, io.Framerate);
-			ImGui::End();
+			CInspectorUI::GetInstance().Draw();
 		}
 
 		//シーンの更新処理

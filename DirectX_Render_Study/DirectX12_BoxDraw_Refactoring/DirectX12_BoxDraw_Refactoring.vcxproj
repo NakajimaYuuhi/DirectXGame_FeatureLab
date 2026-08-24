@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -218,6 +218,7 @@
     <ClCompile Include="Source\Resources\Texture.cpp" />
     <ClCompile Include="Source\Rendering\TextureManager.cpp" />
     <ClCompile Include="Source\UI\SpriteRenderer.cpp" />
+    <ClCompile Include="Source\UI\InspectorUI.cpp" />
     <ClCompile Include="Source\UI\UIObject.cpp" />
     <ClCompile Include="Source\Components\Transform.cpp" />
     <ClCompile Include="Source\UI\TitleUI.cpp" />
@@ -305,6 +306,7 @@
     <ClInclude Include="Source\External\tinygltf_json.h" />
     <ClInclude Include="Source\External\tiny_gltf.h" />
     <ClInclude Include="Source\UI\SpriteRenderer.h" />
+    <ClInclude Include="Source\UI\InspectorUI.h" />
     <ClInclude Include="Source\UI\UIObject.h" />
     <ClInclude Include="Source\Components\Transform.h" />
     <ClInclude Include="Source\UI\TitleUI.h" />
