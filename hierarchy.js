@@ -45,6 +45,7 @@ var hierarchy =
     [ "CgltfLoader", "classCgltfLoader.html", null ],
     [ "CImGuiManager", "classCImGuiManager.html", null ],
     [ "CInputManager", "classCInputManager.html", null ],
+    [ "CInspectorUI", "classCInspectorUI.html", null ],
     [ "cj_frame", "structcj__frame.html", null ],
     [ "tinygltf::detail::CJ_NoAllocator", "structtinygltf_1_1detail_1_1CJ__NoAllocator.html", null ],
     [ "cj_parse_ctx", "structcj__parse__ctx.html", null ],

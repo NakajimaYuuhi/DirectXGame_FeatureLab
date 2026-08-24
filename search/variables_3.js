@@ -51,7 +51,7 @@ var searchData=
   ['collapsedval_48',['CollapsedVal',['../structImGuiNextWindowData.html#a0c4c81bf78a6ac094f794d2cf318037a',1,'ImGuiNextWindowData']]],
   ['collidertype_49',['ColliderType',['../classCollider.html#a5747357519552281e409256f378d3da1',1,'Collider']]],
   ['collisionorder_50',['CollisionOrder',['../classCollision.html#abfbbbce6868c0c0a8792807940b5caaf',1,'Collision']]],
-  ['color_51',['color',['../structD2DTextRenderer_1_1TextInfo.html#a300825d711317350feffda12e2d44459',1,'D2DTextRenderer::TextInfo::color'],['../structMyDocument.html#a38d0b4dc1d4cd036ab39031fbd6d57cc',1,'MyDocument::Color'],['../structVertex.html#acbd66c4ef07cca95630e0991190cc975',1,'Vertex::color'],['../structtinygltf_1_1Light.html#a24eb9ca5abaa89a1e9da969b677ff8cf',1,'tinygltf::Light::color']]],
+  ['color_51',['color',['../structVertex.html#acbd66c4ef07cca95630e0991190cc975',1,'Vertex::color'],['../structD2DTextRenderer_1_1TextInfo.html#a300825d711317350feffda12e2d44459',1,'D2DTextRenderer::TextInfo::color'],['../structtinygltf_1_1Light.html#a24eb9ca5abaa89a1e9da969b677ff8cf',1,'tinygltf::Light::color'],['../structMyDocument.html#a38d0b4dc1d4cd036ab39031fbd6d57cc',1,'MyDocument::Color']]],
   ['colorbuttonposition_52',['ColorButtonPosition',['../structImGuiStyle.html#a64b5fdd495573fa07a80dc0071e99802',1,'ImGuiStyle']]],
   ['colored_53',['Colored',['../structImFontGlyph.html#a6dca72bfeb40ba1cf6ceae007894f665',1,'ImFontGlyph']]],
   ['coloreditcurrentid_54',['ColorEditCurrentID',['../structImGuiContext.html#a0f8ebf6fa7e93beaf2130b8a15c49e63',1,'ImGuiContext']]],

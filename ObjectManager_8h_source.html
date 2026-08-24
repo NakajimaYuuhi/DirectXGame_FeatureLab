@@ -148,36 +148,40 @@ $(document).ready(function(){initNavTree('ObjectManager_8h_source.html',''); ini
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="comment">//Manager</span></div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_class" href="classCObject.html">CObject</a>* <a class="code hl_function" href="classObjectManager.html#abcaffd5bfd414d3fe89c2334e246ade0">GetManager</a>(<a class="code hl_typedef" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> name);</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">//----- シングルトンの実装に必要 -----</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00052" data-start="{" data-end="}">
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classObjectManager.html#aa3effb46aaa14ce422f1ba657b514446">   52</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classObjectManager.html">ObjectManager</a>&amp; <a class="code hl_function" href="classObjectManager.html#aa3effb46aaa14ce422f1ba657b514446">GetInstance</a>()</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keyword">static</span> <a class="code hl_class" href="classObjectManager.html">ObjectManager</a> Instance;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="comment">//インスタンスを返す</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">return</span> Instance;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment">//All Objects for ImGui Inspector</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classObjectManager.html#a4de0888ad62ba9ca20e03b645dcaae5a">   51</a></span>    <span class="keyword">const</span> <a class="code hl_typedef" href="Object_8h.html#a81fe4d2f62958ae48f36d6a3beb16bb1">Vector&lt;Vector&lt;UniquePtr&lt;CObject&gt;</a>&gt;&gt;&amp; <a class="code hl_function" href="classObjectManager.html#a4de0888ad62ba9ca20e03b645dcaae5a">GetObjectList</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classObjectManager.html#ae085e527fae047616712ca5c94f56656">vecObject</a>; }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">//----- シングルトンの実装に必要 -----</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="}">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classObjectManager.html#aa3effb46aaa14ce422f1ba657b514446">   55</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classObjectManager.html">ObjectManager</a>&amp; <a class="code hl_function" href="classObjectManager.html#aa3effb46aaa14ce422f1ba657b514446">GetInstance</a>()</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keyword">static</span> <a class="code hl_class" href="classObjectManager.html">ObjectManager</a> Instance;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="comment">//インスタンスを返す</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">return</span> Instance;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    }</div>
 </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="comment">//コンストラクタ</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_function" href="classObjectManager.html#a6fa9372c7c3a8da88412f4158ca3dfd9">ObjectManager</a>();</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="comment">//デストラクタ</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_function" href="classObjectManager.html#a25b057e6d1e60c9cbeb29d41923d8c2c">~ObjectManager</a>();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="comment">//コンストラクタ</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_function" href="classObjectManager.html#a6fa9372c7c3a8da88412f4158ca3dfd9">ObjectManager</a>();</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="comment">//コピー禁止</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classObjectManager.html#a02189c5d0d8fcb5e2b738c94901f5c21">   68</a></span>    <a class="code hl_function" href="classObjectManager.html#a02189c5d0d8fcb5e2b738c94901f5c21">ObjectManager</a>(<span class="keyword">const</span> <a class="code hl_class" href="classObjectManager.html">ObjectManager</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="comment">//デストラクタ</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_function" href="classObjectManager.html#a25b057e6d1e60c9cbeb29d41923d8c2c">~ObjectManager</a>();</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="comment">//代入禁止</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classObjectManager.html#a9fe0f04863126942c396ffe712bb346b">   71</a></span>    <a class="code hl_class" href="classObjectManager.html">ObjectManager</a>&amp; <a class="code hl_function" href="classObjectManager.html#a9fe0f04863126942c396ffe712bb346b">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classObjectManager.html">ObjectManager</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>};</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="comment">//コピー禁止</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classObjectManager.html#a02189c5d0d8fcb5e2b738c94901f5c21">   71</a></span>    <a class="code hl_function" href="classObjectManager.html#a02189c5d0d8fcb5e2b738c94901f5c21">ObjectManager</a>(<span class="keyword">const</span> <a class="code hl_class" href="classObjectManager.html">ObjectManager</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="comment">//代入禁止</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classObjectManager.html#a9fe0f04863126942c396ffe712bb346b">   74</a></span>    <a class="code hl_class" href="classObjectManager.html">ObjectManager</a>&amp; <a class="code hl_function" href="classObjectManager.html#a9fe0f04863126942c396ffe712bb346b">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classObjectManager.html">ObjectManager</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>};</div>
 </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
 <div class="ttc" id="aComponent_8h_html_a5573b97b9e5129f61d289e037d7e806c"><div class="ttname"><a href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a></div><div class="ttdeci">std::string String</div><div class="ttdef"><b>Definition</b> Component.h:15</div></div>
 <div class="ttc" id="aObjectTag_8h_html"><div class="ttname"><a href="ObjectTag_8h.html">ObjectTag.h</a></div></div>
 <div class="ttc" id="aObject_8h_html"><div class="ttname"><a href="Object_8h.html">Object.h</a></div></div>
+<div class="ttc" id="aObject_8h_html_a81fe4d2f62958ae48f36d6a3beb16bb1"><div class="ttname"><a href="Object_8h.html#a81fe4d2f62958ae48f36d6a3beb16bb1">Vector</a></div><div class="ttdeci">std::vector&lt; T &gt; Vector</div><div class="ttdef"><b>Definition</b> Object.h:29</div></div>
 <div class="ttc" id="aSceneEnums_8h_html"><div class="ttname"><a href="SceneEnums_8h.html">SceneEnums.h</a></div></div>
 <div class="ttc" id="aclassCObject_html"><div class="ttname"><a href="classCObject.html">CObject</a></div><div class="ttdef"><b>Definition</b> Object.h:43</div></div>
 <div class="ttc" id="aclassCamera_html"><div class="ttname"><a href="classCamera.html">Camera</a></div><div class="ttdef"><b>Definition</b> Camera.h:8</div></div>
@@ -188,11 +192,12 @@ $(document).ready(function(){initNavTree('ObjectManager_8h_source.html',''); ini
 <div class="ttc" id="aclassObjectManager_html_a252dedbd868ebf55d0791705c4262c09"><div class="ttname"><a href="classObjectManager.html#a252dedbd868ebf55d0791705c4262c09">ObjectManager::Init</a></div><div class="ttdeci">void Init(Scenes::ID _SceneID)</div><div class="ttdef"><b>Definition</b> ObjectManager.cpp:9</div></div>
 <div class="ttc" id="aclassObjectManager_html_a25b057e6d1e60c9cbeb29d41923d8c2c"><div class="ttname"><a href="classObjectManager.html#a25b057e6d1e60c9cbeb29d41923d8c2c">ObjectManager::~ObjectManager</a></div><div class="ttdeci">~ObjectManager()</div><div class="ttdef"><b>Definition</b> ObjectManager.cpp:129</div></div>
 <div class="ttc" id="aclassObjectManager_html_a3358b9b3a459e6594b97d098b33020e4"><div class="ttname"><a href="classObjectManager.html#a3358b9b3a459e6594b97d098b33020e4">ObjectManager::Update</a></div><div class="ttdeci">void Update(Scenes::ID _SceneID)</div><div class="ttdef"><b>Definition</b> ObjectManager.cpp:33</div></div>
+<div class="ttc" id="aclassObjectManager_html_a4de0888ad62ba9ca20e03b645dcaae5a"><div class="ttname"><a href="classObjectManager.html#a4de0888ad62ba9ca20e03b645dcaae5a">ObjectManager::GetObjectList</a></div><div class="ttdeci">const Vector&lt; Vector&lt; UniquePtr&lt; CObject &gt; &gt; &gt; &amp; GetObjectList() const</div><div class="ttdef"><b>Definition</b> ObjectManager.h:51</div></div>
 <div class="ttc" id="aclassObjectManager_html_a5d1fa144d8ac3be48767ea6691b332ec"><div class="ttname"><a href="classObjectManager.html#a5d1fa144d8ac3be48767ea6691b332ec">ObjectManager::Instantiate</a></div><div class="ttdeci">CObject * Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::string _TypeName)</div><div class="ttdef"><b>Definition</b> ObjectManager_Instantiate.cpp:48</div></div>
 <div class="ttc" id="aclassObjectManager_html_a6fa9372c7c3a8da88412f4158ca3dfd9"><div class="ttname"><a href="classObjectManager.html#a6fa9372c7c3a8da88412f4158ca3dfd9">ObjectManager::ObjectManager</a></div><div class="ttdeci">ObjectManager()</div><div class="ttdef"><b>Definition</b> ObjectManager.cpp:122</div></div>
 <div class="ttc" id="aclassObjectManager_html_a852d554df9444454176abeb96d2524b2"><div class="ttname"><a href="classObjectManager.html#a852d554df9444454176abeb96d2524b2">ObjectManager::Draw</a></div><div class="ttdeci">void Draw(Scenes::ID _SceneID)</div><div class="ttdef"><b>Definition</b> ObjectManager.cpp:105</div></div>
 <div class="ttc" id="aclassObjectManager_html_a9fe0f04863126942c396ffe712bb346b"><div class="ttname"><a href="classObjectManager.html#a9fe0f04863126942c396ffe712bb346b">ObjectManager::operator=</a></div><div class="ttdeci">ObjectManager &amp; operator=(const ObjectManager &amp;)=delete</div></div>
-<div class="ttc" id="aclassObjectManager_html_aa3effb46aaa14ce422f1ba657b514446"><div class="ttname"><a href="classObjectManager.html#aa3effb46aaa14ce422f1ba657b514446">ObjectManager::GetInstance</a></div><div class="ttdeci">static ObjectManager &amp; GetInstance()</div><div class="ttdef"><b>Definition</b> ObjectManager.h:52</div></div>
+<div class="ttc" id="aclassObjectManager_html_aa3effb46aaa14ce422f1ba657b514446"><div class="ttname"><a href="classObjectManager.html#aa3effb46aaa14ce422f1ba657b514446">ObjectManager::GetInstance</a></div><div class="ttdeci">static ObjectManager &amp; GetInstance()</div><div class="ttdef"><b>Definition</b> ObjectManager.h:55</div></div>
 <div class="ttc" id="aclassObjectManager_html_ab14b919449101fdecbbafe794d907cc9"><div class="ttname"><a href="classObjectManager.html#ab14b919449101fdecbbafe794d907cc9">ObjectManager::Uninit</a></div><div class="ttdeci">void Uninit()</div><div class="ttdef"><b>Definition</b> ObjectManager.cpp:23</div></div>
 <div class="ttc" id="aclassObjectManager_html_ab16bd9ac9432145857d4e09f1fd9920b"><div class="ttname"><a href="classObjectManager.html#ab16bd9ac9432145857d4e09f1fd9920b">ObjectManager::FlushDestroyedObjects</a></div><div class="ttdeci">void FlushDestroyedObjects()</div><div class="ttdef"><b>Definition</b> ObjectManager.cpp:58</div></div>
 <div class="ttc" id="aclassObjectManager_html_abcaffd5bfd414d3fe89c2334e246ade0"><div class="ttname"><a href="classObjectManager.html#abcaffd5bfd414d3fe89c2334e246ade0">ObjectManager::GetManager</a></div><div class="ttdeci">CObject * GetManager(String name)</div><div class="ttdef"><b>Definition</b> ObjectManager_Getter_Setter.cpp:45</div></div>

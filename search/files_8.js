@@ -19,6 +19,8 @@ var searchData=
   ['imstb_5ftruetype_2eh_16',['imstb_truetype.h',['../imstb__truetype_8h.html',1,'']]],
   ['inputmanager_2ecpp_17',['InputManager.cpp',['../InputManager_8cpp.html',1,'']]],
   ['inputmanager_2eh_18',['InputManager.h',['../InputManager_8h.html',1,'']]],
-  ['irenderpass_2eh_19',['IRenderPass.h',['../IRenderPass_8h.html',1,'']]],
-  ['iselectable_2eh_20',['ISelectable.h',['../ISelectable_8h.html',1,'']]]
+  ['inspectorui_2ecpp_19',['InspectorUI.cpp',['../InspectorUI_8cpp.html',1,'']]],
+  ['inspectorui_2eh_20',['InspectorUI.h',['../InspectorUI_8h.html',1,'']]],
+  ['irenderpass_2eh_21',['IRenderPass.h',['../IRenderPass_8h.html',1,'']]],
+  ['iselectable_2eh_22',['ISelectable.h',['../ISelectable_8h.html',1,'']]]
 ];

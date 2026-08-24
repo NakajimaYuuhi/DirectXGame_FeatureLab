@@ -209,6 +209,7 @@ var annotated_dup =
     [ "CgltfLoader", "classCgltfLoader.html", null ],
     [ "CImGuiManager", "classCImGuiManager.html", "classCImGuiManager" ],
     [ "CInputManager", "classCInputManager.html", "classCInputManager" ],
+    [ "CInspectorUI", "classCInspectorUI.html", "classCInspectorUI" ],
     [ "cj_frame", "structcj__frame.html", "structcj__frame" ],
     [ "cj_parse_ctx", "structcj__parse__ctx.html", "structcj__parse__ctx" ],
     [ "cj_strbuf", "structcj__strbuf.html", "structcj__strbuf" ],

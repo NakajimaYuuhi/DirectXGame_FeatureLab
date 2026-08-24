@@ -4,6 +4,8 @@ var dir_ad68fd99ee46e73a145661c4c85612bf =
     [ "CUIButton.h", "CUIButton_8h.html", "CUIButton_8h" ],
     [ "ImGuiManager.cpp", "ImGuiManager_8cpp.html", null ],
     [ "ImGuiManager.h", "ImGuiManager_8h.html", "ImGuiManager_8h" ],
+    [ "InspectorUI.cpp", "InspectorUI_8cpp.html", null ],
+    [ "InspectorUI.h", "InspectorUI_8h.html", "InspectorUI_8h" ],
     [ "ISelectable.h", "ISelectable_8h.html", "ISelectable_8h" ],
     [ "SpriteRenderer.cpp", "SpriteRenderer_8cpp.html", null ],
     [ "SpriteRenderer.h", "SpriteRenderer_8h.html", "SpriteRenderer_8h" ],
