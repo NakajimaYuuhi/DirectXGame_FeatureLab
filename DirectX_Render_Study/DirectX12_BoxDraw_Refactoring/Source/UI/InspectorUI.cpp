@@ -4,6 +4,7 @@
 #include "Transform.h"
 #include "Model.h"
 #include "ObjectInfo.h"
+#include <typeinfo>
 
 
 void CInspectorUI::Draw()
@@ -103,6 +104,28 @@ void CInspectorUI::Draw()
                             std::string pathStr(m_shaderPathInput);
                             std::wstring pathW(pathStr.begin(), pathStr.end());
                             model->SetShaderAll(pathW);
+                        }
+                    }
+                }
+                
+                // Other Components
+                if (ImGui::CollapsingHeader("Other Components", ImGuiTreeNodeFlags_DefaultOpen))
+                {
+                    for (const auto& comp : selectedObj->GetComponents())
+                    {
+                        if (comp)
+                        {
+                            std::string compName = comp->GetName();
+                            if (compName != "Transform" && compName != "Model" && compName != "ObjectInfo")
+                            {
+                                if (compName.empty()) {
+                                    compName = typeid(*comp).name();
+                                    // Remove "class " or "struct " prefix from typeid name if exists
+                                    if (compName.find("class ") == 0) compName = compName.substr(6);
+                                    if (compName.find("struct ") == 0) compName = compName.substr(7);
+                                }
+                                ImGui::Text("- %s", compName.c_str());
+                            }
                         }
                     }
                 }
