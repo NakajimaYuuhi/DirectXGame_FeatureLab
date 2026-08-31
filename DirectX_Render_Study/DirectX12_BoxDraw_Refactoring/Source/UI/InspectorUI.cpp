@@ -3,6 +3,8 @@
 #include "ObjectManager.h"
 #include "Transform.h"
 #include "Model.h"
+#include "ObjectInfo.h"
+
 
 void CInspectorUI::Draw()
 {
@@ -31,7 +33,9 @@ void CInspectorUI::Draw()
                 if (!obj) continue;
 
                 // 選択可能アイテムとして表示
-                std::string label = "Object " + std::to_string(objectCounter) + "##" + std::to_string(tagIdx) + "_" + std::to_string(i);
+                CObjectInfo* objInfo = obj->GetComponent<CObjectInfo>();
+                std::string objName = objInfo ? objInfo->GetObjectName() : "Object " + std::to_string(objectCounter);
+                std::string label = objName + "##" + std::to_string(tagIdx) + "_" + std::to_string(i);
 
                 bool isSelected = (m_selectedTagIndex == tagIdx && m_selectedObjectIndex == i);
                 if (ImGui::Selectable(label.c_str(), isSelected))

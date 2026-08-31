@@ -108,6 +108,8 @@ public:
 
 	// --IsDestroyed
 	bool GetIsDestroyed() const { return IsDestroyed; }
+
+	const Vector<UniquePtr<CComponent>>& GetComponents() const { return components; }
 	void SetIsDestroyed(bool _IsDestroyed) { IsDestroyed = _IsDestroyed; }
 
 	//オブジェクトの名前のセット
