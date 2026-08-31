@@ -100,7 +100,7 @@ var searchData=
   ['fontscale_97',['FontScale',['../structImDrawListSharedData.html#a1a52282912e7cf687fa4f956fc30fda5',1,'ImDrawListSharedData']]],
   ['fontscaledpi_98',['FontScaleDpi',['../structImGuiStyle.html#a63913c1da22332ca132aedb7a082dbfd',1,'ImGuiStyle']]],
   ['fontscalemain_99',['FontScaleMain',['../structImGuiStyle.html#adae704ce8713d514bf16e4707b164bc1',1,'ImGuiStyle']]],
-  ['fontsize_100',['fontsize',['../structImGuiContext.html#af4022d1866887cdc400131fc6a65b200',1,'ImGuiContext::FontSize'],['../structImDrawListSharedData.html#a189a412fcd4f66a1d60501ad758d04bd',1,'ImDrawListSharedData::FontSize'],['../structD2DTextRenderer_1_1TextInfo.html#a651d6a209e18ea2afd8d96bd0be91621',1,'D2DTextRenderer::TextInfo::fontSize']]],
+  ['fontsize_100',['fontsize',['../structD2DTextRenderer_1_1TextInfo.html#a651d6a209e18ea2afd8d96bd0be91621',1,'D2DTextRenderer::TextInfo::fontSize'],['../structImGuiContext.html#af4022d1866887cdc400131fc6a65b200',1,'ImGuiContext::FontSize'],['../structImDrawListSharedData.html#a189a412fcd4f66a1d60501ad758d04bd',1,'ImDrawListSharedData::FontSize']]],
   ['fontsizeafterscaling_101',['FontSizeAfterScaling',['../structImFontStackData.html#a5463003c72e27d77c103d032ed09de4e',1,'ImFontStackData']]],
   ['fontsizebase_102',['fontsizebase',['../structImGuiContext.html#a2d37dcae9a3f6389e83ed89a35a53356',1,'ImGuiContext::FontSizeBase'],['../structImGuiStyle.html#abe1d58a04d8d18cebd408f7be91c6653',1,'ImGuiStyle::FontSizeBase']]],
   ['fontsizebeforescaling_103',['FontSizeBeforeScaling',['../structImFontStackData.html#a5de51be33042fb34941ee89077ae1a6c',1,'ImFontStackData']]],

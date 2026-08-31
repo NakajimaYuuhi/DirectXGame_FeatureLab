@@ -1,5 +1,6 @@
 var NAVTREEINDEX45 =
 {
+"structnlohmann_1_1detail_1_1iterator__types_3_01It_00_01void__t_3_01typename_01It_1_1difference_d2be8685966c97e00e99d4fd2366dc0b.html#aaaafbcd0573ec9cfc5d19411950dc1ac":[2,0,0,0,91,1],
 "structnlohmann_1_1detail_1_1iterator__types_3_01It_00_01void__t_3_01typename_01It_1_1difference_d2be8685966c97e00e99d4fd2366dc0b.html#aaaafbcd0573ec9cfc5d19411950dc1ac":[1,0,3,0,91,1],
 "structnlohmann_1_1detail_1_1iterator__types_3_01It_00_01void__t_3_01typename_01It_1_1difference_d2be8685966c97e00e99d4fd2366dc0b.html#aacaf73dc959b7c2119c15e53b5ce00a3":[2,0,0,0,91,2],
 "structnlohmann_1_1detail_1_1iterator__types_3_01It_00_01void__t_3_01typename_01It_1_1difference_d2be8685966c97e00e99d4fd2366dc0b.html#aacaf73dc959b7c2119c15e53b5ce00a3":[1,0,3,0,91,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX45 =
 "structstbtt__fontinfo.html#a5de2129e0a415748920f6aa10ceee6e5":[2,0,244,6],
 "structstbtt__fontinfo.html#a5fa117a7ef058111a70a5b0b87d220f4":[2,0,244,13],
 "structstbtt__fontinfo.html#a6031b4bda94aa2b5ff07ef5d626a15a4":[2,0,244,0],
-"structstbtt__fontinfo.html#a60ad8301a98eb7cd91472ce846d9080d":[2,0,244,16],
-"structstbtt__fontinfo.html#a91b82ae03d68892eb7f3fbd3a8b990e5":[2,0,244,10]
+"structstbtt__fontinfo.html#a60ad8301a98eb7cd91472ce846d9080d":[2,0,244,16]
 };

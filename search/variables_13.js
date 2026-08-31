@@ -208,7 +208,7 @@ var searchData=
   ['stretchspacing_205',['StretchSpacing',['../structExampleAssetsBrowser.html#a2fc7cd6b1c71c99b24754b11fbe377c3',1,'ExampleAssetsBrowser']]],
   ['stretchweight_206',['StretchWeight',['../structImGuiTableColumn.html#a1e76d6659e59f751c863f360cdb6bdb9',1,'ImGuiTableColumn']]],
   ['strictness_5f_207',['strictness_',['../classtinygltf_1_1TinyGLTF.html#af60bc193a9fd839ecaa75131548cd863',1,'tinygltf::TinyGLTF']]],
-  ['stride_208',['stride',['../structImGuiPlotArrayGetterData.html#aecb2cce4ea91d95ec81937de656cfcd6',1,'ImGuiPlotArrayGetterData::Stride'],['../structstbtt____bitmap.html#a48ee6b550ee4f1d85bfc32c62c0e9a98',1,'stbtt__bitmap::stride']]],
+  ['stride_208',['stride',['../structstbtt____bitmap.html#a48ee6b550ee4f1d85bfc32c62c0e9a98',1,'stbtt__bitmap::stride'],['../structImGuiPlotArrayGetterData.html#aecb2cce4ea91d95ec81937de656cfcd6',1,'ImGuiPlotArrayGetterData::Stride']]],
   ['stride_5fin_5fbytes_209',['stride_in_bytes',['../structstbtt__pack__context.html#abbe9a25aae0e26b81a5f7339fac23801',1,'stbtt_pack_context']]],
   ['string_210',['string',['../classnlohmann_1_1basic__json.html#ac32019eb29dc7bb4c326a233e0e2f0cb',1,'nlohmann::basic_json']]],
   ['string_5fbuffer_211',['string_buffer',['../classnlohmann_1_1detail_1_1serializer.html#a9c9b7ca63a66e59e5e7ffe8a2acf5c8f',1,'nlohmann::detail::serializer']]],

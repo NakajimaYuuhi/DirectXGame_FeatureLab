@@ -1,5 +1,6 @@
 var NAVTREEINDEX46 =
 {
+"structstbtt__fontinfo.html#a91b82ae03d68892eb7f3fbd3a8b990e5":[2,0,244,10],
 "structstbtt__fontinfo.html#a966c70ac9548a02fff558846fbce3677":[2,0,244,4],
 "structstbtt__fontinfo.html#a9c81078df96a7a3f730137151efab285":[2,0,244,19],
 "structstbtt__fontinfo.html#aaf04a69f8dd4b6a8bed4191b57145082":[2,0,244,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX46 =
 "structtinygltf_1_1AudioSource.html#a131affe6fffdbf53ae62341b2a5da802":[1,0,7,7,1],
 "structtinygltf_1_1AudioSource.html#a2fda2352001fa369514b6179dcf364cd":[2,0,2,7,3],
 "structtinygltf_1_1AudioSource.html#a2fda2352001fa369514b6179dcf364cd":[1,0,7,7,3],
-"structtinygltf_1_1AudioSource.html#a3e4b27d99888c92f8137bef3bbb34663":[1,0,7,7,0],
-"structtinygltf_1_1AudioSource.html#a3e4b27d99888c92f8137bef3bbb34663":[2,0,2,7,0]
+"structtinygltf_1_1AudioSource.html#a3e4b27d99888c92f8137bef3bbb34663":[1,0,7,7,0]
 };

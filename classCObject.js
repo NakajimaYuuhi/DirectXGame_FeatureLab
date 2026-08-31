@@ -5,6 +5,7 @@ var classCObject =
     [ "AddComponent", "classCObject.html#a16ae51f353373a27d0a7c68586005028", null ],
     [ "Draw", "classCObject.html#a0834c54d4de179464d59b7616645a1ad", null ],
     [ "GetComponent", "classCObject.html#a71540f70991d2a909cf7a7fcbf683dc7", null ],
+    [ "GetComponents", "classCObject.html#a9b1dfba8aa221e5e2e5e8047637daf68", null ],
     [ "GetIsDestroyed", "classCObject.html#a4b1bab560d2e131770959488dce32736", null ],
     [ "GetIsValid", "classCObject.html#a981fafe6348bc06c5a95270157b2a45e", null ],
     [ "Init", "classCObject.html#acdc9ca6fa3fc2e3d915596a5ec07c5e8", null ],

@@ -1,5 +1,6 @@
 var NAVTREEINDEX48 =
 {
+"structtinygltf_1_1OcclusionTextureInfo.html#a5c5e830b49f7e35094d69cbc5ef6e437":[2,0,2,19,0],
 "structtinygltf_1_1OcclusionTextureInfo.html#a5cba20d13438aeee560cb1f24247692a":[1,0,7,19,6],
 "structtinygltf_1_1OcclusionTextureInfo.html#a5cba20d13438aeee560cb1f24247692a":[2,0,2,19,6],
 "structtinygltf_1_1OcclusionTextureInfo.html#a9dd488c81d61ee9a670ebdb01296451f":[1,0,7,19,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX48 =
 "structtinygltf_1_1Texture.html#a2ff460f0d0870334ba16ca09419c528c":[2,0,2,30,4],
 "structtinygltf_1_1Texture.html#a48ed797af78294b1e70f4d2f5ea8a995":[2,0,2,30,8],
 "structtinygltf_1_1Texture.html#a48ed797af78294b1e70f4d2f5ea8a995":[1,0,7,30,8],
-"structtinygltf_1_1Texture.html#a974f9cb217f36762f055844682ce4790":[1,0,7,30,3],
-"structtinygltf_1_1Texture.html#a974f9cb217f36762f055844682ce4790":[2,0,2,30,3]
+"structtinygltf_1_1Texture.html#a974f9cb217f36762f055844682ce4790":[1,0,7,30,3]
 };
