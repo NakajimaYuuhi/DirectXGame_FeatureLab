@@ -34,6 +34,21 @@
     <Filter Include="Source\Util">
       <UniqueIdentifier>{14aadf79-50ce-49ef-97c9-ae883495c19f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Core\Scenes">
+      <UniqueIdentifier>{ad984559-2ea9-4fbf-b5be-f8f3261c46fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Core\Scenes\Settings">
+      <UniqueIdentifier>{c963e874-3c2f-4060-8b29-d97780305b5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Core\Scenes\Base">
+      <UniqueIdentifier>{46400307-b877-451c-8431-f798697b991e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Core\Scenes\Manager">
+      <UniqueIdentifier>{51fd999b-bcf9-497e-bab5-0240981d61f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Core\Scenes\Instances">
+      <UniqueIdentifier>{000e584d-7cea-4a1f-8f96-3d5cd12cce81}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Util\audio.cpp">
@@ -89,12 +104,6 @@
     </ClCompile>
     <ClCompile Include="Source\Rendering\RenderTexture.cpp">
       <Filter>Source\Rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Core\SceneManager.cpp">
-      <Filter>Source\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Core\SceneTitle.cpp">
-      <Filter>Source\Core</Filter>
     </ClCompile>
     <ClCompile Include="Source\Objects\Skydome.cpp">
       <Filter>Source\Objects</Filter>
@@ -213,12 +222,6 @@
     <ClCompile Include="Source\Objects\RandomParticle.cpp">
       <Filter>Source\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Core\Scene.cpp">
-      <Filter>Source\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Core\SceneTest.cpp">
-      <Filter>Source\Core</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Rendering\Shader.cpp">
       <Filter>Source\Rendering</Filter>
     </ClCompile>
@@ -245,6 +248,24 @@
     </ClCompile>
     <ClCompile Include="Source\UI\TitleUI.cpp">
       <Filter>Source\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\Scenes\Instances\SceneClear.cpp">
+      <Filter>Source\Core\Scenes\Instances</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\Scenes\Instances\SceneFailed.cpp">
+      <Filter>Source\Core\Scenes\Instances</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\Scenes\Base\Scene.cpp">
+      <Filter>Source\Core\Scenes\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\Scenes\Manager\SceneManager.cpp">
+      <Filter>Source\Core\Scenes\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\Scenes\Instances\SceneTitle.cpp">
+      <Filter>Source\Core\Scenes\Instances</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\Scenes\Instances\SceneTest.cpp">
+      <Filter>Source\Core\Scenes\Instances</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -309,12 +330,6 @@
       <Filter>Source\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="resource.h" />
-    <ClInclude Include="Source\Core\SceneManager.h">
-      <Filter>Source\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Core\SceneTitle.h">
-      <Filter>Source\Core</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Objects\Skydome.h">
       <Filter>Source\Objects</Filter>
     </ClInclude>
@@ -450,15 +465,6 @@
     <ClInclude Include="Source\Objects\RandomParticle.h">
       <Filter>Source\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Core\Scene.h">
-      <Filter>Source\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Core\SceneEnums.h">
-      <Filter>Source\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Core\SceneTest.h">
-      <Filter>Source\Core</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Rendering\Shader.h">
       <Filter>Source\Rendering</Filter>
     </ClInclude>
@@ -503,6 +509,27 @@
     </ClInclude>
     <ClInclude Include="Source\UI\TitleUI.h">
       <Filter>Source\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\SceneEnums.h">
+      <Filter>Source\Core\Scenes\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Scenes\Instances\SceneClear.h">
+      <Filter>Source\Core\Scenes\Instances</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Scenes\Instances\SceneFailed.h">
+      <Filter>Source\Core\Scenes\Instances</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Scenes\Base\Scene.h">
+      <Filter>Source\Core\Scenes\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Scenes\Manager\SceneManager.h">
+      <Filter>Source\Core\Scenes\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Scenes\Instances\SceneTest.h">
+      <Filter>Source\Core\Scenes\Instances</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Scenes\Instances\SceneTitle.h">
+      <Filter>Source\Core\Scenes\Instances</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

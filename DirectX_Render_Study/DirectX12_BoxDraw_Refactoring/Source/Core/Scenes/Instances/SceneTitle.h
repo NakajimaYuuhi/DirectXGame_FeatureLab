@@ -1,6 +1,6 @@
 //===== インクルード =====
 #pragma once
-#include "Scene.h"
+#include "../Base/Scene.h"
 
 #include "SmartPtrAlias.h"
 #include "ContainerAlias.h"

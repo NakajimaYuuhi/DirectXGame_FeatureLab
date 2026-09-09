@@ -24,7 +24,8 @@ BillBoard::BillBoard(String _Name)
 
 	model->CopyFrom(sharedModel);
 
-
+	// ビルボードはアルファブレンディングを有効にする
+	model->SetBlendModeAll(BlendMode::Alpha);
 }
 
 void BillBoard::Update()

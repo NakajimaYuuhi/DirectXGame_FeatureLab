@@ -1,11 +1,13 @@
-//===== ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ =====
+//===== ƒCƒ“ƒNƒ‹[ƒh =====
 #include "SceneManager.h"
 
 #include "ObjectManager.h"
-//ã‚·ãƒ¼ãƒ³
-#include "Scene.h"
-#include "SceneTest.h"
-#include "SceneTitle.h"
+//ƒV[ƒ“
+#include "../Base/Scene.h"
+#include "../Instances/SceneTest.h"
+#include "../Instances/SceneTitle.h"
+#include "../Instances/SceneClear.h"
+#include "../Instances/SceneFailed.h"
 #include "ButtonEventManager.h"
 
 
@@ -20,14 +22,14 @@
 
 
 
-//===== å®šæ•°ãƒ»ãƒã‚¯ãƒ­å®šç¾© =====
+//===== ’è”Eƒ}ƒNƒ’è‹` =====
 
 
-//===== é–¢æ•°ã®å®šç¾© =====
+//===== ŠÖ”‚Ì’è‹` =====
 
-//----- åˆæœŸåŒ–ã€çµ‚äº†å‡¦ç† -----
+//----- ‰Šú‰»AI—¹ˆ— -----
 
-//ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+//ƒRƒ“ƒXƒgƒ‰ƒNƒ^
 SceneManager::SceneManager(void)
 {
 	Init();
@@ -36,74 +38,74 @@ SceneManager::SceneManager(void)
 
 }
 
-//ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+//ƒfƒXƒgƒ‰ƒNƒ^
 SceneManager::~SceneManager(void)
 {
 
-	//Sceneã‚’å‡ºã‚‹ã¨ãã«ã‚„ã‚‹ã‹ã‚‰ã„ã‚‰ãªã„
+	//Scene‚ğo‚é‚Æ‚«‚É‚â‚é‚©‚ç‚¢‚ç‚È‚¢
 	//delete m_pSceneStack;
 	//m_pSceneStack = nullptr;
 }
 
-//åˆæœŸåŒ–å‡¦ç†
+//‰Šú‰»ˆ—
 void SceneManager::Init()
 {
-	//æœ€åˆã®ã‚·ãƒ¼ãƒ³ã®ç”Ÿæˆ
-	InstantiateScene(INITIAL_SCENE);//ã‚·ãƒ¼ãƒ³ã®é–‹å§‹å‡¦ç†ãŒã‚ã‚‹ã‹ã‚‰ã€ãã®å‰ã«å¿…è¦ãªã‚¯ãƒ©ã‚¹ã‚’ä½œæˆã€åˆæœŸåŒ–ã™ã‚‹å¿…è¦ãŒã‚ã‚‹
+	//Å‰‚ÌƒV[ƒ“‚Ì¶¬
+	InstantiateScene(INITIAL_SCENE);//ƒV[ƒ“‚ÌŠJnˆ—‚ª‚ ‚é‚©‚çA‚»‚Ì‘O‚É•K—v‚ÈƒNƒ‰ƒX‚ğì¬A‰Šú‰»‚·‚é•K—v‚ª‚ ‚é
 
 }
 
-//çµ‚äº†å‡¦ç†
+//I—¹ˆ—
 void SceneManager::Uninit(void)
 {
-	// ã‚·ãƒ¼ãƒ³å†…ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚„ãƒªã‚½ãƒ¼ã‚¹ã‚’ã™ã¹ã¦ç ´æ£„ã™ã‚‹
+	// ƒV[ƒ““à‚ÌƒIƒuƒWƒFƒNƒg‚âƒŠƒ\[ƒX‚ğ‚·‚×‚Ä”jŠü‚·‚é
 	UninitAndPop();
-	// ç¾åœ¨ã®ã‚·ãƒ¼ãƒ³è‡ªä½“ã‚’ç ´æ£„ã™ã‚‹
+	// Œ»İ‚ÌƒV[ƒ“©‘Ì‚ğ”jŠü‚·‚é
 	if (scene) {
 		scene.reset();
 	}
 }
 
 
-//----- æ›´æ–°å‡¦ç†,æç”»å‡¦ç† -----
+//----- XVˆ—,•`‰æˆ— -----
 
-//æ›´æ–°å‡¦ç†
+//XVˆ—
 void SceneManager::Update()
 {
-	//EventManagerã®ã‚·ãƒ¼ãƒ³ã‚¤ãƒ™ãƒ³ãƒˆå‡¦ç†
-	//ã‚·ãƒ¼ãƒ³ã®åˆ‡æ›¿ã€è¿½åŠ ã€å‰Šé™¤ã‚’ã“ã“ã§è¡Œã†
+	//EventManager‚ÌƒV[ƒ“ƒCƒxƒ“ƒgˆ—
+	//ƒV[ƒ“‚ÌØ‘ÖA’Ç‰ÁAíœ‚ğ‚±‚±‚Ås‚¤
 	ProcessSceneEvents();
 
-	//Todo : Rootå‡¦ç†ã‚’å…¥ã‚Œã‚‹
+	//Todo : Rootˆ—‚ğ“ü‚ê‚é
 	if (scene)
 
-		//ã‚·ãƒ¼ãƒ³ã®æ›´æ–°å‡¦ç†
+		//ƒV[ƒ“‚ÌXVˆ—
 		scene->Update();
 }
 
-//æç”»å‡¦ç†
+//•`‰æˆ—
 void SceneManager::Draw(void)
 {
-	// ç ´æ£„ã•ã‚ŒãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®é…å»¶å‰Šé™¤ï¼ˆGPUã®æç”»å®Œäº†å¾…æ©Ÿå¾Œã«å®Ÿè¡Œã•ã‚Œã‚‹ãŸã‚å®‰å…¨ï¼‰
+	// ”jŠü‚³‚ê‚½ƒIƒuƒWƒFƒNƒg‚Ì’x‰„íœiGPU‚Ì•`‰æŠ®—¹‘Ò‹@Œã‚ÉÀs‚³‚ê‚é‚½‚ßˆÀ‘Sj
 	ObjectManager::GetInstance().FlushDestroyedObjects();
 
-	//Todo : Rootå‡¦ç†ã‚’å…¥ã‚Œã‚‹
+	//Todo : Rootˆ—‚ğ“ü‚ê‚é
 	if (scene)
 		scene->Draw();
 }
 
-//----- ã‚·ãƒ¼ãƒ³ã®ç®¡ç† -----
+//----- ƒV[ƒ“‚ÌŠÇ— -----
 
-//ã‚·ãƒ¼ãƒ³ã®ç”Ÿæˆ
+//ƒV[ƒ“‚Ì¶¬
 void SceneManager::InstantiateScene(Scenes::ID _SceneID)
 {
-	//TODO : Factoryã§ã‚„ã‚‹ã®ãŒãƒ™ã‚¹ãƒˆ
-	//TODO : Mapã‚’ä½¿ã†ã®ãŒãƒ™ã‚¹ãƒˆ
+	//TODO : Factory‚Å‚â‚é‚Ì‚ªƒxƒXƒg
+	//TODO : Map‚ğg‚¤‚Ì‚ªƒxƒXƒg
 
-	//ä¸€æ—¦ã“ã“ã«æã„ãŸã ã‘(å¾Œã§æ¶ˆã™)
+	//ˆê’U‚±‚±‚É•`‚¢‚½‚¾‚¯(Œã‚ÅÁ‚·)
 	CScene* AdditionalScene = nullptr;
 
-	//æ¡ä»¶ã§åˆ†ã‘ã¦ã‚·ãƒ¼ãƒ³ã®ä½œæˆ
+	//ğŒ‚Å•ª‚¯‚ÄƒV[ƒ“‚Ìì¬
 	switch (_SceneID)
 	{
 	case Scenes::ID::TEST:
@@ -116,48 +118,48 @@ void SceneManager::InstantiateScene(Scenes::ID _SceneID)
 
 	}
 
-	//ã‚·ãƒ¼ãƒ³ã®åˆæœŸåŒ–
+	//ƒV[ƒ“‚Ì‰Šú‰»
 	scene->Init();
 
 }
 
-//ã‚·ãƒ¼ãƒ³ã®åˆ‡æ›¿
+//ƒV[ƒ“‚ÌØ‘Ö
 void SceneManager::ChangeScene(Scenes::ID _SceneID)
 {
-	//----- ã‚²ãƒ¼ãƒ ã®çµ‚äº†æ™‚ -----
+	//----- ƒQ[ƒ€‚ÌI—¹ -----
 	if (_SceneID == Scenes::ID::Exit)
 	{
-		//çµ‚äº†å‡¦ç† (ä¸­ã®ã‚·ãƒ¼ãƒ³ã‚‚ç©ºã«ã—ã¦ãã‚Œã‚‹)(Uninitã‚‚å‘¼ã‚“ã§ã‚‹
+		//I—¹ˆ— (’†‚ÌƒV[ƒ“‚à‹ó‚É‚µ‚Ä‚­‚ê‚é)(Uninit‚àŒÄ‚ñ‚Å‚é
 
 
-		//çµ‚äº†ãƒ•ãƒ©ã‚°ã‚’ç«‹ã¦ã‚‹
+		//I—¹ƒtƒ‰ƒO‚ğ—§‚Ä‚é
 		IsGameEnd = true;
 
 		return;
 	}
 
-	//----- ã‚·ãƒ¼ãƒ³ã®ç§»å‹• -----
-	//ã‚·ãƒ¼ãƒ³ã®çµ‚äº†ã€å‰Šé™¤
+	//----- ƒV[ƒ“‚ÌˆÚ“® -----
+	//ƒV[ƒ“‚ÌI—¹Aíœ
 	UninitAndPop();
 
-	//ã‚·ãƒ¼ãƒ³ã‚’è¿½åŠ ã™ã‚‹
+	//ƒV[ƒ“‚ğ’Ç‰Á‚·‚é
 	InstantiateScene(_SceneID);
 
 }
 
 void SceneManager::PushScene(Scenes::ID _SceneID)
 {
-	//ã‚·ãƒ¼ãƒ³ã‚’è¿½åŠ ã™ã‚‹
+	//ƒV[ƒ“‚ğ’Ç‰Á‚·‚é
 	InstantiateScene(_SceneID);
 }
 
 void SceneManager::PopScene(void)
 {
-	//ã‚·ãƒ¼ãƒ³ã®çµ‚äº†ã€å‰Šé™¤
+	//ƒV[ƒ“‚ÌI—¹Aíœ
 	UninitAndPop();
 }
 
-//ã‚·ãƒ¼ãƒ³ã®çµ‚äº†ã€ãƒãƒƒãƒ—
+//ƒV[ƒ“‚ÌI—¹Aƒ|ƒbƒv
 void SceneManager::UninitAndPop(void)
 {
 	DX12Manager::GetInstance().WaitForPendingOperations();
@@ -169,11 +171,11 @@ void SceneManager::UninitAndPop(void)
 	ButtonEventManager::GetInstance().ClearSelectedGameObject();
 }
 
-//ã‚·ãƒ¼ãƒ³ã‚¤ãƒ™ãƒ³ãƒˆã®å‡¦ç†
+//ƒV[ƒ“ƒCƒxƒ“ƒg‚Ìˆ—
 void SceneManager::ProcessSceneEvents()
 {
 
-	// Sceneé–¢é€£ã®ã‚¤ãƒ™ãƒ³ãƒˆIDä¸€è¦§
+	// SceneŠÖ˜A‚ÌƒCƒxƒ“ƒgIDˆê——
 	static const Events::ID sceneEventIDs[] = {
 		Events::ID::ChangeScene,
 		Events::ID::PushScene,
@@ -181,24 +183,24 @@ void SceneManager::ProcessSceneEvents()
 	};
 
 
-	// --- Sceneé–¢é€£ã‚¤ãƒ™ãƒ³ãƒˆã‚’ã¾ã¨ã‚ã¦æ¤œç´¢ ---
-	Event* pEvent = nullptr;// ã‚¤ãƒ™ãƒ³ãƒˆãƒã‚¤ãƒ³ã‚¿
+	// --- SceneŠÖ˜AƒCƒxƒ“ƒg‚ğ‚Ü‚Æ‚ß‚ÄŒŸõ ---
+	Event* pEvent = nullptr;// ƒCƒxƒ“ƒgƒ|ƒCƒ“ƒ^
 
-	//å‡¦ç†å¯¾è±¡ã®ã‚¤ãƒ™ãƒ³ãƒˆãŒæœ‰ã‚‹ã‹ç¢ºèª
+	//ˆ—‘ÎÛ‚ÌƒCƒxƒ“ƒg‚ª—L‚é‚©Šm”F
 	for (auto id : sceneEventIDs)
 	{
 		pEvent = EventManager::GetInstance().FindEventByID(id);
 		if (pEvent) break;
 	}
 
-	// ã‚¤ãƒ™ãƒ³ãƒˆãªã—
+	// ƒCƒxƒ“ƒg‚È‚µ
 	if (!pEvent) return;
 
 	switch (pEvent->GetEventID())
 	{
 		case Events::ID::ChangeScene:
 
-			//ã‚·ãƒ¼ãƒ³ã®åˆ‡æ›¿
+			//ƒV[ƒ“‚ÌØ‘Ö
 			ChangeScene(
 				(static_cast<EventData_NextScene*>(pEvent->GetEventData())->GetNextScene())
 			);
@@ -212,4 +214,4 @@ void SceneManager::ProcessSceneEvents()
 
 //----- Getter -----
 
-//çµ‚äº†ãƒ•ãƒ©ã‚°
+//I—¹ƒtƒ‰ƒO

@@ -35,7 +35,7 @@ using UniquePtr = std::unique_ptr<T>;
 
 #include <string>
 
-#include "SceneManager.h"
+#include "Source/Core/Scenes/Manager/SceneManager.h"
 
 //‰¹
 #include <xaudio2.h>

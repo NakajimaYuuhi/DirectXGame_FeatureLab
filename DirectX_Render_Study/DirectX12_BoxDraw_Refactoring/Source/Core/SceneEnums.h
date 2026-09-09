@@ -11,6 +11,9 @@ namespace Scenes
 		GAME,
 		RESULT,
 
+		Clear,
+		Failed,
+
 		TEST,
 
 		Exit,

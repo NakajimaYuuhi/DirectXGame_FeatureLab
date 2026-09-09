@@ -55,6 +55,14 @@ public:
 	void Draw();
 
 	void SetBlendMode(BlendMode mode) { m_BlendMode = mode; }
+	
+	void SetBlendModeAll(BlendMode mode)
+	{
+		for (auto& mat : m_Materials)
+		{
+			if (mat) mat->SetBlendMode(mode);
+		}
+	}
 
 	//?|??Ag
 	//LoadModel(?)

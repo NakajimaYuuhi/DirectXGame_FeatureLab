@@ -1,5 +1,5 @@
 #pragma once
-#include "Scene.h"
+#include "../Base/Scene.h"
 #include "SceneEnums.h"
 #include "SmartPtrAlias.h"
 

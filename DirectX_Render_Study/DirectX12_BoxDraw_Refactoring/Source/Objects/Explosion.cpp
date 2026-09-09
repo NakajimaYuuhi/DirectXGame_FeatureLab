@@ -11,7 +11,8 @@ Explosion::Explosion(String _Name)
 
 	CModel* model = GetComponent<CModel>();
 
-	model->SetBlendMode(BlendMode::Additive);
+	// 爆発エフェクトは加算合成(Additive)で描画する
+	model->SetBlendModeAll(BlendMode::Additive);
 
 	model->SetMaterialTexture(L"Assets/Texture/explosion.png");
 

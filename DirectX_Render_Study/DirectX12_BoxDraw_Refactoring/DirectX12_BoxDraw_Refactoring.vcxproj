@@ -152,6 +152,12 @@
     </FxCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Core\Scenes\Base\Scene.cpp" />
+    <ClCompile Include="Source\Core\Scenes\Instances\SceneClear.cpp" />
+    <ClCompile Include="Source\Core\Scenes\Instances\SceneFailed.cpp" />
+    <ClCompile Include="Source\Core\Scenes\Instances\SceneTest.cpp" />
+    <ClCompile Include="Source\Core\Scenes\Instances\SceneTitle.cpp" />
+    <ClCompile Include="Source\Core\Scenes\Manager\SceneManager.cpp" />
     <ClCompile Include="Source\Util\audio.cpp" />
     <ClCompile Include="Source\Objects\Camera.cpp" />
     <ClCompile Include="Source\Objects\ButtonEventManager.cpp" />
@@ -170,8 +176,6 @@
     <ClCompile Include="Source\Rendering\PostProcessPass.cpp" />
     <ClCompile Include="Source\Rendering\RenderPipeline.cpp" />
     <ClCompile Include="Source\Rendering\RenderTexture.cpp" />
-    <ClCompile Include="Source\Core\SceneManager.cpp" />
-    <ClCompile Include="Source\Core\SceneTitle.cpp" />
     <ClCompile Include="Source\Objects\Skydome.cpp" />
     <ClCompile Include="Source\UI\TextObject.cpp" />
     <ClCompile Include="Source\UI\TextRenderer.cpp" />
@@ -211,8 +215,6 @@
     <ClCompile Include="Source\Objects\Player.cpp" />
     <ClCompile Include="Source\Rendering\PSOManager.cpp" />
     <ClCompile Include="Source\Objects\RandomParticle.cpp" />
-    <ClCompile Include="Source\Core\Scene.cpp" />
-    <ClCompile Include="Source\Core\SceneTest.cpp" />
     <ClCompile Include="Source\Rendering\Shader.cpp" />
     <ClCompile Include="Source\Rendering\ShaderManager.cpp" />
     <ClCompile Include="Source\Resources\Texture.cpp" />
@@ -224,6 +226,12 @@
     <ClCompile Include="Source\UI\TitleUI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Core\Scenes\Base\Scene.h" />
+    <ClInclude Include="Source\Core\Scenes\Instances\SceneClear.h" />
+    <ClInclude Include="Source\Core\Scenes\Instances\SceneFailed.h" />
+    <ClInclude Include="Source\Core\Scenes\Instances\SceneTest.h" />
+    <ClInclude Include="Source\Core\Scenes\Instances\SceneTitle.h" />
+    <ClInclude Include="Source\Core\Scenes\Manager\SceneManager.h" />
     <ClInclude Include="Source\Util\audio.h" />
     <ClInclude Include="Source\Objects\Camera.h" />
     <ClInclude Include="Source\Objects\ButtonEventManager.h" />
@@ -245,8 +253,6 @@
     <ClInclude Include="Source\Rendering\RenderPipeline.h" />
     <ClInclude Include="Source\Rendering\RenderTexture.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="Source\Core\SceneManager.h" />
-    <ClInclude Include="Source\Core\SceneTitle.h" />
     <ClInclude Include="Source\Objects\Skydome.h" />
     <ClInclude Include="Source\UI\TextObject.h" />
     <ClInclude Include="Source\UI\TextRenderer.h" />
@@ -292,9 +298,7 @@
     <ClInclude Include="Source\Objects\Player.h" />
     <ClInclude Include="Source\Rendering\PSOManager.h" />
     <ClInclude Include="Source\Objects\RandomParticle.h" />
-    <ClInclude Include="Source\Core\Scene.h" />
     <ClInclude Include="Source\Core\SceneEnums.h" />
-    <ClInclude Include="Source\Core\SceneTest.h" />
     <ClInclude Include="Source\Rendering\Shader.h" />
     <ClInclude Include="Source\Rendering\ShaderManager.h" />
     <ClInclude Include="Source\Util\SmartPtrAlias.h" />
