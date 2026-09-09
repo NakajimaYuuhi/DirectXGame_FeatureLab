@@ -75,8 +75,36 @@ void SceneTitle::Init()
     titleButton2->SetPosition(735.0f, 800.0f);
     titleButton2->SetSize(400.0f, 100.0f);
 
+    // ナビゲーションを登録
     titleButton->SetNavigation(titleButton2, titleButton2, nullptr, nullptr);
     titleButton2->SetNavigation(titleButton, titleButton, nullptr, nullptr);
+
+    // クリックをしたとき
+    titleButton->SetOnClickCallback(
+        [this]() {
+            Event event;
+            // ここで直接シーンID（例: TITLE）を指定する
+            EventData_NextScene* eventData_NextScene = new EventData_NextScene(Scenes::ID::TEST);
+
+            event.SetEventData(eventData_NextScene);
+            event.SetEventID(Events::ID::ChangeScene);
+
+            EventManager::GetInstance().AddEvent(event);
+        }
+    );
+
+    titleButton2->SetOnClickCallback(
+        [this]() {
+            Event event;
+            // ここで直接シーンID（例: TITLE）を指定する
+            EventData_NextScene* eventData_NextScene = new EventData_NextScene(Scenes::ID::Exit);
+
+            event.SetEventData(eventData_NextScene);
+            event.SetEventID(Events::ID::ChangeScene);
+
+            EventManager::GetInstance().AddEvent(event);
+        }
+    );
 
     ObjectManager::GetInstance().Init(Scenes::ID::NONE);
     

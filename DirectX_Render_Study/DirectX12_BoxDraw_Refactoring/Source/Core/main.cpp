@@ -235,6 +235,8 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 		//g_CScene->Update();
 		SceneManager::GetInstance().Update();
 
+		// 終了の確認
+		if (SceneManager::GetInstance().GetIsGameEnd() == true)break;;
 
 		//---描画処理---
 		//DirectX12描画開始

@@ -76,6 +76,9 @@ void SceneManager::Update()
 	//シーンの切替、追加、削除をここで行う
 	ProcessSceneEvents();
 
+	// ゲームの終了フラグの確認
+	if (IsGameEnd == true)return;
+
 	//Todo : Root処理を入れる
 	if (scene)
 

@@ -29,9 +29,9 @@ private:
 	void ProcessSceneEvents();
 
 //----- Getter,Setter -----
-private:
+public:
 	bool GetIsGameEnd(void){return IsGameEnd;}
-	
+private:
 	//‰¼ŽÀ‘•
 	CScene* GetScene(){return scene.get();}
 
