@@ -55,7 +55,7 @@ var searchData=
   ['init_5fmode_52',['init_mode',['../structstbrp__context.html#a007509feee322404083034e4c2d3dc5d',1,'stbrp_context']]],
   ['initialflags_53',['InitialFlags',['../structImDrawListSharedData.html#a7e00a317793f4ed3ff592b050dfee450',1,'ImDrawListSharedData']]],
   ['initialfringescale_54',['InitialFringeScale',['../structImDrawListSharedData.html#a07999d7da4eeac283556d6d3843d581e',1,'ImDrawListSharedData']]],
-  ['initialized_55',['initialized',['../main_8cpp.html#aedeffc7d23da25d52b9a50045189fe2b',1,'initialized:&#160;main.cpp'],['../structImGuiContext.html#a71b32432f5c4658b4772b293640a66c0',1,'ImGuiContext::Initialized'],['../structSTB__TexteditState.html#a11a63150e95225aacd204d6ef160c0c0',1,'STB_TexteditState::initialized']]],
+  ['initialized_55',['initialized',['../main_8cpp.html#aedeffc7d23da25d52b9a50045189fe2b',1,'initialized:&#160;main.cpp'],['../structSTB__TexteditState.html#a11a63150e95225aacd204d6ef160c0c0',1,'STB_TexteditState::initialized'],['../structImGuiContext.html#a71b32432f5c4658b4772b293640a66c0',1,'ImGuiContext::Initialized']]],
   ['initialwidth_56',['InitialWidth',['../structImGuiShrinkWidthItem.html#ac9a3ca20449e58374963f32db20bbd87',1,'ImGuiShrinkWidthItem']]],
   ['initinfo_57',['InitInfo',['../structImGui__ImplDX12__Data.html#a6f74010b81268b3bb3ff525fcbc52541',1,'ImGui_ImplDX12_Data']]],
   ['initstretchweightorwidth_58',['InitStretchWeightOrWidth',['../structImGuiTableColumn.html#a3b3ca3f9832c94586083f40b4688b92e',1,'ImGuiTableColumn']]],

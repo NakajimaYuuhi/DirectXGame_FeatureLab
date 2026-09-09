@@ -13,7 +13,7 @@ var searchData=
   ['m_5fbonesrvgpuhandle_10',['m_bonesrvgpuhandle',['../classCMesh.html#a24b7470b1449fc473d4d4fbd68834f0a',1,'CMesh::m_BoneSrvGpuHandle'],['../classCModel.html#a43caced971650acbecafe63edd23c3dd',1,'CModel::m_BoneSrvGpuHandle']]],
   ['m_5fcamera_11',['m_camera',['../classPlayer.html#a7721626a1c43592bfcb0c81a836f7aad',1,'Player']]],
   ['m_5fcbdata_12',['m_cbData',['../classCBox.html#ae0b9a2c0ab6cb85e398959308128393c',1,'CBox']]],
-  ['m_5fcolor_13',['m_color',['../classCSpriteRenderer.html#a6c4f77fb3cde393918a92c4e3d7f11f5',1,'CSpriteRenderer::m_color'],['../classCTextRenderer.html#a4cc8bde731835caa166f3cde0d839d7c',1,'CTextRenderer::m_color'],['../classCMaterial.html#acf2fcdd629e5ffc98b91d1370d0f2268',1,'CMaterial::m_Color']]],
+  ['m_5fcolor_13',['m_color',['../classCMaterial.html#acf2fcdd629e5ffc98b91d1370d0f2268',1,'CMaterial::m_Color'],['../classCSpriteRenderer.html#a6c4f77fb3cde393918a92c4e3d7f11f5',1,'CSpriteRenderer::m_color'],['../classCTextRenderer.html#a4cc8bde731835caa166f3cde0d839d7c',1,'CTextRenderer::m_color']]],
   ['m_5fcommandallocator_14',['m_commandAllocator',['../classDX12Manager.html#abea329e1717f15967fb1089283dbacdf',1,'DX12Manager']]],
   ['m_5fcommandlist_15',['m_commandList',['../classDX12Manager.html#aeee929fd644d6503a27b80487007f593',1,'DX12Manager']]],
   ['m_5fcommandqueue_16',['m_commandQueue',['../classDX12Manager.html#a087d723de35a50ad7bbeadae2d42bebe',1,'DX12Manager']]],

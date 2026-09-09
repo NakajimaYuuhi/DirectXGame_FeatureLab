@@ -415,6 +415,8 @@ var annotated_dup =
     [ "RenderPipeline", "classRenderPipeline.html", "classRenderPipeline" ],
     [ "RenderTexture", "classRenderTexture.html", "classRenderTexture" ],
     [ "RootSignatureBuilder", "classRootSignatureBuilder.html", "classRootSignatureBuilder" ],
+    [ "SceneClear", "classSceneClear.html", null ],
+    [ "SceneFailed", "classSceneFailed.html", null ],
     [ "SceneManager", "classSceneManager.html", "classSceneManager" ],
     [ "SceneTitle", "classSceneTitle.html", "classSceneTitle" ],
     [ "Shader", "classShader.html", "classShader" ],

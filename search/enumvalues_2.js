@@ -7,5 +7,6 @@ var searchData=
   ['circle_5f2d_5ftrigger_4',['CIRCLE_2D_Trigger',['../classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a3d4dec24757e8b933db02aa21269bfdf',1,'Collider']]],
   ['circle_5f3d_5',['CIRCLE_3D',['../classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a911ad963f0dbafcd48217581ff6477a1',1,'Collider']]],
   ['circle_5f3d_5ftrigger_6',['CIRCLE_3D_Trigger',['../classCollider.html#a9a45786155a7a5dd34e53985485b2aa3aa1685d1b963cdf6c39dcc175980fa6a9',1,'Collider']]],
-  ['cubicspline_7',['CUBICSPLINE',['../ModelData_8h.html#a8472f01c511d77bbfb981a46618ea1eaadbec938b5d93ee323a15ef285cab513a',1,'ModelData.h']]]
+  ['clear_7',['Clear',['../namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275a44bf1081ac3b34e3fbfecb11277e285b',1,'Scenes']]],
+  ['cubicspline_8',['CUBICSPLINE',['../ModelData_8h.html#a8472f01c511d77bbfb981a46618ea1eaadbec938b5d93ee323a15ef285cab513a',1,'ModelData.h']]]
 ];

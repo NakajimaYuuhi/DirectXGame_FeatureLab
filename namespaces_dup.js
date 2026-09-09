@@ -958,6 +958,8 @@ var namespaces_dup =
         [ "TITLE", "namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275aee7bcc3a4b79ba50222d04f18a114ef7", null ],
         [ "GAME", "namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275a214950f990b38a99d7bdf7f638343c7d", null ],
         [ "RESULT", "namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275a9c570ec5ab47d2d247a5ae66d10cbd79", null ],
+        [ "Clear", "namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275a44bf1081ac3b34e3fbfecb11277e285b", null ],
+        [ "Failed", "namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275a41870cd07b41af1d5736fbd370cde657", null ],
         [ "TEST", "namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275ac4428a6e926eab59d2a9136f4131dcaa", null ],
         [ "Exit", "namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275ac0621cf6ec52db2d78dc209407f2d5df", null ],
         [ "NUM", "namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275a84e37af095de91ec284302c6bd2bbe04", null ]

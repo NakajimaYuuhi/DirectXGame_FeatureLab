@@ -81,6 +81,8 @@ var hierarchy =
     [ "nlohmann::detail::container_input_adapter_factory_impl::container_input_adapter_factory< ContainerType, void_t< decltype(begin(std::declval< ContainerType >()), end(std::declval< ContainerType >()))> >", "structnlohmann_1_1detail_1_1container__input__adapter__factory__impl_1_1container__input__adapte602516bdb0b70b8ee5c6d4ff825368be.html", null ],
     [ "CScene", "classCScene.html", [
       [ "CSceneTest", "classCSceneTest.html", null ],
+      [ "SceneClear", "classSceneClear.html", null ],
+      [ "SceneFailed", "classSceneFailed.html", null ],
       [ "SceneTitle", "classSceneTitle.html", null ]
     ] ],
     [ "CTexture", "classCTexture.html", null ],

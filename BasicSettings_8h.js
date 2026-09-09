@@ -6,6 +6,7 @@ var BasicSettings_8h =
     [ "SCREEN_WIDTH", "BasicSettings_8h.html#a2cd109632a6dcccaa80b43561b1ab700", null ],
     [ "BlendMode", "BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85", [
       [ "Opaque", "BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85afaa90538de35640e4b1e31ccf35b6eb5", null ],
+      [ "Alpha", "BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85a6132295fcf5570fb8b0a944ef322a598", null ],
       [ "Additive", "BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85a3f7b3d8ee7bf0d542bd50821c083888f", null ]
     ] ]
 ];

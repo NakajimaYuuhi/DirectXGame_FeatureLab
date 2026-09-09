@@ -1,5 +1,15 @@
 var NAVTREEINDEX3 =
 {
+"classDX12Manager.html#a241dd5ed3e60c9ea51192041758d6e62":[2,0,42,21],
+"classDX12Manager.html#a292eb9cdce7c170956f5d42ea3650bc2":[2,0,42,50],
+"classDX12Manager.html#a2ed9aa4a78abc4cbb6595e49fc412b8b":[2,0,42,26],
+"classDX12Manager.html#a354d5c691efb3f7f9905073851cc0e69":[2,0,42,10],
+"classDX12Manager.html#a37386c2c2c78ee5bc064849902892219":[2,0,42,41],
+"classDX12Manager.html#a3a549e9164c4a14ecc1f7d160063a52c":[2,0,42,48],
+"classDX12Manager.html#a4ad70feda241b83d16920b33f266b825":[2,0,42,53],
+"classDX12Manager.html#a506b8849d191e0e22be40008dba041e6":[2,0,42,49],
+"classDX12Manager.html#a56b22bdb2a6dbcb3e9749529d909548f":[2,0,42,32],
+"classDX12Manager.html#a58c63431425ef2328c95c11d9142374e":[2,0,42,18],
 "classDX12Manager.html#a6502f22fbbd8fd4f865ed7ec2166cf55":[2,0,42,55],
 "classDX12Manager.html#a650885915cfd487443e1332f6d4fa241":[2,0,42,5],
 "classDX12Manager.html#a66bc23ea2cd4d369e2522e74b4d53e0a":[2,0,42,15],
@@ -239,15 +249,5 @@ var NAVTREEINDEX3 =
 "classRenderTexture.html#aec40bd383f308624d534571369aeb202":[2,0,224,6],
 "classRenderTexture.html#afbb24327ad25b881b51f43119385c424":[2,0,224,3],
 "classRootSignatureBuilder.html":[2,0,225],
-"classRootSignatureBuilder.html#a1d694876446e39f483fe7c6a3102eb98":[2,0,225,2],
-"classRootSignatureBuilder.html#a4e549f0f8c54186839cecfb2bc0bb77d":[2,0,225,0],
-"classRootSignatureBuilder.html#a5d17eeff6c6b3df05a99c17d632c16a7":[2,0,225,1],
-"classRootSignatureBuilder.html#a5ea2e454391c7de6bba2f347076780fc":[2,0,225,6],
-"classRootSignatureBuilder.html#a70f29e41193ba6f82cd9a03ea322e427":[2,0,225,5],
-"classRootSignatureBuilder.html#aa9e24dba3fa95b1897c18e0961e0a547":[2,0,225,3],
-"classRootSignatureBuilder.html#accd44a50cee2575c2da481c9fc790f09":[2,0,225,4],
-"classRootSignatureBuilder.html#adae68c5b7e01af9c69c595b2bf328009":[2,0,225,7],
-"classSceneManager.html":[2,0,226],
-"classSceneManager.html#a02b66fec92c8ba91f7457ae69b4492ef":[2,0,226,5],
-"classSceneManager.html#a0514cff74bbaa000333587c829891b6c":[2,0,226,4]
+"classRootSignatureBuilder.html#a1d694876446e39f483fe7c6a3102eb98":[2,0,225,2]
 };

@@ -14,6 +14,7 @@ var classCModel =
     [ "RegisterMesh", "classCModel.html#a2199986e08ec6ebcc5a7d7ff064c7d80", null ],
     [ "RegisterMesh", "classCModel.html#a37afdebd227b61f6df7db536df686b8b", null ],
     [ "SetBlendMode", "classCModel.html#ae87aae71bb8f2ae920d953ffd315f610", null ],
+    [ "SetBlendModeAll", "classCModel.html#ac3cabb0152e12cb97f1867fb0ef626cf", null ],
     [ "SetMaterialTexture", "classCModel.html#ad5d3cbe526e22ac0ff323c87d47614f6", null ],
     [ "SetShader", "classCModel.html#a16d72010f715a0676692d5191dee1573", null ],
     [ "SetShaderAll", "classCModel.html#a2dfcb7793699a81b3ddb62a9806cec35", null ],
