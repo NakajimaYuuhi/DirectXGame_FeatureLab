@@ -52,28 +52,28 @@ void SceneTitle::Init()
     ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::CAMERA,"Camera");
 
     //------ TextObject (D2D/DirectWrite Overlay) -----
-    TextObject* textObj1 = (TextObject*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::TEXT, "TextObject1"));
-    textObj1->SetText(L"Title");
-    textObj1->SetPosition(50.0f, 50.0f);
-    textObj1->SetFontSize(36.0f);
-    textObj1->SetColor(D2D1::ColorF::Cyan);
+    //TextObject* textObj1 = (TextObject*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::TEXT, "TextObject1"));
+    //textObj1->SetText(L"Title");
+    //textObj1->SetPosition(50.0f, 50.0f);
+    //textObj1->SetFontSize(36.0f);
+    //textObj1->SetColor(D2D1::ColorF::Cyan);
 
 
     // TitleUI
     CUIObject* titleUI = (CUIObject*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "TitleUI"));
-    titleUI->SetTexture(L"Assets/Texture/TmpActionGameTItleImage.png");
+    titleUI->SetTexture(L"Assets/Texture/T_TitleBG.png");
     titleUI->SetPosition(0.0f, 0.0f);
     titleUI->SetSize(1920.0f, 1080.0f);
 
     CUIButton* titleButton = (CUIButton*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "UIButton"));
-    titleButton->SetTexture(L"Assets/Texture/TmpActionGameTItleImage.png");
-    titleButton->SetPosition(0.0f, 0.0f);
-    titleButton->SetSize(500.0f, 500.0f);
+    titleButton->SetTexture(L"Assets/Texture/T_GameStart.png");
+    titleButton->SetPosition(740.0f, 650.0f);
+    titleButton->SetSize(400.0f, 100.0f);
 
     CUIButton* titleButton2 = (CUIButton*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "UIButton"));
-    titleButton2->SetTexture(L"Assets/Texture/TmpActionGameTItleImage.png");
-    titleButton2->SetPosition(800.0f, 0.0f);
-    titleButton2->SetSize(500.0f, 500.0f);
+    titleButton2->SetTexture(L"Assets/Texture/T_Exit.png");
+    titleButton2->SetPosition(735.0f, 800.0f);
+    titleButton2->SetSize(400.0f, 100.0f);
 
     titleButton->SetNavigation(titleButton2, titleButton2, nullptr, nullptr);
     titleButton2->SetNavigation(titleButton, titleButton, nullptr, nullptr);
@@ -93,10 +93,10 @@ void SceneTitle::Init()
     m_renderPipeline = std::make_unique<RenderPipeline>();
 
     // 【変更】ForwardRenderPassにオフスクリーンテクスチャを渡す
-    m_renderPipeline->AddPass(std::make_unique<ForwardRenderPass>(m_pOffscreenTexture.get()));
+    m_renderPipeline->AddPass(std::make_unique<ForwardRenderPass>(nullptr));
 
     // 【追加】モノクロ化するPostProcessPassを追加
-    m_renderPipeline->AddPass(std::make_unique<PostProcessPass>(m_pOffscreenTexture.get()));
+    //m_renderPipeline->AddPass(std::make_unique<PostProcessPass>(m_pOffscreenTexture.get()));
     // 3. パイプライン内の全パスを初期化 (PSOの生成などが走る)
     m_renderPipeline->Init(pDevice);
 }
@@ -111,6 +111,19 @@ void SceneTitle::Update()
     {
         Event event;
         EventData_NextScene* eventData_NextScene = new EventData_NextScene(Scenes::ID::TEST);
+
+        event.SetEventData(eventData_NextScene);
+
+        event.SetEventID(Events::ID::ChangeScene);
+
+        EventManager::GetInstance().AddEvent(event);
+    }
+
+    // クリアシーンのテスト
+    if (CInputManager::GetInstance().IsKeyTrigger('O'))
+    {
+        Event event;
+        EventData_NextScene* eventData_NextScene = new EventData_NextScene(Scenes::ID::Clear);
 
         event.SetEventData(eventData_NextScene);
 

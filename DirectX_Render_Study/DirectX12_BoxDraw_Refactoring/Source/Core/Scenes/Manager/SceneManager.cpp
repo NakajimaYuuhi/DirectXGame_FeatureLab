@@ -115,6 +115,12 @@ void SceneManager::InstantiateScene(Scenes::ID _SceneID)
 	case Scenes::ID::TITLE:
 		scene = std::make_unique<SceneTitle>();
 		break;
+	case Scenes::ID::Clear:
+		scene = std::make_unique<SceneClear>();
+		break;
+	case Scenes::ID::Failed:
+		scene = std::make_unique<SceneFailed>();
+		break;
 
 	}
 
