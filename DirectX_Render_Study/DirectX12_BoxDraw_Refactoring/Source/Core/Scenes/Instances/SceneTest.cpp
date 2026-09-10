@@ -36,7 +36,7 @@ void CSceneTest::Init()
     //----- Player -----
     C3D_Object* player = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::PLAYER, "Player"));
     player->SetTransform({ 0.0f, 0.0f, 0.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 0.0f, 0.0f });
-    player->GetComponent<CModel>()->SetShaderAll(L"Assets/Shader/Wireframe.hlsl");
+    //player->GetComponent<CModel>()->SetShaderAll(L"Assets/Shader/Wireframe.hlsl");
 
     //------ Enemy -----
     C3D_Object* enemy = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::ENEMY, "Enemy"));

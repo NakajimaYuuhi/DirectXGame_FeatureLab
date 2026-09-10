@@ -62,7 +62,7 @@ Enemy::Enemy(String _Name)
 void Enemy::Init()
 {
 	//カウント処理
-	//EnemyCounterに加算する
+	//EnemyCounterに加算する須川ハイパーキャリー
 	EnemyCounter* enemyCounter = (EnemyCounter*)ObjectManager::GetInstance().GetManager("EnemyCounter");
 	enemyCounter->Instantiated();
 
