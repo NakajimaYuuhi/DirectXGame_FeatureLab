@@ -44,22 +44,22 @@ void ButtonEventManager::Update()
     if (currentBtn)
     {
         // キーボード入力によるナビゲーション
-        if (input.IsKeyTrigger(VK_UP) && currentBtn->GetSelectOnUp())
+        if ((input.IsKeyTrigger(VK_UP)||input.IsKeyTrigger('W')) && currentBtn->GetSelectOnUp())
         {
             SetSelectedGameObject(currentBtn->GetSelectOnUp());
             return; // 1フレームで複数移動しないようにreturn
         }
-        else if (input.IsKeyTrigger(VK_DOWN) && currentBtn->GetSelectOnDown())
+        else if ((input.IsKeyTrigger(VK_DOWN)||input.IsKeyTrigger('S')) && currentBtn->GetSelectOnDown())
         {
             SetSelectedGameObject(currentBtn->GetSelectOnDown());
             return;
         }
-        else if (input.IsKeyTrigger(VK_LEFT) && currentBtn->GetSelectOnLeft())
+        else if ((input.IsKeyTrigger(VK_LEFT)||input.IsKeyTrigger('A')) && currentBtn->GetSelectOnLeft())
         {
             SetSelectedGameObject(currentBtn->GetSelectOnLeft());
             return;
         }
-        else if (input.IsKeyTrigger(VK_RIGHT) && currentBtn->GetSelectOnRight())
+        else if ((input.IsKeyTrigger(VK_RIGHT)||input.IsKeyTrigger('D')) && currentBtn->GetSelectOnRight())
         {
             SetSelectedGameObject(currentBtn->GetSelectOnRight());
             return;

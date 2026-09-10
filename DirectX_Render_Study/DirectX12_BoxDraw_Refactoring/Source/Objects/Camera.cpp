@@ -40,11 +40,11 @@ void Camera::Init()
 
 void Camera::Update()
 {
-	if (CInputManager::GetInstance().IsKeyPress('Q'))
+	if (CInputManager::GetInstance().IsKeyPress('L'))
 	{
 		m_angleY -= m_rotationSpeed;
 	}
-	if (CInputManager::GetInstance().IsKeyPress('E'))
+	if (CInputManager::GetInstance().IsKeyPress('J'))
 	{
 		m_angleY += m_rotationSpeed;
 	}

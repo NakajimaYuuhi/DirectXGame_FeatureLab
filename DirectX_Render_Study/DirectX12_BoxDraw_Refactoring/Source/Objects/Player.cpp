@@ -87,7 +87,7 @@ void Player::Update()
 		SetRotation({0.0f, targetRotY, 0.0f});
 	}
 
-	if (CInputManager::GetInstance().IsKeyTrigger('F'))
+	if (CInputManager::GetInstance().IsKeyTrigger('I'))
 	{
 		Audio* audio = GetComponent<Audio>();
 
