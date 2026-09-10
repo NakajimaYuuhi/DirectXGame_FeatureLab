@@ -1,5 +1,6 @@
 var NAVTREEINDEX46 =
 {
+"structstbtt____bitmap.html#a48ee6b550ee4f1d85bfc32c62c0e9a98":[2,0,242,2],
 "structstbtt____bitmap.html#ae6be77625faf55b110eaaffde5c7733c":[2,0,242,1],
 "structstbtt____bitmap.html#afbd607426f0a457b1a871ed902eeb926":[2,0,242,3],
 "structstbtt____buf.html":[2,0,243],
@@ -248,6 +249,5 @@ var NAVTREEINDEX46 =
 "structtinygltf_1_1AudioEmitter.html":[1,0,7,6],
 "structtinygltf_1_1AudioEmitter.html":[2,0,2,6],
 "structtinygltf_1_1AudioEmitter.html#a08900878b5d93466e71db3befe6d09ab":[2,0,2,6,0],
-"structtinygltf_1_1AudioEmitter.html#a08900878b5d93466e71db3befe6d09ab":[1,0,7,6,0],
-"structtinygltf_1_1AudioEmitter.html#a306f503a410d6b0fe692182f46c1c8ff":[2,0,2,6,13]
+"structtinygltf_1_1AudioEmitter.html#a08900878b5d93466e71db3befe6d09ab":[1,0,7,6,0]
 };

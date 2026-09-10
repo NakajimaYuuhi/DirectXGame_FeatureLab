@@ -1,5 +1,6 @@
 var NAVTREEINDEX45 =
 {
+"structnlohmann_1_1detail_1_1iterator__input__adapter__factory_3_01IteratorType_00_01enable__if__0e86378a778d78dd2284e92dc30f4902.html":[2,0,0,0,86],
 "structnlohmann_1_1detail_1_1iterator__input__adapter__factory_3_01IteratorType_00_01enable__if__0e86378a778d78dd2284e92dc30f4902.html#a1c42a47cd6cd71146cf2851d76165610":[2,0,0,0,86,3],
 "structnlohmann_1_1detail_1_1iterator__input__adapter__factory_3_01IteratorType_00_01enable__if__0e86378a778d78dd2284e92dc30f4902.html#a1c42a47cd6cd71146cf2851d76165610":[1,0,3,0,86,3],
 "structnlohmann_1_1detail_1_1iterator__input__adapter__factory_3_01IteratorType_00_01enable__if__0e86378a778d78dd2284e92dc30f4902.html#aae2354d80ae95214a9da99c495003f6c":[2,0,0,0,86,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX45 =
 "structstbrp__rect.html#ae3034c1fbf86043b568f5a4dddf946fa":[2,0,240,5],
 "structstbrp__rect.html#af68de2dadc7972b7c089d5e0c0558398":[2,0,240,0],
 "structstbtt____bitmap.html":[2,0,242],
-"structstbtt____bitmap.html#a2afc802e26e9f1dda897ac16ecfff10e":[2,0,242,0],
-"structstbtt____bitmap.html#a48ee6b550ee4f1d85bfc32c62c0e9a98":[2,0,242,2]
+"structstbtt____bitmap.html#a2afc802e26e9f1dda897ac16ecfff10e":[2,0,242,0]
 };

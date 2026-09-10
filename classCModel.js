@@ -9,6 +9,7 @@ var classCModel =
     [ "Draw", "classCModel.html#a0771b89a35cb5a80d79b628c1541f94e", null ],
     [ "Init", "classCModel.html#a7ff596f41b98d33cde03bf7b4ab6699e", null ],
     [ "ModelLoad", "classCModel.html#a7d511eaa3441724d866e2f41af8a03ce", null ],
+    [ "PlayAnimation", "classCModel.html#ae993195594eafedf1a49fd5763bb8c81", null ],
     [ "PlayAnimation", "classCModel.html#a43af7f22239537d4436018ef020990d8", null ],
     [ "RegisterMatarial", "classCModel.html#a0737e220ef5799da028ca79425a49e6e", null ],
     [ "RegisterMesh", "classCModel.html#a2199986e08ec6ebcc5a7d7ff064c7d80", null ],

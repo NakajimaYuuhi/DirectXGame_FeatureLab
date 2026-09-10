@@ -1,5 +1,6 @@
 var NAVTREEINDEX48 =
 {
+"structtinygltf_1_1Mesh.html#af53c84eed5b3c49b21938726d3034524":[1,0,7,15,2],
 "structtinygltf_1_1Mesh.html#af53c84eed5b3c49b21938726d3034524":[2,0,2,15,2],
 "structtinygltf_1_1NormalTextureInfo.html":[2,0,2,18],
 "structtinygltf_1_1NormalTextureInfo.html":[1,0,7,18],
@@ -248,6 +249,5 @@ var NAVTREEINDEX48 =
 "structtinygltf_1_1Skin.html#a83a8efcef03218f88803953f81ae7543":[1,0,7,28,7],
 "structtinygltf_1_1Skin.html#a83a8efcef03218f88803953f81ae7543":[2,0,2,28,7],
 "structtinygltf_1_1Skin.html#aa0acc4b628510a0820d67a19c771b701":[1,0,7,28,0],
-"structtinygltf_1_1Skin.html#aa0acc4b628510a0820d67a19c771b701":[2,0,2,28,0],
-"structtinygltf_1_1Skin.html#ad4a79a93764c78e2581e814fbe83efab":[1,0,7,28,8]
+"structtinygltf_1_1Skin.html#aa0acc4b628510a0820d67a19c771b701":[2,0,2,28,0]
 };

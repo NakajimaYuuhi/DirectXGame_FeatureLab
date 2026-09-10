@@ -1,5 +1,6 @@
 var NAVTREEINDEX39 =
 {
+"structImGuiResizeGripDef.html#ae2f7763b170625f6413e582c971f1792":[2,0,148,2],
 "structImGuiSelectionBasicStorage.html":[2,0,149],
 "structImGuiSelectionBasicStorage.html#a00b16e65ced786c9446c419ab9a75a0a":[2,0,149,6],
 "structImGuiSelectionBasicStorage.html#a18377dc1f474f77951a5da925c4cbfac":[2,0,149,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX39 =
 "structImGuiTable.html#a252e602ec807bf532edd501110bdc7b1":[2,0,164,95],
 "structImGuiTable.html#a28cdc6e10e4295c6548660b2c31ad593":[2,0,164,65],
 "structImGuiTable.html#a2963b4f92f924de8c1ef1fcb43a9e597":[2,0,164,8],
-"structImGuiTable.html#a2bfcf66ae07b035488357acae6353d23":[2,0,164,34],
-"structImGuiTable.html#a2d066ad49460272713bd6c9beba4a1cc":[2,0,164,68]
+"structImGuiTable.html#a2bfcf66ae07b035488357acae6353d23":[2,0,164,34]
 };

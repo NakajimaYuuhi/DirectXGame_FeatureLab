@@ -1,5 +1,6 @@
 var NAVTREEINDEX28 =
 {
+"namespaceImGui.html#a1b1bad6338785c6d1bc85c2730bd485f":[1,0,1,397],
 "namespaceImGui.html#a1b3324308e43eeded5c3599fa0f03e85":[1,0,1,887],
 "namespaceImGui.html#a1b93e609ccd69d923f69751c25ac2f5c":[1,0,1,784],
 "namespaceImGui.html#a1bbe318e10866b4a4c445bc16c7f7272":[1,0,1,240],
@@ -248,6 +249,5 @@ var NAVTREEINDEX28 =
 "namespaceImGui.html#a5be2ea5c0d97fdd02b0b776412ed9d8d":[1,0,1,779],
 "namespaceImGui.html#a5c0c081852a520c006a0b084d0e8b0cb":[1,0,1,491],
 "namespaceImGui.html#a5c89cb6b42296d0f7db75027efc0fb7a":[1,0,1,319],
-"namespaceImGui.html#a5d0ac25abe189c752495f2f26afea2e6":[1,0,1,740],
-"namespaceImGui.html#a5d75e4d3263272f22eb2001652397e55":[1,0,1,163]
+"namespaceImGui.html#a5d0ac25abe189c752495f2f26afea2e6":[1,0,1,740]
 };
