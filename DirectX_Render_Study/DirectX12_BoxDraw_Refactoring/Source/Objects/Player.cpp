@@ -18,13 +18,14 @@ Player::Player(String _Name)
 	CObjectInfo* objectInfo = GetComponent<CObjectInfo>();
 	objectInfo->SetObjectTag(ObjectTag::PLAYER);
 
-	ModelPath = "Assets/Model/OffensiveIdle.glb";
+	ModelPath = "Assets/Model/Wizard.glb";
 
 	CModel* model = GetComponent<CModel>();
 	auto sharedModel = ModelManager::GetInstance().GetModel(ModelPath);
+	
 
 	model->CopyFrom(sharedModel);
-	model->PlayAnimation(0);
+	model->PlayAnimation("Run");
 
 	BoxCollider3D* collider = AddComponent<BoxCollider3D>();
 	collider->SetOffset({0.0f, 1.0f, 0.0f});
@@ -38,6 +39,7 @@ Player::Player(String _Name)
 void Player::Init()
 {
 	m_camera = ObjectManager::GetInstance().GetCamera();
+	SetScale({ 0.5f, 0.5f, 0.5f });
 }
 
 void Player::Update()

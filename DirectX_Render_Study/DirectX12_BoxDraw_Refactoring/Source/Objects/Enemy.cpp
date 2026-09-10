@@ -38,7 +38,7 @@ Enemy::Enemy(String _Name)
 
 	//----- Model -----
 	//モチE  のパスの初期匁E
-	ModelPath = "Assets/Model/OffensiveIdle.glb";
+	ModelPath = "Assets/Model/Monk.glb";
 	//ModelPath = "Assets/Model/uploads_files_4381633_GreenExplosion.glb"; 
 	//ステージで使うモデルを一覧にしてどこかでロードしておくといいかも
 	//モチE  のローチE
@@ -48,13 +48,13 @@ Enemy::Enemy(String _Name)
 	auto sharedModel = ModelManager::GetInstance().GetModel(ModelPath);
 
 	model->CopyFrom(sharedModel);
-    model->PlayAnimation(0);
+    model->PlayAnimation("Run");
 
 	BoxCollider3D* collider = AddComponent<BoxCollider3D>();
 	collider->SetOffset({ 0.0f, 1.0f, 0.0f });
 	collider->SetSize({ 1.0f, 2.0f, 1.0f });
 
-	SetScale({1.0f,1.0f,1.0f });
+	SetScale({0.5f,0.5f,0.5f });
 
 
 }
@@ -65,6 +65,8 @@ void Enemy::Init()
 	//EnemyCounterに加算する
 	EnemyCounter* enemyCounter = (EnemyCounter*)ObjectManager::GetInstance().GetManager("EnemyCounter");
 	enemyCounter->Instantiated();
+
+	SetScale({ 0.5f,0.5f,0.5f });
 	
 	//
 	CObject::Init();

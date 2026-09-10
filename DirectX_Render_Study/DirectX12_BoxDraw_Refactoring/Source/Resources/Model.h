@@ -173,6 +173,20 @@ public:
 			m_animationTime = 0.0f;
 		}
 	}
+	//–¼‘O‚Å‚àŽw’è‚Å‚«‚é‚æ‚¤‚É‚·‚é
+	void PlayAnimation(const std::string& name) {
+		for (size_t i = 0; i < m_Animations.size(); ++i) {
+			if (m_Animations[i].name == name) {
+				PlayAnimation(static_cast<int>(i));
+				return;
+			}
+		}
+
+#ifdef _DEBUG
+		std::string msg = "[Model] Animation not found: " + name + "\n";
+		OutputDebugStringA(msg.c_str());
+#endif
+	}
 
 	void UpdateAnimation(float deltaTime);
 
