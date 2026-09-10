@@ -9,6 +9,10 @@
 
 void CInspectorUI::Draw()
 {
+#ifndef _DEBUG
+    return;
+#endif // !_DEBUG
+
     ImGui::Begin("Scene Inspector");
 
     auto& objectList = ObjectManager::GetInstance().GetObjectList();
