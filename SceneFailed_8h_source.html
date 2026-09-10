@@ -101,15 +101,49 @@ $(document).ready(function(){initNavTree('SceneFailed_8h_source.html',''); initR
 <a href="SceneFailed_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;../Base/Scene.h&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="foldopen" id="foldopen00004" data-start="{" data-end="};">
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="classSceneFailed.html">    4</a></span><span class="keyword">class </span><a class="code hl_class" href="classSceneFailed.html">SceneFailed</a> :</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    <span class="keyword">public</span> <a class="code hl_class" href="classCScene.html">CScene</a></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>};</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="SmartPtrAlias_8h.html">SmartPtrAlias.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="ContainerAlias_8h.html">ContainerAlias.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="RenderPipeline_8h.html">RenderPipeline.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="RenderTexture_8h.html">RenderTexture.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classSceneFailed.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="classSceneFailed.html">SceneFailed</a> :</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">public</span> <a class="code hl_class" href="classCScene.html">CScene</a></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_function" href="classSceneFailed.html#a01a1e1db68210f1909e81ba183b1e373">SceneFailed</a>();</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classSceneFailed.html#a3ccb59f2dd3e67ec03974fd5acaf7432">   16</a></span>    <a class="code hl_function" href="classSceneFailed.html#a3ccb59f2dd3e67ec03974fd5acaf7432">~SceneFailed</a>();</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSceneFailed.html#a1e540254b1a2bfab52ee4d8af2e8181c">Init</a>();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSceneFailed.html#a4dfe0b383097b359cf98a429e0e4870b">Update</a>();</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSceneFailed.html#af318f58893d034c6569894b438110573">Draw</a>();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classSceneFailed.html#abb3cb5705ad64613e5501e0dac92a6b7">   25</a></span>    std::unique_ptr&lt;RenderPipeline&gt; <a class="code hl_variable" href="classSceneFailed.html#abb3cb5705ad64613e5501e0dac92a6b7">m_renderPipeline</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classSceneFailed.html#ac9125f22ff4ab8dc22dcbff652e84566">   26</a></span>    std::unique_ptr&lt;RenderTexture&gt; <a class="code hl_variable" href="classSceneFailed.html#ac9125f22ff4ab8dc22dcbff652e84566">m_renderTexture</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classSceneFailed.html#ab1013e9bd18b2f2c4be9b114b49a713a">   27</a></span>    std::unique_ptr&lt;RenderTexture&gt; <a class="code hl_variable" href="classSceneFailed.html#ab1013e9bd18b2f2c4be9b114b49a713a">m_pOffscreenTexture</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>};</div>
 </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="ttc" id="aContainerAlias_8h_html"><div class="ttname"><a href="ContainerAlias_8h.html">ContainerAlias.h</a></div></div>
+<div class="ttc" id="aRenderPipeline_8h_html"><div class="ttname"><a href="RenderPipeline_8h.html">RenderPipeline.h</a></div></div>
+<div class="ttc" id="aRenderTexture_8h_html"><div class="ttname"><a href="RenderTexture_8h.html">RenderTexture.h</a></div></div>
+<div class="ttc" id="aSmartPtrAlias_8h_html"><div class="ttname"><a href="SmartPtrAlias_8h.html">SmartPtrAlias.h</a></div></div>
 <div class="ttc" id="aclassCScene_html"><div class="ttname"><a href="classCScene.html">CScene</a></div><div class="ttdef"><b>Definition</b> Scene.h:12</div></div>
-<div class="ttc" id="aclassSceneFailed_html"><div class="ttname"><a href="classSceneFailed.html">SceneFailed</a></div><div class="ttdef"><b>Definition</b> SceneFailed.h:6</div></div>
+<div class="ttc" id="aclassSceneFailed_html"><div class="ttname"><a href="classSceneFailed.html">SceneFailed</a></div><div class="ttdef"><b>Definition</b> SceneFailed.h:12</div></div>
+<div class="ttc" id="aclassSceneFailed_html_a01a1e1db68210f1909e81ba183b1e373"><div class="ttname"><a href="classSceneFailed.html#a01a1e1db68210f1909e81ba183b1e373">SceneFailed::SceneFailed</a></div><div class="ttdeci">SceneFailed()</div><div class="ttdef"><b>Definition</b> SceneFailed.cpp:34</div></div>
+<div class="ttc" id="aclassSceneFailed_html_a1e540254b1a2bfab52ee4d8af2e8181c"><div class="ttname"><a href="classSceneFailed.html#a1e540254b1a2bfab52ee4d8af2e8181c">SceneFailed::Init</a></div><div class="ttdeci">void Init()</div><div class="ttdef"><b>Definition</b> SceneFailed.cpp:41</div></div>
+<div class="ttc" id="aclassSceneFailed_html_a3ccb59f2dd3e67ec03974fd5acaf7432"><div class="ttname"><a href="classSceneFailed.html#a3ccb59f2dd3e67ec03974fd5acaf7432">SceneFailed::~SceneFailed</a></div><div class="ttdeci">~SceneFailed()</div></div>
+<div class="ttc" id="aclassSceneFailed_html_a4dfe0b383097b359cf98a429e0e4870b"><div class="ttname"><a href="classSceneFailed.html#a4dfe0b383097b359cf98a429e0e4870b">SceneFailed::Update</a></div><div class="ttdeci">void Update()</div><div class="ttdef"><b>Definition</b> SceneFailed.cpp:131</div></div>
+<div class="ttc" id="aclassSceneFailed_html_ab1013e9bd18b2f2c4be9b114b49a713a"><div class="ttname"><a href="classSceneFailed.html#ab1013e9bd18b2f2c4be9b114b49a713a">SceneFailed::m_pOffscreenTexture</a></div><div class="ttdeci">std::unique_ptr&lt; RenderTexture &gt; m_pOffscreenTexture</div><div class="ttdef"><b>Definition</b> SceneFailed.h:27</div></div>
+<div class="ttc" id="aclassSceneFailed_html_abb3cb5705ad64613e5501e0dac92a6b7"><div class="ttname"><a href="classSceneFailed.html#abb3cb5705ad64613e5501e0dac92a6b7">SceneFailed::m_renderPipeline</a></div><div class="ttdeci">std::unique_ptr&lt; RenderPipeline &gt; m_renderPipeline</div><div class="ttdef"><b>Definition</b> SceneFailed.h:25</div></div>
+<div class="ttc" id="aclassSceneFailed_html_ac9125f22ff4ab8dc22dcbff652e84566"><div class="ttname"><a href="classSceneFailed.html#ac9125f22ff4ab8dc22dcbff652e84566">SceneFailed::m_renderTexture</a></div><div class="ttdeci">std::unique_ptr&lt; RenderTexture &gt; m_renderTexture</div><div class="ttdef"><b>Definition</b> SceneFailed.h:26</div></div>
+<div class="ttc" id="aclassSceneFailed_html_af318f58893d034c6569894b438110573"><div class="ttname"><a href="classSceneFailed.html#af318f58893d034c6569894b438110573">SceneFailed::Draw</a></div><div class="ttdeci">void Draw()</div><div class="ttdef"><b>Definition</b> SceneFailed.cpp:155</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
