@@ -7,6 +7,8 @@ var classPlayer =
     [ "GetStateMachine", "classPlayer.html#a33eba788e7cc2db2a53260c91e5abf86", null ],
     [ "HasMoveInput", "classPlayer.html#a5eaa899175123ab5d2dc951ab61c58ce", null ],
     [ "Init", "classPlayer.html#a4eaaeb9d0967fef59baac319b9cc8d60", null ],
+    [ "IsDead", "classPlayer.html#ab375f35da72940bd572ecf51aca96d5d", null ],
+    [ "OnDie", "classPlayer.html#a8c04feaccda6c73387388e3ae5619c9c", null ],
     [ "PerformAttack", "classPlayer.html#a474e6c60a290fb7fa0ff2c1f407e4b49", null ],
     [ "ProcessMovement", "classPlayer.html#a9956700465676748068c1e95cb0e72af", null ],
     [ "TakeDamage", "classPlayer.html#ae06d08811198818e0f9f6a6bbc21fd1f", null ],

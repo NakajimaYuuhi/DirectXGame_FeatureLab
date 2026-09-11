@@ -40,7 +40,7 @@ var searchData=
   ['platform_5fsetclipboardtextfn_5fdefaultimpl_37',['Platform_SetClipboardTextFn_DefaultImpl',['../imgui_8cpp.html#a9dc5de818052845de948ffc79e925e04',1,'imgui.cpp']]],
   ['platform_5fsetimedatafn_5fdefaultimpl_38',['Platform_SetImeDataFn_DefaultImpl',['../imgui_8cpp.html#a35cee2a16eebdfb722ef537c94ef2625',1,'imgui.cpp']]],
   ['play_39',['Play',['../classAudio.html#a1911ef8f952ea46ca519fda73c818825',1,'Audio']]],
-  ['playanimation_40',['playanimation',['../classCModel.html#ae993195594eafedf1a49fd5763bb8c81',1,'CModel::PlayAnimation(const std::string &amp;name)'],['../classCModel.html#a43af7f22239537d4436018ef020990d8',1,'CModel::PlayAnimation(int index)']]],
+  ['playanimation_40',['playanimation',['../classCModel.html#a4b91e6d70098deb43057da6d20cfd703',1,'CModel::PlayAnimation(const std::string &amp;name, bool isLoop=true)'],['../classCModel.html#a5ed50fe21054aed116f82d2843492d21',1,'CModel::PlayAnimation(int index, bool isLoop=true)']]],
   ['player_41',['Player',['../classPlayer.html#affec312e47ec0cc7ed11a18d6c733bdb',1,'Player']]],
   ['plot_5farraygetter_42',['Plot_ArrayGetter',['../imgui__widgets_8cpp.html#ad4576f39d1ccf89f3c230754c81b278a',1,'imgui_widgets.cpp']]],
   ['plotex_43',['PlotEx',['../namespaceImGui.html#afb3147b9a00e396e0b11a1bfe24b8f42',1,'ImGui']]],

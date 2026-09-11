@@ -413,6 +413,8 @@ var annotated_dup =
     [ "ObjectManager", "classObjectManager.html", "classObjectManager" ],
     [ "Player", "classPlayer.html", "classPlayer" ],
     [ "PlayerAttackState", "classPlayerAttackState.html", "classPlayerAttackState" ],
+    [ "PlayerDeadState", "classPlayerDeadState.html", "classPlayerDeadState" ],
+    [ "PlayerHurtState", "classPlayerHurtState.html", "classPlayerHurtState" ],
     [ "PlayerIdleState", "classPlayerIdleState.html", "classPlayerIdleState" ],
     [ "PlayerMoveState", "classPlayerMoveState.html", "classPlayerMoveState" ],
     [ "PostProcessPass", "classPostProcessPass.html", "classPostProcessPass" ],

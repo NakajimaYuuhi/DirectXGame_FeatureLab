@@ -30,7 +30,7 @@ var searchData=
   ['heapstartcpu_27',['HeapStartCpu',['../classCDescriptorHeapAllocator.html#af1f971e659e8123923cb2acaf4cb1365',1,'CDescriptorHeapAllocator']]],
   ['heapstartgpu_28',['HeapStartGpu',['../classCDescriptorHeapAllocator.html#a3f5099dce2d5aa9d807749d9e1e083ec',1,'CDescriptorHeapAllocator']]],
   ['heaptype_29',['HeapType',['../classCDescriptorHeapAllocator.html#a65fd2281afb1f94cc051bc7a324737de',1,'CDescriptorHeapAllocator']]],
-  ['height_30',['height',['../structImTextureData.html#aa08fa96ece19ccb228e9892c7ed645a3',1,'ImTextureData::Height'],['../structImFontAtlasPostProcessData.html#ad1063f3d9290eacb92a1038fb40220bb',1,'ImFontAtlasPostProcessData::Height'],['../structstbrp__context.html#af3715a6f3faecfb4fac8f6ccbb71f9c7',1,'stbrp_context::height'],['../structstbtt__pack__context.html#a817ec010d7f09ba9776517c5a87f13a7',1,'stbtt_pack_context::height'],['../structtinygltf_1_1Image.html#a20c4f1224272bd5e467f46a49c27a2b7',1,'tinygltf::Image::height']]],
+  ['height_30',['height',['../structstbrp__context.html#af3715a6f3faecfb4fac8f6ccbb71f9c7',1,'stbrp_context::height'],['../structstbtt__pack__context.html#a817ec010d7f09ba9776517c5a87f13a7',1,'stbtt_pack_context::height'],['../structtinygltf_1_1Image.html#a20c4f1224272bd5e467f46a49c27a2b7',1,'tinygltf::Image::height'],['../structImTextureData.html#aa08fa96ece19ccb228e9892c7ed645a3',1,'ImTextureData::Height'],['../structImFontAtlasPostProcessData.html#ad1063f3d9290eacb92a1038fb40220bb',1,'ImFontAtlasPostProcessData::Height']]],
   ['heldheadercolumn_31',['HeldHeaderColumn',['../structImGuiTable.html#af90fbb7f2d6eba59a140c7dc9e163615',1,'ImGuiTable']]],
   ['helpmarker_32',['HelpMarker',['../imgui__demo_8cpp.html#ae82388701c37c8cbb88a0304ca0f033b',1,'imgui_demo.cpp']]],
   ['heuristic_33',['heuristic',['../structstbrp__context.html#a4b61a7f94e50a54c075e2a8f99f6503a',1,'stbrp_context']]],
@@ -96,6 +96,6 @@ var searchData=
   ['hoverwindowunlockedstationaryid_93',['HoverWindowUnlockedStationaryId',['../structImGuiContext.html#a955abe10fd2747c00a2b0de10529ce4d',1,'ImGuiContext']]],
   ['hp_94',['hp',['../classEnemy.html#a408105b89fbc65723fc1e1208b7fe2bc',1,'Enemy::HP'],['../classPlayer.html#a37f28593206fab69d338e1e15928c0f0',1,'Player::HP']]],
   ['hsv_95',['HSV',['../structImColor.html#ac8cb52119648523038818a613becf010',1,'ImColor']]],
-  ['hurt_5fduration_96',['HURT_DURATION',['../classEnemyHurtState.html#a10361fffae272acc78b23559be27a7ca',1,'EnemyHurtState']]],
+  ['hurt_5fduration_96',['hurt_duration',['../classEnemyHurtState.html#a10361fffae272acc78b23559be27a7ca',1,'EnemyHurtState::HURT_DURATION'],['../classPlayerHurtState.html#a244f64472c929d1671485aebc0bea085',1,'PlayerHurtState::HURT_DURATION']]],
   ['hwnd_97',['hWnd',['../structImGui__ImplWin32__Data.html#a73c8b66f6315225a32f5143165d61df4',1,'ImGui_ImplWin32_Data']]]
 ];

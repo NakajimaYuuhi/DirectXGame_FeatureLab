@@ -523,6 +523,8 @@ var hierarchy =
     ] ],
     [ "StateBase< Player >", "classStateBase.html", [
       [ "PlayerAttackState", "classPlayerAttackState.html", null ],
+      [ "PlayerDeadState", "classPlayerDeadState.html", null ],
+      [ "PlayerHurtState", "classPlayerHurtState.html", null ],
       [ "PlayerIdleState", "classPlayerIdleState.html", null ],
       [ "PlayerMoveState", "classPlayerMoveState.html", null ]
     ] ],

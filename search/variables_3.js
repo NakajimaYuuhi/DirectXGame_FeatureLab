@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['callback_0',['callback',['../classnlohmann_1_1detail_1_1parser.html#a6bf70a72a1632ef55c0068557b1be37a',1,'nlohmann::detail::parser::callback'],['../classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a46a72dffd5be4a25602af00f0033c126',1,'nlohmann::detail::json_sax_dom_callback_parser::callback'],['../structImGuiContextHook.html#ac95bc416ed24b5ad3cfa7c2199adcaf9',1,'ImGuiContextHook::Callback']]],
+  ['callback_0',['callback',['../classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a46a72dffd5be4a25602af00f0033c126',1,'nlohmann::detail::json_sax_dom_callback_parser::callback'],['../structImGuiContextHook.html#ac95bc416ed24b5ad3cfa7c2199adcaf9',1,'ImGuiContextHook::Callback'],['../classnlohmann_1_1detail_1_1parser.html#a6bf70a72a1632ef55c0068557b1be37a',1,'nlohmann::detail::parser::callback']]],
   ['callbacktextbackup_1',['CallbackTextBackup',['../structImGuiInputTextState.html#a3a61e87aee08d440eae6ebacadfc019b',1,'ImGuiInputTextState']]],
   ['camera_2',['camera',['../classtinygltf_1_1Node.html#a0042bdc3f36e2e38e8c37b8afbb1b54b',1,'tinygltf::Node']]],
   ['cameras_3',['cameras',['../classtinygltf_1_1Model.html#a3e882ea46bdefc1ed76a5d485c7991ae',1,'tinygltf::Model']]],
@@ -45,7 +45,7 @@ var searchData=
   ['cmdlists_42',['CmdLists',['../structImDrawData.html#ad78ff9e65c4037c492ceade5d3ddd633',1,'ImDrawData']]],
   ['cmdlistscount_43',['CmdListsCount',['../structImDrawData.html#adc0bbc2881c15f78bdabe51d82582f4e',1,'ImDrawData']]],
   ['codepoint_44',['Codepoint',['../structImFontGlyph.html#a2016b685049bf375f7c045ed8e24d6b7',1,'ImFontGlyph']]],
-  ['col_45',['col',['../structImGuiColorMod.html#a211171bd30d39348fc9b91289d253e1c',1,'ImGuiColorMod::Col'],['../structImDrawVert.html#ab98ba53ce2690b56f5ba94682ed83940',1,'ImDrawVert::col']]],
+  ['col_45',['col',['../structImDrawVert.html#ab98ba53ce2690b56f5ba94682ed83940',1,'ImDrawVert::col'],['../structImGuiColorMod.html#a211171bd30d39348fc9b91289d253e1c',1,'ImGuiColorMod::Col']]],
   ['collapsed_46',['collapsed',['../structImGuiWindowSettings.html#a79308182bdab97cb87b3d6284f22c1d2',1,'ImGuiWindowSettings::Collapsed'],['../structImGuiWindow.html#a04e6b533b2401d1c7e78b47e31538e7b',1,'ImGuiWindow::Collapsed']]],
   ['collapsedcond_47',['CollapsedCond',['../structImGuiNextWindowData.html#a864d3d1bf0dbf81ba4cf9cefd75fe06b',1,'ImGuiNextWindowData']]],
   ['collapsedval_48',['CollapsedVal',['../structImGuiNextWindowData.html#a0c4c81bf78a6ac094f794d2cf318037a',1,'ImGuiNextWindowData']]],
@@ -147,7 +147,7 @@ var searchData=
   ['countgrep_144',['CountGrep',['../structImGuiTextFilter.html#ac31839c319fe4211c21fc143b7249f86',1,'ImGuiTextFilter']]],
   ['ctx_145',['ctx',['../structImGuiInputTextState.html#a2841e4128e05556069bba2b76c651adc',1,'ImGuiInputTextState::Ctx'],['../structImGuiWindow.html#a0726c390b91df48a00bbe727ff387f4e',1,'ImGuiWindow::Ctx'],['../structImGuiIO.html#a8fdf06720bff6066ebc17aa2f3d249ce',1,'ImGuiIO::Ctx'],['../structImGuiInputTextCallbackData.html#aba08927f2b128153e5544ec662a32a5f',1,'ImGuiInputTextCallbackData::Ctx'],['../structImGuiListClipper.html#a4c983c526d4653cd51684a65aa134eaf',1,'ImGuiListClipper::Ctx']]],
   ['cur_146',['cur',['../structcj__parse__ctx.html#a520369871d62dc89d684335b7644c039',1,'cj_parse_ctx']]],
-  ['current_147',['current',['../structImGuiOldColumns.html#acb97d32d656cf8e96f707e998a107689',1,'ImGuiOldColumns::Current'],['../classnlohmann_1_1detail_1_1iterator__input__adapter.html#a8abccad27590d381a94e474b16161938',1,'nlohmann::detail::iterator_input_adapter::current'],['../classnlohmann_1_1detail_1_1lexer.html#a40bd85d91d377ade9ccb910e35776c22',1,'nlohmann::detail::lexer::current'],['../classnlohmann_1_1detail_1_1binary__reader.html#ab47df98119524e9c7d9ff0b820913883',1,'nlohmann::detail::binary_reader::current']]],
+  ['current_147',['current',['../classnlohmann_1_1detail_1_1iterator__input__adapter.html#a8abccad27590d381a94e474b16161938',1,'nlohmann::detail::iterator_input_adapter::current'],['../classnlohmann_1_1detail_1_1lexer.html#a40bd85d91d377ade9ccb910e35776c22',1,'nlohmann::detail::lexer::current'],['../classnlohmann_1_1detail_1_1binary__reader.html#ab47df98119524e9c7d9ff0b820913883',1,'nlohmann::detail::binary_reader::current'],['../structImGuiOldColumns.html#acb97d32d656cf8e96f707e998a107689',1,'ImGuiOldColumns::Current']]],
   ['currentcolumn_148',['CurrentColumn',['../structImGuiTable.html#a944e033f46b7729d15b8946d06dbe682',1,'ImGuiTable']]],
   ['currentcolumns_149',['CurrentColumns',['../structImGuiWindowTempData.html#ad00cc183f6adc8e1bce723de265bf9f6',1,'ImGuiWindowTempData']]],
   ['currentdpiscale_150',['CurrentDpiScale',['../structImGuiContext.html#a2c207eee4f861cd2f338bf26352f0631',1,'ImGuiContext']]],
