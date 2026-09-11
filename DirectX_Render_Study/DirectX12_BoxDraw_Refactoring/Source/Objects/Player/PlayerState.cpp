@@ -18,14 +18,14 @@ void PlayerIdleState::OnUpdate(float deltaTime)
 {
 	if (!owner) return;
 
-	// �U�����̓`�F�b�N
+	// 攻撃入力チェック
 	if (CInputManager::GetInstance().IsKeyTrigger('I'))
 	{
 		owner->GetStateMachine().ChangeState(std::make_shared<PlayerAttackState>());
 		return;
 	}
 
-	// �ړ����̓`�F�b�N
+	// 移動入力チェック
 	if (owner->HasMoveInput())
 	{
 		owner->GetStateMachine().ChangeState(std::make_shared<PlayerMoveState>());
@@ -52,14 +52,14 @@ void PlayerMoveState::OnUpdate(float deltaTime)
 {
 	if (!owner) return;
 
-	// �U�����̓`�F�b�N
+	// 攻撃入力チェック
 	if (CInputManager::GetInstance().IsKeyTrigger('I'))
 	{
 		owner->GetStateMachine().ChangeState(std::make_shared<PlayerAttackState>());
 		return;
 	}
 
-	// �ړ����͂��Ȃ��ꍇ�� IdleState ��
+	// 移動入力がない場合は IdleState へ
 	if (!owner->HasMoveInput())
 	{
 		owner->GetStateMachine().ChangeState(std::make_shared<PlayerIdleState>());
@@ -102,3 +102,69 @@ void PlayerAttackState::OnUpdate(float deltaTime)
 void PlayerAttackState::OnExit()
 {
 }
+
+// --- PlayerHurtState ---
+void PlayerHurtState::OnEnter()
+{
+	if (!owner) return;
+	m_hurtTimer = 0.0f;
+
+	CModel* model = owner->GetComponent<CModel>();
+	if (model)
+	{
+		model->PlayAnimation("RecieveHit", false);
+	}
+}
+
+void PlayerHurtState::OnUpdate(float deltaTime)
+{
+	if (!owner) return;
+
+	m_hurtTimer += deltaTime;
+	if (m_hurtTimer >= HURT_DURATION)
+	{
+		if (owner->HasMoveInput())
+		{
+			owner->GetStateMachine().ChangeState(std::make_shared<PlayerMoveState>());
+		}
+		else
+		{
+			owner->GetStateMachine().ChangeState(std::make_shared<PlayerIdleState>());
+		}
+	}
+}
+
+void PlayerHurtState::OnExit()
+{
+}
+
+// --- PlayerDeadState ---
+void PlayerDeadState::OnEnter()
+{
+	if (!owner) return;
+	m_deadTimer = 0.0f;
+	m_hasTransitioned = false;
+
+	CModel* model = owner->GetComponent<CModel>();
+	if (model)
+	{
+		model->PlayAnimation("Death", false);
+	}
+}
+
+void PlayerDeadState::OnUpdate(float deltaTime)
+{
+	if (!owner) return;
+
+	m_deadTimer += deltaTime;
+	if (!m_hasTransitioned && m_deadTimer >= DEATH_DURATION)
+	{
+		m_hasTransitioned = true;
+		owner->OnDie();
+	}
+}
+
+void PlayerDeadState::OnExit()
+{
+}
+

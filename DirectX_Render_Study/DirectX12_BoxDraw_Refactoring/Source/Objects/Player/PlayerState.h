@@ -33,3 +33,31 @@ public:
 	void OnUpdate(float deltaTime) override;
 	void OnExit() override;
 };
+
+// Player Hurt State (RecieveHit)
+class PlayerHurtState : public StateBase<Player>
+{
+private:
+	float m_hurtTimer = 0.0f;
+	const float HURT_DURATION = 0.6f;
+
+public:
+	void OnEnter() override;
+	void OnUpdate(float deltaTime) override;
+	void OnExit() override;
+};
+
+// Player Dead State (Death)
+class PlayerDeadState : public StateBase<Player>
+{
+private:
+	float m_deadTimer = 0.0f;
+	bool m_hasTransitioned = false;
+	const float DEATH_DURATION = 1.2f;
+
+public:
+	void OnEnter() override;
+	void OnUpdate(float deltaTime) override;
+	void OnExit() override;
+};
+

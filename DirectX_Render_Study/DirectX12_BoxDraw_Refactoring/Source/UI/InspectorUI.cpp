@@ -50,6 +50,15 @@ void CInspectorUI::Draw()
         ImGui::Text("HP: %d / %d", player->GetHP(), player->GetMaxHP());
         float hpFraction = (float)player->GetHP() / (float)player->GetMaxHP();
         ImGui::ProgressBar(hpFraction, ImVec2(-1.0f, 0.0f));
+        if (ImGui::Button("Damage Player (1)"))
+        {
+            player->TakeDamage(1);
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Kill Player"))
+        {
+            player->TakeDamage(player->GetHP());
+        }
         ImGui::Separator();
     }
 

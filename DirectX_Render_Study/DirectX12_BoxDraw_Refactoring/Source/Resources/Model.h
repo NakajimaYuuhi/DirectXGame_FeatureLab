@@ -113,7 +113,7 @@ public:
 		m_Animations = other->m_Animations;
 		m_SkinJoints = other->m_SkinJoints;
 
-		// ƒAƒjƒ[ƒVƒ‡ƒ“—p‚Éƒ{[ƒ“‚ðƒfƒB[ƒvƒRƒs[i‹¤—L‚µ‚È‚¢j
+		// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ç”¨ã«ãƒœãƒ¼ãƒ³ã‚’ãƒ‡ã‚£ãƒ¼ãƒ—ã‚³ãƒ”ãƒ¼ï¼ˆå…±æœ‰ã—ãªã„ï¼‰
 		m_Bones.clear();
 		for (const auto& otherBone : other->m_Bones)
 		{
@@ -136,7 +136,7 @@ public:
 
 		m_SkinningMatrices = other->m_SkinningMatrices;
 
-		// ŒÅ—L‚ÌSRV‚Æƒoƒbƒtƒ@‚ð¶¬‚·‚é
+		// å›ºæœ‰ã®SRVã¨ãƒãƒƒãƒ•ã‚¡ã‚’ç”Ÿæˆã™ã‚‹
 		CreateBoneBuffer();
 	}
 
@@ -167,17 +167,19 @@ public:
 		}
 	}
 
-	void PlayAnimation(int index) {
+	void PlayAnimation(int index, bool isLoop = true) {
 		if (index >= 0 && index < m_Animations.size()) {
 			m_currentAnimationIndex = index;
 			m_animationTime = 0.0f;
+			m_isLoop = isLoop;
+			m_isAnimationFinished = false;
 		}
 	}
-	//–¼‘O‚Å‚àŽw’è‚Å‚«‚é‚æ‚¤‚É‚·‚é
-	void PlayAnimation(const std::string& name) {
+	//åå‰ã§ã‚‚æŒ‡å®šã§ãã‚‹ã‚ˆã†ã«ã™ã‚‹
+	void PlayAnimation(const std::string& name, bool isLoop = true) {
 		for (size_t i = 0; i < m_Animations.size(); ++i) {
 			if (m_Animations[i].name == name) {
-				PlayAnimation(static_cast<int>(i));
+				PlayAnimation(static_cast<int>(i), isLoop);
 				return;
 			}
 		}
@@ -187,6 +189,10 @@ public:
 		OutputDebugStringA(msg.c_str());
 #endif
 	}
+
+	bool IsAnimationFinished() const { return m_isAnimationFinished; }
+	bool IsAnimationLooping() const { return m_isLoop; }
+	float GetAnimationTime() const { return m_animationTime; }
 
 	void UpdateAnimation(float deltaTime);
 
@@ -217,5 +223,6 @@ private:
 	std::vector<int> m_SkinJoints;
 	int m_currentAnimationIndex = -1;
 	float m_animationTime = 0.0f;
+	bool m_isLoop = true;
+	bool m_isAnimationFinished = false;
 };
-

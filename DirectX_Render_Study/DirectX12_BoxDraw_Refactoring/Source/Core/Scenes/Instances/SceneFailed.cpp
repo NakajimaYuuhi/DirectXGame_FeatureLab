@@ -32,7 +32,7 @@
 #include <memory>
 
 SceneFailed::SceneFailed()
-    :CScene(Scenes::ID::Clear)
+    :CScene(Scenes::ID::Failed)
 {
 }
 

@@ -16,7 +16,7 @@ void EnemyIdleState::OnUpdate(float deltaTime)
 
 	Player* playerObj = ObjectManager::GetInstance().GetPlayer();
 
-	if (playerObj)
+	if (playerObj && !playerObj->IsDead())
 	{
 		DirectX::XMFLOAT3 myPos = owner->GetPos();
 		DirectX::XMFLOAT3 playerPos = playerObj->GetPos();
@@ -54,7 +54,7 @@ void EnemyChaseState::OnUpdate(float deltaTime)
 
 	Player* playerObj = ObjectManager::GetInstance().GetPlayer();
 
-	if (playerObj)
+	if (playerObj && !playerObj->IsDead())
 	{
 		DirectX::XMFLOAT3 myPos = owner->GetPos();
 		DirectX::XMFLOAT3 playerPos = playerObj->GetPos();
@@ -91,7 +91,7 @@ void EnemyAttackState::OnEnter()
 	CModel* model = owner->GetComponent<CModel>();
 	if (model)
 	{
-		model->PlayAnimation("Attack");
+		model->PlayAnimation("Attack", false);
 	}
 }
 
@@ -117,7 +117,7 @@ void EnemyAttackState::OnUpdate(float deltaTime)
 		if (!m_hasAttacked && m_attackTimer >= HIT_TIMING)
 		{
 			float distSq = dx * dx + dz * dz;
-			if (distSq <= ATTACK_RANGE * ATTACK_RANGE)
+			if (distSq <= ATTACK_RANGE * ATTACK_RANGE && !playerObj->IsDead())
 			{
 				playerObj->TakeDamage(1);
 			}
@@ -127,7 +127,14 @@ void EnemyAttackState::OnUpdate(float deltaTime)
 
 	if (m_attackTimer >= ATTACK_DURATION)
 	{
-		owner->GetStateMachine().ChangeState(std::make_shared<EnemyChaseState>());
+		if (playerObj && !playerObj->IsDead())
+		{
+			owner->GetStateMachine().ChangeState(std::make_shared<EnemyChaseState>());
+		}
+		else
+		{
+			owner->GetStateMachine().ChangeState(std::make_shared<EnemyIdleState>());
+		}
 	}
 }
 
@@ -144,7 +151,7 @@ void EnemyHurtState::OnEnter()
 	CModel* model = owner->GetComponent<CModel>();
 	if (model)
 	{
-		model->PlayAnimation("RecieveHit");
+		model->PlayAnimation("RecieveHit", false);
 	}
 }
 
@@ -172,7 +179,7 @@ void EnemyDeadState::OnEnter()
 	CModel* model = owner->GetComponent<CModel>();
 	if (model)
 	{
-		model->PlayAnimation("Death");
+		model->PlayAnimation("Death", false);
 	}
 }
 

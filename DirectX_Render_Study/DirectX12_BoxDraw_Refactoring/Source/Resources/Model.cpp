@@ -3,6 +3,8 @@
 #include "gltfLoader.h"
 #include "Transform.h"
 #include "Object.h"
+#include <algorithm>
+#include <cmath>
 
 CModel::CModel()
 	:CComponent("Model")
@@ -472,6 +474,21 @@ void CModel::UpdateAnimation(float deltaTime)
     m_animationTime += deltaTime;
     const AnimationData& anim = m_Animations[m_currentAnimationIndex];
 
+    // Find max duration across all channels
+    float maxDuration = 0.0f;
+    for (const auto& channel : anim.channels) {
+        if (channel.samplerIndex >= 0 && channel.samplerIndex < anim.samplers.size()) {
+            const auto& sampler = anim.samplers[channel.samplerIndex];
+            if (!sampler.input.empty()) {
+                maxDuration = (std::max)(maxDuration, sampler.input.back());
+            }
+        }
+    }
+
+    if (!m_isLoop && maxDuration > 0.0f && m_animationTime >= maxDuration) {
+        m_isAnimationFinished = true;
+    }
+
     // Evaluate all channels
     for (const auto& channel : anim.channels) {
         if (channel.targetNodeIndex < 0 || channel.targetNodeIndex >= m_Bones.size()) continue;
@@ -479,9 +496,13 @@ void CModel::UpdateAnimation(float deltaTime)
         const AnimationSamplerData& sampler = anim.samplers[channel.samplerIndex];
         if (sampler.input.empty()) continue;
 
-        // Loop animation
         float maxTime = sampler.input.back();
-        float localTime = fmod(m_animationTime, maxTime);
+        float localTime = 0.0f;
+        if (m_isLoop) {
+            localTime = (maxTime > 0.0f) ? fmodf(m_animationTime, maxTime) : 0.0f;
+        } else {
+            localTime = (std::min)(m_animationTime, maxTime);
+        }
 
         // Find keyframe
         size_t frameIdx = 0;
@@ -490,6 +511,9 @@ void CModel::UpdateAnimation(float deltaTime)
                 frameIdx = i;
                 break;
             }
+        }
+        if (localTime >= sampler.input.back()) {
+            frameIdx = sampler.input.size() - 1;
         }
 
         size_t nextIdx = frameIdx + 1;

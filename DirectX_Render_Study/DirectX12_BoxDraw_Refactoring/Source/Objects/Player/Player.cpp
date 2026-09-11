@@ -11,6 +11,7 @@
 #include "BoxCollider3D.h"
 #include "TimeManager.h"
 #include "audio.h"
+#include "Source/Core/Scenes/Manager/SceneManager.h"
 #include <cmath>
 
 Player::Player(String _Name)
@@ -140,6 +141,8 @@ void Player::PerformAttack()
 
 void Player::TakeDamage(int damage)
 {
+	if (HP <= 0) return;
+
 	HP -= damage;
 	if (HP < 0)
 	{
@@ -147,4 +150,18 @@ void Player::TakeDamage(int damage)
 	}
 
 	OutputDebugStringA(("Player Took Damage! Current HP: " + std::to_string(HP) + "\n").c_str());
+
+	if (HP <= 0)
+	{
+		m_stateMachine.ChangeState(std::make_shared<PlayerDeadState>());
+	}
+	else
+	{
+		m_stateMachine.ChangeState(std::make_shared<PlayerHurtState>());
+	}
+}
+
+void Player::OnDie()
+{
+	SceneManager::GetInstance().ChangeSceneWithFade(Scenes::ID::Failed, 0.5f);
 }

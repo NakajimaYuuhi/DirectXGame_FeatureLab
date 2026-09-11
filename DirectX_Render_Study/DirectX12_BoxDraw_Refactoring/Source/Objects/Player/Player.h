@@ -26,7 +26,9 @@ public:
 	// HP / Damage management
 	int GetHP() const { return HP; }
 	int GetMaxHP() const { return MaxHP; }
+	bool IsDead() const { return HP <= 0; }
 	void TakeDamage(int damage);
+	void OnDie();
 
 protected:
 	String ModelPath;
