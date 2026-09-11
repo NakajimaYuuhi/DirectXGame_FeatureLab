@@ -190,8 +190,11 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 			CInspectorUI::GetInstance().Draw();
 		}
 
-		//シーンの更新処理
-		SceneManager::GetInstance().Update();
+		//シーンの更新処理（Debugの一時停止・コマ送りを判定）
+		if (CInspectorUI::GetInstance().ShouldUpdateGame())
+		{
+			SceneManager::GetInstance().Update();
+		}
 
 		// 終了の確認
 		if (SceneManager::GetInstance().GetIsGameEnd() == true)break;;

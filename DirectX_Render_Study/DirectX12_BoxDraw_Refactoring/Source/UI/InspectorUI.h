@@ -12,6 +12,9 @@ public:
 
     void Draw();
 
+    bool IsPaused() const { return m_isPaused; }
+    bool ShouldUpdateGame();
+
 private:
     CInspectorUI() = default;
     ~CInspectorUI() = default;
@@ -22,4 +25,8 @@ private:
     int m_selectedTagIndex = -1;
     char m_shaderPathInput[256] = "Assets/Shader/Wireframe.hlsl";
     bool m_showColliders = true;
+
+    bool m_isPaused = false;
+    bool m_stepNextFrame = false;
+    float m_timeScale = 1.0f;
 };

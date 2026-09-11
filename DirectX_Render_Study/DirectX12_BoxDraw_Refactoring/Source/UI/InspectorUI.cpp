@@ -6,8 +6,28 @@
 #include "ObjectInfo.h"
 #include "BoxCollider3D.h"
 #include "Camera.h"
+#include "TimeManager.h"
 #include <typeinfo>
 
+bool CInspectorUI::ShouldUpdateGame()
+{
+#ifndef _DEBUG
+    return true;
+#endif // !_DEBUG
+
+    if (!m_isPaused)
+    {
+        return true;
+    }
+
+    if (m_stepNextFrame)
+    {
+        m_stepNextFrame = false;
+        return true;
+    }
+
+    return false;
+}
 
 void CInspectorUI::Draw()
 {
@@ -19,6 +39,21 @@ void CInspectorUI::Draw()
 
     auto& objectList = ObjectManager::GetInstance().GetObjectList();
 
+    ImGui::Text("Game Controls");
+    if (ImGui::Button(m_isPaused ? "  Resume  " : "  Pause  "))
+    {
+        m_isPaused = !m_isPaused;
+    }
+    ImGui::SameLine();
+    if (ImGui::Button("Step 1 Frame"))
+    {
+        m_stepNextFrame = true;
+    }
+    ImGui::SameLine();
+    if (ImGui::SliderFloat("Speed", &m_timeScale, 0.0f, 3.0f, "%.2fx"))
+    {
+        TimeManager::GetInstance().SetTimeScale(m_timeScale);
+    }
     ImGui::Checkbox("Show Box Colliders", &m_showColliders);
     ImGui::Separator();
 

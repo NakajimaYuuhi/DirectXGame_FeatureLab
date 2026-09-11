@@ -13,10 +13,13 @@ public:
 	void Init(float targetFPS = 60.0f);
 	void Update();
 
-	float GetDeltaTime() const { return m_deltaTime; }
+	float GetDeltaTime() const { return m_deltaTime * m_timeScale; }
+	float GetUnscaledDeltaTime() const { return m_deltaTime; }
 	float GetFPS() const { return m_currentFPS; }
 
 	void SetTargetFPS(float targetFPS);
+	void SetTimeScale(float scale) { m_timeScale = scale >= 0.0f ? scale : 0.0f; }
+	float GetTimeScale() const { return m_timeScale; }
 
 private:
 	TimeManager();
@@ -32,6 +35,7 @@ private:
 	float m_targetFPS = 60.0f;
 	float m_targetFrameTime = 1.0f / 60.0f;
 	float m_deltaTime = 0.01667f;
+	float m_timeScale = 1.0f;
 	float m_currentFPS = 60.0f;
 
 	float m_frameCount = 0.0f;

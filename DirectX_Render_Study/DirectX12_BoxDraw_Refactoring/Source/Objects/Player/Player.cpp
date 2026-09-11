@@ -28,8 +28,8 @@ Player::Player(String _Name)
 	model->PlayAnimation("Run");
 
 	BoxCollider3D* collider = AddComponent<BoxCollider3D>();
-	collider->SetOffset({ 0.0f, 1.0f, 0.0f });
-	collider->SetSize({ 1.0f, 2.0f, 1.0f });
+	collider->SetOffset({ 0.0f, 0.75f, 0.0f });
+	collider->SetSize({ 0.6f, 1.5f, 0.6f });
 
 	Audio* audio = AddComponent<Audio>();
 	audio->Load("Assets/Audio/SE/Fire1.wav");
