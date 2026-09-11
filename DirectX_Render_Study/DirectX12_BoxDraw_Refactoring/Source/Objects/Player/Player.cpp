@@ -121,7 +121,12 @@ void Player::PerformAttack()
 	if (bullet)
 	{
 		DirectX::XMFLOAT3 bulletPos = GetPos();
-		bullet->SetTransform({ bulletPos.x, bulletPos.y + 1.0f, bulletPos.z }, { 0.1f, 0.1f, 0.1f }, { 0.0f, 0.0f, 0.0f });
+		DirectX::XMFLOAT3 front = GetFront();
+		bullet->SetTransform(
+			{ bulletPos.x + front.x * 0.6f, bulletPos.y + 0.8f, bulletPos.z + front.z * 0.6f },
+			{ 0.15f, 0.15f, 0.15f },
+			{ 0.0f, 0.0f, 0.0f }
+		);
 
 		CModel* Bullet_Model = bullet->GetComponent<CModel>();
 		if (Bullet_Model)
@@ -130,7 +135,7 @@ void Player::PerformAttack()
 			Bullet_Model->CopyFrom(sharedModel);
 		}
 
-		bullet->SetDirection(GetFront());
+		bullet->SetDirection(front);
 	}
 
 	if (audio)

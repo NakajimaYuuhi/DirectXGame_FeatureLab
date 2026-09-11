@@ -10,6 +10,7 @@
 #include "Source/Core/Scenes/Manager/SceneManager.h"
 #include "SceneEnums.h"
 #include "Player.h"
+#include "PlayerState.h"
 #include <typeinfo>
 
 bool CInspectorUI::ShouldUpdateGame()
@@ -58,6 +59,11 @@ void CInspectorUI::Draw()
         if (ImGui::Button("Kill Player"))
         {
             player->TakeDamage(player->GetHP());
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Attack (Spell1)"))
+        {
+            player->GetStateMachine().ChangeState(std::make_shared<PlayerAttackState>());
         }
         ImGui::Separator();
     }

@@ -21,12 +21,14 @@ public:
 	void OnExit() override;
 };
 
-// Player Attack State
+// Player Attack State (Spell1)
 class PlayerAttackState : public StateBase<Player>
 {
 private:
 	float m_attackTimer = 0.0f;
-	const float ATTACK_DURATION = 0.2f;
+	bool m_hasAttacked = false;
+	const float ATTACK_DURATION = 0.9f;
+	const float CAST_TIMING = 0.35f;
 
 public:
 	void OnEnter() override;

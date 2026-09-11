@@ -19,7 +19,7 @@ void PlayerIdleState::OnUpdate(float deltaTime)
 	if (!owner) return;
 
 	// 攻撃入力チェック
-	if (CInputManager::GetInstance().IsKeyTrigger('I'))
+	if (CInputManager::GetInstance().IsKeyTrigger('I') || CInputManager::GetInstance().IsKeyTrigger('J'))
 	{
 		owner->GetStateMachine().ChangeState(std::make_shared<PlayerAttackState>());
 		return;
@@ -53,7 +53,7 @@ void PlayerMoveState::OnUpdate(float deltaTime)
 	if (!owner) return;
 
 	// 攻撃入力チェック
-	if (CInputManager::GetInstance().IsKeyTrigger('I'))
+	if (CInputManager::GetInstance().IsKeyTrigger('I') || CInputManager::GetInstance().IsKeyTrigger('J'))
 	{
 		owner->GetStateMachine().ChangeState(std::make_shared<PlayerAttackState>());
 		return;
@@ -78,7 +78,13 @@ void PlayerAttackState::OnEnter()
 {
 	if (!owner) return;
 	m_attackTimer = 0.0f;
-	owner->PerformAttack();
+	m_hasAttacked = false;
+
+	CModel* model = owner->GetComponent<CModel>();
+	if (model)
+	{
+		model->PlayAnimation("Spell1", false);
+	}
 }
 
 void PlayerAttackState::OnUpdate(float deltaTime)
@@ -86,6 +92,13 @@ void PlayerAttackState::OnUpdate(float deltaTime)
 	if (!owner) return;
 
 	m_attackTimer += deltaTime;
+
+	if (!m_hasAttacked && m_attackTimer >= CAST_TIMING)
+	{
+		owner->PerformAttack();
+		m_hasAttacked = true;
+	}
+
 	if (m_attackTimer >= ATTACK_DURATION)
 	{
 		if (owner->HasMoveInput())
