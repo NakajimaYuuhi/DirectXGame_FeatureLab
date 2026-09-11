@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: StateMachine&lt; T &gt; クラステンプレート</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classStateMachine.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classStateMachine-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">StateMachine&lt; T &gt; クラステンプレート</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="StateMachine_8h_source.html">StateMachine.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a87a407bbdf2439dbcd6227199b3888c1" id="r_a87a407bbdf2439dbcd6227199b3888c1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStateMachine.html#a87a407bbdf2439dbcd6227199b3888c1">StateMachine</a> (T *owner=nullptr)</td></tr>
+<tr class="separator:a87a407bbdf2439dbcd6227199b3888c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fd94514dfbda61d6ed5e2d553e1cced" id="r_a3fd94514dfbda61d6ed5e2d553e1cced"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStateMachine.html#a3fd94514dfbda61d6ed5e2d553e1cced">~StateMachine</a> ()=default</td></tr>
+<tr class="separator:a3fd94514dfbda61d6ed5e2d553e1cced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a516bd5eeabb4844334d7716f125e2795" id="r_a516bd5eeabb4844334d7716f125e2795"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStateMachine.html#a516bd5eeabb4844334d7716f125e2795">SetOwner</a> (T *owner)</td></tr>
+<tr class="separator:a516bd5eeabb4844334d7716f125e2795"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fe0f89cc8a27947124d6230f930e224" id="r_a9fe0f89cc8a27947124d6230f930e224"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStateMachine.html#a9fe0f89cc8a27947124d6230f930e224">ChangeState</a> (std::shared_ptr&lt; <a class="el" href="classStateBase.html">StateBase</a>&lt; T &gt; &gt; newState)</td></tr>
+<tr class="separator:a9fe0f89cc8a27947124d6230f930e224"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ed52d1b9273d02c10cbbbb4cd15111e" id="r_a5ed52d1b9273d02c10cbbbb4cd15111e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStateMachine.html#a5ed52d1b9273d02c10cbbbb4cd15111e">OnUpdate</a> (float deltaTime)</td></tr>
+<tr class="separator:a5ed52d1b9273d02c10cbbbb4cd15111e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73fe2d3669dcdedb34f1a4a2f1a26c66" id="r_a73fe2d3669dcdedb34f1a4a2f1a26c66"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classStateBase.html">StateBase</a>&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStateMachine.html#a73fe2d3669dcdedb34f1a4a2f1a26c66">GetCurrentState</a> () const</td></tr>
+<tr class="separator:a73fe2d3669dcdedb34f1a4a2f1a26c66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:a5a1f7d2b63edd03b489906af53291360" id="r_a5a1f7d2b63edd03b489906af53291360"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStateMachine.html#a5a1f7d2b63edd03b489906af53291360">m_owner</a> = nullptr</td></tr>
+<tr class="separator:a5a1f7d2b63edd03b489906af53291360"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac80d7e28bbd35fec5effec6467d0ec68" id="r_ac80d7e28bbd35fec5effec6467d0ec68"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classStateBase.html">StateBase</a>&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStateMachine.html#ac80d7e28bbd35fec5effec6467d0ec68">m_currentState</a> = nullptr</td></tr>
+<tr class="separator:ac80d7e28bbd35fec5effec6467d0ec68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="a87a407bbdf2439dbcd6227199b3888c1" name="a87a407bbdf2439dbcd6227199b3888c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87a407bbdf2439dbcd6227199b3888c1">&#9670;&#160;</a></span>StateMachine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classStateMachine.html">StateMachine</a>&lt; T &gt;<a class="el" href="classStateMachine.html">::StateMachine</a> </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>owner</em> = <code>nullptr</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3fd94514dfbda61d6ed5e2d553e1cced" name="a3fd94514dfbda61d6ed5e2d553e1cced"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fd94514dfbda61d6ed5e2d553e1cced">&#9670;&#160;</a></span>~StateMachine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classStateMachine.html">StateMachine</a>&lt; T &gt;::~<a class="el" href="classStateMachine.html">StateMachine</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a9fe0f89cc8a27947124d6230f930e224" name="a9fe0f89cc8a27947124d6230f930e224"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fe0f89cc8a27947124d6230f930e224">&#9670;&#160;</a></span>ChangeState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classStateMachine.html">StateMachine</a>&lt; T &gt;::ChangeState </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classStateBase.html">StateBase</a>&lt; T &gt; &gt;&#160;</td>
+          <td class="paramname"><em>newState</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a73fe2d3669dcdedb34f1a4a2f1a26c66" name="a73fe2d3669dcdedb34f1a4a2f1a26c66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73fe2d3669dcdedb34f1a4a2f1a26c66">&#9670;&#160;</a></span>GetCurrentState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classStateBase.html">StateBase</a>&lt; T &gt; &gt; <a class="el" href="classStateMachine.html">StateMachine</a>&lt; T &gt;::GetCurrentState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5ed52d1b9273d02c10cbbbb4cd15111e" name="a5ed52d1b9273d02c10cbbbb4cd15111e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ed52d1b9273d02c10cbbbb4cd15111e">&#9670;&#160;</a></span>OnUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classStateMachine.html">StateMachine</a>&lt; T &gt;::OnUpdate </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a516bd5eeabb4844334d7716f125e2795" name="a516bd5eeabb4844334d7716f125e2795"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a516bd5eeabb4844334d7716f125e2795">&#9670;&#160;</a></span>SetOwner()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classStateMachine.html">StateMachine</a>&lt; T &gt;::SetOwner </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>owner</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="ac80d7e28bbd35fec5effec6467d0ec68" name="ac80d7e28bbd35fec5effec6467d0ec68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac80d7e28bbd35fec5effec6467d0ec68">&#9670;&#160;</a></span>m_currentState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="classStateBase.html">StateBase</a>&lt;T&gt; &gt; <a class="el" href="classStateMachine.html">StateMachine</a>&lt; T &gt;::m_currentState = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5a1f7d2b63edd03b489906af53291360" name="a5a1f7d2b63edd03b489906af53291360"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a1f7d2b63edd03b489906af53291360">&#9670;&#160;</a></span>m_owner</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T* <a class="el" href="classStateMachine.html">StateMachine</a>&lt; T &gt;::m_owner = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/Util/Logic/StateMachine/<a class="el" href="StateMachine_8h_source.html">StateMachine.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classStateMachine.html">StateMachine</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

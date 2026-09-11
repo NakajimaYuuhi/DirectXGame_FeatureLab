@@ -424,6 +424,8 @@ var annotated_dup =
     [ "SkinData", "structSkinData.html", "structSkinData" ],
     [ "Skydome", "classSkydome.html", "classSkydome" ],
     [ "SpriteVertex", "structSpriteVertex.html", "structSpriteVertex" ],
+    [ "StateBase", "classStateBase.html", "classStateBase" ],
+    [ "StateMachine", "classStateMachine.html", "classStateMachine" ],
     [ "STB_TexteditState", "structSTB__TexteditState.html", "structSTB__TexteditState" ],
     [ "stbi_io_callbacks", "structstbi__io__callbacks.html", "structstbi__io__callbacks" ],
     [ "stbrp_context", "structstbrp__context.html", "structstbrp__context" ],

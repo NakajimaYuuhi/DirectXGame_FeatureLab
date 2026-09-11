@@ -512,6 +512,8 @@ var hierarchy =
     [ "tinygltf::SpotLight", "structtinygltf_1_1SpotLight.html", null ],
     [ "SpriteVertex", "structSpriteVertex.html", null ],
     [ "CImGuiManager::SrvAllocUserData", "structCImGuiManager_1_1SrvAllocUserData.html", null ],
+    [ "StateBase< T >", "classStateBase.html", null ],
+    [ "StateMachine< T >", "classStateMachine.html", null ],
     [ "nlohmann::detail::static_const< T >", "structnlohmann_1_1detail_1_1static__const.html", null ],
     [ "STB_TexteditState", "structSTB__TexteditState.html", null ],
     [ "stbi_io_callbacks", "structstbi__io__callbacks.html", null ],
