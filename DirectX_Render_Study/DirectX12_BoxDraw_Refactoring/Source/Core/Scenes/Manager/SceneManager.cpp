@@ -1,226 +1,265 @@
-//===== インクルード =====
 #include "SceneManager.h"
-
 #include "ObjectManager.h"
-//シーン
 #include "../Base/Scene.h"
 #include "../Instances/SceneTest.h"
 #include "../Instances/SceneTitle.h"
 #include "../Instances/SceneClear.h"
 #include "../Instances/SceneFailed.h"
+#include "../Instances/SceneFade.h"
 #include "ButtonEventManager.h"
-
-
 #include "InputManager.h"
-
 #include "EventManager.h"
 #include "Event.h"
 #include "EventData_NextScene.h"
 #include "TextureManager.h"
 #include "ModelManager.h"
 #include "DX12Manager.h"
+#include <algorithm>
 
-
-
-//===== 定数・マクロ定義 =====
-
-
-//===== 関数の定義 =====
-
-//----- 初期化、終了処理 -----
-
-//コンストラクタ
 SceneManager::SceneManager(void)
 {
 	Init();
-
 	EventManager::GetInstance().Init();
-
 }
 
-//デストラクタ
 SceneManager::~SceneManager(void)
 {
-
-	//Sceneを出るときにやるからいらない
-	//delete m_pSceneStack;
-	//m_pSceneStack = nullptr;
 }
 
-//初期化処理
 void SceneManager::Init()
 {
-	//最初のシーンの生成
-	InstantiateScene(INITIAL_SCENE);//シーンの開始処理があるから、その前に必要なクラスを作成、初期化する必要がある
+	m_scenes.clear();
 
+	m_fadeScene = std::make_shared<SceneFade>();
+	m_fadeScene->Init();
+
+	LoadSceneAdditive(INITIAL_SCENE, true);
 }
 
-//終了処理
 void SceneManager::Uninit(void)
 {
-	// シーン内のオブジェクトやリソースをすべて破棄する
 	UninitAndPop();
-	// 現在のシーン自体を破棄する
-	if (scene) {
-		scene.reset();
+	m_scenes.clear();
+	if (m_fadeScene)
+	{
+		m_fadeScene.reset();
 	}
 }
 
-
-//----- 更新処理,描画処理 -----
-
-//更新処理
-void SceneManager::Update()
+std::shared_ptr<CScene> SceneManager::CreateSceneInstance(Scenes::ID _SceneID)
 {
-	//EventManagerのシーンイベント処理
-	//シーンの切替、追加、削除をここで行う
-	ProcessSceneEvents();
-
-	// ゲームの終了フラグの確認
-	if (IsGameEnd == true)return;
-
-	//Todo : Root処理を入れる
-	if (scene)
-
-		//シーンの更新処理
-		scene->Update();
-}
-
-//描画処理
-void SceneManager::Draw(void)
-{
-	// 破棄されたオブジェクトの遅延削除（GPUの描画完了待機後に実行されるため安全）
-	ObjectManager::GetInstance().FlushDestroyedObjects();
-
-	//Todo : Root処理を入れる
-	if (scene)
-		scene->Draw();
-}
-
-//----- シーンの管理 -----
-
-//シーンの生成
-void SceneManager::InstantiateScene(Scenes::ID _SceneID)
-{
-	//TODO : Factoryでやるのがベスト
-	//TODO : Mapを使うのがベスト
-
-	//一旦ここに描いただけ(後で消す)
-	CScene* AdditionalScene = nullptr;
-
-	//条件で分けてシーンの作成
 	switch (_SceneID)
 	{
 	case Scenes::ID::TEST:
-		scene = std::make_unique<CSceneTest>();
-		break;
-
+		return std::make_shared<CSceneTest>();
 	case Scenes::ID::TITLE:
-		scene = std::make_unique<SceneTitle>();
-		break;
+		return std::make_shared<SceneTitle>();
 	case Scenes::ID::Clear:
-		scene = std::make_unique<SceneClear>();
-		break;
+		return std::make_shared<SceneClear>();
 	case Scenes::ID::Failed:
-		scene = std::make_unique<SceneFailed>();
-		break;
-
+		return std::make_shared<SceneFailed>();
+	default:
+		return nullptr;
 	}
-
-	//シーンの初期化
-	scene->Init();
-
 }
 
-//シーンの切替
+void SceneManager::LoadSceneAdditive(Scenes::ID _SceneID, bool setAsActive)
+{
+	if (IsSceneLoaded(_SceneID)) return;
+
+	auto newScene = CreateSceneInstance(_SceneID);
+	if (newScene)
+	{
+		newScene->Init();
+		m_scenes.push_back(newScene);
+
+		if (setAsActive)
+		{
+			m_activeSceneID = _SceneID;
+		}
+	}
+}
+
+void SceneManager::UnloadScene(Scenes::ID _SceneID)
+{
+	auto it = std::find_if(m_scenes.begin(), m_scenes.end(),
+		[_SceneID](const std::shared_ptr<CScene>& scene) {
+			return scene->GetID() == _SceneID;
+		});
+
+	if (it != m_scenes.end())
+	{
+		m_scenes.erase(it);
+		if (m_activeSceneID == _SceneID)
+		{
+			m_activeSceneID = m_scenes.empty() ? Scenes::ID::NONE : m_scenes.back()->GetID();
+		}
+	}
+}
+
+void SceneManager::SetActiveScene(Scenes::ID _SceneID)
+{
+	if (IsSceneLoaded(_SceneID))
+	{
+		m_activeSceneID = _SceneID;
+	}
+}
+
+bool SceneManager::IsSceneLoaded(Scenes::ID _SceneID) const
+{
+	for (const auto& s : m_scenes)
+	{
+		if (s->GetID() == _SceneID) return true;
+	}
+	return false;
+}
+
+void SceneManager::ChangeSceneWithFade(Scenes::ID nextSceneID, float fadeDuration)
+{
+	if (m_transitionStep != TransitionStep::None) return;
+
+	m_nextSceneID = nextSceneID;
+	m_fadeDuration = fadeDuration;
+	m_transitionStep = TransitionStep::FadeOut;
+
+	if (m_fadeScene)
+	{
+		m_fadeScene->StartFadeOut(m_fadeDuration);
+	}
+}
+
 void SceneManager::ChangeScene(Scenes::ID _SceneID)
 {
-	//----- ゲームの終了時 -----
-	if (_SceneID == Scenes::ID::Exit)
-	{
-		//終了処理 (中のシーンも空にしてくれる)(Uninitも呼んでる
-
-
-		//終了フラグを立てる
-		IsGameEnd = true;
-
-		return;
-	}
-
-	//----- シーンの移動 -----
-	//シーンの終了、削除
-	UninitAndPop();
-
-	//シーンを追加する
-	InstantiateScene(_SceneID);
-
+	ChangeSceneWithFade(_SceneID, 0.4f);
 }
 
 void SceneManager::PushScene(Scenes::ID _SceneID)
 {
-	//シーンを追加する
-	InstantiateScene(_SceneID);
+	LoadSceneAdditive(_SceneID, true);
 }
 
 void SceneManager::PopScene(void)
 {
-	//シーンの終了、削除
-	UninitAndPop();
+	if (!m_scenes.empty())
+	{
+		UnloadScene(m_scenes.back()->GetID());
+	}
 }
 
-//シーンの終了、ポップ
 void SceneManager::UninitAndPop(void)
 {
 	DX12Manager::GetInstance().WaitForPendingOperations();
 	ObjectManager::GetInstance().Uninit();
 	TextureManager::GetInstance().Clear();
 	ModelManager::GetInstance().Clear();
-
-	// Clear UI selection state of previous scene
 	ButtonEventManager::GetInstance().ClearSelectedGameObject();
 }
 
-//シーンイベントの処理
+void SceneManager::ProcessTransition()
+{
+	if (m_transitionStep == TransitionStep::None) return;
+
+	switch (m_transitionStep)
+	{
+	case TransitionStep::FadeOut:
+		if (!m_fadeScene || !m_fadeScene->IsFading())
+		{
+			m_transitionStep = TransitionStep::SwapScene;
+		}
+		break;
+
+	case TransitionStep::SwapScene:
+		if (m_nextSceneID == Scenes::ID::Exit)
+		{
+			IsGameEnd = true;
+			m_transitionStep = TransitionStep::None;
+			return;
+		}
+
+		UninitAndPop();
+		m_scenes.clear();
+
+		LoadSceneAdditive(m_nextSceneID, true);
+
+		m_transitionStep = TransitionStep::FadeIn;
+		if (m_fadeScene)
+		{
+			m_fadeScene->StartFadeIn(m_fadeDuration);
+		}
+		break;
+
+	case TransitionStep::FadeIn:
+		if (!m_fadeScene || !m_fadeScene->IsFading())
+		{
+			m_transitionStep = TransitionStep::None;
+		}
+		break;
+
+	default:
+		break;
+	}
+}
+
+void SceneManager::Update()
+{
+	ProcessSceneEvents();
+
+	if (IsGameEnd) return;
+
+	ProcessTransition();
+
+	if (m_fadeScene)
+	{
+		m_fadeScene->Update();
+	}
+
+	for (auto& s : m_scenes)
+	{
+		s->Update();
+	}
+}
+
+void SceneManager::Draw(void)
+{
+	ObjectManager::GetInstance().FlushDestroyedObjects();
+
+	for (auto& s : m_scenes)
+	{
+		s->Draw();
+	}
+
+	if (m_fadeScene)
+	{
+		m_fadeScene->Draw();
+	}
+}
+
 void SceneManager::ProcessSceneEvents()
 {
-
-	// Scene関連のイベントID一覧
 	static const Events::ID sceneEventIDs[] = {
 		Events::ID::ChangeScene,
 		Events::ID::PushScene,
 		Events::ID::PopScene
 	};
 
-
-	// --- Scene関連イベントをまとめて検索 ---
-	Event* pEvent = nullptr;// イベントポインタ
-
-	//処理対象のイベントが有るか確認
+	Event* pEvent = nullptr;
 	for (auto id : sceneEventIDs)
 	{
 		pEvent = EventManager::GetInstance().FindEventByID(id);
 		if (pEvent) break;
 	}
 
-	// イベントなし
 	if (!pEvent) return;
 
 	switch (pEvent->GetEventID())
 	{
-		case Events::ID::ChangeScene:
-
-			//シーンの切替
-			ChangeScene(
-				(static_cast<EventData_NextScene*>(pEvent->GetEventData())->GetNextScene())
-			);
-			break;
+	case Events::ID::ChangeScene:
+		ChangeSceneWithFade(
+			(static_cast<EventData_NextScene*>(pEvent->GetEventData())->GetNextScene()),
+			0.4f
+		);
+		break;
 	}
 
 	EventManager::GetInstance().ClearEvents();
 }
-
-
-
-//----- Getter -----
-
-//終了フラグ

@@ -73,8 +73,8 @@
   <PropertyGroup Label="UserMacros" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -87,8 +87,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -105,8 +105,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -127,8 +127,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -157,6 +157,7 @@
     <ClCompile Include="Source\Core\Scenes\Instances\SceneFailed.cpp" />
     <ClCompile Include="Source\Core\Scenes\Instances\SceneTest.cpp" />
     <ClCompile Include="Source\Core\Scenes\Instances\SceneTitle.cpp" />
+    <ClCompile Include="Source\Core\Scenes\Instances\SceneFade.cpp" />
     <ClCompile Include="Source\Core\Scenes\Manager\SceneManager.cpp" />
     <ClCompile Include="Source\Util\audio.cpp" />
     <ClCompile Include="Source\Objects\Camera.cpp" />
@@ -187,7 +188,8 @@
     <ClCompile Include="Source\Components\Collider3D.cpp" />
     <ClCompile Include="Source\Components\Collision.cpp" />
     <ClCompile Include="Source\Rendering\DescriptorHeapAllocator.cpp" />
-    <ClCompile Include="Source\Objects\Enemy.cpp" />
+    <ClCompile Include="Source\Objects\Enemy\Enemy.cpp" />
+    <ClCompile Include="Source\Objects\Enemy\EnemyState.cpp" />
     <ClCompile Include="Source\Objects\Explosion.cpp" />
     <ClCompile Include="Source\Resources\gltfLoader.cpp" />
     <ClCompile Include="Source\External\imgui.cpp" />
@@ -207,12 +209,14 @@
     <ClCompile Include="Source\Components\Component.cpp" />
     <ClCompile Include="Source\Core\DX12Manager.cpp" />
     <ClCompile Include="Source\Core\InputManager.cpp" />
+    <ClCompile Include="Source\Core\TimeManager.cpp" />
     <ClCompile Include="Source\Core\main.cpp" />
     <ClCompile Include="Source\Rendering\PSOBuilder.cpp" />
     <ClCompile Include="Source\Resources\Mesh.cpp" />
     <ClCompile Include="Source\Objects\Object.cpp" />
     <ClCompile Include="Source\Objects\ObjectManager.cpp" />
-    <ClCompile Include="Source\Objects\Player.cpp" />
+    <ClCompile Include="Source\Objects\Player\Player.cpp" />
+    <ClCompile Include="Source\Objects\Player\PlayerState.cpp" />
     <ClCompile Include="Source\Rendering\PSOManager.cpp" />
     <ClCompile Include="Source\Objects\RandomParticle.cpp" />
     <ClCompile Include="Source\Rendering\Shader.cpp" />
@@ -231,6 +235,7 @@
     <ClInclude Include="Source\Core\Scenes\Instances\SceneFailed.h" />
     <ClInclude Include="Source\Core\Scenes\Instances\SceneTest.h" />
     <ClInclude Include="Source\Core\Scenes\Instances\SceneTitle.h" />
+    <ClInclude Include="Source\Core\Scenes\Instances\SceneFade.h" />
     <ClInclude Include="Source\Core\Scenes\Manager\SceneManager.h" />
     <ClInclude Include="Source\Util\audio.h" />
     <ClInclude Include="Source\Objects\Camera.h" />
@@ -266,7 +271,8 @@
     <ClInclude Include="Source\Util\ContainerAlias.h" />
     <ClInclude Include="Source\Rendering\DescriptorHeapAllocator.h" />
     <ClInclude Include="Source\Util\DirectXPtrAlias.h" />
-    <ClInclude Include="Source\Objects\Enemy.h" />
+    <ClInclude Include="Source\Objects\Enemy\Enemy.h" />
+    <ClInclude Include="Source\Objects\Enemy\EnemyState.h" />
     <ClInclude Include="Source\Objects\Explosion.h" />
     <ClInclude Include="Source\Resources\gltfLoader.h" />
     <ClInclude Include="Source\External\imconfig.h" />
@@ -291,11 +297,13 @@
     <ClInclude Include="Source\Core\DX12Manager.h" />
     <ClInclude Include="Source\Rendering\PSOBuilder.h" />
     <ClInclude Include="Source\Core\InputManager.h" />
+    <ClInclude Include="Source\Core\TimeManager.h" />
     <ClInclude Include="Source\Resources\Mesh.h" />
     <ClInclude Include="Source\Objects\Object.h" />
     <ClInclude Include="Source\Objects\ObjectManager.h" />
     <ClInclude Include="Source\Core\ObjectTag.h" />
-    <ClInclude Include="Source\Objects\Player.h" />
+    <ClInclude Include="Source\Objects\Player\Player.h" />
+    <ClInclude Include="Source\Objects\Player\PlayerState.h" />
     <ClInclude Include="Source\Rendering\PSOManager.h" />
     <ClInclude Include="Source\Objects\RandomParticle.h" />
     <ClInclude Include="Source\Core\SceneEnums.h" />

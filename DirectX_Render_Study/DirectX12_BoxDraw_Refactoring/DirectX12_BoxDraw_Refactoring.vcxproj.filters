@@ -144,7 +144,13 @@
     <ClCompile Include="Source\Rendering\DescriptorHeapAllocator.cpp">
       <Filter>Source\Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Objects\Enemy.cpp">
+        <ClCompile Include="Source\Objects\Enemy\EnemyState.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+        <ClCompile Include="Source\Objects\Enemy\EnemyState.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Objects\Enemy\Enemy.cpp">
       <Filter>Source\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Source\Objects\Explosion.cpp">
@@ -201,6 +207,9 @@
     <ClCompile Include="Source\Core\DX12Manager.cpp">
       <Filter>Source\Core</Filter>
     </ClCompile>
+        <ClCompile Include="Source\Core\TimeManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
     <ClCompile Include="Source\Core\InputManager.cpp">
       <Filter>Source\Core</Filter>
     </ClCompile>
@@ -219,7 +228,13 @@
     <ClCompile Include="Source\Objects\ObjectManager.cpp">
       <Filter>Source\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Objects\Player.cpp">
+        <ClCompile Include="Source\Objects\Player\PlayerState.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+        <ClCompile Include="Source\Objects\Player\PlayerState.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Objects\Player\Player.cpp">
       <Filter>Source\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Source\Rendering\PSOManager.cpp">
@@ -266,6 +281,9 @@
     </ClCompile>
     <ClCompile Include="Source\Core\Scenes\Manager\SceneManager.cpp">
       <Filter>Source\Core\Scenes\Manager</Filter>
+    </ClCompile>
+        <ClCompile Include="Source\Core\Scenes\Instances\SceneFade.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\Core\Scenes\Instances\SceneTitle.cpp">
       <Filter>Source\Core\Scenes\Instances</Filter>
@@ -375,7 +393,13 @@
     <ClInclude Include="Source\Util\DirectXPtrAlias.h">
       <Filter>Source\Util</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Objects\Enemy.h">
+        <ClInclude Include="Source\Objects\Enemy\EnemyState.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+        <ClInclude Include="Source\Objects\Enemy\EnemyState.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Objects\Enemy\Enemy.h">
       <Filter>Source\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Source\Objects\Explosion.h">
@@ -447,6 +471,9 @@
     <ClInclude Include="Source\Rendering\PSOBuilder.h">
       <Filter>Source\Rendering</Filter>
     </ClInclude>
+        <ClInclude Include="Source\Core\TimeManager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Core\InputManager.h">
       <Filter>Source\Core</Filter>
     </ClInclude>
@@ -462,7 +489,13 @@
     <ClInclude Include="Source\Core\ObjectTag.h">
       <Filter>Source\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Objects\Player.h">
+        <ClInclude Include="Source\Objects\Player\PlayerState.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+        <ClInclude Include="Source\Objects\Player\PlayerState.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Objects\Player\Player.h">
       <Filter>Source\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Source\Rendering\PSOManager.h">
@@ -533,6 +566,9 @@
     </ClInclude>
     <ClInclude Include="Source\Core\Scenes\Instances\SceneTest.h">
       <Filter>Source\Core\Scenes\Instances</Filter>
+    </ClInclude>
+        <ClInclude Include="Source\Core\Scenes\Instances\SceneFade.h">
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\Core\Scenes\Instances\SceneTitle.h">
       <Filter>Source\Core\Scenes\Instances</Filter>

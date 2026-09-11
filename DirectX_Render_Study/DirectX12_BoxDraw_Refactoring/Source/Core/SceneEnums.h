@@ -16,6 +16,8 @@ namespace Scenes
 
 		TEST,
 
+		FADE,
+
 		Exit,
 
 		NUM,//ƒV[ƒ“‚ÌÅ‘å”

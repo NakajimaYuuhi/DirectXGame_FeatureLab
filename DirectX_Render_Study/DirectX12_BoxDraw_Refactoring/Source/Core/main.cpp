@@ -21,8 +21,7 @@
 #include "PSOManager.h"
 #include "DX12Manager.h"
 #include "InputManager.h"	//TODO:mainが知ってる必要は無い気がする
-
-
+#include "TimeManager.h"
 
 //スマートポインタ
 #include<memory>
@@ -124,11 +123,9 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
 	//ImGuiの機能でDPIを取得
 	float main_scale = CImGuiManager::GetInstance().GetActualScaleFactor();
-	//main_scale /= 1.5;
 	RECT rc = { 0, 0, 1920, 1080 }; // ほしい「中身」のサイズ
 	AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, FALSE); // 枠を含めたサイズに計算し直してくれる
 
-	// rc.right - rc.left が「枠を含めた本当の幅」になる
 	HWND hwnd = CreateWindowEx(
 		0, className, "DirectX12 Window", WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, CW_USEDEFAULT,
@@ -136,25 +133,10 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 		nullptr, nullptr, hInst, nullptr
 	);
 
-
-	////ウィンドウの作成
-	//HWND hwnd = CreateWindowEx(
-	//	0,
-	//	className,
-	//	"DirectX12 Window",
-	//	WS_OVERLAPPEDWINDOW,
-	//	100, 100, 1920 * main_scale, 1080 * main_scale,
-	//	NULL,
-	//	NULL,
-	//	hInst,
-	//	NULL
-	//);
-
 	//ウィンドウの表示
 	ShowWindow(hwnd, nCmdShow);
 
 	MSG msg = {};
-
 
 	//DirectX12の初期化
 	DX12Manager::GetInstance().Initialize(hwnd);
@@ -163,33 +145,17 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 	//音
 	Audio::InitMaster();
 
-
 	//----- SceneManagerの開始 -----
 	SceneManager::GetInstance();
 
 	CInputManager::GetInstance();
 
 	CImGuiManager::GetInstance().Initialize(hwnd);
+	
+	// TimeManagerの初期化（60FPS固定目標）
+	TimeManager::GetInstance().Init(60.0f);
+
 	initialized = true;
-
-	//DisplaySize();
-
-
-	//Microsoft::WRL::ComPtr<IXAudio2> pXAudio2;
-	//IXAudio2MasteringVoice* pMasterVoice = nullptr; // ※COMではないので生ポインタか専用の管理が必要です
-
-	//// COMの初期化（すでに行っている場合は不要）
-	//CoInitializeEx(nullptr, COINIT_MULTITHREADED);
-
-	//// XAudio2 エンジンの作成
-	//HRESULT hr = XAudio2Create(&pXAudio2, 0, XAUDIO2_DEFAULT_PROCESSOR);
-	//if (FAILED(hr)) { /* エラー処理 */ }
-
-	//// マスタリングボイス（最終出力先）の作成
-	//hr = pXAudio2->CreateMasteringVoice(&pMasterVoice);
-	//if (FAILED(hr)) { /* エラー処理 */ }
-
-
 
 	bool done = false;
 	while (!done)
@@ -204,12 +170,6 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 		if (done)
 			break;
 
-
-		//
-
-
-
-
 		//画面が隠れているならフレームをスキップ
 		if (DX12Manager::GetInstance().IsOccluded(hwnd))
 		{
@@ -217,22 +177,20 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 			continue;
 		}
 
+		// FPS固定とDeltaTimeの更新
+		TimeManager::GetInstance().Update();
 
 		//---入力の更新---
 		CInputManager::GetInstance().Update();
 
-			
-
 		// --- 更新 ---
 		//ImGuiのフレーム開始
-
 		CImGuiManager::GetInstance().Begin();
 		{
 			CInspectorUI::GetInstance().Draw();
 		}
 
 		//シーンの更新処理
-		//g_CScene->Update();
 		SceneManager::GetInstance().Update();
 
 		// 終了の確認
@@ -250,7 +208,6 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
 		//DirectX12の描画終了
 		DX12Manager::GetInstance().EndDraw();
-		
 	}
 
 	SceneManager::GetInstance().Uninit();
@@ -261,7 +218,3 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
 	return 0;
 }
-
-
-
-

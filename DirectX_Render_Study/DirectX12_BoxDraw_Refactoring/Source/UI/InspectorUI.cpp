@@ -4,6 +4,8 @@
 #include "Transform.h"
 #include "Model.h"
 #include "ObjectInfo.h"
+#include "BoxCollider3D.h"
+#include "Camera.h"
 #include <typeinfo>
 
 
@@ -17,7 +19,9 @@ void CInspectorUI::Draw()
 
     auto& objectList = ObjectManager::GetInstance().GetObjectList();
 
-    // 1. Hierarchy (Object List)
+    ImGui::Checkbox("Show Box Colliders", &m_showColliders);
+    ImGui::Separator();
+
     ImGui::Text("Hierarchy");
     ImGui::Separator();
     
@@ -29,7 +33,6 @@ void CInspectorUI::Draw()
         const auto& objVec = objectList[tagIdx];
         if (objVec.empty()) continue;
 
-        // タグごとに折りたたみヘッダを表示
         if (ImGui::CollapsingHeader(("Tag: " + std::to_string(tagIdx)).c_str(), ImGuiTreeNodeFlags_DefaultOpen))
         {
             for (size_t i = 0; i < objVec.size(); ++i)
@@ -37,7 +40,6 @@ void CInspectorUI::Draw()
                 CObject* obj = objVec[i].get();
                 if (!obj) continue;
 
-                // 選択可能アイテムとして表示
                 CObjectInfo* objInfo = obj->GetComponent<CObjectInfo>();
                 std::string objName = objInfo ? objInfo->GetObjectName() : "Object " + std::to_string(objectCounter);
                 std::string label = objName + "##" + std::to_string(tagIdx) + "_" + std::to_string(i);
@@ -54,7 +56,6 @@ void CInspectorUI::Draw()
     }
     ImGui::EndChild();
 
-    // 2. Inspector (Selected Object Details)
     ImGui::Spacing();
     ImGui::Text("Inspector");
     ImGui::Separator();
@@ -69,7 +70,6 @@ void CInspectorUI::Draw()
             {
                 ImGui::Text("Object (Tag %d, Idx %d)", m_selectedTagIndex, m_selectedObjectIndex);
                 
-                // Transform Component
                 CTransform* transform = selectedObj->GetComponent<CTransform>();
                 if (transform)
                 {
@@ -82,7 +82,6 @@ void CInspectorUI::Draw()
                         }
 
                         DirectX::XMFLOAT3 rot = transform->GetRotation();
-                        // 表示は度数法にするかラジアンにするかだが、一旦そのまま
                         if (ImGui::DragFloat3("Rotation", &rot.x, 0.01f))
                         {
                             transform->SetRotation(rot);
@@ -96,7 +95,6 @@ void CInspectorUI::Draw()
                     }
                 }
 
-                // Model Component (Shader swapping)
                 CModel* model = selectedObj->GetComponent<CModel>();
                 if (model)
                 {
@@ -111,8 +109,26 @@ void CInspectorUI::Draw()
                         }
                     }
                 }
+
+                BoxCollider3D* boxCollider = selectedObj->GetComponent<BoxCollider3D>();
+                if (boxCollider)
+                {
+                    if (ImGui::CollapsingHeader("BoxCollider3D", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        DirectX::XMFLOAT3 size = boxCollider->GetSize();
+                        if (ImGui::DragFloat3("Size", &size.x, 0.1f))
+                        {
+                            boxCollider->SetSize(size);
+                        }
+
+                        DirectX::XMFLOAT3 offset = boxCollider->GetOffset();
+                        if (ImGui::DragFloat3("Offset", &offset.x, 0.1f))
+                        {
+                            boxCollider->SetOffset(offset);
+                        }
+                    }
+                }
                 
-                // Other Components
                 if (ImGui::CollapsingHeader("Other Components", ImGuiTreeNodeFlags_DefaultOpen))
                 {
                     for (const auto& comp : selectedObj->GetComponents())
@@ -120,11 +136,10 @@ void CInspectorUI::Draw()
                         if (comp)
                         {
                             std::string compName = comp->GetName();
-                            if (compName != "Transform" && compName != "Model" && compName != "ObjectInfo")
+                            if (compName != "Transform" && compName != "Model" && compName != "ObjectInfo" && compName != "BoxCollider3D")
                             {
                                 if (compName.empty()) {
                                     compName = typeid(*comp).name();
-                                    // Remove "class " or "struct " prefix from typeid name if exists
                                     if (compName.find("class ") == 0) compName = compName.substr(6);
                                     if (compName.find("struct ") == 0) compName = compName.substr(7);
                                 }
@@ -142,4 +157,24 @@ void CInspectorUI::Draw()
     }
 
     ImGui::End();
+
+    if (m_showColliders)
+    {
+        Camera* camera = ObjectManager::GetInstance().GetCamera();
+        if (camera)
+        {
+            for (const auto& objVec : objectList)
+            {
+                for (const auto& obj : objVec)
+                {
+                    if (!obj || obj->GetIsDestroyed()) continue;
+                    BoxCollider3D* boxCol = obj->GetComponent<BoxCollider3D>();
+                    if (boxCol)
+                    {
+                        boxCol->DrawDebug(camera);
+                    }
+                }
+            }
+        }
+    }
 }

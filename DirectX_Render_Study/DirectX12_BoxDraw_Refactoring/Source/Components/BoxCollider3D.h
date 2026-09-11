@@ -4,6 +4,8 @@
 #include "Object.h"
 #include "Transform.h"
 
+class Camera;
+
 class BoxCollider3D : public Collider3D
 {
 public:
@@ -16,12 +18,9 @@ public:
 	//デストラクタ
 	virtual ~BoxCollider3D(){}
 
-
-
 	//WorldPosの取得
-	virtual DirectX::XMFLOAT3 GetWorldPos()
+	virtual DirectX::XMFLOAT3 GetWorldPos() override
 	{
-		//Colliderの位置は、オブジェクトの位置 + オフセット
 		DirectX::XMFLOAT3 pos = { 0.0f,0.0f,0.0f };
 		if (m_Owner)
 		{
@@ -38,12 +37,13 @@ public:
 	}
 
 	//Getter
-	DirectX::XMFLOAT3  GetSize() const { return Size; }
+	DirectX::XMFLOAT3 GetSize() const { return Size; }
 	//Setter
 	void SetSize(DirectX::XMFLOAT3 _Size) { Size = _Size; }
 
+	// デバッグ可視化用
+	void DrawDebug(Camera* camera);
 
 protected:
-	DirectX::XMFLOAT3 	Size = { 1.0f, 1.0f, 1.0f };	//大きさ
+	DirectX::XMFLOAT3 Size = { 1.0f, 1.0f, 1.0f };	//大きさ
 };
-

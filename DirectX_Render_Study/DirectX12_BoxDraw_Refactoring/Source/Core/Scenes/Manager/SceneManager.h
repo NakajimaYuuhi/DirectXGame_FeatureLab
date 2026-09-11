@@ -2,65 +2,78 @@
 #include "../Base/Scene.h"
 #include "SceneEnums.h"
 #include "SmartPtrAlias.h"
+#include <vector>
+#include <memory>
+
+class SceneFade;
+
+enum class TransitionStep
+{
+	None,
+	FadeOut,
+	SwapScene,
+	FadeIn
+};
 
 class SceneManager
 {
 public:
-	void Init(void);	//初期化、最初のシーンの格納
-	void Uninit(void);	//終了処理、シーンのUninit
-	void Update(void);	//シーンの更新処理を呼び出し
-	void Draw(void);	//シーンの表示処理を呼び出し
+	void Init(void);
+	void Uninit(void);
+	void Update(void);
+	void Draw(void);
 
+	// 並列シーン操作 (Additive Scene API)
+	void LoadSceneAdditive(Scenes::ID _SceneID, bool setAsActive = true);
+	void UnloadScene(Scenes::ID _SceneID);
+	void SetActiveScene(Scenes::ID _SceneID);
+	bool IsSceneLoaded(Scenes::ID _SceneID) const;
 
-	//----- シーンの切替 -----
+	// フェード付きシーン切り替え
+	void ChangeSceneWithFade(Scenes::ID nextSceneID, float fadeDuration = 0.5f);
+
+	// 互換用シーン切り替え
+	void ChangeScene(Scenes::ID _SceneID);
+
+	// 旧API互換
 	void PushScene(Scenes::ID _SceneID);
 	void PopScene(void);
 
 private:
-	UniquePtr<CScene> scene;
+	std::vector<std::shared_ptr<CScene>> m_scenes;
+	Scenes::ID m_activeSceneID = Scenes::ID::NONE;
 
-	//ゲームの終了フラグ
+	std::shared_ptr<SceneFade> m_fadeScene;
+
+	TransitionStep m_transitionStep = TransitionStep::None;
+	Scenes::ID m_nextSceneID = Scenes::ID::NONE;
+	float m_fadeDuration = 0.5f;
+
 	bool IsGameEnd = false;
 
 private:
-	void ChangeScene(Scenes::ID _SceneID);
-	void InstantiateScene(Scenes::ID _SceneID);//シーンをインスタンス化
+	std::shared_ptr<CScene> CreateSceneInstance(Scenes::ID _SceneID);
 	void UninitAndPop();
 	void ProcessSceneEvents();
+	void ProcessTransition();
 
-//----- Getter,Setter -----
+// Getter, Setter
 public:
-	bool GetIsGameEnd(void){return IsGameEnd;}
-private:
-	//仮実装
-	CScene* GetScene(){return scene.get();}
+	bool GetIsGameEnd(void) const { return IsGameEnd; }
+	Scenes::ID GetActiveSceneID() const { return m_activeSceneID; }
+	bool IsTransitioning() const { return m_transitionStep != TransitionStep::None; }
 
-	bool IsExistScene(Scenes::ID _SceneID){return _SceneID != scene->GetID();}
-
-	Scenes::ID GetCurrentSceneID(void){return scene->GetID();}
-
-
-//----- シングルトンの実装に必要 -----
+// シングルトン
 public:
 	static SceneManager& GetInstance()
 	{
 		static SceneManager Instance;
-
-		//インスタンスを返す
 		return Instance;
 	}
 
 private:
-	//コンストラクタ
 	SceneManager();
-
-	//デストラクタ
 	~SceneManager();
-
-	//コピー禁止
 	SceneManager(const SceneManager&) = delete;
-
-	//代入禁止
 	SceneManager& operator=(const SceneManager&) = delete;
 };
-
