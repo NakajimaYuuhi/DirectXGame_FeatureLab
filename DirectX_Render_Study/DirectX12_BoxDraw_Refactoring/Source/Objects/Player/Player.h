@@ -23,9 +23,16 @@ public:
 	void ProcessMovement(float deltaTime);
 	void PerformAttack();
 
+	// HP / Damage management
+	int GetHP() const { return HP; }
+	int GetMaxHP() const { return MaxHP; }
+	void TakeDamage(int damage);
+
 protected:
 	String ModelPath;
 	float Speed = 0.1f;
+	int HP = 10;
+	int MaxHP = 10;
 	Camera* m_camera = nullptr;
 
 	StateMachine<Player> m_stateMachine;

@@ -9,6 +9,7 @@
 #include "TimeManager.h"
 #include "Source/Core/Scenes/Manager/SceneManager.h"
 #include "SceneEnums.h"
+#include "Player.h"
 #include <typeinfo>
 
 bool CInspectorUI::ShouldUpdateGame()
@@ -40,6 +41,17 @@ void CInspectorUI::Draw()
     ImGui::Begin("Scene Inspector");
 
     auto& objectList = ObjectManager::GetInstance().GetObjectList();
+
+    // Player Status
+    Player* player = ObjectManager::GetInstance().GetPlayer();
+    if (player)
+    {
+        ImGui::Text("Player Status");
+        ImGui::Text("HP: %d / %d", player->GetHP(), player->GetMaxHP());
+        float hpFraction = (float)player->GetHP() / (float)player->GetMaxHP();
+        ImGui::ProgressBar(hpFraction, ImVec2(-1.0f, 0.0f));
+        ImGui::Separator();
+    }
 
     // 1. Game & Time Controls
     ImGui::Text("Game & Time Controls");

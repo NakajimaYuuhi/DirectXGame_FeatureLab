@@ -80,6 +80,10 @@ void Enemy::TakeDamage(int damage)
 	{
 		m_stateMachine.ChangeState(std::make_shared<EnemyDeadState>());
 	}
+	else
+	{
+		m_stateMachine.ChangeState(std::make_shared<EnemyHurtState>());
+	}
 }
 
 void Enemy::MoveTowards(const DirectX::XMFLOAT3& targetPos, float deltaTime)
@@ -115,7 +119,7 @@ void Enemy::OnDie()
 	if (billBoard)
 	{
 		CTransform* transform = billBoard->GetComponent<CTransform>();
-		DirectX::XMFLOAT3 pos = transform->GetPos();
+		DirectX::XMFLOAT3 pos = GetPos();
 		if (transform)
 		{
 			transform->SetPos(pos);

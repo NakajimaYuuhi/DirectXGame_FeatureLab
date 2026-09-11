@@ -137,3 +137,14 @@ void Player::PerformAttack()
 		audio->Play();
 	}
 }
+
+void Player::TakeDamage(int damage)
+{
+	HP -= damage;
+	if (HP < 0)
+	{
+		HP = 0;
+	}
+
+	OutputDebugStringA(("Player Took Damage! Current HP: " + std::to_string(HP) + "\n").c_str());
+}
