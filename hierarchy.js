@@ -515,8 +515,10 @@ var hierarchy =
     [ "CImGuiManager::SrvAllocUserData", "structCImGuiManager_1_1SrvAllocUserData.html", null ],
     [ "StateBase< T >", "classStateBase.html", null ],
     [ "StateBase< Enemy >", "classStateBase.html", [
+      [ "EnemyAttackState", "classEnemyAttackState.html", null ],
       [ "EnemyChaseState", "classEnemyChaseState.html", null ],
       [ "EnemyDeadState", "classEnemyDeadState.html", null ],
+      [ "EnemyHurtState", "classEnemyHurtState.html", null ],
       [ "EnemyIdleState", "classEnemyIdleState.html", null ]
     ] ],
     [ "StateBase< Player >", "classStateBase.html", [
