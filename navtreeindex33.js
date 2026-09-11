@@ -1,5 +1,14 @@
 var NAVTREEINDEX33 =
 {
+"namespacetinygltf.html#a84f692e4ae3db9cd350d4ea841e29ee0":[1,0,7,41],
+"namespacetinygltf.html#a94b25860bde94846421b7cdd5110075d":[1,0,7,36],
+"namespacetinygltf.html#aa1d1ad24acab8c8613ec02bc516439e1":[1,0,7,39],
+"namespacetinygltf.html#aa2ac98b87d5ef0b89a73242e4f6feff0":[1,0,7,38],
+"namespacetinygltf.html#aa4d0e1d62a1926038e63585638f88ff8":[1,0,7,50],
+"namespacetinygltf.html#aab86e5c8b9267f07b2608280e4c2700c":[1,0,7,55],
+"namespacetinygltf.html#ac3a3ff5c2fb75b6dec014495b1880dec":[1,0,7,43],
+"namespacetinygltf.html#ac642919d4f7df1cfc6dd21c4f029690b":[1,0,7,60],
+"namespacetinygltf.html#ad0f8d0ec86ec216830789cde5e894552":[1,0,7,42],
 "namespacetinygltf.html#add352ac07751862b70126f22321cf891":[1,0,7,56],
 "namespacetinygltf.html#aea330483eb69f1e1c321bc1a11b56cf2":[1,0,7,46],
 "namespacetinygltf.html#aee35a1a1bc4b90c187f18bcc00a5904c":[1,0,7,57],
@@ -240,14 +249,5 @@ var NAVTREEINDEX33 =
 "structExampleTreeNode.html#a09940aea3cbc20b6dd8c1295dd4b2c48":[2,0,62,7],
 "structExampleTreeNode.html#a0b35475b9d044a3105f971936eac69c8":[2,0,62,6],
 "structExampleTreeNode.html#a325be5281aefc05159790ba74d062419":[2,0,62,5],
-"structExampleTreeNode.html#a49b1eea89bac79cae4c3413307442a10":[2,0,62,8],
-"structExampleTreeNode.html#a6b33514362507e7478dd829a41965d52":[2,0,62,1],
-"structExampleTreeNode.html#a9fe834adbec0892f50cd71d73755e53e":[2,0,62,0],
-"structExampleTreeNode.html#aaa3013178423eab20b0ebd10716735cc":[2,0,62,3],
-"structExampleTreeNode.html#ae8c6d9955d3b2449ea2de4adb44a4de6":[2,0,62,2],
-"structImBitArray.html":[2,0,65],
-"structImBitArray.html#a243a21e76a7355afc5820f3a64168327":[2,0,65,0],
-"structImBitArray.html#a335e3ccaf738f01004efd1c80d250e8d":[2,0,65,8],
-"structImBitArray.html#a48d77393cf81d3a7c4b94a90be6ee66f":[2,0,65,2],
-"structImBitArray.html#a52c1f3ec6a89c91e2090bf75e00152ac":[2,0,65,4]
+"structExampleTreeNode.html#a49b1eea89bac79cae4c3413307442a10":[2,0,62,8]
 };

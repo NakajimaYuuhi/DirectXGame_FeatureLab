@@ -1,5 +1,14 @@
 var NAVTREEINDEX48 =
 {
+"structtinygltf_1_1Camera.html#a6e4e66edc7f61910a1b6f27b00ab4656":[2,0,2,10,2],
+"structtinygltf_1_1Camera.html#a70fc29fce87f260475b4b8556486f57e":[2,0,2,10,0],
+"structtinygltf_1_1Camera.html#a70fc29fce87f260475b4b8556486f57e":[1,0,7,10,0],
+"structtinygltf_1_1Camera.html#a81d050265c6a41d7de8d375426368643":[1,0,7,10,8],
+"structtinygltf_1_1Camera.html#a81d050265c6a41d7de8d375426368643":[2,0,2,10,8],
+"structtinygltf_1_1Camera.html#a9177d7462e39003677cb1ac31312dff6":[1,0,7,10,1],
+"structtinygltf_1_1Camera.html#a9177d7462e39003677cb1ac31312dff6":[2,0,2,10,1],
+"structtinygltf_1_1Camera.html#ac715d0e6e4a25e2dd5ea916230d25b3b":[1,0,7,10,4],
+"structtinygltf_1_1Camera.html#ac715d0e6e4a25e2dd5ea916230d25b3b":[2,0,2,10,4],
 "structtinygltf_1_1Camera.html#af3cbdb23af74b2c8780391c79872624b":[2,0,2,10,5],
 "structtinygltf_1_1Camera.html#af3cbdb23af74b2c8780391c79872624b":[1,0,7,10,5],
 "structtinygltf_1_1Camera.html#afbf100fab44e30eabf5d91c113325860":[2,0,2,10,6],
@@ -240,14 +249,5 @@ var NAVTREEINDEX48 =
 "structtinygltf_1_1PbrMetallicRoughness.html#a2fd8e186d78404a436b399d48dea42f8":[2,0,2,22,10],
 "structtinygltf_1_1PbrMetallicRoughness.html#a619dbe68560411b26846a571218c7eed":[2,0,2,22,3],
 "structtinygltf_1_1PbrMetallicRoughness.html#a619dbe68560411b26846a571218c7eed":[1,0,7,22,3],
-"structtinygltf_1_1PbrMetallicRoughness.html#ad2df420bca8da46f8b6b95a77978aa5b":[2,0,2,22,6],
-"structtinygltf_1_1PbrMetallicRoughness.html#ad2df420bca8da46f8b6b95a77978aa5b":[1,0,7,22,6],
-"structtinygltf_1_1PbrMetallicRoughness.html#ad5b1a869cf7e4cd180548d6e7440be3a":[1,0,7,22,9],
-"structtinygltf_1_1PbrMetallicRoughness.html#ad5b1a869cf7e4cd180548d6e7440be3a":[2,0,2,22,9],
-"structtinygltf_1_1PbrMetallicRoughness.html#ad80028fa99ceb47efdd6afcb1072e4ee":[2,0,2,22,7],
-"structtinygltf_1_1PbrMetallicRoughness.html#ad80028fa99ceb47efdd6afcb1072e4ee":[1,0,7,22,7],
-"structtinygltf_1_1PbrMetallicRoughness.html#ae9a211dc0a6f053ecc21022894b5c386":[1,0,7,22,4],
-"structtinygltf_1_1PbrMetallicRoughness.html#ae9a211dc0a6f053ecc21022894b5c386":[2,0,2,22,4],
-"structtinygltf_1_1PbrMetallicRoughness.html#aed293ae5e20624b4ed35070c6c36430e":[2,0,2,22,1],
-"structtinygltf_1_1PbrMetallicRoughness.html#aed293ae5e20624b4ed35070c6c36430e":[1,0,7,22,1]
+"structtinygltf_1_1PbrMetallicRoughness.html#ad2df420bca8da46f8b6b95a77978aa5b":[2,0,2,22,6]
 };

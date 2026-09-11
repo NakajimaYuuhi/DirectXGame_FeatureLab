@@ -110,10 +110,16 @@ $(document).ready(function(){initNavTree('classTimeManager.html',''); initResiza
 <tr class="separator:afdf5ccb706dfd5cd71882424ddf4301d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac726f1762eabb1e0ece022b3d7cdf7ef" id="r_ac726f1762eabb1e0ece022b3d7cdf7ef"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#ac726f1762eabb1e0ece022b3d7cdf7ef">GetDeltaTime</a> () const</td></tr>
 <tr class="separator:ac726f1762eabb1e0ece022b3d7cdf7ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b99242b389f903f960eb953ac1fb11f" id="r_a8b99242b389f903f960eb953ac1fb11f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#a8b99242b389f903f960eb953ac1fb11f">GetUnscaledDeltaTime</a> () const</td></tr>
+<tr class="separator:a8b99242b389f903f960eb953ac1fb11f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ed3d328104ee074001d69c71dfb3351" id="r_a0ed3d328104ee074001d69c71dfb3351"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#a0ed3d328104ee074001d69c71dfb3351">GetFPS</a> () const</td></tr>
 <tr class="separator:a0ed3d328104ee074001d69c71dfb3351"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51340d7297248a208e4192059a6b42ae" id="r_a51340d7297248a208e4192059a6b42ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#a51340d7297248a208e4192059a6b42ae">SetTargetFPS</a> (float targetFPS)</td></tr>
 <tr class="separator:a51340d7297248a208e4192059a6b42ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69b39a8b44104057a92b49948db24231" id="r_a69b39a8b44104057a92b49948db24231"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#a69b39a8b44104057a92b49948db24231">SetTimeScale</a> (float scale)</td></tr>
+<tr class="separator:a69b39a8b44104057a92b49948db24231"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23340de61ec2b4a1b763e734d157c347" id="r_a23340de61ec2b4a1b763e734d157c347"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#a23340de61ec2b4a1b763e734d157c347">GetTimeScale</a> () const</td></tr>
+<tr class="separator:a23340de61ec2b4a1b763e734d157c347"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
@@ -145,6 +151,8 @@ $(document).ready(function(){initNavTree('classTimeManager.html',''); initResiza
 <tr class="separator:a63057ab62010bd5dc500710794286108"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91efda0ee42d903b11c5483a01fab915" id="r_a91efda0ee42d903b11c5483a01fab915"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#a91efda0ee42d903b11c5483a01fab915">m_deltaTime</a> = 0.01667f</td></tr>
 <tr class="separator:a91efda0ee42d903b11c5483a01fab915"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9e878dc1bdce06da344c5233cd66f99" id="r_ac9e878dc1bdce06da344c5233cd66f99"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#ac9e878dc1bdce06da344c5233cd66f99">m_timeScale</a> = 1.0f</td></tr>
+<tr class="separator:ac9e878dc1bdce06da344c5233cd66f99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32f38b6c32d0ea869084afc7dbec953f" id="r_a32f38b6c32d0ea869084afc7dbec953f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#a32f38b6c32d0ea869084afc7dbec953f">m_currentFPS</a> = 60.0f</td></tr>
 <tr class="separator:a32f38b6c32d0ea869084afc7dbec953f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20a12cad1ac3d6190e3a1ead6e6a8b31" id="r_a20a12cad1ac3d6190e3a1ead6e6a8b31"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#a20a12cad1ac3d6190e3a1ead6e6a8b31">m_frameCount</a> = 0.0f</td></tr>
@@ -310,8 +318,58 @@ $(document).ready(function(){initNavTree('classTimeManager.html',''); initResiza
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classTimeManager_a3c3cabab06a07ab72e14731d622df05a_icgraph.svg" width="404" height="184"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classTimeManager_a3c3cabab06a07ab72e14731d622df05a_icgraph.svg" width="531" height="236"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="a23340de61ec2b4a1b763e734d157c347" name="a23340de61ec2b4a1b763e734d157c347"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23340de61ec2b4a1b763e734d157c347">&#9670;&#160;</a></span>GetTimeScale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float TimeManager::GetTimeScale </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8b99242b389f903f960eb953ac1fb11f" name="a8b99242b389f903f960eb953ac1fb11f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b99242b389f903f960eb953ac1fb11f">&#9670;&#160;</a></span>GetUnscaledDeltaTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float TimeManager::GetUnscaledDeltaTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -388,6 +446,37 @@ $(document).ready(function(){initNavTree('classTimeManager.html',''); initResiza
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classTimeManager_a51340d7297248a208e4192059a6b42ae_icgraph.svg" width="532" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a69b39a8b44104057a92b49948db24231" name="a69b39a8b44104057a92b49948db24231"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69b39a8b44104057a92b49948db24231">&#9670;&#160;</a></span>SetTimeScale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TimeManager::SetTimeScale </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>scale</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classTimeManager_a69b39a8b44104057a92b49948db24231_icgraph.svg" width="542" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -602,6 +691,28 @@ $(document).ready(function(){initNavTree('classTimeManager.html',''); initResiza
       <table class="memname">
         <tr>
           <td class="memname">float TimeManager::m_targetFrameTime = 1.0f / 60.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac9e878dc1bdce06da344c5233cd66f99" name="ac9e878dc1bdce06da344c5233cd66f99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9e878dc1bdce06da344c5233cd66f99">&#9670;&#160;</a></span>m_timeScale</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float TimeManager::m_timeScale = 1.0f</td>
         </tr>
       </table>
   </td>
