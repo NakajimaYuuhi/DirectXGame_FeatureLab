@@ -1,5 +1,7 @@
 var NAVTREEINDEX47 =
 {
+"structstbtt__pack__context.html#aee1019f9634cad49fa07e8e1f897d6b7":[2,0,261,0],
+"structstbtt__pack__range.html":[2,0,262],
 "structstbtt__pack__range.html#a046d65b6ffb65fb998d471ba098e2e23":[2,0,262,5],
 "structstbtt__pack__range.html#a1567aa5455e1251529a91b46261368cf":[2,0,262,0],
 "structstbtt__pack__range.html#a296916dc971e5e7627822fe98dc42828":[2,0,262,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX47 =
 "structtinygltf_1_1Buffer.html#a5545746990373cc05baaa09812a5f269":[2,0,2,8,2],
 "structtinygltf_1_1Buffer.html#a5545746990373cc05baaa09812a5f269":[1,0,7,8,2],
 "structtinygltf_1_1Buffer.html#a66add7c41b46597653051c11961e2937":[1,0,7,8,3],
-"structtinygltf_1_1Buffer.html#a66add7c41b46597653051c11961e2937":[2,0,2,8,3],
-"structtinygltf_1_1Buffer.html#a8226bc10f4f7232bf68c148aa6f31da4":[2,0,2,8,6],
-"structtinygltf_1_1Buffer.html#a8226bc10f4f7232bf68c148aa6f31da4":[1,0,7,8,6]
+"structtinygltf_1_1Buffer.html#a66add7c41b46597653051c11961e2937":[2,0,2,8,3]
 };

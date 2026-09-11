@@ -1,5 +1,7 @@
 var NAVTREEINDEX50 =
 {
+"structtinygltf_1_1TextureInfo.html#ae0f7df880799dfae18b6217ea48e5ce4":[2,0,2,31,3],
+"structtinygltf_1_1TextureInfo.html#ae0f7df880799dfae18b6217ea48e5ce4":[1,0,7,31,3],
 "structtinygltf_1_1URICallbacks.html":[2,0,2,33],
 "structtinygltf_1_1URICallbacks.html":[1,0,7,33],
 "structtinygltf_1_1URICallbacks.html#a43244ccc4ff5ee228487e49c17865ee0":[1,0,7,33,2],

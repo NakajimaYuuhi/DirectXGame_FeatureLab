@@ -1,5 +1,7 @@
 var NAVTREEINDEX45 =
 {
+"structnlohmann_1_1detail_1_1internal__iterator.html#a8294a6e6f01b58e1cce8fbae66a50b5d":[1,0,3,0,31,0],
+"structnlohmann_1_1detail_1_1internal__iterator.html#a8cb0af3498061426c1d0a65ad6220408":[2,0,0,0,31,1],
 "structnlohmann_1_1detail_1_1internal__iterator.html#a8cb0af3498061426c1d0a65ad6220408":[1,0,3,0,31,1],
 "structnlohmann_1_1detail_1_1is__basic__json.html":[2,0,0,0,33],
 "structnlohmann_1_1detail_1_1is__basic__json.html":[1,0,3,0,33],
@@ -247,7 +249,5 @@ var NAVTREEINDEX45 =
 "structnlohmann_1_1detail_1_1nonesuch.html#a7b1119845860e548b67f1644a2084373":[1,0,3,0,101,1],
 "structnlohmann_1_1detail_1_1nonesuch.html#ad7719f7d2a00263be8b8d123870217d8":[2,0,0,0,101,3],
 "structnlohmann_1_1detail_1_1nonesuch.html#ad7719f7d2a00263be8b8d123870217d8":[1,0,3,0,101,3],
-"structnlohmann_1_1detail_1_1nonesuch.html#add6ef84c52a851e391cef514c85f2ffe":[1,0,3,0,101,5],
-"structnlohmann_1_1detail_1_1nonesuch.html#add6ef84c52a851e391cef514c85f2ffe":[2,0,0,0,101,5],
-"structnlohmann_1_1detail_1_1output__adapter__protocol.html":[1,0,3,0,105]
+"structnlohmann_1_1detail_1_1nonesuch.html#add6ef84c52a851e391cef514c85f2ffe":[1,0,3,0,101,5]
 };

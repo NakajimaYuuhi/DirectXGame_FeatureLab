@@ -1,5 +1,7 @@
 var NAVTREEINDEX35 =
 {
+"structImDrawListSplitter.html#af3fc4bad2abca9e481d476d1877ba5be":[2,0,78,4],
+"structImDrawVert.html":[2,0,79],
 "structImDrawVert.html#ab98ba53ce2690b56f5ba94682ed83940":[2,0,79,0],
 "structImDrawVert.html#abdf3183529055a6c3f709b23a4bf06b1":[2,0,79,2],
 "structImDrawVert.html#aedc578bbf364ddea71be12b4f177a5b4":[2,0,79,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX35 =
 "structImGuiBoxSelectState.html#a220cf66214aeee5a76fd3c5d5cf09be0":[2,0,99,4],
 "structImGuiBoxSelectState.html#a222395f607408b36a5340d74782eb412":[2,0,99,15],
 "structImGuiBoxSelectState.html#a4419f5981250a0b40d17a87c1980c14d":[2,0,99,7],
-"structImGuiBoxSelectState.html#a48fddd48ccff165c70c5f7fe553c943d":[2,0,99,2],
-"structImGuiBoxSelectState.html#a527a2f22d5d0de1b67693bd8ce484907":[2,0,99,9],
-"structImGuiBoxSelectState.html#a573c9e3ba48a0907bfb5e47d87d4df32":[2,0,99,6]
+"structImGuiBoxSelectState.html#a48fddd48ccff165c70c5f7fe553c943d":[2,0,99,2]
 };

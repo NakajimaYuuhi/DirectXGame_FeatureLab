@@ -128,8 +128,12 @@ PlayerAttackState 連携図</div>
 非公開変数類</h2></td></tr>
 <tr class="memitem:a35c0850da3e1d086ea0379fffd4e5d07" id="r_a35c0850da3e1d086ea0379fffd4e5d07"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerAttackState.html#a35c0850da3e1d086ea0379fffd4e5d07">m_attackTimer</a> = 0.0f</td></tr>
 <tr class="separator:a35c0850da3e1d086ea0379fffd4e5d07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82a29dbda7643525017dd711b6f1184e" id="r_a82a29dbda7643525017dd711b6f1184e"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerAttackState.html#a82a29dbda7643525017dd711b6f1184e">ATTACK_DURATION</a> = 0.2f</td></tr>
+<tr class="memitem:a75450d46b846cf14bba1b493872f553f" id="r_a75450d46b846cf14bba1b493872f553f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerAttackState.html#a75450d46b846cf14bba1b493872f553f">m_hasAttacked</a> = false</td></tr>
+<tr class="separator:a75450d46b846cf14bba1b493872f553f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82a29dbda7643525017dd711b6f1184e" id="r_a82a29dbda7643525017dd711b6f1184e"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerAttackState.html#a82a29dbda7643525017dd711b6f1184e">ATTACK_DURATION</a> = 0.9f</td></tr>
 <tr class="separator:a82a29dbda7643525017dd711b6f1184e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1a4a06746ff5ed5b6d774eb6985ee88" id="r_ab1a4a06746ff5ed5b6d774eb6985ee88"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerAttackState.html#ab1a4a06746ff5ed5b6d774eb6985ee88">CAST_TIMING</a> = 0.35f</td></tr>
+<tr class="separator:ab1a4a06746ff5ed5b6d774eb6985ee88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 その他の継承メンバ</h2></td></tr>
@@ -165,7 +169,7 @@ PlayerAttackState 連携図</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayerAttackState_aaeacef4c13b891cfe493e710960378d2_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPlayerAttackState_aaeacef4c13b891cfe493e710960378d2_cgraph.svg" width="384" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -225,7 +229,7 @@ PlayerAttackState 連携図</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classPlayerAttackState_a285b6125d04c6b154aa404bfb99b1b52_cgraph.svg" width="663" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayerAttackState_a285b6125d04c6b154aa404bfb99b1b52_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -241,7 +245,29 @@ PlayerAttackState 連携図</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const float PlayerAttackState::ATTACK_DURATION = 0.2f</td>
+          <td class="memname">const float PlayerAttackState::ATTACK_DURATION = 0.9f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab1a4a06746ff5ed5b6d774eb6985ee88" name="ab1a4a06746ff5ed5b6d774eb6985ee88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1a4a06746ff5ed5b6d774eb6985ee88">&#9670;&#160;</a></span>CAST_TIMING</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float PlayerAttackState::CAST_TIMING = 0.35f</td>
         </tr>
       </table>
   </td>
@@ -264,6 +290,28 @@ PlayerAttackState 連携図</div>
       <table class="memname">
         <tr>
           <td class="memname">float PlayerAttackState::m_attackTimer = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a75450d46b846cf14bba1b493872f553f" name="a75450d46b846cf14bba1b493872f553f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75450d46b846cf14bba1b493872f553f">&#9670;&#160;</a></span>m_hasAttacked</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PlayerAttackState::m_hasAttacked = false</td>
         </tr>
       </table>
   </td>

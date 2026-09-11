@@ -1,5 +1,7 @@
 var NAVTREEINDEX49 =
 {
+"structtinygltf_1_1OrthographicCamera.html#aec7e388263b72fb8de9ba0bfb99e8a4d":[1,0,7,20,3],
+"structtinygltf_1_1OrthographicCamera.html#aec7e388263b72fb8de9ba0bfb99e8a4d":[2,0,2,20,3],
 "structtinygltf_1_1OrthographicCamera.html#af603057c69ad85e522f083a24e65be56":[1,0,7,20,2],
 "structtinygltf_1_1OrthographicCamera.html#af603057c69ad85e522f083a24e65be56":[2,0,2,20,2],
 "structtinygltf_1_1Parameter.html":[1,0,7,21],
@@ -247,7 +249,5 @@ var NAVTREEINDEX49 =
 "structtinygltf_1_1TextureInfo.html#ac61f25915ada851c15c00106dd287c58":[1,0,7,31,7],
 "structtinygltf_1_1TextureInfo.html#ac61f25915ada851c15c00106dd287c58":[2,0,2,31,7],
 "structtinygltf_1_1TextureInfo.html#ada6724d5e04b193d229ca9169c251b3d":[2,0,2,31,6],
-"structtinygltf_1_1TextureInfo.html#ada6724d5e04b193d229ca9169c251b3d":[1,0,7,31,6],
-"structtinygltf_1_1TextureInfo.html#ae0f7df880799dfae18b6217ea48e5ce4":[2,0,2,31,3],
-"structtinygltf_1_1TextureInfo.html#ae0f7df880799dfae18b6217ea48e5ce4":[1,0,7,31,3]
+"structtinygltf_1_1TextureInfo.html#ada6724d5e04b193d229ca9169c251b3d":[1,0,7,31,6]
 };

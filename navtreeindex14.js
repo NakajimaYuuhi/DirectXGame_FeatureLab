@@ -1,5 +1,7 @@
 var NAVTREEINDEX14 =
 {
+"functions_type.html":[2,3,3],
+"functions_u.html":[2,3,0,22],
 "functions_v.html":[2,3,0,23],
 "functions_vars.html":[2,3,2,0],
 "functions_vars.html":[2,3,2],
@@ -34,8 +36,8 @@ var NAVTREEINDEX14 =
 "functions_y.html":[2,3,0,26],
 "functions_z.html":[2,3,0,27],
 "functions_~.html":[2,3,0,28],
-"globals.html":[3,1,0],
 "globals.html":[3,1,0,0],
+"globals.html":[3,1,0],
 "globals_a.html":[3,1,0,1],
 "globals_b.html":[3,1,0,2],
 "globals_c.html":[3,1,0,3],
@@ -62,8 +64,8 @@ var NAVTREEINDEX14 =
 "globals_eval_p.html":[3,1,5,2],
 "globals_eval_s.html":[3,1,5,3],
 "globals_f.html":[3,1,0,6],
-"globals_func.html":[3,1,1],
 "globals_func.html":[3,1,1,0],
+"globals_func.html":[3,1,1],
 "globals_func_a.html":[3,1,1,1],
 "globals_func_b.html":[3,1,1,2],
 "globals_func_c.html":[3,1,1,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX14 =
 "imgui_8cpp.html#aa217c2f0448788f3c064bf828a8f9d8f":[3,0,0,2,1,116],
 "imgui_8cpp.html#aa53a4a0b963d2d35b8e58442247e1239":[3,0,0,2,1,101],
 "imgui_8cpp.html#aa7a318e32bff29010e015a15ab6b6067":[3,0,0,2,1,187],
-"imgui_8cpp.html#aab6460bf5ebaa4975159cf0cd4324820":[3,0,0,2,1,60],
-"imgui_8cpp.html#aab7d3ffa460af6604421e8c2d8bdef19":[3,0,0,2,1,123],
-"imgui_8cpp.html#aad08b630ac40e56f64ad0a229bcd97ff":[3,0,0,2,1,188]
+"imgui_8cpp.html#aab6460bf5ebaa4975159cf0cd4324820":[3,0,0,2,1,60]
 };
