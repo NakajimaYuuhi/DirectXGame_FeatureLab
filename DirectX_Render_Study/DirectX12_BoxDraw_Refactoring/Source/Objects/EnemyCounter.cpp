@@ -6,6 +6,11 @@
 
 #include "EnemyCount.h"
 
+// イベント管理
+#include "EventManager.h"
+
+#include "EventData_NextScene.h"
+
 
 //コンストラクタ
 EnemyCounter::EnemyCounter(String _Name) 
@@ -36,4 +41,18 @@ void EnemyCounter::Defeat(int num_)
 	defeatCount_ += num_;
 	enemyCountUI_->UpdateText(defeatCount_);
 	Decrement(num_);
+
+	// 撃破したうえでEnemyカウントが0になったら、クリアシーンに遷移
+	if (enemyCount_ <= 0)
+	{
+		// クリアシーンに遷移
+		Event event;
+		EventData_NextScene* eventData_NextScene = new EventData_NextScene(Scenes::ID::Clear);
+
+		event.SetEventData(eventData_NextScene);
+
+		event.SetEventID(Events::ID::ChangeScene);
+
+		EventManager::GetInstance().AddEvent(event);
+	}
 }

@@ -120,7 +120,7 @@ void Player::PerformAttack()
 	if (bullet)
 	{
 		DirectX::XMFLOAT3 bulletPos = GetPos();
-		bullet->SetTransform({ bulletPos.x, bulletPos.y + 1.4f, bulletPos.z }, { 0.1f, 0.1f, 0.1f }, { 0.0f, 0.0f, 0.0f });
+		bullet->SetTransform({ bulletPos.x, bulletPos.y + 1.0f, bulletPos.z }, { 0.1f, 0.1f, 0.1f }, { 0.0f, 0.0f, 0.0f });
 
 		CModel* Bullet_Model = bullet->GetComponent<CModel>();
 		if (Bullet_Model)

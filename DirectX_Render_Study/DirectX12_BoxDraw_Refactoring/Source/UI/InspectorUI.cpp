@@ -7,6 +7,8 @@
 #include "BoxCollider3D.h"
 #include "Camera.h"
 #include "TimeManager.h"
+#include "Source/Core/Scenes/Manager/SceneManager.h"
+#include "SceneEnums.h"
 #include <typeinfo>
 
 bool CInspectorUI::ShouldUpdateGame()
@@ -39,7 +41,8 @@ void CInspectorUI::Draw()
 
     auto& objectList = ObjectManager::GetInstance().GetObjectList();
 
-    ImGui::Text("Game Controls");
+    // 1. Game & Time Controls
+    ImGui::Text("Game & Time Controls");
     if (ImGui::Button(m_isPaused ? "  Resume  " : "  Pause  "))
     {
         m_isPaused = !m_isPaused;
@@ -57,6 +60,31 @@ void CInspectorUI::Draw()
     ImGui::Checkbox("Show Box Colliders", &m_showColliders);
     ImGui::Separator();
 
+    // 2. Scene Controls
+    ImGui::Text("Scene Controls");
+    static const char* sceneNames[] = { "Title (TITLE)", "Test/Game (TEST)", "Clear (Clear)", "Failed (Failed)" };
+    static const Scenes::ID sceneIDs[] = { Scenes::ID::TITLE, Scenes::ID::TEST, Scenes::ID::Clear, Scenes::ID::Failed };
+    static int selectedSceneIndex = 0;
+
+    ImGui::Combo("Scene List", &selectedSceneIndex, sceneNames, IM_ARRAYSIZE(sceneNames));
+
+    if (ImGui::Button("Change Scene (Fade)"))
+    {
+        SceneManager::GetInstance().ChangeSceneWithFade(sceneIDs[selectedSceneIndex], 0.4f);
+    }
+    ImGui::SameLine();
+    if (ImGui::Button("Load Additive"))
+    {
+        SceneManager::GetInstance().LoadSceneAdditive(sceneIDs[selectedSceneIndex], true);
+    }
+    ImGui::SameLine();
+    if (ImGui::Button("Unload Selected"))
+    {
+        SceneManager::GetInstance().UnloadScene(sceneIDs[selectedSceneIndex]);
+    }
+    ImGui::Separator();
+
+    // 3. Hierarchy (Object List)
     ImGui::Text("Hierarchy");
     ImGui::Separator();
     
@@ -91,6 +119,7 @@ void CInspectorUI::Draw()
     }
     ImGui::EndChild();
 
+    // 4. Inspector (Selected Object Details)
     ImGui::Spacing();
     ImGui::Text("Inspector");
     ImGui::Separator();
