@@ -1,5 +1,6 @@
 var NAVTREEINDEX32 =
 {
+"namespacenlohmann_1_1detail.html#a7c06b590679604ecb0ea2a3b62bd254b":[1,0,3,0,193],
 "namespacenlohmann_1_1detail.html#a7cb5dd7d46a60e65f9a8e0873b3f7dd8":[1,0,3,0,187],
 "namespacenlohmann_1_1detail.html#a7deb2db8eed6f1762373dde7a6595760":[1,0,3,0,184],
 "namespacenlohmann_1_1detail.html#a7f7c7b9760161b774cdc0b4b838fae64":[1,0,3,0,223],
@@ -248,6 +249,5 @@ var NAVTREEINDEX32 =
 "structD2DTextRenderer_1_1TextInfo.html#a651d6a209e18ea2afd8d96bd0be91621":[2,0,41,1,2],
 "structD2DTextRenderer_1_1TextInfo.html#a7848f07c2a76dae5e850dcb671c199c3":[2,0,41,1,5],
 "structExampleAppConsole.html":[2,0,50],
-"structExampleAppConsole.html#a01c861ed21b9ec8de5e1ee2c762c627a":[2,0,50,12],
-"structExampleAppConsole.html#a0518a09c7e8648dd52c7c06df19ac17a":[2,0,50,4]
+"structExampleAppConsole.html#a01c861ed21b9ec8de5e1ee2c762c627a":[2,0,50,12]
 };

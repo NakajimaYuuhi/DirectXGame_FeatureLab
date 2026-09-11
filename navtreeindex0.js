@@ -59,6 +59,7 @@ var NAVTREEINDEX0 =
 "D2DTextRenderer_8h.html":[3,0,0,7,5],
 "D2DTextRenderer_8h_source.html":[3,0,0,7,5],
 "DX12Manager_8cpp.html":[3,0,0,1,1],
+"DX12Manager_8cpp.html#a88aa4a356a929dffaf267976d79bb237":[3,0,0,1,1,0],
 "DX12Manager_8h.html":[3,0,0,1,2],
 "DX12Manager_8h_source.html":[3,0,0,1,2],
 "DescriptorHeapAllocator_8cpp.html":[3,0,0,4,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "Shader_8cpp.html":[3,0,0,4,16],
 "Shader_8h.html":[3,0,0,4,17],
 "Shader_8h_source.html":[3,0,0,4,17],
-"Skydome_8cpp.html":[3,0,0,3,40],
-"Skydome_8h.html":[3,0,0,3,41]
+"Skydome_8cpp.html":[3,0,0,3,40]
 };

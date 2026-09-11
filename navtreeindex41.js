@@ -1,5 +1,6 @@
 var NAVTREEINDEX41 =
 {
+"structImGuiTreeNodeStackData.html#aeb6e6b1057fe91e4205b7196c1391174":[2,0,178,1],
 "structImGuiTreeNodeStackData.html#af8be982954d588f82380bc75c7b85350":[2,0,178,4],
 "structImGuiTypingSelectRequest.html":[2,0,179],
 "structImGuiTypingSelectRequest.html#a0381b8599e3e8137f2764b907521cb43":[2,0,179,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX41 =
 "structImGui__ImplDX12__Data.html#ac51215a8aa27a0c0fa095abc87e0a80b":[2,0,87,24],
 "structImGui__ImplDX12__Data.html#ac61eccc7bdd8782896d100ec000191c4":[2,0,87,14],
 "structImGui__ImplDX12__Data.html#ad3586af65e162ffb10897a3d2e72ca8e":[2,0,87,5],
-"structImGui__ImplDX12__Data.html#aea4e0263f27011f0174efda6bebc2bb1":[2,0,87,20],
-"structImGui__ImplDX12__InitInfo.html":[2,0,88]
+"structImGui__ImplDX12__Data.html#aea4e0263f27011f0174efda6bebc2bb1":[2,0,87,20]
 };
