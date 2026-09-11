@@ -15,6 +15,13 @@
 #include "ObjectManager.h"
 #include "Camera.h"
 
+
+// グラボのドライバ（NVIDIA / AMD）に対して、このアプリ起動時は外部GPUを強制使用するように伝える魔法
+extern "C" {
+	_declspec(dllexport) DWORD NvOptimusEnablement = 0x00000001;
+	_declspec(dllexport) int AmdPowerXpressRequestHighPerformance = 1;
+}
+
 //===== 定数・マクロ定義 =====
 const UINT DX12Manager::m_FrameBufferCount = FRAME_BUFFER_COUNT;   //フレームバッファの数
 
@@ -44,24 +51,72 @@ bool DX12Manager::Initialize(HWND hwnd)
 #endif
 
 	//DXGI Factory 作成
+	//hr = CreateDXGIFactory1(IID_PPV_ARGS(&m_factory));
+	//if (FAILED(hr))
+	//	return false;
+
+	////アダプタ取得
+	//ComPtr<IDXGIAdapter1> adapter;
+
+	//for (UINT i = 0;
+	//	m_factory->EnumAdapters1(i, &adapter) != DXGI_ERROR_NOT_FOUND;
+	//	++i)
+	//{
+	//	DXGI_ADAPTER_DESC1 desc;
+	//	adapter->GetDesc1(&desc);
+
+	//	// ソフトウェア（Microsoft Basic Render Driverなど）はスキップ
+	//	if (desc.Flags & DXGI_ADAPTER_FLAG_SOFTWARE)
+	//		continue;
+	//	break;
+	//}
+
+	// ----- 高性能なグラボが選ばれるように修正 -----
+
+	//DXGI Factory 作成 (※後続の関数を使うため、IDXGIFactory6 に変換できるように CreateDXGIFactory1 を使用)
 	hr = CreateDXGIFactory1(IID_PPV_ARGS(&m_factory));
 	if (FAILED(hr))
 		return false;
 
-	//アダプタ取得
+	// アダプタ取得
 	ComPtr<IDXGIAdapter1> adapter;
+	ComPtr<IDXGIFactory6> factory6;
 
-	for (UINT i = 0;
-		m_factory->EnumAdapters1(i, &adapter) != DXGI_ERROR_NOT_FOUND;
-		++i)
+	// FactoryをIDXGIFactory6にキャストして、EnumAdapterByGpuPreferenceを使えるようにする
+	if (SUCCEEDED(m_factory.As(&factory6)))
 	{
-		DXGI_ADAPTER_DESC1 desc;
-		adapter->GetDesc1(&desc);
+		// DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE を指定することで、
+		// 一番性能が高い（VRAMが多い外部GPUなど）順にグラボを列挙してくれる
+		for (UINT i = 0;
+			factory6->EnumAdapterByGpuPreference(i, DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE, IID_PPV_ARGS(&adapter)) != DXGI_ERROR_NOT_FOUND;
+			++i)
+		{
+			DXGI_ADAPTER_DESC1 desc;
+			adapter->GetDesc1(&desc);
 
-		if (desc.Flags & DXGI_ADAPTER_FLAG_SOFTWARE)
-			continue;
+			// ソフトウェア（Microsoft Basic Render Driverなど）はスキップ
+			if (desc.Flags & DXGI_ADAPTER_FLAG_SOFTWARE)
+				continue;
 
-		break;
+			// 高パフォーマンスなハードウェアGPUが見つかった時点で確定
+			break;
+		}
+	}
+	else
+	{
+		// 古いOSなどでIDXGIFactory6が使えない場合のフォールバック（元のコードの挙動）
+		for (UINT i = 0;
+			m_factory->EnumAdapters1(i, &adapter) != DXGI_ERROR_NOT_FOUND;
+			++i)
+		{
+			DXGI_ADAPTER_DESC1 desc;
+			adapter->GetDesc1(&desc);
+
+			if (desc.Flags & DXGI_ADAPTER_FLAG_SOFTWARE)
+				continue;
+
+			break;
+		}
 	}
 
 	//デバイス作成
