@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DirectX 12 Render Engine: Source/Objects/Enemy.cpp ファイル</title>
+<title>DirectX 12 Render Engine: Source/Objects/Enemy/Enemy.cpp ファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -94,6 +94,7 @@ $(document).ready(function(){initNavTree('Enemy_8cpp.html',''); initResizable();
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="Enemy_8h_source.html">Enemy.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="EnemyState_8h_source.html">EnemyState.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ObjectInfo_8h_source.html">ObjectInfo.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Model_8h_source.html">Model.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ModelManager_8h_source.html">ModelManager.h</a>&quot;</code><br />
@@ -104,6 +105,8 @@ $(document).ready(function(){initNavTree('Enemy_8cpp.html',''); initResizable();
 <code>#include &quot;<a class="el" href="BoxCollider3D_8h_source.html">BoxCollider3D.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Explosion_8h_source.html">Explosion.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="EnemyCounter_8h_source.html">EnemyCounter.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="TimeManager_8h_source.html">TimeManager.h</a>&quot;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Enemy.cpp の依存先関係図:</div>
 <div class="dyncontent">
@@ -114,7 +117,7 @@ Enemy.cpp の依存先関係図:</div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_90027755b37a19e59f21b2a53bff1c05.html">Objects</a></li><li class="navelem"><a class="el" href="Enemy_8cpp.html">Enemy.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_90027755b37a19e59f21b2a53bff1c05.html">Objects</a></li><li class="navelem"><a class="el" href="dir_ae2f9732ed8bce8de16d5dff6443bdb6.html">Enemy</a></li><li class="navelem"><a class="el" href="Enemy_8cpp.html">Enemy.cpp</a></li>
     <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>

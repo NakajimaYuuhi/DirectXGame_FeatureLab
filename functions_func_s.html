@@ -105,6 +105,7 @@ $(document).ready(function(){initNavTree('functions_func_s.html',''); initResiza
 <li>scan_string()&#160;:&#160;<a class="el" href="classnlohmann_1_1detail_1_1lexer.html#ab6352978e03ebcbc3cd618cd17142f26">nlohmann::detail::lexer&lt; BasicJsonType, InputAdapterType &gt;</a></li>
 <li>Scene()&#160;:&#160;<a class="el" href="structtinygltf_1_1Scene.html#a72a05f94e9956a3975c048329f701781">tinygltf::Scene</a></li>
 <li>SceneClear()&#160;:&#160;<a class="el" href="classSceneClear.html#a30e7a87c3215c7428b4b9a129cfecb33">SceneClear</a></li>
+<li>SceneFade()&#160;:&#160;<a class="el" href="classSceneFade.html#a95aa5482669d8ddc0d10c0b0fecea67b">SceneFade</a></li>
 <li>SceneFailed()&#160;:&#160;<a class="el" href="classSceneFailed.html#a01a1e1db68210f1909e81ba183b1e373">SceneFailed</a></li>
 <li>SceneManager()&#160;:&#160;<a class="el" href="classSceneManager.html#a453ab6cc351aa4a8a2dd5d44bcf929f3">SceneManager</a></li>
 <li>SceneTitle()&#160;:&#160;<a class="el" href="classSceneTitle.html#a841bc9115f6a988d61944ecc39a4bd16">SceneTitle</a></li>
@@ -118,6 +119,7 @@ $(document).ready(function(){initNavTree('functions_func_s.html',''); initResiza
 <li>set_parent()&#160;:&#160;<a class="el" href="classnlohmann_1_1basic__json.html#ae07f1fbbf4a6c835696c4d27dc919094">nlohmann::basic_json&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType, JSONSerializer, BinaryType &gt;</a></li>
 <li>set_parents()&#160;:&#160;<a class="el" href="classnlohmann_1_1basic__json.html#ade91330092a38c86ae056cca64a3647e">nlohmann::basic_json&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType, JSONSerializer, BinaryType &gt;</a></li>
 <li>set_subtype()&#160;:&#160;<a class="el" href="classnlohmann_1_1byte__container__with__subtype.html#aa8f9fca70673949d7483a6097d00d61c">nlohmann::byte_container_with_subtype&lt; BinaryType &gt;</a></li>
+<li>SetActiveScene()&#160;:&#160;<a class="el" href="classSceneManager.html#a5bd85f6261777bb0de531d84d413aa76">SceneManager</a></li>
 <li>SetAllBits()&#160;:&#160;<a class="el" href="structImBitArray.html#a52c1f3ec6a89c91e2090bf75e00152ac">ImBitArray&lt; BITCOUNT, OFFSET &gt;</a></li>
 <li>SetAllInt()&#160;:&#160;<a class="el" href="structImGuiStorage.html#ae5ee60618c4ce8e2b4ce0e5543d52992">ImGuiStorage</a></li>
 <li>SetAppAcceptingEvents()&#160;:&#160;<a class="el" href="structImGuiIO.html#a8ec563cbffee4818a89840654b8c4404">ImGuiIO</a></li>
@@ -183,6 +185,7 @@ $(document).ready(function(){initNavTree('functions_func_s.html',''); initResiza
 <li>SetSize()&#160;:&#160;<a class="el" href="classBoxCollider3D.html#a2207d83950f9a209c90a5ca8dfca0e7d">BoxCollider3D</a>, <a class="el" href="classCSpriteRenderer.html#ad680b030bad938711b0934dc6949cf94">CSpriteRenderer</a>, <a class="el" href="classCUIObject.html#a89874f623e08491c4052c7d76cb743e9">CUIObject</a></li>
 <li>SetStatus()&#160;:&#160;<a class="el" href="structImTextureData.html#a95ba3b442e17cc2a7c9ab4b538011005">ImTextureData</a></li>
 <li>SetStoreOriginalJSONForExtrasAndExtensions()&#160;:&#160;<a class="el" href="classtinygltf_1_1TinyGLTF.html#ad5167271a0f1a2a768e726d05f906352">tinygltf::TinyGLTF</a></li>
+<li>SetTargetFPS()&#160;:&#160;<a class="el" href="classTimeManager.html#a51340d7297248a208e4192059a6b42ae">TimeManager</a></li>
 <li>SetTexID()&#160;:&#160;<a class="el" href="structImFontAtlas.html#a96ffd1956c11dac4f79b43c095828445">ImFontAtlas</a>, <a class="el" href="structImTextureData.html#ab8d44d2241e397f28649e6cc606da1ec">ImTextureData</a></li>
 <li>SetText()&#160;:&#160;<a class="el" href="classCTextRenderer.html#af4b11115ec2066eb61dc57186859b10c">CTextRenderer</a>, <a class="el" href="classTextObject.html#a6258eea3343b4d424a025be131245084">TextObject</a></li>
 <li>SetTexture()&#160;:&#160;<a class="el" href="classCSpriteRenderer.html#aad28ac66f5263004f5001cdbc5220fbb">CSpriteRenderer</a>, <a class="el" href="classCUIObject.html#aff0e46ee3d11da5108d109f4980aa342">CUIObject</a></li>
@@ -214,6 +217,8 @@ $(document).ready(function(){initNavTree('functions_func_s.html',''); initResiza
 <li>SpotLight()&#160;:&#160;<a class="el" href="structtinygltf_1_1SpotLight.html#a2034b6a5ede0d4d2f3eef221c5e74cba">tinygltf::SpotLight</a></li>
 <li>start_array()&#160;:&#160;<a class="el" href="classnlohmann_1_1detail_1_1json__sax__acceptor.html#a8238e8090cbb4ed8a22cbc97bfb833a5">nlohmann::detail::json_sax_acceptor&lt; BasicJsonType &gt;</a>, <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a5255b98ba8282e3625968f91cff9d3d0">nlohmann::detail::json_sax_dom_callback_parser&lt; BasicJsonType &gt;</a>, <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__parser.html#a056b895d011efaf48ea096c024aca0d4">nlohmann::detail::json_sax_dom_parser&lt; BasicJsonType &gt;</a>, <a class="el" href="structnlohmann_1_1json__sax.html#a5c53878cf08d463eb4e7ca0270532572">nlohmann::json_sax&lt; BasicJsonType &gt;</a></li>
 <li>start_object()&#160;:&#160;<a class="el" href="classnlohmann_1_1detail_1_1json__sax__acceptor.html#a822bbca11a9fea0aa337018e351755f5">nlohmann::detail::json_sax_acceptor&lt; BasicJsonType &gt;</a>, <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a040e60243cc7c18a6078c6b83cdb4a81">nlohmann::detail::json_sax_dom_callback_parser&lt; BasicJsonType &gt;</a>, <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__parser.html#a9929b4cc92d471c49bd0a92802629f90">nlohmann::detail::json_sax_dom_parser&lt; BasicJsonType &gt;</a>, <a class="el" href="structnlohmann_1_1json__sax.html#a0671528b0debb5a348169d61f0382a0f">nlohmann::json_sax&lt; BasicJsonType &gt;</a></li>
+<li>StartFadeIn()&#160;:&#160;<a class="el" href="classSceneFade.html#a2e60ed75baa01fcfb98cf9158c51a2e1">SceneFade</a></li>
+<li>StartFadeOut()&#160;:&#160;<a class="el" href="classSceneFade.html#acef2ac64c94b4d4172931e47d620406a">SceneFade</a></li>
 <li>StateMachine()&#160;:&#160;<a class="el" href="classStateMachine.html#a87a407bbdf2439dbcd6227199b3888c1">StateMachine&lt; T &gt;</a></li>
 <li>Step()&#160;:&#160;<a class="el" href="structImGuiListClipper.html#ac3e115812c3c4e5a39578a7aa955379a">ImGuiListClipper</a></li>
 <li>Strdup()&#160;:&#160;<a class="el" href="structExampleAppConsole.html#ab81253ac3575f7fcd63a61c7f5820913">ExampleAppConsole</a></li>

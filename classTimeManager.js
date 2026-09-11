@@ -1,0 +1,22 @@
+var classTimeManager =
+[
+    [ "TimeManager", "classTimeManager.html#ab1c3cbb48ad68d928bb8b9a4ef210ed6", null ],
+    [ "~TimeManager", "classTimeManager.html#aef36434a56af7840559b2d509177440f", null ],
+    [ "TimeManager", "classTimeManager.html#a10508dcd4da65973c3c341adfe83cb8e", null ],
+    [ "GetDeltaTime", "classTimeManager.html#ac726f1762eabb1e0ece022b3d7cdf7ef", null ],
+    [ "GetFPS", "classTimeManager.html#a0ed3d328104ee074001d69c71dfb3351", null ],
+    [ "GetInstance", "classTimeManager.html#a3c3cabab06a07ab72e14731d622df05a", null ],
+    [ "Init", "classTimeManager.html#a4edb853c36f00ef0ae70c4cb58dd8852", null ],
+    [ "operator=", "classTimeManager.html#ab9eaba9ec18a580bfaa4e43d4022728a", null ],
+    [ "SetTargetFPS", "classTimeManager.html#a51340d7297248a208e4192059a6b42ae", null ],
+    [ "Update", "classTimeManager.html#afdf5ccb706dfd5cd71882424ddf4301d", null ],
+    [ "m_currentFPS", "classTimeManager.html#a32f38b6c32d0ea869084afc7dbec953f", null ],
+    [ "m_currTime", "classTimeManager.html#af6e37145beb9d07fb7253ffc5b7fc0d8", null ],
+    [ "m_deltaTime", "classTimeManager.html#a91efda0ee42d903b11c5483a01fab915", null ],
+    [ "m_fpsTimer", "classTimeManager.html#aa2633d69aa231faae751b11107c953c7", null ],
+    [ "m_frameCount", "classTimeManager.html#a20a12cad1ac3d6190e3a1ead6e6a8b31", null ],
+    [ "m_frequency", "classTimeManager.html#a7fb8ab37f8b4a6fb702b1ff1a3c8d044", null ],
+    [ "m_prevTime", "classTimeManager.html#aad9fd415e9f631975edc1b47144615f8", null ],
+    [ "m_targetFPS", "classTimeManager.html#aa48f8e2d13150aa429bfe3a3679ba4d9", null ],
+    [ "m_targetFrameTime", "classTimeManager.html#a63057ab62010bd5dc500710794286108", null ]
+];

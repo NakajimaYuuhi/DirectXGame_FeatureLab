@@ -9,6 +9,7 @@ var SceneEnums_8h =
       [ "Clear", "SceneEnums_8h.html#a0ad7ab6856b1d77d498e3a251f6bb275a44bf1081ac3b34e3fbfecb11277e285b", null ],
       [ "Failed", "SceneEnums_8h.html#a0ad7ab6856b1d77d498e3a251f6bb275a41870cd07b41af1d5736fbd370cde657", null ],
       [ "TEST", "SceneEnums_8h.html#a0ad7ab6856b1d77d498e3a251f6bb275ac4428a6e926eab59d2a9136f4131dcaa", null ],
+      [ "FADE", "SceneEnums_8h.html#a0ad7ab6856b1d77d498e3a251f6bb275a4e85d40469e6cb700492f6956cd37c3c", null ],
       [ "Exit", "SceneEnums_8h.html#a0ad7ab6856b1d77d498e3a251f6bb275ac0621cf6ec52db2d78dc209407f2d5df", null ],
       [ "NUM", "SceneEnums_8h.html#a0ad7ab6856b1d77d498e3a251f6bb275a84e37af095de91ec284302c6bd2bbe04", null ]
     ] ]

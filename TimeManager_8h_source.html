@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Core/TimeManager.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('TimeManager_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">TimeManager.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="TimeManager_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;windows.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="foldopen" id="foldopen00004" data-start="{" data-end="};">
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="classTimeManager.html">    4</a></span><span class="keyword">class </span><a class="code hl_class" href="classTimeManager.html">TimeManager</a></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00007" data-start="{" data-end="}">
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="classTimeManager.html#a3c3cabab06a07ab72e14731d622df05a">    7</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classTimeManager.html">TimeManager</a>&amp; <a class="code hl_function" href="classTimeManager.html#a3c3cabab06a07ab72e14731d622df05a">GetInstance</a>()</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    {</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>        <span class="keyword">static</span> <a class="code hl_class" href="classTimeManager.html">TimeManager</a> instance;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        <span class="keywordflow">return</span> instance;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    }</div>
+</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTimeManager.html#a4edb853c36f00ef0ae70c4cb58dd8852">Init</a>(<span class="keywordtype">float</span> targetFPS = 60.0f);</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTimeManager.html#afdf5ccb706dfd5cd71882424ddf4301d">Update</a>();</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classTimeManager.html#ac726f1762eabb1e0ece022b3d7cdf7ef">   16</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classTimeManager.html#ac726f1762eabb1e0ece022b3d7cdf7ef">GetDeltaTime</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classTimeManager.html#a91efda0ee42d903b11c5483a01fab915">m_deltaTime</a>; }</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classTimeManager.html#a0ed3d328104ee074001d69c71dfb3351">   17</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classTimeManager.html#a0ed3d328104ee074001d69c71dfb3351">GetFPS</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classTimeManager.html#a32f38b6c32d0ea869084afc7dbec953f">m_currentFPS</a>; }</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTimeManager.html#a51340d7297248a208e4192059a6b42ae">SetTargetFPS</a>(<span class="keywordtype">float</span> targetFPS);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_function" href="classTimeManager.html#ab1c3cbb48ad68d928bb8b9a4ef210ed6">TimeManager</a>();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classTimeManager.html#aef36434a56af7840559b2d509177440f">   23</a></span>    <a class="code hl_function" href="classTimeManager.html#aef36434a56af7840559b2d509177440f">~TimeManager</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classTimeManager.html#a10508dcd4da65973c3c341adfe83cb8e">   25</a></span>    <a class="code hl_function" href="classTimeManager.html#a10508dcd4da65973c3c341adfe83cb8e">TimeManager</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTimeManager.html">TimeManager</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classTimeManager.html#ab9eaba9ec18a580bfaa4e43d4022728a">   26</a></span>    <a class="code hl_class" href="classTimeManager.html">TimeManager</a>&amp; <a class="code hl_function" href="classTimeManager.html#ab9eaba9ec18a580bfaa4e43d4022728a">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTimeManager.html">TimeManager</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classTimeManager.html#a7fb8ab37f8b4a6fb702b1ff1a3c8d044">   28</a></span>    LARGE_INTEGER <a class="code hl_variable" href="classTimeManager.html#a7fb8ab37f8b4a6fb702b1ff1a3c8d044">m_frequency</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classTimeManager.html#aad9fd415e9f631975edc1b47144615f8">   29</a></span>    LARGE_INTEGER <a class="code hl_variable" href="classTimeManager.html#aad9fd415e9f631975edc1b47144615f8">m_prevTime</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classTimeManager.html#af6e37145beb9d07fb7253ffc5b7fc0d8">   30</a></span>    LARGE_INTEGER <a class="code hl_variable" href="classTimeManager.html#af6e37145beb9d07fb7253ffc5b7fc0d8">m_currTime</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classTimeManager.html#aa48f8e2d13150aa429bfe3a3679ba4d9">   32</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classTimeManager.html#aa48f8e2d13150aa429bfe3a3679ba4d9">m_targetFPS</a> = 60.0f;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classTimeManager.html#a63057ab62010bd5dc500710794286108">   33</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classTimeManager.html#a63057ab62010bd5dc500710794286108">m_targetFrameTime</a> = 1.0f / 60.0f;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classTimeManager.html#a91efda0ee42d903b11c5483a01fab915">   34</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classTimeManager.html#a91efda0ee42d903b11c5483a01fab915">m_deltaTime</a> = 0.01667f;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classTimeManager.html#a32f38b6c32d0ea869084afc7dbec953f">   35</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classTimeManager.html#a32f38b6c32d0ea869084afc7dbec953f">m_currentFPS</a> = 60.0f;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classTimeManager.html#a20a12cad1ac3d6190e3a1ead6e6a8b31">   37</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classTimeManager.html#a20a12cad1ac3d6190e3a1ead6e6a8b31">m_frameCount</a> = 0.0f;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classTimeManager.html#aa2633d69aa231faae751b11107c953c7">   38</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classTimeManager.html#aa2633d69aa231faae751b11107c953c7">m_fpsTimer</a> = 0.0f;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>};</div>
+</div>
+<div class="ttc" id="aclassTimeManager_html"><div class="ttname"><a href="classTimeManager.html">TimeManager</a></div><div class="ttdef"><b>Definition</b> TimeManager.h:5</div></div>
+<div class="ttc" id="aclassTimeManager_html_a0ed3d328104ee074001d69c71dfb3351"><div class="ttname"><a href="classTimeManager.html#a0ed3d328104ee074001d69c71dfb3351">TimeManager::GetFPS</a></div><div class="ttdeci">float GetFPS() const</div><div class="ttdef"><b>Definition</b> TimeManager.h:17</div></div>
+<div class="ttc" id="aclassTimeManager_html_a10508dcd4da65973c3c341adfe83cb8e"><div class="ttname"><a href="classTimeManager.html#a10508dcd4da65973c3c341adfe83cb8e">TimeManager::TimeManager</a></div><div class="ttdeci">TimeManager(const TimeManager &amp;)=delete</div></div>
+<div class="ttc" id="aclassTimeManager_html_a20a12cad1ac3d6190e3a1ead6e6a8b31"><div class="ttname"><a href="classTimeManager.html#a20a12cad1ac3d6190e3a1ead6e6a8b31">TimeManager::m_frameCount</a></div><div class="ttdeci">float m_frameCount</div><div class="ttdef"><b>Definition</b> TimeManager.h:37</div></div>
+<div class="ttc" id="aclassTimeManager_html_a32f38b6c32d0ea869084afc7dbec953f"><div class="ttname"><a href="classTimeManager.html#a32f38b6c32d0ea869084afc7dbec953f">TimeManager::m_currentFPS</a></div><div class="ttdeci">float m_currentFPS</div><div class="ttdef"><b>Definition</b> TimeManager.h:35</div></div>
+<div class="ttc" id="aclassTimeManager_html_a3c3cabab06a07ab72e14731d622df05a"><div class="ttname"><a href="classTimeManager.html#a3c3cabab06a07ab72e14731d622df05a">TimeManager::GetInstance</a></div><div class="ttdeci">static TimeManager &amp; GetInstance()</div><div class="ttdef"><b>Definition</b> TimeManager.h:7</div></div>
+<div class="ttc" id="aclassTimeManager_html_a4edb853c36f00ef0ae70c4cb58dd8852"><div class="ttname"><a href="classTimeManager.html#a4edb853c36f00ef0ae70c4cb58dd8852">TimeManager::Init</a></div><div class="ttdeci">void Init(float targetFPS=60.0f)</div><div class="ttdef"><b>Definition</b> TimeManager.cpp:11</div></div>
+<div class="ttc" id="aclassTimeManager_html_a51340d7297248a208e4192059a6b42ae"><div class="ttname"><a href="classTimeManager.html#a51340d7297248a208e4192059a6b42ae">TimeManager::SetTargetFPS</a></div><div class="ttdeci">void SetTargetFPS(float targetFPS)</div><div class="ttdef"><b>Definition</b> TimeManager.cpp:18</div></div>
+<div class="ttc" id="aclassTimeManager_html_a63057ab62010bd5dc500710794286108"><div class="ttname"><a href="classTimeManager.html#a63057ab62010bd5dc500710794286108">TimeManager::m_targetFrameTime</a></div><div class="ttdeci">float m_targetFrameTime</div><div class="ttdef"><b>Definition</b> TimeManager.h:33</div></div>
+<div class="ttc" id="aclassTimeManager_html_a7fb8ab37f8b4a6fb702b1ff1a3c8d044"><div class="ttname"><a href="classTimeManager.html#a7fb8ab37f8b4a6fb702b1ff1a3c8d044">TimeManager::m_frequency</a></div><div class="ttdeci">LARGE_INTEGER m_frequency</div><div class="ttdef"><b>Definition</b> TimeManager.h:28</div></div>
+<div class="ttc" id="aclassTimeManager_html_a91efda0ee42d903b11c5483a01fab915"><div class="ttname"><a href="classTimeManager.html#a91efda0ee42d903b11c5483a01fab915">TimeManager::m_deltaTime</a></div><div class="ttdeci">float m_deltaTime</div><div class="ttdef"><b>Definition</b> TimeManager.h:34</div></div>
+<div class="ttc" id="aclassTimeManager_html_aa2633d69aa231faae751b11107c953c7"><div class="ttname"><a href="classTimeManager.html#aa2633d69aa231faae751b11107c953c7">TimeManager::m_fpsTimer</a></div><div class="ttdeci">float m_fpsTimer</div><div class="ttdef"><b>Definition</b> TimeManager.h:38</div></div>
+<div class="ttc" id="aclassTimeManager_html_aa48f8e2d13150aa429bfe3a3679ba4d9"><div class="ttname"><a href="classTimeManager.html#aa48f8e2d13150aa429bfe3a3679ba4d9">TimeManager::m_targetFPS</a></div><div class="ttdeci">float m_targetFPS</div><div class="ttdef"><b>Definition</b> TimeManager.h:32</div></div>
+<div class="ttc" id="aclassTimeManager_html_aad9fd415e9f631975edc1b47144615f8"><div class="ttname"><a href="classTimeManager.html#aad9fd415e9f631975edc1b47144615f8">TimeManager::m_prevTime</a></div><div class="ttdeci">LARGE_INTEGER m_prevTime</div><div class="ttdef"><b>Definition</b> TimeManager.h:29</div></div>
+<div class="ttc" id="aclassTimeManager_html_ab1c3cbb48ad68d928bb8b9a4ef210ed6"><div class="ttname"><a href="classTimeManager.html#ab1c3cbb48ad68d928bb8b9a4ef210ed6">TimeManager::TimeManager</a></div><div class="ttdeci">TimeManager()</div><div class="ttdef"><b>Definition</b> TimeManager.cpp:4</div></div>
+<div class="ttc" id="aclassTimeManager_html_ab9eaba9ec18a580bfaa4e43d4022728a"><div class="ttname"><a href="classTimeManager.html#ab9eaba9ec18a580bfaa4e43d4022728a">TimeManager::operator=</a></div><div class="ttdeci">TimeManager &amp; operator=(const TimeManager &amp;)=delete</div></div>
+<div class="ttc" id="aclassTimeManager_html_ac726f1762eabb1e0ece022b3d7cdf7ef"><div class="ttname"><a href="classTimeManager.html#ac726f1762eabb1e0ece022b3d7cdf7ef">TimeManager::GetDeltaTime</a></div><div class="ttdeci">float GetDeltaTime() const</div><div class="ttdef"><b>Definition</b> TimeManager.h:16</div></div>
+<div class="ttc" id="aclassTimeManager_html_aef36434a56af7840559b2d509177440f"><div class="ttname"><a href="classTimeManager.html#aef36434a56af7840559b2d509177440f">TimeManager::~TimeManager</a></div><div class="ttdeci">~TimeManager()=default</div></div>
+<div class="ttc" id="aclassTimeManager_html_af6e37145beb9d07fb7253ffc5b7fc0d8"><div class="ttname"><a href="classTimeManager.html#af6e37145beb9d07fb7253ffc5b7fc0d8">TimeManager::m_currTime</a></div><div class="ttdeci">LARGE_INTEGER m_currTime</div><div class="ttdef"><b>Definition</b> TimeManager.h:30</div></div>
+<div class="ttc" id="aclassTimeManager_html_afdf5ccb706dfd5cd71882424ddf4301d"><div class="ttname"><a href="classTimeManager.html#afdf5ccb706dfd5cd71882424ddf4301d">TimeManager::Update</a></div><div class="ttdeci">void Update()</div><div class="ttdef"><b>Definition</b> TimeManager.cpp:31</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_1ad6433457b0067ef8f54a4fa85f5c9a.html">Core</a></li><li class="navelem"><a class="el" href="TimeManager_8h.html">TimeManager.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

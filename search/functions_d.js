@@ -25,10 +25,11 @@ var searchData=
   ['moveall_22',['MoveAll',['../structExampleDualListBox.html#ad6cacee15ae085f2074e346c542ec820',1,'ExampleDualListBox']]],
   ['moved_5for_5fcopied_23',['moved_or_copied',['../classnlohmann_1_1detail_1_1json__ref.html#ae39e523218bf05cac3fb5b5b1cd5efb6',1,'nlohmann::detail::json_ref']]],
   ['moveselected_24',['MoveSelected',['../structExampleDualListBox.html#a698e8cfeb3feee52d68b5785bc0c84e1',1,'ExampleDualListBox']]],
-  ['mul_25',['mul',['../structnlohmann_1_1detail_1_1dtoa__impl_1_1diyfp.html#aa5f250d12ce89c81fdb08900c6a823e8',1,'nlohmann::detail::dtoa_impl::diyfp']]],
-  ['multiselectaddsetall_26',['MultiSelectAddSetAll',['../namespaceImGui.html#a51e29bae6ffe6afa11810a05d8aef616',1,'ImGui']]],
-  ['multiselectaddsetrange_27',['MultiSelectAddSetRange',['../namespaceImGui.html#adff96cc143145096d8a88477f18ac208',1,'ImGui']]],
-  ['multiselectitemfooter_28',['MultiSelectItemFooter',['../namespaceImGui.html#a69762bfb0eaf3daa730895737bce05e5',1,'ImGui']]],
-  ['multiselectitemheader_29',['MultiSelectItemHeader',['../namespaceImGui.html#a42a98da805c3612b26b829e0567fdc0f',1,'ImGui']]],
-  ['mydocument_30',['MyDocument',['../structMyDocument.html#adcd14ce86b5e8cb1ac5e013851c24cc9',1,'MyDocument']]]
+  ['movetowards_25',['MoveTowards',['../classEnemy.html#ab52d311ca2634bf6a9335c02fc11aaea',1,'Enemy']]],
+  ['mul_26',['mul',['../structnlohmann_1_1detail_1_1dtoa__impl_1_1diyfp.html#aa5f250d12ce89c81fdb08900c6a823e8',1,'nlohmann::detail::dtoa_impl::diyfp']]],
+  ['multiselectaddsetall_27',['MultiSelectAddSetAll',['../namespaceImGui.html#a51e29bae6ffe6afa11810a05d8aef616',1,'ImGui']]],
+  ['multiselectaddsetrange_28',['MultiSelectAddSetRange',['../namespaceImGui.html#adff96cc143145096d8a88477f18ac208',1,'ImGui']]],
+  ['multiselectitemfooter_29',['MultiSelectItemFooter',['../namespaceImGui.html#a69762bfb0eaf3daa730895737bce05e5',1,'ImGui']]],
+  ['multiselectitemheader_30',['MultiSelectItemHeader',['../namespaceImGui.html#a42a98da805c3612b26b829e0567fdc0f',1,'ImGui']]],
+  ['mydocument_31',['MyDocument',['../structMyDocument.html#adcd14ce86b5e8cb1ac5e013851c24cc9',1,'MyDocument']]]
 ];

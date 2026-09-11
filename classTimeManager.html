@@ -1,0 +1,630 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: TimeManager クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classTimeManager.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
+<a href="#pri-methods">非公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classTimeManager-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">TimeManager クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="TimeManager_8h_source.html">TimeManager.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a4edb853c36f00ef0ae70c4cb58dd8852" id="r_a4edb853c36f00ef0ae70c4cb58dd8852"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#a4edb853c36f00ef0ae70c4cb58dd8852">Init</a> (float targetFPS=60.0f)</td></tr>
+<tr class="separator:a4edb853c36f00ef0ae70c4cb58dd8852"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdf5ccb706dfd5cd71882424ddf4301d" id="r_afdf5ccb706dfd5cd71882424ddf4301d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#afdf5ccb706dfd5cd71882424ddf4301d">Update</a> ()</td></tr>
+<tr class="separator:afdf5ccb706dfd5cd71882424ddf4301d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac726f1762eabb1e0ece022b3d7cdf7ef" id="r_ac726f1762eabb1e0ece022b3d7cdf7ef"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#ac726f1762eabb1e0ece022b3d7cdf7ef">GetDeltaTime</a> () const</td></tr>
+<tr class="separator:ac726f1762eabb1e0ece022b3d7cdf7ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ed3d328104ee074001d69c71dfb3351" id="r_a0ed3d328104ee074001d69c71dfb3351"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#a0ed3d328104ee074001d69c71dfb3351">GetFPS</a> () const</td></tr>
+<tr class="separator:a0ed3d328104ee074001d69c71dfb3351"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51340d7297248a208e4192059a6b42ae" id="r_a51340d7297248a208e4192059a6b42ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#a51340d7297248a208e4192059a6b42ae">SetTargetFPS</a> (float targetFPS)</td></tr>
+<tr class="separator:a51340d7297248a208e4192059a6b42ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静的公開メンバ関数</h2></td></tr>
+<tr class="memitem:a3c3cabab06a07ab72e14731d622df05a" id="r_a3c3cabab06a07ab72e14731d622df05a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classTimeManager.html">TimeManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#a3c3cabab06a07ab72e14731d622df05a">GetInstance</a> ()</td></tr>
+<tr class="separator:a3c3cabab06a07ab72e14731d622df05a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+非公開メンバ関数</h2></td></tr>
+<tr class="memitem:ab1c3cbb48ad68d928bb8b9a4ef210ed6" id="r_ab1c3cbb48ad68d928bb8b9a4ef210ed6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#ab1c3cbb48ad68d928bb8b9a4ef210ed6">TimeManager</a> ()</td></tr>
+<tr class="separator:ab1c3cbb48ad68d928bb8b9a4ef210ed6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef36434a56af7840559b2d509177440f" id="r_aef36434a56af7840559b2d509177440f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#aef36434a56af7840559b2d509177440f">~TimeManager</a> ()=default</td></tr>
+<tr class="separator:aef36434a56af7840559b2d509177440f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10508dcd4da65973c3c341adfe83cb8e" id="r_a10508dcd4da65973c3c341adfe83cb8e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#a10508dcd4da65973c3c341adfe83cb8e">TimeManager</a> (const <a class="el" href="classTimeManager.html">TimeManager</a> &amp;)=delete</td></tr>
+<tr class="separator:a10508dcd4da65973c3c341adfe83cb8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9eaba9ec18a580bfaa4e43d4022728a" id="r_ab9eaba9ec18a580bfaa4e43d4022728a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTimeManager.html">TimeManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#ab9eaba9ec18a580bfaa4e43d4022728a">operator=</a> (const <a class="el" href="classTimeManager.html">TimeManager</a> &amp;)=delete</td></tr>
+<tr class="separator:ab9eaba9ec18a580bfaa4e43d4022728a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:a7fb8ab37f8b4a6fb702b1ff1a3c8d044" id="r_a7fb8ab37f8b4a6fb702b1ff1a3c8d044"><td class="memItemLeft" align="right" valign="top">LARGE_INTEGER&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#a7fb8ab37f8b4a6fb702b1ff1a3c8d044">m_frequency</a></td></tr>
+<tr class="separator:a7fb8ab37f8b4a6fb702b1ff1a3c8d044"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad9fd415e9f631975edc1b47144615f8" id="r_aad9fd415e9f631975edc1b47144615f8"><td class="memItemLeft" align="right" valign="top">LARGE_INTEGER&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#aad9fd415e9f631975edc1b47144615f8">m_prevTime</a></td></tr>
+<tr class="separator:aad9fd415e9f631975edc1b47144615f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6e37145beb9d07fb7253ffc5b7fc0d8" id="r_af6e37145beb9d07fb7253ffc5b7fc0d8"><td class="memItemLeft" align="right" valign="top">LARGE_INTEGER&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#af6e37145beb9d07fb7253ffc5b7fc0d8">m_currTime</a></td></tr>
+<tr class="separator:af6e37145beb9d07fb7253ffc5b7fc0d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa48f8e2d13150aa429bfe3a3679ba4d9" id="r_aa48f8e2d13150aa429bfe3a3679ba4d9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#aa48f8e2d13150aa429bfe3a3679ba4d9">m_targetFPS</a> = 60.0f</td></tr>
+<tr class="separator:aa48f8e2d13150aa429bfe3a3679ba4d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63057ab62010bd5dc500710794286108" id="r_a63057ab62010bd5dc500710794286108"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#a63057ab62010bd5dc500710794286108">m_targetFrameTime</a> = 1.0f / 60.0f</td></tr>
+<tr class="separator:a63057ab62010bd5dc500710794286108"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91efda0ee42d903b11c5483a01fab915" id="r_a91efda0ee42d903b11c5483a01fab915"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#a91efda0ee42d903b11c5483a01fab915">m_deltaTime</a> = 0.01667f</td></tr>
+<tr class="separator:a91efda0ee42d903b11c5483a01fab915"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32f38b6c32d0ea869084afc7dbec953f" id="r_a32f38b6c32d0ea869084afc7dbec953f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#a32f38b6c32d0ea869084afc7dbec953f">m_currentFPS</a> = 60.0f</td></tr>
+<tr class="separator:a32f38b6c32d0ea869084afc7dbec953f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20a12cad1ac3d6190e3a1ead6e6a8b31" id="r_a20a12cad1ac3d6190e3a1ead6e6a8b31"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#a20a12cad1ac3d6190e3a1ead6e6a8b31">m_frameCount</a> = 0.0f</td></tr>
+<tr class="separator:a20a12cad1ac3d6190e3a1ead6e6a8b31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2633d69aa231faae751b11107c953c7" id="r_aa2633d69aa231faae751b11107c953c7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#aa2633d69aa231faae751b11107c953c7">m_fpsTimer</a> = 0.0f</td></tr>
+<tr class="separator:aa2633d69aa231faae751b11107c953c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="ab1c3cbb48ad68d928bb8b9a4ef210ed6" name="ab1c3cbb48ad68d928bb8b9a4ef210ed6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1c3cbb48ad68d928bb8b9a4ef210ed6">&#9670;&#160;</a></span>TimeManager() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TimeManager::TimeManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aef36434a56af7840559b2d509177440f" name="aef36434a56af7840559b2d509177440f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef36434a56af7840559b2d509177440f">&#9670;&#160;</a></span>~TimeManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TimeManager::~TimeManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a10508dcd4da65973c3c341adfe83cb8e" name="a10508dcd4da65973c3c341adfe83cb8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10508dcd4da65973c3c341adfe83cb8e">&#9670;&#160;</a></span>TimeManager() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TimeManager::TimeManager </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classTimeManager.html">TimeManager</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="ac726f1762eabb1e0ece022b3d7cdf7ef" name="ac726f1762eabb1e0ece022b3d7cdf7ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac726f1762eabb1e0ece022b3d7cdf7ef">&#9670;&#160;</a></span>GetDeltaTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float TimeManager::GetDeltaTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classTimeManager_ac726f1762eabb1e0ece022b3d7cdf7ef_icgraph.svg" width="416" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0ed3d328104ee074001d69c71dfb3351" name="a0ed3d328104ee074001d69c71dfb3351"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ed3d328104ee074001d69c71dfb3351">&#9670;&#160;</a></span>GetFPS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float TimeManager::GetFPS </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3c3cabab06a07ab72e14731d622df05a" name="a3c3cabab06a07ab72e14731d622df05a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c3cabab06a07ab72e14731d622df05a">&#9670;&#160;</a></span>GetInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classTimeManager.html">TimeManager</a> &amp; TimeManager::GetInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classTimeManager_a3c3cabab06a07ab72e14731d622df05a_icgraph.svg" width="404" height="184"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a4edb853c36f00ef0ae70c4cb58dd8852" name="a4edb853c36f00ef0ae70c4cb58dd8852"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4edb853c36f00ef0ae70c4cb58dd8852">&#9670;&#160;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TimeManager::Init </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>targetFPS</em> = <code>60.0f</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classTimeManager_a4edb853c36f00ef0ae70c4cb58dd8852_cgraph.svg" width="406" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classTimeManager_a4edb853c36f00ef0ae70c4cb58dd8852_icgraph.svg" width="279" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ab9eaba9ec18a580bfaa4e43d4022728a" name="ab9eaba9ec18a580bfaa4e43d4022728a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9eaba9ec18a580bfaa4e43d4022728a">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classTimeManager.html">TimeManager</a> &amp; TimeManager::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classTimeManager.html">TimeManager</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a51340d7297248a208e4192059a6b42ae" name="a51340d7297248a208e4192059a6b42ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51340d7297248a208e4192059a6b42ae">&#9670;&#160;</a></span>SetTargetFPS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TimeManager::SetTargetFPS </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>targetFPS</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classTimeManager_a51340d7297248a208e4192059a6b42ae_icgraph.svg" width="532" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="afdf5ccb706dfd5cd71882424ddf4301d" name="afdf5ccb706dfd5cd71882424ddf4301d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdf5ccb706dfd5cd71882424ddf4301d">&#9670;&#160;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TimeManager::Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classTimeManager_afdf5ccb706dfd5cd71882424ddf4301d_icgraph.svg" width="304" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a32f38b6c32d0ea869084afc7dbec953f" name="a32f38b6c32d0ea869084afc7dbec953f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32f38b6c32d0ea869084afc7dbec953f">&#9670;&#160;</a></span>m_currentFPS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float TimeManager::m_currentFPS = 60.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af6e37145beb9d07fb7253ffc5b7fc0d8" name="af6e37145beb9d07fb7253ffc5b7fc0d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6e37145beb9d07fb7253ffc5b7fc0d8">&#9670;&#160;</a></span>m_currTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">LARGE_INTEGER TimeManager::m_currTime</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a91efda0ee42d903b11c5483a01fab915" name="a91efda0ee42d903b11c5483a01fab915"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91efda0ee42d903b11c5483a01fab915">&#9670;&#160;</a></span>m_deltaTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float TimeManager::m_deltaTime = 0.01667f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa2633d69aa231faae751b11107c953c7" name="aa2633d69aa231faae751b11107c953c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2633d69aa231faae751b11107c953c7">&#9670;&#160;</a></span>m_fpsTimer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float TimeManager::m_fpsTimer = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a20a12cad1ac3d6190e3a1ead6e6a8b31" name="a20a12cad1ac3d6190e3a1ead6e6a8b31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20a12cad1ac3d6190e3a1ead6e6a8b31">&#9670;&#160;</a></span>m_frameCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float TimeManager::m_frameCount = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7fb8ab37f8b4a6fb702b1ff1a3c8d044" name="a7fb8ab37f8b4a6fb702b1ff1a3c8d044"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fb8ab37f8b4a6fb702b1ff1a3c8d044">&#9670;&#160;</a></span>m_frequency</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">LARGE_INTEGER TimeManager::m_frequency</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aad9fd415e9f631975edc1b47144615f8" name="aad9fd415e9f631975edc1b47144615f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad9fd415e9f631975edc1b47144615f8">&#9670;&#160;</a></span>m_prevTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">LARGE_INTEGER TimeManager::m_prevTime</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa48f8e2d13150aa429bfe3a3679ba4d9" name="aa48f8e2d13150aa429bfe3a3679ba4d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa48f8e2d13150aa429bfe3a3679ba4d9">&#9670;&#160;</a></span>m_targetFPS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float TimeManager::m_targetFPS = 60.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a63057ab62010bd5dc500710794286108" name="a63057ab62010bd5dc500710794286108"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63057ab62010bd5dc500710794286108">&#9670;&#160;</a></span>m_targetFrameTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float TimeManager::m_targetFrameTime = 1.0f / 60.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/Core/<a class="el" href="TimeManager_8h_source.html">TimeManager.h</a></li>
+<li>Source/Core/<a class="el" href="TimeManager_8cpp.html">TimeManager.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classTimeManager.html">TimeManager</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

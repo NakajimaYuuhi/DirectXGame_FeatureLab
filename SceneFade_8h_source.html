@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Core/Scenes/Instances/SceneFade.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('SceneFade_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">SceneFade.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="SceneFade_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;../Base/Scene.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="SceneFade_8h.html#a30b47622279c51e64aeb20a6234c9030">    5</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="SceneFade_8h.html#a30b47622279c51e64aeb20a6234c9030">FadeState</a></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <a class="code hl_enumvalue" href="SceneFade_8h.html#a30b47622279c51e64aeb20a6234c9030a6adf97f83acf6453d4a6a4b1070f3754">None</a>,</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <a class="code hl_enumvalue" href="SceneFade_8h.html#a30b47622279c51e64aeb20a6234c9030a294f48edd972b58ced15c2284db56f82">FadeIn</a>,</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_enumvalue" href="SceneFade_8h.html#a30b47622279c51e64aeb20a6234c9030af8be2875b8fa26739660f6f090938475">FadeOut</a></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>};</div>
+</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classSceneFade.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="classSceneFade.html">SceneFade</a> : <span class="keyword">public</span> <a class="code hl_class" href="classCScene.html">CScene</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_function" href="classSceneFade.html#a95aa5482669d8ddc0d10c0b0fecea67b">SceneFade</a>();</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classSceneFade.html#a31e3569df9e604d666a4d5acbf8f1cc7">   16</a></span>    <a class="code hl_function" href="classSceneFade.html#a31e3569df9e604d666a4d5acbf8f1cc7">~SceneFade</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSceneFade.html#aaaaa213035be854b42be8475a508f924">Init</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSceneFade.html#a1281eeb68becec50d3f89a4a09e10d13">Update</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSceneFade.html#a65be2f7d9bc63d6f5433433e64515cc0">Draw</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSceneFade.html#a2e60ed75baa01fcfb98cf9158c51a2e1">StartFadeIn</a>(<span class="keywordtype">float</span> duration = 0.5f);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSceneFade.html#acef2ac64c94b4d4172931e47d620406a">StartFadeOut</a>(<span class="keywordtype">float</span> duration = 0.5f);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classSceneFade.html#acbc3436f0b36c654c0f78c59d3738a09">   25</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classSceneFade.html#acbc3436f0b36c654c0f78c59d3738a09">IsFading</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classSceneFade.html#a6195e4f2e1040b5bd183e3e59b13143c">m_fadeState</a> != <a class="code hl_enumvalue" href="SceneFade_8h.html#a30b47622279c51e64aeb20a6234c9030a6adf97f83acf6453d4a6a4b1070f3754">FadeState::None</a>; }</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classSceneFade.html#a68695a0e2d362e2cb76ca020e714ab5b">   26</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classSceneFade.html#a68695a0e2d362e2cb76ca020e714ab5b">IsFadeOutComplete</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classSceneFade.html#a6195e4f2e1040b5bd183e3e59b13143c">m_fadeState</a> == <a class="code hl_enumvalue" href="SceneFade_8h.html#a30b47622279c51e64aeb20a6234c9030a6adf97f83acf6453d4a6a4b1070f3754">FadeState::None</a> &amp;&amp; <a class="code hl_variable" href="classSceneFade.html#afa6949c13b43a765e5e75a71fd6229f3">m_alpha</a> &gt;= 1.0f; }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classSceneFade.html#a132f901a8a4074b4952cb978e049098a">   27</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classSceneFade.html#a132f901a8a4074b4952cb978e049098a">IsFadeInComplete</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classSceneFade.html#a6195e4f2e1040b5bd183e3e59b13143c">m_fadeState</a> == <a class="code hl_enumvalue" href="SceneFade_8h.html#a30b47622279c51e64aeb20a6234c9030a6adf97f83acf6453d4a6a4b1070f3754">FadeState::None</a> &amp;&amp; <a class="code hl_variable" href="classSceneFade.html#afa6949c13b43a765e5e75a71fd6229f3">m_alpha</a> &lt;= 0.0f; }</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classSceneFade.html#a7e17b7b888c7ec42a12427cfbc259b51">   29</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classSceneFade.html#a7e17b7b888c7ec42a12427cfbc259b51">GetAlpha</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classSceneFade.html#afa6949c13b43a765e5e75a71fd6229f3">m_alpha</a>; }</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classSceneFade.html#a96fe3668e2f97f508d88390ff75db8ce">   30</a></span>    <a class="code hl_enumeration" href="SceneFade_8h.html#a30b47622279c51e64aeb20a6234c9030">FadeState</a> <a class="code hl_function" href="classSceneFade.html#a96fe3668e2f97f508d88390ff75db8ce">GetFadeState</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classSceneFade.html#a6195e4f2e1040b5bd183e3e59b13143c">m_fadeState</a>; }</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classSceneFade.html#a6195e4f2e1040b5bd183e3e59b13143c">   33</a></span>    <a class="code hl_enumeration" href="SceneFade_8h.html#a30b47622279c51e64aeb20a6234c9030">FadeState</a> <a class="code hl_variable" href="classSceneFade.html#a6195e4f2e1040b5bd183e3e59b13143c">m_fadeState</a> = <a class="code hl_enumvalue" href="SceneFade_8h.html#a30b47622279c51e64aeb20a6234c9030a6adf97f83acf6453d4a6a4b1070f3754">FadeState::None</a>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classSceneFade.html#afa6949c13b43a765e5e75a71fd6229f3">   34</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classSceneFade.html#afa6949c13b43a765e5e75a71fd6229f3">m_alpha</a> = 0.0f;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classSceneFade.html#a531b112b5c84eee42dc861d895528d8b">   35</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classSceneFade.html#a531b112b5c84eee42dc861d895528d8b">m_duration</a> = 0.5f;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classSceneFade.html#a0906563aef7a82b853f9055b15d10851">   36</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classSceneFade.html#a0906563aef7a82b853f9055b15d10851">m_timer</a> = 0.0f;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>};</div>
+</div>
+<div class="ttc" id="aSceneFade_8h_html_a30b47622279c51e64aeb20a6234c9030"><div class="ttname"><a href="SceneFade_8h.html#a30b47622279c51e64aeb20a6234c9030">FadeState</a></div><div class="ttdeci">FadeState</div><div class="ttdef"><b>Definition</b> SceneFade.h:6</div></div>
+<div class="ttc" id="aSceneFade_8h_html_a30b47622279c51e64aeb20a6234c9030a294f48edd972b58ced15c2284db56f82"><div class="ttname"><a href="SceneFade_8h.html#a30b47622279c51e64aeb20a6234c9030a294f48edd972b58ced15c2284db56f82">FadeState::FadeIn</a></div><div class="ttdeci">@ FadeIn</div></div>
+<div class="ttc" id="aSceneFade_8h_html_a30b47622279c51e64aeb20a6234c9030a6adf97f83acf6453d4a6a4b1070f3754"><div class="ttname"><a href="SceneFade_8h.html#a30b47622279c51e64aeb20a6234c9030a6adf97f83acf6453d4a6a4b1070f3754">FadeState::None</a></div><div class="ttdeci">@ None</div></div>
+<div class="ttc" id="aSceneFade_8h_html_a30b47622279c51e64aeb20a6234c9030af8be2875b8fa26739660f6f090938475"><div class="ttname"><a href="SceneFade_8h.html#a30b47622279c51e64aeb20a6234c9030af8be2875b8fa26739660f6f090938475">FadeState::FadeOut</a></div><div class="ttdeci">@ FadeOut</div></div>
+<div class="ttc" id="aclassCScene_html"><div class="ttname"><a href="classCScene.html">CScene</a></div><div class="ttdef"><b>Definition</b> Scene.h:12</div></div>
+<div class="ttc" id="aclassSceneFade_html"><div class="ttname"><a href="classSceneFade.html">SceneFade</a></div><div class="ttdef"><b>Definition</b> SceneFade.h:13</div></div>
+<div class="ttc" id="aclassSceneFade_html_a0906563aef7a82b853f9055b15d10851"><div class="ttname"><a href="classSceneFade.html#a0906563aef7a82b853f9055b15d10851">SceneFade::m_timer</a></div><div class="ttdeci">float m_timer</div><div class="ttdef"><b>Definition</b> SceneFade.h:36</div></div>
+<div class="ttc" id="aclassSceneFade_html_a1281eeb68becec50d3f89a4a09e10d13"><div class="ttname"><a href="classSceneFade.html#a1281eeb68becec50d3f89a4a09e10d13">SceneFade::Update</a></div><div class="ttdeci">void Update() override</div><div class="ttdef"><b>Definition</b> SceneFade.cpp:33</div></div>
+<div class="ttc" id="aclassSceneFade_html_a132f901a8a4074b4952cb978e049098a"><div class="ttname"><a href="classSceneFade.html#a132f901a8a4074b4952cb978e049098a">SceneFade::IsFadeInComplete</a></div><div class="ttdeci">bool IsFadeInComplete() const</div><div class="ttdef"><b>Definition</b> SceneFade.h:27</div></div>
+<div class="ttc" id="aclassSceneFade_html_a2e60ed75baa01fcfb98cf9158c51a2e1"><div class="ttname"><a href="classSceneFade.html#a2e60ed75baa01fcfb98cf9158c51a2e1">SceneFade::StartFadeIn</a></div><div class="ttdeci">void StartFadeIn(float duration=0.5f)</div><div class="ttdef"><b>Definition</b> SceneFade.cpp:25</div></div>
+<div class="ttc" id="aclassSceneFade_html_a31e3569df9e604d666a4d5acbf8f1cc7"><div class="ttname"><a href="classSceneFade.html#a31e3569df9e604d666a4d5acbf8f1cc7">SceneFade::~SceneFade</a></div><div class="ttdeci">~SceneFade()=default</div></div>
+<div class="ttc" id="aclassSceneFade_html_a531b112b5c84eee42dc861d895528d8b"><div class="ttname"><a href="classSceneFade.html#a531b112b5c84eee42dc861d895528d8b">SceneFade::m_duration</a></div><div class="ttdeci">float m_duration</div><div class="ttdef"><b>Definition</b> SceneFade.h:35</div></div>
+<div class="ttc" id="aclassSceneFade_html_a6195e4f2e1040b5bd183e3e59b13143c"><div class="ttname"><a href="classSceneFade.html#a6195e4f2e1040b5bd183e3e59b13143c">SceneFade::m_fadeState</a></div><div class="ttdeci">FadeState m_fadeState</div><div class="ttdef"><b>Definition</b> SceneFade.h:33</div></div>
+<div class="ttc" id="aclassSceneFade_html_a65be2f7d9bc63d6f5433433e64515cc0"><div class="ttname"><a href="classSceneFade.html#a65be2f7d9bc63d6f5433433e64515cc0">SceneFade::Draw</a></div><div class="ttdeci">void Draw() override</div><div class="ttdef"><b>Definition</b> SceneFade.cpp:62</div></div>
+<div class="ttc" id="aclassSceneFade_html_a68695a0e2d362e2cb76ca020e714ab5b"><div class="ttname"><a href="classSceneFade.html#a68695a0e2d362e2cb76ca020e714ab5b">SceneFade::IsFadeOutComplete</a></div><div class="ttdeci">bool IsFadeOutComplete() const</div><div class="ttdef"><b>Definition</b> SceneFade.h:26</div></div>
+<div class="ttc" id="aclassSceneFade_html_a7e17b7b888c7ec42a12427cfbc259b51"><div class="ttname"><a href="classSceneFade.html#a7e17b7b888c7ec42a12427cfbc259b51">SceneFade::GetAlpha</a></div><div class="ttdeci">float GetAlpha() const</div><div class="ttdef"><b>Definition</b> SceneFade.h:29</div></div>
+<div class="ttc" id="aclassSceneFade_html_a95aa5482669d8ddc0d10c0b0fecea67b"><div class="ttname"><a href="classSceneFade.html#a95aa5482669d8ddc0d10c0b0fecea67b">SceneFade::SceneFade</a></div><div class="ttdeci">SceneFade()</div><div class="ttdef"><b>Definition</b> SceneFade.cpp:5</div></div>
+<div class="ttc" id="aclassSceneFade_html_a96fe3668e2f97f508d88390ff75db8ce"><div class="ttname"><a href="classSceneFade.html#a96fe3668e2f97f508d88390ff75db8ce">SceneFade::GetFadeState</a></div><div class="ttdeci">FadeState GetFadeState() const</div><div class="ttdef"><b>Definition</b> SceneFade.h:30</div></div>
+<div class="ttc" id="aclassSceneFade_html_aaaaa213035be854b42be8475a508f924"><div class="ttname"><a href="classSceneFade.html#aaaaa213035be854b42be8475a508f924">SceneFade::Init</a></div><div class="ttdeci">void Init() override</div><div class="ttdef"><b>Definition</b> SceneFade.cpp:11</div></div>
+<div class="ttc" id="aclassSceneFade_html_acbc3436f0b36c654c0f78c59d3738a09"><div class="ttname"><a href="classSceneFade.html#acbc3436f0b36c654c0f78c59d3738a09">SceneFade::IsFading</a></div><div class="ttdeci">bool IsFading() const</div><div class="ttdef"><b>Definition</b> SceneFade.h:25</div></div>
+<div class="ttc" id="aclassSceneFade_html_acef2ac64c94b4d4172931e47d620406a"><div class="ttname"><a href="classSceneFade.html#acef2ac64c94b4d4172931e47d620406a">SceneFade::StartFadeOut</a></div><div class="ttdeci">void StartFadeOut(float duration=0.5f)</div><div class="ttdef"><b>Definition</b> SceneFade.cpp:17</div></div>
+<div class="ttc" id="aclassSceneFade_html_afa6949c13b43a765e5e75a71fd6229f3"><div class="ttname"><a href="classSceneFade.html#afa6949c13b43a765e5e75a71fd6229f3">SceneFade::m_alpha</a></div><div class="ttdeci">float m_alpha</div><div class="ttdef"><b>Definition</b> SceneFade.h:34</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_1ad6433457b0067ef8f54a4fa85f5c9a.html">Core</a></li><li class="navelem"><a class="el" href="dir_9a14e6e66010c02c004e64808066117c.html">Scenes</a></li><li class="navelem"><a class="el" href="dir_41e731d40b9982347bea385b5660ab80.html">Instances</a></li><li class="navelem"><a class="el" href="SceneFade_8h.html">SceneFade.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

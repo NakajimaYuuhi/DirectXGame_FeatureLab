@@ -82,6 +82,7 @@ var hierarchy =
     [ "CScene", "classCScene.html", [
       [ "CSceneTest", "classCSceneTest.html", null ],
       [ "SceneClear", "classSceneClear.html", null ],
+      [ "SceneFade", "classSceneFade.html", null ],
       [ "SceneFailed", "classSceneFailed.html", null ],
       [ "SceneTitle", "classSceneTitle.html", null ]
     ] ],
@@ -513,7 +514,19 @@ var hierarchy =
     [ "SpriteVertex", "structSpriteVertex.html", null ],
     [ "CImGuiManager::SrvAllocUserData", "structCImGuiManager_1_1SrvAllocUserData.html", null ],
     [ "StateBase< T >", "classStateBase.html", null ],
+    [ "StateBase< Enemy >", "classStateBase.html", [
+      [ "EnemyChaseState", "classEnemyChaseState.html", null ],
+      [ "EnemyDeadState", "classEnemyDeadState.html", null ],
+      [ "EnemyIdleState", "classEnemyIdleState.html", null ]
+    ] ],
+    [ "StateBase< Player >", "classStateBase.html", [
+      [ "PlayerAttackState", "classPlayerAttackState.html", null ],
+      [ "PlayerIdleState", "classPlayerIdleState.html", null ],
+      [ "PlayerMoveState", "classPlayerMoveState.html", null ]
+    ] ],
     [ "StateMachine< T >", "classStateMachine.html", null ],
+    [ "StateMachine< Enemy >", "classStateMachine.html", null ],
+    [ "StateMachine< Player >", "classStateMachine.html", null ],
     [ "nlohmann::detail::static_const< T >", "structnlohmann_1_1detail_1_1static__const.html", null ],
     [ "STB_TexteditState", "structSTB__TexteditState.html", null ],
     [ "stbi_io_callbacks", "structstbi__io__callbacks.html", null ],
@@ -538,6 +551,7 @@ var hierarchy =
     [ "tinygltf::Texture", "structtinygltf_1_1Texture.html", null ],
     [ "tinygltf::TextureInfo", "structtinygltf_1_1TextureInfo.html", null ],
     [ "TextureManager", "classTextureManager.html", null ],
+    [ "TimeManager", "classTimeManager.html", null ],
     [ "tinygltf::TinyGLTF", "classtinygltf_1_1TinyGLTF.html", null ],
     [ "tinygltf_json", "classtinygltf__json.html", null ],
     [ "tinygltf_json_member", "structtinygltf__json__member.html", null ],
