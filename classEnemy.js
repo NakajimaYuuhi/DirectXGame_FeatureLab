@@ -10,7 +10,10 @@ var classEnemy =
     [ "OnDie", "classEnemy.html#ac04ab8e01b51d6205afbe8223d06189c", null ],
     [ "TakeDamage", "classEnemy.html#a4fb5a83b05dd44adaf61a8abfd3f2a4e", null ],
     [ "Update", "classEnemy.html#a614ad271f07ecf63cb3e665155b7e258", null ],
+    [ "BLINK_INTERVAL", "classEnemy.html#a4a3895ede9313399e6e80256252ec774", null ],
+    [ "FLASH_DURATION", "classEnemy.html#a87404930b1b8d78118251dd168c7430a", null ],
     [ "HP", "classEnemy.html#a408105b89fbc65723fc1e1208b7fe2bc", null ],
+    [ "m_flashTimer", "classEnemy.html#a7523d1df376e16fa4d68c9fd99daa309", null ],
     [ "m_stateMachine", "classEnemy.html#a6f3f2c7ac62f85ba8ddc5859bcf282a7", null ],
     [ "ModelPath", "classEnemy.html#a81392b5c618b719b34ad6bee3a694c9d", null ],
     [ "Speed", "classEnemy.html#a77fda4977da2209e2e49fba767f45b4c", null ]

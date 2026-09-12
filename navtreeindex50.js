@@ -1,5 +1,15 @@
 var NAVTREEINDEX50 =
 {
+"structtinygltf_1_1TextureInfo.html#a5b0818a06d65eced47a0e815e9e17e25":[2,0,2,31,5],
+"structtinygltf_1_1TextureInfo.html#a5b0818a06d65eced47a0e815e9e17e25":[1,0,7,31,5],
+"structtinygltf_1_1TextureInfo.html#a959ce2266edef8456d31cef24199fa3e":[2,0,2,31,2],
+"structtinygltf_1_1TextureInfo.html#a959ce2266edef8456d31cef24199fa3e":[1,0,7,31,2],
+"structtinygltf_1_1TextureInfo.html#aa30003e39bf6378f30901c607537008f":[2,0,2,31,1],
+"structtinygltf_1_1TextureInfo.html#aa30003e39bf6378f30901c607537008f":[1,0,7,31,1],
+"structtinygltf_1_1TextureInfo.html#ac61f25915ada851c15c00106dd287c58":[1,0,7,31,7],
+"structtinygltf_1_1TextureInfo.html#ac61f25915ada851c15c00106dd287c58":[2,0,2,31,7],
+"structtinygltf_1_1TextureInfo.html#ada6724d5e04b193d229ca9169c251b3d":[2,0,2,31,6],
+"structtinygltf_1_1TextureInfo.html#ada6724d5e04b193d229ca9169c251b3d":[1,0,7,31,6],
 "structtinygltf_1_1TextureInfo.html#ae0f7df880799dfae18b6217ea48e5ce4":[2,0,2,31,3],
 "structtinygltf_1_1TextureInfo.html#ae0f7df880799dfae18b6217ea48e5ce4":[1,0,7,31,3],
 "structtinygltf_1_1URICallbacks.html":[2,0,2,33],

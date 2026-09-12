@@ -1,5 +1,15 @@
 var NAVTREEINDEX36 =
 {
+"structImFontLoader.html#ae2cfffcf9b2cb3253b11c90cc7e1f86d":[2,0,90,5],
+"structImFontStackData.html":[2,0,91],
+"structImFontStackData.html#a5463003c72e27d77c103d032ed09de4e":[2,0,91,1],
+"structImFontStackData.html#a5de51be33042fb34941ee89077ae1a6c":[2,0,91,2],
+"structImFontStackData.html#add27bef28f6878469f51724e7146a0e7":[2,0,91,0],
+"structImGuiBoxSelectState.html":[2,0,99],
+"structImGuiBoxSelectState.html#a220cf66214aeee5a76fd3c5d5cf09be0":[2,0,99,4],
+"structImGuiBoxSelectState.html#a222395f607408b36a5340d74782eb412":[2,0,99,15],
+"structImGuiBoxSelectState.html#a4419f5981250a0b40d17a87c1980c14d":[2,0,99,7],
+"structImGuiBoxSelectState.html#a48fddd48ccff165c70c5f7fe553c943d":[2,0,99,2],
 "structImGuiBoxSelectState.html#a527a2f22d5d0de1b67693bd8ce484907":[2,0,99,9],
 "structImGuiBoxSelectState.html#a573c9e3ba48a0907bfb5e47d87d4df32":[2,0,99,6],
 "structImGuiBoxSelectState.html#a5872789f05e4d985b6e983a37da34c48":[2,0,99,14],
@@ -239,15 +249,5 @@ var NAVTREEINDEX36 =
 "structImGuiContext.html#aaa8b5bf307a9c86b9e952f5c6e7dcc68":[2,0,102,145],
 "structImGuiContext.html#aaaf83b57ad918ef20a653bc8f5dbcde7":[2,0,102,252],
 "structImGuiContext.html#aab052b64f1776d3cf5980b4de0bc4e83":[2,0,102,74],
-"structImGuiContext.html#aabd1e23f5be55f6331281f2c2ea9e411":[2,0,102,208],
-"structImGuiContext.html#aad0534754076c6f8d877bd19c5760a6a":[2,0,102,239],
-"structImGuiContext.html#aad225e155364262380ea2e6ea306381a":[2,0,102,315],
-"structImGuiContext.html#aadb3afd1087e680a082e59282dfa62c4":[2,0,102,200],
-"structImGuiContext.html#aadf9cd99ab2805e433e09214742fcbc5":[2,0,102,25],
-"structImGuiContext.html#aaed094785231d1e7a223d173da4ea8b1":[2,0,102,165],
-"structImGuiContext.html#aaf438bcb822841e3fc19a36d05219634":[2,0,102,283],
-"structImGuiContext.html#ab011a2f260e200403d6177bdccc3b20b":[2,0,102,182],
-"structImGuiContext.html#ab233698c1b45dce428f40fcb128f99cf":[2,0,102,52],
-"structImGuiContext.html#ab2b9aee4450d6698d0a8597268bd58c2":[2,0,102,209],
-"structImGuiContext.html#ab3234556023eabcfed157b79ba4c5869":[2,0,102,3]
+"structImGuiContext.html#aabd1e23f5be55f6331281f2c2ea9e411":[2,0,102,208]
 };
