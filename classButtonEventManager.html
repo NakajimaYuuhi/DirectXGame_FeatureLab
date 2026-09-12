@@ -117,6 +117,12 @@ ButtonEventManager 連携図</div>
 <tr class="separator:a14536408babc0152ab656a35f94e05fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acde581477b9ea9ba1c9fb4d27b9745e2" id="r_acde581477b9ea9ba1c9fb4d27b9745e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonEventManager.html#acde581477b9ea9ba1c9fb4d27b9745e2">ClearSelectedGameObject</a> ()</td></tr>
 <tr class="separator:acde581477b9ea9ba1c9fb4d27b9745e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78ab5f2e831c46f71c8b8e8c35711afb" id="r_a78ab5f2e831c46f71c8b8e8c35711afb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonEventManager.html#a78ab5f2e831c46f71c8b8e8c35711afb">SetFirstSelectedName</a> (const std::string &amp;name)</td></tr>
+<tr class="separator:a78ab5f2e831c46f71c8b8e8c35711afb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4491a76471de9434706a548c13aef47" id="r_ac4491a76471de9434706a548c13aef47"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonEventManager.html#ac4491a76471de9434706a548c13aef47">GetFirstSelectedName</a> () const</td></tr>
+<tr class="separator:ac4491a76471de9434706a548c13aef47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f885be6ccc8d382f3bd962b0e948195" id="r_a2f885be6ccc8d382f3bd962b0e948195"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonEventManager.html#a2f885be6ccc8d382f3bd962b0e948195">ApplyFirstSelected</a> ()</td></tr>
+<tr class="separator:a2f885be6ccc8d382f3bd962b0e948195"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
@@ -136,8 +142,10 @@ ButtonEventManager 連携図</div>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 非公開変数類</h2></td></tr>
-<tr class="memitem:a94a61a9dfdc28a1e873368465e9c2bc1" id="r_a94a61a9dfdc28a1e873368465e9c2bc1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classISelectable.html">ISelectable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonEventManager.html#a94a61a9dfdc28a1e873368465e9c2bc1">m_currentSelected</a></td></tr>
+<tr class="memitem:a94a61a9dfdc28a1e873368465e9c2bc1" id="r_a94a61a9dfdc28a1e873368465e9c2bc1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classISelectable.html">ISelectable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonEventManager.html#a94a61a9dfdc28a1e873368465e9c2bc1">m_currentSelected</a> = nullptr</td></tr>
 <tr class="separator:a94a61a9dfdc28a1e873368465e9c2bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad640fc2a449556174269621e5b732f8d" id="r_ad640fc2a449556174269621e5b732f8d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonEventManager.html#ad640fc2a449556174269621e5b732f8d">m_firstSelectedName</a></td></tr>
+<tr class="separator:ad640fc2a449556174269621e5b732f8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">構築子と解体子</h2>
 <a id="a52224400cb6b09b6679d03adb1b3199f" name="a52224400cb6b09b6679d03adb1b3199f"></a>
@@ -217,6 +225,33 @@ ButtonEventManager 連携図</div>
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
+<a id="a2f885be6ccc8d382f3bd962b0e948195" name="a2f885be6ccc8d382f3bd962b0e948195"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f885be6ccc8d382f3bd962b0e948195">&#9670;&#160;</a></span>ApplyFirstSelected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ButtonEventManager::ApplyFirstSelected </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classButtonEventManager_a2f885be6ccc8d382f3bd962b0e948195_cgraph.svg" width="660" height="216"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classButtonEventManager_a2f885be6ccc8d382f3bd962b0e948195_icgraph.svg" width="100%" height="404"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
 <a id="acde581477b9ea9ba1c9fb4d27b9745e2" name="acde581477b9ea9ba1c9fb4d27b9745e2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acde581477b9ea9ba1c9fb4d27b9745e2">&#9670;&#160;</a></span>ClearSelectedGameObject()</h2>
 
@@ -247,6 +282,36 @@ ButtonEventManager 連携図</div>
 
 </div>
 </div>
+<a id="ac4491a76471de9434706a548c13aef47" name="ac4491a76471de9434706a548c13aef47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4491a76471de9434706a548c13aef47">&#9670;&#160;</a></span>GetFirstSelectedName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; ButtonEventManager::GetFirstSelectedName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classButtonEventManager_ac4491a76471de9434706a548c13aef47_icgraph.svg" width="100%" height="401"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
 <a id="a9f206423f447c971ee04f6f7d3fb0fe7" name="a9f206423f447c971ee04f6f7d3fb0fe7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9f206423f447c971ee04f6f7d3fb0fe7">&#9670;&#160;</a></span>GetInstance()</h2>
 
@@ -272,7 +337,7 @@ ButtonEventManager 連携図</div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classButtonEventManager_a9f206423f447c971ee04f6f7d3fb0fe7_icgraph.svg" width="100%" height="586"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classButtonEventManager_a9f206423f447c971ee04f6f7d3fb0fe7_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -328,6 +393,37 @@ ButtonEventManager 連携図</div>
 
 </div>
 </div>
+<a id="a78ab5f2e831c46f71c8b8e8c35711afb" name="a78ab5f2e831c46f71c8b8e8c35711afb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78ab5f2e831c46f71c8b8e8c35711afb">&#9670;&#160;</a></span>SetFirstSelectedName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ButtonEventManager::SetFirstSelectedName </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classButtonEventManager_a78ab5f2e831c46f71c8b8e8c35711afb_icgraph.svg" width="100%" height="410"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
 <a id="a170c1ec01d8c7bb6e2bb3f13dddb2628" name="a170c1ec01d8c7bb6e2bb3f13dddb2628"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a170c1ec01d8c7bb6e2bb3f13dddb2628">&#9670;&#160;</a></span>SetSelectedGameObject()</h2>
 
@@ -351,7 +447,7 @@ ButtonEventManager 連携図</div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classButtonEventManager_a170c1ec01d8c7bb6e2bb3f13dddb2628_icgraph.svg" width="623" height="250"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classButtonEventManager_a170c1ec01d8c7bb6e2bb3f13dddb2628_icgraph.svg" width="100%" height="574"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -394,7 +490,29 @@ ButtonEventManager 連携図</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classISelectable.html">ISelectable</a>* ButtonEventManager::m_currentSelected</td>
+          <td class="memname"><a class="el" href="classISelectable.html">ISelectable</a>* ButtonEventManager::m_currentSelected = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad640fc2a449556174269621e5b732f8d" name="ad640fc2a449556174269621e5b732f8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad640fc2a449556174269621e5b732f8d">&#9670;&#160;</a></span>m_firstSelectedName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ButtonEventManager::m_firstSelectedName</td>
         </tr>
       </table>
   </td>

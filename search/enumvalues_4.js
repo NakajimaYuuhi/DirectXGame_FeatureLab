@@ -8,5 +8,6 @@ var searchData=
   ['enemy_5fbullet_5',['ENEMY_BULLET',['../namespaceObject.html#a601de737429833556e7418bb4a8975b0a4f677fdf6338fb3cedf9131d7ac42878',1,'Object']]],
   ['error_6',['error',['../namespacenlohmann_1_1detail.html#a58bb1ef1a9ad287a9cfaf1855784d9acacb5e100e5a9a3e7f6d1fd97512215282',1,'nlohmann::detail']]],
   ['eventnum_7',['EventNum',['../namespaceEvents.html#a07879e410151aabbb30589cfa90d7fa1a7ad6d7016213abb621640a31931c264a',1,'Events']]],
-  ['exit_8',['Exit',['../namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275ac0621cf6ec52db2d78dc209407f2d5df',1,'Scenes']]]
+  ['exit_8',['Exit',['../namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275ac0621cf6ec52db2d78dc209407f2d5df',1,'Scenes']]],
+  ['exitgame_9',['ExitGame',['../ButtonAction_8h.html#afa717ac273a5a382f7c01ef7afba1ee7a4166c4566d4ee3c335e2f09f7f0d5d0b',1,'ButtonAction.h']]]
 ];

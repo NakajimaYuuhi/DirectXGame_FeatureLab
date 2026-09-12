@@ -4,7 +4,9 @@ var classCSpriteRenderer =
     [ "~CSpriteRenderer", "classCSpriteRenderer.html#ae73fe4f681ccbf416a89b1731c683198", null ],
     [ "CreateBuffers", "classCSpriteRenderer.html#a7d2cd0d320b4d038f9709957496704bd", null ],
     [ "Draw", "classCSpriteRenderer.html#a3d5be9cbf966750032c2f4b19eabd793", null ],
+    [ "GetColor", "classCSpriteRenderer.html#a08f8823ba0d26b84510013bddc0e9bf9", null ],
     [ "GetSize", "classCSpriteRenderer.html#a4c31ad42a1a64081994e552e017522f9", null ],
+    [ "GetTexturePath", "classCSpriteRenderer.html#a0e1677f453faa3d4280f173e30cbdd2e", null ],
     [ "Init", "classCSpriteRenderer.html#a4f4123344b82a22517fbd54f14f0c2c2", null ],
     [ "SetColor", "classCSpriteRenderer.html#aaf57a1f22b749a878f6476af99995f5e", null ],
     [ "SetSize", "classCSpriteRenderer.html#ad680b030bad938711b0934dc6949cf94", null ],
@@ -14,6 +16,7 @@ var classCSpriteRenderer =
     [ "m_indexBufferView", "classCSpriteRenderer.html#a0cfd1306eae8a868a6e2a5f3db5033ea", null ],
     [ "m_size", "classCSpriteRenderer.html#ae6c3eea46524253e181b3d29e8aa6e6f", null ],
     [ "m_texture", "classCSpriteRenderer.html#a10ceb8dd848064f8074ac49cb387fb51", null ],
+    [ "m_texturePath", "classCSpriteRenderer.html#ade46a0670d4c11ee6b37f71f56e7bfd1", null ],
     [ "m_vertexBuffer", "classCSpriteRenderer.html#a41c730ec8f52963284dc6a92d9c30da8", null ],
     [ "m_vertexBufferView", "classCSpriteRenderer.html#ac8f3ac9130ab333d57e0384c6d63147f", null ]
 ];

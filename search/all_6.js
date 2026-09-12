@@ -171,7 +171,7 @@ var searchData=
   ['descriptorheapallocator_2ecpp_168',['DescriptorHeapAllocator.cpp',['../DescriptorHeapAllocator_8cpp.html',1,'']]],
   ['descriptorheapallocator_2eh_169',['DescriptorHeapAllocator.h',['../DescriptorHeapAllocator_8h.html',1,'']]],
   ['desiredsize_170',['DesiredSize',['../structImGuiSizeCallbackData.html#a42be6d99a279942b4f2019a4416f65ba',1,'ImGuiSizeCallbackData']]],
-  ['destroy_171',['destroy',['../classCDescriptorHeapAllocator.html#abb8572b60b4ec05badab96536e60c27f',1,'CDescriptorHeapAllocator::Destroy()'],['../classnlohmann_1_1basic__json.html#a8a3796c85be443b2b9c1e5ee3ad57ef2',1,'nlohmann::basic_json::destroy()']]],
+  ['destroy_171',['destroy',['../classnlohmann_1_1basic__json.html#a8a3796c85be443b2b9c1e5ee3ad57ef2',1,'nlohmann::basic_json::destroy()'],['../classCDescriptorHeapAllocator.html#abb8572b60b4ec05badab96536e60c27f',1,'CDescriptorHeapAllocator::Destroy()']]],
   ['destroy_5f_172',['destroy_',['../classtinygltf__json.html#a228ecc81f0a7c569bd9fe4e362465c9b',1,'tinygltf_json']]],
   ['destroycontext_173',['DestroyContext',['../namespaceImGui.html#ab9132deece575023170cd8e681d0581d',1,'ImGui']]],
   ['destroypixels_174',['DestroyPixels',['../structImTextureData.html#a63aab478701f325532298d9fe0c6d0dd',1,'ImTextureData']]],
