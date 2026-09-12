@@ -46,7 +46,7 @@ var searchData=
   ['cmdlists_43',['CmdLists',['../structImDrawData.html#ad78ff9e65c4037c492ceade5d3ddd633',1,'ImDrawData']]],
   ['cmdlistscount_44',['CmdListsCount',['../structImDrawData.html#adc0bbc2881c15f78bdabe51d82582f4e',1,'ImDrawData']]],
   ['codepoint_45',['Codepoint',['../structImFontGlyph.html#a2016b685049bf375f7c045ed8e24d6b7',1,'ImFontGlyph']]],
-  ['col_46',['col',['../structImGuiColorMod.html#a211171bd30d39348fc9b91289d253e1c',1,'ImGuiColorMod::Col'],['../structImDrawVert.html#ab98ba53ce2690b56f5ba94682ed83940',1,'ImDrawVert::col']]],
+  ['col_46',['col',['../structImDrawVert.html#ab98ba53ce2690b56f5ba94682ed83940',1,'ImDrawVert::col'],['../structImGuiColorMod.html#a211171bd30d39348fc9b91289d253e1c',1,'ImGuiColorMod::Col']]],
   ['collapsed_47',['collapsed',['../structImGuiWindowSettings.html#a79308182bdab97cb87b3d6284f22c1d2',1,'ImGuiWindowSettings::Collapsed'],['../structImGuiWindow.html#a04e6b533b2401d1c7e78b47e31538e7b',1,'ImGuiWindow::Collapsed']]],
   ['collapsedcond_48',['CollapsedCond',['../structImGuiNextWindowData.html#a864d3d1bf0dbf81ba4cf9cefd75fe06b',1,'ImGuiNextWindowData']]],
   ['collapsedval_49',['CollapsedVal',['../structImGuiNextWindowData.html#a0c4c81bf78a6ac094f794d2cf318037a',1,'ImGuiNextWindowData']]],

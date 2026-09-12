@@ -108,6 +108,8 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
 <tr class="separator:af7b8c5d7cc17a5cd5fc261b151a1da07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43fc4c1121b7092a2ac3cf1094a5e56d" id="r_a43fc4c1121b7092a2ac3cf1094a5e56d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a43fc4c1121b7092a2ac3cf1094a5e56d">IsPaused</a> () const</td></tr>
 <tr class="separator:a43fc4c1121b7092a2ac3cf1094a5e56d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af76651761f17afdb470786d2cbaa3b07" id="r_af76651761f17afdb470786d2cbaa3b07"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#af76651761f17afdb470786d2cbaa3b07">IsEditMode</a> () const</td></tr>
+<tr class="separator:af76651761f17afdb470786d2cbaa3b07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a572e690e5d9b15903f72e2aed3e0a785" id="r_a572e690e5d9b15903f72e2aed3e0a785"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a572e690e5d9b15903f72e2aed3e0a785">ShouldUpdateGame</a> ()</td></tr>
 <tr class="separator:a572e690e5d9b15903f72e2aed3e0a785"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -135,8 +137,12 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
 <tr class="separator:a247c691454fe46541d446e64dc0d0ab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb8abee3d709e4fc284f6db9eb4a1a57" id="r_abb8abee3d709e4fc284f6db9eb4a1a57"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#abb8abee3d709e4fc284f6db9eb4a1a57">m_shaderPathInput</a> [256] = &quot;Assets/<a class="el" href="classShader.html">Shader</a>/Wireframe.hlsl&quot;</td></tr>
 <tr class="separator:abb8abee3d709e4fc284f6db9eb4a1a57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afabc8f08af50dc8e6d09fac33e73b5e2" id="r_afabc8f08af50dc8e6d09fac33e73b5e2"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#afabc8f08af50dc8e6d09fac33e73b5e2">m_sceneJsonPath</a> [256] = &quot;Assets/Scene/SceneTest.json&quot;</td></tr>
+<tr class="separator:afabc8f08af50dc8e6d09fac33e73b5e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7b96a8abbbb09057c8f476c396c79aa" id="r_af7b96a8abbbb09057c8f476c396c79aa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#af7b96a8abbbb09057c8f476c396c79aa">m_showColliders</a> = true</td></tr>
 <tr class="separator:af7b96a8abbbb09057c8f476c396c79aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7582091f05f4350e2de314fc36fe24cb" id="r_a7582091f05f4350e2de314fc36fe24cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a7582091f05f4350e2de314fc36fe24cb">m_isEditMode</a> = false</td></tr>
+<tr class="separator:a7582091f05f4350e2de314fc36fe24cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16cc5a3fdbe7fa242ceac06c22459767" id="r_a16cc5a3fdbe7fa242ceac06c22459767"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a16cc5a3fdbe7fa242ceac06c22459767">m_isPaused</a> = false</td></tr>
 <tr class="separator:a16cc5a3fdbe7fa242ceac06c22459767"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7004b4ca88e519853064b1577156ae7c" id="r_a7004b4ca88e519853064b1577156ae7c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a7004b4ca88e519853064b1577156ae7c">m_stepNextFrame</a> = false</td></tr>
@@ -237,11 +243,6 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
-呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_af7b8c5d7cc17a5cd5fc261b151a1da07_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_af7b8c5d7cc17a5cd5fc261b151a1da07_icgraph.svg" width="284" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
@@ -274,8 +275,33 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_abce0acbca04254ac1d87a98791609f9b_icgraph.svg" width="328" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_abce0acbca04254ac1d87a98791609f9b_icgraph.svg" width="628" height="184"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="af76651761f17afdb470786d2cbaa3b07" name="af76651761f17afdb470786d2cbaa3b07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af76651761f17afdb470786d2cbaa3b07">&#9670;&#160;</a></span>IsEditMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CInspectorUI::IsEditMode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -348,6 +374,28 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
 </div>
 </div>
 <h2 class="groupheader">メンバ詳解</h2>
+<a id="a7582091f05f4350e2de314fc36fe24cb" name="a7582091f05f4350e2de314fc36fe24cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7582091f05f4350e2de314fc36fe24cb">&#9670;&#160;</a></span>m_isEditMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CInspectorUI::m_isEditMode = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a16cc5a3fdbe7fa242ceac06c22459767" name="a16cc5a3fdbe7fa242ceac06c22459767"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a16cc5a3fdbe7fa242ceac06c22459767">&#9670;&#160;</a></span>m_isPaused</h2>
 
@@ -359,6 +407,28 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       <table class="memname">
         <tr>
           <td class="memname">bool CInspectorUI::m_isPaused = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afabc8f08af50dc8e6d09fac33e73b5e2" name="afabc8f08af50dc8e6d09fac33e73b5e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afabc8f08af50dc8e6d09fac33e73b5e2">&#9670;&#160;</a></span>m_sceneJsonPath</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char CInspectorUI::m_sceneJsonPath[256] = &quot;Assets/Scene/SceneTest.json&quot;</td>
         </tr>
       </table>
   </td>

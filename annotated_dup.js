@@ -429,6 +429,7 @@ var annotated_dup =
     [ "SceneFade", "classSceneFade.html", "classSceneFade" ],
     [ "SceneFailed", "classSceneFailed.html", "classSceneFailed" ],
     [ "SceneManager", "classSceneManager.html", "classSceneManager" ],
+    [ "SceneSerializer", "classSceneSerializer.html", "classSceneSerializer" ],
     [ "SceneTitle", "classSceneTitle.html", "classSceneTitle" ],
     [ "Shader", "classShader.html", "classShader" ],
     [ "ShaderManager", "classShaderManager.html", "classShaderManager" ],

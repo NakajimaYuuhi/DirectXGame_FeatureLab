@@ -2,6 +2,7 @@ var classPlayer =
 [
     [ "Player", "classPlayer.html#affec312e47ec0cc7ed11a18d6c733bdb", null ],
     [ "~Player", "classPlayer.html#a40d3c47b65e9652c363a8fde41f7bbf5", null ],
+    [ "Awake", "classPlayer.html#adc70285b4e4db37c92f9be808a06eb07", null ],
     [ "GetHP", "classPlayer.html#ad3235a8c4289cd735c3cf40bd69109cf", null ],
     [ "GetMaxHP", "classPlayer.html#a4f2b2f5d1c7bafad144c235a101dddeb", null ],
     [ "GetStateMachine", "classPlayer.html#a33eba788e7cc2db2a53260c91e5abf86", null ],
@@ -12,6 +13,7 @@ var classPlayer =
     [ "OnDie", "classPlayer.html#a8c04feaccda6c73387388e3ae5619c9c", null ],
     [ "PerformAttack", "classPlayer.html#a474e6c60a290fb7fa0ff2c1f407e4b49", null ],
     [ "ProcessMovement", "classPlayer.html#a9956700465676748068c1e95cb0e72af", null ],
+    [ "Start", "classPlayer.html#a4c618ea9123b386e5d9ef8809797d629", null ],
     [ "TakeDamage", "classPlayer.html#ae06d08811198818e0f9f6a6bbc21fd1f", null ],
     [ "Update", "classPlayer.html#a5e17be3418fa0ac0192c05efaf3dc8bd", null ],
     [ "BLINK_INTERVAL", "classPlayer.html#adee144fb2b2174f3095b8072bcb770db", null ],

@@ -503,6 +503,7 @@ var hierarchy =
     [ "tinygltf::Sampler", "structtinygltf_1_1Sampler.html", null ],
     [ "tinygltf::Scene", "structtinygltf_1_1Scene.html", null ],
     [ "SceneManager", "classSceneManager.html", null ],
+    [ "SceneSerializer", "classSceneSerializer.html", null ],
     [ "nlohmann::detail::serializer< BasicJsonType >", "classnlohmann_1_1detail_1_1serializer.html", null ],
     [ "Shader", "classShader.html", null ],
     [ "ShaderManager", "classShaderManager.html", null ],

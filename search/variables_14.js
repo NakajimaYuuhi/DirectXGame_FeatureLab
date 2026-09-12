@@ -63,7 +63,7 @@ var searchData=
   ['texnextuniqueid_60',['TexNextUniqueID',['../structImFontAtlas.html#af52b574c8cbffe5e1a44e9376e4857bd',1,'ImFontAtlas']]],
   ['texpixelsusecolors_61',['TexPixelsUseColors',['../structImFontAtlas.html#a4bc426a6a9c2fd3ab1ad3893142613ff',1,'ImFontAtlas']]],
   ['texref_62',['texref',['../structImFontAtlas.html#aa363b839740494a4da969563c7581bf0',1,'ImFontAtlas::TexRef'],['../structImDrawCmdHeader.html#abb2d1e888c9496ce3ee2f7589a0c8b11',1,'ImDrawCmdHeader::TexRef'],['../structImDrawCmd.html#a357433b35798babe40aa9ae38a01750c',1,'ImDrawCmd::TexRef']]],
-  ['text_63',['text',['../structImGuiLocEntry.html#a95c97c84b714ad6f9a72a949be01d374',1,'ImGuiLocEntry::Text'],['../structImGuiInputEvent.html#aae5e3f7f631cef154a0831e89f608655',1,'ImGuiInputEvent::Text'],['../structD2DTextRenderer_1_1TextInfo.html#a0208895122168c65e874a00acc6a1590',1,'D2DTextRenderer::TextInfo::text']]],
+  ['text_63',['text',['../structD2DTextRenderer_1_1TextInfo.html#a0208895122168c65e874a00acc6a1590',1,'D2DTextRenderer::TextInfo::text'],['../structImGuiLocEntry.html#a95c97c84b714ad6f9a72a949be01d374',1,'ImGuiLocEntry::Text'],['../structImGuiInputEvent.html#aae5e3f7f631cef154a0831e89f608655',1,'ImGuiInputEvent::Text']]],
   ['texta_64',['texta',['../structImGuiInputTextState.html#ac206ad70804e4ea3db983fe8a558c5dc',1,'ImGuiInputTextState::TextA'],['../structImGuiInputTextDeactivatedState.html#a19db36bc26be137f8b9c7a55f09dd1a3',1,'ImGuiInputTextDeactivatedState::TextA']]],
   ['textcolor_65',['TextColor',['../structImGuiTableHeaderData.html#a990389aa8fc6830868b05088b64d0dfa',1,'ImGuiTableHeaderData']]],
   ['textlen_66',['TextLen',['../structImGuiInputTextState.html#af3240125d17f70e8256185b4b55f6213',1,'ImGuiInputTextState']]],
