@@ -28,6 +28,7 @@ public:
 	int GetMaxHP() const { return MaxHP; }
 	bool IsDead() const { return HP <= 0; }
 	void TakeDamage(int damage);
+	bool IsInvincible() const { return m_invincibleTimer > 0.0f; }
 	void OnDie();
 
 protected:
@@ -35,6 +36,9 @@ protected:
 	float Speed = 0.1f;
 	int HP = 10;
 	int MaxHP = 10;
+	float m_invincibleTimer = 0.0f;
+	const float INVINCIBLE_DURATION = 1.5f;
+	const float BLINK_INTERVAL = 0.08f;
 	Camera* m_camera = nullptr;
 
 	StateMachine<Player> m_stateMachine;

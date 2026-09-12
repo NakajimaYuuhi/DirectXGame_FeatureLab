@@ -61,6 +61,7 @@ protected:
 	//有効、無効フラグ
 	bool isValid;
 	bool IsDestroyed = false;
+	bool m_isVisible = true;
 
 
 	//----- コンポーネントの管理
@@ -108,6 +109,10 @@ public:
 
 	// --IsDestroyed
 	bool GetIsDestroyed() const { return IsDestroyed; }
+
+	// --IsVisible
+	bool GetIsVisible() const { return m_isVisible; }
+	void SetVisible(bool visible) { m_isVisible = visible; }
 
 	const Vector<UniquePtr<CComponent>>& GetComponents() const { return components; }
 	void SetIsDestroyed(bool _IsDestroyed) { IsDestroyed = _IsDestroyed; }

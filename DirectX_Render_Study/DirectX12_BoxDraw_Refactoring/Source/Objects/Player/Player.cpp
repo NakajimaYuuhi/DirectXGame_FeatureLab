@@ -49,6 +49,21 @@ void Player::Update()
 {
 	float dt = TimeManager::GetInstance().GetDeltaTime();
 
+	if (m_invincibleTimer > 0.0f)
+	{
+		m_invincibleTimer -= dt;
+		if (m_invincibleTimer <= 0.0f)
+		{
+			m_invincibleTimer = 0.0f;
+			SetVisible(true);
+		}
+		else
+		{
+			bool visible = (fmodf(m_invincibleTimer, BLINK_INTERVAL * 2.0f) >= BLINK_INTERVAL);
+			SetVisible(visible);
+		}
+	}
+
 	CModel* model = GetComponent<CModel>();
 	if (model)
 	{
@@ -146,13 +161,15 @@ void Player::PerformAttack()
 
 void Player::TakeDamage(int damage)
 {
-	if (HP <= 0) return;
+	if (HP <= 0 || IsInvincible()) return;
 
 	HP -= damage;
 	if (HP < 0)
 	{
 		HP = 0;
 	}
+
+	m_invincibleTimer = INVINCIBLE_DURATION;
 
 	OutputDebugStringA(("Player Took Damage! Current HP: " + std::to_string(HP) + "\n").c_str());
 

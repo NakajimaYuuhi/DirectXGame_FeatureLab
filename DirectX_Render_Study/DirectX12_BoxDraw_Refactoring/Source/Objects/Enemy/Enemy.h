@@ -26,6 +26,9 @@ protected:
 	String ModelPath;
 	float Speed = 0.05f;
 	int HP = 3;
+	float m_flashTimer = 0.0f;
+	const float FLASH_DURATION = 0.3f;
+	const float BLINK_INTERVAL = 0.06f;
 
 	StateMachine<Enemy> m_stateMachine;
 };

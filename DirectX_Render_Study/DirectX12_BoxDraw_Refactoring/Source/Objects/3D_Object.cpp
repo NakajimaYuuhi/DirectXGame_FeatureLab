@@ -44,9 +44,14 @@ void C3D_Object::LateUpdate()
 
 void C3D_Object::Draw() 
 {
+	if (!m_isVisible) return;
+
 	CModel* model = GetComponent<CModel>();
 
-	model->Draw();
+	if (model)
+	{
+		model->Draw();
+	}
 }
 
 //Transform

@@ -54,6 +54,21 @@ void Enemy::Update()
 {
 	float dt = TimeManager::GetInstance().GetDeltaTime();
 
+	if (m_flashTimer > 0.0f)
+	{
+		m_flashTimer -= dt;
+		if (m_flashTimer <= 0.0f)
+		{
+			m_flashTimer = 0.0f;
+			SetVisible(true);
+		}
+		else
+		{
+			bool visible = (fmodf(m_flashTimer, BLINK_INTERVAL * 2.0f) >= BLINK_INTERVAL);
+			SetVisible(visible);
+		}
+	}
+
 	CModel* model = GetComponent<CModel>();
 	if (model)
 	{
@@ -76,6 +91,9 @@ void Enemy::OnCollision(CObject* _Other)
 void Enemy::TakeDamage(int damage)
 {
 	HP -= damage;
+
+	m_flashTimer = FLASH_DURATION;
+
 	if (HP <= 0)
 	{
 		m_stateMachine.ChangeState(std::make_shared<EnemyDeadState>());
