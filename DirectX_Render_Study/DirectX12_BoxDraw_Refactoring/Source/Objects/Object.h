@@ -47,6 +47,8 @@ public:
 
 
 	virtual void Init();
+	virtual void Awake() {}
+	virtual void Start() {}
 	virtual void Update() = 0;
 	virtual void LateUpdate() = 0;
 	virtual void Draw() = 0;
@@ -62,6 +64,8 @@ protected:
 	bool isValid;
 	bool IsDestroyed = false;
 	bool m_isVisible = true;
+	bool m_hasAwoken = false;
+	bool m_hasStarted = false;
 
 
 	//----- コンポーネントの管理
@@ -113,6 +117,13 @@ public:
 	// --IsVisible
 	bool GetIsVisible() const { return m_isVisible; }
 	void SetVisible(bool visible) { m_isVisible = visible; }
+
+	// --HasAwoken / HasStarted
+	bool GetHasAwoken() const { return m_hasAwoken; }
+	void SetHasAwoken(bool awoken) { m_hasAwoken = awoken; }
+
+	bool GetHasStarted() const { return m_hasStarted; }
+	void SetHasStarted(bool started) { m_hasStarted = started; }
 
 	const Vector<UniquePtr<CComponent>>& GetComponents() const { return components; }
 	void SetIsDestroyed(bool _IsDestroyed) { IsDestroyed = _IsDestroyed; }

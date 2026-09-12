@@ -8,9 +8,11 @@
 #include "Camera.h"
 #include "TimeManager.h"
 #include "Source/Core/Scenes/Manager/SceneManager.h"
+#include "Source/Core/Scenes/Serializer/SceneSerializer.h"
 #include "SceneEnums.h"
 #include "Player.h"
-#include "PlayerState.h"
+#include "Enemy.h"
+#include "Box.h"
 #include <typeinfo>
 
 bool CInspectorUI::ShouldUpdateGame()
@@ -18,6 +20,11 @@ bool CInspectorUI::ShouldUpdateGame()
 #ifndef _DEBUG
     return true;
 #endif // !_DEBUG
+
+    if (m_isEditMode)
+    {
+        return false;
+    }
 
     if (!m_isPaused)
     {
@@ -39,9 +46,102 @@ void CInspectorUI::Draw()
     return;
 #endif // !_DEBUG
 
-    ImGui::Begin("Scene Inspector");
+    ImGui::Begin("Level Editor & Inspector");
 
     auto& objectList = ObjectManager::GetInstance().GetObjectList();
+    Scenes::ID currentSceneID = SceneManager::GetInstance().GetActiveSceneID();
+
+    // 1. Mode Controls
+    ImGui::Text("Mode & Simulation");
+    if (m_isEditMode)
+    {
+        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.8f, 0.2f, 0.2f, 1.0f));
+        if (ImGui::Button("  [EDIT MODE] Click to Play  "))
+        {
+            m_isEditMode = false;
+            // Play Mode 開始時に Awake と Start を呼ぶ
+            for (auto& vec : objectList)
+            {
+                for (auto& obj : vec)
+                {
+                    if (obj && !obj->GetIsDestroyed())
+                    {
+                        if (!obj->GetHasAwoken()) obj->Awake();
+                        if (!obj->GetHasStarted()) obj->Start();
+                    }
+                }
+            }
+        }
+        ImGui::PopStyleColor();
+    }
+    else
+    {
+        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.2f, 0.8f, 0.2f, 1.0f));
+        if (ImGui::Button("  [PLAY MODE] Click to Edit  "))
+        {
+            m_isEditMode = true;
+            // Edit Mode 復帰時に JSON から復允E            SceneSerializer::LoadScene(m_sceneJsonPath, currentSceneID);
+        }
+        ImGui::PopStyleColor();
+    }
+
+    ImGui::SameLine();
+    if (ImGui::Button(m_isPaused ? " Resume " : " Pause "))
+    {
+        m_isPaused = !m_isPaused;
+    }
+    ImGui::SameLine();
+    if (ImGui::Button("Step 1 Frame"))
+    {
+        m_stepNextFrame = true;
+    }
+
+    if (ImGui::SliderFloat("Speed", &m_timeScale, 0.0f, 3.0f, "%.2fx"))
+    {
+        TimeManager::GetInstance().SetTimeScale(m_timeScale);
+    }
+    ImGui::Checkbox("Show Box Colliders", &m_showColliders);
+    ImGui::Separator();
+
+    // 2. Prefab Palette (Object Spawner)
+    ImGui::Text("Prefab Spawner (Add Objects)");
+    if (ImGui::Button("+ Player"))
+    {
+        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::PLAYER, "Player");
+        if (newObj) newObj->Awake();
+    }
+    ImGui::SameLine();
+    if (ImGui::Button("+ Enemy"))
+    {
+        static int enemyCounter = 0;
+        std::string name = "Enemy_" + std::to_string(enemyCounter++);
+        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::ENEMY, name);
+        if (newObj) newObj->Awake();
+    }
+    ImGui::SameLine();
+    if (ImGui::Button("+ Box Field"))
+    {
+        static int boxCounter = 0;
+        std::string name = "Box_" + std::to_string(boxCounter++);
+        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::FIELD, name);
+        if (newObj) newObj->Awake();
+    }
+    ImGui::Separator();
+
+    // 3. JSON Scene Serialization
+    ImGui::Text("Scene Serialization (JSON)");
+    ImGui::InputText("File Path", m_sceneJsonPath, sizeof(m_sceneJsonPath));
+
+    if (ImGui::Button("Save Scene (.json)"))
+    {
+        SceneSerializer::SaveScene(m_sceneJsonPath, currentSceneID);
+    }
+    ImGui::SameLine();
+    if (ImGui::Button("Load Scene (.json)"))
+    {
+        SceneSerializer::LoadScene(m_sceneJsonPath, currentSceneID);
+    }
+    ImGui::Separator();
 
     // Player Status
     Player* player = ObjectManager::GetInstance().GetPlayer();
@@ -51,71 +151,12 @@ void CInspectorUI::Draw()
         ImGui::Text("HP: %d / %d", player->GetHP(), player->GetMaxHP());
         float hpFraction = (float)player->GetHP() / (float)player->GetMaxHP();
         ImGui::ProgressBar(hpFraction, ImVec2(-1.0f, 0.0f));
-        if (ImGui::Button("Damage Player (1)"))
-        {
-            player->TakeDamage(1);
-        }
-        ImGui::SameLine();
-        if (ImGui::Button("Kill Player"))
-        {
-            player->TakeDamage(player->GetHP());
-        }
-        ImGui::SameLine();
-        if (ImGui::Button("Attack (Spell1)"))
-        {
-            player->GetStateMachine().ChangeState(std::make_shared<PlayerAttackState>());
-        }
         ImGui::Separator();
     }
 
-    // 1. Game & Time Controls
-    ImGui::Text("Game & Time Controls");
-    if (ImGui::Button(m_isPaused ? "  Resume  " : "  Pause  "))
-    {
-        m_isPaused = !m_isPaused;
-    }
-    ImGui::SameLine();
-    if (ImGui::Button("Step 1 Frame"))
-    {
-        m_stepNextFrame = true;
-    }
-    ImGui::SameLine();
-    if (ImGui::SliderFloat("Speed", &m_timeScale, 0.0f, 3.0f, "%.2fx"))
-    {
-        TimeManager::GetInstance().SetTimeScale(m_timeScale);
-    }
-    ImGui::Checkbox("Show Box Colliders", &m_showColliders);
-    ImGui::Separator();
-
-    // 2. Scene Controls
-    ImGui::Text("Scene Controls");
-    static const char* sceneNames[] = { "Title (TITLE)", "Test/Game (TEST)", "Clear (Clear)", "Failed (Failed)" };
-    static const Scenes::ID sceneIDs[] = { Scenes::ID::TITLE, Scenes::ID::TEST, Scenes::ID::Clear, Scenes::ID::Failed };
-    static int selectedSceneIndex = 0;
-
-    ImGui::Combo("Scene List", &selectedSceneIndex, sceneNames, IM_ARRAYSIZE(sceneNames));
-
-    if (ImGui::Button("Change Scene (Fade)"))
-    {
-        SceneManager::GetInstance().ChangeSceneWithFade(sceneIDs[selectedSceneIndex], 0.4f);
-    }
-    ImGui::SameLine();
-    if (ImGui::Button("Load Additive"))
-    {
-        SceneManager::GetInstance().LoadSceneAdditive(sceneIDs[selectedSceneIndex], true);
-    }
-    ImGui::SameLine();
-    if (ImGui::Button("Unload Selected"))
-    {
-        SceneManager::GetInstance().UnloadScene(sceneIDs[selectedSceneIndex]);
-    }
-    ImGui::Separator();
-
-    // 3. Hierarchy (Object List)
+    // 4. Hierarchy (Object List)
     ImGui::Text("Hierarchy");
-    ImGui::Separator();
-    
-    ImGui::BeginChild("HierarchyList", ImVec2(0, 200), true);
+    ImGui::BeginChild("HierarchyList", ImVec2(0, 180), true);
     int objectCounter = 0;
     
     for (size_t tagIdx = 0; tagIdx < objectList.size(); ++tagIdx)
@@ -128,7 +169,7 @@ void CInspectorUI::Draw()
             for (size_t i = 0; i < objVec.size(); ++i)
             {
                 CObject* obj = objVec[i].get();
-                if (!obj) continue;
+                if (!obj || obj->GetIsDestroyed()) continue;
 
                 CObjectInfo* objInfo = obj->GetComponent<CObjectInfo>();
                 std::string objName = objInfo ? objInfo->GetObjectName() : "Object " + std::to_string(objectCounter);
@@ -146,7 +187,7 @@ void CInspectorUI::Draw()
     }
     ImGui::EndChild();
 
-    // 4. Inspector (Selected Object Details)
+    // 5. Inspector (Selected Object Details)
     ImGui::Spacing();
     ImGui::Text("Inspector");
     ImGui::Separator();
@@ -157,10 +198,44 @@ void CInspectorUI::Draw()
         if (m_selectedObjectIndex >= 0 && m_selectedObjectIndex < objVec.size())
         {
             CObject* selectedObj = objVec[m_selectedObjectIndex].get();
-            if (selectedObj)
+            if (selectedObj && !selectedObj->GetIsDestroyed())
             {
-                ImGui::Text("Object (Tag %d, Idx %d)", m_selectedTagIndex, m_selectedObjectIndex);
+                CObjectInfo* objInfo = selectedObj->GetComponent<CObjectInfo>();
+                std::string name = objInfo ? objInfo->GetObjectName() : "Object";
+                ImGui::Text("Selected: %s (Tag %d, Idx %d)", name.c_str(), m_selectedTagIndex, m_selectedObjectIndex);
                 
+                // Duplicate & Delete buttons
+                if (ImGui::Button("Duplicate Object"))
+                {
+                    CObjectInfo* selectedInfo = selectedObj->GetComponent<CObjectInfo>();
+                    CTransform* selectedTrans = selectedObj->GetComponent<CTransform>();
+
+                    if (selectedInfo && selectedTrans)
+                    {
+                        CObject* clonedObj = ObjectManager::GetInstance().Instantiate(currentSceneID, selectedInfo->GetObjectTag(), selectedInfo->GetObjectName() + "_Copy");
+                        if (clonedObj)
+                        {
+                            CTransform* clonedTrans = clonedObj->GetComponent<CTransform>();
+                            if (clonedTrans)
+                            {
+                                DirectX::XMFLOAT3 pos = selectedTrans->GetPos();
+                                pos.x += 0.5f; // offset slightly
+                                clonedTrans->SetPos(pos);
+                                clonedTrans->SetRotation(selectedTrans->GetRotation());
+                                clonedTrans->SetScale(selectedTrans->GetScale());
+                            }
+                            clonedObj->Awake();
+                        }
+                    }
+                }
+                ImGui::SameLine();
+                if (ImGui::Button("Delete Object"))
+                {
+                    selectedObj->SetIsDestroyed(true);
+                    m_selectedObjectIndex = -1;
+                    m_selectedTagIndex = -1;
+                }
+
                 CTransform* transform = selectedObj->GetComponent<CTransform>();
                 if (transform)
                 {
@@ -216,26 +291,6 @@ void CInspectorUI::Draw()
                         if (ImGui::DragFloat3("Offset", &offset.x, 0.1f))
                         {
                             boxCollider->SetOffset(offset);
-                        }
-                    }
-                }
-                
-                if (ImGui::CollapsingHeader("Other Components", ImGuiTreeNodeFlags_DefaultOpen))
-                {
-                    for (const auto& comp : selectedObj->GetComponents())
-                    {
-                        if (comp)
-                        {
-                            std::string compName = comp->GetName();
-                            if (compName != "Transform" && compName != "Model" && compName != "ObjectInfo" && compName != "BoxCollider3D")
-                            {
-                                if (compName.empty()) {
-                                    compName = typeid(*comp).name();
-                                    if (compName.find("class ") == 0) compName = compName.substr(6);
-                                    if (compName.find("struct ") == 0) compName = compName.substr(7);
-                                }
-                                ImGui::Text("- %s", compName.c_str());
-                            }
                         }
                     }
                 }

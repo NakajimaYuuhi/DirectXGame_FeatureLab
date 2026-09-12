@@ -13,6 +13,8 @@ public:
 	~Player() = default;
 
 	void Init() override;
+	void Awake() override;
+	void Start() override;
 	virtual void Update() override;
 
 	// StateMachine getter

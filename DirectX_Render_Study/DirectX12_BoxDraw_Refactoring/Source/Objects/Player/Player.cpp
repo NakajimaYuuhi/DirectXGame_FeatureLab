@@ -34,15 +34,38 @@ Player::Player(String _Name)
 
 	Audio* audio = AddComponent<Audio>();
 	audio->Load("Assets/Audio/SE/Fire1.wav");
+
+	SetScale({ 0.5f, 0.5f, 0.5f });
 }
 
 void Player::Init()
 {
+	Awake();
+	Start();
+}
+
+void Player::Awake()
+{
+	if (m_hasAwoken) return;
+
+	HP = MaxHP;
+	m_invincibleTimer = 0.0f;
+	SetVisible(true);
+
+	m_hasAwoken = true;
+}
+
+void Player::Start()
+{
+	if (m_hasStarted) return;
+
 	m_camera = ObjectManager::GetInstance().GetCamera();
 	SetScale({ 0.5f, 0.5f, 0.5f });
 
 	m_stateMachine.SetOwner(this);
 	m_stateMachine.ChangeState(std::make_shared<PlayerIdleState>());
+
+	m_hasStarted = true;
 }
 
 void Player::Update()

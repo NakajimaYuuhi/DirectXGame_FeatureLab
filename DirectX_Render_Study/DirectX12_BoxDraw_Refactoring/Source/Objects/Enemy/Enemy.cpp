@@ -36,6 +36,25 @@ Enemy::Enemy(String _Name)
 
 void Enemy::Init()
 {
+	Awake();
+	Start();
+}
+
+void Enemy::Awake()
+{
+	if (m_hasAwoken) return;
+
+	HP = MaxHP;
+	m_flashTimer = 0.0f;
+	SetVisible(true);
+
+	m_hasAwoken = true;
+}
+
+void Enemy::Start()
+{
+	if (m_hasStarted) return;
+
 	EnemyCounter* enemyCounter = (EnemyCounter*)ObjectManager::GetInstance().GetManager("EnemyCounter");
 	if (enemyCounter)
 	{
@@ -44,10 +63,10 @@ void Enemy::Init()
 
 	SetScale({ 0.5f, 0.5f, 0.5f });
 
-	CObject::Init();
-
 	m_stateMachine.SetOwner(this);
 	m_stateMachine.ChangeState(std::make_shared<EnemyIdleState>());
+
+	m_hasStarted = true;
 }
 
 void Enemy::Update()
