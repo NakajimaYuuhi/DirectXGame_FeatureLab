@@ -1,3 +1,4 @@
+#include "InspectorUI.h"
 #include "Camera.h"
 #include "Player.h"
 #include "InputManager.h"
@@ -30,12 +31,29 @@ Camera::Camera(String _Name)
 	
 }
 
+void Camera::Awake()
+{
+	if (m_hasAwoken) return;
+	m_player = ObjectManager::GetInstance().GetPlayer();
+	m_hasAwoken = true;
+}
+
+void Camera::Start()
+{
+	if (m_hasStarted) return;
+	m_player = ObjectManager::GetInstance().GetPlayer();
+	Audio* audio = GetComponent<Audio>();
+	if (audio) audio->Play(true);
+	m_hasStarted = true;
+}
+
 void Camera::Init()
 {
-	m_player = ObjectManager::GetInstance().GetPlayer();
-
-	Audio* audio = GetComponent<Audio>();
-	audio->Play(true);
+	Awake();
+	if (!CInspectorUI::GetInstance().IsEditMode())
+	{
+		Start();
+	}
 }
 
 void Camera::Update()

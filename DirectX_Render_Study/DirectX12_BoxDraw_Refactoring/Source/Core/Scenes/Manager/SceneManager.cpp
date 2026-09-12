@@ -128,6 +128,13 @@ void SceneManager::ChangeSceneWithFade(Scenes::ID nextSceneID, float fadeDuratio
 	}
 }
 
+void SceneManager::ChangeSceneInstant(Scenes::ID _SceneID)
+{
+	UninitAndPop();
+	m_scenes.clear();
+	LoadSceneAdditive(_SceneID, true);
+}
+
 void SceneManager::ChangeScene(Scenes::ID _SceneID)
 {
 	ChangeSceneWithFade(_SceneID, 0.4f);

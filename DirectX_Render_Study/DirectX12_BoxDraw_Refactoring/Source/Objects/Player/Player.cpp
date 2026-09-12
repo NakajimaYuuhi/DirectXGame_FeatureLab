@@ -1,3 +1,4 @@
+#include "InspectorUI.h"
 #include "Player.h"
 #include "PlayerState.h"
 #include "Camera.h"
@@ -41,7 +42,10 @@ Player::Player(String _Name)
 void Player::Init()
 {
 	Awake();
-	Start();
+	if (!CInspectorUI::GetInstance().IsEditMode())
+	{
+		Start();
+	}
 }
 
 void Player::Awake()

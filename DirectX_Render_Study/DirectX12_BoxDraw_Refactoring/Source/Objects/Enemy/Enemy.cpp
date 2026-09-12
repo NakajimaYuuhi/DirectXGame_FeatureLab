@@ -1,3 +1,4 @@
+#include "InspectorUI.h"
 #include "Enemy.h"
 #include "EnemyState.h"
 #include "ObjectInfo.h"
@@ -37,7 +38,10 @@ Enemy::Enemy(String _Name)
 void Enemy::Init()
 {
 	Awake();
-	Start();
+	if (!CInspectorUI::GetInstance().IsEditMode())
+	{
+		Start();
+	}
 }
 
 void Enemy::Awake()

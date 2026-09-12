@@ -31,6 +31,7 @@ public:
 
 	// フェード付きシーン切り替え
 	void ChangeSceneWithFade(Scenes::ID nextSceneID, float fadeDuration = 0.5f);
+	void ChangeSceneInstant(Scenes::ID _SceneID);
 
 	// 互換用シーン切り替え
 	void ChangeScene(Scenes::ID _SceneID);

@@ -28,7 +28,7 @@ private:
     char m_sceneJsonPath[256] = "Assets/Scene/SceneTest.json";
     bool m_showColliders = true;
 
-    bool m_isEditMode = false;
+    bool m_isEditMode = true;
     bool m_isPaused = false;
     bool m_stepNextFrame = false;
     float m_timeScale = 1.0f;

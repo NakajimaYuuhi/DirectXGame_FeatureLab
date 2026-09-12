@@ -11,6 +11,8 @@ public:
 	~Camera() = default;
 
 	void Init() override;
+	void Awake() override;
+	void Start() override;
 	void Update() override;
 
 	DirectX::XMMATRIX GetView() { return view; }
