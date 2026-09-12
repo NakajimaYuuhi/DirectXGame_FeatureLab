@@ -59,7 +59,7 @@ void CInspectorUI::Draw()
         if (ImGui::Button("  [EDIT MODE] Click to Play  "))
         {
             m_isEditMode = false;
-            // Play Mode 開始時に Awake と Start を呼ぶ
+            // Play Mode ?J?n???? Awake ?? Start ????
             for (auto& vec : objectList)
             {
                 for (auto& obj : vec)
@@ -80,7 +80,7 @@ void CInspectorUI::Draw()
         if (ImGui::Button("  [PLAY MODE] Click to Edit  "))
         {
             m_isEditMode = true;
-            // Edit Mode 復帰時に JSON から復允E            SceneSerializer::LoadScene(m_sceneJsonPath, currentSceneID);
+            // Edit Mode ???A???? JSON ???�{??E            SceneSerializer::LoadScene(m_sceneJsonPath, currentSceneID);
         }
         ImGui::PopStyleColor();
     }
@@ -103,7 +103,42 @@ void CInspectorUI::Draw()
     ImGui::Checkbox("Show Box Colliders", &m_showColliders);
     ImGui::Separator();
 
-    // 2. Prefab Palette (Object Spawner)
+    // 2. Scene Controls (?V?[???E??????E???Z???[?h?@?E)
+    ImGui::Text("Scene Controls");
+    static const char* sceneNames[] = { "Title (TITLE)", "Test/Game (TEST)", "Clear (Clear)", "Failed (Failed)" };
+    static const Scenes::ID sceneIDs[] = { Scenes::ID::TITLE, Scenes::ID::TEST, Scenes::ID::Clear, Scenes::ID::Failed };
+    static const char* sceneJsonPaths[] = { "Assets/Scene/SceneTitle.json", "Assets/Scene/SceneTest.json", "Assets/Scene/SceneClear.json", "Assets/Scene/SceneFailed.json" };
+    static int selectedSceneIndex = 1; // Default to TEST
+
+    if (ImGui::Combo("Scene List", &selectedSceneIndex, sceneNames, IM_ARRAYSIZE(sceneNames)))
+    {
+        strncpy_s(m_sceneJsonPath, sizeof(m_sceneJsonPath), sceneJsonPaths[selectedSceneIndex], _TRUNCATE);
+    }
+
+    if (ImGui::Button("Change Scene"))
+    {
+        if (m_isEditMode)
+        {
+            SceneManager::GetInstance().ChangeSceneInstant(sceneIDs[selectedSceneIndex]);
+        }
+        else
+        {
+            SceneManager::GetInstance().ChangeSceneWithFade(sceneIDs[selectedSceneIndex], 0.4f);
+        }
+    }
+    ImGui::SameLine();
+    if (ImGui::Button("Load Additive"))
+    {
+        SceneManager::GetInstance().LoadSceneAdditive(sceneIDs[selectedSceneIndex], true);
+    }
+    ImGui::SameLine();
+    if (ImGui::Button("Unload Selected"))
+    {
+        SceneManager::GetInstance().UnloadScene(sceneIDs[selectedSceneIndex]);
+    }
+    ImGui::Separator();
+
+    // 3. Prefab Palette (Object Spawner)
     ImGui::Text("Prefab Spawner (Add Objects)");
     if (ImGui::Button("+ Player"))
     {
@@ -128,7 +163,7 @@ void CInspectorUI::Draw()
     }
     ImGui::Separator();
 
-    // 3. JSON Scene Serialization
+    // 4. JSON Scene Serialization
     ImGui::Text("Scene Serialization (JSON)");
     ImGui::InputText("File Path", m_sceneJsonPath, sizeof(m_sceneJsonPath));
 
@@ -154,7 +189,7 @@ void CInspectorUI::Draw()
         ImGui::Separator();
     }
 
-    // 4. Hierarchy (Object List)
+    // 5. Hierarchy (Object List)
     ImGui::Text("Hierarchy");
     ImGui::BeginChild("HierarchyList", ImVec2(0, 180), true);
     int objectCounter = 0;
@@ -187,7 +222,7 @@ void CInspectorUI::Draw()
     }
     ImGui::EndChild();
 
-    // 5. Inspector (Selected Object Details)
+    // 6. Inspector (Selected Object Details)
     ImGui::Spacing();
     ImGui::Text("Inspector");
     ImGui::Separator();
@@ -324,3 +359,4 @@ void CInspectorUI::Draw()
         }
     }
 }
+
