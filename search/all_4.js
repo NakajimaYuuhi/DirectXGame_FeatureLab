@@ -207,5 +207,5 @@ var searchData=
   ['bytes_204',['bytes',['../classnlohmann_1_1detail_1_1serializer.html#a4239a42672c7378a6b449ee010e6dace',1,'nlohmann::detail::serializer']]],
   ['bytes_5fafter_5flast_5faccept_205',['bytes_after_last_accept',['../classnlohmann_1_1detail_1_1serializer.html#a9ae3daaea1941fd02d4c3c1b0f5fbe68',1,'nlohmann::detail::serializer']]],
   ['bytesperpixel_206',['BytesPerPixel',['../structImTextureData.html#a971af4fcadf812deb182b596af264eaf',1,'ImTextureData']]],
-  ['bytestride_207',['bytestride',['../structtinygltf_1_1BufferView.html#ad42c65b61da5c0a2e6e7f7432c1408e6',1,'tinygltf::BufferView::byteStride'],['../structtinygltf_1_1Accessor.html#a31262158214af822389c28f026bcb8a2',1,'tinygltf::Accessor::ByteStride()']]]
+  ['bytestride_207',['bytestride',['../structtinygltf_1_1Accessor.html#a31262158214af822389c28f026bcb8a2',1,'tinygltf::Accessor::ByteStride()'],['../structtinygltf_1_1BufferView.html#ad42c65b61da5c0a2e6e7f7432c1408e6',1,'tinygltf::BufferView::byteStride']]]
 ];

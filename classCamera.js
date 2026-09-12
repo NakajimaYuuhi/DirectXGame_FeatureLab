@@ -2,10 +2,12 @@ var classCamera =
 [
     [ "Camera", "classCamera.html#aef73f611c8928337907c0b3df2a579c0", null ],
     [ "~Camera", "classCamera.html#adcb96efefa7af58e3ee6534b15d4979b", null ],
+    [ "Awake", "classCamera.html#aae641572c54305477c37df2b9bb69ff7", null ],
     [ "GetAngleY", "classCamera.html#a3f2d61d8b6dc2593d90b54a227af549f", null ],
     [ "GetProj", "classCamera.html#a57ea27e7ff7124684436f0f5e399edf8", null ],
     [ "GetView", "classCamera.html#a73c14fc70f1702022315fcb9bcbe03a6", null ],
     [ "Init", "classCamera.html#a5505545a402c6674b302c26e8348983a", null ],
+    [ "Start", "classCamera.html#ad1e1e6737506ba97eece8b71a3862db7", null ],
     [ "Update", "classCamera.html#adba920a003ec354ebaa7d78496d168f1", null ],
     [ "m_angleY", "classCamera.html#afd7b3ea22487fab87404d353b688ad76", null ],
     [ "m_distance", "classCamera.html#a4fce037da1e67ffcb43c5851b049e03e", null ],

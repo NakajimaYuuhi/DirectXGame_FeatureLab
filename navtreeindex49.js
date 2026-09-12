@@ -1,5 +1,8 @@
 var NAVTREEINDEX49 =
 {
+"structtinygltf_1_1OcclusionTextureInfo.html":[2,0,2,19],
+"structtinygltf_1_1OcclusionTextureInfo.html#a29679a3c166327fbe12a96db67ace4f7":[1,0,7,19,1],
+"structtinygltf_1_1OcclusionTextureInfo.html#a29679a3c166327fbe12a96db67ace4f7":[2,0,2,19,1],
 "structtinygltf_1_1OcclusionTextureInfo.html#a329aaab28b779602229cb1c933046df7":[2,0,2,19,8],
 "structtinygltf_1_1OcclusionTextureInfo.html#a329aaab28b779602229cb1c933046df7":[1,0,7,19,8],
 "structtinygltf_1_1OcclusionTextureInfo.html#a3dc07432347b6bf67c1a5e39b86ed609":[2,0,2,19,2],
@@ -246,8 +249,5 @@ var NAVTREEINDEX49 =
 "structtinygltf_1_1SpotLight.html#a965593ea3e9b762983642ba28fa454ff":[2,0,2,29,7],
 "structtinygltf_1_1SpotLight.html#acc3425beb4738e6541177f295874faf5":[1,0,7,29,2],
 "structtinygltf_1_1SpotLight.html#acc3425beb4738e6541177f295874faf5":[2,0,2,29,2],
-"structtinygltf_1_1SpotLight.html#accb7b477b7b0f34506a878cd8cab1f21":[1,0,7,29,1],
-"structtinygltf_1_1SpotLight.html#accb7b477b7b0f34506a878cd8cab1f21":[2,0,2,29,1],
-"structtinygltf_1_1Texture.html":[1,0,7,30],
-"structtinygltf_1_1Texture.html":[2,0,2,30]
+"structtinygltf_1_1SpotLight.html#accb7b477b7b0f34506a878cd8cab1f21":[1,0,7,29,1]
 };

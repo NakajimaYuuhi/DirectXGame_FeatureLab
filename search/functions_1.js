@@ -101,5 +101,5 @@ var searchData=
   ['audio_98',['Audio',['../classAudio.html#aa9d3935a2b91ab4b825bc0cb05f245ea',1,'Audio']]],
   ['audioemitter_99',['AudioEmitter',['../structtinygltf_1_1AudioEmitter.html#a08900878b5d93466e71db3befe6d09ab',1,'tinygltf::AudioEmitter']]],
   ['audiosource_100',['AudioSource',['../structtinygltf_1_1AudioSource.html#a3e4b27d99888c92f8137bef3bbb34663',1,'tinygltf::AudioSource']]],
-  ['awake_101',['awake',['../classPlayer.html#adc70285b4e4db37c92f9be808a06eb07',1,'Player::Awake()'],['../classEnemy.html#a0699b197ba3d5bff7539121991bf73d9',1,'Enemy::Awake()'],['../classCObject.html#a39a9033ff03bde23f788cfb68d90564f',1,'CObject::Awake()']]]
+  ['awake_101',['awake',['../classCObject.html#a39a9033ff03bde23f788cfb68d90564f',1,'CObject::Awake()'],['../classCamera.html#aae641572c54305477c37df2b9bb69ff7',1,'Camera::Awake()'],['../classEnemy.html#a0699b197ba3d5bff7539121991bf73d9',1,'Enemy::Awake()'],['../classPlayer.html#adc70285b4e4db37c92f9be808a06eb07',1,'Player::Awake()']]]
 ];

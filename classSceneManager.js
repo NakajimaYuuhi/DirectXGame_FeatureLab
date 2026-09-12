@@ -4,6 +4,7 @@ var classSceneManager =
     [ "~SceneManager", "classSceneManager.html#a2bb376a85d29e85f47753e26c7539229", null ],
     [ "SceneManager", "classSceneManager.html#a453ab6cc351aa4a8a2dd5d44bcf929f3", null ],
     [ "ChangeScene", "classSceneManager.html#a3dcd4791a9fac2ad24bbe9792082a8fb", null ],
+    [ "ChangeSceneInstant", "classSceneManager.html#a9cd7da9d31ce9dd90d451e673979f370", null ],
     [ "ChangeSceneWithFade", "classSceneManager.html#a0051e4abf006344aceccbcb169051d92", null ],
     [ "CreateSceneInstance", "classSceneManager.html#a4b03641ff99b328740c3b8396b0c46b9", null ],
     [ "Draw", "classSceneManager.html#a0514cff74bbaa000333587c829891b6c", null ],

@@ -1,5 +1,8 @@
 var NAVTREEINDEX48 =
 {
+"structtinygltf_1_1AudioEmitter.html#ad86459663a20594f4187f155ff11ba3c":[1,0,7,6,6],
+"structtinygltf_1_1AudioEmitter.html#af533359afc67229344ea08c9e3f8f3a6":[1,0,7,6,8],
+"structtinygltf_1_1AudioEmitter.html#af533359afc67229344ea08c9e3f8f3a6":[2,0,2,6,8],
 "structtinygltf_1_1AudioSource.html":[1,0,7,7],
 "structtinygltf_1_1AudioSource.html":[2,0,2,7],
 "structtinygltf_1_1AudioSource.html#a0bc85e8243b1d9fa1f4af1052a0d376f":[1,0,7,7,5],
@@ -246,8 +249,5 @@ var NAVTREEINDEX48 =
 "structtinygltf_1_1NormalTextureInfo.html#acd4a179f358a143b6ed646e7271522ac":[1,0,7,18,0],
 "structtinygltf_1_1NormalTextureInfo.html#ad6acb3a47279d14089828ff50eaaf660":[2,0,2,18,3],
 "structtinygltf_1_1NormalTextureInfo.html#ad6acb3a47279d14089828ff50eaaf660":[1,0,7,18,3],
-"structtinygltf_1_1OcclusionTextureInfo.html":[1,0,7,19],
-"structtinygltf_1_1OcclusionTextureInfo.html":[2,0,2,19],
-"structtinygltf_1_1OcclusionTextureInfo.html#a29679a3c166327fbe12a96db67ace4f7":[1,0,7,19,1],
-"structtinygltf_1_1OcclusionTextureInfo.html#a29679a3c166327fbe12a96db67ace4f7":[2,0,2,19,1]
+"structtinygltf_1_1OcclusionTextureInfo.html":[1,0,7,19]
 };

@@ -1,5 +1,8 @@
 var NAVTREEINDEX47 =
 {
+"structstbtt__bakedchar.html#aec4def12c086e0038ba32ff33ee78644":[2,0,259,4],
+"structstbtt__fontinfo.html":[2,0,260],
+"structstbtt__fontinfo.html#a0b95e3ac0c397b72b7696ce6696eb189":[2,0,260,12],
 "structstbtt__fontinfo.html#a139234d825b585afa27748a1f3d10c7d":[2,0,260,5],
 "structstbtt__fontinfo.html#a15344195b181b50bde4f59ae7ca248c0":[2,0,260,15],
 "structstbtt__fontinfo.html#a2aae62e8e1269ab65be642a7ec82d7b3":[2,0,260,18],
@@ -246,8 +249,5 @@ var NAVTREEINDEX47 =
 "structtinygltf_1_1AudioEmitter.html#ac3365cf8c7e9aa0068a346e09c51736b":[1,0,7,6,4],
 "structtinygltf_1_1AudioEmitter.html#ac3d4f3af3da649c88e0644870acb720c":[1,0,7,6,7],
 "structtinygltf_1_1AudioEmitter.html#ac3d4f3af3da649c88e0644870acb720c":[2,0,2,6,7],
-"structtinygltf_1_1AudioEmitter.html#ad86459663a20594f4187f155ff11ba3c":[2,0,2,6,6],
-"structtinygltf_1_1AudioEmitter.html#ad86459663a20594f4187f155ff11ba3c":[1,0,7,6,6],
-"structtinygltf_1_1AudioEmitter.html#af533359afc67229344ea08c9e3f8f3a6":[1,0,7,6,8],
-"structtinygltf_1_1AudioEmitter.html#af533359afc67229344ea08c9e3f8f3a6":[2,0,2,6,8]
+"structtinygltf_1_1AudioEmitter.html#ad86459663a20594f4187f155ff11ba3c":[2,0,2,6,6]
 };
