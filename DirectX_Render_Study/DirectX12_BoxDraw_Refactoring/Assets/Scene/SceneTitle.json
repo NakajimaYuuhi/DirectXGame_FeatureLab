@@ -1,0 +1,141 @@
+{
+    "eventSystem": {
+        "firstSelected": "UIButton"
+    },
+    "objects": [
+        {
+            "name": "TitleUI",
+            "sprite": {
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "size": [
+                    1920.0,
+                    1080.0
+                ],
+                "texturePath": "Assets/Texture/T_TitleBG.png"
+            },
+            "tag": -1,
+            "transform": {
+                "position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "type": "CUIObject"
+        },
+        {
+            "button": {
+                "action": "ChangeScene_Test"
+            },
+            "name": "UIButton",
+            "sprite": {
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "size": [
+                    400.0,
+                    100.0
+                ],
+                "texturePath": "Assets/Texture/T_GameStart.png"
+            },
+            "tag": -1,
+            "transform": {
+                "position": [
+                    740.0,
+                    650.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "type": "CUIButton"
+        },
+        {
+            "button": {
+                "action": "ExitGame"
+            },
+            "name": "UIButton",
+            "sprite": {
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    0.30000001192092896
+                ],
+                "size": [
+                    400.0,
+                    100.0
+                ],
+                "texturePath": "Assets/Texture/T_Exit.png"
+            },
+            "tag": -1,
+            "transform": {
+                "position": [
+                    735.0,
+                    800.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "type": "CUIButton"
+        },
+        {
+            "name": "Camera",
+            "tag": 11,
+            "transform": {
+                "position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "type": "CObject"
+        }
+    ],
+    "sceneID": 0
+}

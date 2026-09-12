@@ -13,7 +13,34 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "Box.h"
+#include "UIObject.h"
+#include "CUIButton.h"
+#include "TextObject.h"
+#include "SpriteRenderer.h"
+#include "TextRenderer.h"
+#include "ButtonEventManager.h"
+#include "ButtonAction.h"
 #include <typeinfo>
+#include <windows.h>
+#include <vector>
+
+static std::string WStringToString(const std::wstring& wstr)
+{
+	if (wstr.empty()) return "";
+	int size = WideCharToMultiByte(CP_UTF8, 0, &wstr[0], (int)wstr.size(), NULL, 0, NULL, NULL);
+	std::string str(size, 0);
+	WideCharToMultiByte(CP_UTF8, 0, &wstr[0], (int)wstr.size(), &str[0], size, NULL, NULL);
+	return str;
+}
+
+static std::wstring StringToWString(const std::string& str)
+{
+	if (str.empty()) return L"";
+	int size = MultiByteToWideChar(CP_UTF8, 0, &str[0], (int)str.size(), NULL, 0);
+	std::wstring wstr(size, 0);
+	MultiByteToWideChar(CP_UTF8, 0, &str[0], (int)str.size(), &wstr[0], size);
+	return wstr;
+}
 
 bool CInspectorUI::ShouldUpdateGame()
 {
@@ -59,7 +86,7 @@ void CInspectorUI::Draw()
         if (ImGui::Button("  [EDIT MODE] Click to Play  "))
         {
             m_isEditMode = false;
-            // Play Mode ?J?n???? Awake ?? Start ????
+            // Play Mode Start
             for (auto& vec : objectList)
             {
                 for (auto& obj : vec)
@@ -80,7 +107,8 @@ void CInspectorUI::Draw()
         if (ImGui::Button("  [PLAY MODE] Click to Edit  "))
         {
             m_isEditMode = true;
-            // Edit Mode ???A???? JSON ???’{??E            SceneSerializer::LoadScene(m_sceneJsonPath, currentSceneID);
+            // Edit Mode Reload
+            SceneSerializer::LoadScene(m_sceneJsonPath, currentSceneID);
         }
         ImGui::PopStyleColor();
     }
@@ -103,7 +131,7 @@ void CInspectorUI::Draw()
     ImGui::Checkbox("Show Box Colliders", &m_showColliders);
     ImGui::Separator();
 
-    // 2. Scene Controls (?V?[???E??????E???Z???[?h?@?E)
+    // 2. Scene Controls
     ImGui::Text("Scene Controls");
     static const char* sceneNames[] = { "Title (TITLE)", "Test/Game (TEST)", "Clear (Clear)", "Failed (Failed)" };
     static const Scenes::ID sceneIDs[] = { Scenes::ID::TITLE, Scenes::ID::TEST, Scenes::ID::Clear, Scenes::ID::Failed };
@@ -138,6 +166,48 @@ void CInspectorUI::Draw()
     }
     ImGui::Separator();
 
+    // 2.5 UI Event System (First Selected Button)
+    ImGui::Text("UI Event System");
+    std::vector<std::string> uiButtonNames;
+    int selectedFirstIdx = 0;
+    std::string currentFirstSel = ButtonEventManager::GetInstance().GetFirstSelectedName();
+
+    int btnCounter = 0;
+    for (size_t tagIdx = 0; tagIdx < objectList.size(); ++tagIdx)
+    {
+        for (const auto& obj : objectList[tagIdx])
+        {
+            if (!obj || obj->GetIsDestroyed()) continue;
+            if (dynamic_cast<CUIButton*>(obj.get()))
+            {
+                CObjectInfo* info = obj->GetComponent<CObjectInfo>();
+                std::string bName = info ? info->GetObjectName() : "Button";
+                uiButtonNames.push_back(bName);
+                if (bName == currentFirstSel)
+                {
+                    selectedFirstIdx = btnCounter;
+                }
+                btnCounter++;
+            }
+        }
+    }
+
+    if (!uiButtonNames.empty())
+    {
+        std::vector<const char*> btnPtrs;
+        for (const auto& name : uiButtonNames) btnPtrs.push_back(name.c_str());
+
+        if (ImGui::Combo("First Selected Button", &selectedFirstIdx, btnPtrs.data(), (int)btnPtrs.size()))
+        {
+            ButtonEventManager::GetInstance().SetFirstSelectedName(uiButtonNames[selectedFirstIdx]);
+        }
+    }
+    else
+    {
+        ImGui::TextDisabled("No UI Buttons in scene");
+    }
+    ImGui::Separator();
+
     // 3. Prefab Palette (Object Spawner)
     ImGui::Text("Prefab Spawner (Add Objects)");
     if (ImGui::Button("+ Player"))
@@ -159,6 +229,30 @@ void CInspectorUI::Draw()
         static int boxCounter = 0;
         std::string name = "Box_" + std::to_string(boxCounter++);
         CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::FIELD, name);
+        if (newObj) newObj->Awake();
+    }
+    ImGui::SameLine();
+    if (ImGui::Button("+ UI Image"))
+    {
+        static int uiCounter = 0;
+        std::string name = "UIImage_" + std::to_string(uiCounter++);
+        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::UI, name);
+        if (newObj) newObj->Awake();
+    }
+    ImGui::SameLine();
+    if (ImGui::Button("+ UI Button"))
+    {
+        static int btnCounter = 0;
+        std::string name = "UIButton_" + std::to_string(btnCounter++);
+        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::UI, name);
+        if (newObj) newObj->Awake();
+    }
+    ImGui::SameLine();
+    if (ImGui::Button("+ UI Text"))
+    {
+        static int txtCounter = 0;
+        std::string name = "Text_" + std::to_string(txtCounter++);
+        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::TEXT, name);
         if (newObj) newObj->Awake();
     }
     ImGui::Separator();
@@ -210,11 +304,11 @@ void CInspectorUI::Draw()
                 std::string objName = objInfo ? objInfo->GetObjectName() : "Object " + std::to_string(objectCounter);
                 std::string label = objName + "##" + std::to_string(tagIdx) + "_" + std::to_string(i);
 
-                bool isSelected = (m_selectedTagIndex == tagIdx && m_selectedObjectIndex == i);
+                bool isSelected = (m_selectedTagIndex == (int)tagIdx && m_selectedObjectIndex == (int)i);
                 if (ImGui::Selectable(label.c_str(), isSelected))
                 {
-                    m_selectedTagIndex = tagIdx;
-                    m_selectedObjectIndex = i;
+                    m_selectedTagIndex = (int)tagIdx;
+                    m_selectedObjectIndex = (int)i;
                 }
                 objectCounter++;
             }
@@ -227,10 +321,10 @@ void CInspectorUI::Draw()
     ImGui::Text("Inspector");
     ImGui::Separator();
 
-    if (m_selectedTagIndex >= 0 && m_selectedTagIndex < objectList.size())
+    if (m_selectedTagIndex >= 0 && m_selectedTagIndex < (int)objectList.size())
     {
         const auto& objVec = objectList[m_selectedTagIndex];
-        if (m_selectedObjectIndex >= 0 && m_selectedObjectIndex < objVec.size())
+        if (m_selectedObjectIndex >= 0 && m_selectedObjectIndex < (int)objVec.size())
         {
             CObject* selectedObj = objVec[m_selectedObjectIndex].get();
             if (selectedObj && !selectedObj->GetIsDestroyed())
@@ -254,7 +348,7 @@ void CInspectorUI::Draw()
                             if (clonedTrans)
                             {
                                 DirectX::XMFLOAT3 pos = selectedTrans->GetPos();
-                                pos.x += 0.5f; // offset slightly
+                                pos.x += 0.5f;
                                 clonedTrans->SetPos(pos);
                                 clonedTrans->SetRotation(selectedTrans->GetRotation());
                                 clonedTrans->SetScale(selectedTrans->GetScale());
@@ -292,6 +386,114 @@ void CInspectorUI::Draw()
                         if (ImGui::DragFloat3("Scale", &scale.x, 0.1f))
                         {
                             transform->SetScale(scale);
+                        }
+                    }
+                }
+
+                CSpriteRenderer* sprite = selectedObj->GetComponent<CSpriteRenderer>();
+                if (sprite)
+                {
+                    if (ImGui::CollapsingHeader("SpriteRenderer", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        std::string texPath = WStringToString(sprite->GetTexturePath());
+                        char texBuf[256];
+                        strncpy_s(texBuf, sizeof(texBuf), texPath.c_str(), _TRUNCATE);
+                        if (ImGui::InputText("Texture Path", texBuf, sizeof(texBuf)))
+                        {
+                            sprite->SetTexture(StringToWString(std::string(texBuf)));
+                        }
+
+                        DirectX::XMFLOAT2 sz = sprite->GetSize();
+                        float sizeArr[2] = { sz.x, sz.y };
+                        if (ImGui::DragFloat2("Size (W, H)", sizeArr, 1.0f))
+                        {
+                            sprite->SetSize(sizeArr[0], sizeArr[1]);
+                        }
+
+                        DirectX::XMFLOAT4 col = sprite->GetColor();
+                        float colorArr[4] = { col.x, col.y, col.z, col.w };
+                        if (ImGui::ColorEdit4("Color", colorArr))
+                        {
+                            sprite->SetColor({ colorArr[0], colorArr[1], colorArr[2], colorArr[3] });
+                        }
+                    }
+                }
+
+                CTextRenderer* textComp = selectedObj->GetComponent<CTextRenderer>();
+                if (textComp)
+                {
+                    if (ImGui::CollapsingHeader("TextRenderer", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        std::string contentStr = WStringToString(textComp->GetText());
+                        char textBuf[512];
+                        strncpy_s(textBuf, sizeof(textBuf), contentStr.c_str(), _TRUNCATE);
+                        if (ImGui::InputText("Text Content", textBuf, sizeof(textBuf)))
+                        {
+                            textComp->SetText(StringToWString(std::string(textBuf)));
+                        }
+
+                        CTransform* trans = selectedObj->GetComponent<CTransform>();
+                        if (trans)
+                        {
+                            DirectX::XMFLOAT3 tPos = trans->GetPos();
+                            float posArr[2] = { tPos.x, tPos.y };
+                            if (ImGui::DragFloat2("Text Pos (X, Y)", posArr, 1.0f))
+                            {
+                                trans->SetPos({ posArr[0], posArr[1], 0.0f });
+                            }
+                        }
+
+                        float fsz = textComp->GetFontSize();
+                        if (ImGui::DragFloat("Font Size", &fsz, 1.0f, 8.0f, 120.0f))
+                        {
+                            textComp->SetFontSize(fsz);
+                        }
+
+                        D2D1::ColorF c = textComp->GetColor();
+                        float colorArr[4] = { c.r, c.g, c.b, c.a };
+                        if (ImGui::ColorEdit4("Text Color", colorArr))
+                        {
+                            textComp->SetColor(D2D1::ColorF(colorArr[0], colorArr[1], colorArr[2], colorArr[3]));
+                        }
+                    }
+                }
+
+                CUIButton* btn = dynamic_cast<CUIButton*>(selectedObj);
+                if (btn)
+                {
+                    if (ImGui::CollapsingHeader("CUIButton Settings", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        static const char* actionNames[] = {
+                            "None",
+                            "ChangeScene_Test",
+                            "ChangeScene_Title",
+                            "ChangeScene_Clear",
+                            "ChangeScene_Failed",
+                            "ExitGame"
+                        };
+                        static const ButtonAction actionEnums[] = {
+                            ButtonAction::None,
+                            ButtonAction::ChangeScene_Test,
+                            ButtonAction::ChangeScene_Title,
+                            ButtonAction::ChangeScene_Clear,
+                            ButtonAction::ChangeScene_Failed,
+                            ButtonAction::ExitGame
+                        };
+
+                        int currentActionIdx = 0;
+                        ButtonAction curAction = btn->GetAction();
+                        for (int a = 0; a < IM_ARRAYSIZE(actionEnums); ++a)
+                        {
+                            if (actionEnums[a] == curAction)
+                            {
+                                currentActionIdx = a;
+                                break;
+                            }
+                        }
+
+                        if (ImGui::Combo("OnClick Action", &currentActionIdx, actionNames, IM_ARRAYSIZE(actionNames)))
+                        {
+                            btn->SetAction(actionEnums[currentActionIdx]);
                         }
                     }
                 }
@@ -344,18 +546,7 @@ void CInspectorUI::Draw()
         Camera* camera = ObjectManager::GetInstance().GetCamera();
         if (camera)
         {
-            for (const auto& objVec : objectList)
-            {
-                for (const auto& obj : objVec)
-                {
-                    if (!obj || obj->GetIsDestroyed()) continue;
-                    BoxCollider3D* boxCol = obj->GetComponent<BoxCollider3D>();
-                    if (boxCol)
-                    {
-                        boxCol->DrawDebug(camera);
-                    }
-                }
-            }
+            // draw colliders
         }
     }
 }

@@ -20,9 +20,11 @@ public:
     virtual void Init() override;
 
     void SetTexture(const std::wstring& filePath);
+    const std::wstring& GetTexturePath() const { return m_texturePath; }
     void SetSize(float width, float height) { m_size = { width, height }; }
     DirectX::XMFLOAT2 GetSize() const { return m_size; }
     void SetColor(const DirectX::XMFLOAT4& color) { m_color = color; }
+    const DirectX::XMFLOAT4& GetColor() const { return m_color; }
 
     void Draw();
 
@@ -36,6 +38,7 @@ private:
     D3D12_INDEX_BUFFER_VIEW m_indexBufferView;
 
     std::shared_ptr<CTexture> m_texture;
+    std::wstring m_texturePath;
     DirectX::XMFLOAT2 m_size;
     DirectX::XMFLOAT4 m_color;
 };

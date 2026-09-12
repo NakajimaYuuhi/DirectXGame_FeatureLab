@@ -1,13 +1,13 @@
 //ObjectManager_Getter_Setter.cpp
 
-//Instantiateの処理
+//Instantiate?????
 
-//====== インクルード =====
+//====== ?C???N???[?h =====
 
-//ヘッダ
+//?w?b?_
 #include "ObjectManager.h"
 
-//オブジェクト
+//?I?u?W?F?N?g
 
 // --3D
 #include "3D_Object.h"
@@ -44,13 +44,13 @@
 #include "EnemyCounter.h"
 
 
-//===== メソッド定義 =====
+//===== ???\?b?h??` =====
 CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::string _TypeName)
 {
-	//Todo : Factoryを作る
+	//Todo : Factory????
 
-	//生成
-	//Mapとかできれいに分岐させたい
+	//????
+	//Map???????????????????
 	std::unique_ptr<CObject> tmpObject = std::unique_ptr<CObject>(nullptr);
 	CObject* returnObject = nullptr;
 
@@ -59,8 +59,8 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 	{
 	case ObjectTag::NONE:
 		tmpObject = std::make_unique<C3D_Object>("3DObject");
-		returnObject = tmpObject.get();							//生ポインタ取得
-		vecObject[static_cast<int>(ObjectTag::FIELD)].push_back(std::move(tmpObject));				//配列に追加
+		returnObject = tmpObject.get();							//???|?C???^?擾
+		vecObject[static_cast<int>(ObjectTag::FIELD)].push_back(std::move(tmpObject));				//?z?????
 
 		break;
 
@@ -80,22 +80,22 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 		vecObject[static_cast<int>(ObjectTag::UI)].push_back(std::move(tmpObject));
 		break;
 	case ObjectTag::PLAYER:
-		tmpObject = std::make_unique<Player>("Player");		//生成
-		returnObject = tmpObject.get();							//生ポインタ取得
-		vecObject[static_cast<int>(ObjectTag::PLAYER)].push_back(std::move(tmpObject));				//配列に追加
+		tmpObject = std::make_unique<Player>("Player");		//????
+		returnObject = tmpObject.get();							//???|?C???^?擾
+		vecObject[static_cast<int>(ObjectTag::PLAYER)].push_back(std::move(tmpObject));				//?z?????
 		break;
 	case ObjectTag::PLAYER_BULLET:
 
 
 
-		tmpObject = std::make_unique<Bullet>("Bullet");		//生成
-		returnObject = tmpObject.get();							//生ポインタ取得
-		vecObject[static_cast<int>(ObjectTag::PLAYER_BULLET)].push_back(std::move(tmpObject));		//配列に追加
+		tmpObject = std::make_unique<Bullet>("Bullet");		//????
+		returnObject = tmpObject.get();							//???|?C???^?擾
+		vecObject[static_cast<int>(ObjectTag::PLAYER_BULLET)].push_back(std::move(tmpObject));		//?z?????
 		break;
 	case ObjectTag::ENEMY:
-		tmpObject = std::make_unique<Enemy>("Enemy");		//生成
-		returnObject = tmpObject.get();							//生ポインタ取得
-		vecObject[static_cast<int>(ObjectTag::ENEMY)].push_back(std::move(tmpObject));				//配列に追加
+		tmpObject = std::make_unique<Enemy>("Enemy");		//????
+		returnObject = tmpObject.get();							//???|?C???^?擾
+		vecObject[static_cast<int>(ObjectTag::ENEMY)].push_back(std::move(tmpObject));				//?z?????
 		break;
 	case ObjectTag::ENEMY_BULLET:
 		break;
@@ -106,64 +106,64 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 	case ObjectTag::BILLBOARD:
 		if (_TypeName == "RandomParticle")
 		{
-			tmpObject = std::make_unique<RandomParticle>("Particle");		//生成
-			returnObject = tmpObject.get();							//生ポインタ取得
-			vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//配列に追加
+			tmpObject = std::make_unique<RandomParticle>("Particle");		//????
+			returnObject = tmpObject.get();							//???|?C???^?擾
+			vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//?z?????
 			break;
 		}
 		else if (_TypeName == "Explosion")
 		{
-			tmpObject = std::make_unique<Explosion>("Explosion");		//生成
-			returnObject = tmpObject.get();							//生ポインタ取得
-			vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//配列に追加
+			tmpObject = std::make_unique<Explosion>("Explosion");		//????
+			returnObject = tmpObject.get();							//???|?C???^?擾
+			vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//?z?????
 			break;
 		}
 
 
-		tmpObject = std::make_unique<BillBoard>("BillBoard");		//生成
-		returnObject = tmpObject.get();							//生ポインタ取得
-		vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//配列に追加
+		tmpObject = std::make_unique<BillBoard>("BillBoard");		//????
+		returnObject = tmpObject.get();							//???|?C???^?擾
+		vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//?z?????
 		break;
 	case ObjectTag::EFFECT:
-		tmpObject = std::make_unique<Explosion>("Explosion");		//生成
-		returnObject = tmpObject.get();							//生ポインタ取得
-		vecObject[static_cast<int>(ObjectTag::EFFECT)].push_back(std::move(tmpObject));				//配列に追加
+		tmpObject = std::make_unique<Explosion>("Explosion");		//????
+		returnObject = tmpObject.get();							//???|?C???^?擾
+		vecObject[static_cast<int>(ObjectTag::EFFECT)].push_back(std::move(tmpObject));				//?z?????
 		break;
 		break;
 	case ObjectTag::TEXT:
 		if (_TypeName == "TextObject1")
 		{
-			tmpObject = std::make_unique<TextObject>("TextObject1");		//生成
-			returnObject = tmpObject.get();							//生ポインタ取得
-			vecObject[static_cast<int>(ObjectTag::TEXT)].push_back(std::move(tmpObject));				//配列に追加
+			tmpObject = std::make_unique<TextObject>("TextObject1");		//????
+			returnObject = tmpObject.get();							//???|?C???^?擾
+			vecObject[static_cast<int>(ObjectTag::TEXT)].push_back(std::move(tmpObject));				//?z?????
 			break;
 		}
 		if (_TypeName == "EnemyCount")
 		{
-			tmpObject = std::make_unique<EnemyCount>("EnemyCount");		//生成
-			returnObject = tmpObject.get();							//生ポインタ取得
-			vecObject[static_cast<int>(ObjectTag::TEXT)].push_back(std::move(tmpObject));				//配列に追加
+			tmpObject = std::make_unique<EnemyCount>("EnemyCount");		//????
+			returnObject = tmpObject.get();							//???|?C???^?擾
+			vecObject[static_cast<int>(ObjectTag::TEXT)].push_back(std::move(tmpObject));				//?z?????
 			break;
 		}
 		break;
 	case ObjectTag::CAMERA:
-		tmpObject = std::make_unique<Camera>("Camera");		//生成
-		returnObject = tmpObject.get();							//生ポインタ取得
-		vecObject[static_cast<int>(ObjectTag::CAMERA)].push_back(std::move(tmpObject));				//配列に追加
+		tmpObject = std::make_unique<Camera>("Camera");		//????
+		returnObject = tmpObject.get();							//???|?C???^?擾
+		vecObject[static_cast<int>(ObjectTag::CAMERA)].push_back(std::move(tmpObject));				//?z?????
 		break;
 	case ObjectTag::FADE:
 		break;
 
 	case ObjectTag::MANAGER:
-		tmpObject = std::make_unique<EnemyCounter>("EnemyCounter");		//生成
-		returnObject = tmpObject.get();							//生ポインタ取得
-		vecObject[static_cast<int>(ObjectTag::MANAGER)].push_back(std::move(tmpObject));				//配列に追加
+		tmpObject = std::make_unique<EnemyCounter>("EnemyCounter");		//????
+		returnObject = tmpObject.get();							//???|?C???^?擾
+		vecObject[static_cast<int>(ObjectTag::MANAGER)].push_back(std::move(tmpObject));				//?z?????
 		
 		break;
 
 	}
 
-	//配列に追加
+	//?z?????
 
 	return returnObject;
 }
@@ -172,10 +172,10 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 
 //CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::string _TypeName)
 //{
-//	//Todo : Factoryを作る
+//	//Todo : Factory????
 //
-//	//生成
-//	//Mapとかできれいに分岐させたい
+//	//????
+//	//Map???????????????????
 //	std::unique_ptr<CObject> tmpObject = std::unique_ptr<CObject>(nullptr);
 //	CObject* returnObject = nullptr;
 //
@@ -184,8 +184,8 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 //	{
 //	case ObjectTag::NONE:
 //		tmpObject = std::make_unique<C3D_Object>("3DObject");
-//		returnObject = tmpObject.get();							//生ポインタ取得
-//		vecObject[static_cast<int>(ObjectTag::FIELD)].push_back(std::move(tmpObject));				//配列に追加
+//		returnObject = tmpObject.get();							//???|?C???^?擾
+//		vecObject[static_cast<int>(ObjectTag::FIELD)].push_back(std::move(tmpObject));				//?z?????
 //
 //		break;
 //
@@ -205,22 +205,22 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 //		vecObject[static_cast<int>(ObjectTag::UI)].push_back(std::move(tmpObject));
 //		break;
 //	case ObjectTag::PLAYER:
-//		tmpObject = std::make_unique<Player>("Player");		//生成
-//		returnObject = tmpObject.get();							//生ポインタ取得
-//		vecObject[static_cast<int>(ObjectTag::PLAYER)].push_back(std::move(tmpObject));				//配列に追加
+//		tmpObject = std::make_unique<Player>("Player");		//????
+//		returnObject = tmpObject.get();							//???|?C???^?擾
+//		vecObject[static_cast<int>(ObjectTag::PLAYER)].push_back(std::move(tmpObject));				//?z?????
 //		break;
 //	case ObjectTag::PLAYER_BULLET:
 //
 //
 //
-//		tmpObject = std::make_unique<Bullet>("Bullet");		//生成
-//		returnObject = tmpObject.get();							//生ポインタ取得
-//		vecObject[static_cast<int>(ObjectTag::PLAYER_BULLET)].push_back(std::move(tmpObject));		//配列に追加
+//		tmpObject = std::make_unique<Bullet>("Bullet");		//????
+//		returnObject = tmpObject.get();							//???|?C???^?擾
+//		vecObject[static_cast<int>(ObjectTag::PLAYER_BULLET)].push_back(std::move(tmpObject));		//?z?????
 //		break;
 //	case ObjectTag::ENEMY:
-//		tmpObject = std::make_unique<Enemy>("Enemy");		//生成
-//		returnObject = tmpObject.get();							//生ポインタ取得
-//		vecObject[static_cast<int>(ObjectTag::ENEMY)].push_back(std::move(tmpObject));				//配列に追加
+//		tmpObject = std::make_unique<Enemy>("Enemy");		//????
+//		returnObject = tmpObject.get();							//???|?C???^?擾
+//		vecObject[static_cast<int>(ObjectTag::ENEMY)].push_back(std::move(tmpObject));				//?z?????
 //		break;
 //	case ObjectTag::ENEMY_BULLET:
 //		break;
@@ -231,46 +231,46 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 //	case ObjectTag::BILLBOARD:
 //		if (_TypeName == "RandomParticle")
 //		{
-//			tmpObject = std::make_unique<RandomParticle>("Particle");		//生成
-//			returnObject = tmpObject.get();							//生ポインタ取得
-//			vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//配列に追加
+//			tmpObject = std::make_unique<RandomParticle>("Particle");		//????
+//			returnObject = tmpObject.get();							//???|?C???^?擾
+//			vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//?z?????
 //			break;
 //		}
 //		else if (_TypeName == "Explosion")
 //		{
-//			tmpObject = std::make_unique<Explosion>("Explosion");		//生成
-//			returnObject = tmpObject.get();							//生ポインタ取得
-//			vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//配列に追加
+//			tmpObject = std::make_unique<Explosion>("Explosion");		//????
+//			returnObject = tmpObject.get();							//???|?C???^?擾
+//			vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//?z?????
 //			break;
 //		}
 //
 //
-//		tmpObject = std::make_unique<BillBoard>("BillBoard");		//生成
-//		returnObject = tmpObject.get();							//生ポインタ取得
-//		vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//配列に追加
+//		tmpObject = std::make_unique<BillBoard>("BillBoard");		//????
+//		returnObject = tmpObject.get();							//???|?C???^?擾
+//		vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));				//?z?????
 //		break;
 //	case ObjectTag::EFFECT:
-//		tmpObject = std::make_unique<Explosion>("Explosion");		//生成
-//		returnObject = tmpObject.get();							//生ポインタ取得
-//		vecObject[static_cast<int>(ObjectTag::EFFECT)].push_back(std::move(tmpObject));				//配列に追加
+//		tmpObject = std::make_unique<Explosion>("Explosion");		//????
+//		returnObject = tmpObject.get();							//???|?C???^?擾
+//		vecObject[static_cast<int>(ObjectTag::EFFECT)].push_back(std::move(tmpObject));				//?z?????
 //		break;
 //		break;
 //	case ObjectTag::TEXT:
-//		tmpObject = std::make_unique<TextObject>("TextObject1");		//生成
-//		returnObject = tmpObject.get();							//生ポインタ取得
-//		vecObject[static_cast<int>(ObjectTag::TEXT)].push_back(std::move(tmpObject));				//配列に追加
+//		tmpObject = std::make_unique<TextObject>("TextObject1");		//????
+//		returnObject = tmpObject.get();							//???|?C???^?擾
+//		vecObject[static_cast<int>(ObjectTag::TEXT)].push_back(std::move(tmpObject));				//?z?????
 //		break;
 //	case ObjectTag::CAMERA:
-//		tmpObject = std::make_unique<Camera>("Camera");		//生成
-//		returnObject = tmpObject.get();							//生ポインタ取得
-//		vecObject[static_cast<int>(ObjectTag::CAMERA)].push_back(std::move(tmpObject));				//配列に追加
+//		tmpObject = std::make_unique<Camera>("Camera");		//????
+//		returnObject = tmpObject.get();							//???|?C???^?擾
+//		vecObject[static_cast<int>(ObjectTag::CAMERA)].push_back(std::move(tmpObject));				//?z?????
 //		break;
 //	case ObjectTag::FADE:
 //		break;
 //
 //	}
 //
-//	//配列に追加
+//	//?z?????
 //
 //	return returnObject;
 //}

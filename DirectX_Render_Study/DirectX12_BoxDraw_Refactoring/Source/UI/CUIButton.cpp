@@ -71,6 +71,10 @@ void CUIButton::OnDeselect()
 
 void CUIButton::OnSubmit()
 {
+    if (m_action != ButtonAction::None)
+    {
+        ExecuteButtonAction(m_action);
+    }
     // 決定時にコールバックを実行
     if (m_onClickCallback)
     {

@@ -1,3 +1,6 @@
+#include "ObjectManager.h"
+#include "ObjectInfo.h"
+#include "CUIButton.h"
 #include "ButtonEventManager.h"
 #include "InputManager.h"
 #include "CUIButton.h"
@@ -70,5 +73,28 @@ void ButtonEventManager::Update()
     if (input.IsKeyTrigger(VK_RETURN) || input.IsKeyTrigger(VK_SPACE))
     {
         m_currentSelected->OnSubmit();
+    }
+}
+
+void ButtonEventManager::ApplyFirstSelected()
+{
+    if (m_firstSelectedName.empty()) return;
+    const auto& objectList = ObjectManager::GetInstance().GetObjectList();
+    for (const auto& vec : objectList)
+    {
+        for (const auto& obj : vec)
+        {
+            if (!obj || obj->GetIsDestroyed()) continue;
+            CObjectInfo* info = obj->GetComponent<CObjectInfo>();
+            if (info && info->GetObjectName() == m_firstSelectedName)
+            {
+                CUIButton* btn = dynamic_cast<CUIButton*>(obj.get());
+                if (btn)
+                {
+                    SetSelectedGameObject(btn);
+                    return;
+                }
+            }
+        }
     }
 }

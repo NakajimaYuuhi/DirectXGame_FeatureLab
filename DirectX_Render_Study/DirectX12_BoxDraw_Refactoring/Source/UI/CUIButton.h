@@ -1,3 +1,4 @@
+#include "ButtonAction.h"
 #pragma once
 #include "UIObject.h"
 #include "ISelectable.h"
@@ -20,6 +21,8 @@ public:
 
     // クリック（決定）時のコールバック設定
     void SetOnClickCallback(std::function<void()> callback);
+    ButtonAction GetAction() const { return m_action; }
+    void SetAction(ButtonAction action) { m_action = action; }
 
     // ナビゲーション用のポインタ設定（上下左右）
     void SetNavigation(CUIButton* up, CUIButton* down, CUIButton* left, CUIButton* right);
@@ -32,6 +35,7 @@ public:
 
 private:
     std::function<void()> m_onClickCallback;
+    ButtonAction m_action = ButtonAction::None;
 
     // UnityのExplicitナビゲーションに相当
     CUIButton* m_selectOnUp;

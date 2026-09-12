@@ -22,6 +22,7 @@ void CSpriteRenderer::Init()
 
 void CSpriteRenderer::SetTexture(const std::wstring& filePath)
 {
+    m_texturePath = filePath;
     DX12Manager::GetInstance().ForceWait();
     auto allocator = DX12Manager::GetInstance().GetCommandAllocator();
     auto cmdList = DX12Manager::GetInstance().GetCommandList();
