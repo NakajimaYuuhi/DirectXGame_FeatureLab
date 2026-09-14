@@ -412,11 +412,7 @@ bool SceneSerializer::LoadScene(const std::string& filepath, Scenes::ID sceneID)
 
 	ButtonEventManager::GetInstance().ApplyFirstSelected();
 
-	EnemyCounter* enemyCounter = dynamic_cast<EnemyCounter*>(ObjectManager::GetInstance().GetManager("EnemyCounter"));
-	if (enemyCounter)
-	{
-		enemyCounter->RecountEnemies();
-	}
+
 
 	OutputDebugStringA(("[SceneSerializer] Successfully loaded scene from: " + filepath + "\n").c_str());
 	return true;

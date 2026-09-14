@@ -102,15 +102,23 @@ void Player::Update()
 
 bool Player::HasMoveInput() const
 {
-	return (CInputManager::GetInstance().IsKeyPress('W') ||
-		CInputManager::GetInstance().IsKeyPress('S') ||
-		CInputManager::GetInstance().IsKeyPress('A') ||
-		CInputManager::GetInstance().IsKeyPress('D'));
+	int moveX = 0;
+	int moveZ = 0;
+	if (CInputManager::GetInstance().IsKeyPress('D')) moveX += 1;
+	if (CInputManager::GetInstance().IsKeyPress('A')) moveX -= 1;
+	if (CInputManager::GetInstance().IsKeyPress('W')) moveZ += 1;
+	if (CInputManager::GetInstance().IsKeyPress('S')) moveZ -= 1;
+
+	return (moveX != 0 || moveZ != 0);
 }
 
 void Player::ProcessMovement(float deltaTime)
 {
-	if (!m_camera) return;
+	if (!m_camera)
+	{
+		m_camera = ObjectManager::GetInstance().GetCamera();
+		if (!m_camera) return;
+	}
 
 	float angleY = m_camera->GetAngleY();
 	float s = sinf(angleY);

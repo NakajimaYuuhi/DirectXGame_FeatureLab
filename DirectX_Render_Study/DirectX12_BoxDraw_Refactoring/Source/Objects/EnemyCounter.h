@@ -14,26 +14,26 @@ public:
 	virtual void Init() override;
 	
 
-	//ƒJƒEƒ“ƒg
+	//ã‚«ã‚¦ãƒ³ãƒˆ
 	void Increment(int num_ = 1);
 	void Decrement(int num_ = 1);
 	void ResetCount();
 	void RecountEnemies();
 
 
-	//¶¬
+	//ç”Ÿæˆæ™‚
 	void Instantiated(int num_ = 1)
 	{
-		Increment(num_);
+		RecountEnemies();
 	}
 
-	//Œ‚”j
+	//æ’ƒç ´æ™‚
 	void Defeat(int num_ = 1);
 
 	EnemyCount* GetUI();
 
 protected:
-	//“G‚Ìî•ñ‚ÍA‚±‚±‚Å
+	//æ•µã®æƒ…å ±ã¯ã€ã“ã“ã§
 	int enemyCount_;
 	int defeatCount_;
 	EnemyCount* enemyCountUI_ = nullptr;
