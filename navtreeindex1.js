@@ -245,9 +245,9 @@ var NAVTREEINDEX1 =
 "classCInputManager.html#afc32ecb38872d01eae439172290335f2":[2,0,19,11],
 "classCInputManager.html#aff8abf4fd79a252a7326aee68187653e":[2,0,19,14],
 "classCInspectorUI.html":[2,0,20],
-"classCInspectorUI.html#a16cc5a3fdbe7fa242ceac06c22459767":[2,0,20,10],
-"classCInspectorUI.html#a247c691454fe46541d446e64dc0d0ab9":[2,0,20,13],
+"classCInspectorUI.html#a16cc5a3fdbe7fa242ceac06c22459767":[2,0,20,11],
+"classCInspectorUI.html#a247c691454fe46541d446e64dc0d0ab9":[2,0,20,14],
 "classCInspectorUI.html#a43fc4c1121b7092a2ac3cf1094a5e56d":[2,0,20,6],
-"classCInspectorUI.html#a572e690e5d9b15903f72e2aed3e0a785":[2,0,20,8],
+"classCInspectorUI.html#a572e690e5d9b15903f72e2aed3e0a785":[2,0,20,9],
 "classCInspectorUI.html#a5e3fa7faed8724dd5271568c4de02da0":[2,0,20,7]
 };

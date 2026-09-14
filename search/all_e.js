@@ -53,7 +53,7 @@ var searchData=
   ['lexer_5fbase_50',['lexer_base',['../classnlohmann_1_1detail_1_1lexer__base.html',1,'nlohmann::detail']]],
   ['lexer_5ft_51',['lexer_t',['../classnlohmann_1_1detail_1_1parser.html#a5fbd320c5b713fda15d467e8455e4298',1,'nlohmann::detail::parser']]],
   ['lifetime_52',['lifetime',['../classExplosion.html#a0f08ab3d70cd8fee4e82970a972f52e8',1,'Explosion::LifeTime'],['../classRandomParticle.html#a9244752a7abe297639b9e854252ae502',1,'RandomParticle::LifeTime']]],
-  ['light_53',['light',['../structtinygltf_1_1Light.html',1,'tinygltf::Light'],['../structtinygltf_1_1Light.html#ac3a65deefdf9d5e2d8772322dcc12200',1,'tinygltf::Light::Light()'],['../classtinygltf_1_1Node.html#ad8c5a0344d3dc028ef190df61888be29',1,'tinygltf::Node::light']]],
+  ['light_53',['light',['../structtinygltf_1_1Light.html',1,'tinygltf::Light'],['../classtinygltf_1_1Node.html#ad8c5a0344d3dc028ef190df61888be29',1,'tinygltf::Node::light'],['../structtinygltf_1_1Light.html#ac3a65deefdf9d5e2d8772322dcc12200',1,'tinygltf::Light::Light()']]],
   ['lights_54',['lights',['../classtinygltf_1_1Model.html#ae5cee8f6437e1500d963d9a93d13aeb0',1,'tinygltf::Model']]],
   ['limits_55',['limits',['../classnlohmann_1_1basic__json.html#autotoc_md19',1,'Limits'],['../classnlohmann_1_1basic__json.html#autotoc_md15',1,'Limits'],['../classnlohmann_1_1basic__json.html#autotoc_md5',1,'Limits'],['../classnlohmann_1_1basic__json.html#autotoc_md2',1,'Limits'],['../classnlohmann_1_1basic__json.html#autotoc_md23',1,'Limits']]],
   ['linear_56',['LINEAR',['../ModelData_8h.html#a8472f01c511d77bbfb981a46618ea1eaaaac544aacc3615aada24897a215f5046',1,'ModelData.h']]],

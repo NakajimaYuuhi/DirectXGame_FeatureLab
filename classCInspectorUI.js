@@ -8,6 +8,7 @@ var classCInspectorUI =
     [ "IsEditMode", "classCInspectorUI.html#af76651761f17afdb470786d2cbaa3b07", null ],
     [ "IsPaused", "classCInspectorUI.html#a43fc4c1121b7092a2ac3cf1094a5e56d", null ],
     [ "operator=", "classCInspectorUI.html#a5e3fa7faed8724dd5271568c4de02da0", null ],
+    [ "ShouldShowColliders", "classCInspectorUI.html#a86769b90acd0ae7da92d783310284e07", null ],
     [ "ShouldUpdateGame", "classCInspectorUI.html#a572e690e5d9b15903f72e2aed3e0a785", null ],
     [ "m_isEditMode", "classCInspectorUI.html#a7582091f05f4350e2de314fc36fe24cb", null ],
     [ "m_isPaused", "classCInspectorUI.html#a16cc5a3fdbe7fa242ceac06c22459767", null ],

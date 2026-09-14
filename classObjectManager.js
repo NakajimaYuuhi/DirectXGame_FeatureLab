@@ -13,6 +13,7 @@ var classObjectManager =
     [ "GetPlayer", "classObjectManager.html#ac1d768f3befeb5eb63fbc0240b336fb3", null ],
     [ "Init", "classObjectManager.html#a252dedbd868ebf55d0791705c4262c09", null ],
     [ "Instantiate", "classObjectManager.html#a5d1fa144d8ac3be48767ea6691b332ec", null ],
+    [ "Instantiate", "classObjectManager.html#a5829447b1a79b6c7f268a5cdbfcf5da2", null ],
     [ "operator=", "classObjectManager.html#a9fe0f04863126942c396ffe712bb346b", null ],
     [ "Uninit", "classObjectManager.html#ab14b919449101fdecbbafe794d907cc9", null ],
     [ "Update", "classObjectManager.html#a3358b9b3a459e6594b97d098b33020e4", null ],

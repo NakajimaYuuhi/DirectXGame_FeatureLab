@@ -1,5 +1,9 @@
 var NAVTREEINDEX34 =
 {
+"structD2DTextRenderer_1_1TextInfo.html#a2c7439f7d1cb6c2d91a44874d69283fe":[2,0,41,1,1],
+"structD2DTextRenderer_1_1TextInfo.html#a300825d711317350feffda12e2d44459":[2,0,41,1,0],
+"structD2DTextRenderer_1_1TextInfo.html#a47bf54cc93d09dde00ff16e6307cca4b":[2,0,41,1,4],
+"structD2DTextRenderer_1_1TextInfo.html#a651d6a209e18ea2afd8d96bd0be91621":[2,0,41,1,2],
 "structD2DTextRenderer_1_1TextInfo.html#a7848f07c2a76dae5e850dcb671c199c3":[2,0,41,1,5],
 "structExampleAppConsole.html":[2,0,55],
 "structExampleAppConsole.html#a01c861ed21b9ec8de5e1ee2c762c627a":[2,0,55,12],
@@ -245,9 +249,5 @@ var NAVTREEINDEX34 =
 "structImDrawList.html#a90ebb3c38b997ef3a3adb4d211a1b2a8":[2,0,76,14],
 "structImDrawList.html#a9b73eea0ebf7a9f02bc8a104deb7de9d":[2,0,76,17],
 "structImDrawList.html#a9d83896d3eb434a9e1072d56523a2754":[2,0,76,45],
-"structImDrawList.html#a9df27414aaca5f34ac3664a8b82582b5":[2,0,76,61],
-"structImDrawList.html#aa21e5a1c6e00239581f97d344fc0db61":[2,0,76,27],
-"structImDrawList.html#aa3dd11945fb62495f8b9e1392ed724e3":[2,0,76,55],
-"structImDrawList.html#aa667eca45099e5679b161c17ac6ec7e0":[2,0,76,77],
-"structImDrawList.html#aa8ff4aee39cf3c3791b7e29a7b4264be":[2,0,76,88]
+"structImDrawList.html#a9df27414aaca5f34ac3664a8b82582b5":[2,0,76,61]
 };
