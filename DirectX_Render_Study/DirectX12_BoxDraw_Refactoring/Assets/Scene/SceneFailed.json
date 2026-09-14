@@ -4,7 +4,7 @@
     },
     "objects": [
         {
-            "name": "TitleBG",
+            "name": "TitleUI",
             "sprite": {
                 "color": [
                     1.0,
@@ -16,7 +16,7 @@
                     1920.0,
                     1080.0
                 ],
-                "texturePath": "Assets/Texture/T_TitleBG.png"
+                "texturePath": "Assets/Texture/T_Failed.png"
             },
             "tag": 9,
             "transform": {
@@ -40,15 +40,15 @@
         },
         {
             "button": {
-                "action": "ChangeScene_Test",
+                "action": "None",
                 "navigation": {
-                    "down": "ExitButton",
+                    "down": "UIButton",
                     "left": "",
                     "right": "",
-                    "up": "ExitButton"
+                    "up": "UIButton"
                 }
             },
-            "name": "StartButton",
+            "name": "UIButton",
             "sprite": {
                 "color": [
                     1.0,
@@ -60,7 +60,7 @@
                     400.0,
                     100.0
                 ],
-                "texturePath": "Assets/Texture/T_GameStart.png"
+                "texturePath": "Assets/Texture/T_Retry.png"
             },
             "tag": 9,
             "transform": {
@@ -84,15 +84,15 @@
         },
         {
             "button": {
-                "action": "ExitGame",
+                "action": "None",
                 "navigation": {
-                    "down": "StartButton",
+                    "down": "UIButton",
                     "left": "",
                     "right": "",
-                    "up": "StartButton"
+                    "up": "UIButton"
                 }
             },
-            "name": "ExitButton",
+            "name": "UIButton",
             "sprite": {
                 "color": [
                     1.0,
@@ -104,7 +104,7 @@
                     400.0,
                     100.0
                 ],
-                "texturePath": "Assets/Texture/T_Exit.png"
+                "texturePath": "Assets/Texture/T_ToTitle.png"
             },
             "tag": 9,
             "transform": {
@@ -149,5 +149,5 @@
             "type": "CObject"
         }
     ],
-    "sceneID": 0
+    "sceneID": 4
 }

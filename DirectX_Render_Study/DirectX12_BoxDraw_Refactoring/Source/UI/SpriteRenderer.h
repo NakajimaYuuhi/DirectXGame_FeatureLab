@@ -32,13 +32,14 @@ private:
     void CreateBuffers();
 
     Microsoft::WRL::ComPtr<ID3D12Resource> m_vertexBuffer;
-    D3D12_VERTEX_BUFFER_VIEW m_vertexBufferView;
+    D3D12_VERTEX_BUFFER_VIEW m_vertexBufferView = {};
 
     Microsoft::WRL::ComPtr<ID3D12Resource> m_indexBuffer;
-    D3D12_INDEX_BUFFER_VIEW m_indexBufferView;
+    D3D12_INDEX_BUFFER_VIEW m_indexBufferView = {};
 
     std::shared_ptr<CTexture> m_texture;
     std::wstring m_texturePath;
     DirectX::XMFLOAT2 m_size;
     DirectX::XMFLOAT4 m_color;
 };
+

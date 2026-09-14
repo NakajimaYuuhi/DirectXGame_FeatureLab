@@ -14,6 +14,7 @@ public:
 
     bool IsPaused() const { return m_isPaused; }
     bool IsEditMode() const { return m_isEditMode; }
+    bool ShouldShowColliders() const { return m_showColliders; }
     bool ShouldUpdateGame();
 
 private:

@@ -48,65 +48,34 @@ void SceneClear::Init()
     // ===== オブジェクトの生成
 
     // 1.Camera これは絶対
-    ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::CAMERA, "Camera");
+    ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::CAMERA, "Camera", "Camera");
 
-
-
-    // 背景
-    // 背景だけど、BackGroundにすると、スカイボックスがそのまま出ちゃう
-    // →UIだしそのままUIで出す
-    CUIObject* titleUI = (CUIObject*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "TitleUI"));
+    CUIObject* titleUI = (CUIObject*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "CUIObject", "ClearBG"));
     titleUI->SetTexture(L"Assets/Texture/T_Clear.png");
     titleUI->SetPosition(0.0f, 0.0f);
     titleUI->SetSize(1920.0f, 1080.0f);
 
-    // --- ボタンの作成
-    CUIButton* titleButton = (CUIButton*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "UIButton"));
+    // --- Button Creation
+    CUIButton* titleButton = (CUIButton*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "CUIButton", "RetryButton"));
     titleButton->SetTexture(L"Assets/Texture/T_Retry.png");
     titleButton->SetPosition(740.0f, 650.0f);
     titleButton->SetSize(400.0f, 100.0f);
+    titleButton->SetAction(ButtonAction::ChangeScene_Test);
 
-    CUIButton* titleButton2 = (CUIButton*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "UIButton"));
+    CUIButton* titleButton2 = (CUIButton*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "CUIButton", "ToTitleButton"));
     titleButton2->SetTexture(L"Assets/Texture/T_ToTitle.png");
     titleButton2->SetPosition(735.0f, 800.0f);
     titleButton2->SetSize(400.0f, 100.0f);
+    titleButton2->SetAction(ButtonAction::ChangeScene_Title);
 
-    // 遷移先
+    // Navigation setup
     titleButton->SetNavigation(titleButton2, titleButton2, nullptr, nullptr);
     titleButton2->SetNavigation(titleButton, titleButton, nullptr, nullptr);
 
-    // ボタンの関数登録
-    titleButton->SetOnClickCallback(
-        [this]() {
-            Event event;
-            // ここで直接シーンID（例: TITLE）を指定する
-            EventData_NextScene* eventData_NextScene = new EventData_NextScene(Scenes::ID::TEST);
-
-            event.SetEventData(eventData_NextScene);
-            event.SetEventID(Events::ID::ChangeScene);
-
-            EventManager::GetInstance().AddEvent(event);
-        }
-    );
-
-    titleButton2->SetOnClickCallback(
-        [this]() {
-            Event event;
-            // ここで直接シーンID（例: TITLE）を指定する
-            EventData_NextScene* eventData_NextScene = new EventData_NextScene(Scenes::ID::TITLE);
-
-            event.SetEventData(eventData_NextScene);
-            event.SetEventID(Events::ID::ChangeScene);
-
-            EventManager::GetInstance().AddEvent(event);
-        }
-    );
-
-
-
     ObjectManager::GetInstance().Init(Scenes::ID::NONE);
 
-    // --- Select状態に登録
+    // --- Select registration
+    ButtonEventManager::GetInstance().SetFirstSelectedName("RetryButton");
     ButtonEventManager::GetInstance().SetSelectedGameObject((CUIButton*)titleButton);
 
 

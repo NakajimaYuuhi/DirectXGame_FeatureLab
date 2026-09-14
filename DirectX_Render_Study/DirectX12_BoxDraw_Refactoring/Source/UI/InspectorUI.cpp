@@ -212,7 +212,7 @@ void CInspectorUI::Draw()
     ImGui::Text("Prefab Spawner (Add Objects)");
     if (ImGui::Button("+ Player"))
     {
-        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::PLAYER, "Player");
+        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::PLAYER, "Player", "Player");
         if (newObj) newObj->Awake();
     }
     ImGui::SameLine();
@@ -220,7 +220,7 @@ void CInspectorUI::Draw()
     {
         static int enemyCounter = 0;
         std::string name = "Enemy_" + std::to_string(enemyCounter++);
-        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::ENEMY, name);
+        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::ENEMY, "Enemy", name);
         if (newObj) newObj->Awake();
     }
     ImGui::SameLine();
@@ -228,7 +228,7 @@ void CInspectorUI::Draw()
     {
         static int boxCounter = 0;
         std::string name = "Box_" + std::to_string(boxCounter++);
-        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::FIELD, name);
+        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::FIELD, "3DObject", name);
         if (newObj) newObj->Awake();
     }
     ImGui::SameLine();
@@ -236,7 +236,7 @@ void CInspectorUI::Draw()
     {
         static int uiCounter = 0;
         std::string name = "UIImage_" + std::to_string(uiCounter++);
-        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::UI, name);
+        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::UI, "CUIObject", name);
         if (newObj) newObj->Awake();
     }
     ImGui::SameLine();
@@ -244,7 +244,7 @@ void CInspectorUI::Draw()
     {
         static int btnCounter = 0;
         std::string name = "UIButton_" + std::to_string(btnCounter++);
-        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::UI, name);
+        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::UI, "CUIButton", name);
         if (newObj) newObj->Awake();
     }
     ImGui::SameLine();
@@ -252,7 +252,7 @@ void CInspectorUI::Draw()
     {
         static int txtCounter = 0;
         std::string name = "Text_" + std::to_string(txtCounter++);
-        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::TEXT, name);
+        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::TEXT, "TextObject", name);
         if (newObj) newObj->Awake();
     }
     ImGui::Separator();
@@ -332,6 +332,15 @@ void CInspectorUI::Draw()
                 CObjectInfo* objInfo = selectedObj->GetComponent<CObjectInfo>();
                 std::string name = objInfo ? objInfo->GetObjectName() : "Object";
                 ImGui::Text("Selected: %s (Tag %d, Idx %d)", name.c_str(), m_selectedTagIndex, m_selectedObjectIndex);
+                if (objInfo)
+                {
+                    char nameBuf[128];
+                    strncpy_s(nameBuf, sizeof(nameBuf), name.c_str(), _TRUNCATE);
+                    if (ImGui::InputText("Object Name", nameBuf, sizeof(nameBuf)))
+                    {
+                        objInfo->SetObjectName(std::string(nameBuf));
+                    }
+                }
                 
                 // Duplicate & Delete buttons
                 if (ImGui::Button("Duplicate Object"))
@@ -495,6 +504,55 @@ void CInspectorUI::Draw()
                         {
                             btn->SetAction(actionEnums[currentActionIdx]);
                         }
+
+                        // Navigation Target Selection
+                        std::vector<std::string> buttonNames;
+                        buttonNames.push_back("(None)");
+                        std::vector<CUIButton*> buttonPtrs;
+                        buttonPtrs.push_back(nullptr);
+
+                        for (size_t tagIdx = 0; tagIdx < objectList.size(); ++tagIdx)
+                        {
+                            for (const auto& obj : objectList[tagIdx])
+                            {
+                                if (!obj || obj->GetIsDestroyed()) continue;
+                                CUIButton* targetBtn = dynamic_cast<CUIButton*>(obj.get());
+                                if (targetBtn)
+                                {
+                                    CObjectInfo* info = targetBtn->GetComponent<CObjectInfo>();
+                                    std::string bName = info ? info->GetObjectName() : "Button";
+                                    buttonNames.push_back(bName);
+                                    buttonPtrs.push_back(targetBtn);
+                                }
+                            }
+                        }
+
+                        std::vector<const char*> btnComboLabels;
+                        for (const auto& bName : buttonNames) btnComboLabels.push_back(bName.c_str());
+
+                        auto FindComboIndex = [&](CUIButton* target) -> int {
+                            for (size_t idx = 0; idx < buttonPtrs.size(); ++idx)
+                            {
+                                if (buttonPtrs[idx] == target) return (int)idx;
+                            }
+                            return 0;
+                        };
+
+                        int upIdx = FindComboIndex(btn->GetSelectOnUp());
+                        int downIdx = FindComboIndex(btn->GetSelectOnDown());
+                        int leftIdx = FindComboIndex(btn->GetSelectOnLeft());
+                        int rightIdx = FindComboIndex(btn->GetSelectOnRight());
+
+                        bool navChanged = false;
+                        if (ImGui::Combo("Select On Up", &upIdx, btnComboLabels.data(), (int)btnComboLabels.size())) navChanged = true;
+                        if (ImGui::Combo("Select On Down", &downIdx, btnComboLabels.data(), (int)btnComboLabels.size())) navChanged = true;
+                        if (ImGui::Combo("Select On Left", &leftIdx, btnComboLabels.data(), (int)btnComboLabels.size())) navChanged = true;
+                        if (ImGui::Combo("Select On Right", &rightIdx, btnComboLabels.data(), (int)btnComboLabels.size())) navChanged = true;
+
+                        if (navChanged)
+                        {
+                            btn->SetNavigation(buttonPtrs[upIdx], buttonPtrs[downIdx], buttonPtrs[leftIdx], buttonPtrs[rightIdx]);
+                        }
                     }
                 }
 
@@ -546,7 +604,19 @@ void CInspectorUI::Draw()
         Camera* camera = ObjectManager::GetInstance().GetCamera();
         if (camera)
         {
-            // draw colliders
+            const auto& objectList = ObjectManager::GetInstance().GetObjectList();
+            for (size_t tagIdx = 0; tagIdx < objectList.size(); ++tagIdx)
+            {
+                for (const auto& obj : objectList[tagIdx])
+                {
+                    if (!obj || obj->GetIsDestroyed()) continue;
+                    BoxCollider3D* collider = obj->GetComponent<BoxCollider3D>();
+                    if (collider)
+                    {
+                        collider->DrawDebug(camera);
+                    }
+                }
+            }
         }
     }
 }

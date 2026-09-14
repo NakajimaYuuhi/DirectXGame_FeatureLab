@@ -1,12 +1,16 @@
-﻿#include "TextObject.h"
+#include "ObjectInfo.h"
+#include "ObjectTag.h"
+#include "TextObject.h"
 #include "Transform.h"
 #include "TextRenderer.h"
 
 TextObject::TextObject(const std::string& _Name)
 {
     SetName(_Name);
+    CObjectInfo* info = GetComponent<CObjectInfo>();
+    if (info) info->SetObjectTag(ObjectTag::TEXT);
 
-    // テキストオブジェクトに必要なコンポーネントを追加
+    // ?e?L?X?g?I?u?W?F?N?g??K?v??R???|?[?l???g????
     AddComponent<CTransform>();
     AddComponent<CTextRenderer>();
 }
@@ -85,3 +89,5 @@ void TextObject::SetFontFamily(const std::wstring& family)
         textRenderer->SetFontFamily(family);
     }
 }
+
+

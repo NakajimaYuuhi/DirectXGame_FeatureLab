@@ -105,7 +105,7 @@ void CSpriteRenderer::CreateBuffers()
 
 void CSpriteRenderer::Draw()
 {
-    if (!m_Owner || !m_texture) return;
+    if (!m_Owner || !m_texture || !m_indexBuffer.Get()) return;
 
     CTransform* transform = m_Owner->GetComponent<CTransform>();
     if (!transform) return;
@@ -149,5 +149,7 @@ void CSpriteRenderer::Draw()
 
     cmdList->DrawIndexedInstanced(6, 1, 0, 0, 0);
 }
+
+
 
 

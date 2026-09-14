@@ -1,3 +1,5 @@
+#include "ObjectInfo.h"
+#include "ObjectTag.h"
 #include "UIObject.h"
 #include "Transform.h"
 #include "SpriteRenderer.h"
@@ -5,6 +7,8 @@
 CUIObject::CUIObject(const std::string& _Name)
 {
     SetName(_Name);
+    CObjectInfo* info = GetComponent<CObjectInfo>();
+    if (info) info->SetObjectTag(ObjectTag::UI);
 
     // Add components necessary for 2D UI
     AddComponent<CTransform>();
@@ -67,3 +71,5 @@ void CUIObject::SetSize(float width, float height)
         sprite->SetSize(width, height);
     }
 }
+
+

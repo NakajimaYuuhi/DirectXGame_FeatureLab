@@ -13,7 +13,10 @@ public:
 
 
 
-	//¶¬ˆ—
+	//¶¬ˆ—	// Instantiate with TypeName and unique ObjectName
+	CObject* Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::string _TypeName, std::string _ObjectName);
+
+	// Overload: default ObjectName to _TypeName
 	CObject* Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::string _TypeName);
 
 	//‰Šú‰»ˆ—

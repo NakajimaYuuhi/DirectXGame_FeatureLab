@@ -5,6 +5,9 @@
 #include "Model.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "Skydome.h"
+#include "EnemyCounter.h"
+#include "EnemyCount.h"
 #include "Box.h"
 #include "UIObject.h"
 #include "CUIButton.h"
@@ -55,9 +58,7 @@ bool SceneSerializer::SaveScene(const std::string& filepath, Scenes::ID sceneID)
 			if (!obj || obj->GetIsDestroyed()) continue;
 
 			CObjectInfo* objInfo = obj->GetComponent<CObjectInfo>();
-			CTransform* transform = obj->GetComponent<CTransform>();
-
-			if (!objInfo || !transform) continue;
+			if (!objInfo) continue;
 
 			json objJson;
 			objJson["name"] = objInfo->GetObjectName();
@@ -67,22 +68,32 @@ bool SceneSerializer::SaveScene(const std::string& filepath, Scenes::ID sceneID)
 				objJson["type"] = "CUIButton";
 			else if (dynamic_cast<CUIObject*>(obj.get()))
 				objJson["type"] = "CUIObject";
+			else if (dynamic_cast<EnemyCount*>(obj.get()))
+				objJson["type"] = "EnemyCount";
 			else if (dynamic_cast<TextObject*>(obj.get()))
 				objJson["type"] = "TextObject";
 			else if (dynamic_cast<Player*>(obj.get()))
 				objJson["type"] = "Player";
 			else if (dynamic_cast<Enemy*>(obj.get()))
 				objJson["type"] = "Enemy";
+			else if (dynamic_cast<Skydome*>(obj.get()))
+				objJson["type"] = "Skydome";
+			else if (dynamic_cast<EnemyCounter*>(obj.get()))
+				objJson["type"] = "EnemyCounter";
 			else
 				objJson["type"] = "CObject";
 
-			DirectX::XMFLOAT3 pos = transform->GetPos();
-			DirectX::XMFLOAT3 rot = transform->GetRotation();
-			DirectX::XMFLOAT3 scale = transform->GetScale();
+			CTransform* transform = obj->GetComponent<CTransform>();
+			if (transform)
+			{
+				DirectX::XMFLOAT3 pos = transform->GetPos();
+				DirectX::XMFLOAT3 rot = transform->GetRotation();
+				DirectX::XMFLOAT3 scale = transform->GetScale();
 
-			objJson["transform"]["position"] = { pos.x, pos.y, pos.z };
-			objJson["transform"]["rotation"] = { rot.x, rot.y, rot.z };
-			objJson["transform"]["scale"] = { scale.x, scale.y, scale.z };
+				objJson["transform"]["position"] = { pos.x, pos.y, pos.z };
+				objJson["transform"]["rotation"] = { rot.x, rot.y, rot.z };
+				objJson["transform"]["scale"] = { scale.x, scale.y, scale.z };
+			}
 
 			// CSpriteRenderer
 			CSpriteRenderer* sprite = obj->GetComponent<CSpriteRenderer>();
@@ -112,6 +123,17 @@ bool SceneSerializer::SaveScene(const std::string& filepath, Scenes::ID sceneID)
 			if (btn)
 			{
 				objJson["button"]["action"] = ButtonActionToString(btn->GetAction());
+
+				auto GetNavName = [](CUIButton* targetBtn) -> std::string {
+					if (!targetBtn) return "";
+					CObjectInfo* info = targetBtn->GetComponent<CObjectInfo>();
+					return info ? info->GetObjectName() : "";
+				};
+
+				objJson["button"]["navigation"]["up"] = GetNavName(btn->GetSelectOnUp());
+				objJson["button"]["navigation"]["down"] = GetNavName(btn->GetSelectOnDown());
+				objJson["button"]["navigation"]["left"] = GetNavName(btn->GetSelectOnLeft());
+				objJson["button"]["navigation"]["right"] = GetNavName(btn->GetSelectOnRight());
 			}
 
 			rootJson["objects"].push_back(objJson);
@@ -175,13 +197,52 @@ bool SceneSerializer::LoadScene(const std::string& filepath, Scenes::ID sceneID)
 	}
 	ObjectManager::GetInstance().FlushDestroyedObjects();
 
+	struct PendingNav
+	{
+		CUIButton* btn;
+		std::string up;
+		std::string down;
+		std::string left;
+		std::string right;
+	};
+	std::vector<PendingNav> pendingNavs;
+
 	for (const auto& objJson : rootJson["objects"])
 	{
 		std::string name = objJson.value("name", "Object");
-		int tagInt = objJson.value("tag", 0);
+		int tagInt = objJson.value("tag", static_cast<int>(ObjectTag::NONE));
 		ObjectTag tag = static_cast<ObjectTag>(tagInt);
+		std::string type = objJson.value("type", "");
 
-		CObject* newObj = ObjectManager::GetInstance().Instantiate(sceneID, tag, name);
+		if (tag == ObjectTag::NONE || tagInt == -1)
+		{
+			if (type == "CUIObject" || type == "CUIButton")
+			{
+				tag = ObjectTag::UI;
+			}
+			else if (type == "TextObject" || type == "EnemyCount")
+			{
+				tag = ObjectTag::TEXT;
+			}
+			else if (type == "Player")
+			{
+				tag = ObjectTag::PLAYER;
+			}
+			else if (type == "Enemy")
+			{
+				tag = ObjectTag::ENEMY;
+			}
+			else if (type == "Skydome")
+			{
+				tag = ObjectTag::BACKGROUND;
+			}
+			else if (type == "EnemyCounter")
+			{
+				tag = ObjectTag::MANAGER;
+			}
+		}
+
+		CObject* newObj = ObjectManager::GetInstance().Instantiate(sceneID, tag, type.empty() ? name : type, name);
 
 		if (newObj)
 		{
@@ -273,13 +334,89 @@ bool SceneSerializer::LoadScene(const std::string& filepath, Scenes::ID sceneID)
 				{
 					btn->SetAction(StringToButtonAction(btnJson["action"].get<std::string>()));
 				}
+				if (btnJson.contains("navigation"))
+				{
+					const auto& navJson = btnJson["navigation"];
+					PendingNav pnav;
+					pnav.btn = btn;
+					pnav.up = navJson.value("up", "");
+					pnav.down = navJson.value("down", "");
+					pnav.left = navJson.value("left", "");
+					pnav.right = navJson.value("right", "");
+					pendingNavs.push_back(pnav);
+				}
 			}
 
+			newObj->Init();
 			newObj->Awake();
 		}
 	}
 
+	auto FindButtonByName = [](const std::string& targetName) -> CUIButton* {
+		if (targetName.empty()) return nullptr;
+		const auto& objectList = ObjectManager::GetInstance().GetObjectList();
+		for (const auto& vec : objectList)
+		{
+			for (const auto& obj : vec)
+			{
+				if (!obj || obj->GetIsDestroyed()) continue;
+				CObjectInfo* info = obj->GetComponent<CObjectInfo>();
+				if (info && info->GetObjectName() == targetName)
+				{
+					return dynamic_cast<CUIButton*>(obj.get());
+				}
+			}
+		}
+		return nullptr;
+	};
+
+	if (!pendingNavs.empty())
+	{
+		for (const auto& pnav : pendingNavs)
+		{
+			CUIButton* upBtn = FindButtonByName(pnav.up);
+			CUIButton* downBtn = FindButtonByName(pnav.down);
+			CUIButton* leftBtn = FindButtonByName(pnav.left);
+			CUIButton* rightBtn = FindButtonByName(pnav.right);
+			pnav.btn->SetNavigation(upBtn, downBtn, leftBtn, rightBtn);
+		}
+	}
+	else
+	{
+		// Auto-link navigation for loaded CUIButtons if no explicit navigation was present
+		std::vector<CUIButton*> loadedButtons;
+		const auto& loadedObjectList = ObjectManager::GetInstance().GetObjectList();
+		for (const auto& vec : loadedObjectList)
+		{
+			for (const auto& obj : vec)
+			{
+				if (!obj || obj->GetIsDestroyed()) continue;
+				CUIButton* btn = dynamic_cast<CUIButton*>(obj.get());
+				if (btn)
+				{
+					loadedButtons.push_back(btn);
+				}
+			}
+		}
+
+		if (loadedButtons.size() > 1)
+		{
+			for (size_t i = 0; i < loadedButtons.size(); ++i)
+			{
+				CUIButton* prev = loadedButtons[(i + loadedButtons.size() - 1) % loadedButtons.size()];
+				CUIButton* next = loadedButtons[(i + 1) % loadedButtons.size()];
+				loadedButtons[i]->SetNavigation(prev, next, nullptr, nullptr);
+			}
+		}
+	}
+
 	ButtonEventManager::GetInstance().ApplyFirstSelected();
+
+	EnemyCounter* enemyCounter = dynamic_cast<EnemyCounter*>(ObjectManager::GetInstance().GetManager("EnemyCounter"));
+	if (enemyCounter)
+	{
+		enemyCounter->RecountEnemies();
+	}
 
 	OutputDebugStringA(("[SceneSerializer] Successfully loaded scene from: " + filepath + "\n").c_str());
 	return true;
@@ -295,4 +432,5 @@ bool SceneSerializer::LoadSceneOrDefault(const std::string& filepath, Scenes::ID
 	}
 	return false;
 }
+
 

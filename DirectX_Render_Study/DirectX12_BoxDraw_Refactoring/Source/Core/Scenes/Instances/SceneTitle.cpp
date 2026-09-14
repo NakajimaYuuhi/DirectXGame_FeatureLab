@@ -31,20 +31,20 @@ void SceneTitle::Init()
 
     if (!SceneSerializer::LoadSceneOrDefault("Assets/Scene/SceneTitle.json", Scenes::ID::TITLE))
     {
-        ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::CAMERA, "Camera");
+        ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::CAMERA, "Camera", "Camera");
 
-        CUIObject* titleUI = (CUIObject*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "TitleUI"));
+        CUIObject* titleUI = (CUIObject*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "TitleUI", "TitleBG"));
         titleUI->SetTexture(L"Assets/Texture/T_TitleBG.png");
         titleUI->SetPosition(0.0f, 0.0f);
         titleUI->SetSize(1920.0f, 1080.0f);
 
-        CUIButton* titleButton = (CUIButton*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "UIButton"));
+        CUIButton* titleButton = (CUIButton*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "CUIButton", "StartButton"));
         titleButton->SetTexture(L"Assets/Texture/T_GameStart.png");
         titleButton->SetPosition(740.0f, 650.0f);
         titleButton->SetSize(400.0f, 100.0f);
         titleButton->SetAction(ButtonAction::ChangeScene_Test);
 
-        CUIButton* titleButton2 = (CUIButton*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "UIButton"));
+        CUIButton* titleButton2 = (CUIButton*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "CUIButton", "ExitButton"));
         titleButton2->SetTexture(L"Assets/Texture/T_Exit.png");
         titleButton2->SetPosition(735.0f, 800.0f);
         titleButton2->SetSize(400.0f, 100.0f);
@@ -54,8 +54,8 @@ void SceneTitle::Init()
         titleButton2->SetNavigation(titleButton, titleButton, nullptr, nullptr);
 
         ObjectManager::GetInstance().Init(Scenes::ID::NONE);
-        ButtonEventManager::GetInstance().SetFirstSelectedName("UIButton");
-        ButtonEventManager::GetInstance().SetSelectedGameObject((CUIButton*)titleButton);
+        ButtonEventManager::GetInstance().SetFirstSelectedName("StartButton");
+        ButtonEventManager::GetInstance().SetSelectedGameObject(titleButton);
 
         SceneSerializer::SaveScene("Assets/Scene/SceneTitle.json", Scenes::ID::TITLE);
     }

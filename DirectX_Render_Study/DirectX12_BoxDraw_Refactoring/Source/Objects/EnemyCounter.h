@@ -11,29 +11,32 @@ public:
 	EnemyCounter(String _Name);
 	~EnemyCounter() = default;
 
-	virtual void Init();
+	virtual void Init() override;
 	
 
-	//カウント処理
+	//カウント
 	void Increment(int num_ = 1);
 	void Decrement(int num_ = 1);
-	void ResetCount() { enemyCount_; }
+	void ResetCount();
+	void RecountEnemies();
 
 
-	//生成した
+	//生成時
 	void Instantiated(int num_ = 1)
 	{
 		Increment(num_);
 	}
 
-	//撃破
+	//撃破時
 	void Defeat(int num_ = 1);
 
+	EnemyCount* GetUI();
+
 protected:
-	//今の所は、数だけ
+	//敵の情報は、ここで
 	int enemyCount_;
 	int defeatCount_;
-	EnemyCount* enemyCountUI_;
+	EnemyCount* enemyCountUI_ = nullptr;
 
 
 

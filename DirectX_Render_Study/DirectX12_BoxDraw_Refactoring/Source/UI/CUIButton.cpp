@@ -24,7 +24,7 @@ CUIButton::~CUIButton()
 void CUIButton::Init()
 {
     CUIObject::Init();
-    // 初期化処理
+    // ??????????
     // SpriteRenderer
     CSpriteRenderer * spriteRenderer = GetComponent<CSpriteRenderer>();
 
@@ -34,21 +34,21 @@ void CUIButton::Init()
 void CUIButton::Update()
 {
     CUIObject::Update();
-    // ボタン固有の更新処理があればここに記述
+    // ?{?^????L??X?V????????????????L?q
 }
 
 void CUIButton::Draw()
 {
     CUIObject::Draw();
     
-    // フォーカス状態に応じたハイライト描画などを行う場合はここに記述
+    // ?t?H?[?J?X??????????n?C???C?g?`?????s???????????L?q
     // if (m_isSelected) { ... } else { ... }
 }
 
 void CUIButton::OnSelect()
 {
     m_isSelected = true;
-    // フォーカス時の見た目変更（画像切り替え、色変更など）
+    // ?t?H?[?J?X??????????X?i????????A?F??X???j
 
         //SpriteRenderer
     CSpriteRenderer* spriteRenderer = GetComponent<CSpriteRenderer>();
@@ -60,7 +60,7 @@ void CUIButton::OnSelect()
 void CUIButton::OnDeselect()
 {
     m_isSelected = false;
-    // フォーカスが外れた時の見た目変更
+    // ?t?H?[?J?X???O????????????X
 
     //SpriteRenderer
     CSpriteRenderer* spriteRenderer = GetComponent<CSpriteRenderer>();
@@ -75,7 +75,7 @@ void CUIButton::OnSubmit()
     {
         ExecuteButtonAction(m_action);
     }
-    // 決定時にコールバックを実行
+    // ???莞??R?[???o?b?N????s
     if (m_onClickCallback)
     {
         m_onClickCallback();
@@ -94,3 +94,4 @@ void CUIButton::SetNavigation(CUIButton* up, CUIButton* down, CUIButton* left, C
     m_selectOnLeft = left;
     m_selectOnRight = right;
 }
+
