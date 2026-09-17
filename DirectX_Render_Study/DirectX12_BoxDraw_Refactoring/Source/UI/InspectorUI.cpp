@@ -20,9 +20,45 @@
 #include "TextRenderer.h"
 #include "ButtonEventManager.h"
 #include "ButtonAction.h"
+#include "GravityComponent.h"
+#include "HealthComponent.h"
+#include "CharacterMovementComponent.h"
+#include "PlayerControllerComponent.h"
+#include "EnemyAIComponent.h"
 #include <typeinfo>
 #include <windows.h>
 #include <vector>
+
+static std::string GetCleanComponentName(CComponent* comp)
+{
+	if (!comp) return "Null";
+	std::string name = comp->GetName();
+	if (!name.empty()) return name;
+
+	std::string rawName = typeid(*comp).name();
+	const std::string classPrefix = "class ";
+	const std::string structPrefix = "struct ";
+	if (rawName.rfind(classPrefix, 0) == 0) {
+		rawName = rawName.substr(classPrefix.length());
+	} else if (rawName.rfind(structPrefix, 0) == 0) {
+		rawName = rawName.substr(structPrefix.length());
+	}
+	return rawName;
+}
+
+static const char* GetUpdatePhaseName(UpdatePhase phase)
+{
+	switch (phase)
+	{
+	case UpdatePhase::Input:       return "Input";
+	case UpdatePhase::AI:          return "AI";
+	case UpdatePhase::Movement:    return "Movement";
+	case UpdatePhase::Physics:     return "Physics";
+	case UpdatePhase::Animation:   return "Animation";
+	case UpdatePhase::PostPhysics: return "PostPhysics";
+	default:                       return "Unknown";
+	}
+}
 
 static std::string WStringToString(const std::wstring& wstr)
 {
@@ -340,6 +376,27 @@ void CInspectorUI::Draw()
                     {
                         objInfo->SetObjectName(std::string(nameBuf));
                     }
+
+                    static const char* tagNames[] = {
+                        "NONE", "BACKGROUND", "PLAYER", "PLAYER_BULLET", "ENEMY", "ENEMY_BULLET",
+                        "FIELD", "TRIANGLE", "BILLBOARD", "EFFECT", "UI", "TEXT", "CAMERA", "FADE", "MANAGER"
+                    };
+                    static const ObjectTag tagValues[] = {
+                        ObjectTag::NONE, ObjectTag::BACKGROUND, ObjectTag::PLAYER, ObjectTag::PLAYER_BULLET,
+                        ObjectTag::ENEMY, ObjectTag::ENEMY_BULLET, ObjectTag::FIELD, ObjectTag::TRIANGLE,
+                        ObjectTag::BILLBOARD, ObjectTag::EFFECT, ObjectTag::UI, ObjectTag::TEXT,
+                        ObjectTag::CAMERA, ObjectTag::FADE, ObjectTag::MANAGER
+                    };
+                    int currentTagIdx = 0;
+                    ObjectTag curTag = objInfo->GetObjectTag();
+                    for (int t = 0; t < IM_ARRAYSIZE(tagValues); ++t)
+                    {
+                        if (tagValues[t] == curTag) { currentTagIdx = t; break; }
+                    }
+                    if (ImGui::Combo("Tag", &currentTagIdx, tagNames, IM_ARRAYSIZE(tagNames)))
+                    {
+                        objInfo->SetObjectTag(tagValues[currentTagIdx]);
+                    }
                 }
                 
                 // Duplicate & Delete buttons
@@ -372,6 +429,61 @@ void CInspectorUI::Draw()
                     selectedObj->SetIsDestroyed(true);
                     m_selectedObjectIndex = -1;
                     m_selectedTagIndex = -1;
+                }
+
+                // -------------------------------------------------------------
+                // Attached Components Overview Table
+                // -------------------------------------------------------------
+                const auto& compList = selectedObj->GetComponents();
+                if (ImGui::CollapsingHeader("Attached Components", ImGuiTreeNodeFlags_DefaultOpen))
+                {
+                    ImGui::Text("Total Components: %d", (int)compList.size());
+                    if (ImGui::BeginTable("AttachedCompTable", 3, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_SizingStretchProp))
+                    {
+                        ImGui::TableSetupColumn("Active", ImGuiTableColumnFlags_WidthFixed, 50.0f);
+                        ImGui::TableSetupColumn("Component Name", ImGuiTableColumnFlags_WidthStretch);
+                        ImGui::TableSetupColumn("Phase", ImGuiTableColumnFlags_WidthFixed, 90.0f);
+                        ImGui::TableHeadersRow();
+
+                        for (size_t i = 0; i < compList.size(); ++i)
+                        {
+                            const auto& comp = compList[i];
+                            if (!comp) continue;
+
+                            ImGui::TableNextRow();
+                            ImGui::PushID((int)i);
+
+                            // Active column
+                            ImGui::TableSetColumnIndex(0);
+                            bool isValid = comp->GetIsValid();
+                            bool isLocked = (dynamic_cast<CObjectInfo*>(comp.get()) != nullptr);
+                            if (isLocked)
+                            {
+                                ImGui::BeginDisabled();
+                                ImGui::Checkbox("##active", &isValid);
+                                ImGui::EndDisabled();
+                            }
+                            else
+                            {
+                                if (ImGui::Checkbox("##active", &isValid))
+                                {
+                                    comp->SetIsValid(isValid);
+                                }
+                            }
+
+                            // Component Name column
+                            ImGui::TableSetColumnIndex(1);
+                            std::string cName = GetCleanComponentName(comp.get());
+                            ImGui::Text("%s", cName.c_str());
+
+                            // Phase column
+                            ImGui::TableSetColumnIndex(2);
+                            ImGui::TextDisabled("%s", GetUpdatePhaseName(comp->GetUpdatePhase()));
+
+                            ImGui::PopID();
+                        }
+                        ImGui::EndTable();
+                    }
                 }
 
                 CTransform* transform = selectedObj->GetComponent<CTransform>();
@@ -586,6 +698,178 @@ void CInspectorUI::Draw()
                         if (ImGui::DragFloat3("Offset", &offset.x, 0.1f))
                         {
                             boxCollider->SetOffset(offset);
+                        }
+                    }
+                }
+
+                GravityComponent* gravityComp = selectedObj->GetComponent<GravityComponent>();
+                if (gravityComp)
+                {
+                    if (ImGui::CollapsingHeader("GravityComponent", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        float grav = gravityComp->GetGravity();
+                        if (ImGui::DragFloat("Gravity Accel", &grav, 0.5f, -100.0f, 0.0f, "%.1f"))
+                        {
+                            gravityComp->SetGravity(grav);
+                        }
+
+                        float jPower = gravityComp->GetJumpPower();
+                        if (ImGui::DragFloat("Jump Power", &jPower, 0.5f, 0.0f, 50.0f, "%.1f"))
+                        {
+                            gravityComp->SetJumpPower(jPower);
+                        }
+
+                        float vSpeed = gravityComp->GetVerticalVelocity();
+                        ImGui::Text("Vertical Velocity: %.2f", vSpeed);
+
+                        bool grounded = gravityComp->IsGrounded();
+                        if (grounded)
+                        {
+                            ImGui::TextColored(ImVec4(0.2f, 1.0f, 0.2f, 1.0f), "Grounded: YES");
+                        }
+                        else
+                        {
+                            ImGui::TextColored(ImVec4(1.0f, 0.8f, 0.2f, 1.0f), "Grounded: NO (In Air)");
+                        }
+
+                        if (ImGui::Button("Test Jump"))
+                        {
+                            gravityComp->Jump();
+                        }
+                        ImGui::SameLine();
+                        if (ImGui::Button("Snap To Ground"))
+                        {
+                            gravityComp->SnapToGround();
+                        }
+                    }
+                }
+
+                HealthComponent* healthComp = selectedObj->GetComponent<HealthComponent>();
+                if (healthComp)
+                {
+                    if (ImGui::CollapsingHeader("HealthComponent", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        int curHp = healthComp->GetHP();
+                        int maxHp = healthComp->GetMaxHP();
+
+                        float fraction = maxHp > 0 ? (float)curHp / (float)maxHp : 0.0f;
+                        char overlay[32];
+                        sprintf_s(overlay, "%d / %d", curHp, maxHp);
+                        ImGui::ProgressBar(fraction, ImVec2(-1.0f, 0.0f), overlay);
+
+                        if (ImGui::SliderInt("HP", &curHp, 0, maxHp))
+                        {
+                            healthComp->SetHP(curHp);
+                        }
+
+                        if (ImGui::DragInt("Max HP", &maxHp, 1, 1, 999))
+                        {
+                            healthComp->SetMaxHP(maxHp);
+                        }
+
+                        bool isDead = healthComp->IsDead();
+                        bool isInvincible = healthComp->IsInvincible();
+
+                        if (isDead)
+                        {
+                            ImGui::TextColored(ImVec4(1.0f, 0.2f, 0.2f, 1.0f), "Status: DEAD");
+                        }
+                        else if (isInvincible)
+                        {
+                            ImGui::TextColored(ImVec4(1.0f, 1.0f, 0.2f, 1.0f), "Status: INVINCIBLE (Flashing)");
+                        }
+                        else
+                        {
+                            ImGui::TextColored(ImVec4(0.2f, 1.0f, 0.2f, 1.0f), "Status: ALIVE");
+                        }
+
+                        if (ImGui::Button("Take 1 Damage"))
+                        {
+                            healthComp->TakeDamage(1);
+                        }
+                        ImGui::SameLine();
+                        if (ImGui::Button("Heal 1 HP"))
+                        {
+                            healthComp->SetHP(min(maxHp, curHp + 1));
+                        }
+                    }
+                }
+
+                CharacterMovementComponent* movementComp = selectedObj->GetComponent<CharacterMovementComponent>();
+                if (movementComp)
+                {
+                    if (ImGui::CollapsingHeader("CharacterMovementComponent", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        float spd = movementComp->GetSpeed();
+                        if (ImGui::DragFloat("Move Speed", &spd, 0.005f, 0.0f, 2.0f, "%.3f"))
+                        {
+                            movementComp->SetSpeed(spd);
+                        }
+
+                        float climbNy = movementComp->GetMinClimbNormalY();
+                        if (ImGui::SliderFloat("Slope Limit (Normal Y)", &climbNy, 0.0f, 1.0f, "%.2f"))
+                        {
+                            movementComp->SetMinClimbNormalY(climbNy);
+                        }
+
+                        bool autoRot = movementComp->GetAutoRotate();
+                        if (ImGui::Checkbox("Auto Rotate to Movement", &autoRot))
+                        {
+                            movementComp->SetAutoRotate(autoRot);
+                        }
+
+                        DirectX::XMFLOAT3 lastMove = movementComp->GetLastMovement();
+                        ImGui::Text("Last Move: (%.3f, %.3f, %.3f)", lastMove.x, lastMove.y, lastMove.z);
+                    }
+                }
+
+                PlayerControllerComponent* playerCtrl = selectedObj->GetComponent<PlayerControllerComponent>();
+                if (playerCtrl)
+                {
+                    if (ImGui::CollapsingHeader("PlayerControllerComponent", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        static const char* stateNames[] = { "Idle", "Move", "Attack", "Hurt", "Dead" };
+                        int curState = (int)playerCtrl->GetCurrentState();
+                        const char* curStateName = (curState >= 0 && curState < 5) ? stateNames[curState] : "Unknown";
+                        ImGui::Text("State: %s", curStateName);
+                        ImGui::Text("Input Active: %s", playerCtrl->HasMoveInput() ? "YES" : "NO");
+                    }
+                }
+
+                EnemyAIComponent* enemyAI = selectedObj->GetComponent<EnemyAIComponent>();
+                if (enemyAI)
+                {
+                    if (ImGui::CollapsingHeader("EnemyAIComponent", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        static const char* aiStateNames[] = { "Idle", "Chase", "Attack", "Hurt", "Dead" };
+                        int curState = (int)enemyAI->GetCurrentState();
+                        const char* curStateName = (curState >= 0 && curState < 5) ? aiStateNames[curState] : "Unknown";
+                        ImGui::Text("AI State: %s", curStateName);
+                    }
+                }
+
+                // -------------------------------------------------------------
+                // Other Components (Components without custom inspector panels)
+                // -------------------------------------------------------------
+                std::vector<std::string> otherCompNames;
+                for (const auto& comp : compList)
+                {
+                    if (!comp) continue;
+                    CComponent* cPtr = comp.get();
+                    if (cPtr != transform && cPtr != sprite && cPtr != textComp && cPtr != model &&
+                        cPtr != boxCollider && cPtr != gravityComp && cPtr != healthComp &&
+                        cPtr != movementComp && cPtr != playerCtrl && cPtr != enemyAI && cPtr != objInfo)
+                    {
+                        otherCompNames.push_back(GetCleanComponentName(cPtr));
+                    }
+                }
+                if (!otherCompNames.empty())
+                {
+                    if (ImGui::CollapsingHeader("Other Components", ImGuiTreeNodeFlags_None))
+                    {
+                        for (const auto& oName : otherCompNames)
+                        {
+                            ImGui::BulletText("%s (No configurable parameters)", oName.c_str());
                         }
                     }
                 }

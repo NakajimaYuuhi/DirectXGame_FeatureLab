@@ -3,6 +3,10 @@
 #include "StateMachine.h"
 #include <memory>
 
+class GravityComponent;
+class HealthComponent;
+class CharacterMovementComponent;
+
 class Enemy : public C3D_Object
 {
 public:
@@ -20,30 +24,26 @@ public:
 
 	// Helper methods for state execution
 	void MoveTowards(const DirectX::XMFLOAT3& targetPos, float deltaTime);
-	void ApplyGravity(float deltaTime);
 	void SnapToGround();
-	bool IsGrounded() const { return m_isGrounded; }
+	bool IsGrounded() const;
 	void OnDie();
-	int GetHP() const { return HP; }
+
+	// HP / Damage management (delegated to HealthComponent)
+	int GetHP() const;
 	void TakeDamage(int damage);
+
+	// Component getters
+	GravityComponent*           GetGravityComponent() const { return m_gravityComp; }
+	HealthComponent*            GetHealthComponent() const { return m_healthComp; }
+	CharacterMovementComponent* GetMovementComponent() const { return m_movementComp; }
 
 protected:
 	String ModelPath;
 	float Speed = 0.05f;
-	int HP = 3;
-	int MaxHP = 3;
-	float m_flashTimer = 0.0f;
-	const float FLASH_DURATION = 0.3f;
-	const float BLINK_INTERVAL = 0.06f;
 
-	class Field* m_field = nullptr;
-
-	// Gravity and vertical physics
-	float m_verticalVelocity = 0.0f;
-	bool m_isGrounded = false;
-	const float GRAVITY = -25.0f;
-	const float TERMINAL_VELOCITY = -30.0f;
-	const float STEP_DOWN_LIMIT = 0.4f;
+	GravityComponent*           m_gravityComp = nullptr;
+	HealthComponent*            m_healthComp = nullptr;
+	CharacterMovementComponent* m_movementComp = nullptr;
 
 	StateMachine<Enemy> m_stateMachine;
 };

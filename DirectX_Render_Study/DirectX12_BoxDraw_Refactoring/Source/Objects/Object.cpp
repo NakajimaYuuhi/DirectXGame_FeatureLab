@@ -1,39 +1,119 @@
-//===== インクルード =====
 #include "Object.h"
-
-//オブジェクトの情報
 #include "ObjectInfo.h"
-
 #include "Component.h"
-//===== 関数定義 =====
+#include "TimeManager.h"
 
-//コンストラクタ
-//基本のコンポーネントの作成
-
-//各子オブジェクトは外部データから、コンポーネント作成できるといいかも
 CObject::CObject()
-	:isValid(true)
+	: isValid(true)
 {
-	//オブジェクト情報のコンポーネントの作成
 	AddComponent<CObjectInfo>();
 }
 
-//デストラクタ エラー回避のためにここで定義
 CObject::~CObject() = default;
 
-void CObject::Init() 
+void CObject::Init()
 {
-	//各コンポーネントのInitを呼ぶ
 	for (auto& c : components)
 	{
-		//コンポーネントのInitを呼ぶ
-		c->Init();
+		if (c) c->Init();
 	}
 }
 
-//オブジェクトの名前のセット
+void CObject::Awake()
+{
+	if (m_hasAwoken) return;
+	AwakeComponents();
+	m_hasAwoken = true;
+}
+
+void CObject::Start()
+{
+	if (m_hasStarted) return;
+	StartComponents();
+	m_hasStarted = true;
+}
+
+void CObject::Update()
+{
+	float dt = TimeManager::GetInstance().GetDeltaTime();
+	UpdateComponents(dt);
+}
+
+void CObject::LateUpdate()
+{
+	float dt = TimeManager::GetInstance().GetDeltaTime();
+	LateUpdateComponents(dt);
+}
+
+void CObject::OnCollision(CObject* _Other)
+{
+	CollisionComponents(_Other);
+}
+
+void CObject::AwakeComponents()
+{
+	for (auto& c : components)
+	{
+		if (c && c->GetIsValid())
+		{
+			c->Awake();
+		}
+	}
+}
+
+void CObject::StartComponents()
+{
+	for (auto& c : components)
+	{
+		if (c && c->GetIsValid())
+		{
+			c->Start();
+		}
+	}
+}
+
+void CObject::UpdateComponents(float deltaTime)
+{
+	// Execute components phase by phase (Input -> AI -> Movement -> Physics -> Animation -> PostPhysics)
+	for (int phase = 0; phase < static_cast<int>(UpdatePhase::COUNT); ++phase)
+	{
+		for (auto& c : components)
+		{
+			if (c && c->GetIsValid() && static_cast<int>(c->GetUpdatePhase()) == phase)
+			{
+				c->Update(deltaTime);
+			}
+		}
+	}
+}
+
+void CObject::LateUpdateComponents(float deltaTime)
+{
+	for (auto& c : components)
+	{
+		if (c && c->GetIsValid())
+		{
+			c->LateUpdate(deltaTime);
+		}
+	}
+}
+
+void CObject::CollisionComponents(CObject* _Other)
+{
+	for (auto& c : components)
+	{
+		if (c && c->GetIsValid())
+		{
+			c->OnCollision(_Other);
+		}
+	}
+}
+
 void CObject::SetName(String _ObjectName)
 {
 	CObjectInfo* objectInfo = GetComponent<CObjectInfo>();
-	objectInfo->SetObjectName(_ObjectName);
+	if (objectInfo)
+	{
+		objectInfo->SetObjectName(_ObjectName);
+	}
 }

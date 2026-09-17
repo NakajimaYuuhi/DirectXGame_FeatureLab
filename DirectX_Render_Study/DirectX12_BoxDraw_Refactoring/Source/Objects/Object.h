@@ -1,26 +1,26 @@
 //Object.h
-//ƒIƒuƒWƒFƒNƒg‚ÌƒNƒ‰ƒX
-//ƒRƒ“ƒ|ƒlƒ“ƒg‚Ì’Ç‰ÁAíœ‚Ìƒƒ\ƒbƒh—L‚è
+//ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¯ãƒ©ã‚¹
+//ã‚³ãƒ³ãƒãƒãƒ³ãƒˆã®è¿½åŠ ã€å‰Šé™¤ã®ãƒ¡ã‚½ãƒƒãƒ‰æœ‰ã‚Š
 
-//TODO : •¡”ƒRƒ“ƒ|[ƒlƒ“ƒg‚Ìˆµ‚¢
-//•¡”‚ ‚Á‚½‚Æ‚µ‚Ä‚àˆÀ‘S‚Éˆµ‚¢‚½‚¢
-//–¼‘O‚Å¯•Ê‚Å‚«‚é‘z’è‚Åˆê’UName‚Ì•Ï”‚Íì‚Á‚Ä‚ ‚é
+//TODO : è¤‡æ•°ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®æ‰±ã„
+//è¤‡æ•°ã‚ã£ãŸã¨ã—ã¦ã‚‚å®‰å…¨ã«æ‰±ã„ãŸã„
+//åå‰ã§è­˜åˆ¥ã§ãã‚‹æƒ³å®šã§ä¸€æ—¦Nameã®å¤‰æ•°ã¯ä½œã£ã¦ã‚ã‚‹
 
-//TODO : Args,std::forward‚Ì—‰ğ‚ª•K{
+//TODO : Args,std::forwardã®ç†è§£ãŒå¿…é ˆ
 
-//===== ƒCƒ“ƒNƒ‹[ƒh =====
+//===== ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ =====
 #pragma once
 
-//Šî–{‹@”\
+//åŸºæœ¬æ©Ÿèƒ½
 #include <string>
 #include <vector>
 #include <memory>
 
 
 
-//===== ƒGƒCƒŠƒAƒXéŒ¾ =====
+//===== ã‚¨ã‚¤ãƒªã‚¢ã‚¹å®£è¨€ =====
 
-//Uniqueƒ|ƒCƒ“ƒ^
+//Uniqueãƒã‚¤ãƒ³ã‚¿
 template<typename T>
 using UniquePtr = std::unique_ptr<T>;
 
@@ -33,12 +33,12 @@ using String = std::string;
 
 
 
-////===== ‘O•ûéŒ¾ =====
+////===== å‰æ–¹å®£è¨€ =====
 class CComponent;
 
 
 
-//===== ƒNƒ‰ƒX’è‹` =====
+//===== ã‚¯ãƒ©ã‚¹å®šç¾© =====
 class CObject
 {
 public:
@@ -47,20 +47,27 @@ public:
 
 
 	virtual void Init();
-	virtual void Awake() {}
-	virtual void Start() {}
-	virtual void Update() = 0;
-	virtual void LateUpdate() = 0;
+	virtual void Awake();
+	virtual void Start();
+	virtual void Update();
+	virtual void LateUpdate();
 	virtual void Draw() = 0;
 
-	//Õ“Ë‚µ‚½‚Æ‚«‚Ìˆ—
-	virtual void OnCollision(CObject* _Other) {}
+	// Collision callback
+	virtual void OnCollision(CObject* _Other);
+
+	// Component lifecycle dispatch helpers (sorted by UpdatePhase)
+	void AwakeComponents();
+	void StartComponents();
+	void UpdateComponents(float deltaTime);
+	void LateUpdateComponents(float deltaTime);
+	void CollisionComponents(CObject* _Other);
 
 protected:
-	//ƒRƒ“ƒ|[ƒlƒ“ƒg
+	//ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 	Vector<UniquePtr<CComponent>> components;
 
-	//—LŒøA–³Œøƒtƒ‰ƒO
+	//æœ‰åŠ¹ã€ç„¡åŠ¹ãƒ•ãƒ©ã‚°
 	bool isValid;
 	bool IsDestroyed = false;
 	bool m_isVisible = true;
@@ -68,18 +75,18 @@ protected:
 	bool m_hasStarted = false;
 
 
-	//----- ƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠÇ—
+	//----- ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ç®¡ç†
 public:
 
-	// --ƒRƒ“ƒ|[ƒlƒ“ƒg‚Ìæ“¾
+	// --ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®å–å¾—
 	template<class T>
 	T* GetComponent() 
 	{
-		//ƒRƒ“ƒeƒi“à‚ğ’Tõ
+		//ã‚³ãƒ³ãƒ†ãƒŠå†…ã‚’æ¢ç´¢
 		for (auto& c : components) 
 		{
-			//¶ƒ|ƒCƒ“ƒ^æ“¾
-			//ƒLƒƒƒXƒg‚ª‚Å‚«‚ê‚ÎA‚»‚ê‚ğ•Ô‚·
+			//ç”Ÿãƒã‚¤ãƒ³ã‚¿å–å¾—
+			//ã‚­ãƒ£ã‚¹ãƒˆãŒã§ãã‚Œã°ã€ãã‚Œã‚’è¿”ã™
 			if (auto ptr = dynamic_cast<T*>(c.get())) 
 			{
 				return ptr;
@@ -88,10 +95,10 @@ public:
 		return nullptr;
 	}
 
-	// --ƒRƒ“ƒ|[ƒlƒ“ƒg‚Ì’Ç‰Á
-	//ˆø”‚Ì”AŒ^‚É§ŒÀ‚ª–³‚¢‚Í‚¸
+	// --ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®è¿½åŠ 
+	//å¼•æ•°ã®æ•°ã€å‹ã«åˆ¶é™ãŒç„¡ã„ã¯ãš
 
-	//TODO : Args,std::forward‚Ì—‰ğ‚ª•K{
+	//TODO : Args,std::forwardã®ç†è§£ãŒå¿…é ˆ
 
 	template<class T, class... Args>
 	T* AddComponent(Args&&... args) 
@@ -128,7 +135,7 @@ public:
 	const Vector<UniquePtr<CComponent>>& GetComponents() const { return components; }
 	void SetIsDestroyed(bool _IsDestroyed) { IsDestroyed = _IsDestroyed; }
 
-	//ƒIƒuƒWƒFƒNƒg‚Ì–¼‘O‚ÌƒZƒbƒg
+	//ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®åå‰ã®ã‚»ãƒƒãƒˆ
 	void SetName(String _ObjectName);
 
 

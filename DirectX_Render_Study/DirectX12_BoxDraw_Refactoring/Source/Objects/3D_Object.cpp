@@ -1,4 +1,4 @@
-//===== ƒCƒ“ƒNƒ‹[ƒh =====
+//===== ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ =====
 #include "3D_Object.h"
 
 //Transform
@@ -9,16 +9,13 @@
 //Model
 #include "Model.h"
 
+#include "TimeManager.h"
+
 C3D_Object::C3D_Object()
 	:CObject()
 {
-	//TransformƒRƒ“ƒ|[ƒlƒ“ƒg‚Ìì¬
 	AddComponent<CTransform>();
-
-	//¶¬‚·‚éƒRƒ“ƒ|[ƒlƒ“ƒg‚ğMesh‚©‚çModel‚É•ÏX
 	AddComponent<CModel>();
-	//AddComponent<CMesh>();
-
 }
 
 C3D_Object::C3D_Object(String _Name)
@@ -29,17 +26,20 @@ C3D_Object::C3D_Object(String _Name)
 
 void C3D_Object::Update() 
 {
-	//ƒL[“ü—Í‚ğæ“¾‚µ‚ÄAƒ|ƒWƒVƒ‡ƒ“‚ÌUpdate
-	
-
 	CModel* model = GetComponent<CModel>();
+	if (model)
+	{
+		model->Update();
+	}
 
-	model->Update();
-
+	float dt = TimeManager::GetInstance().GetDeltaTime();
+	UpdateComponents(dt);
 }
 
 void C3D_Object::LateUpdate()
 {
+	float dt = TimeManager::GetInstance().GetDeltaTime();
+	LateUpdateComponents(dt);
 }
 
 void C3D_Object::Draw() 

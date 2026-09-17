@@ -13,6 +13,9 @@
 #include "TimeManager.h"
 #include "audio.h"
 #include "Field.h"
+#include "GravityComponent.h"
+#include "HealthComponent.h"
+#include "CharacterMovementComponent.h"
 #include "Source/Core/Scenes/Manager/SceneManager.h"
 #include <cmath>
 
@@ -38,6 +41,18 @@ Player::Player(String _Name)
 	audio->Load("Assets/Audio/SE/Fire1.wav");
 
 	SetScale({ 0.5f, 0.5f, 0.5f });
+
+	// Add Movement, Gravity, and Health components
+	m_movementComp = AddComponent<CharacterMovementComponent>(0.1f);
+	m_gravityComp  = AddComponent<GravityComponent>(-25.0f, 8.5f);
+	m_healthComp   = AddComponent<HealthComponent>(10, 1.5f, 0.08f);
+
+	m_healthComp->SetOnDamagedCallback([this](int curHp, int maxHp) {
+		m_stateMachine.ChangeState(std::make_shared<PlayerHurtState>());
+	});
+	m_healthComp->SetOnDieCallback([this]() {
+		m_stateMachine.ChangeState(std::make_shared<PlayerDeadState>());
+	});
 }
 
 void Player::Init()
@@ -53,8 +68,7 @@ void Player::Awake()
 {
 	if (m_hasAwoken) return;
 
-	HP = MaxHP;
-	m_invincibleTimer = 0.0f;
+	AwakeComponents();
 	SetVisible(true);
 
 	m_hasAwoken = true;
@@ -65,11 +79,9 @@ void Player::Start()
 	if (m_hasStarted) return;
 
 	m_camera = ObjectManager::GetInstance().GetCamera();
-	m_field = ObjectManager::GetInstance().GetField();
-
 	SetScale({ 0.5f, 0.5f, 0.5f });
 
-	SnapToGround();
+	StartComponents();
 
 	m_stateMachine.SetOwner(this);
 	m_stateMachine.ChangeState(std::make_shared<PlayerIdleState>());
@@ -79,119 +91,45 @@ void Player::Start()
 
 void Player::SnapToGround()
 {
-	if (!m_field)
+	if (m_gravityComp)
 	{
-		m_field = ObjectManager::GetInstance().GetField();
-	}
-	if (m_field)
-	{
-		DirectX::XMFLOAT3 pos = GetPos();
-		float groundY = 0.0f;
-		if (m_field->GetHeight(pos.x, pos.z, groundY))
-		{
-			pos.y = groundY;
-			SetPos(pos);
-			m_verticalVelocity = 0.0f;
-			m_isGrounded = true;
-		}
+		m_gravityComp->SnapToGround();
 	}
 }
 
-void Player::ApplyGravity(float deltaTime)
+bool Player::IsGrounded() const
 {
-	if (!m_field)
-	{
-		m_field = ObjectManager::GetInstance().GetField();
-	}
+	return m_gravityComp ? m_gravityComp->IsGrounded() : false;
+}
 
-	DirectX::XMFLOAT3 pos = GetPos();
-	float groundY = 0.0f;
-	bool hasGround = (m_field != nullptr) && m_field->GetHeight(pos.x, pos.z, groundY);
+int Player::GetHP() const
+{
+	return m_healthComp ? m_healthComp->GetHP() : 0;
+}
 
-	if (!hasGround)
-	{
-		groundY = 0.0f;
-	}
+int Player::GetMaxHP() const
+{
+	return m_healthComp ? m_healthComp->GetMaxHP() : 0;
+}
 
-	// Apply gravity acceleration
-	m_verticalVelocity += GRAVITY * deltaTime;
-	if (m_verticalVelocity < TERMINAL_VELOCITY)
-	{
-		m_verticalVelocity = TERMINAL_VELOCITY;
-	}
+bool Player::IsDead() const
+{
+	return m_healthComp ? m_healthComp->IsDead() : false;
+}
 
-	float nextY = pos.y + m_verticalVelocity * deltaTime;
-
-	// Ground check
-	if (m_isGrounded && m_verticalVelocity <= 0.0f)
-	{
-		// While grounded, snap to slopes smoothly within step down limit
-		float diff = pos.y - groundY;
-		if (diff >= -0.1f && diff <= STEP_DOWN_LIMIT)
-		{
-			pos.y = groundY;
-			m_verticalVelocity = 0.0f;
-			m_isGrounded = true;
-		}
-		else if (nextY <= groundY)
-		{
-			pos.y = groundY;
-			m_verticalVelocity = 0.0f;
-			m_isGrounded = true;
-		}
-		else
-		{
-			// Step off a high ledge -> fall
-			pos.y = nextY;
-			m_isGrounded = false;
-		}
-	}
-	else
-	{
-		// Airborne: fall and land
-		if (nextY <= groundY)
-		{
-			pos.y = groundY;
-			m_verticalVelocity = 0.0f;
-			m_isGrounded = true;
-		}
-		else
-		{
-			pos.y = nextY;
-			m_isGrounded = false;
-		}
-	}
-
-	SetPos(pos);
+bool Player::IsInvincible() const
+{
+	return m_healthComp ? m_healthComp->IsInvincible() : false;
 }
 
 void Player::Update()
 {
 	float dt = TimeManager::GetInstance().GetDeltaTime();
 
-	// Jump input
-	if (m_isGrounded && CInputManager::GetInstance().IsKeyTrigger(VK_SPACE))
+	// Jump input -> delegated to GravityComponent
+	if (m_gravityComp && m_gravityComp->IsGrounded() && CInputManager::GetInstance().IsKeyTrigger(VK_SPACE))
 	{
-		m_verticalVelocity = JUMP_POWER;
-		m_isGrounded = false;
-	}
-
-	// Apply gravity
-	ApplyGravity(dt);
-
-	if (m_invincibleTimer > 0.0f)
-	{
-		m_invincibleTimer -= dt;
-		if (m_invincibleTimer <= 0.0f)
-		{
-			m_invincibleTimer = 0.0f;
-			SetVisible(true);
-		}
-		else
-		{
-			bool visible = (fmodf(m_invincibleTimer, BLINK_INTERVAL * 2.0f) >= BLINK_INTERVAL);
-			SetVisible(visible);
-		}
+		m_gravityComp->Jump();
 	}
 
 	CModel* model = GetComponent<CModel>();
@@ -201,6 +139,9 @@ void Player::Update()
 	}
 
 	m_stateMachine.OnUpdate(dt);
+
+	// Automatically updates components phase by phase (Physics/Gravity -> Health etc.)
+	UpdateComponents(dt);
 }
 
 bool Player::HasMoveInput() const
@@ -228,95 +169,40 @@ void Player::ProcessMovement(float deltaTime)
 	float c = cosf(angleY);
 
 	DirectX::XMFLOAT3 forward = { -s, 0.0f, c };
-	DirectX::XMFLOAT3 right = { c, 0.0f, s };
-
-	DirectX::XMFLOAT3 pos = GetPos();
-	DirectX::XMFLOAT3 movement = { 0.0f, 0.0f, 0.0f };
-
-	float frameSpeed = Speed * (deltaTime * 60.0f);
+	DirectX::XMFLOAT3 right   = {  c, 0.0f, s };
+	DirectX::XMFLOAT3 dir     = { 0.0f, 0.0f, 0.0f };
 
 	if (CInputManager::GetInstance().IsKeyPress('W'))
 	{
-		movement.x += forward.x * frameSpeed;
-		movement.z += forward.z * frameSpeed;
+		dir.x += forward.x;
+		dir.z += forward.z;
 	}
 	if (CInputManager::GetInstance().IsKeyPress('S'))
 	{
-		movement.x -= forward.x * frameSpeed;
-		movement.z -= forward.z * frameSpeed;
+		dir.x -= forward.x;
+		dir.z -= forward.z;
 	}
 	if (CInputManager::GetInstance().IsKeyPress('D'))
 	{
-		movement.x += right.x * frameSpeed;
-		movement.z += right.z * frameSpeed;
+		dir.x += right.x;
+		dir.z += right.z;
 	}
 	if (CInputManager::GetInstance().IsKeyPress('A'))
 	{
-		movement.x -= right.x * frameSpeed;
-		movement.z -= right.z * frameSpeed;
+		dir.x -= right.x;
+		dir.z -= right.z;
 	}
 
-	if (movement.x != 0.0f || movement.z != 0.0f)
+	float len = sqrtf(dir.x * dir.x + dir.z * dir.z);
+	if (len > 0.001f)
 	{
-		DirectX::XMFLOAT3 targetPos = { pos.x + movement.x, pos.y, pos.z + movement.z };
+		dir.x /= len;
+		dir.z /= len;
+	}
 
-		if (!m_field)
-		{
-			m_field = ObjectManager::GetInstance().GetField();
-		}
-
-		if (m_field)
-		{
-			float groundY = 0.0f;
-			DirectX::XMFLOAT3 normal = { 0.0f, 1.0f, 0.0f };
-
-			if (m_field->GetHeight(targetPos.x, targetPos.z, groundY))
-			{
-				m_field->GetNormal(targetPos.x, targetPos.z, normal);
-
-				// 登坂制限（傾斜が急すぎる崖＝法線Ny < 0.45、約63度以上は登れない）
-				const float MIN_CLIMB_NORMAL_Y = 0.45f;
-				if (normal.y >= MIN_CLIMB_NORMAL_Y)
-				{
-					if (m_isGrounded)
-					{
-						targetPos.y = groundY;
-					}
-					SetPos(targetPos);
-				}
-				else
-				{
-					// 急斜面の場合は法線の水平成分に沿って滑らせる
-					float dot = movement.x * normal.x + movement.z * normal.z;
-					if (dot < 0.0f)
-					{
-						float slideX = movement.x - normal.x * dot;
-						float slideZ = movement.z - normal.z * dot;
-						DirectX::XMFLOAT3 slidePos = { pos.x + slideX, pos.y, pos.z + slideZ };
-						float slideY = 0.0f;
-						if (m_field->GetHeight(slidePos.x, slidePos.z, slideY))
-						{
-							if (m_isGrounded)
-							{
-								slidePos.y = slideY;
-							}
-							SetPos(slidePos);
-						}
-					}
-				}
-			}
-			else
-			{
-				SetPos(targetPos);
-			}
-		}
-		else
-		{
-			SetPos(targetPos);
-		}
-
-		float targetRotY = atan2f(movement.x, movement.z);
-		SetRotation({ 0.0f, targetRotY, 0.0f });
+	if (m_movementComp)
+	{
+		m_movementComp->MoveDirection(dir, deltaTime);
 	}
 }
 
@@ -353,25 +239,9 @@ void Player::PerformAttack()
 
 void Player::TakeDamage(int damage)
 {
-	if (HP <= 0 || IsInvincible()) return;
-
-	HP -= damage;
-	if (HP < 0)
+	if (m_healthComp)
 	{
-		HP = 0;
-	}
-
-	m_invincibleTimer = INVINCIBLE_DURATION;
-
-	OutputDebugStringA(("Player Took Damage! Current HP: " + std::to_string(HP) + "\n").c_str());
-
-	if (HP <= 0)
-	{
-		m_stateMachine.ChangeState(std::make_shared<PlayerDeadState>());
-	}
-	else
-	{
-		m_stateMachine.ChangeState(std::make_shared<PlayerHurtState>());
+		m_healthComp->TakeDamage(damage);
 	}
 }
 
