@@ -308,11 +308,13 @@ var menudata={children:[
 {text:"列挙型",url:"globals_enum.html",children:[
 {text:"a",url:"globals_enum.html#index_a"},
 {text:"b",url:"globals_enum.html#index_b"},
+{text:"e",url:"globals_enum.html#index_e"},
 {text:"f",url:"globals_enum.html#index_f"},
 {text:"i",url:"globals_enum.html#index_i"},
 {text:"m",url:"globals_enum.html#index_m"},
 {text:"p",url:"globals_enum.html#index_p"},
-{text:"t",url:"globals_enum.html#index_t"}]},
+{text:"t",url:"globals_enum.html#index_t"},
+{text:"u",url:"globals_enum.html#index_u"}]},
 {text:"列挙値",url:"globals_eval.html",children:[
 {text:"i",url:"globals_eval.html#index_i"},
 {text:"m",url:"globals_eval_m.html#index_m"},

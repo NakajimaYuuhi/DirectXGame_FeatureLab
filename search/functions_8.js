@@ -4,8 +4,9 @@ var searchData=
   ['has_1',['Has',['../classtinygltf_1_1Value.html#ab58601c660a189bf125cd4b84a26fe4a',1,'tinygltf::Value']]],
   ['has_5fsubtype_2',['has_subtype',['../classnlohmann_1_1byte__container__with__subtype.html#a9fc42fb07003bf7048c2f1fc79478e02',1,'nlohmann::byte_container_with_subtype']]],
   ['hash_3',['hash',['../namespacenlohmann_1_1detail.html#a679e5e522ac6afa5d5923292fab450b8',1,'nlohmann::detail']]],
-  ['hasmoveinput_4',['HasMoveInput',['../classPlayer.html#a5eaa899175123ab5d2dc951ab61c58ce',1,'Player']]],
+  ['hasmoveinput_4',['hasmoveinput',['../classPlayerControllerComponent.html#a5088a431877482b62415edbcf2ac5dea',1,'PlayerControllerComponent::HasMoveInput()'],['../classPlayer.html#a5eaa899175123ab5d2dc951ab61c58ce',1,'Player::HasMoveInput()']]],
   ['hasselection_5',['hasselection',['../structImGuiInputTextCallbackData.html#aae1b69a904053961be171d7f47ef430e',1,'ImGuiInputTextCallbackData::HasSelection()'],['../structImGuiInputTextState.html#ab17832413ff121a5663319c06bbb989a',1,'ImGuiInputTextState::HasSelection()']]],
-  ['helpmarker_6',['HelpMarker',['../imgui__demo_8cpp.html#ae82388701c37c8cbb88a0304ca0f033b',1,'imgui_demo.cpp']]],
-  ['hsv_7',['HSV',['../structImColor.html#ac8cb52119648523038818a613becf010',1,'ImColor']]]
+  ['healthcomponent_6',['healthcomponent',['../classHealthComponent.html#afa9efa34a1dd15a988ac0cf7f9659622',1,'HealthComponent::HealthComponent()'],['../classHealthComponent.html#ae3d57c7ea6036483e8f2a951e1afdba1',1,'HealthComponent::HealthComponent(int maxHp, float invincibleDuration=1.5f, float blinkInterval=0.08f)']]],
+  ['helpmarker_7',['HelpMarker',['../imgui__demo_8cpp.html#ae82388701c37c8cbb88a0304ca0f033b',1,'imgui_demo.cpp']]],
+  ['hsv_8',['HSV',['../structImColor.html#ac8cb52119648523038818a613becf010',1,'ImColor']]]
 ];

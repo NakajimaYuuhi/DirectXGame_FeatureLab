@@ -1,0 +1,815 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: CharacterMovementComponent クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classCharacterMovementComponent.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classCharacterMovementComponent-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">CharacterMovementComponent クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="CharacterMovementComponent_8h_source.html">CharacterMovementComponent.h</a>&gt;</code></p>
+<div class="dynheader">
+CharacterMovementComponent の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacterMovementComponent__inherit__graph.svg" width="242" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+CharacterMovementComponent 連携図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacterMovementComponent__coll__graph.svg" width="318" height="362"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a3b46719028da4715fcb1aa41000ef690" id="r_a3b46719028da4715fcb1aa41000ef690"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacterMovementComponent.html#a3b46719028da4715fcb1aa41000ef690">CharacterMovementComponent</a> ()</td></tr>
+<tr class="separator:a3b46719028da4715fcb1aa41000ef690"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fe50497f9292df4fed99acba215a3ea" id="r_a6fe50497f9292df4fed99acba215a3ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacterMovementComponent.html#a6fe50497f9292df4fed99acba215a3ea">CharacterMovementComponent</a> (float speed)</td></tr>
+<tr class="separator:a6fe50497f9292df4fed99acba215a3ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3657b292954362cbf5b1745ecbdc592a" id="r_a3657b292954362cbf5b1745ecbdc592a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacterMovementComponent.html#a3657b292954362cbf5b1745ecbdc592a">~CharacterMovementComponent</a> ()=default</td></tr>
+<tr class="separator:a3657b292954362cbf5b1745ecbdc592a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c66d4c3343ab0880e0820ce894ee6b8" id="r_a1c66d4c3343ab0880e0820ce894ee6b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacterMovementComponent.html#a1c66d4c3343ab0880e0820ce894ee6b8">Start</a> () override</td></tr>
+<tr class="separator:a1c66d4c3343ab0880e0820ce894ee6b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6a7e4c5ef0bf6533a71e833d53de597" id="r_af6a7e4c5ef0bf6533a71e833d53de597"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacterMovementComponent.html#af6a7e4c5ef0bf6533a71e833d53de597">Update</a> (float deltaTime) override</td></tr>
+<tr class="separator:af6a7e4c5ef0bf6533a71e833d53de597"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7db69c93ae15396a39c2657c03d5019c" id="r_a7db69c93ae15396a39c2657c03d5019c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacterMovementComponent.html#a7db69c93ae15396a39c2657c03d5019c">GetUpdatePhase</a> () const override</td></tr>
+<tr class="separator:a7db69c93ae15396a39c2657c03d5019c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a913711b42e0c158b9c79c6e31821051a" id="r_a913711b42e0c158b9c79c6e31821051a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacterMovementComponent.html#a913711b42e0c158b9c79c6e31821051a">Move</a> (const DirectX::XMFLOAT3 &amp;movement, float deltaTime)</td></tr>
+<tr class="separator:a913711b42e0c158b9c79c6e31821051a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d4d4fcd269ff0c1149b8ac4f9942ef5" id="r_a3d4d4fcd269ff0c1149b8ac4f9942ef5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacterMovementComponent.html#a3d4d4fcd269ff0c1149b8ac4f9942ef5">MoveDirection</a> (const DirectX::XMFLOAT3 &amp;direction, float deltaTime)</td></tr>
+<tr class="separator:a3d4d4fcd269ff0c1149b8ac4f9942ef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1cb335c072da2f307c11f4508df21c8" id="r_ad1cb335c072da2f307c11f4508df21c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacterMovementComponent.html#ad1cb335c072da2f307c11f4508df21c8">MoveTowards</a> (const DirectX::XMFLOAT3 &amp;targetPos, float deltaTime)</td></tr>
+<tr class="separator:ad1cb335c072da2f307c11f4508df21c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa70e6557fddfb93a6e6b614cfd3d2ea0" id="r_aa70e6557fddfb93a6e6b614cfd3d2ea0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacterMovementComponent.html#aa70e6557fddfb93a6e6b614cfd3d2ea0">GetSpeed</a> () const</td></tr>
+<tr class="separator:aa70e6557fddfb93a6e6b614cfd3d2ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38532940dd7b3989b07feb2e042a401e" id="r_a38532940dd7b3989b07feb2e042a401e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacterMovementComponent.html#a38532940dd7b3989b07feb2e042a401e">SetSpeed</a> (float speed)</td></tr>
+<tr class="separator:a38532940dd7b3989b07feb2e042a401e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadc4ecc88dd2f8bc0fcd97fb665a2370" id="r_aadc4ecc88dd2f8bc0fcd97fb665a2370"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacterMovementComponent.html#aadc4ecc88dd2f8bc0fcd97fb665a2370">GetMinClimbNormalY</a> () const</td></tr>
+<tr class="separator:aadc4ecc88dd2f8bc0fcd97fb665a2370"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae750907be185640d1d57113ca87b5db4" id="r_ae750907be185640d1d57113ca87b5db4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacterMovementComponent.html#ae750907be185640d1d57113ca87b5db4">SetMinClimbNormalY</a> (float ny)</td></tr>
+<tr class="separator:ae750907be185640d1d57113ca87b5db4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5856f85d3a266c92e86091d6fe14b7af" id="r_a5856f85d3a266c92e86091d6fe14b7af"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacterMovementComponent.html#a5856f85d3a266c92e86091d6fe14b7af">GetAutoRotate</a> () const</td></tr>
+<tr class="separator:a5856f85d3a266c92e86091d6fe14b7af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dac3cd8621f9d38c04f093e311e0469" id="r_a9dac3cd8621f9d38c04f093e311e0469"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacterMovementComponent.html#a9dac3cd8621f9d38c04f093e311e0469">SetAutoRotate</a> (bool autoRotate)</td></tr>
+<tr class="separator:a9dac3cd8621f9d38c04f093e311e0469"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac30a115ad652e659d8a78606b801ac0a" id="r_ac30a115ad652e659d8a78606b801ac0a"><td class="memItemLeft" align="right" valign="top">const DirectX::XMFLOAT3 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacterMovementComponent.html#ac30a115ad652e659d8a78606b801ac0a">GetLastMovement</a> () const</td></tr>
+<tr class="separator:ac30a115ad652e659d8a78606b801ac0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classCComponent"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCComponent')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCComponent.html">CComponent</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:ab87a6940be69962c3f4f5a8552643245 inherit pub_methods_classCComponent" id="r_ab87a6940be69962c3f4f5a8552643245"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ab87a6940be69962c3f4f5a8552643245">CComponent</a> ()</td></tr>
+<tr class="separator:ab87a6940be69962c3f4f5a8552643245 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accf17908f97e4d07d7f04fbde292dcda inherit pub_methods_classCComponent" id="r_accf17908f97e4d07d7f04fbde292dcda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#accf17908f97e4d07d7f04fbde292dcda">CComponent</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:accf17908f97e4d07d7f04fbde292dcda inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2ad4d80f616aedbf6b08f33bdd9d2d5 inherit pub_methods_classCComponent" id="r_af2ad4d80f616aedbf6b08f33bdd9d2d5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#af2ad4d80f616aedbf6b08f33bdd9d2d5">~CComponent</a> ()=default</td></tr>
+<tr class="separator:af2ad4d80f616aedbf6b08f33bdd9d2d5 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9bf36b35de54f49a3d604da091228a4 inherit pub_methods_classCComponent" id="r_ac9bf36b35de54f49a3d604da091228a4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ac9bf36b35de54f49a3d604da091228a4">Init</a> ()</td></tr>
+<tr class="separator:ac9bf36b35de54f49a3d604da091228a4 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf3ad4406a744d3fa20d83cc704345cf inherit pub_methods_classCComponent" id="r_adf3ad4406a744d3fa20d83cc704345cf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#adf3ad4406a744d3fa20d83cc704345cf">Awake</a> ()</td></tr>
+<tr class="separator:adf3ad4406a744d3fa20d83cc704345cf inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad72e93375519950fa4cbc176ede60db1 inherit pub_methods_classCComponent" id="r_ad72e93375519950fa4cbc176ede60db1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ad72e93375519950fa4cbc176ede60db1">LateUpdate</a> (float deltaTime)</td></tr>
+<tr class="separator:ad72e93375519950fa4cbc176ede60db1 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26e97bcceac386d951092ade96512283 inherit pub_methods_classCComponent" id="r_a26e97bcceac386d951092ade96512283"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a26e97bcceac386d951092ade96512283">OnCollision</a> (<a class="el" href="classCObject.html">CObject</a> *_Other)</td></tr>
+<tr class="separator:a26e97bcceac386d951092ade96512283 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a281a46452f6f59625e5488936cd70aa7 inherit pub_methods_classCComponent" id="r_a281a46452f6f59625e5488936cd70aa7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a281a46452f6f59625e5488936cd70aa7">GetName</a> () const</td></tr>
+<tr class="separator:a281a46452f6f59625e5488936cd70aa7 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1df83625aa856f9cc7047da68dce131d inherit pub_methods_classCComponent" id="r_a1df83625aa856f9cc7047da68dce131d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a1df83625aa856f9cc7047da68dce131d">GetIsValid</a> () const</td></tr>
+<tr class="separator:a1df83625aa856f9cc7047da68dce131d inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf4188a21189f533eed52041962cafd4 inherit pub_methods_classCComponent" id="r_abf4188a21189f533eed52041962cafd4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#abf4188a21189f533eed52041962cafd4">GetIsVarid</a> () const</td></tr>
+<tr class="separator:abf4188a21189f533eed52041962cafd4 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5bf6fd967c58b6784aa399a27ce0eaa inherit pub_methods_classCComponent" id="r_ad5bf6fd967c58b6784aa399a27ce0eaa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ad5bf6fd967c58b6784aa399a27ce0eaa">SetName</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:ad5bf6fd967c58b6784aa399a27ce0eaa inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96b82c9108e83190f29a5dd8bafe59fe inherit pub_methods_classCComponent" id="r_a96b82c9108e83190f29a5dd8bafe59fe"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a96b82c9108e83190f29a5dd8bafe59fe">SetIsValid</a> (bool _IsValid)</td></tr>
+<tr class="separator:a96b82c9108e83190f29a5dd8bafe59fe inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ababe3aca6f026b146eb458dab2a57587 inherit pub_methods_classCComponent" id="r_ababe3aca6f026b146eb458dab2a57587"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ababe3aca6f026b146eb458dab2a57587">SetOwner</a> (<a class="el" href="classCObject.html">CObject</a> *_Object)</td></tr>
+<tr class="separator:ababe3aca6f026b146eb458dab2a57587 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa05b48a46eeaff9527c00de7547edd32 inherit pub_methods_classCComponent" id="r_aa05b48a46eeaff9527c00de7547edd32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#aa05b48a46eeaff9527c00de7547edd32">GetOwner</a> () const</td></tr>
+<tr class="separator:aa05b48a46eeaff9527c00de7547edd32 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:a18117e611b9fe558151e8a9ab4905540" id="r_a18117e611b9fe558151e8a9ab4905540"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacterMovementComponent.html#a18117e611b9fe558151e8a9ab4905540">m_speed</a> = 0.1f</td></tr>
+<tr class="separator:a18117e611b9fe558151e8a9ab4905540"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb59581a52133e2631c9f8780942b04b" id="r_aeb59581a52133e2631c9f8780942b04b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacterMovementComponent.html#aeb59581a52133e2631c9f8780942b04b">m_minClimbNormalY</a> = 0.45f</td></tr>
+<tr class="separator:aeb59581a52133e2631c9f8780942b04b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7575b61e2fbbb86ddea6ce37fbaf6b7d" id="r_a7575b61e2fbbb86ddea6ce37fbaf6b7d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacterMovementComponent.html#a7575b61e2fbbb86ddea6ce37fbaf6b7d">m_autoRotate</a> = true</td></tr>
+<tr class="separator:a7575b61e2fbbb86ddea6ce37fbaf6b7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e20695b366c155095127cde59dd616d" id="r_a6e20695b366c155095127cde59dd616d"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacterMovementComponent.html#a6e20695b366c155095127cde59dd616d">m_lastMovement</a> = { 0.0f, 0.0f, 0.0f }</td></tr>
+<tr class="separator:a6e20695b366c155095127cde59dd616d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73f380302e6ff68a70a2246001781a58" id="r_a73f380302e6ff68a70a2246001781a58"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classField.html">Field</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacterMovementComponent.html#a73f380302e6ff68a70a2246001781a58">m_field</a> = nullptr</td></tr>
+<tr class="separator:a73f380302e6ff68a70a2246001781a58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac35e3ef97f3b7d08b601e3ff864edf63" id="r_ac35e3ef97f3b7d08b601e3ff864edf63"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGravityComponent.html">GravityComponent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacterMovementComponent.html#ac35e3ef97f3b7d08b601e3ff864edf63">m_gravityComp</a> = nullptr</td></tr>
+<tr class="separator:ac35e3ef97f3b7d08b601e3ff864edf63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+その他の継承メンバ</h2></td></tr>
+<tr class="inherit_header pro_attribs_classCComponent"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classCComponent')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCComponent.html">CComponent</a> に属する継承限定公開変数類</td></tr>
+<tr class="memitem:a76959a9e98ef06163c56858026e9da5b inherit pro_attribs_classCComponent" id="r_a76959a9e98ef06163c56858026e9da5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a76959a9e98ef06163c56858026e9da5b">m_Owner</a> = nullptr</td></tr>
+<tr class="separator:a76959a9e98ef06163c56858026e9da5b inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4918d7f95edb1a545724dab2be500e75 inherit pro_attribs_classCComponent" id="r_a4918d7f95edb1a545724dab2be500e75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a4918d7f95edb1a545724dab2be500e75">m_ComponentName</a> = &quot;&quot;</td></tr>
+<tr class="separator:a4918d7f95edb1a545724dab2be500e75 inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f8c7080b1f9972952ceda4e155568cb inherit pro_attribs_classCComponent" id="r_a8f8c7080b1f9972952ceda4e155568cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a8f8c7080b1f9972952ceda4e155568cb">m_ComponentIsValid</a> = true</td></tr>
+<tr class="separator:a8f8c7080b1f9972952ceda4e155568cb inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="a3b46719028da4715fcb1aa41000ef690" name="a3b46719028da4715fcb1aa41000ef690"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b46719028da4715fcb1aa41000ef690">&#9670;&#160;</a></span>CharacterMovementComponent() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CharacterMovementComponent::CharacterMovementComponent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6fe50497f9292df4fed99acba215a3ea" name="a6fe50497f9292df4fed99acba215a3ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fe50497f9292df4fed99acba215a3ea">&#9670;&#160;</a></span>CharacterMovementComponent() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CharacterMovementComponent::CharacterMovementComponent </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>speed</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3657b292954362cbf5b1745ecbdc592a" name="a3657b292954362cbf5b1745ecbdc592a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3657b292954362cbf5b1745ecbdc592a">&#9670;&#160;</a></span>~CharacterMovementComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual CharacterMovementComponent::~CharacterMovementComponent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a5856f85d3a266c92e86091d6fe14b7af" name="a5856f85d3a266c92e86091d6fe14b7af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5856f85d3a266c92e86091d6fe14b7af">&#9670;&#160;</a></span>GetAutoRotate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CharacterMovementComponent::GetAutoRotate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacterMovementComponent_a5856f85d3a266c92e86091d6fe14b7af_icgraph.svg" width="563" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac30a115ad652e659d8a78606b801ac0a" name="ac30a115ad652e659d8a78606b801ac0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac30a115ad652e659d8a78606b801ac0a">&#9670;&#160;</a></span>GetLastMovement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const DirectX::XMFLOAT3 &amp; CharacterMovementComponent::GetLastMovement </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacterMovementComponent_ac30a115ad652e659d8a78606b801ac0a_icgraph.svg" width="563" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aadc4ecc88dd2f8bc0fcd97fb665a2370" name="aadc4ecc88dd2f8bc0fcd97fb665a2370"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadc4ecc88dd2f8bc0fcd97fb665a2370">&#9670;&#160;</a></span>GetMinClimbNormalY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CharacterMovementComponent::GetMinClimbNormalY </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacterMovementComponent_aadc4ecc88dd2f8bc0fcd97fb665a2370_icgraph.svg" width="563" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa70e6557fddfb93a6e6b614cfd3d2ea0" name="aa70e6557fddfb93a6e6b614cfd3d2ea0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa70e6557fddfb93a6e6b614cfd3d2ea0">&#9670;&#160;</a></span>GetSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CharacterMovementComponent::GetSpeed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacterMovementComponent_aa70e6557fddfb93a6e6b614cfd3d2ea0_icgraph.svg" width="563" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7db69c93ae15396a39c2657c03d5019c" name="a7db69c93ae15396a39c2657c03d5019c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7db69c93ae15396a39c2657c03d5019c">&#9670;&#160;</a></span>GetUpdatePhase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a> CharacterMovementComponent::GetUpdatePhase </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCComponent.html#a8cb4ec11d3210b5f3278d8e55b7308bd">CComponent</a>を再実装しています。</p>
+
+</div>
+</div>
+<a id="a913711b42e0c158b9c79c6e31821051a" name="a913711b42e0c158b9c79c6e31821051a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a913711b42e0c158b9c79c6e31821051a">&#9670;&#160;</a></span>Move()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CharacterMovementComponent::Move </td>
+          <td>(</td>
+          <td class="paramtype">const DirectX::XMFLOAT3 &amp;&#160;</td>
+          <td class="paramname"><em>movement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacterMovementComponent_a913711b42e0c158b9c79c6e31821051a_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a3d4d4fcd269ff0c1149b8ac4f9942ef5" name="a3d4d4fcd269ff0c1149b8ac4f9942ef5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d4d4fcd269ff0c1149b8ac4f9942ef5">&#9670;&#160;</a></span>MoveDirection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CharacterMovementComponent::MoveDirection </td>
+          <td>(</td>
+          <td class="paramtype">const DirectX::XMFLOAT3 &amp;&#160;</td>
+          <td class="paramname"><em>direction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacterMovementComponent_a3d4d4fcd269ff0c1149b8ac4f9942ef5_icgraph.svg" width="100%" height="462"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ad1cb335c072da2f307c11f4508df21c8" name="ad1cb335c072da2f307c11f4508df21c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1cb335c072da2f307c11f4508df21c8">&#9670;&#160;</a></span>MoveTowards()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CharacterMovementComponent::MoveTowards </td>
+          <td>(</td>
+          <td class="paramtype">const DirectX::XMFLOAT3 &amp;&#160;</td>
+          <td class="paramname"><em>targetPos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacterMovementComponent_ad1cb335c072da2f307c11f4508df21c8_cgraph.svg" width="520" height="151"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCharacterMovementComponent_ad1cb335c072da2f307c11f4508df21c8_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a9dac3cd8621f9d38c04f093e311e0469" name="a9dac3cd8621f9d38c04f093e311e0469"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dac3cd8621f9d38c04f093e311e0469">&#9670;&#160;</a></span>SetAutoRotate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CharacterMovementComponent::SetAutoRotate </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>autoRotate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacterMovementComponent_a9dac3cd8621f9d38c04f093e311e0469_icgraph.svg" width="563" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ae750907be185640d1d57113ca87b5db4" name="ae750907be185640d1d57113ca87b5db4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae750907be185640d1d57113ca87b5db4">&#9670;&#160;</a></span>SetMinClimbNormalY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CharacterMovementComponent::SetMinClimbNormalY </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>ny</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacterMovementComponent_ae750907be185640d1d57113ca87b5db4_icgraph.svg" width="563" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a38532940dd7b3989b07feb2e042a401e" name="a38532940dd7b3989b07feb2e042a401e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38532940dd7b3989b07feb2e042a401e">&#9670;&#160;</a></span>SetSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CharacterMovementComponent::SetSpeed </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>speed</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacterMovementComponent_a38532940dd7b3989b07feb2e042a401e_icgraph.svg" width="563" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a1c66d4c3343ab0880e0820ce894ee6b8" name="a1c66d4c3343ab0880e0820ce894ee6b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c66d4c3343ab0880e0820ce894ee6b8">&#9670;&#160;</a></span>Start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CharacterMovementComponent::Start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCComponent.html#adcee296a2416501cf52755038d4f27eb">CComponent</a>を再実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCharacterMovementComponent_a1c66d4c3343ab0880e0820ce894ee6b8_cgraph.svg" width="496" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af6a7e4c5ef0bf6533a71e833d53de597" name="af6a7e4c5ef0bf6533a71e833d53de597"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6a7e4c5ef0bf6533a71e833d53de597">&#9670;&#160;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CharacterMovementComponent::Update </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCComponent.html#ae575194dbb8c5f6ad344bb8c17fa778b">CComponent</a>を再実装しています。</p>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a7575b61e2fbbb86ddea6ce37fbaf6b7d" name="a7575b61e2fbbb86ddea6ce37fbaf6b7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7575b61e2fbbb86ddea6ce37fbaf6b7d">&#9670;&#160;</a></span>m_autoRotate</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CharacterMovementComponent::m_autoRotate = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a73f380302e6ff68a70a2246001781a58" name="a73f380302e6ff68a70a2246001781a58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73f380302e6ff68a70a2246001781a58">&#9670;&#160;</a></span>m_field</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classField.html">Field</a>* CharacterMovementComponent::m_field = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac35e3ef97f3b7d08b601e3ff864edf63" name="ac35e3ef97f3b7d08b601e3ff864edf63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac35e3ef97f3b7d08b601e3ff864edf63">&#9670;&#160;</a></span>m_gravityComp</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classGravityComponent.html">GravityComponent</a>* CharacterMovementComponent::m_gravityComp = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6e20695b366c155095127cde59dd616d" name="a6e20695b366c155095127cde59dd616d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e20695b366c155095127cde59dd616d">&#9670;&#160;</a></span>m_lastMovement</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 CharacterMovementComponent::m_lastMovement = { 0.0f, 0.0f, 0.0f }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeb59581a52133e2631c9f8780942b04b" name="aeb59581a52133e2631c9f8780942b04b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb59581a52133e2631c9f8780942b04b">&#9670;&#160;</a></span>m_minClimbNormalY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CharacterMovementComponent::m_minClimbNormalY = 0.45f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a18117e611b9fe558151e8a9ab4905540" name="a18117e611b9fe558151e8a9ab4905540"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18117e611b9fe558151e8a9ab4905540">&#9670;&#160;</a></span>m_speed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CharacterMovementComponent::m_speed = 0.1f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/Components/<a class="el" href="CharacterMovementComponent_8h_source.html">CharacterMovementComponent.h</a></li>
+<li>Source/Components/<a class="el" href="CharacterMovementComponent_8cpp.html">CharacterMovementComponent.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classCharacterMovementComponent.html">CharacterMovementComponent</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

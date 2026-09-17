@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Components/CharacterMovementComponent.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('CharacterMovementComponent_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">CharacterMovementComponent.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="CharacterMovementComponent_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="Component_8h.html">Component.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;DirectXMath.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">class </span><a class="code hl_class" href="classField.html">Field</a>;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">class </span><a class="code hl_class" href="classGravityComponent.html">GravityComponent</a>;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="classCharacterMovementComponent.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="classCharacterMovementComponent.html">CharacterMovementComponent</a> : <span class="keyword">public</span> <a class="code hl_class" href="classCComponent.html">CComponent</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <a class="code hl_function" href="classCharacterMovementComponent.html#a3b46719028da4715fcb1aa41000ef690">CharacterMovementComponent</a>();</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_function" href="classCharacterMovementComponent.html#a3b46719028da4715fcb1aa41000ef690">CharacterMovementComponent</a>(<span class="keywordtype">float</span> speed);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classCharacterMovementComponent.html#a3657b292954362cbf5b1745ecbdc592a">   13</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classCharacterMovementComponent.html#a3657b292954362cbf5b1745ecbdc592a">~CharacterMovementComponent</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCharacterMovementComponent.html#a1c66d4c3343ab0880e0820ce894ee6b8">Start</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCharacterMovementComponent.html#af6a7e4c5ef0bf6533a71e833d53de597">Update</a>(<span class="keywordtype">float</span> deltaTime) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classCharacterMovementComponent.html#a7db69c93ae15396a39c2657c03d5019c">   18</a></span>    <a class="code hl_enumeration" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a> <a class="code hl_function" href="classCharacterMovementComponent.html#a7db69c93ae15396a39c2657c03d5019c">GetUpdatePhase</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa4642e767f9251fa40afadbc963f80b7a">UpdatePhase::Movement</a>; }</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="comment">// Movement methods</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">void</span> <a class="code hl_enumvalue" href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2a6bc362dbf494c61ea117fe3c71ca48a5">Move</a>(<span class="keyword">const</span> DirectX::XMFLOAT3&amp; movement, <span class="keywordtype">float</span> deltaTime);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCharacterMovementComponent.html#a3d4d4fcd269ff0c1149b8ac4f9942ef5">MoveDirection</a>(<span class="keyword">const</span> DirectX::XMFLOAT3&amp; direction, <span class="keywordtype">float</span> deltaTime);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCharacterMovementComponent.html#ad1cb335c072da2f307c11f4508df21c8">MoveTowards</a>(<span class="keyword">const</span> DirectX::XMFLOAT3&amp; targetPos, <span class="keywordtype">float</span> deltaTime);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="comment">// Getters and setters</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classCharacterMovementComponent.html#aa70e6557fddfb93a6e6b614cfd3d2ea0">   26</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classCharacterMovementComponent.html#aa70e6557fddfb93a6e6b614cfd3d2ea0">GetSpeed</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCharacterMovementComponent.html#a18117e611b9fe558151e8a9ab4905540">m_speed</a>; }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classCharacterMovementComponent.html#a38532940dd7b3989b07feb2e042a401e">   27</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCharacterMovementComponent.html#a38532940dd7b3989b07feb2e042a401e">SetSpeed</a>(<span class="keywordtype">float</span> speed) { <a class="code hl_variable" href="classCharacterMovementComponent.html#a18117e611b9fe558151e8a9ab4905540">m_speed</a> = speed; }</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classCharacterMovementComponent.html#aadc4ecc88dd2f8bc0fcd97fb665a2370">   29</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classCharacterMovementComponent.html#aadc4ecc88dd2f8bc0fcd97fb665a2370">GetMinClimbNormalY</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCharacterMovementComponent.html#aeb59581a52133e2631c9f8780942b04b">m_minClimbNormalY</a>; }</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classCharacterMovementComponent.html#ae750907be185640d1d57113ca87b5db4">   30</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCharacterMovementComponent.html#ae750907be185640d1d57113ca87b5db4">SetMinClimbNormalY</a>(<span class="keywordtype">float</span> ny) { <a class="code hl_variable" href="classCharacterMovementComponent.html#aeb59581a52133e2631c9f8780942b04b">m_minClimbNormalY</a> = ny; }</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classCharacterMovementComponent.html#a5856f85d3a266c92e86091d6fe14b7af">   32</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classCharacterMovementComponent.html#a5856f85d3a266c92e86091d6fe14b7af">GetAutoRotate</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCharacterMovementComponent.html#a7575b61e2fbbb86ddea6ce37fbaf6b7d">m_autoRotate</a>; }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classCharacterMovementComponent.html#a9dac3cd8621f9d38c04f093e311e0469">   33</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCharacterMovementComponent.html#a9dac3cd8621f9d38c04f093e311e0469">SetAutoRotate</a>(<span class="keywordtype">bool</span> autoRotate) { <a class="code hl_variable" href="classCharacterMovementComponent.html#a7575b61e2fbbb86ddea6ce37fbaf6b7d">m_autoRotate</a> = autoRotate; }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classCharacterMovementComponent.html#ac30a115ad652e659d8a78606b801ac0a">   35</a></span>    <span class="keyword">const</span> DirectX::XMFLOAT3&amp; <a class="code hl_function" href="classCharacterMovementComponent.html#ac30a115ad652e659d8a78606b801ac0a">GetLastMovement</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCharacterMovementComponent.html#a6e20695b366c155095127cde59dd616d">m_lastMovement</a>; }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classCharacterMovementComponent.html#a18117e611b9fe558151e8a9ab4905540">   38</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classCharacterMovementComponent.html#a18117e611b9fe558151e8a9ab4905540">m_speed</a> = 0.1f;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classCharacterMovementComponent.html#aeb59581a52133e2631c9f8780942b04b">   39</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classCharacterMovementComponent.html#aeb59581a52133e2631c9f8780942b04b">m_minClimbNormalY</a> = 0.45f;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classCharacterMovementComponent.html#a7575b61e2fbbb86ddea6ce37fbaf6b7d">   40</a></span>    <span class="keywordtype">bool</span>  <a class="code hl_variable" href="classCharacterMovementComponent.html#a7575b61e2fbbb86ddea6ce37fbaf6b7d">m_autoRotate</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classCharacterMovementComponent.html#a6e20695b366c155095127cde59dd616d">   42</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="classCharacterMovementComponent.html#a6e20695b366c155095127cde59dd616d">m_lastMovement</a> = { 0.0f, 0.0f, 0.0f };</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classCharacterMovementComponent.html#a73f380302e6ff68a70a2246001781a58">   44</a></span>    <a class="code hl_class" href="classField.html">Field</a>*            <a class="code hl_variable" href="classCharacterMovementComponent.html#a73f380302e6ff68a70a2246001781a58">m_field</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classCharacterMovementComponent.html#ac35e3ef97f3b7d08b601e3ff864edf63">   45</a></span>    <a class="code hl_class" href="classGravityComponent.html">GravityComponent</a>* <a class="code hl_variable" href="classCharacterMovementComponent.html#ac35e3ef97f3b7d08b601e3ff864edf63">m_gravityComp</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>};</div>
+</div>
+<div class="ttc" id="aComponent_8h_html"><div class="ttname"><a href="Component_8h.html">Component.h</a></div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93f"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a></div><div class="ttdeci">UpdatePhase</div><div class="ttdef"><b>Definition</b> Component.h:10</div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fa4642e767f9251fa40afadbc963f80b7a"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa4642e767f9251fa40afadbc963f80b7a">UpdatePhase::Movement</a></div><div class="ttdeci">@ Movement</div></div>
+<div class="ttc" id="aPlayerControllerComponent_8h_html_ae7ab06f4c9ae7ab1a4432e2f2644f5a2a6bc362dbf494c61ea117fe3c71ca48a5"><div class="ttname"><a href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2a6bc362dbf494c61ea117fe3c71ca48a5">PlayerControllerState::Move</a></div><div class="ttdeci">@ Move</div></div>
+<div class="ttc" id="aclassCComponent_html"><div class="ttname"><a href="classCComponent.html">CComponent</a></div><div class="ttdef"><b>Definition</b> Component.h:21</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html"><div class="ttname"><a href="classCharacterMovementComponent.html">CharacterMovementComponent</a></div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:9</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html_a18117e611b9fe558151e8a9ab4905540"><div class="ttname"><a href="classCharacterMovementComponent.html#a18117e611b9fe558151e8a9ab4905540">CharacterMovementComponent::m_speed</a></div><div class="ttdeci">float m_speed</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:38</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html_a1c66d4c3343ab0880e0820ce894ee6b8"><div class="ttname"><a href="classCharacterMovementComponent.html#a1c66d4c3343ab0880e0820ce894ee6b8">CharacterMovementComponent::Start</a></div><div class="ttdeci">void Start() override</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.cpp:19</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html_a3657b292954362cbf5b1745ecbdc592a"><div class="ttname"><a href="classCharacterMovementComponent.html#a3657b292954362cbf5b1745ecbdc592a">CharacterMovementComponent::~CharacterMovementComponent</a></div><div class="ttdeci">virtual ~CharacterMovementComponent()=default</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html_a38532940dd7b3989b07feb2e042a401e"><div class="ttname"><a href="classCharacterMovementComponent.html#a38532940dd7b3989b07feb2e042a401e">CharacterMovementComponent::SetSpeed</a></div><div class="ttdeci">void SetSpeed(float speed)</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:27</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html_a3b46719028da4715fcb1aa41000ef690"><div class="ttname"><a href="classCharacterMovementComponent.html#a3b46719028da4715fcb1aa41000ef690">CharacterMovementComponent::CharacterMovementComponent</a></div><div class="ttdeci">CharacterMovementComponent()</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.cpp:9</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html_a3d4d4fcd269ff0c1149b8ac4f9942ef5"><div class="ttname"><a href="classCharacterMovementComponent.html#a3d4d4fcd269ff0c1149b8ac4f9942ef5">CharacterMovementComponent::MoveDirection</a></div><div class="ttdeci">void MoveDirection(const DirectX::XMFLOAT3 &amp;direction, float deltaTime)</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.cpp:118</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html_a5856f85d3a266c92e86091d6fe14b7af"><div class="ttname"><a href="classCharacterMovementComponent.html#a5856f85d3a266c92e86091d6fe14b7af">CharacterMovementComponent::GetAutoRotate</a></div><div class="ttdeci">bool GetAutoRotate() const</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:32</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html_a6e20695b366c155095127cde59dd616d"><div class="ttname"><a href="classCharacterMovementComponent.html#a6e20695b366c155095127cde59dd616d">CharacterMovementComponent::m_lastMovement</a></div><div class="ttdeci">DirectX::XMFLOAT3 m_lastMovement</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:42</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html_a73f380302e6ff68a70a2246001781a58"><div class="ttname"><a href="classCharacterMovementComponent.html#a73f380302e6ff68a70a2246001781a58">CharacterMovementComponent::m_field</a></div><div class="ttdeci">Field * m_field</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:44</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html_a7575b61e2fbbb86ddea6ce37fbaf6b7d"><div class="ttname"><a href="classCharacterMovementComponent.html#a7575b61e2fbbb86ddea6ce37fbaf6b7d">CharacterMovementComponent::m_autoRotate</a></div><div class="ttdeci">bool m_autoRotate</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:40</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html_a7db69c93ae15396a39c2657c03d5019c"><div class="ttname"><a href="classCharacterMovementComponent.html#a7db69c93ae15396a39c2657c03d5019c">CharacterMovementComponent::GetUpdatePhase</a></div><div class="ttdeci">UpdatePhase GetUpdatePhase() const override</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:18</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html_a9dac3cd8621f9d38c04f093e311e0469"><div class="ttname"><a href="classCharacterMovementComponent.html#a9dac3cd8621f9d38c04f093e311e0469">CharacterMovementComponent::SetAutoRotate</a></div><div class="ttdeci">void SetAutoRotate(bool autoRotate)</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:33</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html_aa70e6557fddfb93a6e6b614cfd3d2ea0"><div class="ttname"><a href="classCharacterMovementComponent.html#aa70e6557fddfb93a6e6b614cfd3d2ea0">CharacterMovementComponent::GetSpeed</a></div><div class="ttdeci">float GetSpeed() const</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:26</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html_aadc4ecc88dd2f8bc0fcd97fb665a2370"><div class="ttname"><a href="classCharacterMovementComponent.html#aadc4ecc88dd2f8bc0fcd97fb665a2370">CharacterMovementComponent::GetMinClimbNormalY</a></div><div class="ttdeci">float GetMinClimbNormalY() const</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:29</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html_ac30a115ad652e659d8a78606b801ac0a"><div class="ttname"><a href="classCharacterMovementComponent.html#ac30a115ad652e659d8a78606b801ac0a">CharacterMovementComponent::GetLastMovement</a></div><div class="ttdeci">const DirectX::XMFLOAT3 &amp; GetLastMovement() const</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:35</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html_ac35e3ef97f3b7d08b601e3ff864edf63"><div class="ttname"><a href="classCharacterMovementComponent.html#ac35e3ef97f3b7d08b601e3ff864edf63">CharacterMovementComponent::m_gravityComp</a></div><div class="ttdeci">GravityComponent * m_gravityComp</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:45</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html_ad1cb335c072da2f307c11f4508df21c8"><div class="ttname"><a href="classCharacterMovementComponent.html#ad1cb335c072da2f307c11f4508df21c8">CharacterMovementComponent::MoveTowards</a></div><div class="ttdeci">void MoveTowards(const DirectX::XMFLOAT3 &amp;targetPos, float deltaTime)</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.cpp:129</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html_ae750907be185640d1d57113ca87b5db4"><div class="ttname"><a href="classCharacterMovementComponent.html#ae750907be185640d1d57113ca87b5db4">CharacterMovementComponent::SetMinClimbNormalY</a></div><div class="ttdeci">void SetMinClimbNormalY(float ny)</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:30</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html_aeb59581a52133e2631c9f8780942b04b"><div class="ttname"><a href="classCharacterMovementComponent.html#aeb59581a52133e2631c9f8780942b04b">CharacterMovementComponent::m_minClimbNormalY</a></div><div class="ttdeci">float m_minClimbNormalY</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:39</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html_af6a7e4c5ef0bf6533a71e833d53de597"><div class="ttname"><a href="classCharacterMovementComponent.html#af6a7e4c5ef0bf6533a71e833d53de597">CharacterMovementComponent::Update</a></div><div class="ttdeci">void Update(float deltaTime) override</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.cpp:28</div></div>
+<div class="ttc" id="aclassField_html"><div class="ttname"><a href="classField.html">Field</a></div><div class="ttdef"><b>Definition</b> Field.h:7</div></div>
+<div class="ttc" id="aclassGravityComponent_html"><div class="ttname"><a href="classGravityComponent.html">GravityComponent</a></div><div class="ttdef"><b>Definition</b> GravityComponent.h:8</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_5063f357ccae33c483b97cdd1e318acc.html">Components</a></li><li class="navelem"><a class="el" href="CharacterMovementComponent_8h.html">CharacterMovementComponent.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

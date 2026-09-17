@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Components/PlayerControllerComponent.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('PlayerControllerComponent_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">PlayerControllerComponent.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="PlayerControllerComponent_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="Component_8h.html">Component.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;DirectXMath.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">class </span><a class="code hl_class" href="classCamera.html">Camera</a>;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">class </span><a class="code hl_class" href="classCharacterMovementComponent.html">CharacterMovementComponent</a>;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">class </span><a class="code hl_class" href="classGravityComponent.html">GravityComponent</a>;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">class </span><a class="code hl_class" href="classHealthComponent.html">HealthComponent</a>;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2">   10</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2">PlayerControllerState</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_enumvalue" href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2ae599161956d626eda4cb0a5ffb85271c">Idle</a>,</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_enumvalue" href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2a6bc362dbf494c61ea117fe3c71ca48a5">Move</a>,</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_enumvalue" href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2adcfafcb4323b102c7e204555d313ba0a">Attack</a>,</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_enumvalue" href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2a62c8a2522be2668b5452181d07dd8964">Hurt</a>,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_enumvalue" href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2a183b62c7f067711f9c5a54913c054617">Dead</a></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>};</div>
+</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classPlayerControllerComponent.html">   19</a></span><span class="keyword">class </span><a class="code hl_class" href="classPlayerControllerComponent.html">PlayerControllerComponent</a> : <span class="keyword">public</span> <a class="code hl_class" href="classCComponent.html">CComponent</a></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_function" href="classPlayerControllerComponent.html#a41a804cf3e708338e67bd03f6ba8de08">PlayerControllerComponent</a>();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classPlayerControllerComponent.html#a3a476a6036a20e8dfd13e8ddff2c0baf">   23</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classPlayerControllerComponent.html#a3a476a6036a20e8dfd13e8ddff2c0baf">~PlayerControllerComponent</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayerControllerComponent.html#a70896251b2d9061b3dd8ccb7fbfb73e8">Start</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayerControllerComponent.html#a15d832b810e7cde8289632ad4c6eb479">Update</a>(<span class="keywordtype">float</span> deltaTime) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classPlayerControllerComponent.html#aa2782a5959f4bf035498060c1bde8950">   28</a></span>    <a class="code hl_enumeration" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a> <a class="code hl_function" href="classPlayerControllerComponent.html#aa2782a5959f4bf035498060c1bde8950">GetUpdatePhase</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa324118a6721dd6b8a9b9f4e327df2bf5">UpdatePhase::Input</a>; }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment">// Input checks</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classPlayerControllerComponent.html#a5088a431877482b62415edbcf2ac5dea">HasMoveInput</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="comment">// Actions</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayerControllerComponent.html#aadf6d5bad5733ce26a60da9f2fa744eb">PerformAttack</a>();</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="comment">// State notifications (called by HealthComponent callbacks etc.)</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayerControllerComponent.html#ab985164374b51825611c78a1d4521c42">OnDamaged</a>();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayerControllerComponent.html#a6f38b2d769c4733a37a499a2c0cbfed7">OnDie</a>();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="comment">// State getter</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classPlayerControllerComponent.html#a83719e4322c7a209be7d10b332334c9b">   41</a></span>    <a class="code hl_enumeration" href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2">PlayerControllerState</a> <a class="code hl_function" href="classPlayerControllerComponent.html#a83719e4322c7a209be7d10b332334c9b">GetCurrentState</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classPlayerControllerComponent.html#a9cff269c20314c4c42fbadf9b5a1eecd">m_currentState</a>; }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayerControllerComponent.html#a53068cb7e8bbed0de68d86cf8a0224c4">ChangeState</a>(<a class="code hl_enumeration" href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2">PlayerControllerState</a> newState);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayerControllerComponent.html#aa55d9a963b28daa2b34e8a2fb0e20f0d">UpdateState</a>(<span class="keywordtype">float</span> deltaTime);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayerControllerComponent.html#ab37fe82600baf1bbe6cdea1350b7fe37">UpdateIdle</a>(<span class="keywordtype">float</span> deltaTime);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayerControllerComponent.html#a8a7374b35607517847f12dba5c8fe2d2">UpdateMove</a>(<span class="keywordtype">float</span> deltaTime);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayerControllerComponent.html#a3ebedbc7fe494150495f863de38e4176">UpdateAttack</a>(<span class="keywordtype">float</span> deltaTime);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayerControllerComponent.html#ad0ffc253375d69f2334642bab9765989">UpdateHurt</a>(<span class="keywordtype">float</span> deltaTime);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayerControllerComponent.html#affe6db08ffd8eb344f18a8ae1546d873">UpdateDead</a>(<span class="keywordtype">float</span> deltaTime);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    DirectX::XMFLOAT3 <a class="code hl_function" href="classPlayerControllerComponent.html#abc78d4914c9d207f8e9710dc15f77948">CalculateMoveDirection</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classPlayerControllerComponent.html#a9cff269c20314c4c42fbadf9b5a1eecd">   55</a></span>    <a class="code hl_enumeration" href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2">PlayerControllerState</a> <a class="code hl_variable" href="classPlayerControllerComponent.html#a9cff269c20314c4c42fbadf9b5a1eecd">m_currentState</a> = <a class="code hl_enumvalue" href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2ae599161956d626eda4cb0a5ffb85271c">PlayerControllerState::Idle</a>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="comment">// Attack timers</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classPlayerControllerComponent.html#a8a0b8cf63694dd9768e6bc8c2500ee06">   58</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classPlayerControllerComponent.html#a8a0b8cf63694dd9768e6bc8c2500ee06">m_attackTimer</a> = 0.0f;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classPlayerControllerComponent.html#abb89cce2295d54dce07f5b4a93fe2a9e">   59</a></span>    <span class="keywordtype">bool</span>  <a class="code hl_variable" href="classPlayerControllerComponent.html#abb89cce2295d54dce07f5b4a93fe2a9e">m_hasAttacked</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classPlayerControllerComponent.html#a412b11650eaa4777c69b05d1e2c275e7">   60</a></span>    <span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classPlayerControllerComponent.html#a412b11650eaa4777c69b05d1e2c275e7">ATTACK_DURATION</a> = 0.9f;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classPlayerControllerComponent.html#a42f15fdc07c8fa9c86cd62294cad7b2a">   61</a></span>    <span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classPlayerControllerComponent.html#a42f15fdc07c8fa9c86cd62294cad7b2a">CAST_TIMING</a> = 0.35f;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="comment">// Hurt timer</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classPlayerControllerComponent.html#a0463c85d50fa21e20cc21ee59148345c">   64</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classPlayerControllerComponent.html#a0463c85d50fa21e20cc21ee59148345c">m_hurtTimer</a> = 0.0f;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classPlayerControllerComponent.html#a8c63ca3a1cfa3fcaf58330ba397d70a6">   65</a></span>    <span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classPlayerControllerComponent.html#a8c63ca3a1cfa3fcaf58330ba397d70a6">HURT_DURATION</a> = 0.6f;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="comment">// Dead timer</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classPlayerControllerComponent.html#a9827ca0197599b6801ea4b249283b381">   68</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classPlayerControllerComponent.html#a9827ca0197599b6801ea4b249283b381">m_deadTimer</a> = 0.0f;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classPlayerControllerComponent.html#a3b90ce559b44c061e34405d34b4cf291">   69</a></span>    <span class="keywordtype">bool</span>  <a class="code hl_variable" href="classPlayerControllerComponent.html#a3b90ce559b44c061e34405d34b4cf291">m_hasTransitioned</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classPlayerControllerComponent.html#aadd5f258ecde82f2355470788024a42e">   70</a></span>    <span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classPlayerControllerComponent.html#aadd5f258ecde82f2355470788024a42e">DEATH_DURATION</a> = 1.2f;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="comment">// Cached components and camera</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classPlayerControllerComponent.html#a30ed6c935688a1d707c9782e934015af">   73</a></span>    <a class="code hl_class" href="classCamera.html">Camera</a>*                     <a class="code hl_variable" href="classPlayerControllerComponent.html#a30ed6c935688a1d707c9782e934015af">m_camera</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classPlayerControllerComponent.html#a0dbb11eb68277c55849742b55e7600cf">   74</a></span>    <a class="code hl_class" href="classCharacterMovementComponent.html">CharacterMovementComponent</a>* <a class="code hl_variable" href="classPlayerControllerComponent.html#a0dbb11eb68277c55849742b55e7600cf">m_movementComp</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classPlayerControllerComponent.html#af098273f54fafcb911261c6811c35620">   75</a></span>    <a class="code hl_class" href="classGravityComponent.html">GravityComponent</a>*           <a class="code hl_variable" href="classPlayerControllerComponent.html#af098273f54fafcb911261c6811c35620">m_gravityComp</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classPlayerControllerComponent.html#a6f0938a0fc312db99a0f147d13906d5a">   76</a></span>    <a class="code hl_class" href="classHealthComponent.html">HealthComponent</a>*            <a class="code hl_variable" href="classPlayerControllerComponent.html#a6f0938a0fc312db99a0f147d13906d5a">m_healthComp</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>};</div>
+</div>
+<div class="ttc" id="aComponent_8h_html"><div class="ttname"><a href="Component_8h.html">Component.h</a></div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93f"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a></div><div class="ttdeci">UpdatePhase</div><div class="ttdef"><b>Definition</b> Component.h:10</div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fa324118a6721dd6b8a9b9f4e327df2bf5"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa324118a6721dd6b8a9b9f4e327df2bf5">UpdatePhase::Input</a></div><div class="ttdeci">@ Input</div></div>
+<div class="ttc" id="aPlayerControllerComponent_8h_html_ae7ab06f4c9ae7ab1a4432e2f2644f5a2"><div class="ttname"><a href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2">PlayerControllerState</a></div><div class="ttdeci">PlayerControllerState</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.h:11</div></div>
+<div class="ttc" id="aPlayerControllerComponent_8h_html_ae7ab06f4c9ae7ab1a4432e2f2644f5a2a183b62c7f067711f9c5a54913c054617"><div class="ttname"><a href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2a183b62c7f067711f9c5a54913c054617">PlayerControllerState::Dead</a></div><div class="ttdeci">@ Dead</div></div>
+<div class="ttc" id="aPlayerControllerComponent_8h_html_ae7ab06f4c9ae7ab1a4432e2f2644f5a2a62c8a2522be2668b5452181d07dd8964"><div class="ttname"><a href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2a62c8a2522be2668b5452181d07dd8964">PlayerControllerState::Hurt</a></div><div class="ttdeci">@ Hurt</div></div>
+<div class="ttc" id="aPlayerControllerComponent_8h_html_ae7ab06f4c9ae7ab1a4432e2f2644f5a2a6bc362dbf494c61ea117fe3c71ca48a5"><div class="ttname"><a href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2a6bc362dbf494c61ea117fe3c71ca48a5">PlayerControllerState::Move</a></div><div class="ttdeci">@ Move</div></div>
+<div class="ttc" id="aPlayerControllerComponent_8h_html_ae7ab06f4c9ae7ab1a4432e2f2644f5a2adcfafcb4323b102c7e204555d313ba0a"><div class="ttname"><a href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2adcfafcb4323b102c7e204555d313ba0a">PlayerControllerState::Attack</a></div><div class="ttdeci">@ Attack</div></div>
+<div class="ttc" id="aPlayerControllerComponent_8h_html_ae7ab06f4c9ae7ab1a4432e2f2644f5a2ae599161956d626eda4cb0a5ffb85271c"><div class="ttname"><a href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2ae599161956d626eda4cb0a5ffb85271c">PlayerControllerState::Idle</a></div><div class="ttdeci">@ Idle</div></div>
+<div class="ttc" id="aclassCComponent_html"><div class="ttname"><a href="classCComponent.html">CComponent</a></div><div class="ttdef"><b>Definition</b> Component.h:21</div></div>
+<div class="ttc" id="aclassCamera_html"><div class="ttname"><a href="classCamera.html">Camera</a></div><div class="ttdef"><b>Definition</b> Camera.h:8</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html"><div class="ttname"><a href="classCharacterMovementComponent.html">CharacterMovementComponent</a></div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:9</div></div>
+<div class="ttc" id="aclassGravityComponent_html"><div class="ttname"><a href="classGravityComponent.html">GravityComponent</a></div><div class="ttdef"><b>Definition</b> GravityComponent.h:8</div></div>
+<div class="ttc" id="aclassHealthComponent_html"><div class="ttname"><a href="classHealthComponent.html">HealthComponent</a></div><div class="ttdef"><b>Definition</b> HealthComponent.h:6</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html"><div class="ttname"><a href="classPlayerControllerComponent.html">PlayerControllerComponent</a></div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.h:20</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_a0463c85d50fa21e20cc21ee59148345c"><div class="ttname"><a href="classPlayerControllerComponent.html#a0463c85d50fa21e20cc21ee59148345c">PlayerControllerComponent::m_hurtTimer</a></div><div class="ttdeci">float m_hurtTimer</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.h:64</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_a0dbb11eb68277c55849742b55e7600cf"><div class="ttname"><a href="classPlayerControllerComponent.html#a0dbb11eb68277c55849742b55e7600cf">PlayerControllerComponent::m_movementComp</a></div><div class="ttdeci">CharacterMovementComponent * m_movementComp</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.h:74</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_a15d832b810e7cde8289632ad4c6eb479"><div class="ttname"><a href="classPlayerControllerComponent.html#a15d832b810e7cde8289632ad4c6eb479">PlayerControllerComponent::Update</a></div><div class="ttdeci">void Update(float deltaTime) override</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.cpp:36</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_a30ed6c935688a1d707c9782e934015af"><div class="ttname"><a href="classPlayerControllerComponent.html#a30ed6c935688a1d707c9782e934015af">PlayerControllerComponent::m_camera</a></div><div class="ttdeci">Camera * m_camera</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.h:73</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_a3a476a6036a20e8dfd13e8ddff2c0baf"><div class="ttname"><a href="classPlayerControllerComponent.html#a3a476a6036a20e8dfd13e8ddff2c0baf">PlayerControllerComponent::~PlayerControllerComponent</a></div><div class="ttdeci">virtual ~PlayerControllerComponent()=default</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_a3b90ce559b44c061e34405d34b4cf291"><div class="ttname"><a href="classPlayerControllerComponent.html#a3b90ce559b44c061e34405d34b4cf291">PlayerControllerComponent::m_hasTransitioned</a></div><div class="ttdeci">bool m_hasTransitioned</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.h:69</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_a3ebedbc7fe494150495f863de38e4176"><div class="ttname"><a href="classPlayerControllerComponent.html#a3ebedbc7fe494150495f863de38e4176">PlayerControllerComponent::UpdateAttack</a></div><div class="ttdeci">void UpdateAttack(float deltaTime)</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.cpp:199</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_a412b11650eaa4777c69b05d1e2c275e7"><div class="ttname"><a href="classPlayerControllerComponent.html#a412b11650eaa4777c69b05d1e2c275e7">PlayerControllerComponent::ATTACK_DURATION</a></div><div class="ttdeci">const float ATTACK_DURATION</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.h:60</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_a41a804cf3e708338e67bd03f6ba8de08"><div class="ttname"><a href="classPlayerControllerComponent.html#a41a804cf3e708338e67bd03f6ba8de08">PlayerControllerComponent::PlayerControllerComponent</a></div><div class="ttdeci">PlayerControllerComponent()</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.cpp:17</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_a42f15fdc07c8fa9c86cd62294cad7b2a"><div class="ttname"><a href="classPlayerControllerComponent.html#a42f15fdc07c8fa9c86cd62294cad7b2a">PlayerControllerComponent::CAST_TIMING</a></div><div class="ttdeci">const float CAST_TIMING</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.h:61</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_a5088a431877482b62415edbcf2ac5dea"><div class="ttname"><a href="classPlayerControllerComponent.html#a5088a431877482b62415edbcf2ac5dea">PlayerControllerComponent::HasMoveInput</a></div><div class="ttdeci">bool HasMoveInput() const</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.cpp:47</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_a53068cb7e8bbed0de68d86cf8a0224c4"><div class="ttname"><a href="classPlayerControllerComponent.html#a53068cb7e8bbed0de68d86cf8a0224c4">PlayerControllerComponent::ChangeState</a></div><div class="ttdeci">void ChangeState(PlayerControllerState newState)</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.cpp:104</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_a6f0938a0fc312db99a0f147d13906d5a"><div class="ttname"><a href="classPlayerControllerComponent.html#a6f0938a0fc312db99a0f147d13906d5a">PlayerControllerComponent::m_healthComp</a></div><div class="ttdeci">HealthComponent * m_healthComp</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.h:76</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_a6f38b2d769c4733a37a499a2c0cbfed7"><div class="ttname"><a href="classPlayerControllerComponent.html#a6f38b2d769c4733a37a499a2c0cbfed7">PlayerControllerComponent::OnDie</a></div><div class="ttdeci">void OnDie()</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.cpp:288</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_a70896251b2d9061b3dd8ccb7fbfb73e8"><div class="ttname"><a href="classPlayerControllerComponent.html#a70896251b2d9061b3dd8ccb7fbfb73e8">PlayerControllerComponent::Start</a></div><div class="ttdeci">void Start() override</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.cpp:22</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_a83719e4322c7a209be7d10b332334c9b"><div class="ttname"><a href="classPlayerControllerComponent.html#a83719e4322c7a209be7d10b332334c9b">PlayerControllerComponent::GetCurrentState</a></div><div class="ttdeci">PlayerControllerState GetCurrentState() const</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.h:41</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_a8a0b8cf63694dd9768e6bc8c2500ee06"><div class="ttname"><a href="classPlayerControllerComponent.html#a8a0b8cf63694dd9768e6bc8c2500ee06">PlayerControllerComponent::m_attackTimer</a></div><div class="ttdeci">float m_attackTimer</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.h:58</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_a8a7374b35607517847f12dba5c8fe2d2"><div class="ttname"><a href="classPlayerControllerComponent.html#a8a7374b35607517847f12dba5c8fe2d2">PlayerControllerComponent::UpdateMove</a></div><div class="ttdeci">void UpdateMove(float deltaTime)</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.cpp:175</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_a8c63ca3a1cfa3fcaf58330ba397d70a6"><div class="ttname"><a href="classPlayerControllerComponent.html#a8c63ca3a1cfa3fcaf58330ba397d70a6">PlayerControllerComponent::HURT_DURATION</a></div><div class="ttdeci">const float HURT_DURATION</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.h:65</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_a9827ca0197599b6801ea4b249283b381"><div class="ttname"><a href="classPlayerControllerComponent.html#a9827ca0197599b6801ea4b249283b381">PlayerControllerComponent::m_deadTimer</a></div><div class="ttdeci">float m_deadTimer</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.h:68</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_a9cff269c20314c4c42fbadf9b5a1eecd"><div class="ttname"><a href="classPlayerControllerComponent.html#a9cff269c20314c4c42fbadf9b5a1eecd">PlayerControllerComponent::m_currentState</a></div><div class="ttdeci">PlayerControllerState m_currentState</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.h:55</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_aa2782a5959f4bf035498060c1bde8950"><div class="ttname"><a href="classPlayerControllerComponent.html#aa2782a5959f4bf035498060c1bde8950">PlayerControllerComponent::GetUpdatePhase</a></div><div class="ttdeci">UpdatePhase GetUpdatePhase() const override</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.h:28</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_aa55d9a963b28daa2b34e8a2fb0e20f0d"><div class="ttname"><a href="classPlayerControllerComponent.html#aa55d9a963b28daa2b34e8a2fb0e20f0d">PlayerControllerComponent::UpdateState</a></div><div class="ttdeci">void UpdateState(float deltaTime)</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.cpp:136</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_aadd5f258ecde82f2355470788024a42e"><div class="ttname"><a href="classPlayerControllerComponent.html#aadd5f258ecde82f2355470788024a42e">PlayerControllerComponent::DEATH_DURATION</a></div><div class="ttdeci">const float DEATH_DURATION</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.h:70</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_aadf6d5bad5733ce26a60da9f2fa744eb"><div class="ttname"><a href="classPlayerControllerComponent.html#aadf6d5bad5733ce26a60da9f2fa744eb">PlayerControllerComponent::PerformAttack</a></div><div class="ttdeci">void PerformAttack()</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.cpp:248</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_ab37fe82600baf1bbe6cdea1350b7fe37"><div class="ttname"><a href="classPlayerControllerComponent.html#ab37fe82600baf1bbe6cdea1350b7fe37">PlayerControllerComponent::UpdateIdle</a></div><div class="ttdeci">void UpdateIdle(float deltaTime)</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.cpp:158</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_ab985164374b51825611c78a1d4521c42"><div class="ttname"><a href="classPlayerControllerComponent.html#ab985164374b51825611c78a1d4521c42">PlayerControllerComponent::OnDamaged</a></div><div class="ttdeci">void OnDamaged()</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.cpp:283</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_abb89cce2295d54dce07f5b4a93fe2a9e"><div class="ttname"><a href="classPlayerControllerComponent.html#abb89cce2295d54dce07f5b4a93fe2a9e">PlayerControllerComponent::m_hasAttacked</a></div><div class="ttdeci">bool m_hasAttacked</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.h:59</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_abc78d4914c9d207f8e9710dc15f77948"><div class="ttname"><a href="classPlayerControllerComponent.html#abc78d4914c9d207f8e9710dc15f77948">PlayerControllerComponent::CalculateMoveDirection</a></div><div class="ttdeci">DirectX::XMFLOAT3 CalculateMoveDirection() const</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.cpp:59</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_ad0ffc253375d69f2334642bab9765989"><div class="ttname"><a href="classPlayerControllerComponent.html#ad0ffc253375d69f2334642bab9765989">PlayerControllerComponent::UpdateHurt</a></div><div class="ttdeci">void UpdateHurt(float deltaTime)</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.cpp:222</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_af098273f54fafcb911261c6811c35620"><div class="ttname"><a href="classPlayerControllerComponent.html#af098273f54fafcb911261c6811c35620">PlayerControllerComponent::m_gravityComp</a></div><div class="ttdeci">GravityComponent * m_gravityComp</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.h:75</div></div>
+<div class="ttc" id="aclassPlayerControllerComponent_html_affe6db08ffd8eb344f18a8ae1546d873"><div class="ttname"><a href="classPlayerControllerComponent.html#affe6db08ffd8eb344f18a8ae1546d873">PlayerControllerComponent::UpdateDead</a></div><div class="ttdeci">void UpdateDead(float deltaTime)</div><div class="ttdef"><b>Definition</b> PlayerControllerComponent.cpp:238</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_5063f357ccae33c483b97cdd1e318acc.html">Components</a></li><li class="navelem"><a class="el" href="PlayerControllerComponent_8h.html">PlayerControllerComponent.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

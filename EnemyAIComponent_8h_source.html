@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Components/EnemyAIComponent.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('EnemyAIComponent_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">EnemyAIComponent.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="EnemyAIComponent_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="Component_8h.html">Component.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;DirectXMath.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">class </span><a class="code hl_class" href="classPlayer.html">Player</a>;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">class </span><a class="code hl_class" href="classCharacterMovementComponent.html">CharacterMovementComponent</a>;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">class </span><a class="code hl_class" href="classGravityComponent.html">GravityComponent</a>;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">class </span><a class="code hl_class" href="classHealthComponent.html">HealthComponent</a>;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="EnemyAIComponent_8h.html#a588700cbbd7d8e80b51ef81b140213fc">   10</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="EnemyAIComponent_8h.html#a588700cbbd7d8e80b51ef81b140213fc">EnemyAIState</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_enumvalue" href="EnemyAIComponent_8h.html#a588700cbbd7d8e80b51ef81b140213fcae599161956d626eda4cb0a5ffb85271c">Idle</a>,</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_enumvalue" href="EnemyAIComponent_8h.html#a588700cbbd7d8e80b51ef81b140213fcaeaff692e84900d6b0999355abb0f3e43">Chase</a>,</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_enumvalue" href="EnemyAIComponent_8h.html#a588700cbbd7d8e80b51ef81b140213fcadcfafcb4323b102c7e204555d313ba0a">Attack</a>,</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_enumvalue" href="EnemyAIComponent_8h.html#a588700cbbd7d8e80b51ef81b140213fca62c8a2522be2668b5452181d07dd8964">Hurt</a>,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_enumvalue" href="EnemyAIComponent_8h.html#a588700cbbd7d8e80b51ef81b140213fca183b62c7f067711f9c5a54913c054617">Dead</a></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>};</div>
+</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classEnemyAIComponent.html">   19</a></span><span class="keyword">class </span><a class="code hl_class" href="classEnemyAIComponent.html">EnemyAIComponent</a> : <span class="keyword">public</span> <a class="code hl_class" href="classCComponent.html">CComponent</a></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_function" href="classEnemyAIComponent.html#adc2e7385ca75cf45f6a1cfa6df705ce4">EnemyAIComponent</a>();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classEnemyAIComponent.html#abf2803dbd16a205faa9b1b28ac935180">   23</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classEnemyAIComponent.html#abf2803dbd16a205faa9b1b28ac935180">~EnemyAIComponent</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classEnemyAIComponent.html#a0eced541100d449f18fce8041dd72df5">Start</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classEnemyAIComponent.html#aeae8e1e0c98164829ef1bb5053e6ae9f">Update</a>(<span class="keywordtype">float</span> deltaTime) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classEnemyAIComponent.html#a661d0fd59e233b39d909f6841ae5eb7f">   28</a></span>    <a class="code hl_enumeration" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a> <a class="code hl_function" href="classEnemyAIComponent.html#a661d0fd59e233b39d909f6841ae5eb7f">GetUpdatePhase</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa0a40e3c91a3a55c9a37428c6d194d0e5">UpdatePhase::AI</a>; }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment">// State notifications</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classEnemyAIComponent.html#a4d27277d0f394f9771c7877ef975aa7f">OnDamaged</a>();</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classEnemyAIComponent.html#ac2b5ed73b35ad6b6a9576ed803714436">OnDie</a>();</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="comment">// State getter</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classEnemyAIComponent.html#a4c5763f3c88495ff2e82c8bf7ef10241">   35</a></span>    <a class="code hl_enumeration" href="EnemyAIComponent_8h.html#a588700cbbd7d8e80b51ef81b140213fc">EnemyAIState</a> <a class="code hl_function" href="classEnemyAIComponent.html#a4c5763f3c88495ff2e82c8bf7ef10241">GetCurrentState</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classEnemyAIComponent.html#aac4a1d35727d55e3385c553c5ba55aa7">m_currentState</a>; }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classEnemyAIComponent.html#a5bc039a256a1a6c603e18de634016558">ChangeState</a>(<a class="code hl_enumeration" href="EnemyAIComponent_8h.html#a588700cbbd7d8e80b51ef81b140213fc">EnemyAIState</a> newState);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classEnemyAIComponent.html#a832d0c355f2f31be246f657d53f88f6c">UpdateState</a>(<span class="keywordtype">float</span> deltaTime);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classEnemyAIComponent.html#a0ccd123ada71ae9142585f135c5a0439">UpdateIdle</a>(<span class="keywordtype">float</span> deltaTime);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classEnemyAIComponent.html#a93f947600c8258c954a8da59c7dd3ed4">UpdateChase</a>(<span class="keywordtype">float</span> deltaTime);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classEnemyAIComponent.html#a1c399c2ee67d177902fbd9adc47c0ce5">UpdateAttack</a>(<span class="keywordtype">float</span> deltaTime);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classEnemyAIComponent.html#a32aef34d98092b42770c9486d147eb90">UpdateHurt</a>(<span class="keywordtype">float</span> deltaTime);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classEnemyAIComponent.html#af61770fccba31815c168b4e8fbb11ba1">UpdateDead</a>(<span class="keywordtype">float</span> deltaTime);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classEnemyAIComponent.html#aac4a1d35727d55e3385c553c5ba55aa7">   47</a></span>    <a class="code hl_enumeration" href="EnemyAIComponent_8h.html#a588700cbbd7d8e80b51ef81b140213fc">EnemyAIState</a> <a class="code hl_variable" href="classEnemyAIComponent.html#aac4a1d35727d55e3385c553c5ba55aa7">m_currentState</a> = <a class="code hl_enumvalue" href="EnemyAIComponent_8h.html#a588700cbbd7d8e80b51ef81b140213fcae599161956d626eda4cb0a5ffb85271c">EnemyAIState::Idle</a>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classEnemyAIComponent.html#aee171b8aed4a9266d2bb0a3728395f46">   49</a></span>    <span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classEnemyAIComponent.html#aee171b8aed4a9266d2bb0a3728395f46">DETECTION_RANGE</a> = 15.0f;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classEnemyAIComponent.html#a8dc6501d05aa14c0e7ee3dea3d332e84">   50</a></span>    <span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classEnemyAIComponent.html#a8dc6501d05aa14c0e7ee3dea3d332e84">ATTACK_RANGE</a>    = 2.0f;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="comment">// Attack timer</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classEnemyAIComponent.html#ad0ddef8ed3b4b154b03398965ae0b521">   53</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classEnemyAIComponent.html#ad0ddef8ed3b4b154b03398965ae0b521">m_attackTimer</a> = 0.0f;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classEnemyAIComponent.html#a11b91b46bd8bdbde12684cf8847cb660">   54</a></span>    <span class="keywordtype">bool</span>  <a class="code hl_variable" href="classEnemyAIComponent.html#a11b91b46bd8bdbde12684cf8847cb660">m_hasAttacked</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classEnemyAIComponent.html#a9388379d4e15cdfff7af19db91be5881">   55</a></span>    <span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classEnemyAIComponent.html#a9388379d4e15cdfff7af19db91be5881">ATTACK_DURATION</a> = 0.8f;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classEnemyAIComponent.html#a109574444d9f0089226cb97c0d0c5d7d">   56</a></span>    <span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classEnemyAIComponent.html#a109574444d9f0089226cb97c0d0c5d7d">HIT_TIMING</a> = 0.3f;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="comment">// Hurt timer</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classEnemyAIComponent.html#a2f02008f3463b776f88cbeb0ba99bb04">   59</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classEnemyAIComponent.html#a2f02008f3463b776f88cbeb0ba99bb04">m_hurtTimer</a> = 0.0f;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classEnemyAIComponent.html#a1f7aaf79d3f51ea344a37350efadba72">   60</a></span>    <span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classEnemyAIComponent.html#a1f7aaf79d3f51ea344a37350efadba72">HURT_DURATION</a> = 0.4f;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="comment">// Dead timer</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classEnemyAIComponent.html#a14a642b70f1399b51476e247c3c7fd38">   63</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classEnemyAIComponent.html#a14a642b70f1399b51476e247c3c7fd38">m_deadTimer</a> = 0.0f;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classEnemyAIComponent.html#a586c040ca3fa7bf2e9c7cd02ec55d64c">   64</a></span>    <span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classEnemyAIComponent.html#a586c040ca3fa7bf2e9c7cd02ec55d64c">DEATH_DURATION</a> = 1.0f;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="comment">// Cached components</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classEnemyAIComponent.html#a2de02daa6bce302ec283814c1f8632a4">   67</a></span>    <a class="code hl_class" href="classCharacterMovementComponent.html">CharacterMovementComponent</a>* <a class="code hl_variable" href="classEnemyAIComponent.html#a2de02daa6bce302ec283814c1f8632a4">m_movementComp</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classEnemyAIComponent.html#a6b1d59b4c7a80098ce96d0e1ec94bb0c">   68</a></span>    <a class="code hl_class" href="classGravityComponent.html">GravityComponent</a>*           <a class="code hl_variable" href="classEnemyAIComponent.html#a6b1d59b4c7a80098ce96d0e1ec94bb0c">m_gravityComp</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classEnemyAIComponent.html#a0fd5f708b9d8c18d200811e25e0397e0">   69</a></span>    <a class="code hl_class" href="classHealthComponent.html">HealthComponent</a>*            <a class="code hl_variable" href="classEnemyAIComponent.html#a0fd5f708b9d8c18d200811e25e0397e0">m_healthComp</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>};</div>
+</div>
+<div class="ttc" id="aComponent_8h_html"><div class="ttname"><a href="Component_8h.html">Component.h</a></div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93f"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a></div><div class="ttdeci">UpdatePhase</div><div class="ttdef"><b>Definition</b> Component.h:10</div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fa0a40e3c91a3a55c9a37428c6d194d0e5"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa0a40e3c91a3a55c9a37428c6d194d0e5">UpdatePhase::AI</a></div><div class="ttdeci">@ AI</div></div>
+<div class="ttc" id="aEnemyAIComponent_8h_html_a588700cbbd7d8e80b51ef81b140213fc"><div class="ttname"><a href="EnemyAIComponent_8h.html#a588700cbbd7d8e80b51ef81b140213fc">EnemyAIState</a></div><div class="ttdeci">EnemyAIState</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.h:11</div></div>
+<div class="ttc" id="aEnemyAIComponent_8h_html_a588700cbbd7d8e80b51ef81b140213fca183b62c7f067711f9c5a54913c054617"><div class="ttname"><a href="EnemyAIComponent_8h.html#a588700cbbd7d8e80b51ef81b140213fca183b62c7f067711f9c5a54913c054617">EnemyAIState::Dead</a></div><div class="ttdeci">@ Dead</div></div>
+<div class="ttc" id="aEnemyAIComponent_8h_html_a588700cbbd7d8e80b51ef81b140213fca62c8a2522be2668b5452181d07dd8964"><div class="ttname"><a href="EnemyAIComponent_8h.html#a588700cbbd7d8e80b51ef81b140213fca62c8a2522be2668b5452181d07dd8964">EnemyAIState::Hurt</a></div><div class="ttdeci">@ Hurt</div></div>
+<div class="ttc" id="aEnemyAIComponent_8h_html_a588700cbbd7d8e80b51ef81b140213fcadcfafcb4323b102c7e204555d313ba0a"><div class="ttname"><a href="EnemyAIComponent_8h.html#a588700cbbd7d8e80b51ef81b140213fcadcfafcb4323b102c7e204555d313ba0a">EnemyAIState::Attack</a></div><div class="ttdeci">@ Attack</div></div>
+<div class="ttc" id="aEnemyAIComponent_8h_html_a588700cbbd7d8e80b51ef81b140213fcae599161956d626eda4cb0a5ffb85271c"><div class="ttname"><a href="EnemyAIComponent_8h.html#a588700cbbd7d8e80b51ef81b140213fcae599161956d626eda4cb0a5ffb85271c">EnemyAIState::Idle</a></div><div class="ttdeci">@ Idle</div></div>
+<div class="ttc" id="aEnemyAIComponent_8h_html_a588700cbbd7d8e80b51ef81b140213fcaeaff692e84900d6b0999355abb0f3e43"><div class="ttname"><a href="EnemyAIComponent_8h.html#a588700cbbd7d8e80b51ef81b140213fcaeaff692e84900d6b0999355abb0f3e43">EnemyAIState::Chase</a></div><div class="ttdeci">@ Chase</div></div>
+<div class="ttc" id="aclassCComponent_html"><div class="ttname"><a href="classCComponent.html">CComponent</a></div><div class="ttdef"><b>Definition</b> Component.h:21</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html"><div class="ttname"><a href="classCharacterMovementComponent.html">CharacterMovementComponent</a></div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:9</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html"><div class="ttname"><a href="classEnemyAIComponent.html">EnemyAIComponent</a></div><div class="ttdef"><b>Definition</b> EnemyAIComponent.h:20</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_a0ccd123ada71ae9142585f135c5a0439"><div class="ttname"><a href="classEnemyAIComponent.html#a0ccd123ada71ae9142585f135c5a0439">EnemyAIComponent::UpdateIdle</a></div><div class="ttdeci">void UpdateIdle(float deltaTime)</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.cpp:88</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_a0eced541100d449f18fce8041dd72df5"><div class="ttname"><a href="classEnemyAIComponent.html#a0eced541100d449f18fce8041dd72df5">EnemyAIComponent::Start</a></div><div class="ttdeci">void Start() override</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.cpp:18</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_a0fd5f708b9d8c18d200811e25e0397e0"><div class="ttname"><a href="classEnemyAIComponent.html#a0fd5f708b9d8c18d200811e25e0397e0">EnemyAIComponent::m_healthComp</a></div><div class="ttdeci">HealthComponent * m_healthComp</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.h:69</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_a109574444d9f0089226cb97c0d0c5d7d"><div class="ttname"><a href="classEnemyAIComponent.html#a109574444d9f0089226cb97c0d0c5d7d">EnemyAIComponent::HIT_TIMING</a></div><div class="ttdeci">const float HIT_TIMING</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.h:56</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_a11b91b46bd8bdbde12684cf8847cb660"><div class="ttname"><a href="classEnemyAIComponent.html#a11b91b46bd8bdbde12684cf8847cb660">EnemyAIComponent::m_hasAttacked</a></div><div class="ttdeci">bool m_hasAttacked</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.h:54</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_a14a642b70f1399b51476e247c3c7fd38"><div class="ttname"><a href="classEnemyAIComponent.html#a14a642b70f1399b51476e247c3c7fd38">EnemyAIComponent::m_deadTimer</a></div><div class="ttdeci">float m_deadTimer</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.h:63</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_a1c399c2ee67d177902fbd9adc47c0ce5"><div class="ttname"><a href="classEnemyAIComponent.html#a1c399c2ee67d177902fbd9adc47c0ce5">EnemyAIComponent::UpdateAttack</a></div><div class="ttdeci">void UpdateAttack(float deltaTime)</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.cpp:142</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_a1f7aaf79d3f51ea344a37350efadba72"><div class="ttname"><a href="classEnemyAIComponent.html#a1f7aaf79d3f51ea344a37350efadba72">EnemyAIComponent::HURT_DURATION</a></div><div class="ttdeci">const float HURT_DURATION</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.h:60</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_a2de02daa6bce302ec283814c1f8632a4"><div class="ttname"><a href="classEnemyAIComponent.html#a2de02daa6bce302ec283814c1f8632a4">EnemyAIComponent::m_movementComp</a></div><div class="ttdeci">CharacterMovementComponent * m_movementComp</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.h:67</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_a2f02008f3463b776f88cbeb0ba99bb04"><div class="ttname"><a href="classEnemyAIComponent.html#a2f02008f3463b776f88cbeb0ba99bb04">EnemyAIComponent::m_hurtTimer</a></div><div class="ttdeci">float m_hurtTimer</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.h:59</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_a32aef34d98092b42770c9486d147eb90"><div class="ttname"><a href="classEnemyAIComponent.html#a32aef34d98092b42770c9486d147eb90">EnemyAIComponent::UpdateHurt</a></div><div class="ttdeci">void UpdateHurt(float deltaTime)</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.cpp:188</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_a4c5763f3c88495ff2e82c8bf7ef10241"><div class="ttname"><a href="classEnemyAIComponent.html#a4c5763f3c88495ff2e82c8bf7ef10241">EnemyAIComponent::GetCurrentState</a></div><div class="ttdeci">EnemyAIState GetCurrentState() const</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.h:35</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_a4d27277d0f394f9771c7877ef975aa7f"><div class="ttname"><a href="classEnemyAIComponent.html#a4d27277d0f394f9771c7877ef975aa7f">EnemyAIComponent::OnDamaged</a></div><div class="ttdeci">void OnDamaged()</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.cpp:206</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_a586c040ca3fa7bf2e9c7cd02ec55d64c"><div class="ttname"><a href="classEnemyAIComponent.html#a586c040ca3fa7bf2e9c7cd02ec55d64c">EnemyAIComponent::DEATH_DURATION</a></div><div class="ttdeci">const float DEATH_DURATION</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.h:64</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_a5bc039a256a1a6c603e18de634016558"><div class="ttname"><a href="classEnemyAIComponent.html#a5bc039a256a1a6c603e18de634016558">EnemyAIComponent::ChangeState</a></div><div class="ttdeci">void ChangeState(EnemyAIState newState)</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.cpp:35</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_a661d0fd59e233b39d909f6841ae5eb7f"><div class="ttname"><a href="classEnemyAIComponent.html#a661d0fd59e233b39d909f6841ae5eb7f">EnemyAIComponent::GetUpdatePhase</a></div><div class="ttdeci">UpdatePhase GetUpdatePhase() const override</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.h:28</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_a6b1d59b4c7a80098ce96d0e1ec94bb0c"><div class="ttname"><a href="classEnemyAIComponent.html#a6b1d59b4c7a80098ce96d0e1ec94bb0c">EnemyAIComponent::m_gravityComp</a></div><div class="ttdeci">GravityComponent * m_gravityComp</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.h:68</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_a832d0c355f2f31be246f657d53f88f6c"><div class="ttname"><a href="classEnemyAIComponent.html#a832d0c355f2f31be246f657d53f88f6c">EnemyAIComponent::UpdateState</a></div><div class="ttdeci">void UpdateState(float deltaTime)</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.cpp:66</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_a8dc6501d05aa14c0e7ee3dea3d332e84"><div class="ttname"><a href="classEnemyAIComponent.html#a8dc6501d05aa14c0e7ee3dea3d332e84">EnemyAIComponent::ATTACK_RANGE</a></div><div class="ttdeci">const float ATTACK_RANGE</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.h:50</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_a9388379d4e15cdfff7af19db91be5881"><div class="ttname"><a href="classEnemyAIComponent.html#a9388379d4e15cdfff7af19db91be5881">EnemyAIComponent::ATTACK_DURATION</a></div><div class="ttdeci">const float ATTACK_DURATION</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.h:55</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_a93f947600c8258c954a8da59c7dd3ed4"><div class="ttname"><a href="classEnemyAIComponent.html#a93f947600c8258c954a8da59c7dd3ed4">EnemyAIComponent::UpdateChase</a></div><div class="ttdeci">void UpdateChase(float deltaTime)</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.cpp:110</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_aac4a1d35727d55e3385c553c5ba55aa7"><div class="ttname"><a href="classEnemyAIComponent.html#aac4a1d35727d55e3385c553c5ba55aa7">EnemyAIComponent::m_currentState</a></div><div class="ttdeci">EnemyAIState m_currentState</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.h:47</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_abf2803dbd16a205faa9b1b28ac935180"><div class="ttname"><a href="classEnemyAIComponent.html#abf2803dbd16a205faa9b1b28ac935180">EnemyAIComponent::~EnemyAIComponent</a></div><div class="ttdeci">virtual ~EnemyAIComponent()=default</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_ac2b5ed73b35ad6b6a9576ed803714436"><div class="ttname"><a href="classEnemyAIComponent.html#ac2b5ed73b35ad6b6a9576ed803714436">EnemyAIComponent::OnDie</a></div><div class="ttdeci">void OnDie()</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.cpp:211</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_ad0ddef8ed3b4b154b03398965ae0b521"><div class="ttname"><a href="classEnemyAIComponent.html#ad0ddef8ed3b4b154b03398965ae0b521">EnemyAIComponent::m_attackTimer</a></div><div class="ttdeci">float m_attackTimer</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.h:53</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_adc2e7385ca75cf45f6a1cfa6df705ce4"><div class="ttname"><a href="classEnemyAIComponent.html#adc2e7385ca75cf45f6a1cfa6df705ce4">EnemyAIComponent::EnemyAIComponent</a></div><div class="ttdeci">EnemyAIComponent()</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.cpp:13</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_aeae8e1e0c98164829ef1bb5053e6ae9f"><div class="ttname"><a href="classEnemyAIComponent.html#aeae8e1e0c98164829ef1bb5053e6ae9f">EnemyAIComponent::Update</a></div><div class="ttdeci">void Update(float deltaTime) override</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.cpp:30</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_aee171b8aed4a9266d2bb0a3728395f46"><div class="ttname"><a href="classEnemyAIComponent.html#aee171b8aed4a9266d2bb0a3728395f46">EnemyAIComponent::DETECTION_RANGE</a></div><div class="ttdeci">const float DETECTION_RANGE</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.h:49</div></div>
+<div class="ttc" id="aclassEnemyAIComponent_html_af61770fccba31815c168b4e8fbb11ba1"><div class="ttname"><a href="classEnemyAIComponent.html#af61770fccba31815c168b4e8fbb11ba1">EnemyAIComponent::UpdateDead</a></div><div class="ttdeci">void UpdateDead(float deltaTime)</div><div class="ttdef"><b>Definition</b> EnemyAIComponent.cpp:197</div></div>
+<div class="ttc" id="aclassGravityComponent_html"><div class="ttname"><a href="classGravityComponent.html">GravityComponent</a></div><div class="ttdef"><b>Definition</b> GravityComponent.h:8</div></div>
+<div class="ttc" id="aclassHealthComponent_html"><div class="ttname"><a href="classHealthComponent.html">HealthComponent</a></div><div class="ttdef"><b>Definition</b> HealthComponent.h:6</div></div>
+<div class="ttc" id="aclassPlayer_html"><div class="ttname"><a href="classPlayer.html">Player</a></div><div class="ttdef"><b>Definition</b> Player.h:13</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_5063f357ccae33c483b97cdd1e318acc.html">Components</a></li><li class="navelem"><a class="el" href="EnemyAIComponent_8h.html">EnemyAIComponent.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

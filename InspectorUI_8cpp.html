@@ -117,23 +117,99 @@ $(document).ready(function(){initNavTree('InspectorUI_8cpp.html',''); initResiza
 <code>#include &quot;<a class="el" href="TextRenderer_8h_source.html">TextRenderer.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ButtonEventManager_8h_source.html">ButtonEventManager.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ButtonAction_8h_source.html">ButtonAction.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="GravityComponent_8h_source.html">GravityComponent.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="HealthComponent_8h_source.html">HealthComponent.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="CharacterMovementComponent_8h_source.html">CharacterMovementComponent.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="PlayerControllerComponent_8h_source.html">PlayerControllerComponent.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="EnemyAIComponent_8h_source.html">EnemyAIComponent.h</a>&quot;</code><br />
 <code>#include &lt;typeinfo&gt;</code><br />
 <code>#include &lt;windows.h&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 InspectorUI.cpp の依存先関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="InspectorUI_8cpp__incl.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="InspectorUI_8cpp__incl.svg" width="100%" height="558"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 関数</h2></td></tr>
+<tr class="memitem:a818451273d4f42ec1c1503bb28a4f868" id="r_a818451273d4f42ec1c1503bb28a4f868"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InspectorUI_8cpp.html#a818451273d4f42ec1c1503bb28a4f868">GetCleanComponentName</a> (<a class="el" href="classCComponent.html">CComponent</a> *comp)</td></tr>
+<tr class="separator:a818451273d4f42ec1c1503bb28a4f868"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceba04366e686bf767f8ed32f1682833" id="r_aceba04366e686bf767f8ed32f1682833"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InspectorUI_8cpp.html#aceba04366e686bf767f8ed32f1682833">GetUpdatePhaseName</a> (<a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a> phase)</td></tr>
+<tr class="separator:aceba04366e686bf767f8ed32f1682833"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bf579657470d623e3be4507a13bf453" id="r_a4bf579657470d623e3be4507a13bf453"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InspectorUI_8cpp.html#a4bf579657470d623e3be4507a13bf453">WStringToString</a> (const <a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">std::wstring</a> &amp;wstr)</td></tr>
 <tr class="separator:a4bf579657470d623e3be4507a13bf453"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29e1aeadb805e9d91533a2be6b183d10" id="r_a29e1aeadb805e9d91533a2be6b183d10"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">std::wstring</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InspectorUI_8cpp.html#a29e1aeadb805e9d91533a2be6b183d10">StringToWString</a> (const <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;str)</td></tr>
 <tr class="separator:a29e1aeadb805e9d91533a2be6b183d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">関数詳解</h2>
+<a id="a818451273d4f42ec1c1503bb28a4f868" name="a818451273d4f42ec1c1503bb28a4f868"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a818451273d4f42ec1c1503bb28a4f868">&#9670;&#160;</a></span>GetCleanComponentName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> GetCleanComponentName </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCComponent.html">CComponent</a> *&#160;</td>
+          <td class="paramname"><em>comp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="InspectorUI_8cpp_a818451273d4f42ec1c1503bb28a4f868_cgraph.svg" width="431" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="InspectorUI_8cpp_a818451273d4f42ec1c1503bb28a4f868_icgraph.svg" width="528" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aceba04366e686bf767f8ed32f1682833" name="aceba04366e686bf767f8ed32f1682833"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aceba04366e686bf767f8ed32f1682833">&#9670;&#160;</a></span>GetUpdatePhaseName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const char * GetUpdatePhaseName </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a>&#160;</td>
+          <td class="paramname"><em>phase</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="InspectorUI_8cpp_aceba04366e686bf767f8ed32f1682833_icgraph.svg" width="503" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="a29e1aeadb805e9d91533a2be6b183d10" name="a29e1aeadb805e9d91533a2be6b183d10"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a29e1aeadb805e9d91533a2be6b183d10">&#9670;&#160;</a></span>StringToWString()</h2>
 

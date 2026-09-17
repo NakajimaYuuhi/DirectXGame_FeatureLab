@@ -107,7 +107,7 @@ Enemy の継承関係図</div>
 <div class="dynheader">
 Enemy 連携図</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classEnemy__coll__graph.svg" width="236" height="362"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEnemy__coll__graph.svg" width="100%" height="472"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -130,8 +130,6 @@ Enemy 連携図</div>
 <tr class="separator:a11f1ee908aa406100fdf5fce982772c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab52d311ca2634bf6a9335c02fc11aaea" id="r_ab52d311ca2634bf6a9335c02fc11aaea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#ab52d311ca2634bf6a9335c02fc11aaea">MoveTowards</a> (const DirectX::XMFLOAT3 &amp;targetPos, float deltaTime)</td></tr>
 <tr class="separator:ab52d311ca2634bf6a9335c02fc11aaea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad344e3ad1636aaaa72ed524cd5c155e0" id="r_ad344e3ad1636aaaa72ed524cd5c155e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#ad344e3ad1636aaaa72ed524cd5c155e0">ApplyGravity</a> (float deltaTime)</td></tr>
-<tr class="separator:ad344e3ad1636aaaa72ed524cd5c155e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a305e6dccb4ecbb62fbcf4fc8c435bb52" id="r_a305e6dccb4ecbb62fbcf4fc8c435bb52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#a305e6dccb4ecbb62fbcf4fc8c435bb52">SnapToGround</a> ()</td></tr>
 <tr class="separator:a305e6dccb4ecbb62fbcf4fc8c435bb52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad4d78054086e4166e600cc86c3c2a5d" id="r_aad4d78054086e4166e600cc86c3c2a5d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#aad4d78054086e4166e600cc86c3c2a5d">IsGrounded</a> () const</td></tr>
@@ -142,6 +140,12 @@ Enemy 連携図</div>
 <tr class="separator:a17c4197ecbe3010a6de0137a692f5f5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fb5a83b05dd44adaf61a8abfd3f2a4e" id="r_a4fb5a83b05dd44adaf61a8abfd3f2a4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#a4fb5a83b05dd44adaf61a8abfd3f2a4e">TakeDamage</a> (int damage)</td></tr>
 <tr class="separator:a4fb5a83b05dd44adaf61a8abfd3f2a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8bd86ba29005e290b00b16e70698799" id="r_ac8bd86ba29005e290b00b16e70698799"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGravityComponent.html">GravityComponent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#ac8bd86ba29005e290b00b16e70698799">GetGravityComponent</a> () const</td></tr>
+<tr class="separator:ac8bd86ba29005e290b00b16e70698799"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0f52e7fd64ffc86d7479777217ed664" id="r_ad0f52e7fd64ffc86d7479777217ed664"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classHealthComponent.html">HealthComponent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#ad0f52e7fd64ffc86d7479777217ed664">GetHealthComponent</a> () const</td></tr>
+<tr class="separator:ad0f52e7fd64ffc86d7479777217ed664"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0501b5d69574f52cb125e5e806ced287" id="r_a0501b5d69574f52cb125e5e806ced287"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCharacterMovementComponent.html">CharacterMovementComponent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#a0501b5d69574f52cb125e5e806ced287">GetMovementComponent</a> () const</td></tr>
+<tr class="separator:a0501b5d69574f52cb125e5e806ced287"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classC3D__Object"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classC3D__Object')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classC3D__Object.html">C3D_Object</a> に属する継承公開メンバ関数</td></tr>
 <tr class="memitem:af32857683c7f4b2eccd435ab479813d5 inherit pub_methods_classC3D__Object" id="r_af32857683c7f4b2eccd435ab479813d5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classC3D__Object.html#af32857683c7f4b2eccd435ab479813d5">C3D_Object</a> ()</td></tr>
 <tr class="separator:af32857683c7f4b2eccd435ab479813d5 inherit pub_methods_classC3D__Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -178,6 +182,16 @@ Enemy 連携図</div>
 <tr class="separator:ac44111d5ac75248a616df61b038c4153 inherit pub_methods_classCObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93a3c3bc7d9a6462ef00e25404d9b0eb inherit pub_methods_classCObject" id="r_a93a3c3bc7d9a6462ef00e25404d9b0eb"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#a93a3c3bc7d9a6462ef00e25404d9b0eb">~CObject</a> ()</td></tr>
 <tr class="separator:a93a3c3bc7d9a6462ef00e25404d9b0eb inherit pub_methods_classCObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bf230e89ac532ee67217d5b8b514734 inherit pub_methods_classCObject" id="r_a0bf230e89ac532ee67217d5b8b514734"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#a0bf230e89ac532ee67217d5b8b514734">AwakeComponents</a> ()</td></tr>
+<tr class="separator:a0bf230e89ac532ee67217d5b8b514734 inherit pub_methods_classCObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa56d6804e77e28f6bc91080acb63d0f2 inherit pub_methods_classCObject" id="r_aa56d6804e77e28f6bc91080acb63d0f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#aa56d6804e77e28f6bc91080acb63d0f2">StartComponents</a> ()</td></tr>
+<tr class="separator:aa56d6804e77e28f6bc91080acb63d0f2 inherit pub_methods_classCObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2c17e45a124c979fb8bc138173f5469 inherit pub_methods_classCObject" id="r_af2c17e45a124c979fb8bc138173f5469"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#af2c17e45a124c979fb8bc138173f5469">UpdateComponents</a> (float deltaTime)</td></tr>
+<tr class="separator:af2c17e45a124c979fb8bc138173f5469 inherit pub_methods_classCObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7e0a57ecb45a28878afc1d307c5b45b inherit pub_methods_classCObject" id="r_aa7e0a57ecb45a28878afc1d307c5b45b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#aa7e0a57ecb45a28878afc1d307c5b45b">LateUpdateComponents</a> (float deltaTime)</td></tr>
+<tr class="separator:aa7e0a57ecb45a28878afc1d307c5b45b inherit pub_methods_classCObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8855f1f09b337e2c41dad8405098a68 inherit pub_methods_classCObject" id="r_ac8855f1f09b337e2c41dad8405098a68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#ac8855f1f09b337e2c41dad8405098a68">CollisionComponents</a> (<a class="el" href="classCObject.html">CObject</a> *_Other)</td></tr>
+<tr class="separator:ac8855f1f09b337e2c41dad8405098a68 inherit pub_methods_classCObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71540f70991d2a909cf7a7fcbf683dc7 inherit pub_methods_classCObject" id="r_a71540f70991d2a909cf7a7fcbf683dc7"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a71540f70991d2a909cf7a7fcbf683dc7 inherit pub_methods_classCObject"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCObject.html#a71540f70991d2a909cf7a7fcbf683dc7">GetComponent</a> ()</td></tr>
 <tr class="separator:a71540f70991d2a909cf7a7fcbf683dc7 inherit pub_methods_classCObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -215,28 +229,12 @@ Enemy 連携図</div>
 <tr class="separator:a81392b5c618b719b34ad6bee3a694c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77fda4977da2209e2e49fba767f45b4c" id="r_a77fda4977da2209e2e49fba767f45b4c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#a77fda4977da2209e2e49fba767f45b4c">Speed</a> = 0.05f</td></tr>
 <tr class="separator:a77fda4977da2209e2e49fba767f45b4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a408105b89fbc65723fc1e1208b7fe2bc" id="r_a408105b89fbc65723fc1e1208b7fe2bc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#a408105b89fbc65723fc1e1208b7fe2bc">HP</a> = 3</td></tr>
-<tr class="separator:a408105b89fbc65723fc1e1208b7fe2bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4680be8bd6b1878eb24ffd22b68acf0" id="r_ad4680be8bd6b1878eb24ffd22b68acf0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#ad4680be8bd6b1878eb24ffd22b68acf0">MaxHP</a> = 3</td></tr>
-<tr class="separator:ad4680be8bd6b1878eb24ffd22b68acf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7523d1df376e16fa4d68c9fd99daa309" id="r_a7523d1df376e16fa4d68c9fd99daa309"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#a7523d1df376e16fa4d68c9fd99daa309">m_flashTimer</a> = 0.0f</td></tr>
-<tr class="separator:a7523d1df376e16fa4d68c9fd99daa309"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87404930b1b8d78118251dd168c7430a" id="r_a87404930b1b8d78118251dd168c7430a"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#a87404930b1b8d78118251dd168c7430a">FLASH_DURATION</a> = 0.3f</td></tr>
-<tr class="separator:a87404930b1b8d78118251dd168c7430a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a3895ede9313399e6e80256252ec774" id="r_a4a3895ede9313399e6e80256252ec774"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#a4a3895ede9313399e6e80256252ec774">BLINK_INTERVAL</a> = 0.06f</td></tr>
-<tr class="separator:a4a3895ede9313399e6e80256252ec774"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affd4baee0bf09a54a4fb01004114bc87" id="r_affd4baee0bf09a54a4fb01004114bc87"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="classField.html">Field</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#affd4baee0bf09a54a4fb01004114bc87">m_field</a> = nullptr</td></tr>
-<tr class="separator:affd4baee0bf09a54a4fb01004114bc87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bbab5410c164587334f60ab0f44dc59" id="r_a4bbab5410c164587334f60ab0f44dc59"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#a4bbab5410c164587334f60ab0f44dc59">m_verticalVelocity</a> = 0.0f</td></tr>
-<tr class="separator:a4bbab5410c164587334f60ab0f44dc59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4f08bb4cbe52140639c31cbef5f1f06" id="r_ac4f08bb4cbe52140639c31cbef5f1f06"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#ac4f08bb4cbe52140639c31cbef5f1f06">m_isGrounded</a> = false</td></tr>
-<tr class="separator:ac4f08bb4cbe52140639c31cbef5f1f06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a296d033f5e4ee60175ef66544b32e9d3" id="r_a296d033f5e4ee60175ef66544b32e9d3"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#a296d033f5e4ee60175ef66544b32e9d3">GRAVITY</a> = -25.0f</td></tr>
-<tr class="separator:a296d033f5e4ee60175ef66544b32e9d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2235fb4815a25c05babaf5545c8f7a5b" id="r_a2235fb4815a25c05babaf5545c8f7a5b"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#a2235fb4815a25c05babaf5545c8f7a5b">TERMINAL_VELOCITY</a> = -30.0f</td></tr>
-<tr class="separator:a2235fb4815a25c05babaf5545c8f7a5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ad50dc3957c3546189ca23fa27640ab" id="r_a4ad50dc3957c3546189ca23fa27640ab"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#a4ad50dc3957c3546189ca23fa27640ab">STEP_DOWN_LIMIT</a> = 0.4f</td></tr>
-<tr class="separator:a4ad50dc3957c3546189ca23fa27640ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0818f3aca3fb96f1c26ec841868ead86" id="r_a0818f3aca3fb96f1c26ec841868ead86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGravityComponent.html">GravityComponent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#a0818f3aca3fb96f1c26ec841868ead86">m_gravityComp</a> = nullptr</td></tr>
+<tr class="separator:a0818f3aca3fb96f1c26ec841868ead86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c16ff92903c3c2209ba3ab493d9d3ba" id="r_a6c16ff92903c3c2209ba3ab493d9d3ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classHealthComponent.html">HealthComponent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#a6c16ff92903c3c2209ba3ab493d9d3ba">m_healthComp</a> = nullptr</td></tr>
+<tr class="separator:a6c16ff92903c3c2209ba3ab493d9d3ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e9f4051cb88d2a7dd0316ec575c0610" id="r_a4e9f4051cb88d2a7dd0316ec575c0610"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCharacterMovementComponent.html">CharacterMovementComponent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#a4e9f4051cb88d2a7dd0316ec575c0610">m_movementComp</a> = nullptr</td></tr>
+<tr class="separator:a4e9f4051cb88d2a7dd0316ec575c0610"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f3f2c7ac62f85ba8ddc5859bcf282a7" id="r_a6f3f2c7ac62f85ba8ddc5859bcf282a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classStateMachine.html">StateMachine</a>&lt; <a class="el" href="classEnemy.html">Enemy</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnemy.html#a6f3f2c7ac62f85ba8ddc5859bcf282a7">m_stateMachine</a></td></tr>
 <tr class="separator:a6f3f2c7ac62f85ba8ddc5859bcf282a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classCObject"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classCObject')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCObject.html">CObject</a> に属する継承限定公開変数類</td></tr>
@@ -303,34 +301,6 @@ Enemy 連携図</div>
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
-<a id="ad344e3ad1636aaaa72ed524cd5c155e0" name="ad344e3ad1636aaaa72ed524cd5c155e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad344e3ad1636aaaa72ed524cd5c155e0">&#9670;&#160;</a></span>ApplyGravity()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Enemy::ApplyGravity </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>deltaTime</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="dynheader">
-呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEnemy_ad344e3ad1636aaaa72ed524cd5c155e0_cgraph.svg" width="100%" height="477"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
-被呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classEnemy_ad344e3ad1636aaaa72ed524cd5c155e0_icgraph.svg" width="339" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
 <a id="a0699b197ba3d5bff7539121991bf73d9" name="a0699b197ba3d5bff7539121991bf73d9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0699b197ba3d5bff7539121991bf73d9">&#9670;&#160;</a></span>Awake()</h2>
 
@@ -354,11 +324,11 @@ Enemy 連携図</div>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classCObject.html#a39a9033ff03bde23f788cfb68d90564f">CObject</a>を再実装しています。</p>
+<p><a class="el" href="classCObject.html#a7fac8556ed32df0cb10a221195e9ef35">CObject</a>を再実装しています。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classEnemy_a0699b197ba3d5bff7539121991bf73d9_cgraph.svg" width="323" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classEnemy_a0699b197ba3d5bff7539121991bf73d9_cgraph.svg" width="383" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
@@ -368,8 +338,8 @@ Enemy 連携図</div>
 
 </div>
 </div>
-<a id="a17c4197ecbe3010a6de0137a692f5f5c" name="a17c4197ecbe3010a6de0137a692f5f5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17c4197ecbe3010a6de0137a692f5f5c">&#9670;&#160;</a></span>GetHP()</h2>
+<a id="ac8bd86ba29005e290b00b16e70698799" name="ac8bd86ba29005e290b00b16e70698799"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8bd86ba29005e290b00b16e70698799">&#9670;&#160;</a></span>GetGravityComponent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -378,7 +348,79 @@ Enemy 連携図</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
+          <td class="memname"><a class="el" href="classGravityComponent.html">GravityComponent</a> * Enemy::GetGravityComponent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad0f52e7fd64ffc86d7479777217ed664" name="ad0f52e7fd64ffc86d7479777217ed664"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0f52e7fd64ffc86d7479777217ed664">&#9670;&#160;</a></span>GetHealthComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classHealthComponent.html">HealthComponent</a> * Enemy::GetHealthComponent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a17c4197ecbe3010a6de0137a692f5f5c" name="a17c4197ecbe3010a6de0137a692f5f5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17c4197ecbe3010a6de0137a692f5f5c">&#9670;&#160;</a></span>GetHP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
           <td class="memname">int Enemy::GetHP </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classEnemy_a17c4197ecbe3010a6de0137a692f5f5c_cgraph.svg" width="363" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0501b5d69574f52cb125e5e806ced287" name="a0501b5d69574f52cb125e5e806ced287"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0501b5d69574f52cb125e5e806ced287">&#9670;&#160;</a></span>GetMovementComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCharacterMovementComponent.html">CharacterMovementComponent</a> * Enemy::GetMovementComponent </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -460,9 +502,6 @@ Enemy 連携図</div>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool Enemy::IsGrounded </td>
@@ -471,12 +510,12 @@ Enemy 連携図</div>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classEnemy_aad4d78054086e4166e600cc86c3c2a5d_cgraph.svg" width="434" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -508,7 +547,7 @@ Enemy 連携図</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEnemy_ab52d311ca2634bf6a9335c02fc11aaea_cgraph.svg" width="100%" height="551"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEnemy_ab52d311ca2634bf6a9335c02fc11aaea_cgraph.svg" width="100%" height="413"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
@@ -542,11 +581,11 @@ Enemy 連携図</div>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classCObject.html#aa84425e5df8ad139445766d3ead07720">CObject</a>を再実装しています。</p>
+<p><a class="el" href="classCObject.html#ae54ae5c1bc8d9d62235ba4ce2936b3c1">CObject</a>を再実装しています。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classEnemy_ad687a2ad7e9d013681e02b8fa597d58c_cgraph.svg" width="651" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEnemy_ad687a2ad7e9d013681e02b8fa597d58c_cgraph.svg" width="100%" height="438"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -595,12 +634,7 @@ Enemy 連携図</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEnemy_a305e6dccb4ecbb62fbcf4fc8c435bb52_cgraph.svg" width="100%" height="477"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
-被呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classEnemy_a305e6dccb4ecbb62fbcf4fc8c435bb52_icgraph.svg" width="474" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEnemy_a305e6dccb4ecbb62fbcf4fc8c435bb52_cgraph.svg" width="100%" height="514"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -628,11 +662,11 @@ Enemy 連携図</div>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classCObject.html#a333a9d7030e41e0eed5f4354e55930d5">CObject</a>を再実装しています。</p>
+<p><a class="el" href="classCObject.html#a14552a81f953f195ab311c9cd2c1ca39">CObject</a>を再実装しています。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEnemy_a64ee0cc6fb8a3424d486537efb8205d8_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEnemy_a64ee0cc6fb8a3424d486537efb8205d8_cgraph.svg" width="100%" height="551"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
@@ -660,7 +694,7 @@ Enemy 連携図</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classEnemy_a4fb5a83b05dd44adaf61a8abfd3f2a4e_cgraph.svg" width="420" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEnemy_a4fb5a83b05dd44adaf61a8abfd3f2a4e_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
@@ -697,14 +731,14 @@ Enemy 連携図</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEnemy_a614ad271f07ecf63cb3e665155b7e258_cgraph.svg" width="100%" height="588"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEnemy_a614ad271f07ecf63cb3e665155b7e258_cgraph.svg" width="100%" height="475"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">メンバ詳解</h2>
-<a id="a4a3895ede9313399e6e80256252ec774" name="a4a3895ede9313399e6e80256252ec774"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a3895ede9313399e6e80256252ec774">&#9670;&#160;</a></span>BLINK_INTERVAL</h2>
+<a id="a0818f3aca3fb96f1c26ec841868ead86" name="a0818f3aca3fb96f1c26ec841868ead86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0818f3aca3fb96f1c26ec841868ead86">&#9670;&#160;</a></span>m_gravityComp</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -713,7 +747,7 @@ Enemy 連携図</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const float Enemy::BLINK_INTERVAL = 0.06f</td>
+          <td class="memname"><a class="el" href="classGravityComponent.html">GravityComponent</a>* Enemy::m_gravityComp = nullptr</td>
         </tr>
       </table>
   </td>
@@ -725,8 +759,8 @@ Enemy 連携図</div>
 
 </div>
 </div>
-<a id="a87404930b1b8d78118251dd168c7430a" name="a87404930b1b8d78118251dd168c7430a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87404930b1b8d78118251dd168c7430a">&#9670;&#160;</a></span>FLASH_DURATION</h2>
+<a id="a6c16ff92903c3c2209ba3ab493d9d3ba" name="a6c16ff92903c3c2209ba3ab493d9d3ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c16ff92903c3c2209ba3ab493d9d3ba">&#9670;&#160;</a></span>m_healthComp</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -735,7 +769,7 @@ Enemy 連携図</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const float Enemy::FLASH_DURATION = 0.3f</td>
+          <td class="memname"><a class="el" href="classHealthComponent.html">HealthComponent</a>* Enemy::m_healthComp = nullptr</td>
         </tr>
       </table>
   </td>
@@ -747,8 +781,8 @@ Enemy 連携図</div>
 
 </div>
 </div>
-<a id="a296d033f5e4ee60175ef66544b32e9d3" name="a296d033f5e4ee60175ef66544b32e9d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a296d033f5e4ee60175ef66544b32e9d3">&#9670;&#160;</a></span>GRAVITY</h2>
+<a id="a4e9f4051cb88d2a7dd0316ec575c0610" name="a4e9f4051cb88d2a7dd0316ec575c0610"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e9f4051cb88d2a7dd0316ec575c0610">&#9670;&#160;</a></span>m_movementComp</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -757,95 +791,7 @@ Enemy 連携図</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const float Enemy::GRAVITY = -25.0f</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a408105b89fbc65723fc1e1208b7fe2bc" name="a408105b89fbc65723fc1e1208b7fe2bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a408105b89fbc65723fc1e1208b7fe2bc">&#9670;&#160;</a></span>HP</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Enemy::HP = 3</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="affd4baee0bf09a54a4fb01004114bc87" name="affd4baee0bf09a54a4fb01004114bc87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#affd4baee0bf09a54a4fb01004114bc87">&#9670;&#160;</a></span>m_field</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">class <a class="el" href="classField.html">Field</a>* Enemy::m_field = nullptr</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7523d1df376e16fa4d68c9fd99daa309" name="a7523d1df376e16fa4d68c9fd99daa309"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7523d1df376e16fa4d68c9fd99daa309">&#9670;&#160;</a></span>m_flashTimer</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Enemy::m_flashTimer = 0.0f</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac4f08bb4cbe52140639c31cbef5f1f06" name="ac4f08bb4cbe52140639c31cbef5f1f06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4f08bb4cbe52140639c31cbef5f1f06">&#9670;&#160;</a></span>m_isGrounded</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Enemy::m_isGrounded = false</td>
+          <td class="memname"><a class="el" href="classCharacterMovementComponent.html">CharacterMovementComponent</a>* Enemy::m_movementComp = nullptr</td>
         </tr>
       </table>
   </td>
@@ -868,50 +814,6 @@ Enemy 連携図</div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classStateMachine.html">StateMachine</a>&lt;<a class="el" href="classEnemy.html">Enemy</a>&gt; Enemy::m_stateMachine</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4bbab5410c164587334f60ab0f44dc59" name="a4bbab5410c164587334f60ab0f44dc59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4bbab5410c164587334f60ab0f44dc59">&#9670;&#160;</a></span>m_verticalVelocity</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Enemy::m_verticalVelocity = 0.0f</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad4680be8bd6b1878eb24ffd22b68acf0" name="ad4680be8bd6b1878eb24ffd22b68acf0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4680be8bd6b1878eb24ffd22b68acf0">&#9670;&#160;</a></span>MaxHP</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Enemy::MaxHP = 3</td>
         </tr>
       </table>
   </td>
@@ -956,50 +858,6 @@ Enemy 連携図</div>
       <table class="memname">
         <tr>
           <td class="memname">float Enemy::Speed = 0.05f</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4ad50dc3957c3546189ca23fa27640ab" name="a4ad50dc3957c3546189ca23fa27640ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ad50dc3957c3546189ca23fa27640ab">&#9670;&#160;</a></span>STEP_DOWN_LIMIT</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const float Enemy::STEP_DOWN_LIMIT = 0.4f</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2235fb4815a25c05babaf5545c8f7a5b" name="a2235fb4815a25c05babaf5545c8f7a5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2235fb4815a25c05babaf5545c8f7a5b">&#9670;&#160;</a></span>TERMINAL_VELOCITY</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const float Enemy::TERMINAL_VELOCITY = -30.0f</td>
         </tr>
       </table>
   </td>

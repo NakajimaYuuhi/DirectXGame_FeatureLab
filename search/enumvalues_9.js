@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['key_0',['key',['../namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a3c6e0b8a9c15224a8228b9a98ca1531d',1,'nlohmann::detail']]]
+  ['json_0',['json',['../namespacenlohmann_1_1detail.html#aa554fc6a11519e4f347deb25a9f0db40a466deec76ecdf5fca6d38571f6324d54',1,'nlohmann::detail']]]
 ];

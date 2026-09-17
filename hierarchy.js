@@ -35,11 +35,16 @@ var hierarchy =
       [ "CSpriteRenderer", "classCSpriteRenderer.html", null ],
       [ "CTextRenderer", "classCTextRenderer.html", null ],
       [ "CTransform", "classCTransform.html", null ],
+      [ "CharacterMovementComponent", "classCharacterMovementComponent.html", null ],
       [ "Collider", "classCollider.html", [
         [ "Collider3D", "classCollider3D.html", [
           [ "BoxCollider3D", "classBoxCollider3D.html", null ]
         ] ]
-      ] ]
+      ] ],
+      [ "EnemyAIComponent", "classEnemyAIComponent.html", null ],
+      [ "GravityComponent", "classGravityComponent.html", null ],
+      [ "HealthComponent", "classHealthComponent.html", null ],
+      [ "PlayerControllerComponent", "classPlayerControllerComponent.html", null ]
     ] ],
     [ "CDescriptorHeapAllocator", "classCDescriptorHeapAllocator.html", null ],
     [ "CgltfLoader", "classCgltfLoader.html", null ],
@@ -488,6 +493,7 @@ var hierarchy =
     [ "tinygltf::PerspectiveCamera", "structtinygltf_1_1PerspectiveCamera.html", null ],
     [ "nlohmann::detail::position_t", "structnlohmann_1_1detail_1_1position__t.html", null ],
     [ "tinygltf::PositionalEmitter", "structtinygltf_1_1PositionalEmitter.html", null ],
+    [ "PrefabManager", "classPrefabManager.html", null ],
     [ "tinygltf::Primitive", "structtinygltf_1_1Primitive.html", null ],
     [ "nlohmann::detail::primitive_iterator_t", "classnlohmann_1_1detail_1_1primitive__iterator__t.html", null ],
     [ "nlohmann::detail::priority_tag< N >", "structnlohmann_1_1detail_1_1priority__tag.html", null ],

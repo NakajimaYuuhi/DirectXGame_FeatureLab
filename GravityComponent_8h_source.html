@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Components/GravityComponent.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('GravityComponent_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">GravityComponent.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="GravityComponent_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="Component_8h.html">Component.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;DirectXMath.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">class </span><a class="code hl_class" href="classField.html">Field</a>;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="classGravityComponent.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="classGravityComponent.html">GravityComponent</a> : <span class="keyword">public</span> <a class="code hl_class" href="classCComponent.html">CComponent</a></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_function" href="classGravityComponent.html#a0e24e27058c8c8438bb8c110e4f49426">GravityComponent</a>();</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <a class="code hl_function" href="classGravityComponent.html#a0e24e27058c8c8438bb8c110e4f49426">GravityComponent</a>(<span class="keywordtype">float</span> gravity, <span class="keywordtype">float</span> jumpPower);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classGravityComponent.html#ad6238656fc553f525b2b320ef6306814">   12</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classGravityComponent.html#ad6238656fc553f525b2b320ef6306814">~GravityComponent</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGravityComponent.html#a37dfdd9d2d2aa01f23f6d57e01a46acf">Start</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGravityComponent.html#a81ff57e7f4d2e467bbe9f56b26fd5043">Update</a>(<span class="keywordtype">float</span> deltaTime) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classGravityComponent.html#a96d5283550ee6c922848535861446680">   17</a></span>    <a class="code hl_enumeration" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a> <a class="code hl_function" href="classGravityComponent.html#a96d5283550ee6c922848535861446680">GetUpdatePhase</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa50ae99e9c35446c2580e4b540b0fd104">UpdatePhase::Physics</a>; }</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="comment">// Jump actions</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGravityComponent.html#a870f4aadf5658a312d1e18361d4b8c90">Jump</a>();</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGravityComponent.html#a870f4aadf5658a312d1e18361d4b8c90">Jump</a>(<span class="keywordtype">float</span> power);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="comment">// Snap directly to terrain ground</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGravityComponent.html#a9d8e7ff42221878c921e8135d7acd38f">SnapToGround</a>();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="comment">// Getters and setters</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classGravityComponent.html#ab61479cc7bf446a02e1b73bd7aabfd6a">   27</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classGravityComponent.html#ab61479cc7bf446a02e1b73bd7aabfd6a">IsGrounded</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classGravityComponent.html#add010ba8fc397f97ce136518948d3953">m_isGrounded</a>; }</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classGravityComponent.html#a6796fa3d54c877cd621bc9925ebfe7d5">   28</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classGravityComponent.html#a6796fa3d54c877cd621bc9925ebfe7d5">GetVerticalVelocity</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classGravityComponent.html#a283b342976b35dcf36fc4440848e12cc">m_verticalVelocity</a>; }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classGravityComponent.html#a0f366c26e467ae8c4f412831cf1ca23e">   29</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGravityComponent.html#a0f366c26e467ae8c4f412831cf1ca23e">SetVerticalVelocity</a>(<span class="keywordtype">float</span> vy) { <a class="code hl_variable" href="classGravityComponent.html#a283b342976b35dcf36fc4440848e12cc">m_verticalVelocity</a> = vy; }</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classGravityComponent.html#a154749e09d2e15b1e1dc0d27c43a5ec2">   31</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classGravityComponent.html#a154749e09d2e15b1e1dc0d27c43a5ec2">GetGravity</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classGravityComponent.html#ab248be506c148c6ecc39ad5d23dccfa7">m_gravity</a>; }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classGravityComponent.html#a9b4d1f7bf675b728e8aed5ccfd1d9bf3">   32</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGravityComponent.html#a9b4d1f7bf675b728e8aed5ccfd1d9bf3">SetGravity</a>(<span class="keywordtype">float</span> g) { <a class="code hl_variable" href="classGravityComponent.html#ab248be506c148c6ecc39ad5d23dccfa7">m_gravity</a> = g; }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classGravityComponent.html#aced9d276c82d90415f2f6c63dc330640">   34</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classGravityComponent.html#aced9d276c82d90415f2f6c63dc330640">GetJumpPower</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classGravityComponent.html#ac1ad3a7a316f4062008df312f420e86c">m_jumpPower</a>; }</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classGravityComponent.html#ab00be0914c59d362977a94b78a7b5f06">   35</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGravityComponent.html#ab00be0914c59d362977a94b78a7b5f06">SetJumpPower</a>(<span class="keywordtype">float</span> power) { <a class="code hl_variable" href="classGravityComponent.html#ac1ad3a7a316f4062008df312f420e86c">m_jumpPower</a> = power; }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classGravityComponent.html#ab1f0837fa4f7130a588dcd6de91788b3">   37</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classGravityComponent.html#ab1f0837fa4f7130a588dcd6de91788b3">GetStepDownLimit</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classGravityComponent.html#a8820a94867c7df4cdf8914d64a15d4c3">m_stepDownLimit</a>; }</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classGravityComponent.html#a87b8ad2e0308194be9a1d29bbb36c296">   38</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGravityComponent.html#a87b8ad2e0308194be9a1d29bbb36c296">SetStepDownLimit</a>(<span class="keywordtype">float</span> limit) { <a class="code hl_variable" href="classGravityComponent.html#a8820a94867c7df4cdf8914d64a15d4c3">m_stepDownLimit</a> = limit; }</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classGravityComponent.html#a97c4ea63a6be1aace0de2740706188cf">   41</a></span>    <a class="code hl_class" href="classField.html">Field</a>* <a class="code hl_variable" href="classGravityComponent.html#a97c4ea63a6be1aace0de2740706188cf">m_field</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classGravityComponent.html#a283b342976b35dcf36fc4440848e12cc">   43</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classGravityComponent.html#a283b342976b35dcf36fc4440848e12cc">m_verticalVelocity</a> = 0.0f;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classGravityComponent.html#add010ba8fc397f97ce136518948d3953">   44</a></span>    <span class="keywordtype">bool</span>  <a class="code hl_variable" href="classGravityComponent.html#add010ba8fc397f97ce136518948d3953">m_isGrounded</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classGravityComponent.html#ab248be506c148c6ecc39ad5d23dccfa7">   46</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classGravityComponent.html#ab248be506c148c6ecc39ad5d23dccfa7">m_gravity</a> = -25.0f;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classGravityComponent.html#ac1ad3a7a316f4062008df312f420e86c">   47</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classGravityComponent.html#ac1ad3a7a316f4062008df312f420e86c">m_jumpPower</a> = 8.5f;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classGravityComponent.html#ad349cbe8728bf670b554f958844c704c">   48</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classGravityComponent.html#ad349cbe8728bf670b554f958844c704c">m_terminalVelocity</a> = -30.0f;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classGravityComponent.html#a8820a94867c7df4cdf8914d64a15d4c3">   49</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classGravityComponent.html#a8820a94867c7df4cdf8914d64a15d4c3">m_stepDownLimit</a> = 0.4f;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>};</div>
+</div>
+<div class="ttc" id="aComponent_8h_html"><div class="ttname"><a href="Component_8h.html">Component.h</a></div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93f"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a></div><div class="ttdeci">UpdatePhase</div><div class="ttdef"><b>Definition</b> Component.h:10</div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fa50ae99e9c35446c2580e4b540b0fd104"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa50ae99e9c35446c2580e4b540b0fd104">UpdatePhase::Physics</a></div><div class="ttdeci">@ Physics</div></div>
+<div class="ttc" id="aclassCComponent_html"><div class="ttname"><a href="classCComponent.html">CComponent</a></div><div class="ttdef"><b>Definition</b> Component.h:21</div></div>
+<div class="ttc" id="aclassField_html"><div class="ttname"><a href="classField.html">Field</a></div><div class="ttdef"><b>Definition</b> Field.h:7</div></div>
+<div class="ttc" id="aclassGravityComponent_html"><div class="ttname"><a href="classGravityComponent.html">GravityComponent</a></div><div class="ttdef"><b>Definition</b> GravityComponent.h:8</div></div>
+<div class="ttc" id="aclassGravityComponent_html_a0e24e27058c8c8438bb8c110e4f49426"><div class="ttname"><a href="classGravityComponent.html#a0e24e27058c8c8438bb8c110e4f49426">GravityComponent::GravityComponent</a></div><div class="ttdeci">GravityComponent()</div><div class="ttdef"><b>Definition</b> GravityComponent.cpp:8</div></div>
+<div class="ttc" id="aclassGravityComponent_html_a0f366c26e467ae8c4f412831cf1ca23e"><div class="ttname"><a href="classGravityComponent.html#a0f366c26e467ae8c4f412831cf1ca23e">GravityComponent::SetVerticalVelocity</a></div><div class="ttdeci">void SetVerticalVelocity(float vy)</div><div class="ttdef"><b>Definition</b> GravityComponent.h:29</div></div>
+<div class="ttc" id="aclassGravityComponent_html_a154749e09d2e15b1e1dc0d27c43a5ec2"><div class="ttname"><a href="classGravityComponent.html#a154749e09d2e15b1e1dc0d27c43a5ec2">GravityComponent::GetGravity</a></div><div class="ttdeci">float GetGravity() const</div><div class="ttdef"><b>Definition</b> GravityComponent.h:31</div></div>
+<div class="ttc" id="aclassGravityComponent_html_a283b342976b35dcf36fc4440848e12cc"><div class="ttname"><a href="classGravityComponent.html#a283b342976b35dcf36fc4440848e12cc">GravityComponent::m_verticalVelocity</a></div><div class="ttdeci">float m_verticalVelocity</div><div class="ttdef"><b>Definition</b> GravityComponent.h:43</div></div>
+<div class="ttc" id="aclassGravityComponent_html_a37dfdd9d2d2aa01f23f6d57e01a46acf"><div class="ttname"><a href="classGravityComponent.html#a37dfdd9d2d2aa01f23f6d57e01a46acf">GravityComponent::Start</a></div><div class="ttdeci">void Start() override</div><div class="ttdef"><b>Definition</b> GravityComponent.cpp:18</div></div>
+<div class="ttc" id="aclassGravityComponent_html_a6796fa3d54c877cd621bc9925ebfe7d5"><div class="ttname"><a href="classGravityComponent.html#a6796fa3d54c877cd621bc9925ebfe7d5">GravityComponent::GetVerticalVelocity</a></div><div class="ttdeci">float GetVerticalVelocity() const</div><div class="ttdef"><b>Definition</b> GravityComponent.h:28</div></div>
+<div class="ttc" id="aclassGravityComponent_html_a81ff57e7f4d2e467bbe9f56b26fd5043"><div class="ttname"><a href="classGravityComponent.html#a81ff57e7f4d2e467bbe9f56b26fd5043">GravityComponent::Update</a></div><div class="ttdeci">void Update(float deltaTime) override</div><div class="ttdef"><b>Definition</b> GravityComponent.cpp:62</div></div>
+<div class="ttc" id="aclassGravityComponent_html_a870f4aadf5658a312d1e18361d4b8c90"><div class="ttname"><a href="classGravityComponent.html#a870f4aadf5658a312d1e18361d4b8c90">GravityComponent::Jump</a></div><div class="ttdeci">void Jump()</div><div class="ttdef"><b>Definition</b> GravityComponent.cpp:24</div></div>
+<div class="ttc" id="aclassGravityComponent_html_a87b8ad2e0308194be9a1d29bbb36c296"><div class="ttname"><a href="classGravityComponent.html#a87b8ad2e0308194be9a1d29bbb36c296">GravityComponent::SetStepDownLimit</a></div><div class="ttdeci">void SetStepDownLimit(float limit)</div><div class="ttdef"><b>Definition</b> GravityComponent.h:38</div></div>
+<div class="ttc" id="aclassGravityComponent_html_a8820a94867c7df4cdf8914d64a15d4c3"><div class="ttname"><a href="classGravityComponent.html#a8820a94867c7df4cdf8914d64a15d4c3">GravityComponent::m_stepDownLimit</a></div><div class="ttdeci">float m_stepDownLimit</div><div class="ttdef"><b>Definition</b> GravityComponent.h:49</div></div>
+<div class="ttc" id="aclassGravityComponent_html_a96d5283550ee6c922848535861446680"><div class="ttname"><a href="classGravityComponent.html#a96d5283550ee6c922848535861446680">GravityComponent::GetUpdatePhase</a></div><div class="ttdeci">UpdatePhase GetUpdatePhase() const override</div><div class="ttdef"><b>Definition</b> GravityComponent.h:17</div></div>
+<div class="ttc" id="aclassGravityComponent_html_a97c4ea63a6be1aace0de2740706188cf"><div class="ttname"><a href="classGravityComponent.html#a97c4ea63a6be1aace0de2740706188cf">GravityComponent::m_field</a></div><div class="ttdeci">Field * m_field</div><div class="ttdef"><b>Definition</b> GravityComponent.h:41</div></div>
+<div class="ttc" id="aclassGravityComponent_html_a9b4d1f7bf675b728e8aed5ccfd1d9bf3"><div class="ttname"><a href="classGravityComponent.html#a9b4d1f7bf675b728e8aed5ccfd1d9bf3">GravityComponent::SetGravity</a></div><div class="ttdeci">void SetGravity(float g)</div><div class="ttdef"><b>Definition</b> GravityComponent.h:32</div></div>
+<div class="ttc" id="aclassGravityComponent_html_a9d8e7ff42221878c921e8135d7acd38f"><div class="ttname"><a href="classGravityComponent.html#a9d8e7ff42221878c921e8135d7acd38f">GravityComponent::SnapToGround</a></div><div class="ttdeci">void SnapToGround()</div><div class="ttdef"><b>Definition</b> GravityComponent.cpp:38</div></div>
+<div class="ttc" id="aclassGravityComponent_html_ab00be0914c59d362977a94b78a7b5f06"><div class="ttname"><a href="classGravityComponent.html#ab00be0914c59d362977a94b78a7b5f06">GravityComponent::SetJumpPower</a></div><div class="ttdeci">void SetJumpPower(float power)</div><div class="ttdef"><b>Definition</b> GravityComponent.h:35</div></div>
+<div class="ttc" id="aclassGravityComponent_html_ab1f0837fa4f7130a588dcd6de91788b3"><div class="ttname"><a href="classGravityComponent.html#ab1f0837fa4f7130a588dcd6de91788b3">GravityComponent::GetStepDownLimit</a></div><div class="ttdeci">float GetStepDownLimit() const</div><div class="ttdef"><b>Definition</b> GravityComponent.h:37</div></div>
+<div class="ttc" id="aclassGravityComponent_html_ab248be506c148c6ecc39ad5d23dccfa7"><div class="ttname"><a href="classGravityComponent.html#ab248be506c148c6ecc39ad5d23dccfa7">GravityComponent::m_gravity</a></div><div class="ttdeci">float m_gravity</div><div class="ttdef"><b>Definition</b> GravityComponent.h:46</div></div>
+<div class="ttc" id="aclassGravityComponent_html_ab61479cc7bf446a02e1b73bd7aabfd6a"><div class="ttname"><a href="classGravityComponent.html#ab61479cc7bf446a02e1b73bd7aabfd6a">GravityComponent::IsGrounded</a></div><div class="ttdeci">bool IsGrounded() const</div><div class="ttdef"><b>Definition</b> GravityComponent.h:27</div></div>
+<div class="ttc" id="aclassGravityComponent_html_ac1ad3a7a316f4062008df312f420e86c"><div class="ttname"><a href="classGravityComponent.html#ac1ad3a7a316f4062008df312f420e86c">GravityComponent::m_jumpPower</a></div><div class="ttdeci">float m_jumpPower</div><div class="ttdef"><b>Definition</b> GravityComponent.h:47</div></div>
+<div class="ttc" id="aclassGravityComponent_html_aced9d276c82d90415f2f6c63dc330640"><div class="ttname"><a href="classGravityComponent.html#aced9d276c82d90415f2f6c63dc330640">GravityComponent::GetJumpPower</a></div><div class="ttdeci">float GetJumpPower() const</div><div class="ttdef"><b>Definition</b> GravityComponent.h:34</div></div>
+<div class="ttc" id="aclassGravityComponent_html_ad349cbe8728bf670b554f958844c704c"><div class="ttname"><a href="classGravityComponent.html#ad349cbe8728bf670b554f958844c704c">GravityComponent::m_terminalVelocity</a></div><div class="ttdeci">float m_terminalVelocity</div><div class="ttdef"><b>Definition</b> GravityComponent.h:48</div></div>
+<div class="ttc" id="aclassGravityComponent_html_ad6238656fc553f525b2b320ef6306814"><div class="ttname"><a href="classGravityComponent.html#ad6238656fc553f525b2b320ef6306814">GravityComponent::~GravityComponent</a></div><div class="ttdeci">virtual ~GravityComponent()=default</div></div>
+<div class="ttc" id="aclassGravityComponent_html_add010ba8fc397f97ce136518948d3953"><div class="ttname"><a href="classGravityComponent.html#add010ba8fc397f97ce136518948d3953">GravityComponent::m_isGrounded</a></div><div class="ttdeci">bool m_isGrounded</div><div class="ttdef"><b>Definition</b> GravityComponent.h:44</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_5063f357ccae33c483b97cdd1e318acc.html">Components</a></li><li class="navelem"><a class="el" href="GravityComponent_8h.html">GravityComponent.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

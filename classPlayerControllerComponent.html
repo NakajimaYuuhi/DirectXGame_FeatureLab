@@ -1,0 +1,1097 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: PlayerControllerComponent クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classPlayerControllerComponent.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pri-methods">非公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classPlayerControllerComponent-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">PlayerControllerComponent クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="PlayerControllerComponent_8h_source.html">PlayerControllerComponent.h</a>&gt;</code></p>
+<div class="dynheader">
+PlayerControllerComponent の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent__inherit__graph.svg" width="214" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+PlayerControllerComponent 連携図</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a41a804cf3e708338e67bd03f6ba8de08" id="r_a41a804cf3e708338e67bd03f6ba8de08"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#a41a804cf3e708338e67bd03f6ba8de08">PlayerControllerComponent</a> ()</td></tr>
+<tr class="separator:a41a804cf3e708338e67bd03f6ba8de08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a476a6036a20e8dfd13e8ddff2c0baf" id="r_a3a476a6036a20e8dfd13e8ddff2c0baf"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#a3a476a6036a20e8dfd13e8ddff2c0baf">~PlayerControllerComponent</a> ()=default</td></tr>
+<tr class="separator:a3a476a6036a20e8dfd13e8ddff2c0baf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70896251b2d9061b3dd8ccb7fbfb73e8" id="r_a70896251b2d9061b3dd8ccb7fbfb73e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#a70896251b2d9061b3dd8ccb7fbfb73e8">Start</a> () override</td></tr>
+<tr class="separator:a70896251b2d9061b3dd8ccb7fbfb73e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15d832b810e7cde8289632ad4c6eb479" id="r_a15d832b810e7cde8289632ad4c6eb479"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#a15d832b810e7cde8289632ad4c6eb479">Update</a> (float deltaTime) override</td></tr>
+<tr class="separator:a15d832b810e7cde8289632ad4c6eb479"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2782a5959f4bf035498060c1bde8950" id="r_aa2782a5959f4bf035498060c1bde8950"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#aa2782a5959f4bf035498060c1bde8950">GetUpdatePhase</a> () const override</td></tr>
+<tr class="separator:aa2782a5959f4bf035498060c1bde8950"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5088a431877482b62415edbcf2ac5dea" id="r_a5088a431877482b62415edbcf2ac5dea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#a5088a431877482b62415edbcf2ac5dea">HasMoveInput</a> () const</td></tr>
+<tr class="separator:a5088a431877482b62415edbcf2ac5dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadf6d5bad5733ce26a60da9f2fa744eb" id="r_aadf6d5bad5733ce26a60da9f2fa744eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#aadf6d5bad5733ce26a60da9f2fa744eb">PerformAttack</a> ()</td></tr>
+<tr class="separator:aadf6d5bad5733ce26a60da9f2fa744eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab985164374b51825611c78a1d4521c42" id="r_ab985164374b51825611c78a1d4521c42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#ab985164374b51825611c78a1d4521c42">OnDamaged</a> ()</td></tr>
+<tr class="separator:ab985164374b51825611c78a1d4521c42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f38b2d769c4733a37a499a2c0cbfed7" id="r_a6f38b2d769c4733a37a499a2c0cbfed7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#a6f38b2d769c4733a37a499a2c0cbfed7">OnDie</a> ()</td></tr>
+<tr class="separator:a6f38b2d769c4733a37a499a2c0cbfed7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83719e4322c7a209be7d10b332334c9b" id="r_a83719e4322c7a209be7d10b332334c9b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2">PlayerControllerState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#a83719e4322c7a209be7d10b332334c9b">GetCurrentState</a> () const</td></tr>
+<tr class="separator:a83719e4322c7a209be7d10b332334c9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53068cb7e8bbed0de68d86cf8a0224c4" id="r_a53068cb7e8bbed0de68d86cf8a0224c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#a53068cb7e8bbed0de68d86cf8a0224c4">ChangeState</a> (<a class="el" href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2">PlayerControllerState</a> newState)</td></tr>
+<tr class="separator:a53068cb7e8bbed0de68d86cf8a0224c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classCComponent"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCComponent')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCComponent.html">CComponent</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:ab87a6940be69962c3f4f5a8552643245 inherit pub_methods_classCComponent" id="r_ab87a6940be69962c3f4f5a8552643245"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ab87a6940be69962c3f4f5a8552643245">CComponent</a> ()</td></tr>
+<tr class="separator:ab87a6940be69962c3f4f5a8552643245 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accf17908f97e4d07d7f04fbde292dcda inherit pub_methods_classCComponent" id="r_accf17908f97e4d07d7f04fbde292dcda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#accf17908f97e4d07d7f04fbde292dcda">CComponent</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:accf17908f97e4d07d7f04fbde292dcda inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2ad4d80f616aedbf6b08f33bdd9d2d5 inherit pub_methods_classCComponent" id="r_af2ad4d80f616aedbf6b08f33bdd9d2d5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#af2ad4d80f616aedbf6b08f33bdd9d2d5">~CComponent</a> ()=default</td></tr>
+<tr class="separator:af2ad4d80f616aedbf6b08f33bdd9d2d5 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9bf36b35de54f49a3d604da091228a4 inherit pub_methods_classCComponent" id="r_ac9bf36b35de54f49a3d604da091228a4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ac9bf36b35de54f49a3d604da091228a4">Init</a> ()</td></tr>
+<tr class="separator:ac9bf36b35de54f49a3d604da091228a4 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf3ad4406a744d3fa20d83cc704345cf inherit pub_methods_classCComponent" id="r_adf3ad4406a744d3fa20d83cc704345cf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#adf3ad4406a744d3fa20d83cc704345cf">Awake</a> ()</td></tr>
+<tr class="separator:adf3ad4406a744d3fa20d83cc704345cf inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad72e93375519950fa4cbc176ede60db1 inherit pub_methods_classCComponent" id="r_ad72e93375519950fa4cbc176ede60db1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ad72e93375519950fa4cbc176ede60db1">LateUpdate</a> (float deltaTime)</td></tr>
+<tr class="separator:ad72e93375519950fa4cbc176ede60db1 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26e97bcceac386d951092ade96512283 inherit pub_methods_classCComponent" id="r_a26e97bcceac386d951092ade96512283"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a26e97bcceac386d951092ade96512283">OnCollision</a> (<a class="el" href="classCObject.html">CObject</a> *_Other)</td></tr>
+<tr class="separator:a26e97bcceac386d951092ade96512283 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a281a46452f6f59625e5488936cd70aa7 inherit pub_methods_classCComponent" id="r_a281a46452f6f59625e5488936cd70aa7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a281a46452f6f59625e5488936cd70aa7">GetName</a> () const</td></tr>
+<tr class="separator:a281a46452f6f59625e5488936cd70aa7 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1df83625aa856f9cc7047da68dce131d inherit pub_methods_classCComponent" id="r_a1df83625aa856f9cc7047da68dce131d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a1df83625aa856f9cc7047da68dce131d">GetIsValid</a> () const</td></tr>
+<tr class="separator:a1df83625aa856f9cc7047da68dce131d inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf4188a21189f533eed52041962cafd4 inherit pub_methods_classCComponent" id="r_abf4188a21189f533eed52041962cafd4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#abf4188a21189f533eed52041962cafd4">GetIsVarid</a> () const</td></tr>
+<tr class="separator:abf4188a21189f533eed52041962cafd4 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5bf6fd967c58b6784aa399a27ce0eaa inherit pub_methods_classCComponent" id="r_ad5bf6fd967c58b6784aa399a27ce0eaa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ad5bf6fd967c58b6784aa399a27ce0eaa">SetName</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:ad5bf6fd967c58b6784aa399a27ce0eaa inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96b82c9108e83190f29a5dd8bafe59fe inherit pub_methods_classCComponent" id="r_a96b82c9108e83190f29a5dd8bafe59fe"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a96b82c9108e83190f29a5dd8bafe59fe">SetIsValid</a> (bool _IsValid)</td></tr>
+<tr class="separator:a96b82c9108e83190f29a5dd8bafe59fe inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ababe3aca6f026b146eb458dab2a57587 inherit pub_methods_classCComponent" id="r_ababe3aca6f026b146eb458dab2a57587"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ababe3aca6f026b146eb458dab2a57587">SetOwner</a> (<a class="el" href="classCObject.html">CObject</a> *_Object)</td></tr>
+<tr class="separator:ababe3aca6f026b146eb458dab2a57587 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa05b48a46eeaff9527c00de7547edd32 inherit pub_methods_classCComponent" id="r_aa05b48a46eeaff9527c00de7547edd32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#aa05b48a46eeaff9527c00de7547edd32">GetOwner</a> () const</td></tr>
+<tr class="separator:aa05b48a46eeaff9527c00de7547edd32 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+非公開メンバ関数</h2></td></tr>
+<tr class="memitem:aa55d9a963b28daa2b34e8a2fb0e20f0d" id="r_aa55d9a963b28daa2b34e8a2fb0e20f0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#aa55d9a963b28daa2b34e8a2fb0e20f0d">UpdateState</a> (float deltaTime)</td></tr>
+<tr class="separator:aa55d9a963b28daa2b34e8a2fb0e20f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab37fe82600baf1bbe6cdea1350b7fe37" id="r_ab37fe82600baf1bbe6cdea1350b7fe37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#ab37fe82600baf1bbe6cdea1350b7fe37">UpdateIdle</a> (float deltaTime)</td></tr>
+<tr class="separator:ab37fe82600baf1bbe6cdea1350b7fe37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a7374b35607517847f12dba5c8fe2d2" id="r_a8a7374b35607517847f12dba5c8fe2d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#a8a7374b35607517847f12dba5c8fe2d2">UpdateMove</a> (float deltaTime)</td></tr>
+<tr class="separator:a8a7374b35607517847f12dba5c8fe2d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ebedbc7fe494150495f863de38e4176" id="r_a3ebedbc7fe494150495f863de38e4176"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#a3ebedbc7fe494150495f863de38e4176">UpdateAttack</a> (float deltaTime)</td></tr>
+<tr class="separator:a3ebedbc7fe494150495f863de38e4176"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0ffc253375d69f2334642bab9765989" id="r_ad0ffc253375d69f2334642bab9765989"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#ad0ffc253375d69f2334642bab9765989">UpdateHurt</a> (float deltaTime)</td></tr>
+<tr class="separator:ad0ffc253375d69f2334642bab9765989"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affe6db08ffd8eb344f18a8ae1546d873" id="r_affe6db08ffd8eb344f18a8ae1546d873"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#affe6db08ffd8eb344f18a8ae1546d873">UpdateDead</a> (float deltaTime)</td></tr>
+<tr class="separator:affe6db08ffd8eb344f18a8ae1546d873"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc78d4914c9d207f8e9710dc15f77948" id="r_abc78d4914c9d207f8e9710dc15f77948"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#abc78d4914c9d207f8e9710dc15f77948">CalculateMoveDirection</a> () const</td></tr>
+<tr class="separator:abc78d4914c9d207f8e9710dc15f77948"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:a9cff269c20314c4c42fbadf9b5a1eecd" id="r_a9cff269c20314c4c42fbadf9b5a1eecd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2">PlayerControllerState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#a9cff269c20314c4c42fbadf9b5a1eecd">m_currentState</a> = <a class="el" href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2ae599161956d626eda4cb0a5ffb85271c">PlayerControllerState::Idle</a></td></tr>
+<tr class="separator:a9cff269c20314c4c42fbadf9b5a1eecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a0b8cf63694dd9768e6bc8c2500ee06" id="r_a8a0b8cf63694dd9768e6bc8c2500ee06"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#a8a0b8cf63694dd9768e6bc8c2500ee06">m_attackTimer</a> = 0.0f</td></tr>
+<tr class="separator:a8a0b8cf63694dd9768e6bc8c2500ee06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb89cce2295d54dce07f5b4a93fe2a9e" id="r_abb89cce2295d54dce07f5b4a93fe2a9e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#abb89cce2295d54dce07f5b4a93fe2a9e">m_hasAttacked</a> = false</td></tr>
+<tr class="separator:abb89cce2295d54dce07f5b4a93fe2a9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a412b11650eaa4777c69b05d1e2c275e7" id="r_a412b11650eaa4777c69b05d1e2c275e7"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#a412b11650eaa4777c69b05d1e2c275e7">ATTACK_DURATION</a> = 0.9f</td></tr>
+<tr class="separator:a412b11650eaa4777c69b05d1e2c275e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42f15fdc07c8fa9c86cd62294cad7b2a" id="r_a42f15fdc07c8fa9c86cd62294cad7b2a"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#a42f15fdc07c8fa9c86cd62294cad7b2a">CAST_TIMING</a> = 0.35f</td></tr>
+<tr class="separator:a42f15fdc07c8fa9c86cd62294cad7b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0463c85d50fa21e20cc21ee59148345c" id="r_a0463c85d50fa21e20cc21ee59148345c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#a0463c85d50fa21e20cc21ee59148345c">m_hurtTimer</a> = 0.0f</td></tr>
+<tr class="separator:a0463c85d50fa21e20cc21ee59148345c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c63ca3a1cfa3fcaf58330ba397d70a6" id="r_a8c63ca3a1cfa3fcaf58330ba397d70a6"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#a8c63ca3a1cfa3fcaf58330ba397d70a6">HURT_DURATION</a> = 0.6f</td></tr>
+<tr class="separator:a8c63ca3a1cfa3fcaf58330ba397d70a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9827ca0197599b6801ea4b249283b381" id="r_a9827ca0197599b6801ea4b249283b381"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#a9827ca0197599b6801ea4b249283b381">m_deadTimer</a> = 0.0f</td></tr>
+<tr class="separator:a9827ca0197599b6801ea4b249283b381"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b90ce559b44c061e34405d34b4cf291" id="r_a3b90ce559b44c061e34405d34b4cf291"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#a3b90ce559b44c061e34405d34b4cf291">m_hasTransitioned</a> = false</td></tr>
+<tr class="separator:a3b90ce559b44c061e34405d34b4cf291"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadd5f258ecde82f2355470788024a42e" id="r_aadd5f258ecde82f2355470788024a42e"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#aadd5f258ecde82f2355470788024a42e">DEATH_DURATION</a> = 1.2f</td></tr>
+<tr class="separator:aadd5f258ecde82f2355470788024a42e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30ed6c935688a1d707c9782e934015af" id="r_a30ed6c935688a1d707c9782e934015af"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCamera.html">Camera</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#a30ed6c935688a1d707c9782e934015af">m_camera</a> = nullptr</td></tr>
+<tr class="separator:a30ed6c935688a1d707c9782e934015af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dbb11eb68277c55849742b55e7600cf" id="r_a0dbb11eb68277c55849742b55e7600cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCharacterMovementComponent.html">CharacterMovementComponent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#a0dbb11eb68277c55849742b55e7600cf">m_movementComp</a> = nullptr</td></tr>
+<tr class="separator:a0dbb11eb68277c55849742b55e7600cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af098273f54fafcb911261c6811c35620" id="r_af098273f54fafcb911261c6811c35620"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGravityComponent.html">GravityComponent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#af098273f54fafcb911261c6811c35620">m_gravityComp</a> = nullptr</td></tr>
+<tr class="separator:af098273f54fafcb911261c6811c35620"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f0938a0fc312db99a0f147d13906d5a" id="r_a6f0938a0fc312db99a0f147d13906d5a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classHealthComponent.html">HealthComponent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerControllerComponent.html#a6f0938a0fc312db99a0f147d13906d5a">m_healthComp</a> = nullptr</td></tr>
+<tr class="separator:a6f0938a0fc312db99a0f147d13906d5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+その他の継承メンバ</h2></td></tr>
+<tr class="inherit_header pro_attribs_classCComponent"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classCComponent')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCComponent.html">CComponent</a> に属する継承限定公開変数類</td></tr>
+<tr class="memitem:a76959a9e98ef06163c56858026e9da5b inherit pro_attribs_classCComponent" id="r_a76959a9e98ef06163c56858026e9da5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a76959a9e98ef06163c56858026e9da5b">m_Owner</a> = nullptr</td></tr>
+<tr class="separator:a76959a9e98ef06163c56858026e9da5b inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4918d7f95edb1a545724dab2be500e75 inherit pro_attribs_classCComponent" id="r_a4918d7f95edb1a545724dab2be500e75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a4918d7f95edb1a545724dab2be500e75">m_ComponentName</a> = &quot;&quot;</td></tr>
+<tr class="separator:a4918d7f95edb1a545724dab2be500e75 inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f8c7080b1f9972952ceda4e155568cb inherit pro_attribs_classCComponent" id="r_a8f8c7080b1f9972952ceda4e155568cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a8f8c7080b1f9972952ceda4e155568cb">m_ComponentIsValid</a> = true</td></tr>
+<tr class="separator:a8f8c7080b1f9972952ceda4e155568cb inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="a41a804cf3e708338e67bd03f6ba8de08" name="a41a804cf3e708338e67bd03f6ba8de08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41a804cf3e708338e67bd03f6ba8de08">&#9670;&#160;</a></span>PlayerControllerComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PlayerControllerComponent::PlayerControllerComponent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3a476a6036a20e8dfd13e8ddff2c0baf" name="a3a476a6036a20e8dfd13e8ddff2c0baf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a476a6036a20e8dfd13e8ddff2c0baf">&#9670;&#160;</a></span>~PlayerControllerComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual PlayerControllerComponent::~PlayerControllerComponent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="abc78d4914c9d207f8e9710dc15f77948" name="abc78d4914c9d207f8e9710dc15f77948"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc78d4914c9d207f8e9710dc15f77948">&#9670;&#160;</a></span>CalculateMoveDirection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 PlayerControllerComponent::CalculateMoveDirection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_abc78d4914c9d207f8e9710dc15f77948_cgraph.svg" width="468" height="184"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_abc78d4914c9d207f8e9710dc15f77948_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a53068cb7e8bbed0de68d86cf8a0224c4" name="a53068cb7e8bbed0de68d86cf8a0224c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53068cb7e8bbed0de68d86cf8a0224c4">&#9670;&#160;</a></span>ChangeState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayerControllerComponent::ChangeState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2">PlayerControllerState</a>&#160;</td>
+          <td class="paramname"><em>newState</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_a53068cb7e8bbed0de68d86cf8a0224c4_cgraph.svg" width="440" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_a53068cb7e8bbed0de68d86cf8a0224c4_icgraph.svg" width="100%" height="578"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a83719e4322c7a209be7d10b332334c9b" name="a83719e4322c7a209be7d10b332334c9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83719e4322c7a209be7d10b332334c9b">&#9670;&#160;</a></span>GetCurrentState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2">PlayerControllerState</a> PlayerControllerComponent::GetCurrentState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_a83719e4322c7a209be7d10b332334c9b_icgraph.svg" width="535" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa2782a5959f4bf035498060c1bde8950" name="aa2782a5959f4bf035498060c1bde8950"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2782a5959f4bf035498060c1bde8950">&#9670;&#160;</a></span>GetUpdatePhase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a> PlayerControllerComponent::GetUpdatePhase </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCComponent.html#a8cb4ec11d3210b5f3278d8e55b7308bd">CComponent</a>を再実装しています。</p>
+
+</div>
+</div>
+<a id="a5088a431877482b62415edbcf2ac5dea" name="a5088a431877482b62415edbcf2ac5dea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5088a431877482b62415edbcf2ac5dea">&#9670;&#160;</a></span>HasMoveInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PlayerControllerComponent::HasMoveInput </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_a5088a431877482b62415edbcf2ac5dea_cgraph.svg" width="468" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_a5088a431877482b62415edbcf2ac5dea_icgraph.svg" width="100%" height="520"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ab985164374b51825611c78a1d4521c42" name="ab985164374b51825611c78a1d4521c42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab985164374b51825611c78a1d4521c42">&#9670;&#160;</a></span>OnDamaged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayerControllerComponent::OnDamaged </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_ab985164374b51825611c78a1d4521c42_cgraph.svg" width="100%" height="364"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a6f38b2d769c4733a37a499a2c0cbfed7" name="a6f38b2d769c4733a37a499a2c0cbfed7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f38b2d769c4733a37a499a2c0cbfed7">&#9670;&#160;</a></span>OnDie()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayerControllerComponent::OnDie </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_a6f38b2d769c4733a37a499a2c0cbfed7_cgraph.svg" width="476" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_a6f38b2d769c4733a37a499a2c0cbfed7_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aadf6d5bad5733ce26a60da9f2fa744eb" name="aadf6d5bad5733ce26a60da9f2fa744eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadf6d5bad5733ce26a60da9f2fa744eb">&#9670;&#160;</a></span>PerformAttack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayerControllerComponent::PerformAttack </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_aadf6d5bad5733ce26a60da9f2fa744eb_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_aadf6d5bad5733ce26a60da9f2fa744eb_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a70896251b2d9061b3dd8ccb7fbfb73e8" name="a70896251b2d9061b3dd8ccb7fbfb73e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70896251b2d9061b3dd8ccb7fbfb73e8">&#9670;&#160;</a></span>Start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayerControllerComponent::Start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCComponent.html#adcee296a2416501cf52755038d4f27eb">CComponent</a>を再実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_a70896251b2d9061b3dd8ccb7fbfb73e8_cgraph.svg" width="100%" height="447"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a15d832b810e7cde8289632ad4c6eb479" name="a15d832b810e7cde8289632ad4c6eb479"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15d832b810e7cde8289632ad4c6eb479">&#9670;&#160;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayerControllerComponent::Update </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCComponent.html#ae575194dbb8c5f6ad344bb8c17fa778b">CComponent</a>を再実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_a15d832b810e7cde8289632ad4c6eb479_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a3ebedbc7fe494150495f863de38e4176" name="a3ebedbc7fe494150495f863de38e4176"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ebedbc7fe494150495f863de38e4176">&#9670;&#160;</a></span>UpdateAttack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayerControllerComponent::UpdateAttack </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_a3ebedbc7fe494150495f863de38e4176_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_a3ebedbc7fe494150495f863de38e4176_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="affe6db08ffd8eb344f18a8ae1546d873" name="affe6db08ffd8eb344f18a8ae1546d873"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affe6db08ffd8eb344f18a8ae1546d873">&#9670;&#160;</a></span>UpdateDead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayerControllerComponent::UpdateDead </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_affe6db08ffd8eb344f18a8ae1546d873_cgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_affe6db08ffd8eb344f18a8ae1546d873_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ad0ffc253375d69f2334642bab9765989" name="ad0ffc253375d69f2334642bab9765989"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0ffc253375d69f2334642bab9765989">&#9670;&#160;</a></span>UpdateHurt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayerControllerComponent::UpdateHurt </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_ad0ffc253375d69f2334642bab9765989_cgraph.svg" width="100%" height="412"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_ad0ffc253375d69f2334642bab9765989_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ab37fe82600baf1bbe6cdea1350b7fe37" name="ab37fe82600baf1bbe6cdea1350b7fe37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab37fe82600baf1bbe6cdea1350b7fe37">&#9670;&#160;</a></span>UpdateIdle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayerControllerComponent::UpdateIdle </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_ab37fe82600baf1bbe6cdea1350b7fe37_cgraph.svg" width="100%" height="437"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_ab37fe82600baf1bbe6cdea1350b7fe37_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a8a7374b35607517847f12dba5c8fe2d2" name="a8a7374b35607517847f12dba5c8fe2d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a7374b35607517847f12dba5c8fe2d2">&#9670;&#160;</a></span>UpdateMove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayerControllerComponent::UpdateMove </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_a8a7374b35607517847f12dba5c8fe2d2_cgraph.svg" width="100%" height="564"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_a8a7374b35607517847f12dba5c8fe2d2_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aa55d9a963b28daa2b34e8a2fb0e20f0d" name="aa55d9a963b28daa2b34e8a2fb0e20f0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa55d9a963b28daa2b34e8a2fb0e20f0d">&#9670;&#160;</a></span>UpdateState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayerControllerComponent::UpdateState </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_aa55d9a963b28daa2b34e8a2fb0e20f0d_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPlayerControllerComponent_aa55d9a963b28daa2b34e8a2fb0e20f0d_icgraph.svg" width="464" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a412b11650eaa4777c69b05d1e2c275e7" name="a412b11650eaa4777c69b05d1e2c275e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a412b11650eaa4777c69b05d1e2c275e7">&#9670;&#160;</a></span>ATTACK_DURATION</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float PlayerControllerComponent::ATTACK_DURATION = 0.9f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a42f15fdc07c8fa9c86cd62294cad7b2a" name="a42f15fdc07c8fa9c86cd62294cad7b2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42f15fdc07c8fa9c86cd62294cad7b2a">&#9670;&#160;</a></span>CAST_TIMING</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float PlayerControllerComponent::CAST_TIMING = 0.35f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aadd5f258ecde82f2355470788024a42e" name="aadd5f258ecde82f2355470788024a42e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadd5f258ecde82f2355470788024a42e">&#9670;&#160;</a></span>DEATH_DURATION</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float PlayerControllerComponent::DEATH_DURATION = 1.2f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8c63ca3a1cfa3fcaf58330ba397d70a6" name="a8c63ca3a1cfa3fcaf58330ba397d70a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c63ca3a1cfa3fcaf58330ba397d70a6">&#9670;&#160;</a></span>HURT_DURATION</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float PlayerControllerComponent::HURT_DURATION = 0.6f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8a0b8cf63694dd9768e6bc8c2500ee06" name="a8a0b8cf63694dd9768e6bc8c2500ee06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a0b8cf63694dd9768e6bc8c2500ee06">&#9670;&#160;</a></span>m_attackTimer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PlayerControllerComponent::m_attackTimer = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a30ed6c935688a1d707c9782e934015af" name="a30ed6c935688a1d707c9782e934015af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30ed6c935688a1d707c9782e934015af">&#9670;&#160;</a></span>m_camera</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCamera.html">Camera</a>* PlayerControllerComponent::m_camera = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9cff269c20314c4c42fbadf9b5a1eecd" name="a9cff269c20314c4c42fbadf9b5a1eecd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cff269c20314c4c42fbadf9b5a1eecd">&#9670;&#160;</a></span>m_currentState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2">PlayerControllerState</a> PlayerControllerComponent::m_currentState = <a class="el" href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2ae599161956d626eda4cb0a5ffb85271c">PlayerControllerState::Idle</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9827ca0197599b6801ea4b249283b381" name="a9827ca0197599b6801ea4b249283b381"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9827ca0197599b6801ea4b249283b381">&#9670;&#160;</a></span>m_deadTimer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PlayerControllerComponent::m_deadTimer = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af098273f54fafcb911261c6811c35620" name="af098273f54fafcb911261c6811c35620"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af098273f54fafcb911261c6811c35620">&#9670;&#160;</a></span>m_gravityComp</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classGravityComponent.html">GravityComponent</a>* PlayerControllerComponent::m_gravityComp = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abb89cce2295d54dce07f5b4a93fe2a9e" name="abb89cce2295d54dce07f5b4a93fe2a9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb89cce2295d54dce07f5b4a93fe2a9e">&#9670;&#160;</a></span>m_hasAttacked</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PlayerControllerComponent::m_hasAttacked = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3b90ce559b44c061e34405d34b4cf291" name="a3b90ce559b44c061e34405d34b4cf291"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b90ce559b44c061e34405d34b4cf291">&#9670;&#160;</a></span>m_hasTransitioned</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PlayerControllerComponent::m_hasTransitioned = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6f0938a0fc312db99a0f147d13906d5a" name="a6f0938a0fc312db99a0f147d13906d5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f0938a0fc312db99a0f147d13906d5a">&#9670;&#160;</a></span>m_healthComp</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classHealthComponent.html">HealthComponent</a>* PlayerControllerComponent::m_healthComp = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0463c85d50fa21e20cc21ee59148345c" name="a0463c85d50fa21e20cc21ee59148345c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0463c85d50fa21e20cc21ee59148345c">&#9670;&#160;</a></span>m_hurtTimer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PlayerControllerComponent::m_hurtTimer = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0dbb11eb68277c55849742b55e7600cf" name="a0dbb11eb68277c55849742b55e7600cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dbb11eb68277c55849742b55e7600cf">&#9670;&#160;</a></span>m_movementComp</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCharacterMovementComponent.html">CharacterMovementComponent</a>* PlayerControllerComponent::m_movementComp = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/Components/<a class="el" href="PlayerControllerComponent_8h_source.html">PlayerControllerComponent.h</a></li>
+<li>Source/Components/<a class="el" href="PlayerControllerComponent_8cpp.html">PlayerControllerComponent.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classPlayerControllerComponent.html">PlayerControllerComponent</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

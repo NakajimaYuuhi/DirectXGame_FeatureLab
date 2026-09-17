@@ -99,7 +99,7 @@ var searchData=
   ['demowindowwidgetstooltips_96',['DemoWindowWidgetsTooltips',['../imgui__demo_8cpp.html#a0a4e61f18178d482ba70e8ca6023565b',1,'imgui_demo.cpp']]],
   ['demowindowwidgetstreenodes_97',['DemoWindowWidgetsTreeNodes',['../imgui__demo_8cpp.html#a59f70d69f9361b5faabb6668d0b6b277',1,'imgui_demo.cpp']]],
   ['demowindowwidgetsverticalsliders_98',['DemoWindowWidgetsVerticalSliders',['../imgui__demo_8cpp.html#a1626099f5d9236510b164e8418a3677b',1,'imgui_demo.cpp']]],
-  ['destroy_99',['destroy',['../classCDescriptorHeapAllocator.html#abb8572b60b4ec05badab96536e60c27f',1,'CDescriptorHeapAllocator::Destroy()'],['../classnlohmann_1_1basic__json.html#a8a3796c85be443b2b9c1e5ee3ad57ef2',1,'nlohmann::basic_json::destroy()']]],
+  ['destroy_99',['destroy',['../classnlohmann_1_1basic__json.html#a8a3796c85be443b2b9c1e5ee3ad57ef2',1,'nlohmann::basic_json::destroy()'],['../classCDescriptorHeapAllocator.html#abb8572b60b4ec05badab96536e60c27f',1,'CDescriptorHeapAllocator::Destroy()']]],
   ['destroy_5f_100',['destroy_',['../classtinygltf__json.html#a228ecc81f0a7c569bd9fe4e362465c9b',1,'tinygltf_json']]],
   ['destroycontext_101',['DestroyContext',['../namespaceImGui.html#ab9132deece575023170cd8e681d0581d',1,'ImGui']]],
   ['destroypixels_102',['DestroyPixels',['../structImTextureData.html#a63aab478701f325532298d9fe0c6d0dd',1,'ImTextureData']]],

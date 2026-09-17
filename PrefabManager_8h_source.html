@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Core/PrefabManager.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('PrefabManager_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">PrefabManager.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="PrefabManager_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="Object_8h.html">Object.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="classPrefabManager.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="classPrefabManager.html">PrefabManager</a></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classPrefabManager.html#af8a8af85f6bcb600bbbedb4a10b025d1">   10</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="classPrefabManager.html#af8a8af85f6bcb600bbbedb4a10b025d1">PrefabFactory</a> = std::function&lt;<a class="code hl_class" href="classCObject.html">CObject</a>*(<span class="keyword">const</span> std::string&amp; name)&gt;;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="}">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classPrefabManager.html#a2b8b026aae26fc903e72da06f8b4e9a5">   12</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classPrefabManager.html">PrefabManager</a>&amp; <a class="code hl_function" href="classPrefabManager.html#a2b8b026aae26fc903e72da06f8b4e9a5">GetInstance</a>()</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keyword">static</span> <a class="code hl_class" href="classPrefabManager.html">PrefabManager</a> instance;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <span class="keywordflow">return</span> instance;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    }</div>
+</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPrefabManager.html#a10b26e7ffd545ff7eeeb8d86c89d1308">RegisterPrefab</a>(<span class="keyword">const</span> std::string&amp; typeName, <a class="code hl_typedef" href="classPrefabManager.html#af8a8af85f6bcb600bbbedb4a10b025d1">PrefabFactory</a> factory);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_class" href="classCObject.html">CObject</a>* <a class="code hl_function" href="classPrefabManager.html#ac94b77dc00f6ccf4d295041bb4552a58">Instantiate</a>(<span class="keyword">const</span> std::string&amp; typeName, <span class="keyword">const</span> std::string&amp; instanceName = <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="comment">// Register built-in component-based prefabs</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPrefabManager.html#a2cd1c22ece86ab020db5c82f4d4928b8">InitDefaultPrefabs</a>();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_function" href="classPrefabManager.html#a172a21833b61f5883d2db26e3441b37d">PrefabManager</a>();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classPrefabManager.html#a168cacb7df1164425bc9a67dd445bf12">   26</a></span>    <a class="code hl_function" href="classPrefabManager.html#a168cacb7df1164425bc9a67dd445bf12">~PrefabManager</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classPrefabManager.html#add1526ea4f986929ab36fbae47411476">   28</a></span>    <a class="code hl_function" href="classPrefabManager.html#add1526ea4f986929ab36fbae47411476">PrefabManager</a>(<span class="keyword">const</span> <a class="code hl_class" href="classPrefabManager.html">PrefabManager</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classPrefabManager.html#a88ae45c795ca46f303e5aafdab4fd617">   29</a></span>    <a class="code hl_class" href="classPrefabManager.html">PrefabManager</a>&amp; <a class="code hl_function" href="classPrefabManager.html#a88ae45c795ca46f303e5aafdab4fd617">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classPrefabManager.html">PrefabManager</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classPrefabManager.html#a6bacacf4718aa76aa25da68ef485c21f">   31</a></span>    std::unordered_map&lt;std::string, PrefabFactory&gt; <a class="code hl_variable" href="classPrefabManager.html#a6bacacf4718aa76aa25da68ef485c21f">m_registry</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>};</div>
+</div>
+<div class="ttc" id="aObject_8h_html"><div class="ttname"><a href="Object_8h.html">Object.h</a></div></div>
+<div class="ttc" id="aclassCObject_html"><div class="ttname"><a href="classCObject.html">CObject</a></div><div class="ttdef"><b>Definition</b> Object.h:43</div></div>
+<div class="ttc" id="aclassPrefabManager_html"><div class="ttname"><a href="classPrefabManager.html">PrefabManager</a></div><div class="ttdef"><b>Definition</b> PrefabManager.h:8</div></div>
+<div class="ttc" id="aclassPrefabManager_html_a10b26e7ffd545ff7eeeb8d86c89d1308"><div class="ttname"><a href="classPrefabManager.html#a10b26e7ffd545ff7eeeb8d86c89d1308">PrefabManager::RegisterPrefab</a></div><div class="ttdeci">void RegisterPrefab(const std::string &amp;typeName, PrefabFactory factory)</div><div class="ttdef"><b>Definition</b> PrefabManager.cpp:20</div></div>
+<div class="ttc" id="aclassPrefabManager_html_a168cacb7df1164425bc9a67dd445bf12"><div class="ttname"><a href="classPrefabManager.html#a168cacb7df1164425bc9a67dd445bf12">PrefabManager::~PrefabManager</a></div><div class="ttdeci">~PrefabManager()=default</div></div>
+<div class="ttc" id="aclassPrefabManager_html_a172a21833b61f5883d2db26e3441b37d"><div class="ttname"><a href="classPrefabManager.html#a172a21833b61f5883d2db26e3441b37d">PrefabManager::PrefabManager</a></div><div class="ttdeci">PrefabManager()</div><div class="ttdef"><b>Definition</b> PrefabManager.cpp:15</div></div>
+<div class="ttc" id="aclassPrefabManager_html_a2b8b026aae26fc903e72da06f8b4e9a5"><div class="ttname"><a href="classPrefabManager.html#a2b8b026aae26fc903e72da06f8b4e9a5">PrefabManager::GetInstance</a></div><div class="ttdeci">static PrefabManager &amp; GetInstance()</div><div class="ttdef"><b>Definition</b> PrefabManager.h:12</div></div>
+<div class="ttc" id="aclassPrefabManager_html_a2cd1c22ece86ab020db5c82f4d4928b8"><div class="ttname"><a href="classPrefabManager.html#a2cd1c22ece86ab020db5c82f4d4928b8">PrefabManager::InitDefaultPrefabs</a></div><div class="ttdeci">void InitDefaultPrefabs()</div><div class="ttdef"><b>Definition</b> PrefabManager.cpp:36</div></div>
+<div class="ttc" id="aclassPrefabManager_html_a6bacacf4718aa76aa25da68ef485c21f"><div class="ttname"><a href="classPrefabManager.html#a6bacacf4718aa76aa25da68ef485c21f">PrefabManager::m_registry</a></div><div class="ttdeci">std::unordered_map&lt; std::string, PrefabFactory &gt; m_registry</div><div class="ttdef"><b>Definition</b> PrefabManager.h:31</div></div>
+<div class="ttc" id="aclassPrefabManager_html_a88ae45c795ca46f303e5aafdab4fd617"><div class="ttname"><a href="classPrefabManager.html#a88ae45c795ca46f303e5aafdab4fd617">PrefabManager::operator=</a></div><div class="ttdeci">PrefabManager &amp; operator=(const PrefabManager &amp;)=delete</div></div>
+<div class="ttc" id="aclassPrefabManager_html_ac94b77dc00f6ccf4d295041bb4552a58"><div class="ttname"><a href="classPrefabManager.html#ac94b77dc00f6ccf4d295041bb4552a58">PrefabManager::Instantiate</a></div><div class="ttdeci">CObject * Instantiate(const std::string &amp;typeName, const std::string &amp;instanceName=&quot;&quot;)</div><div class="ttdef"><b>Definition</b> PrefabManager.cpp:25</div></div>
+<div class="ttc" id="aclassPrefabManager_html_add1526ea4f986929ab36fbae47411476"><div class="ttname"><a href="classPrefabManager.html#add1526ea4f986929ab36fbae47411476">PrefabManager::PrefabManager</a></div><div class="ttdeci">PrefabManager(const PrefabManager &amp;)=delete</div></div>
+<div class="ttc" id="aclassPrefabManager_html_af8a8af85f6bcb600bbbedb4a10b025d1"><div class="ttname"><a href="classPrefabManager.html#af8a8af85f6bcb600bbbedb4a10b025d1">PrefabManager::PrefabFactory</a></div><div class="ttdeci">std::function&lt; CObject *(const std::string &amp;name)&gt; PrefabFactory</div><div class="ttdef"><b>Definition</b> PrefabManager.h:10</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_1ad6433457b0067ef8f54a4fa85f5c9a.html">Core</a></li><li class="navelem"><a class="el" href="PrefabManager_8h.html">PrefabManager.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

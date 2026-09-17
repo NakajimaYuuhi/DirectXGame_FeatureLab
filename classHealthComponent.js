@@ -1,0 +1,27 @@
+var classHealthComponent =
+[
+    [ "HealthComponent", "classHealthComponent.html#afa9efa34a1dd15a988ac0cf7f9659622", null ],
+    [ "HealthComponent", "classHealthComponent.html#ae3d57c7ea6036483e8f2a951e1afdba1", null ],
+    [ "~HealthComponent", "classHealthComponent.html#a8fd827837c51977eb00aa179df5a273f", null ],
+    [ "GetHP", "classHealthComponent.html#a1d64fc1750ef382e07015890effbb339", null ],
+    [ "GetMaxHP", "classHealthComponent.html#a5a465696ddcca26386731d96f828a0dd", null ],
+    [ "GetUpdatePhase", "classHealthComponent.html#a8222c48301943b2f2da6e6278609e4b7", null ],
+    [ "IsDead", "classHealthComponent.html#af441fa50514c596952a50fd15f7bab79", null ],
+    [ "IsInvincible", "classHealthComponent.html#a958d1c1b905c2e24b4b2904b7ecd36e5", null ],
+    [ "SetBlinkInterval", "classHealthComponent.html#aefe0b3186350824fe17cf54db022083e", null ],
+    [ "SetHP", "classHealthComponent.html#aecf30d7a7d743a8f49afffc1445746c4", null ],
+    [ "SetInvincibleDuration", "classHealthComponent.html#a1af4ac43277704f24d773c325b227acc", null ],
+    [ "SetMaxHP", "classHealthComponent.html#a8b62aaeb7ddbd7641a26ec7ed5668e9a", null ],
+    [ "SetOnDamagedCallback", "classHealthComponent.html#ad1626f038404c3ce200b65819407fd7a", null ],
+    [ "SetOnDieCallback", "classHealthComponent.html#a27bd6b76670ce54b48db247cf6f11859", null ],
+    [ "Start", "classHealthComponent.html#a32486318d78eec98a8ba678d3a68038a", null ],
+    [ "TakeDamage", "classHealthComponent.html#a2e2183226a56e3e3cc20aafc192d0c4b", null ],
+    [ "Update", "classHealthComponent.html#a4f77b6825d531194ba11fb343c348213", null ],
+    [ "m_blinkInterval", "classHealthComponent.html#aff1f036b8c9b74524dc746f45ff7ac03", null ],
+    [ "m_hp", "classHealthComponent.html#a0e2ae3022142bb851a5e10b69e3d7475", null ],
+    [ "m_invincibleDuration", "classHealthComponent.html#a3a290ec487aa287e28bb3ac873cbab25", null ],
+    [ "m_invincibleTimer", "classHealthComponent.html#a0865c687e4a8fd1dff877b201fbe3882", null ],
+    [ "m_maxHp", "classHealthComponent.html#a90ebdafde03611e8c20a32d263664112", null ],
+    [ "m_onDamaged", "classHealthComponent.html#add458336b6ac24c406fc0a042edf757b", null ],
+    [ "m_onDie", "classHealthComponent.html#a983e4aa904453c65329aef51c8d73877", null ]
+];

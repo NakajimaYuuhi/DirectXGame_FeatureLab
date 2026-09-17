@@ -2059,7 +2059,7 @@ $(document).ready(function(){initNavTree('tiny__gltf_8h_source.html',''); initRe
 <div class="line"><a id="l01982" name="l01982"></a><span class="lineno"> 1982</span>         Equals(this-&gt;minValues, other.minValues) &amp;&amp; this-&gt;name == other.name &amp;&amp;</div>
 <div class="line"><a id="l01983" name="l01983"></a><span class="lineno"> 1983</span>         this-&gt;normalized == other.normalized &amp;&amp; this-&gt;type == other.type;</div>
 <div class="line"><a id="l01984" name="l01984"></a><span class="lineno"> 1984</span>}</div>
-<div class="line"><a id="l01985" name="l01985"></a><span class="lineno"> 1985</span><span class="keywordtype">bool</span> Animation::operator==(<span class="keyword">const</span> Animation &amp;other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l01985" name="l01985"></a><span class="lineno"> 1985</span><span class="keywordtype">bool</span> Animation::operator==(<span class="keyword">const</span> <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fad6b6b668dbca9d4fe774bb654226ebe3">Animation</a> &amp;other)<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l01986" name="l01986"></a><span class="lineno"> 1986</span>  <span class="keywordflow">return</span> this-&gt;channels == other.channels &amp;&amp;</div>
 <div class="line"><a id="l01987" name="l01987"></a><span class="lineno"> 1987</span>         this-&gt;extensions == other.extensions &amp;&amp; this-&gt;extras == other.extras &amp;&amp;</div>
 <div class="line"><a id="l01988" name="l01988"></a><span class="lineno"> 1988</span>         this-&gt;name == other.name &amp;&amp; this-&gt;samplers == other.samplers;</div>
@@ -5628,7 +5628,7 @@ $(document).ready(function(){initNavTree('tiny__gltf_8h_source.html',''); initRe
 <div class="line"><a id="l05551" name="l05551"></a><span class="lineno"> 5551</span>  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l05552" name="l05552"></a><span class="lineno"> 5552</span>}</div>
 <div class="line"><a id="l05553" name="l05553"></a><span class="lineno"> 5553</span> </div>
-<div class="line"><a id="l05554" name="l05554"></a><span class="lineno"> 5554</span><span class="keyword">static</span> <span class="keywordtype">bool</span> ParseAnimation(Animation *animation, std::string *err,</div>
+<div class="line"><a id="l05554" name="l05554"></a><span class="lineno"> 5554</span><span class="keyword">static</span> <span class="keywordtype">bool</span> ParseAnimation(<a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fad6b6b668dbca9d4fe774bb654226ebe3">Animation</a> *animation, std::string *err,</div>
 <div class="line"><a id="l05555" name="l05555"></a><span class="lineno"> 5555</span>                           <span class="keyword">const</span> detail::json &amp;o,</div>
 <div class="line"><a id="l05556" name="l05556"></a><span class="lineno"> 5556</span>                           <span class="keywordtype">bool</span> store_original_json_for_extras_and_extensions) {</div>
 <div class="line"><a id="l05557" name="l05557"></a><span class="lineno"> 5557</span>  {</div>
@@ -6599,7 +6599,7 @@ $(document).ready(function(){initNavTree('tiny__gltf_8h_source.html',''); initRe
 <div class="line"><a id="l06522" name="l06522"></a><span class="lineno"> 6522</span>        }</div>
 <div class="line"><a id="l06523" name="l06523"></a><span class="lineno"> 6523</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l06524" name="l06524"></a><span class="lineno"> 6524</span>      }</div>
-<div class="line"><a id="l06525" name="l06525"></a><span class="lineno"> 6525</span>      Animation animation;</div>
+<div class="line"><a id="l06525" name="l06525"></a><span class="lineno"> 6525</span>      <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fad6b6b668dbca9d4fe774bb654226ebe3">Animation</a> animation;</div>
 <div class="line"><a id="l06526" name="l06526"></a><span class="lineno"> 6526</span>      <span class="keywordflow">if</span> (!ParseAnimation(&amp;animation, err, o,</div>
 <div class="line"><a id="l06527" name="l06527"></a><span class="lineno"> 6527</span>                          store_original_json_for_extras_and_extensions_)) {</div>
 <div class="line"><a id="l06528" name="l06528"></a><span class="lineno"> 6528</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -7522,7 +7522,7 @@ $(document).ready(function(){initNavTree('tiny__gltf_8h_source.html',''); initRe
 <div class="line"><a id="l07447" name="l07447"></a><span class="lineno"> 7447</span>  SerializeExtrasAndExtensions(sampler, o);</div>
 <div class="line"><a id="l07448" name="l07448"></a><span class="lineno"> 7448</span>}</div>
 <div class="line"><a id="l07449" name="l07449"></a><span class="lineno"> 7449</span> </div>
-<div class="line"><a id="l07450" name="l07450"></a><span class="lineno"> 7450</span><span class="keyword">static</span> <span class="keywordtype">void</span> SerializeGltfAnimation(<span class="keyword">const</span> Animation &amp;animation,</div>
+<div class="line"><a id="l07450" name="l07450"></a><span class="lineno"> 7450</span><span class="keyword">static</span> <span class="keywordtype">void</span> SerializeGltfAnimation(<span class="keyword">const</span> <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fad6b6b668dbca9d4fe774bb654226ebe3">Animation</a> &amp;animation,</div>
 <div class="line"><a id="l07451" name="l07451"></a><span class="lineno"> 7451</span>                                   detail::json &amp;o) {</div>
 <div class="line"><a id="l07452" name="l07452"></a><span class="lineno"> 7452</span>  <span class="keywordflow">if</span> (!animation.name.empty())</div>
 <div class="line"><a id="l07453" name="l07453"></a><span class="lineno"> 7453</span>    SerializeStringProperty(<span class="stringliteral">&quot;name&quot;</span>, animation.name, o);</div>
@@ -8825,6 +8825,7 @@ $(document).ready(function(){initNavTree('tiny__gltf_8h_source.html',''); initRe
 <div class="line"><a id="l08755" name="l08755"></a><span class="lineno"> 8755</span> </div>
 <div class="line"><a id="l08756" name="l08756"></a><span class="lineno"> 8756</span><span class="preprocessor">#endif  </span><span class="comment">// TINYGLTF_IMPLEMENTATION</span></div>
 <div class="ttc" id="aBox_8cpp_html_ae81641fb60da5c76e05d08c3a76f7ecc"><div class="ttname"><a href="Box_8cpp.html#ae81641fb60da5c76e05d08c3a76f7ecc">indices</a></div><div class="ttdeci">uint16_t indices[]</div><div class="ttdef"><b>Definition</b> Box.cpp:70</div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fad6b6b668dbca9d4fe774bb654226ebe3"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fad6b6b668dbca9d4fe774bb654226ebe3">UpdatePhase::Animation</a></div><div class="ttdeci">@ Animation</div></div>
 <div class="ttc" id="aModel_8h_html_a2586a399e1b0584b7c5c4c2d268aa532"><div class="ttname"><a href="Model_8h.html#a2586a399e1b0584b7c5c4c2d268aa532">Mesh</a></div><div class="ttdeci">SharedPtr&lt; CMesh &gt; Mesh</div><div class="ttdef"><b>Definition</b> Model.h:28</div></div>
 <div class="ttc" id="aModel_8h_html_af087d1caf118f67f826a3530d18bfcd3"><div class="ttname"><a href="Model_8h.html#af087d1caf118f67f826a3530d18bfcd3">Material</a></div><div class="ttdeci">SharedPtr&lt; CMaterial &gt; Material</div><div class="ttdef"><b>Definition</b> Model.h:32</div></div>
 <div class="ttc" id="aSceneSerializer_8cpp_html_ab701e3ac61a85b337ec5c1abaad6742d"><div class="ttname"><a href="SceneSerializer_8cpp.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a></div><div class="ttdeci">nlohmann::json json</div><div class="ttdef"><b>Definition</b> SceneSerializer.cpp:25</div></div>

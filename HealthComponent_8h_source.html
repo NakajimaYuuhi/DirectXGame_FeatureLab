@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Components/HealthComponent.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('HealthComponent_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">HealthComponent.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="HealthComponent_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="Component_8h.html">Component.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="classHealthComponent.html">    5</a></span><span class="keyword">class </span><a class="code hl_class" href="classHealthComponent.html">HealthComponent</a> : <span class="keyword">public</span> <a class="code hl_class" href="classCComponent.html">CComponent</a></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <a class="code hl_function" href="classHealthComponent.html#afa9efa34a1dd15a988ac0cf7f9659622">HealthComponent</a>();</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_function" href="classHealthComponent.html#afa9efa34a1dd15a988ac0cf7f9659622">HealthComponent</a>(<span class="keywordtype">int</span> maxHp, <span class="keywordtype">float</span> invincibleDuration = 1.5f, <span class="keywordtype">float</span> blinkInterval = 0.08f);</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classHealthComponent.html#a8fd827837c51977eb00aa179df5a273f">   10</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classHealthComponent.html#a8fd827837c51977eb00aa179df5a273f">~HealthComponent</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classHealthComponent.html#a32486318d78eec98a8ba678d3a68038a">Start</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classHealthComponent.html#a4f77b6825d531194ba11fb343c348213">Update</a>(<span class="keywordtype">float</span> deltaTime) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classHealthComponent.html#a8222c48301943b2f2da6e6278609e4b7">   15</a></span>    <a class="code hl_enumeration" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a> <a class="code hl_function" href="classHealthComponent.html#a8222c48301943b2f2da6e6278609e4b7">GetUpdatePhase</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa8f94c0495202ed76c429ac546efcbc0b">UpdatePhase::PostPhysics</a>; }</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="comment">// Damage handling</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classHealthComponent.html#a2e2183226a56e3e3cc20aafc192d0c4b">TakeDamage</a>(<span class="keywordtype">int</span> damage);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="comment">// State getters</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classHealthComponent.html#a1d64fc1750ef382e07015890effbb339">   21</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classHealthComponent.html#a1d64fc1750ef382e07015890effbb339">GetHP</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classHealthComponent.html#a0e2ae3022142bb851a5e10b69e3d7475">m_hp</a>; }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classHealthComponent.html#a5a465696ddcca26386731d96f828a0dd">   22</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classHealthComponent.html#a5a465696ddcca26386731d96f828a0dd">GetMaxHP</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classHealthComponent.html#a90ebdafde03611e8c20a32d263664112">m_maxHp</a>; }</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classHealthComponent.html#af441fa50514c596952a50fd15f7bab79">   23</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classHealthComponent.html#af441fa50514c596952a50fd15f7bab79">IsDead</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classHealthComponent.html#a0e2ae3022142bb851a5e10b69e3d7475">m_hp</a> &lt;= 0; }</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classHealthComponent.html#a958d1c1b905c2e24b4b2904b7ecd36e5">   24</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classHealthComponent.html#a958d1c1b905c2e24b4b2904b7ecd36e5">IsInvincible</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classHealthComponent.html#a0865c687e4a8fd1dff877b201fbe3882">m_invincibleTimer</a> &gt; 0.0f; }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="comment">// Setters</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classHealthComponent.html#a8b62aaeb7ddbd7641a26ec7ed5668e9a">SetMaxHP</a>(<span class="keywordtype">int</span> maxHp, <span class="keywordtype">bool</span> resetCurrentHp = <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classHealthComponent.html#aecf30d7a7d743a8f49afffc1445746c4">SetHP</a>(<span class="keywordtype">int</span> hp);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classHealthComponent.html#a1af4ac43277704f24d773c325b227acc">   29</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classHealthComponent.html#a1af4ac43277704f24d773c325b227acc">SetInvincibleDuration</a>(<span class="keywordtype">float</span> duration) { <a class="code hl_variable" href="classHealthComponent.html#a3a290ec487aa287e28bb3ac873cbab25">m_invincibleDuration</a> = duration; }</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classHealthComponent.html#aefe0b3186350824fe17cf54db022083e">   30</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classHealthComponent.html#aefe0b3186350824fe17cf54db022083e">SetBlinkInterval</a>(<span class="keywordtype">float</span> interval) { <a class="code hl_variable" href="classHealthComponent.html#aff1f036b8c9b74524dc746f45ff7ac03">m_blinkInterval</a> = interval; }</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="comment">// Callbacks</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classHealthComponent.html#ad1626f038404c3ce200b65819407fd7a">   33</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classHealthComponent.html#ad1626f038404c3ce200b65819407fd7a">SetOnDamagedCallback</a>(std::function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">int</span> currentHp, <span class="keywordtype">int</span> maxHp)&gt; callback) { <a class="code hl_variable" href="classHealthComponent.html#add458336b6ac24c406fc0a042edf757b">m_onDamaged</a> = callback; }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classHealthComponent.html#a27bd6b76670ce54b48db247cf6f11859">   34</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classHealthComponent.html#a27bd6b76670ce54b48db247cf6f11859">SetOnDieCallback</a>(std::function&lt;<span class="keywordtype">void</span>()&gt; callback) { <a class="code hl_variable" href="classHealthComponent.html#a983e4aa904453c65329aef51c8d73877">m_onDie</a> = callback; }</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classHealthComponent.html#a0e2ae3022142bb851a5e10b69e3d7475">   37</a></span>    <span class="keywordtype">int</span>   <a class="code hl_variable" href="classHealthComponent.html#a0e2ae3022142bb851a5e10b69e3d7475">m_hp</a> = 10;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classHealthComponent.html#a90ebdafde03611e8c20a32d263664112">   38</a></span>    <span class="keywordtype">int</span>   <a class="code hl_variable" href="classHealthComponent.html#a90ebdafde03611e8c20a32d263664112">m_maxHp</a> = 10;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classHealthComponent.html#a0865c687e4a8fd1dff877b201fbe3882">   39</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classHealthComponent.html#a0865c687e4a8fd1dff877b201fbe3882">m_invincibleTimer</a> = 0.0f;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classHealthComponent.html#a3a290ec487aa287e28bb3ac873cbab25">   40</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classHealthComponent.html#a3a290ec487aa287e28bb3ac873cbab25">m_invincibleDuration</a> = 1.5f;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classHealthComponent.html#aff1f036b8c9b74524dc746f45ff7ac03">   41</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classHealthComponent.html#aff1f036b8c9b74524dc746f45ff7ac03">m_blinkInterval</a> = 0.08f;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classHealthComponent.html#add458336b6ac24c406fc0a042edf757b">   43</a></span>    std::function&lt;void(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>)&gt; <a class="code hl_variable" href="classHealthComponent.html#add458336b6ac24c406fc0a042edf757b">m_onDamaged</a>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classHealthComponent.html#a983e4aa904453c65329aef51c8d73877">   44</a></span>    std::function&lt;void()&gt;         <a class="code hl_variable" href="classHealthComponent.html#a983e4aa904453c65329aef51c8d73877">m_onDie</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>};</div>
+</div>
+<div class="ttc" id="aComponent_8h_html"><div class="ttname"><a href="Component_8h.html">Component.h</a></div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93f"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a></div><div class="ttdeci">UpdatePhase</div><div class="ttdef"><b>Definition</b> Component.h:10</div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fa8f94c0495202ed76c429ac546efcbc0b"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa8f94c0495202ed76c429ac546efcbc0b">UpdatePhase::PostPhysics</a></div><div class="ttdeci">@ PostPhysics</div></div>
+<div class="ttc" id="aclassCComponent_html"><div class="ttname"><a href="classCComponent.html">CComponent</a></div><div class="ttdef"><b>Definition</b> Component.h:21</div></div>
+<div class="ttc" id="aclassHealthComponent_html"><div class="ttname"><a href="classHealthComponent.html">HealthComponent</a></div><div class="ttdef"><b>Definition</b> HealthComponent.h:6</div></div>
+<div class="ttc" id="aclassHealthComponent_html_a0865c687e4a8fd1dff877b201fbe3882"><div class="ttname"><a href="classHealthComponent.html#a0865c687e4a8fd1dff877b201fbe3882">HealthComponent::m_invincibleTimer</a></div><div class="ttdeci">float m_invincibleTimer</div><div class="ttdef"><b>Definition</b> HealthComponent.h:39</div></div>
+<div class="ttc" id="aclassHealthComponent_html_a0e2ae3022142bb851a5e10b69e3d7475"><div class="ttname"><a href="classHealthComponent.html#a0e2ae3022142bb851a5e10b69e3d7475">HealthComponent::m_hp</a></div><div class="ttdeci">int m_hp</div><div class="ttdef"><b>Definition</b> HealthComponent.h:37</div></div>
+<div class="ttc" id="aclassHealthComponent_html_a1af4ac43277704f24d773c325b227acc"><div class="ttname"><a href="classHealthComponent.html#a1af4ac43277704f24d773c325b227acc">HealthComponent::SetInvincibleDuration</a></div><div class="ttdeci">void SetInvincibleDuration(float duration)</div><div class="ttdef"><b>Definition</b> HealthComponent.h:29</div></div>
+<div class="ttc" id="aclassHealthComponent_html_a1d64fc1750ef382e07015890effbb339"><div class="ttname"><a href="classHealthComponent.html#a1d64fc1750ef382e07015890effbb339">HealthComponent::GetHP</a></div><div class="ttdeci">int GetHP() const</div><div class="ttdef"><b>Definition</b> HealthComponent.h:21</div></div>
+<div class="ttc" id="aclassHealthComponent_html_a27bd6b76670ce54b48db247cf6f11859"><div class="ttname"><a href="classHealthComponent.html#a27bd6b76670ce54b48db247cf6f11859">HealthComponent::SetOnDieCallback</a></div><div class="ttdeci">void SetOnDieCallback(std::function&lt; void()&gt; callback)</div><div class="ttdef"><b>Definition</b> HealthComponent.h:34</div></div>
+<div class="ttc" id="aclassHealthComponent_html_a2e2183226a56e3e3cc20aafc192d0c4b"><div class="ttname"><a href="classHealthComponent.html#a2e2183226a56e3e3cc20aafc192d0c4b">HealthComponent::TakeDamage</a></div><div class="ttdeci">void TakeDamage(int damage)</div><div class="ttdef"><b>Definition</b> HealthComponent.cpp:49</div></div>
+<div class="ttc" id="aclassHealthComponent_html_a32486318d78eec98a8ba678d3a68038a"><div class="ttname"><a href="classHealthComponent.html#a32486318d78eec98a8ba678d3a68038a">HealthComponent::Start</a></div><div class="ttdeci">void Start() override</div><div class="ttdef"><b>Definition</b> HealthComponent.cpp:19</div></div>
+<div class="ttc" id="aclassHealthComponent_html_a3a290ec487aa287e28bb3ac873cbab25"><div class="ttname"><a href="classHealthComponent.html#a3a290ec487aa287e28bb3ac873cbab25">HealthComponent::m_invincibleDuration</a></div><div class="ttdeci">float m_invincibleDuration</div><div class="ttdef"><b>Definition</b> HealthComponent.h:40</div></div>
+<div class="ttc" id="aclassHealthComponent_html_a4f77b6825d531194ba11fb343c348213"><div class="ttname"><a href="classHealthComponent.html#a4f77b6825d531194ba11fb343c348213">HealthComponent::Update</a></div><div class="ttdeci">void Update(float deltaTime) override</div><div class="ttdef"><b>Definition</b> HealthComponent.cpp:29</div></div>
+<div class="ttc" id="aclassHealthComponent_html_a5a465696ddcca26386731d96f828a0dd"><div class="ttname"><a href="classHealthComponent.html#a5a465696ddcca26386731d96f828a0dd">HealthComponent::GetMaxHP</a></div><div class="ttdeci">int GetMaxHP() const</div><div class="ttdef"><b>Definition</b> HealthComponent.h:22</div></div>
+<div class="ttc" id="aclassHealthComponent_html_a8222c48301943b2f2da6e6278609e4b7"><div class="ttname"><a href="classHealthComponent.html#a8222c48301943b2f2da6e6278609e4b7">HealthComponent::GetUpdatePhase</a></div><div class="ttdeci">UpdatePhase GetUpdatePhase() const override</div><div class="ttdef"><b>Definition</b> HealthComponent.h:15</div></div>
+<div class="ttc" id="aclassHealthComponent_html_a8b62aaeb7ddbd7641a26ec7ed5668e9a"><div class="ttname"><a href="classHealthComponent.html#a8b62aaeb7ddbd7641a26ec7ed5668e9a">HealthComponent::SetMaxHP</a></div><div class="ttdeci">void SetMaxHP(int maxHp, bool resetCurrentHp=true)</div><div class="ttdef"><b>Definition</b> HealthComponent.cpp:77</div></div>
+<div class="ttc" id="aclassHealthComponent_html_a8fd827837c51977eb00aa179df5a273f"><div class="ttname"><a href="classHealthComponent.html#a8fd827837c51977eb00aa179df5a273f">HealthComponent::~HealthComponent</a></div><div class="ttdeci">virtual ~HealthComponent()=default</div></div>
+<div class="ttc" id="aclassHealthComponent_html_a90ebdafde03611e8c20a32d263664112"><div class="ttname"><a href="classHealthComponent.html#a90ebdafde03611e8c20a32d263664112">HealthComponent::m_maxHp</a></div><div class="ttdeci">int m_maxHp</div><div class="ttdef"><b>Definition</b> HealthComponent.h:38</div></div>
+<div class="ttc" id="aclassHealthComponent_html_a958d1c1b905c2e24b4b2904b7ecd36e5"><div class="ttname"><a href="classHealthComponent.html#a958d1c1b905c2e24b4b2904b7ecd36e5">HealthComponent::IsInvincible</a></div><div class="ttdeci">bool IsInvincible() const</div><div class="ttdef"><b>Definition</b> HealthComponent.h:24</div></div>
+<div class="ttc" id="aclassHealthComponent_html_a983e4aa904453c65329aef51c8d73877"><div class="ttname"><a href="classHealthComponent.html#a983e4aa904453c65329aef51c8d73877">HealthComponent::m_onDie</a></div><div class="ttdeci">std::function&lt; void()&gt; m_onDie</div><div class="ttdef"><b>Definition</b> HealthComponent.h:44</div></div>
+<div class="ttc" id="aclassHealthComponent_html_ad1626f038404c3ce200b65819407fd7a"><div class="ttname"><a href="classHealthComponent.html#ad1626f038404c3ce200b65819407fd7a">HealthComponent::SetOnDamagedCallback</a></div><div class="ttdeci">void SetOnDamagedCallback(std::function&lt; void(int currentHp, int maxHp)&gt; callback)</div><div class="ttdef"><b>Definition</b> HealthComponent.h:33</div></div>
+<div class="ttc" id="aclassHealthComponent_html_add458336b6ac24c406fc0a042edf757b"><div class="ttname"><a href="classHealthComponent.html#add458336b6ac24c406fc0a042edf757b">HealthComponent::m_onDamaged</a></div><div class="ttdeci">std::function&lt; void(int, int)&gt; m_onDamaged</div><div class="ttdef"><b>Definition</b> HealthComponent.h:43</div></div>
+<div class="ttc" id="aclassHealthComponent_html_aecf30d7a7d743a8f49afffc1445746c4"><div class="ttname"><a href="classHealthComponent.html#aecf30d7a7d743a8f49afffc1445746c4">HealthComponent::SetHP</a></div><div class="ttdeci">void SetHP(int hp)</div><div class="ttdef"><b>Definition</b> HealthComponent.cpp:86</div></div>
+<div class="ttc" id="aclassHealthComponent_html_aefe0b3186350824fe17cf54db022083e"><div class="ttname"><a href="classHealthComponent.html#aefe0b3186350824fe17cf54db022083e">HealthComponent::SetBlinkInterval</a></div><div class="ttdeci">void SetBlinkInterval(float interval)</div><div class="ttdef"><b>Definition</b> HealthComponent.h:30</div></div>
+<div class="ttc" id="aclassHealthComponent_html_af441fa50514c596952a50fd15f7bab79"><div class="ttname"><a href="classHealthComponent.html#af441fa50514c596952a50fd15f7bab79">HealthComponent::IsDead</a></div><div class="ttdeci">bool IsDead() const</div><div class="ttdef"><b>Definition</b> HealthComponent.h:23</div></div>
+<div class="ttc" id="aclassHealthComponent_html_afa9efa34a1dd15a988ac0cf7f9659622"><div class="ttname"><a href="classHealthComponent.html#afa9efa34a1dd15a988ac0cf7f9659622">HealthComponent::HealthComponent</a></div><div class="ttdeci">HealthComponent()</div><div class="ttdef"><b>Definition</b> HealthComponent.cpp:5</div></div>
+<div class="ttc" id="aclassHealthComponent_html_aff1f036b8c9b74524dc746f45ff7ac03"><div class="ttname"><a href="classHealthComponent.html#aff1f036b8c9b74524dc746f45ff7ac03">HealthComponent::m_blinkInterval</a></div><div class="ttdeci">float m_blinkInterval</div><div class="ttdef"><b>Definition</b> HealthComponent.h:41</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_5063f357ccae33c483b97cdd1e318acc.html">Components</a></li><li class="navelem"><a class="el" href="HealthComponent_8h.html">HealthComponent.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>
