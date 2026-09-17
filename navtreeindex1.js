@@ -1,5 +1,8 @@
 var NAVTREEINDEX1 =
 {
+"SceneEnums_8h_source.html":[3,0,0,1,10],
+"SceneFade_8cpp.html":[3,0,0,1,0,1,2],
+"SceneFade_8h.html":[3,0,0,1,0,1,3],
 "SceneFade_8h.html#a30b47622279c51e64aeb20a6234c9030":[3,0,0,1,0,1,3,1],
 "SceneFade_8h.html#a30b47622279c51e64aeb20a6234c9030a294f48edd972b58ced15c2284db56f82":[3,0,0,1,0,1,3,1,1],
 "SceneFade_8h.html#a30b47622279c51e64aeb20a6234c9030a6adf97f83acf6453d4a6a4b1070f3754":[3,0,0,1,0,1,3,1,0],
@@ -38,9 +41,9 @@ var NAVTREEINDEX1 =
 "Shader_8cpp.html":[3,0,0,4,16],
 "Shader_8h.html":[3,0,0,4,17],
 "Shader_8h_source.html":[3,0,0,4,17],
-"Skydome_8cpp.html":[3,0,0,3,38],
-"Skydome_8h.html":[3,0,0,3,39],
-"Skydome_8h_source.html":[3,0,0,3,39],
+"Skydome_8cpp.html":[3,0,0,3,40],
+"Skydome_8h.html":[3,0,0,3,41],
+"Skydome_8h_source.html":[3,0,0,3,41],
 "SmartPtrAlias_8h.html":[3,0,0,7,8],
 "SmartPtrAlias_8h.html#a6c84f55d1bc02806bc3a87f393a3db52":[3,0,0,7,8,2],
 "SmartPtrAlias_8h.html#a74b90b47b1100dfbcfdf6892a7b2e479":[3,0,0,7,8,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX1 =
 "classCInputManager.html#aff8abf4fd79a252a7326aee68187653e":[2,0,19,14],
 "classCInspectorUI.html":[2,0,20],
 "classCInspectorUI.html#a16cc5a3fdbe7fa242ceac06c22459767":[2,0,20,11],
-"classCInspectorUI.html#a247c691454fe46541d446e64dc0d0ab9":[2,0,20,14],
-"classCInspectorUI.html#a43fc4c1121b7092a2ac3cf1094a5e56d":[2,0,20,6],
-"classCInspectorUI.html#a572e690e5d9b15903f72e2aed3e0a785":[2,0,20,9],
-"classCInspectorUI.html#a5e3fa7faed8724dd5271568c4de02da0":[2,0,20,7]
+"classCInspectorUI.html#a247c691454fe46541d446e64dc0d0ab9":[2,0,20,14]
 };

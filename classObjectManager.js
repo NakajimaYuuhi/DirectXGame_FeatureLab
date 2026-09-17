@@ -7,6 +7,7 @@ var classObjectManager =
     [ "Draw", "classObjectManager.html#a852d554df9444454176abeb96d2524b2", null ],
     [ "FlushDestroyedObjects", "classObjectManager.html#ab16bd9ac9432145857d4e09f1fd9920b", null ],
     [ "GetCamera", "classObjectManager.html#a0fb8e1c4fc8cd99de5fd13b3992ae5db", null ],
+    [ "GetField", "classObjectManager.html#ac3ecf278939d7a76e11306d62c98f479", null ],
     [ "GetInstance", "classObjectManager.html#aa3effb46aaa14ce422f1ba657b514446", null ],
     [ "GetManager", "classObjectManager.html#abcaffd5bfd414d3fe89c2334e246ade0", null ],
     [ "GetObjectList", "classObjectManager.html#a4de0888ad62ba9ca20e03b645dcaae5a", null ],

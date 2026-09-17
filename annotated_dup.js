@@ -255,6 +255,7 @@ var annotated_dup =
     [ "ExampleSelectionWithDeletion", "structExampleSelectionWithDeletion.html", "structExampleSelectionWithDeletion" ],
     [ "ExampleTreeNode", "structExampleTreeNode.html", "structExampleTreeNode" ],
     [ "Explosion", "classExplosion.html", "classExplosion" ],
+    [ "Field", "classField.html", "classField" ],
     [ "ForwardRenderPass", "classForwardRenderPass.html", "classForwardRenderPass" ],
     [ "ImBitArray", "structImBitArray.html", "structImBitArray" ],
     [ "ImBitVector", "structImBitVector.html", "structImBitVector" ],

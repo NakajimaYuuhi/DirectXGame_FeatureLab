@@ -33,8 +33,9 @@ var searchData=
   ['gpos_30',['gpos',['../structstbtt__fontinfo.html#aeb6732549a55fa30235d0c0ecd743022',1,'stbtt_fontinfo']]],
   ['grabminsize_31',['GrabMinSize',['../structImGuiStyle.html#a04db033d001b343815cdcd2491576ef7',1,'ImGuiStyle']]],
   ['grabrounding_32',['GrabRounding',['../structImGuiStyle.html#a42369d83032545066803a7db62936e8f',1,'ImGuiStyle']]],
-  ['groupoffset_33',['GroupOffset',['../structImGuiWindowTempData.html#a29dbe26f59a7a8b667cc21a3ea3332a9',1,'ImGuiWindowTempData']]],
-  ['groupstack_34',['GroupStack',['../structImGuiContext.html#a77874099397573e207c03405508e3637',1,'ImGuiContext']]],
-  ['gstylevarsinfo_35',['GStyleVarsInfo',['../imgui_8cpp.html#a3dc4edb949d6f68b816721d1ace9fbb5',1,'imgui.cpp']]],
-  ['gsubrs_36',['gsubrs',['../structstbtt__fontinfo.html#afc5bfc4a52ad0e3879f0f81a372da7fb',1,'stbtt_fontinfo']]]
+  ['gravity_33',['gravity',['../classPlayer.html#a1488b7f6ac646c83fbc90ef4b0f6ab2f',1,'Player::GRAVITY'],['../classEnemy.html#a296d033f5e4ee60175ef66544b32e9d3',1,'Enemy::GRAVITY']]],
+  ['groupoffset_34',['GroupOffset',['../structImGuiWindowTempData.html#a29dbe26f59a7a8b667cc21a3ea3332a9',1,'ImGuiWindowTempData']]],
+  ['groupstack_35',['GroupStack',['../structImGuiContext.html#a77874099397573e207c03405508e3637',1,'ImGuiContext']]],
+  ['gstylevarsinfo_36',['GStyleVarsInfo',['../imgui_8cpp.html#a3dc4edb949d6f68b816721d1ace9fbb5',1,'imgui.cpp']]],
+  ['gsubrs_37',['gsubrs',['../structstbtt__fontinfo.html#afc5bfc4a52ad0e3879f0f81a372da7fb',1,'stbtt_fontinfo']]]
 ];

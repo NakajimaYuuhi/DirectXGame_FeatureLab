@@ -1,5 +1,8 @@
 var NAVTREEINDEX2 =
 {
+"classCInspectorUI.html#a43fc4c1121b7092a2ac3cf1094a5e56d":[2,0,20,6],
+"classCInspectorUI.html#a572e690e5d9b15903f72e2aed3e0a785":[2,0,20,9],
+"classCInspectorUI.html#a5e3fa7faed8724dd5271568c4de02da0":[2,0,20,7],
 "classCInspectorUI.html#a7004b4ca88e519853064b1577156ae7c":[2,0,20,17],
 "classCInspectorUI.html#a7582091f05f4350e2de314fc36fe24cb":[2,0,20,10],
 "classCInspectorUI.html#a86769b90acd0ae7da92d783310284e07":[2,0,20,8],
@@ -246,8 +249,5 @@ var NAVTREEINDEX2 =
 "classCUIButton.html#af4a144cdbd09441680a108c1ffbc269e":[2,0,39,15],
 "classCUIButton.html#af9d1144db59751a7b4f34139fc881eb8":[2,0,39,18],
 "classCUIButton.html#afc25e051e0103c8982806443ba324db5":[2,0,39,5],
-"classCUIObject.html":[2,0,40],
-"classCUIObject.html#a2c1066067334b108ac3a196dfc33e9af":[2,0,40,4],
-"classCUIObject.html#a3b938e26ed3a1db203f3f5a2e938b187":[2,0,40,0],
-"classCUIObject.html#a79754bac0213abd63d2f0b513a613d5c":[2,0,40,3]
+"classCUIObject.html":[2,0,40]
 };

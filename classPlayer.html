@@ -107,7 +107,7 @@ Player の継承関係図</div>
 <div class="dynheader">
 Player 連携図</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classPlayer__coll__graph.svg" width="454" height="274"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPlayer__coll__graph.svg" width="430" height="362"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -130,8 +130,14 @@ Player 連携図</div>
 <tr class="separator:a5eaa899175123ab5d2dc951ab61c58ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9956700465676748068c1e95cb0e72af" id="r_a9956700465676748068c1e95cb0e72af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a9956700465676748068c1e95cb0e72af">ProcessMovement</a> (float deltaTime)</td></tr>
 <tr class="separator:a9956700465676748068c1e95cb0e72af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe9bfffb08b879ab05ddd954843c1d87" id="r_abe9bfffb08b879ab05ddd954843c1d87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#abe9bfffb08b879ab05ddd954843c1d87">ApplyGravity</a> (float deltaTime)</td></tr>
+<tr class="separator:abe9bfffb08b879ab05ddd954843c1d87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f06bacc15e9385a633eee399f54281d" id="r_a5f06bacc15e9385a633eee399f54281d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a5f06bacc15e9385a633eee399f54281d">SnapToGround</a> ()</td></tr>
+<tr class="separator:a5f06bacc15e9385a633eee399f54281d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a474e6c60a290fb7fa0ff2c1f407e4b49" id="r_a474e6c60a290fb7fa0ff2c1f407e4b49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a474e6c60a290fb7fa0ff2c1f407e4b49">PerformAttack</a> ()</td></tr>
 <tr class="separator:a474e6c60a290fb7fa0ff2c1f407e4b49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d8bc0da687f40ef23a19a23e75a274c" id="r_a7d8bc0da687f40ef23a19a23e75a274c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a7d8bc0da687f40ef23a19a23e75a274c">IsGrounded</a> () const</td></tr>
+<tr class="separator:a7d8bc0da687f40ef23a19a23e75a274c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3235a8c4289cd735c3cf40bd69109cf" id="r_ad3235a8c4289cd735c3cf40bd69109cf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#ad3235a8c4289cd735c3cf40bd69109cf">GetHP</a> () const</td></tr>
 <tr class="separator:ad3235a8c4289cd735c3cf40bd69109cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f2b2f5d1c7bafad144c235a101dddeb" id="r_a4f2b2f5d1c7bafad144c235a101dddeb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a4f2b2f5d1c7bafad144c235a101dddeb">GetMaxHP</a> () const</td></tr>
@@ -231,6 +237,20 @@ Player 連携図</div>
 <tr class="separator:adee144fb2b2174f3095b8072bcb770db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7721626a1c43592bfcb0c81a836f7aad" id="r_a7721626a1c43592bfcb0c81a836f7aad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCamera.html">Camera</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a7721626a1c43592bfcb0c81a836f7aad">m_camera</a> = nullptr</td></tr>
 <tr class="separator:a7721626a1c43592bfcb0c81a836f7aad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c017c69f8d6bb00aee178d896980d09" id="r_a1c017c69f8d6bb00aee178d896980d09"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="classField.html">Field</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a1c017c69f8d6bb00aee178d896980d09">m_field</a> = nullptr</td></tr>
+<tr class="separator:a1c017c69f8d6bb00aee178d896980d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16cf7b3b203f990e17f569886baa1a69" id="r_a16cf7b3b203f990e17f569886baa1a69"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a16cf7b3b203f990e17f569886baa1a69">m_verticalVelocity</a> = 0.0f</td></tr>
+<tr class="separator:a16cf7b3b203f990e17f569886baa1a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1145e66fddd6aed4b622d0d3817acdd" id="r_ab1145e66fddd6aed4b622d0d3817acdd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#ab1145e66fddd6aed4b622d0d3817acdd">m_isGrounded</a> = false</td></tr>
+<tr class="separator:ab1145e66fddd6aed4b622d0d3817acdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1488b7f6ac646c83fbc90ef4b0f6ab2f" id="r_a1488b7f6ac646c83fbc90ef4b0f6ab2f"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a1488b7f6ac646c83fbc90ef4b0f6ab2f">GRAVITY</a> = -25.0f</td></tr>
+<tr class="separator:a1488b7f6ac646c83fbc90ef4b0f6ab2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60235ecf8d2cbc1f706cc938bc67779f" id="r_a60235ecf8d2cbc1f706cc938bc67779f"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a60235ecf8d2cbc1f706cc938bc67779f">JUMP_POWER</a> = 8.5f</td></tr>
+<tr class="separator:a60235ecf8d2cbc1f706cc938bc67779f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8a095b7a3844339181bde2ece6eb6bb" id="r_ac8a095b7a3844339181bde2ece6eb6bb"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#ac8a095b7a3844339181bde2ece6eb6bb">TERMINAL_VELOCITY</a> = -30.0f</td></tr>
+<tr class="separator:ac8a095b7a3844339181bde2ece6eb6bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d7838212f4d0bbde6e441f9d0012cb8" id="r_a9d7838212f4d0bbde6e441f9d0012cb8"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a9d7838212f4d0bbde6e441f9d0012cb8">STEP_DOWN_LIMIT</a> = 0.4f</td></tr>
+<tr class="separator:a9d7838212f4d0bbde6e441f9d0012cb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4faacf8b42ecb8153f0d6a39d3aa311" id="r_af4faacf8b42ecb8153f0d6a39d3aa311"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classStateMachine.html">StateMachine</a>&lt; <a class="el" href="classPlayer.html">Player</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#af4faacf8b42ecb8153f0d6a39d3aa311">m_stateMachine</a></td></tr>
 <tr class="separator:af4faacf8b42ecb8153f0d6a39d3aa311"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classCObject"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classCObject')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCObject.html">CObject</a> に属する継承限定公開変数類</td></tr>
@@ -297,6 +317,34 @@ Player 連携図</div>
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
+<a id="abe9bfffb08b879ab05ddd954843c1d87" name="abe9bfffb08b879ab05ddd954843c1d87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe9bfffb08b879ab05ddd954843c1d87">&#9670;&#160;</a></span>ApplyGravity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Player::ApplyGravity </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayer_abe9bfffb08b879ab05ddd954843c1d87_cgraph.svg" width="100%" height="477"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPlayer_abe9bfffb08b879ab05ddd954843c1d87_icgraph.svg" width="334" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="adc70285b4e4db37c92f9be808a06eb07" name="adc70285b4e4db37c92f9be808a06eb07"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adc70285b4e4db37c92f9be808a06eb07">&#9670;&#160;</a></span>Awake()</h2>
 
@@ -478,7 +526,7 @@ Player 連携図</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayer_a4eaaeb9d0967fef59baac319b9cc8d60_cgraph.svg" width="100%" height="512"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayer_a4eaaeb9d0967fef59baac319b9cc8d60_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -510,6 +558,31 @@ Player 連携図</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classPlayer_ab375f35da72940bd572ecf51aca96d5d_icgraph.svg" width="391" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="a7d8bc0da687f40ef23a19a23e75a274c" name="a7d8bc0da687f40ef23a19a23e75a274c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d8bc0da687f40ef23a19a23e75a274c">&#9670;&#160;</a></span>IsGrounded()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Player::IsGrounded </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -615,12 +688,39 @@ Player 連携図</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayer_a9956700465676748068c1e95cb0e72af_cgraph.svg" width="100%" height="586"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayer_a9956700465676748068c1e95cb0e72af_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classPlayer_a9956700465676748068c1e95cb0e72af_icgraph.svg" width="456" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a5f06bacc15e9385a633eee399f54281d" name="a5f06bacc15e9385a633eee399f54281d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f06bacc15e9385a633eee399f54281d">&#9670;&#160;</a></span>SnapToGround()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Player::SnapToGround </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayer_a5f06bacc15e9385a633eee399f54281d_cgraph.svg" width="100%" height="477"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPlayer_a5f06bacc15e9385a633eee399f54281d_icgraph.svg" width="466" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -652,7 +752,7 @@ Player 連携図</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classPlayer_a4c618ea9123b386e5d9ef8809797d629_cgraph.svg" width="576" height="234"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayer_a4c618ea9123b386e5d9ef8809797d629_cgraph.svg" width="100%" height="589"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
@@ -717,7 +817,7 @@ Player 連携図</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayer_a5e17be3418fa0ac0192c05efaf3dc8bd_cgraph.svg" width="100%" height="475"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPlayer_a5e17be3418fa0ac0192c05efaf3dc8bd_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -734,6 +834,28 @@ Player 連携図</div>
       <table class="memname">
         <tr>
           <td class="memname">const float Player::BLINK_INTERVAL = 0.08f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1488b7f6ac646c83fbc90ef4b0f6ab2f" name="a1488b7f6ac646c83fbc90ef4b0f6ab2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1488b7f6ac646c83fbc90ef4b0f6ab2f">&#9670;&#160;</a></span>GRAVITY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float Player::GRAVITY = -25.0f</td>
         </tr>
       </table>
   </td>
@@ -789,6 +911,28 @@ Player 連携図</div>
 
 </div>
 </div>
+<a id="a60235ecf8d2cbc1f706cc938bc67779f" name="a60235ecf8d2cbc1f706cc938bc67779f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60235ecf8d2cbc1f706cc938bc67779f">&#9670;&#160;</a></span>JUMP_POWER</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float Player::JUMP_POWER = 8.5f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a7721626a1c43592bfcb0c81a836f7aad" name="a7721626a1c43592bfcb0c81a836f7aad"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7721626a1c43592bfcb0c81a836f7aad">&#9670;&#160;</a></span>m_camera</h2>
 
@@ -800,6 +944,28 @@ Player 連携図</div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classCamera.html">Camera</a>* Player::m_camera = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1c017c69f8d6bb00aee178d896980d09" name="a1c017c69f8d6bb00aee178d896980d09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c017c69f8d6bb00aee178d896980d09">&#9670;&#160;</a></span>m_field</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">class <a class="el" href="classField.html">Field</a>* Player::m_field = nullptr</td>
         </tr>
       </table>
   </td>
@@ -833,6 +999,28 @@ Player 連携図</div>
 
 </div>
 </div>
+<a id="ab1145e66fddd6aed4b622d0d3817acdd" name="ab1145e66fddd6aed4b622d0d3817acdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1145e66fddd6aed4b622d0d3817acdd">&#9670;&#160;</a></span>m_isGrounded</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Player::m_isGrounded = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af4faacf8b42ecb8153f0d6a39d3aa311" name="af4faacf8b42ecb8153f0d6a39d3aa311"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af4faacf8b42ecb8153f0d6a39d3aa311">&#9670;&#160;</a></span>m_stateMachine</h2>
 
@@ -844,6 +1032,28 @@ Player 連携図</div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classStateMachine.html">StateMachine</a>&lt;<a class="el" href="classPlayer.html">Player</a>&gt; Player::m_stateMachine</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a16cf7b3b203f990e17f569886baa1a69" name="a16cf7b3b203f990e17f569886baa1a69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16cf7b3b203f990e17f569886baa1a69">&#9670;&#160;</a></span>m_verticalVelocity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Player::m_verticalVelocity = 0.0f</td>
         </tr>
       </table>
   </td>
@@ -910,6 +1120,50 @@ Player 連携図</div>
       <table class="memname">
         <tr>
           <td class="memname">float Player::Speed = 0.1f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9d7838212f4d0bbde6e441f9d0012cb8" name="a9d7838212f4d0bbde6e441f9d0012cb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d7838212f4d0bbde6e441f9d0012cb8">&#9670;&#160;</a></span>STEP_DOWN_LIMIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float Player::STEP_DOWN_LIMIT = 0.4f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac8a095b7a3844339181bde2ece6eb6bb" name="ac8a095b7a3844339181bde2ece6eb6bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8a095b7a3844339181bde2ece6eb6bb">&#9670;&#160;</a></span>TERMINAL_VELOCITY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float Player::TERMINAL_VELOCITY = -30.0f</td>
         </tr>
       </table>
   </td>

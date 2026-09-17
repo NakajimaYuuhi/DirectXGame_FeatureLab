@@ -61,6 +61,7 @@ var hierarchy =
         [ "Bullet", "classBullet.html", null ],
         [ "Camera", "classCamera.html", null ],
         [ "Enemy", "classEnemy.html", null ],
+        [ "Field", "classField.html", null ],
         [ "Player", "classPlayer.html", null ],
         [ "Skydome", "classSkydome.html", null ]
       ] ],
