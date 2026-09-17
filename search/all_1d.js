@@ -15,7 +15,7 @@ var searchData=
   ['_7ecinspectorui_12',['~CInspectorUI',['../classCInspectorUI.html#aa27f09d44d76e8746c3fe3d9db38f3b9',1,'CInspectorUI']]],
   ['_7ecmodel_13',['~CModel',['../classCModel.html#a10d40f6d5be633108b1f12e01878491f',1,'CModel']]],
   ['_7ecobject_14',['~CObject',['../classCObject.html#a93a3c3bc7d9a6462ef00e25404d9b0eb',1,'CObject']]],
-  ['_7ecollider_15',['~Collider',['../classCollider.html#abf1ce43b287c870fd72918b023217a33',1,'Collider']]],
+  ['_7ecollider_15',['~Collider',['../classCollider.html#a7b43c72a6424d8c11dec965d166953d3',1,'Collider']]],
   ['_7ecollider3d_16',['~Collider3D',['../classCollider3D.html#a1a52f06293131ec758b4e55390881fd5',1,'Collider3D']]],
   ['_7ecollision_17',['~Collision',['../classCollision.html#a19ae49bcb3b16f4622443a34a171590c',1,'Collision']]],
   ['_7ecscene_18',['~CScene',['../classCScene.html#af0670c9e61a88a429f298a162f9ea985',1,'CScene']]],

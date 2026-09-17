@@ -313,6 +313,7 @@ var menudata={children:[
 {text:"i",url:"globals_enum.html#index_i"},
 {text:"m",url:"globals_enum.html#index_m"},
 {text:"p",url:"globals_enum.html#index_p"},
+{text:"r",url:"globals_enum.html#index_r"},
 {text:"t",url:"globals_enum.html#index_t"},
 {text:"u",url:"globals_enum.html#index_u"}]},
 {text:"列挙値",url:"globals_eval.html",children:[

@@ -7,5 +7,6 @@ var classCollision =
     [ "GetCollisionOrder", "classCollision.html#a9121ab7b6a1764383a2dded9256f820b", null ],
     [ "GetInstance", "classCollision.html#af5b922f50591e21aae31c02fd07a0005", null ],
     [ "operator=", "classCollision.html#aac71fe0312dcfae9c20dad1b8cb7c14f", null ],
+    [ "ResolveCollisions", "classCollision.html#a6b1e1b61c9822815b55a4248f860b91d", null ],
     [ "CollisionOrder", "classCollision.html#abfbbbce6868c0c0a8792807940b5caaf", null ]
 ];

@@ -11,9 +11,18 @@ var classCollider =
       [ "BOX_3D_Trigger", "classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a4856b89d6628207c5f23f056b0878a57", null ]
     ] ],
     [ "Collider", "classCollider.html#aa7186870221f868bbc74c3ae8609fa66", null ],
-    [ "~Collider", "classCollider.html#abf1ce43b287c870fd72918b023217a33", null ],
+    [ "~Collider", "classCollider.html#a7b43c72a6424d8c11dec965d166953d3", null ],
+    [ "CanCollideWith", "classCollider.html#a5a4dcc6ca9020bd4d393895f32dfe5a6", null ],
     [ "GetColliderType", "classCollider.html#af57c408281497420b7661c482d6cec58", null ],
-    [ "GetIsTrigger", "classCollider.html#a10ea3adfd31714f3483c86dd6985d0aa", null ],
+    [ "GetCollisionMask", "classCollider.html#ab19656edee3b80627e3bbfe32adbc6df", null ],
+    [ "GetIsTrigger", "classCollider.html#a91f2bea52330d32a5f2e82ef1b5beb9d", null ],
+    [ "GetLayer", "classCollider.html#afbfcf1ce92d671f9e0cf9382d8bc4730", null ],
+    [ "SetCollisionMask", "classCollider.html#ad5b23dba15ffb7e1bc8956099d15eb15", null ],
+    [ "SetIsTrigger", "classCollider.html#a0d71f872571600b5c571d58d6793bf61", null ],
+    [ "SetLayer", "classCollider.html#a03477d1dd0bc64e9a4824ba61526bed4", null ],
     [ "ColliderType", "classCollider.html#a5747357519552281e409256f378d3da1", null ],
-    [ "IsTrriger", "classCollider.html#a7ab6cf215708e570738a44d660dcf5e0", null ]
+    [ "IsTrriger", "classCollider.html#a7ab6cf215708e570738a44d660dcf5e0", null ],
+    [ "m_collisionMask", "classCollider.html#a545ce31f61a7da07e0c25c40bcbd2006", null ],
+    [ "m_isTrigger", "classCollider.html#a95945ac622ac759a1273d361adee39df", null ],
+    [ "m_layer", "classCollider.html#a33c5813b3a0b8e0c3a323ef9bc99da3f", null ]
 ];

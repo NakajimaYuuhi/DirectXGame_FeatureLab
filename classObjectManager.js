@@ -5,6 +5,7 @@ var classObjectManager =
     [ "ObjectManager", "classObjectManager.html#a02189c5d0d8fcb5e2b738c94901f5c21", null ],
     [ "CollisionUpdate", "classObjectManager.html#a179ee90458deb80834ccbd7432df76a9", null ],
     [ "Draw", "classObjectManager.html#a852d554df9444454176abeb96d2524b2", null ],
+    [ "DrawByLayer", "classObjectManager.html#ae70e58ca78e40f6d3cf1a7b04a83d18c", null ],
     [ "FlushDestroyedObjects", "classObjectManager.html#ab16bd9ac9432145857d4e09f1fd9920b", null ],
     [ "GetCamera", "classObjectManager.html#a0fb8e1c4fc8cd99de5fd13b3992ae5db", null ],
     [ "GetField", "classObjectManager.html#ac3ecf278939d7a76e11306d62c98f479", null ],

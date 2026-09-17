@@ -8,6 +8,7 @@ var classCModel =
     [ "CreateTmpBoneData", "classCModel.html#a4a012839b9a3ce5420115a434c748875", null ],
     [ "Draw", "classCModel.html#a0771b89a35cb5a80d79b628c1541f94e", null ],
     [ "GetAnimationTime", "classCModel.html#ad4e94257011862b6840e51104de4d741", null ],
+    [ "GetRenderLayer", "classCModel.html#a283d3ec415091cbf726a038a23a54bef", null ],
     [ "Init", "classCModel.html#a7ff596f41b98d33cde03bf7b4ab6699e", null ],
     [ "IsAnimationFinished", "classCModel.html#af915abbff73abe5ff16da728f15a0596", null ],
     [ "IsAnimationLooping", "classCModel.html#a3f6d9f3843bd9469f071d95455c6dfa3", null ],
@@ -20,6 +21,7 @@ var classCModel =
     [ "SetBlendMode", "classCModel.html#ae87aae71bb8f2ae920d953ffd315f610", null ],
     [ "SetBlendModeAll", "classCModel.html#ac3cabb0152e12cb97f1867fb0ef626cf", null ],
     [ "SetMaterialTexture", "classCModel.html#ad5d3cbe526e22ac0ff323c87d47614f6", null ],
+    [ "SetRenderLayer", "classCModel.html#a5290c45f9124091559d421d4ccabb4f9", null ],
     [ "SetShader", "classCModel.html#a16d72010f715a0676692d5191dee1573", null ],
     [ "SetShaderAll", "classCModel.html#a2dfcb7793699a81b3ddb62a9806cec35", null ],
     [ "Update", "classCModel.html#a1ee375bdff3ed165e2f6a7c67132310f", null ],
@@ -39,6 +41,7 @@ var classCModel =
     [ "m_Materials", "classCModel.html#a22fd82ea141170aad15a167fb09ba3f9", null ],
     [ "m_Meshes", "classCModel.html#ac4ad6dadda806ac22a6a2101ab4da040", null ],
     [ "m_MeshMaterialIndices", "classCModel.html#a6f477319fd7e677c9a5ac8444d590ee7", null ],
+    [ "m_renderLayer", "classCModel.html#a9ec4059daaeb59a56926790412a02f21", null ],
     [ "m_SkinJoints", "classCModel.html#a7fec62122cfaae85c50c105277ee2209", null ],
     [ "m_SkinningMatrices", "classCModel.html#a6a3e794bcba1a6349c13802218181af8", null ]
 ];

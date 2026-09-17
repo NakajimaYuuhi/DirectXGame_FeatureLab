@@ -116,6 +116,10 @@ $(document).ready(function(){initNavTree('classPrefabManager.html',''); initResi
 <tr class="separator:ac94b77dc00f6ccf4d295041bb4552a58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cd1c22ece86ab020db5c82f4d4928b8" id="r_a2cd1c22ece86ab020db5c82f4d4928b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPrefabManager.html#a2cd1c22ece86ab020db5c82f4d4928b8">InitDefaultPrefabs</a> ()</td></tr>
 <tr class="separator:a2cd1c22ece86ab020db5c82f4d4928b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4639c94285276a067b4518d04e3623b6" id="r_a4639c94285276a067b4518d04e3623b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPrefabManager.html#a4639c94285276a067b4518d04e3623b6">InstantiateFromJSON</a> (const std::string &amp;jsonPath, const std::string &amp;instanceName=&quot;&quot;)</td></tr>
+<tr class="separator:a4639c94285276a067b4518d04e3623b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75b5183589dab3d0171926163d1d531a" id="r_a75b5183589dab3d0171926163d1d531a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPrefabManager.html#a75b5183589dab3d0171926163d1d531a">RegisterPrefabJSON</a> (const std::string &amp;typeName, const std::string &amp;jsonPath)</td></tr>
+<tr class="separator:a75b5183589dab3d0171926163d1d531a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
@@ -316,6 +320,44 @@ $(document).ready(function(){initNavTree('classPrefabManager.html',''); initResi
 
 </div>
 </div>
+<a id="a4639c94285276a067b4518d04e3623b6" name="a4639c94285276a067b4518d04e3623b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4639c94285276a067b4518d04e3623b6">&#9670;&#160;</a></span>InstantiateFromJSON()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCObject.html">CObject</a> * PrefabManager::InstantiateFromJSON </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>jsonPath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>instanceName</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPrefabManager_a4639c94285276a067b4518d04e3623b6_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPrefabManager_a4639c94285276a067b4518d04e3623b6_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
 <a id="a88ae45c795ca46f303e5aafdab4fd617" name="a88ae45c795ca46f303e5aafdab4fd617"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a88ae45c795ca46f303e5aafdab4fd617">&#9670;&#160;</a></span>operator=()</h2>
 
@@ -371,6 +413,44 @@ $(document).ready(function(){initNavTree('classPrefabManager.html',''); initResi
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPrefabManager_a10b26e7ffd545ff7eeeb8d86c89d1308_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a75b5183589dab3d0171926163d1d531a" name="a75b5183589dab3d0171926163d1d531a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75b5183589dab3d0171926163d1d531a">&#9670;&#160;</a></span>RegisterPrefabJSON()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PrefabManager::RegisterPrefabJSON </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>typeName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>jsonPath</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPrefabManager_a75b5183589dab3d0171926163d1d531a_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPrefabManager_a75b5183589dab3d0171926163d1d531a_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
