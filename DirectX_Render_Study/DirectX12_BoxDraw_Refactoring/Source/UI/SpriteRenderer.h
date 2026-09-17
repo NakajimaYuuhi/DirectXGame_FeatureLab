@@ -1,6 +1,7 @@
 #pragma once
 #include "Component.h"
 #include "Texture.h"
+#include "RenderLayer.h"
 #include <DirectXMath.h>
 #include <memory>
 #include <string>
@@ -18,6 +19,10 @@ public:
     virtual ~CSpriteRenderer();
 
     virtual void Init() override;
+
+    // Render layer
+    RenderLayer GetRenderLayer() const { return m_renderLayer; }
+    void SetRenderLayer(RenderLayer layer) { m_renderLayer = layer; }
 
     void SetTexture(const std::wstring& filePath);
     const std::wstring& GetTexturePath() const { return m_texturePath; }
@@ -41,5 +46,6 @@ private:
     std::wstring m_texturePath;
     DirectX::XMFLOAT2 m_size;
     DirectX::XMFLOAT4 m_color;
+    RenderLayer m_renderLayer = RenderLayer::UI;
 };
 

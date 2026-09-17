@@ -1,5 +1,6 @@
-﻿#pragma once
+#pragma once
 #include "Component.h"
+#include "RenderLayer.h"
 #include <string>
 #include <d2d1.h>
 
@@ -11,10 +12,14 @@ public:
 
     virtual void Init() override;
 
-    // テキストの描画要求を D2DTextRenderer に登録
+    // Draw text (registers to D2DTextRenderer)
     void Draw();
 
-    // ゲッター・セッター
+    // Render layer
+    RenderLayer GetRenderLayer() const { return m_renderLayer; }
+    void SetRenderLayer(RenderLayer layer) { m_renderLayer = layer; }
+
+    // Getters and setters
     void SetText(const std::wstring& text) { m_text = text; }
     void SetPosition(float x, float y) { m_x = x; m_y = y; }
     void SetFontSize(float size) { m_fontSize = size; }
@@ -35,4 +40,5 @@ private:
     float m_fontSize = 24.0f;
     D2D1::ColorF m_color = D2D1::ColorF::White;
     std::wstring m_fontFamily = L"Meiryo";
+    RenderLayer m_renderLayer = RenderLayer::UI;
 };

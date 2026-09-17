@@ -1,6 +1,9 @@
 #include "ObjectManager.h"
 #include "Collision.h"
 #include "InspectorUI.h"
+#include "Model.h"
+#include "SpriteRenderer.h"
+#include "TextRenderer.h"
 
 void ObjectManager::Init(Scenes::ID _SceneID)
 {
@@ -72,36 +75,7 @@ void ObjectManager::FlushDestroyedObjects()
 
 void ObjectManager::CollisionUpdate(Scenes::ID _SceneID)
 {
-	Vector<Vector<ObjectTag>>& CollisionOrder = Collision::GetInstance().GetCollisionOrder();
-
-	for (auto& order : CollisionOrder)
-	{
-		int tagA = static_cast<int>(order[0]);
-		int tagB = static_cast<int>(order[1]);
-
-		for (size_t i = 0; i < vecObject[tagA].size(); i++)
-		{
-			for (size_t j = 0; j < vecObject[tagB].size(); j++)
-			{
-				CObject* objA = vecObject[tagA][i].get();
-				CObject* objB = vecObject[tagB][j].get();
-
-				if (!objA || !objB || objA->GetIsDestroyed() || objB->GetIsDestroyed()) continue;
-
-				BoxCollider3D* colliderA = objA->GetComponent<BoxCollider3D>();
-				BoxCollider3D* colliderB = objB->GetComponent<BoxCollider3D>();
-
-				if (colliderA && colliderB)
-				{
-					if (Collision::CheckCollision(colliderA, colliderB))
-					{
-						objA->OnCollision(objB);
-						objB->OnCollision(objA);
-					}
-				}
-			}
-		}
-	}
+	Collision::ResolveCollisions(vecObject);
 }
 
 void ObjectManager::Draw(Scenes::ID _SceneID)
@@ -113,6 +87,38 @@ void ObjectManager::Draw(Scenes::ID _SceneID)
 			if (object && !object->GetIsDestroyed())
 			{
 				object->Draw();
+			}
+		}
+	}
+}
+
+void ObjectManager::DrawByLayer(RenderLayer layer)
+{
+	for (auto& vec : vecObject)
+	{
+		for (auto& object : vec)
+		{
+			if (!object || object->GetIsDestroyed() || !object->GetIsVisible()) continue;
+
+			CModel* model = object->GetComponent<CModel>();
+			if (model && model->GetRenderLayer() == layer)
+			{
+				object->Draw();
+				continue;
+			}
+
+			CSpriteRenderer* sprite = object->GetComponent<CSpriteRenderer>();
+			if (sprite && sprite->GetRenderLayer() == layer)
+			{
+				object->Draw();
+				continue;
+			}
+
+			CTextRenderer* text = object->GetComponent<CTextRenderer>();
+			if (text && text->GetRenderLayer() == layer)
+			{
+				object->Draw();
+				continue;
 			}
 		}
 	}

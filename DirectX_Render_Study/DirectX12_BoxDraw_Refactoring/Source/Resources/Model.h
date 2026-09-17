@@ -1,49 +1,31 @@
-//Model.h
-//Model?A?NX
-//Mesh,Material,Node
-//U
-
-//===== CN[h =====
-//CN[hK[h
 #pragma once
 
-//eNX
 #include "Component.h"
-
-//{@\
-#include "StringAlias.h"	//
-#include "ContainerAlias.h"	//Rei
-#include "SmartPtrAlias.h"	//X}[g|C^
-
-//Mesh
+#include "RenderLayer.h"
+#include "StringAlias.h"
+#include "ContainerAlias.h"
+#include "SmartPtrAlias.h"
 #include "Mesh.h"
-//Material
 #include "Material.h"
-//Bone
 #include "Bone.h"
+#include <windows.h>
+#include <memory>
+#include <vector>
+#include <string>
 
-
-//===== GCAX =====
-//Mesh
+// Type aliases
 using Mesh = SharedPtr<CMesh>;
 using Meshes = Vector<Mesh>;
 
-//Material
 using Material = SharedPtr<CMaterial>;
 using Materials = Vector<Material>;
 
-//Bone
 using Bone = SharedPtr<CBone>;
 using Bones = Vector<Bone>;
 
-//SkinningMatrix
 using SkinningMatrix = DirectX::XMMATRIX;
 using SkinningMatrices = Vector<SkinningMatrix>;
 
-//===== O? =====
-
-
-//===== NX` =====
 class CModel : public CComponent
 {
 public:
@@ -54,8 +36,12 @@ public:
 	void Update();
 	void Draw();
 
+	// Render layer
+	RenderLayer GetRenderLayer() const { return m_renderLayer; }
+	void SetRenderLayer(RenderLayer layer) { m_renderLayer = layer; }
+
 	void SetBlendMode(BlendMode mode) { m_BlendMode = mode; }
-	
+
 	void SetBlendModeAll(BlendMode mode)
 	{
 		for (auto& mat : m_Materials)
@@ -64,40 +50,25 @@ public:
 		}
 	}
 
-	//?|??Ag
-	//LoadModel(?)
-	//void RegisterMesh(UINT _MatIdx, Primitive _Primitive);
-	
-	//U?ftHg
-	//_ACfbNXn????Obh
 	void RegisterMesh(UINT _MatIdx);
 	void RegisterMesh(UINT _MatIdx, const MeshVertex* vertices, size_t vertexCount,
 		const uint32_t* indices, size_t indexCount);
 
-	//_ACfbNX?Zbg
-	
-	UINT RegisterMatarial(wstring _FilePath,DirectX::XMFLOAT4 _Color);
+	UINT RegisterMatarial(wstring _FilePath, DirectX::XMFLOAT4 _Color);
 
 	void CalculateRecursive(int index);
 
-	//{[?XV
 	void UpdateBones();
-
-
 	void CreateTmpBoneData();
-
 	void CreateBoneBuffer();
-	void UpdateBoneBuffer();    // CPUGPU??]
+	void UpdateBoneBuffer();
 
-
-	//Model?[h
 	void ModelLoad(std::string _Path);
 
 	void CopyFrom(const std::shared_ptr<CModel>& other)
 	{
 		m_Meshes = other->m_Meshes;
-		
-		// Deep copy materials so each instance can have its own textures
+
 		m_Materials.clear();
 		for (auto& mat : other->m_Materials) {
 			if (mat) {
@@ -106,14 +77,14 @@ public:
 				m_Materials.push_back(nullptr);
 			}
 		}
-		
+
 		m_MeshMaterialIndices = other->m_MeshMaterialIndices;
 		m_BlendMode = other->m_BlendMode;
+		m_renderLayer = other->m_renderLayer;
 
 		m_Animations = other->m_Animations;
 		m_SkinJoints = other->m_SkinJoints;
 
-		// アニメーション用にボーンをディープコピー（共有しない）
 		m_Bones.clear();
 		for (const auto& otherBone : other->m_Bones)
 		{
@@ -136,7 +107,6 @@ public:
 
 		m_SkinningMatrices = other->m_SkinningMatrices;
 
-		// 固有のSRVとバッファを生成する
 		CreateBoneBuffer();
 	}
 
@@ -175,7 +145,7 @@ public:
 			m_isAnimationFinished = false;
 		}
 	}
-	//名前でも指定できるようにする
+
 	void PlayAnimation(const std::string& name, bool isLoop = true) {
 		for (size_t i = 0; i < m_Animations.size(); ++i) {
 			if (m_Animations[i].name == name) {
@@ -197,25 +167,17 @@ public:
 	void UpdateAnimation(float deltaTime);
 
 private:
-	//Mesh
-	//UMesh1?
 	Meshes m_Meshes;
-
-	// ebVg}eA?CfbNX
 	std::vector<UINT> m_MeshMaterialIndices;
 
 	BlendMode m_BlendMode = BlendMode::Opaque;
+	RenderLayer m_renderLayer = RenderLayer::Opaque;
 
-	//Material
 	Materials m_Materials;
-
-	//Bone
 	Bones m_Bones;
-
-	//SkinningMatrix
 	SkinningMatrices m_SkinningMatrices;
 
-	ComPtr<ID3D12Resource> m_BoneBuffer;     // StructuredBuffer
+	ComPtr<ID3D12Resource> m_BoneBuffer;
 	D3D12_CPU_DESCRIPTOR_HANDLE m_BoneSrvCpuHandle{0};
 	D3D12_GPU_DESCRIPTOR_HANDLE m_BoneSrvGpuHandle{0};
 

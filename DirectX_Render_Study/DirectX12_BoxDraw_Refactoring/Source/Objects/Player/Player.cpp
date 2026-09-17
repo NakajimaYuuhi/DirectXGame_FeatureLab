@@ -16,6 +16,7 @@
 #include "GravityComponent.h"
 #include "HealthComponent.h"
 #include "CharacterMovementComponent.h"
+#include "CollisionLayers.h"
 #include "Source/Core/Scenes/Manager/SceneManager.h"
 #include <cmath>
 
@@ -36,6 +37,7 @@ Player::Player(String _Name)
 	BoxCollider3D* collider = AddComponent<BoxCollider3D>();
 	collider->SetOffset({ 0.0f, 0.75f, 0.0f });
 	collider->SetSize({ 0.6f, 1.5f, 0.6f });
+	collider->SetLayer(CollisionLayer::Player);
 
 	Audio* audio = AddComponent<Audio>();
 	audio->Load("Assets/Audio/SE/Fire1.wav");

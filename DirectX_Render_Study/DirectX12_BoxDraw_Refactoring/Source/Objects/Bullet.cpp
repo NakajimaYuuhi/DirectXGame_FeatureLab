@@ -8,65 +8,67 @@
 #include "BoxCollider3D.h"
 
 #include "ObjectManager.h"
+#include "CollisionLayers.h"
 
 
 Bullet::Bullet(String _Name)
 	:C3D_Object(_Name)
 {
-	//----- ƒ^ƒO -----
+	// Tag
 	CObjectInfo* objectInfo = GetComponent<CObjectInfo>();
 	objectInfo->SetObjectTag(ObjectTag::PLAYER_BULLET);
 
 	BoxCollider3D* collider = AddComponent<BoxCollider3D>();
 	collider->SetSize({ 0.1f, 0.1f, 0.1f });
-
+	collider->SetIsTrigger(true);
+	collider->SetLayer(CollisionLayer::PlayerBullet);
 }
 
 void Bullet::Update()
 {
-	//Transform‚Ìæ“¾
+	//Transformã®å–å¾—
 	CTransform* transform = GetComponent<CTransform>();
 
-	//ˆÚ“®
+	//ç§»å‹•
 	DirectX::XMFLOAT3 pos = transform->GetPos();
 	
-	//ˆÚ“®—Ê‚ÌŒvZ
+	//ç§»å‹•é‡ã®è¨ˆç®—
 	DirectX::XMFLOAT3 moveAmount = {
 		Direction.x * Speed,
 		Direction.y * Speed,
 		Direction.z * Speed
 	};
 
-	//V‚µ‚¢ˆÊ’u‚ÌŒvZ
+	//æ–°ã—ã„ä½ç½®ã®è¨ˆç®—
 	pos.x += moveAmount.x;
 	pos.y += moveAmount.y;
 	pos.z += moveAmount.z;
 
-	//ˆÊ’u‚ÌƒZƒbƒg
+	//ä½ç½®ã®ã‚»ãƒƒãƒˆ
 	transform->SetPos(pos);
 
-	//UV‚ğ‚¢‚¶‚Á‚Ä‚İ‚é
+	//UVã‚’ã„ã˜ã£ã¦ã¿ã‚‹
 	DirectX::XMFLOAT2 currentUV = transform->GetUVOffset();
-	currentUV.x += 0.01f; // X•ûŒü‚ÉƒXƒNƒ[ƒ‹i‘¬“x‚Í‚¨D‚İ‚Åj
+	currentUV.x += 0.01f; // Xæ–¹å‘ã«ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ï¼ˆé€Ÿåº¦ã¯ãŠå¥½ã¿ã§ï¼‰
 	transform->SetUVOffset(currentUV);
 }
 
 void Bullet::OnCollision(CObject* _Other)
 {
-	//Õ“Ë‚µ‚½‘Šè‚ªEnemy‚¾‚Á‚½‚çÁ‚¦‚é
+	//è¡çªã—ãŸç›¸æ‰‹ãŒEnemyã ã£ãŸã‚‰æ¶ˆãˆã‚‹
 	CObjectInfo* otherInfo = _Other->GetComponent<CObjectInfo>();
 	if (otherInfo && otherInfo->GetObjectTag() == ObjectTag::ENEMY)
 	{
 		SetIsDestroyed(true);
 
-		//ƒp[ƒeƒBƒNƒ‹‚ğo‚·(20ŒÂ)
+		//ãƒ‘ãƒ¼ãƒ†ã‚£ã‚¯ãƒ«ã‚’å‡ºã™(20å€‹)
 		for (int i = 0; i < 20; i++)
 		{
 			CObject* particle = ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::BILLBOARD, "RandomParticle");
 			if (particle)
 			{
 				CTransform* transform = particle->GetComponent<CTransform>();
-				//ˆÊ’u
+				//ä½ç½®
 				DirectX::XMFLOAT3 pos = GetPos();
 				transform->SetPos(pos);
 				transform->SetScale({ 0.05f, 1.0f, 0.05f });

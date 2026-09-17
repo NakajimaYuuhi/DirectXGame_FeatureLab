@@ -16,6 +16,7 @@
 #include "GravityComponent.h"
 #include "HealthComponent.h"
 #include "CharacterMovementComponent.h"
+#include "CollisionLayers.h"
 #include <cmath>
 
 Enemy::Enemy(String _Name)
@@ -35,6 +36,7 @@ Enemy::Enemy(String _Name)
 	BoxCollider3D* collider = AddComponent<BoxCollider3D>();
 	collider->SetOffset({ 0.0f, 0.75f, 0.0f });
 	collider->SetSize({ 0.6f, 1.5f, 0.6f });
+	collider->SetLayer(CollisionLayer::Enemy);
 
 	SetScale({ 0.5f, 0.5f, 0.5f });
 

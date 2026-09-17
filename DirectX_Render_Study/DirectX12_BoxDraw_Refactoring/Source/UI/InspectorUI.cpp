@@ -25,6 +25,8 @@
 #include "CharacterMovementComponent.h"
 #include "PlayerControllerComponent.h"
 #include "EnemyAIComponent.h"
+#include "CollisionLayers.h"
+#include "RenderLayer.h"
 #include <typeinfo>
 #include <windows.h>
 #include <vector>
@@ -537,6 +539,13 @@ void CInspectorUI::Draw()
                         {
                             sprite->SetColor({ colorArr[0], colorArr[1], colorArr[2], colorArr[3] });
                         }
+
+                        static const char* rLayerNames[] = { "Opaque", "Transparent", "UI" };
+                        int curLayer = (int)sprite->GetRenderLayer();
+                        if (ImGui::Combo("Render Layer", &curLayer, rLayerNames, IM_ARRAYSIZE(rLayerNames)))
+                        {
+                            sprite->SetRenderLayer((RenderLayer)curLayer);
+                        }
                     }
                 }
 
@@ -551,6 +560,13 @@ void CInspectorUI::Draw()
                         if (ImGui::InputText("Text Content", textBuf, sizeof(textBuf)))
                         {
                             textComp->SetText(StringToWString(std::string(textBuf)));
+                        }
+
+                        static const char* rLayerNames[] = { "Opaque", "Transparent", "UI" };
+                        int curTextLayer = (int)textComp->GetRenderLayer();
+                        if (ImGui::Combo("Render Layer", &curTextLayer, rLayerNames, IM_ARRAYSIZE(rLayerNames)))
+                        {
+                            textComp->SetRenderLayer((RenderLayer)curTextLayer);
                         }
 
                         CTransform* trans = selectedObj->GetComponent<CTransform>();
@@ -673,6 +689,13 @@ void CInspectorUI::Draw()
                 {
                     if (ImGui::CollapsingHeader("Model & Shader", ImGuiTreeNodeFlags_DefaultOpen))
                     {
+                        static const char* rLayerNames[] = { "Opaque", "Transparent", "UI" };
+                        int curModelLayer = (int)model->GetRenderLayer();
+                        if (ImGui::Combo("Render Layer", &curModelLayer, rLayerNames, IM_ARRAYSIZE(rLayerNames)))
+                        {
+                            model->SetRenderLayer((RenderLayer)curModelLayer);
+                        }
+
                         ImGui::InputText("Shader Path", m_shaderPathInput, sizeof(m_shaderPathInput));
                         if (ImGui::Button("Apply Shader"))
                         {
@@ -698,6 +721,31 @@ void CInspectorUI::Draw()
                         if (ImGui::DragFloat3("Offset", &offset.x, 0.1f))
                         {
                             boxCollider->SetOffset(offset);
+                        }
+
+                        bool isTrigger = boxCollider->GetIsTrigger();
+                        if (ImGui::Checkbox("Is Trigger (Pass through)", &isTrigger))
+                        {
+                            boxCollider->SetIsTrigger(isTrigger);
+                        }
+
+                        static const char* layerNames[] = {
+                            "Default", "Player", "Enemy", "PlayerBullet", "EnemyBullet", "Terrain", "Obstacle", "Trigger"
+                        };
+                        static const uint32_t layerValues[] = {
+                            CollisionLayer::Default, CollisionLayer::Player, CollisionLayer::Enemy,
+                            CollisionLayer::PlayerBullet, CollisionLayer::EnemyBullet,
+                            CollisionLayer::Terrain, CollisionLayer::Obstacle, CollisionLayer::Trigger
+                        };
+                        int curLayerIdx = 0;
+                        uint32_t curLayer = boxCollider->GetLayer();
+                        for (int l = 0; l < IM_ARRAYSIZE(layerValues); ++l)
+                        {
+                            if (layerValues[l] == curLayer) { curLayerIdx = l; break; }
+                        }
+                        if (ImGui::Combo("Collision Layer", &curLayerIdx, layerNames, IM_ARRAYSIZE(layerNames)))
+                        {
+                            boxCollider->SetLayer(layerValues[curLayerIdx]);
                         }
                     }
                 }

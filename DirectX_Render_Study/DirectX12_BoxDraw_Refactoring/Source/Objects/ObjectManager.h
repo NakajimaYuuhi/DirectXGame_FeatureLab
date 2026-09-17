@@ -3,6 +3,7 @@
 #include "ObjectTag.h"
 
 #include "Object.h"
+#include "RenderLayer.h"
 
 class Camera;
 class Player;
@@ -31,7 +32,8 @@ public:
 
 	void CollisionUpdate(Scenes::ID _SceneID);	//Collisionの更新
 
-	void Draw(Scenes::ID _SceneID);			//`
+	void Draw(Scenes::ID _SceneID);
+	void DrawByLayer(RenderLayer layer);
 
 	void FlushDestroyedObjects();
 

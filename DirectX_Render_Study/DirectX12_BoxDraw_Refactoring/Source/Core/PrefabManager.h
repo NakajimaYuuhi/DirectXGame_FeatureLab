@@ -21,6 +21,10 @@ public:
 	// Register built-in component-based prefabs
 	void InitDefaultPrefabs();
 
+	// JSON Prefab methods
+	CObject* InstantiateFromJSON(const std::string& jsonPath, const std::string& instanceName = "");
+	bool RegisterPrefabJSON(const std::string& typeName, const std::string& jsonPath);
+
 private:
 	PrefabManager();
 	~PrefabManager() = default;

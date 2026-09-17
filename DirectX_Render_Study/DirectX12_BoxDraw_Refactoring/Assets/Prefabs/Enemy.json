@@ -1,0 +1,36 @@
+{
+  "PrefabName": "EnemyPrefab",
+  "Tag": "ENEMY",
+  "Components": {
+    "Transform": {
+      "Scale": [ 0.5, 0.5, 0.5 ]
+    },
+    "Model": {
+      "ModelPath": "Assets/Model/Monk.glb",
+      "DefaultAnimation": "Idle",
+      "RenderLayer": "Opaque"
+    },
+    "BoxCollider3D": {
+      "Size": [ 0.6, 1.5, 0.6 ],
+      "Offset": [ 0.0, 0.75, 0.0 ],
+      "IsTrigger": false,
+      "Layer": 4,
+      "CollisionMask": 4294967295
+    },
+    "Gravity": {
+      "Gravity": -25.0,
+      "JumpPower": 0.0
+    },
+    "Movement": {
+      "Speed": 0.05,
+      "MinClimbNormalY": 0.45,
+      "AutoRotate": true
+    },
+    "Health": {
+      "MaxHP": 3,
+      "InvincibleDuration": 0.3,
+      "BlinkInterval": 0.06
+    },
+    "EnemyAI": {}
+  }
+}

@@ -1,11 +1,13 @@
 #pragma once
 #include "Component.h"
+#include "CollisionLayers.h"
+#include <cstdint>
+
 class Collider : public CComponent
 {
 public:
 	typedef enum
 	{
-		//NONE,//デフォルト用
 		CIRCLE_2D,
 		CIRCLE_2D_Trigger,
 		CIRCLE_3D,
@@ -14,28 +16,33 @@ public:
 		BOX_2D_Trigger,
 		BOX_3D,
 		BOX_3D_Trigger,
-
 	}CololiderType;
 
+	Collider() : m_layer(CollisionLayer::Default), m_collisionMask(CollisionLayer::All), m_isTrigger(false), IsTrriger(false) {}
+	virtual ~Collider() = default;
 
-
-	//コンストラクタ
-	Collider() {}
-
-	//デストラクタ
-	virtual ~Collider(){}
-
-	//Update Transformに従属してUpdate
-	//Getter
+	// Type getter
 	virtual CololiderType GetColliderType() { return ColliderType; }
-	bool GetIsTrigger() { return IsTrriger; }
 
+	// Trigger property
+	bool GetIsTrigger() const { return m_isTrigger; }
+	void SetIsTrigger(bool trigger) { m_isTrigger = trigger; IsTrriger = trigger; }
 
-	bool IsTrriger = false;//デフォルトはfalse
+	// Layer & Mask
+	uint32_t GetLayer() const { return m_layer; }
+	void SetLayer(uint32_t layer) { m_layer = layer; }
+
+	uint32_t GetCollisionMask() const { return m_collisionMask; }
+	void SetCollisionMask(uint32_t mask) { m_collisionMask = mask; }
+
+	bool CanCollideWith(uint32_t otherLayer) const { return (m_collisionMask & otherLayer) != 0; }
+
+	// Backward compatibility field
+	bool IsTrriger = false;
 
 protected:
 	CololiderType ColliderType;
-
-private:
+	uint32_t      m_layer = CollisionLayer::Default;
+	uint32_t      m_collisionMask = CollisionLayer::All;
+	bool          m_isTrigger = false;
 };
-
