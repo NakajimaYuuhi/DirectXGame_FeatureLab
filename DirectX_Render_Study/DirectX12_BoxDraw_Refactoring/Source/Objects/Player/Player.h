@@ -23,7 +23,10 @@ public:
 	// Helper methods for state execution
 	bool HasMoveInput() const;
 	void ProcessMovement(float deltaTime);
+	void ApplyGravity(float deltaTime);
+	void SnapToGround();
 	void PerformAttack();
+	bool IsGrounded() const { return m_isGrounded; }
 
 	// HP / Damage management
 	int GetHP() const { return HP; }
@@ -42,6 +45,15 @@ protected:
 	const float INVINCIBLE_DURATION = 1.5f;
 	const float BLINK_INTERVAL = 0.08f;
 	Camera* m_camera = nullptr;
+	class Field* m_field = nullptr;
+
+	// Gravity and vertical physics
+	float m_verticalVelocity = 0.0f;
+	bool m_isGrounded = false;
+	const float GRAVITY = -25.0f;
+	const float JUMP_POWER = 8.5f;
+	const float TERMINAL_VELOCITY = -30.0f;
+	const float STEP_DOWN_LIMIT = 0.4f;
 
 	StateMachine<Player> m_stateMachine;
 };

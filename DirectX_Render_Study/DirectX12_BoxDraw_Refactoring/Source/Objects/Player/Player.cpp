@@ -12,6 +12,7 @@
 #include "BoxCollider3D.h"
 #include "TimeManager.h"
 #include "audio.h"
+#include "Field.h"
 #include "Source/Core/Scenes/Manager/SceneManager.h"
 #include <cmath>
 
@@ -64,7 +65,11 @@ void Player::Start()
 	if (m_hasStarted) return;
 
 	m_camera = ObjectManager::GetInstance().GetCamera();
+	m_field = ObjectManager::GetInstance().GetField();
+
 	SetScale({ 0.5f, 0.5f, 0.5f });
+
+	SnapToGround();
 
 	m_stateMachine.SetOwner(this);
 	m_stateMachine.ChangeState(std::make_shared<PlayerIdleState>());
@@ -72,9 +77,107 @@ void Player::Start()
 	m_hasStarted = true;
 }
 
+void Player::SnapToGround()
+{
+	if (!m_field)
+	{
+		m_field = ObjectManager::GetInstance().GetField();
+	}
+	if (m_field)
+	{
+		DirectX::XMFLOAT3 pos = GetPos();
+		float groundY = 0.0f;
+		if (m_field->GetHeight(pos.x, pos.z, groundY))
+		{
+			pos.y = groundY;
+			SetPos(pos);
+			m_verticalVelocity = 0.0f;
+			m_isGrounded = true;
+		}
+	}
+}
+
+void Player::ApplyGravity(float deltaTime)
+{
+	if (!m_field)
+	{
+		m_field = ObjectManager::GetInstance().GetField();
+	}
+
+	DirectX::XMFLOAT3 pos = GetPos();
+	float groundY = 0.0f;
+	bool hasGround = (m_field != nullptr) && m_field->GetHeight(pos.x, pos.z, groundY);
+
+	if (!hasGround)
+	{
+		groundY = 0.0f;
+	}
+
+	// Apply gravity acceleration
+	m_verticalVelocity += GRAVITY * deltaTime;
+	if (m_verticalVelocity < TERMINAL_VELOCITY)
+	{
+		m_verticalVelocity = TERMINAL_VELOCITY;
+	}
+
+	float nextY = pos.y + m_verticalVelocity * deltaTime;
+
+	// Ground check
+	if (m_isGrounded && m_verticalVelocity <= 0.0f)
+	{
+		// While grounded, snap to slopes smoothly within step down limit
+		float diff = pos.y - groundY;
+		if (diff >= -0.1f && diff <= STEP_DOWN_LIMIT)
+		{
+			pos.y = groundY;
+			m_verticalVelocity = 0.0f;
+			m_isGrounded = true;
+		}
+		else if (nextY <= groundY)
+		{
+			pos.y = groundY;
+			m_verticalVelocity = 0.0f;
+			m_isGrounded = true;
+		}
+		else
+		{
+			// Step off a high ledge -> fall
+			pos.y = nextY;
+			m_isGrounded = false;
+		}
+	}
+	else
+	{
+		// Airborne: fall and land
+		if (nextY <= groundY)
+		{
+			pos.y = groundY;
+			m_verticalVelocity = 0.0f;
+			m_isGrounded = true;
+		}
+		else
+		{
+			pos.y = nextY;
+			m_isGrounded = false;
+		}
+	}
+
+	SetPos(pos);
+}
+
 void Player::Update()
 {
 	float dt = TimeManager::GetInstance().GetDeltaTime();
+
+	// Jump input
+	if (m_isGrounded && CInputManager::GetInstance().IsKeyTrigger(VK_SPACE))
+	{
+		m_verticalVelocity = JUMP_POWER;
+		m_isGrounded = false;
+	}
+
+	// Apply gravity
+	ApplyGravity(dt);
 
 	if (m_invincibleTimer > 0.0f)
 	{
@@ -155,8 +258,62 @@ void Player::ProcessMovement(float deltaTime)
 
 	if (movement.x != 0.0f || movement.z != 0.0f)
 	{
-		DirectX::XMFLOAT3 newPos = { pos.x + movement.x, pos.y + movement.y, pos.z + movement.z };
-		SetPos(newPos);
+		DirectX::XMFLOAT3 targetPos = { pos.x + movement.x, pos.y, pos.z + movement.z };
+
+		if (!m_field)
+		{
+			m_field = ObjectManager::GetInstance().GetField();
+		}
+
+		if (m_field)
+		{
+			float groundY = 0.0f;
+			DirectX::XMFLOAT3 normal = { 0.0f, 1.0f, 0.0f };
+
+			if (m_field->GetHeight(targetPos.x, targetPos.z, groundY))
+			{
+				m_field->GetNormal(targetPos.x, targetPos.z, normal);
+
+				// 登坂制限（傾斜が急すぎる崖＝法線Ny < 0.45、約63度以上は登れない）
+				const float MIN_CLIMB_NORMAL_Y = 0.45f;
+				if (normal.y >= MIN_CLIMB_NORMAL_Y)
+				{
+					if (m_isGrounded)
+					{
+						targetPos.y = groundY;
+					}
+					SetPos(targetPos);
+				}
+				else
+				{
+					// 急斜面の場合は法線の水平成分に沿って滑らせる
+					float dot = movement.x * normal.x + movement.z * normal.z;
+					if (dot < 0.0f)
+					{
+						float slideX = movement.x - normal.x * dot;
+						float slideZ = movement.z - normal.z * dot;
+						DirectX::XMFLOAT3 slidePos = { pos.x + slideX, pos.y, pos.z + slideZ };
+						float slideY = 0.0f;
+						if (m_field->GetHeight(slidePos.x, slidePos.z, slideY))
+						{
+							if (m_isGrounded)
+							{
+								slidePos.y = slideY;
+							}
+							SetPos(slidePos);
+						}
+					}
+				}
+			}
+			else
+			{
+				SetPos(targetPos);
+			}
+		}
+		else
+		{
+			SetPos(targetPos);
+		}
 
 		float targetRotY = atan2f(movement.x, movement.z);
 		SetRotation({ 0.0f, targetRotY, 0.0f });

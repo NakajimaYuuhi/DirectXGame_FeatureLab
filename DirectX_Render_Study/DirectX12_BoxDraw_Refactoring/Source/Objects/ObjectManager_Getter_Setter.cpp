@@ -1,27 +1,28 @@
 //ObjectManager_Getter_Setter.cpp
 
-//Getter,SetterŠÖ˜A‚Ìˆ—
+//Getter,Setteré–¢é€£ã®å‡¦ç†
 
-//====== ƒCƒ“ƒNƒ‹[ƒh =====
+//====== ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ =====
 
-//ƒwƒbƒ_
+//ãƒ˜ãƒƒãƒ€
 #include "ObjectManager.h"
 
-//ƒRƒ“ƒ|[ƒlƒ“ƒg
+//ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
 #include "ObjectInfo.h"
 
-//ƒIƒuƒWƒFƒNƒg
+//ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 #include "Player.h"
 #include "Camera.h"
+#include "Field.h"
 
 
 
-//====== ƒƒ\ƒbƒh’è‹` =====
+//====== ãƒ¡ã‚½ãƒƒãƒ‰å®šç¾© =====
 
 //----- Player -----
 Player* ObjectManager::GetPlayer()
 {
-	//‰½‚à–³‚¢‚È‚çnullptr
+	//ä½•ã‚‚ç„¡ã„ãªã‚‰nullptr
 	if (vecObject[Object::objectTag::PLAYER].size() < 1)return nullptr;
 
 
@@ -29,10 +30,10 @@ Player* ObjectManager::GetPlayer()
 }
 
 //----- Camera -----
-//Todo : •¡”‚ ‚éƒJƒƒ‰‚ğæ“¾‚Å‚«‚é‚æ‚¤‚É‚·‚é
+//Todo : è¤‡æ•°ã‚ã‚‹ã‚«ãƒ¡ãƒ©ã‚’å–å¾—ã§ãã‚‹ã‚ˆã†ã«ã™ã‚‹
 Camera* ObjectManager::GetCamera()
 {
-	//‰½‚à–³‚¢‚È‚çnullptr
+	//ä½•ã‚‚ç„¡ã„ãªã‚‰nullptr
 	if (vecObject[Object::objectTag::CAMERA].size() < 1)return nullptr;
 
 
@@ -40,22 +41,37 @@ Camera* ObjectManager::GetCamera()
 }
 
 //----- Manager -----
-//–¼‘O‚Å’T‚µ‚Ä,Get‚·‚é
-//«—ˆ“I‚É‚ÍAObjectInfo‚Å’T‚µ‚ÄAGet‚·‚ê‚Î‚¢‚¢‚©H
+//åå‰ã§æ¢ã—ã¦,Getã™ã‚‹
+//å°†æ¥çš„ã«ã¯ã€ObjectInfoã§æ¢ã—ã¦ã€Getã™ã‚Œã°ã„ã„ã‹ï¼Ÿ
 CObject* ObjectManager::GetManager(String name)
 {
 	for (auto& object : vecObject[Object::objectTag::MANAGER])
 	{
 		String str = object->GetComponent<CObjectInfo>()->GetObjectName();
 
-		//–¼‘O‚ğget‚·‚é
+		//åå‰ã‚’getã™ã‚‹
 		if (name == str)
 		{
-			//ˆê’v‚µ‚Ä‚¢‚½‚ç•Ô‚·
+			//ä¸€è‡´ã—ã¦ã„ãŸã‚‰è¿”ã™
 			return object.get();
 		}
 	}
 
 
+	return nullptr;
+}
+
+//----- Field -----
+Field* ObjectManager::GetField()
+{
+	const auto& fields = vecObject[Object::objectTag::FIELD];
+	for (const auto& obj : fields)
+	{
+		if (obj && !obj->GetIsDestroyed())
+		{
+			Field* f = dynamic_cast<Field*>(obj.get());
+			if (f) return f;
+		}
+	}
 	return nullptr;
 }

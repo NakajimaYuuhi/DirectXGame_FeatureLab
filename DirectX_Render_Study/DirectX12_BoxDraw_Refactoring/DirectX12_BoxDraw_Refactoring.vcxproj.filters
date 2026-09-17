@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Assets">
@@ -112,6 +112,9 @@
       <Filter>Source\Rendering</Filter>
     </ClCompile>
     <ClCompile Include="Source\Objects\Skydome.cpp">
+      <Filter>Source\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Objects\Field.cpp">
       <Filter>Source\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Source\UI\TextObject.cpp">
@@ -355,6 +358,9 @@
     </ClInclude>
     <ClInclude Include="resource.h" />
     <ClInclude Include="Source\Objects\Skydome.h">
+      <Filter>Source\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Objects\Field.h">
       <Filter>Source\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Source\UI\TextObject.h">

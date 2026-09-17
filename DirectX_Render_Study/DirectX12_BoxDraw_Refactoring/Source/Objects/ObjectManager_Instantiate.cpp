@@ -29,6 +29,9 @@
 //skydome
 #include "Skydome.h"
 
+//field
+#include "Field.h"
+
 //camera
 #include "Camera.h"
 
@@ -105,6 +108,9 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 		break;
 
 	case ObjectTag::FIELD:
+		tmpObject = std::make_unique<Field>(_ObjectName);
+		returnObject = tmpObject.get();
+		vecObject[static_cast<int>(ObjectTag::FIELD)].push_back(std::move(tmpObject));
 		break;
 
 	case ObjectTag::BILLBOARD:

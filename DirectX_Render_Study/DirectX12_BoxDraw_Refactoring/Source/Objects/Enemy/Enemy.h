@@ -20,6 +20,9 @@ public:
 
 	// Helper methods for state execution
 	void MoveTowards(const DirectX::XMFLOAT3& targetPos, float deltaTime);
+	void ApplyGravity(float deltaTime);
+	void SnapToGround();
+	bool IsGrounded() const { return m_isGrounded; }
 	void OnDie();
 	int GetHP() const { return HP; }
 	void TakeDamage(int damage);
@@ -32,6 +35,15 @@ protected:
 	float m_flashTimer = 0.0f;
 	const float FLASH_DURATION = 0.3f;
 	const float BLINK_INTERVAL = 0.06f;
+
+	class Field* m_field = nullptr;
+
+	// Gravity and vertical physics
+	float m_verticalVelocity = 0.0f;
+	bool m_isGrounded = false;
+	const float GRAVITY = -25.0f;
+	const float TERMINAL_VELOCITY = -30.0f;
+	const float STEP_DOWN_LIMIT = 0.4f;
 
 	StateMachine<Enemy> m_stateMachine;
 };
