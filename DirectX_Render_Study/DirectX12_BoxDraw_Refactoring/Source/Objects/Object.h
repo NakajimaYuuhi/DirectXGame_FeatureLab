@@ -43,6 +43,7 @@ class CObject
 {
 public:
 	CObject();
+	CObject(String _Name);
 	virtual ~CObject();
 
 
@@ -51,7 +52,7 @@ public:
 	virtual void Start();
 	virtual void Update();
 	virtual void LateUpdate();
-	virtual void Draw() = 0;
+	virtual void Draw();
 
 	// Collision callback
 	virtual void OnCollision(CObject* _Other);

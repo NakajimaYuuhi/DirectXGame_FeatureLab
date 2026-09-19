@@ -73,9 +73,9 @@ bool SceneSerializer::SaveScene(const std::string& filepath, Scenes::ID sceneID)
 				objJson["type"] = "EnemyCount";
 			else if (dynamic_cast<TextObject*>(obj.get()))
 				objJson["type"] = "TextObject";
-			else if (dynamic_cast<Player*>(obj.get()))
+			else if (objInfo->GetObjectTag() == ObjectTag::PLAYER || dynamic_cast<Player*>(obj.get()))
 				objJson["type"] = "Player";
-			else if (dynamic_cast<Enemy*>(obj.get()))
+			else if (objInfo->GetObjectTag() == ObjectTag::ENEMY || dynamic_cast<Enemy*>(obj.get()))
 				objJson["type"] = "Enemy";
 			else if (dynamic_cast<Skydome*>(obj.get()))
 				objJson["type"] = "Skydome";

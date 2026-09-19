@@ -1,5 +1,6 @@
 #include "Object.h"
 #include "ObjectInfo.h"
+#include "Transform.h"
 #include "Component.h"
 #include "TimeManager.h"
 
@@ -7,6 +8,13 @@ CObject::CObject()
 	: isValid(true)
 {
 	AddComponent<CObjectInfo>();
+	AddComponent<CTransform>();
+}
+
+CObject::CObject(String _Name)
+	: CObject()
+{
+	SetName(_Name);
 }
 
 CObject::~CObject() = default;
@@ -43,6 +51,18 @@ void CObject::LateUpdate()
 {
 	float dt = TimeManager::GetInstance().GetDeltaTime();
 	LateUpdateComponents(dt);
+}
+
+void CObject::Draw()
+{
+	if (!m_isVisible) return;
+	for (auto& c : components)
+	{
+		if (c && c->GetIsValid())
+		{
+			c->Draw();
+		}
+	}
 }
 
 void CObject::OnCollision(CObject* _Other)

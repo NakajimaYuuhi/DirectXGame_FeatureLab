@@ -39,12 +39,13 @@ void PrefabManager::InitDefaultPrefabs()
 {
 	// 1. Wizard Player Prefab Recipe
 	RegisterPrefab("PlayerPrefab", [](const std::string& name) -> CObject* {
-		auto obj = new C3D_Object(name);
+		auto obj = new CObject(name);
 		
 		CObjectInfo* info = obj->GetComponent<CObjectInfo>();
 		if (info) info->SetObjectTag(ObjectTag::PLAYER);
 
-		obj->SetScale({ 0.5f, 0.5f, 0.5f });
+		CTransform* transform = obj->GetComponent<CTransform>();
+		if (transform) transform->SetScale({ 0.5f, 0.5f, 0.5f });
 
 		// Model
 		CModel* model = obj->GetComponent<CModel>();
@@ -83,12 +84,13 @@ void PrefabManager::InitDefaultPrefabs()
 
 	// 2. Monk Enemy Prefab Recipe
 	RegisterPrefab("EnemyPrefab", [](const std::string& name) -> CObject* {
-		auto obj = new C3D_Object(name);
+		auto obj = new CObject(name);
 
 		CObjectInfo* info = obj->GetComponent<CObjectInfo>();
 		if (info) info->SetObjectTag(ObjectTag::ENEMY);
 
-		obj->SetScale({ 0.5f, 0.5f, 0.5f });
+		CTransform* transform = obj->GetComponent<CTransform>();
+		if (transform) transform->SetScale({ 0.5f, 0.5f, 0.5f });
 
 		// Model
 		CModel* model = obj->GetComponent<CModel>();
@@ -147,7 +149,7 @@ CObject* PrefabManager::InstantiateFromJSON(const std::string& jsonPath, const s
 	std::string prefabName = j.value("PrefabName", "PrefabObject");
 	std::string finalName = instanceName.empty() ? prefabName : instanceName;
 
-	auto obj = new C3D_Object(finalName);
+	auto obj = new CObject(finalName);
 
 	// Tag
 	std::string tagStr = j.value("Tag", "NONE");
@@ -169,7 +171,8 @@ CObject* PrefabManager::InstantiateFromJSON(const std::string& jsonPath, const s
 		const auto& t = comps["Transform"];
 		if (t.contains("Scale") && t["Scale"].is_array() && t["Scale"].size() >= 3)
 		{
-			obj->SetScale({ t["Scale"][0], t["Scale"][1], t["Scale"][2] });
+			CTransform* transform = obj->GetComponent<CTransform>();
+			if (transform) transform->SetScale({ t["Scale"][0], t["Scale"][1], t["Scale"][2] });
 		}
 	}
 

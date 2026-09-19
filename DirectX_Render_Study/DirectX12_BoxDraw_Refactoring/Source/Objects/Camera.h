@@ -23,7 +23,7 @@ private:
 	DirectX::XMMATRIX view;
 	DirectX::XMMATRIX proj;
 
-	Player* m_player = nullptr;
+	CObject* m_player = nullptr;
 	float m_angleY = 0.0f;
 	float m_distance = 5.0f;
 	float m_height = 2.5f;

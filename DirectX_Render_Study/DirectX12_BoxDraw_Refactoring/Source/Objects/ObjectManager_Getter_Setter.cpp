@@ -20,13 +20,13 @@
 //====== メソッド定義 =====
 
 //----- Player -----
-Player* ObjectManager::GetPlayer()
+CObject* ObjectManager::GetPlayer()
 {
 	//何も無いならnullptr
 	if (vecObject[Object::objectTag::PLAYER].size() < 1)return nullptr;
 
 
-	return (Player*)(vecObject[Object::objectTag::PLAYER][0].get());
+	return vecObject[Object::objectTag::PLAYER][0].get();
 }
 
 //----- Camera -----

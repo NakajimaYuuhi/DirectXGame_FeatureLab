@@ -45,7 +45,7 @@ private:
 public:
 
 	//Player
-	Player* GetPlayer();
+	CObject* GetPlayer();
 
 	//Camera
 	Camera* GetCamera();

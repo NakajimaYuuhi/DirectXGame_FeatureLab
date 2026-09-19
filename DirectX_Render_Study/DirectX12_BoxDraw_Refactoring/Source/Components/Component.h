@@ -30,6 +30,7 @@ public:
     virtual void Start() {}
     virtual void Update(float deltaTime) {}
     virtual void LateUpdate(float deltaTime) {}
+    virtual void Draw() {}
     virtual void OnCollision(CObject* _Other) {}
 
     // Execution phase priority (default is Movement)

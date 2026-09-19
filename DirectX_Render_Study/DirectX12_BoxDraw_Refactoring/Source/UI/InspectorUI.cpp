@@ -311,14 +311,18 @@ void CInspectorUI::Draw()
     ImGui::Separator();
 
     // Player Status
-    Player* player = ObjectManager::GetInstance().GetPlayer();
+    CObject* player = ObjectManager::GetInstance().GetPlayer();
     if (player)
     {
-        ImGui::Text("Player Status");
-        ImGui::Text("HP: %d / %d", player->GetHP(), player->GetMaxHP());
-        float hpFraction = (float)player->GetHP() / (float)player->GetMaxHP();
-        ImGui::ProgressBar(hpFraction, ImVec2(-1.0f, 0.0f));
-        ImGui::Separator();
+        HealthComponent* health = player->GetComponent<HealthComponent>();
+        if (health)
+        {
+            ImGui::Text("Player Status");
+            ImGui::Text("HP: %d / %d", health->GetHP(), health->GetMaxHP());
+            float hpFraction = (float)health->GetHP() / (float)health->GetMaxHP();
+            ImGui::ProgressBar(hpFraction, ImVec2(-1.0f, 0.0f));
+            ImGui::Separator();
+        }
     }
 
     // 5. Hierarchy (Object List)

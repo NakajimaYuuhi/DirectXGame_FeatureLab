@@ -6,6 +6,7 @@
 
 //?w?b?_
 #include "ObjectManager.h"
+#include "PrefabManager.h"
 
 //?I?u?W?F?N?g
 
@@ -87,9 +88,13 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 		break;
 
 	case ObjectTag::PLAYER:
-		tmpObject = std::make_unique<Player>(_ObjectName);
-		returnObject = tmpObject.get();
-		vecObject[static_cast<int>(ObjectTag::PLAYER)].push_back(std::move(tmpObject));
+		{
+			CObject* rawObj = PrefabManager::GetInstance().Instantiate("PlayerJSON", _ObjectName);
+			if (!rawObj) rawObj = PrefabManager::GetInstance().InstantiateFromJSON("Assets/Prefabs/Player.json", _ObjectName);
+			tmpObject = std::unique_ptr<CObject>(rawObj);
+			returnObject = tmpObject.get();
+			vecObject[static_cast<int>(ObjectTag::PLAYER)].push_back(std::move(tmpObject));
+		}
 		break;
 
 	case ObjectTag::PLAYER_BULLET:
@@ -99,9 +104,13 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 		break;
 
 	case ObjectTag::ENEMY:
-		tmpObject = std::make_unique<Enemy>(_ObjectName);
-		returnObject = tmpObject.get();
-		vecObject[static_cast<int>(ObjectTag::ENEMY)].push_back(std::move(tmpObject));
+		{
+			CObject* rawObj = PrefabManager::GetInstance().Instantiate("EnemyJSON", _ObjectName);
+			if (!rawObj) rawObj = PrefabManager::GetInstance().InstantiateFromJSON("Assets/Prefabs/Enemy.json", _ObjectName);
+			tmpObject = std::unique_ptr<CObject>(rawObj);
+			returnObject = tmpObject.get();
+			vecObject[static_cast<int>(ObjectTag::ENEMY)].push_back(std::move(tmpObject));
+		}
 		break;
 
 	case ObjectTag::ENEMY_BULLET:

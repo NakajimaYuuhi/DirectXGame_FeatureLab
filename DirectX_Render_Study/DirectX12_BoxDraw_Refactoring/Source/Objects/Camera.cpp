@@ -1,6 +1,6 @@
 #include "InspectorUI.h"
 #include "Camera.h"
-#include "Player.h"
+#include "Transform.h"
 #include "InputManager.h"
 #include "ObjectManager.h"
 #include "ObjectInfo.h"
@@ -69,7 +69,8 @@ void Camera::Update()
 
 	if (m_player)
 	{
-		DirectX::XMFLOAT3 playerPos = m_player->GetPos();
+		CTransform* transform = m_player->GetComponent<CTransform>();
+		DirectX::XMFLOAT3 playerPos = transform ? transform->GetPos() : DirectX::XMFLOAT3{ 0.0f, 0.0f, 0.0f };
 
 		float offsetX = sinf(m_angleY) * m_distance;
 		float offsetZ = -cosf(m_angleY) * m_distance;

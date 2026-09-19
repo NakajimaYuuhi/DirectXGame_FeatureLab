@@ -14,7 +14,7 @@ void EnemyIdleState::OnUpdate(float deltaTime)
 {
 	if (!owner) return;
 
-	Player* playerObj = ObjectManager::GetInstance().GetPlayer();
+	Player* playerObj = (Player*)ObjectManager::GetInstance().GetPlayer();
 
 	if (playerObj && !playerObj->IsDead())
 	{
@@ -52,7 +52,7 @@ void EnemyChaseState::OnUpdate(float deltaTime)
 {
 	if (!owner) return;
 
-	Player* playerObj = ObjectManager::GetInstance().GetPlayer();
+	Player* playerObj = (Player*)ObjectManager::GetInstance().GetPlayer();
 
 	if (playerObj && !playerObj->IsDead())
 	{
@@ -101,7 +101,7 @@ void EnemyAttackState::OnUpdate(float deltaTime)
 
 	m_attackTimer += deltaTime;
 
-	Player* playerObj = ObjectManager::GetInstance().GetPlayer();
+	Player* playerObj = (Player*)ObjectManager::GetInstance().GetPlayer();
 	if (playerObj)
 	{
 		DirectX::XMFLOAT3 myPos = owner->GetPos();

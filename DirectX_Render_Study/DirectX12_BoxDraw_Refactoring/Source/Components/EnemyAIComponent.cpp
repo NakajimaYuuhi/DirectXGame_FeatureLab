@@ -2,7 +2,6 @@
 #include "Object.h"
 #include "Transform.h"
 #include "Model.h"
-#include "Player.h"
 #include "ObjectManager.h"
 #include "CharacterMovementComponent.h"
 #include "GravityComponent.h"
@@ -87,14 +86,18 @@ void EnemyAIComponent::UpdateState(float deltaTime)
 
 void EnemyAIComponent::UpdateIdle(float deltaTime)
 {
-	Player* player = ObjectManager::GetInstance().GetPlayer();
-	if (player && !player->IsDead() && m_Owner)
+	CObject* player = ObjectManager::GetInstance().GetPlayer();
+	if (player && m_Owner)
 	{
+		HealthComponent* health = player->GetComponent<HealthComponent>();
+		if (health && health->IsDead()) return;
+
 		CTransform* transform = m_Owner->GetComponent<CTransform>();
-		if (!transform) return;
+		CTransform* playerTransform = player->GetComponent<CTransform>();
+		if (!transform || !playerTransform) return;
 
 		DirectX::XMFLOAT3 myPos = transform->GetPos();
-		DirectX::XMFLOAT3 playerPos = player->GetPos();
+		DirectX::XMFLOAT3 playerPos = playerTransform->GetPos();
 
 		float dx = playerPos.x - myPos.x;
 		float dz = playerPos.z - myPos.z;
@@ -109,14 +112,18 @@ void EnemyAIComponent::UpdateIdle(float deltaTime)
 
 void EnemyAIComponent::UpdateChase(float deltaTime)
 {
-	Player* player = ObjectManager::GetInstance().GetPlayer();
-	if (player && !player->IsDead() && m_Owner)
+	CObject* player = ObjectManager::GetInstance().GetPlayer();
+	HealthComponent* health = player ? player->GetComponent<HealthComponent>() : nullptr;
+	bool isPlayerDead = health ? health->IsDead() : true;
+
+	if (player && !isPlayerDead && m_Owner)
 	{
 		CTransform* transform = m_Owner->GetComponent<CTransform>();
-		if (!transform) return;
+		CTransform* playerTransform = player->GetComponent<CTransform>();
+		if (!transform || !playerTransform) return;
 
 		DirectX::XMFLOAT3 myPos = transform->GetPos();
-		DirectX::XMFLOAT3 playerPos = player->GetPos();
+		DirectX::XMFLOAT3 playerPos = playerTransform->GetPos();
 
 		float dx = playerPos.x - myPos.x;
 		float dz = playerPos.z - myPos.z;
@@ -143,14 +150,18 @@ void EnemyAIComponent::UpdateAttack(float deltaTime)
 {
 	m_attackTimer += deltaTime;
 
-	Player* player = ObjectManager::GetInstance().GetPlayer();
+	CObject* player = ObjectManager::GetInstance().GetPlayer();
+	HealthComponent* health = player ? player->GetComponent<HealthComponent>() : nullptr;
+	bool isPlayerDead = health ? health->IsDead() : true;
+
 	if (player && m_Owner)
 	{
 		CTransform* transform = m_Owner->GetComponent<CTransform>();
-		if (transform)
+		CTransform* playerTransform = player->GetComponent<CTransform>();
+		if (transform && playerTransform)
 		{
 			DirectX::XMFLOAT3 myPos = transform->GetPos();
-			DirectX::XMFLOAT3 playerPos = player->GetPos();
+			DirectX::XMFLOAT3 playerPos = playerTransform->GetPos();
 			float dx = playerPos.x - myPos.x;
 			float dz = playerPos.z - myPos.z;
 
@@ -163,9 +174,9 @@ void EnemyAIComponent::UpdateAttack(float deltaTime)
 			if (!m_hasAttacked && m_attackTimer >= HIT_TIMING)
 			{
 				float distSq = dx * dx + dz * dz;
-				if (distSq <= (ATTACK_RANGE + 0.3f) * (ATTACK_RANGE + 0.3f) && !player->IsDead())
+				if (distSq <= (ATTACK_RANGE + 0.3f) * (ATTACK_RANGE + 0.3f) && !isPlayerDead && health)
 				{
-					player->TakeDamage(1);
+					health->TakeDamage(1);
 				}
 				m_hasAttacked = true;
 			}
@@ -174,7 +185,7 @@ void EnemyAIComponent::UpdateAttack(float deltaTime)
 
 	if (m_attackTimer >= ATTACK_DURATION)
 	{
-		if (player && !player->IsDead())
+		if (player && !isPlayerDead)
 		{
 			ChangeState(EnemyAIState::Chase);
 		}
@@ -220,7 +231,7 @@ void EnemyAIComponent::OnDie()
 		enemyCounter->Defeat();
 	}
 
-	C3D_Object* billBoard = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::EFFECT, "Explosion"));
+	CObject* billBoard = ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::EFFECT, "Explosion");
 	if (billBoard)
 	{
 		CTransform* transform = billBoard->GetComponent<CTransform>();
