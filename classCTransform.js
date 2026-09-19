@@ -15,6 +15,7 @@ var classCTransform =
     [ "SetRotation", "classCTransform.html#a9062bb1bc1304205b6a43ecd88b581d0", null ],
     [ "SetRotationFromUpFront", "classCTransform.html#a7bdc1b928f2c7418843b887ccafb71a7", null ],
     [ "SetScale", "classCTransform.html#a46595c03d572680a0d4e42526f541633", null ],
+    [ "SetTransform", "classCTransform.html#ace968587f77f52a864bc35d6cde3bd5b", null ],
     [ "SetUVOffset", "classCTransform.html#aa1de035fb540969248911da7e2df24dd", null ],
     [ "SetUVScale", "classCTransform.html#ac63642c6cc22e421f94ead3bdf7e47bb", null ],
     [ "m_Position", "classCTransform.html#abecc2aeb1df30a4df98c4a8c9213e9b3", null ],

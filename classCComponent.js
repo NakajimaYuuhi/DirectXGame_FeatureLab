@@ -4,6 +4,7 @@ var classCComponent =
     [ "CComponent", "classCComponent.html#accf17908f97e4d07d7f04fbde292dcda", null ],
     [ "~CComponent", "classCComponent.html#af2ad4d80f616aedbf6b08f33bdd9d2d5", null ],
     [ "Awake", "classCComponent.html#adf3ad4406a744d3fa20d83cc704345cf", null ],
+    [ "Draw", "classCComponent.html#a2cce55e18bd5fff318f8448bf260540d", null ],
     [ "GetIsValid", "classCComponent.html#a1df83625aa856f9cc7047da68dce131d", null ],
     [ "GetIsVarid", "classCComponent.html#abf4188a21189f533eed52041962cafd4", null ],
     [ "GetName", "classCComponent.html#a281a46452f6f59625e5488936cd70aa7", null ],

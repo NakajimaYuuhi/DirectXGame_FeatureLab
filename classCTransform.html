@@ -138,6 +138,8 @@ CTransform 連携図</div>
 <tr class="separator:a04aee9c5819d14058c1e93976e8c88d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9062bb1bc1304205b6a43ecd88b581d0" id="r_a9062bb1bc1304205b6a43ecd88b581d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCTransform.html#a9062bb1bc1304205b6a43ecd88b581d0">SetRotation</a> (DirectX::XMFLOAT3 _Rotation)</td></tr>
 <tr class="separator:a9062bb1bc1304205b6a43ecd88b581d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace968587f77f52a864bc35d6cde3bd5b" id="r_ace968587f77f52a864bc35d6cde3bd5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCTransform.html#ace968587f77f52a864bc35d6cde3bd5b">SetTransform</a> (DirectX::XMFLOAT3 _Position, DirectX::XMFLOAT3 _Scale, DirectX::XMFLOAT3 _Rotation)</td></tr>
+<tr class="separator:ace968587f77f52a864bc35d6cde3bd5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97323574f89d8ed7507841ee1e0fbd39" id="r_a97323574f89d8ed7507841ee1e0fbd39"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCTransform.html#a97323574f89d8ed7507841ee1e0fbd39">GetUVOffset</a> ()</td></tr>
 <tr class="separator:a97323574f89d8ed7507841ee1e0fbd39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1de035fb540969248911da7e2df24dd" id="r_aa1de035fb540969248911da7e2df24dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCTransform.html#aa1de035fb540969248911da7e2df24dd">SetUVOffset</a> (DirectX::XMFLOAT2 _UVOffset)</td></tr>
@@ -163,6 +165,8 @@ CTransform 連携図</div>
 <tr class="separator:ae575194dbb8c5f6ad344bb8c17fa778b inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad72e93375519950fa4cbc176ede60db1 inherit pub_methods_classCComponent" id="r_ad72e93375519950fa4cbc176ede60db1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ad72e93375519950fa4cbc176ede60db1">LateUpdate</a> (float deltaTime)</td></tr>
 <tr class="separator:ad72e93375519950fa4cbc176ede60db1 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cce55e18bd5fff318f8448bf260540d inherit pub_methods_classCComponent" id="r_a2cce55e18bd5fff318f8448bf260540d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a2cce55e18bd5fff318f8448bf260540d">Draw</a> ()</td></tr>
+<tr class="separator:a2cce55e18bd5fff318f8448bf260540d inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26e97bcceac386d951092ade96512283 inherit pub_methods_classCComponent" id="r_a26e97bcceac386d951092ade96512283"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a26e97bcceac386d951092ade96512283">OnCollision</a> (<a class="el" href="classCObject.html">CObject</a> *_Other)</td></tr>
 <tr class="separator:a26e97bcceac386d951092ade96512283 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8cb4ec11d3210b5f3278d8e55b7308bd inherit pub_methods_classCComponent" id="r_a8cb4ec11d3210b5f3278d8e55b7308bd"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a8cb4ec11d3210b5f3278d8e55b7308bd">GetUpdatePhase</a> () const</td></tr>
@@ -666,6 +670,53 @@ CTransform 連携図</div>
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCTransform_a46595c03d572680a0d4e42526f541633_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ace968587f77f52a864bc35d6cde3bd5b" name="ace968587f77f52a864bc35d6cde3bd5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace968587f77f52a864bc35d6cde3bd5b">&#9670;&#160;</a></span>SetTransform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CTransform::SetTransform </td>
+          <td>(</td>
+          <td class="paramtype">DirectX::XMFLOAT3&#160;</td>
+          <td class="paramname"><em>_Position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DirectX::XMFLOAT3&#160;</td>
+          <td class="paramname"><em>_Scale</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DirectX::XMFLOAT3&#160;</td>
+          <td class="paramname"><em>_Rotation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCTransform_ace968587f77f52a864bc35d6cde3bd5b_icgraph.svg" width="375" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

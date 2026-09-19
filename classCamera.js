@@ -12,7 +12,7 @@ var classCamera =
     [ "m_angleY", "classCamera.html#afd7b3ea22487fab87404d353b688ad76", null ],
     [ "m_distance", "classCamera.html#a4fce037da1e67ffcb43c5851b049e03e", null ],
     [ "m_height", "classCamera.html#ab78d1297dea3f67d7e59c1c1a2cf52ab", null ],
-    [ "m_player", "classCamera.html#aa4a208a0c39443138870a4f487a38b3e", null ],
+    [ "m_player", "classCamera.html#a81881c07998d0800e83afebf33a6d682", null ],
     [ "m_rotationSpeed", "classCamera.html#a0b1c75781c142e6bb28761224d0b67ce", null ],
     [ "proj", "classCamera.html#a1e9deddb93da9256c02be7b31281a452", null ],
     [ "view", "classCamera.html#af2edabf3fcc617b150e10a80e605e6c8", null ]

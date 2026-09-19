@@ -1,5 +1,8 @@
 var NAVTREEINDEX45 =
 {
+"structImTriangulatorNode.html#aa41868655d868a7afb6ae38f20841ee6":[2,0,207,0],
+"structImTriangulatorNode.html#acf0624e05f830013a9757d814ac213b3":[2,0,207,4],
+"structImTriangulatorNodeSpan.html":[2,0,208],
 "structImTriangulatorNodeSpan.html#a3d2224d01a54f00f71374b4c134ee5d7":[2,0,208,2],
 "structImTriangulatorNodeSpan.html#a67626e397d16c2710fc7497d46ba408c":[2,0,208,1],
 "structImTriangulatorNodeSpan.html#a83c4ca94f08b7eddde15fa6131a9e5d2":[2,0,208,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX45 =
 "structnlohmann_1_1detail_1_1dtoa__impl_1_1cached__power.html#a8c1f2efed643eeaa8fae83c697a29c6a":[1,0,4,0,1,1,2],
 "structnlohmann_1_1detail_1_1dtoa__impl_1_1cached__power.html#a9e89bc89bb7bf4361f43ea27eed91d23":[1,0,4,0,1,1,0],
 "structnlohmann_1_1detail_1_1dtoa__impl_1_1cached__power.html#a9e89bc89bb7bf4361f43ea27eed91d23":[2,0,0,0,1,1,0],
-"structnlohmann_1_1detail_1_1dtoa__impl_1_1diyfp.html":[1,0,4,0,1,2],
-"structnlohmann_1_1detail_1_1dtoa__impl_1_1diyfp.html":[2,0,0,0,1,2],
-"structnlohmann_1_1detail_1_1dtoa__impl_1_1diyfp.html#a03682754b06ed4f30b263119eecc2d52":[1,0,4,0,1,2,7],
-"structnlohmann_1_1detail_1_1dtoa__impl_1_1diyfp.html#a03682754b06ed4f30b263119eecc2d52":[2,0,0,0,1,2,7]
+"structnlohmann_1_1detail_1_1dtoa__impl_1_1diyfp.html":[1,0,4,0,1,2]
 };

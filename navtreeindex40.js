@@ -1,5 +1,8 @@
 var NAVTREEINDEX40 =
 {
+"structImGuiInputTextState.html#a82578d7dd220bd467da37a196d84a7c0":[2,0,129,15],
+"structImGuiInputTextState.html#a8b85a91b83de6605f251eb6d6f31a2e4":[2,0,129,9],
+"structImGuiInputTextState.html#a8be5f345ea5de89842d5a6716cb19b27":[2,0,129,2],
 "structImGuiInputTextState.html#a8cfd858a20e7154e235cc6288fdae6f0":[2,0,129,25],
 "structImGuiInputTextState.html#a919642a77fb872cab950a011877c092b":[2,0,129,28],
 "structImGuiInputTextState.html#a95520b8289da18da2ca6480a64894516":[2,0,129,23],
@@ -246,8 +249,5 @@ var NAVTREEINDEX40 =
 "structImGuiPayload.html#ab9f21d2454197d14896d5812ba70fa33":[2,0,151,6],
 "structImGuiPayload.html#adcc193e0d454bf394e76e5498eea808d":[2,0,151,3],
 "structImGuiPayload.html#af9f974dfb815e21a1ab925cab3769ab9":[2,0,151,5],
-"structImGuiPlatformIO.html":[2,0,153],
-"structImGuiPlatformIO.html#a047de9249f9752678e52add94abb561f":[2,0,153,5],
-"structImGuiPlatformIO.html#a247d3ac162fe458a4ccf246a2eada923":[2,0,153,2],
-"structImGuiPlatformIO.html#a313428d84d960e679c7a3f99c04fc02e":[2,0,153,7]
+"structImGuiPlatformIO.html":[2,0,153]
 };

@@ -12,7 +12,7 @@ var classObjectManager =
     [ "GetInstance", "classObjectManager.html#aa3effb46aaa14ce422f1ba657b514446", null ],
     [ "GetManager", "classObjectManager.html#abcaffd5bfd414d3fe89c2334e246ade0", null ],
     [ "GetObjectList", "classObjectManager.html#a4de0888ad62ba9ca20e03b645dcaae5a", null ],
-    [ "GetPlayer", "classObjectManager.html#ac1d768f3befeb5eb63fbc0240b336fb3", null ],
+    [ "GetPlayer", "classObjectManager.html#a4608699856c5b4683c9101126ea97c7f", null ],
     [ "Init", "classObjectManager.html#a252dedbd868ebf55d0791705c4262c09", null ],
     [ "Instantiate", "classObjectManager.html#a5d1fa144d8ac3be48767ea6691b332ec", null ],
     [ "Instantiate", "classObjectManager.html#a5829447b1a79b6c7f268a5cdbfcf5da2", null ],

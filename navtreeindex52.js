@@ -1,5 +1,8 @@
 var NAVTREEINDEX52 =
 {
+"tiny__gltf_8h.html#af301ad15723f55b9b68db7d9bbcb3351":[3,0,0,2,18,95],
+"tiny__gltf_8h.html#af5d7641980380e525f18dee2ba244af0":[3,0,0,2,18,92],
+"tiny__gltf_8h.html#aff142ae41dacc5f48eb027c03893ac44":[3,0,0,2,18,74],
 "tiny__gltf_8h_source.html":[3,0,0,2,18],
 "tinygltf__json_8h.html":[3,0,0,2,19],
 "tinygltf__json_8h.html#a00391843ddf31cd3576ac2ce67f33b7e":[3,0,0,2,19,73],

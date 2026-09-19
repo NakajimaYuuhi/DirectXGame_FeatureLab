@@ -1,12 +1,13 @@
 var classCObject =
 [
     [ "CObject", "classCObject.html#ac44111d5ac75248a616df61b038c4153", null ],
+    [ "CObject", "classCObject.html#ae7ce5d4294d501b3ae2c118f4d1fc852", null ],
     [ "~CObject", "classCObject.html#a93a3c3bc7d9a6462ef00e25404d9b0eb", null ],
     [ "AddComponent", "classCObject.html#a16ae51f353373a27d0a7c68586005028", null ],
     [ "Awake", "classCObject.html#a7fac8556ed32df0cb10a221195e9ef35", null ],
     [ "AwakeComponents", "classCObject.html#a0bf230e89ac532ee67217d5b8b514734", null ],
     [ "CollisionComponents", "classCObject.html#ac8855f1f09b337e2c41dad8405098a68", null ],
-    [ "Draw", "classCObject.html#a0834c54d4de179464d59b7616645a1ad", null ],
+    [ "Draw", "classCObject.html#ae060ffb1aa3bf6148614cf6506074e42", null ],
     [ "GetComponent", "classCObject.html#a71540f70991d2a909cf7a7fcbf683dc7", null ],
     [ "GetComponents", "classCObject.html#a9b1dfba8aa221e5e2e5e8047637daf68", null ],
     [ "GetHasAwoken", "classCObject.html#a1652dba55c39dfbdd10d3521b1a047de", null ],
