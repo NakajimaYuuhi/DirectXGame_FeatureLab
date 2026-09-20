@@ -1,0 +1,518 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: CContentDrawerUI クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classCContentDrawerUI.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">クラス</a> &#124;
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
+<a href="#pri-methods">非公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classCContentDrawerUI-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">CContentDrawerUI クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="ContentDrawerUI_8h_source.html">ContentDrawerUI.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+クラス</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCContentDrawerUI_1_1PrefabItem.html">PrefabItem</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a52b37928eca0b8fcfa804ef9678aa401" id="r_a52b37928eca0b8fcfa804ef9678aa401"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCContentDrawerUI.html#a52b37928eca0b8fcfa804ef9678aa401">Draw</a> ()</td></tr>
+<tr class="separator:a52b37928eca0b8fcfa804ef9678aa401"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a857d87f95ddeda7956b44a398130cdac" id="r_a857d87f95ddeda7956b44a398130cdac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCContentDrawerUI.html#a857d87f95ddeda7956b44a398130cdac">IsVisible</a> () const</td></tr>
+<tr class="separator:a857d87f95ddeda7956b44a398130cdac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44c6cfd003b02f322ae69bb4708989f0" id="r_a44c6cfd003b02f322ae69bb4708989f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCContentDrawerUI.html#a44c6cfd003b02f322ae69bb4708989f0">SetVisible</a> (bool visible)</td></tr>
+<tr class="separator:a44c6cfd003b02f322ae69bb4708989f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c77cf543ca942566e315891ffbadb8a" id="r_a3c77cf543ca942566e315891ffbadb8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCContentDrawerUI.html#a3c77cf543ca942566e315891ffbadb8a">ToggleVisible</a> ()</td></tr>
+<tr class="separator:a3c77cf543ca942566e315891ffbadb8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8b1d8348948bf2a6a55bfda06d5961f" id="r_ac8b1d8348948bf2a6a55bfda06d5961f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCContentDrawerUI.html#ac8b1d8348948bf2a6a55bfda06d5961f">RefreshPrefabList</a> ()</td></tr>
+<tr class="separator:ac8b1d8348948bf2a6a55bfda06d5961f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静的公開メンバ関数</h2></td></tr>
+<tr class="memitem:a3094603251cff449aef384b5535bbdf0" id="r_a3094603251cff449aef384b5535bbdf0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCContentDrawerUI.html">CContentDrawerUI</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCContentDrawerUI.html#a3094603251cff449aef384b5535bbdf0">GetInstance</a> ()</td></tr>
+<tr class="separator:a3094603251cff449aef384b5535bbdf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+非公開メンバ関数</h2></td></tr>
+<tr class="memitem:a185c036bed4068ed6304e2660fcf0bae" id="r_a185c036bed4068ed6304e2660fcf0bae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCContentDrawerUI.html#a185c036bed4068ed6304e2660fcf0bae">CContentDrawerUI</a> ()=default</td></tr>
+<tr class="separator:a185c036bed4068ed6304e2660fcf0bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5323ca3e3e5bad12ee29189aad73ecb" id="r_af5323ca3e3e5bad12ee29189aad73ecb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCContentDrawerUI.html#af5323ca3e3e5bad12ee29189aad73ecb">~CContentDrawerUI</a> ()=default</td></tr>
+<tr class="separator:af5323ca3e3e5bad12ee29189aad73ecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a273689ce1fa1d448e72afb1964fa16c9" id="r_a273689ce1fa1d448e72afb1964fa16c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCContentDrawerUI.html#a273689ce1fa1d448e72afb1964fa16c9">CContentDrawerUI</a> (const <a class="el" href="classCContentDrawerUI.html">CContentDrawerUI</a> &amp;)=delete</td></tr>
+<tr class="separator:a273689ce1fa1d448e72afb1964fa16c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c7ad8c7b3aeb712114db6db98becfd2" id="r_a1c7ad8c7b3aeb712114db6db98becfd2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCContentDrawerUI.html">CContentDrawerUI</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCContentDrawerUI.html#a1c7ad8c7b3aeb712114db6db98becfd2">operator=</a> (const <a class="el" href="classCContentDrawerUI.html">CContentDrawerUI</a> &amp;)=delete</td></tr>
+<tr class="separator:a1c7ad8c7b3aeb712114db6db98becfd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:a845b23b12681f5f9e051eba93833eb3e" id="r_a845b23b12681f5f9e051eba93833eb3e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCContentDrawerUI.html#a845b23b12681f5f9e051eba93833eb3e">m_isVisible</a> = true</td></tr>
+<tr class="separator:a845b23b12681f5f9e051eba93833eb3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7270728a09eb0d1049e7e28432ea8698" id="r_a7270728a09eb0d1049e7e28432ea8698"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structCContentDrawerUI_1_1PrefabItem.html">PrefabItem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCContentDrawerUI.html#a7270728a09eb0d1049e7e28432ea8698">m_prefabItems</a></td></tr>
+<tr class="separator:a7270728a09eb0d1049e7e28432ea8698"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa42e767d8d843e6959a41e32262994ab" id="r_aa42e767d8d843e6959a41e32262994ab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCContentDrawerUI.html#aa42e767d8d843e6959a41e32262994ab">m_isInitialized</a> = false</td></tr>
+<tr class="separator:aa42e767d8d843e6959a41e32262994ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaef55241fd7e0aa9952bfc0735a1875" id="r_aaaef55241fd7e0aa9952bfc0735a1875"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCContentDrawerUI.html#aaaef55241fd7e0aa9952bfc0735a1875">m_searchFilter</a> [128] = &quot;&quot;</td></tr>
+<tr class="separator:aaaef55241fd7e0aa9952bfc0735a1875"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="a185c036bed4068ed6304e2660fcf0bae" name="a185c036bed4068ed6304e2660fcf0bae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a185c036bed4068ed6304e2660fcf0bae">&#9670;&#160;</a></span>CContentDrawerUI() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CContentDrawerUI::CContentDrawerUI </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af5323ca3e3e5bad12ee29189aad73ecb" name="af5323ca3e3e5bad12ee29189aad73ecb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5323ca3e3e5bad12ee29189aad73ecb">&#9670;&#160;</a></span>~CContentDrawerUI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CContentDrawerUI::~CContentDrawerUI </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a273689ce1fa1d448e72afb1964fa16c9" name="a273689ce1fa1d448e72afb1964fa16c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a273689ce1fa1d448e72afb1964fa16c9">&#9670;&#160;</a></span>CContentDrawerUI() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CContentDrawerUI::CContentDrawerUI </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCContentDrawerUI.html">CContentDrawerUI</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a52b37928eca0b8fcfa804ef9678aa401" name="a52b37928eca0b8fcfa804ef9678aa401"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52b37928eca0b8fcfa804ef9678aa401">&#9670;&#160;</a></span>Draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CContentDrawerUI::Draw </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCContentDrawerUI_a52b37928eca0b8fcfa804ef9678aa401_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCContentDrawerUI_a52b37928eca0b8fcfa804ef9678aa401_icgraph.svg" width="323" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3094603251cff449aef384b5535bbdf0" name="a3094603251cff449aef384b5535bbdf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3094603251cff449aef384b5535bbdf0">&#9670;&#160;</a></span>GetInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classCContentDrawerUI.html">CContentDrawerUI</a> &amp; CContentDrawerUI::GetInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCContentDrawerUI_a3094603251cff449aef384b5535bbdf0_icgraph.svg" width="587" height="138"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a857d87f95ddeda7956b44a398130cdac" name="a857d87f95ddeda7956b44a398130cdac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a857d87f95ddeda7956b44a398130cdac">&#9670;&#160;</a></span>IsVisible()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CContentDrawerUI::IsVisible </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1c7ad8c7b3aeb712114db6db98becfd2" name="a1c7ad8c7b3aeb712114db6db98becfd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c7ad8c7b3aeb712114db6db98becfd2">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCContentDrawerUI.html">CContentDrawerUI</a> &amp; CContentDrawerUI::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCContentDrawerUI.html">CContentDrawerUI</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac8b1d8348948bf2a6a55bfda06d5961f" name="ac8b1d8348948bf2a6a55bfda06d5961f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8b1d8348948bf2a6a55bfda06d5961f">&#9670;&#160;</a></span>RefreshPrefabList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CContentDrawerUI::RefreshPrefabList </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCContentDrawerUI_ac8b1d8348948bf2a6a55bfda06d5961f_icgraph.svg" width="572" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a44c6cfd003b02f322ae69bb4708989f0" name="a44c6cfd003b02f322ae69bb4708989f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44c6cfd003b02f322ae69bb4708989f0">&#9670;&#160;</a></span>SetVisible()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CContentDrawerUI::SetVisible </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>visible</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3c77cf543ca942566e315891ffbadb8a" name="a3c77cf543ca942566e315891ffbadb8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c77cf543ca942566e315891ffbadb8a">&#9670;&#160;</a></span>ToggleVisible()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CContentDrawerUI::ToggleVisible </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCContentDrawerUI_a3c77cf543ca942566e315891ffbadb8a_icgraph.svg" width="564" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="aa42e767d8d843e6959a41e32262994ab" name="aa42e767d8d843e6959a41e32262994ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa42e767d8d843e6959a41e32262994ab">&#9670;&#160;</a></span>m_isInitialized</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CContentDrawerUI::m_isInitialized = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a845b23b12681f5f9e051eba93833eb3e" name="a845b23b12681f5f9e051eba93833eb3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a845b23b12681f5f9e051eba93833eb3e">&#9670;&#160;</a></span>m_isVisible</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CContentDrawerUI::m_isVisible = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7270728a09eb0d1049e7e28432ea8698" name="a7270728a09eb0d1049e7e28432ea8698"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7270728a09eb0d1049e7e28432ea8698">&#9670;&#160;</a></span>m_prefabItems</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structCContentDrawerUI_1_1PrefabItem.html">PrefabItem</a>&gt; CContentDrawerUI::m_prefabItems</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaaef55241fd7e0aa9952bfc0735a1875" name="aaaef55241fd7e0aa9952bfc0735a1875"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaef55241fd7e0aa9952bfc0735a1875">&#9670;&#160;</a></span>m_searchFilter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char CContentDrawerUI::m_searchFilter[128] = &quot;&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/UI/<a class="el" href="ContentDrawerUI_8h_source.html">ContentDrawerUI.h</a></li>
+<li>Source/UI/<a class="el" href="ContentDrawerUI_8cpp.html">ContentDrawerUI.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classCContentDrawerUI.html">CContentDrawerUI</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -3,6 +3,7 @@ var classObjectManager =
     [ "ObjectManager", "classObjectManager.html#a6fa9372c7c3a8da88412f4158ca3dfd9", null ],
     [ "~ObjectManager", "classObjectManager.html#a25b057e6d1e60c9cbeb29d41923d8c2c", null ],
     [ "ObjectManager", "classObjectManager.html#a02189c5d0d8fcb5e2b738c94901f5c21", null ],
+    [ "AddObject", "classObjectManager.html#aa950727024ad3d6d1095a57a1c10f019", null ],
     [ "CollisionUpdate", "classObjectManager.html#a179ee90458deb80834ccbd7432df76a9", null ],
     [ "Draw", "classObjectManager.html#a852d554df9444454176abeb96d2524b2", null ],
     [ "DrawByLayer", "classObjectManager.html#ae70e58ca78e40f6d3cf1a7b04a83d18c", null ],

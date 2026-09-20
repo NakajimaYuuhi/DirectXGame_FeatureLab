@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/UI/ContentDrawerUI.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('ContentDrawerUI_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ContentDrawerUI.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="ContentDrawerUI_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html">    5</a></span><span class="keyword">class </span><a class="code hl_class" href="classCContentDrawerUI.html">CContentDrawerUI</a></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="}">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html#a3094603251cff449aef384b5535bbdf0">    8</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classCContentDrawerUI.html">CContentDrawerUI</a>&amp; <a class="code hl_function" href="classCContentDrawerUI.html#a3094603251cff449aef384b5535bbdf0">GetInstance</a>()</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        <span class="keyword">static</span> <a class="code hl_class" href="classCContentDrawerUI.html">CContentDrawerUI</a> instance;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        <span class="keywordflow">return</span> instance;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    }</div>
+</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCContentDrawerUI.html#a52b37928eca0b8fcfa804ef9678aa401">Draw</a>();</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html#a857d87f95ddeda7956b44a398130cdac">   16</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classCContentDrawerUI.html#a857d87f95ddeda7956b44a398130cdac">IsVisible</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCContentDrawerUI.html#a845b23b12681f5f9e051eba93833eb3e">m_isVisible</a>; }</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html#a44c6cfd003b02f322ae69bb4708989f0">   17</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCContentDrawerUI.html#a44c6cfd003b02f322ae69bb4708989f0">SetVisible</a>(<span class="keywordtype">bool</span> visible) { <a class="code hl_variable" href="classCContentDrawerUI.html#a845b23b12681f5f9e051eba93833eb3e">m_isVisible</a> = visible; }</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html#a3c77cf543ca942566e315891ffbadb8a">   18</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCContentDrawerUI.html#a3c77cf543ca942566e315891ffbadb8a">ToggleVisible</a>() { <a class="code hl_variable" href="classCContentDrawerUI.html#a845b23b12681f5f9e051eba93833eb3e">m_isVisible</a> = !<a class="code hl_variable" href="classCContentDrawerUI.html#a845b23b12681f5f9e051eba93833eb3e">m_isVisible</a>; }</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCContentDrawerUI.html#ac8b1d8348948bf2a6a55bfda06d5961f">RefreshPrefabList</a>();</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html#a185c036bed4068ed6304e2660fcf0bae">   23</a></span>    <a class="code hl_function" href="classCContentDrawerUI.html#a185c036bed4068ed6304e2660fcf0bae">CContentDrawerUI</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html#af5323ca3e3e5bad12ee29189aad73ecb">   24</a></span>    <a class="code hl_function" href="classCContentDrawerUI.html#af5323ca3e3e5bad12ee29189aad73ecb">~CContentDrawerUI</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html#a273689ce1fa1d448e72afb1964fa16c9">   25</a></span>    <a class="code hl_function" href="classCContentDrawerUI.html#a273689ce1fa1d448e72afb1964fa16c9">CContentDrawerUI</a>(<span class="keyword">const</span> <a class="code hl_class" href="classCContentDrawerUI.html">CContentDrawerUI</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html#a1c7ad8c7b3aeb712114db6db98becfd2">   26</a></span>    <a class="code hl_class" href="classCContentDrawerUI.html">CContentDrawerUI</a>&amp; <a class="code hl_function" href="classCContentDrawerUI.html#a1c7ad8c7b3aeb712114db6db98becfd2">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classCContentDrawerUI.html">CContentDrawerUI</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="structCContentDrawerUI_1_1PrefabItem.html">   28</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structCContentDrawerUI_1_1PrefabItem.html">PrefabItem</a></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structCContentDrawerUI_1_1PrefabItem.html#a0ef609b91ffe2fd87123250125fccc7d">   30</a></span>        std::string <a class="code hl_variable" href="structCContentDrawerUI_1_1PrefabItem.html#a0ef609b91ffe2fd87123250125fccc7d">name</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structCContentDrawerUI_1_1PrefabItem.html#a7158ee64ec20ad91acce6a9c2ea07141">   31</a></span>        std::string <a class="code hl_variable" href="structCContentDrawerUI_1_1PrefabItem.html#a7158ee64ec20ad91acce6a9c2ea07141">path</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="structCContentDrawerUI_1_1PrefabItem.html#a190aaf7936f41f131f6b6965295e8e7f">   32</a></span>        std::string <a class="code hl_variable" href="structCContentDrawerUI_1_1PrefabItem.html#a190aaf7936f41f131f6b6965295e8e7f">tag</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    };</div>
+</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html#a845b23b12681f5f9e051eba93833eb3e">   35</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classCContentDrawerUI.html#a845b23b12681f5f9e051eba93833eb3e">m_isVisible</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html#a7270728a09eb0d1049e7e28432ea8698">   36</a></span>    std::vector&lt;PrefabItem&gt; <a class="code hl_variable" href="classCContentDrawerUI.html#a7270728a09eb0d1049e7e28432ea8698">m_prefabItems</a>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html#aa42e767d8d843e6959a41e32262994ab">   37</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classCContentDrawerUI.html#aa42e767d8d843e6959a41e32262994ab">m_isInitialized</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html#aaaef55241fd7e0aa9952bfc0735a1875">   38</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="classCContentDrawerUI.html#aaaef55241fd7e0aa9952bfc0735a1875">m_searchFilter</a>[128] = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>};</div>
+</div>
+<div class="ttc" id="aclassCContentDrawerUI_html"><div class="ttname"><a href="classCContentDrawerUI.html">CContentDrawerUI</a></div><div class="ttdef"><b>Definition</b> ContentDrawerUI.h:6</div></div>
+<div class="ttc" id="aclassCContentDrawerUI_html_a185c036bed4068ed6304e2660fcf0bae"><div class="ttname"><a href="classCContentDrawerUI.html#a185c036bed4068ed6304e2660fcf0bae">CContentDrawerUI::CContentDrawerUI</a></div><div class="ttdeci">CContentDrawerUI()=default</div></div>
+<div class="ttc" id="aclassCContentDrawerUI_html_a1c7ad8c7b3aeb712114db6db98becfd2"><div class="ttname"><a href="classCContentDrawerUI.html#a1c7ad8c7b3aeb712114db6db98becfd2">CContentDrawerUI::operator=</a></div><div class="ttdeci">CContentDrawerUI &amp; operator=(const CContentDrawerUI &amp;)=delete</div></div>
+<div class="ttc" id="aclassCContentDrawerUI_html_a273689ce1fa1d448e72afb1964fa16c9"><div class="ttname"><a href="classCContentDrawerUI.html#a273689ce1fa1d448e72afb1964fa16c9">CContentDrawerUI::CContentDrawerUI</a></div><div class="ttdeci">CContentDrawerUI(const CContentDrawerUI &amp;)=delete</div></div>
+<div class="ttc" id="aclassCContentDrawerUI_html_a3094603251cff449aef384b5535bbdf0"><div class="ttname"><a href="classCContentDrawerUI.html#a3094603251cff449aef384b5535bbdf0">CContentDrawerUI::GetInstance</a></div><div class="ttdeci">static CContentDrawerUI &amp; GetInstance()</div><div class="ttdef"><b>Definition</b> ContentDrawerUI.h:8</div></div>
+<div class="ttc" id="aclassCContentDrawerUI_html_a3c77cf543ca942566e315891ffbadb8a"><div class="ttname"><a href="classCContentDrawerUI.html#a3c77cf543ca942566e315891ffbadb8a">CContentDrawerUI::ToggleVisible</a></div><div class="ttdeci">void ToggleVisible()</div><div class="ttdef"><b>Definition</b> ContentDrawerUI.h:18</div></div>
+<div class="ttc" id="aclassCContentDrawerUI_html_a44c6cfd003b02f322ae69bb4708989f0"><div class="ttname"><a href="classCContentDrawerUI.html#a44c6cfd003b02f322ae69bb4708989f0">CContentDrawerUI::SetVisible</a></div><div class="ttdeci">void SetVisible(bool visible)</div><div class="ttdef"><b>Definition</b> ContentDrawerUI.h:17</div></div>
+<div class="ttc" id="aclassCContentDrawerUI_html_a52b37928eca0b8fcfa804ef9678aa401"><div class="ttname"><a href="classCContentDrawerUI.html#a52b37928eca0b8fcfa804ef9678aa401">CContentDrawerUI::Draw</a></div><div class="ttdeci">void Draw()</div><div class="ttdef"><b>Definition</b> ContentDrawerUI.cpp:56</div></div>
+<div class="ttc" id="aclassCContentDrawerUI_html_a7270728a09eb0d1049e7e28432ea8698"><div class="ttname"><a href="classCContentDrawerUI.html#a7270728a09eb0d1049e7e28432ea8698">CContentDrawerUI::m_prefabItems</a></div><div class="ttdeci">std::vector&lt; PrefabItem &gt; m_prefabItems</div><div class="ttdef"><b>Definition</b> ContentDrawerUI.h:36</div></div>
+<div class="ttc" id="aclassCContentDrawerUI_html_a845b23b12681f5f9e051eba93833eb3e"><div class="ttname"><a href="classCContentDrawerUI.html#a845b23b12681f5f9e051eba93833eb3e">CContentDrawerUI::m_isVisible</a></div><div class="ttdeci">bool m_isVisible</div><div class="ttdef"><b>Definition</b> ContentDrawerUI.h:35</div></div>
+<div class="ttc" id="aclassCContentDrawerUI_html_a857d87f95ddeda7956b44a398130cdac"><div class="ttname"><a href="classCContentDrawerUI.html#a857d87f95ddeda7956b44a398130cdac">CContentDrawerUI::IsVisible</a></div><div class="ttdeci">bool IsVisible() const</div><div class="ttdef"><b>Definition</b> ContentDrawerUI.h:16</div></div>
+<div class="ttc" id="aclassCContentDrawerUI_html_aa42e767d8d843e6959a41e32262994ab"><div class="ttname"><a href="classCContentDrawerUI.html#aa42e767d8d843e6959a41e32262994ab">CContentDrawerUI::m_isInitialized</a></div><div class="ttdeci">bool m_isInitialized</div><div class="ttdef"><b>Definition</b> ContentDrawerUI.h:37</div></div>
+<div class="ttc" id="aclassCContentDrawerUI_html_aaaef55241fd7e0aa9952bfc0735a1875"><div class="ttname"><a href="classCContentDrawerUI.html#aaaef55241fd7e0aa9952bfc0735a1875">CContentDrawerUI::m_searchFilter</a></div><div class="ttdeci">char m_searchFilter[128]</div><div class="ttdef"><b>Definition</b> ContentDrawerUI.h:38</div></div>
+<div class="ttc" id="aclassCContentDrawerUI_html_ac8b1d8348948bf2a6a55bfda06d5961f"><div class="ttname"><a href="classCContentDrawerUI.html#ac8b1d8348948bf2a6a55bfda06d5961f">CContentDrawerUI::RefreshPrefabList</a></div><div class="ttdeci">void RefreshPrefabList()</div><div class="ttdef"><b>Definition</b> ContentDrawerUI.cpp:17</div></div>
+<div class="ttc" id="aclassCContentDrawerUI_html_af5323ca3e3e5bad12ee29189aad73ecb"><div class="ttname"><a href="classCContentDrawerUI.html#af5323ca3e3e5bad12ee29189aad73ecb">CContentDrawerUI::~CContentDrawerUI</a></div><div class="ttdeci">~CContentDrawerUI()=default</div></div>
+<div class="ttc" id="astructCContentDrawerUI_1_1PrefabItem_html"><div class="ttname"><a href="structCContentDrawerUI_1_1PrefabItem.html">CContentDrawerUI::PrefabItem</a></div><div class="ttdef"><b>Definition</b> ContentDrawerUI.h:29</div></div>
+<div class="ttc" id="astructCContentDrawerUI_1_1PrefabItem_html_a0ef609b91ffe2fd87123250125fccc7d"><div class="ttname"><a href="structCContentDrawerUI_1_1PrefabItem.html#a0ef609b91ffe2fd87123250125fccc7d">CContentDrawerUI::PrefabItem::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition</b> ContentDrawerUI.h:30</div></div>
+<div class="ttc" id="astructCContentDrawerUI_1_1PrefabItem_html_a190aaf7936f41f131f6b6965295e8e7f"><div class="ttname"><a href="structCContentDrawerUI_1_1PrefabItem.html#a190aaf7936f41f131f6b6965295e8e7f">CContentDrawerUI::PrefabItem::tag</a></div><div class="ttdeci">std::string tag</div><div class="ttdef"><b>Definition</b> ContentDrawerUI.h:32</div></div>
+<div class="ttc" id="astructCContentDrawerUI_1_1PrefabItem_html_a7158ee64ec20ad91acce6a9c2ea07141"><div class="ttname"><a href="structCContentDrawerUI_1_1PrefabItem.html#a7158ee64ec20ad91acce6a9c2ea07141">CContentDrawerUI::PrefabItem::path</a></div><div class="ttdeci">std::string path</div><div class="ttdef"><b>Definition</b> ContentDrawerUI.h:31</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_ad68fd99ee46e73a145661c4c85612bf.html">UI</a></li><li class="navelem"><a class="el" href="ContentDrawerUI_8h.html">ContentDrawerUI.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -13,6 +13,8 @@ var dir_1ad6433457b0067ef8f54a4fa85f5c9a =
     [ "ObjectTag.h", "ObjectTag_8h.html", "ObjectTag_8h" ],
     [ "PrefabManager.cpp", "PrefabManager_8cpp.html", null ],
     [ "PrefabManager.h", "PrefabManager_8h.html", "PrefabManager_8h" ],
+    [ "PrefabSerializer.cpp", "PrefabSerializer_8cpp.html", "PrefabSerializer_8cpp" ],
+    [ "PrefabSerializer.h", "PrefabSerializer_8h.html", "PrefabSerializer_8h" ],
     [ "SceneEnums.h", "SceneEnums_8h.html", "SceneEnums_8h" ],
     [ "TimeManager.cpp", "TimeManager_8cpp.html", null ],
     [ "TimeManager.h", "TimeManager_8h.html", "TimeManager_8h" ]
