@@ -184,10 +184,18 @@ CObject* PrefabManager::InstantiateFromJSON(const std::string& jsonPath, const s
 		if (!modelPath.empty())
 		{
 			CModel* model = obj->GetComponent<CModel>();
+			if (!model)
+			{
+				model = obj->AddComponent<CModel>();
+			}
 			if (model)
 			{
 				auto sharedModel = ModelManager::GetInstance().GetModel(modelPath);
-				model->CopyFrom(sharedModel);
+				if (sharedModel)
+				{
+					model->CopyFrom(sharedModel);
+					model->SetModelPath(modelPath);
+				}
 				std::string defAnim = m.value("DefaultAnimation", "Idle");
 				model->PlayAnimation(defAnim);
 

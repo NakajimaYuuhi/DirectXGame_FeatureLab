@@ -1,4 +1,10 @@
 #include "InspectorUI.h"
+#include "ContentDrawerUI.h"
+#include "ModelManager.h"
+#include "PrefabManager.h"
+#include "PrefabSerializer.h"
+#include "audio.h"
+#include <filesystem>
 #include "imgui.h"
 #include "ObjectManager.h"
 #include "Transform.h"
@@ -113,11 +119,33 @@ void CInspectorUI::Draw()
 
     ImGui::Begin("Level Editor & Inspector");
 
+    if (m_isPrefabEditMode)
+    {
+        ImGui::TextColored(ImVec4(1.0f, 0.7f, 0.2f, 1.0f), "[PREFAB STAGE] Editing: %s", m_editingPrefabPath.c_str());
+        if (ImGui::Button("Save Prefab (Update JSON)"))
+        {
+            SaveCurrentPrefab();
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("<- Exit Prefab Stage"))
+        {
+            ClosePrefabEditMode();
+            ImGui::End();
+            return;
+        }
+        ImGui::Separator();
+    }
+
     auto& objectList = ObjectManager::GetInstance().GetObjectList();
     Scenes::ID currentSceneID = SceneManager::GetInstance().GetActiveSceneID();
 
     // 1. Mode Controls
     ImGui::Text("Mode & Simulation");
+    ImGui::SameLine();
+    if (ImGui::Button("Content Drawer (Ctrl+Space)"))
+    {
+        CContentDrawerUI::GetInstance().ToggleVisible();
+    }
     if (m_isEditMode)
     {
         ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.8f, 0.2f, 0.2f, 1.0f));
@@ -363,17 +391,32 @@ void CInspectorUI::Draw()
     ImGui::Text("Inspector");
     ImGui::Separator();
 
-    if (m_selectedTagIndex >= 0 && m_selectedTagIndex < (int)objectList.size())
+    CObject* selectedObj = nullptr;
+    if (m_isPrefabEditMode && m_prefabEditTarget)
+    {
+        selectedObj = m_prefabEditTarget.get();
+    }
+    else if (m_selectedTagIndex >= 0 && m_selectedTagIndex < (int)objectList.size())
     {
         const auto& objVec = objectList[m_selectedTagIndex];
         if (m_selectedObjectIndex >= 0 && m_selectedObjectIndex < (int)objVec.size())
         {
-            CObject* selectedObj = objVec[m_selectedObjectIndex].get();
-            if (selectedObj && !selectedObj->GetIsDestroyed())
-            {
-                CObjectInfo* objInfo = selectedObj->GetComponent<CObjectInfo>();
-                std::string name = objInfo ? objInfo->GetObjectName() : "Object";
-                ImGui::Text("Selected: %s (Tag %d, Idx %d)", name.c_str(), m_selectedTagIndex, m_selectedObjectIndex);
+            selectedObj = objVec[m_selectedObjectIndex].get();
+        }
+    }
+
+    if (selectedObj && !selectedObj->GetIsDestroyed())
+    {
+        CObjectInfo* objInfo = selectedObj->GetComponent<CObjectInfo>();
+        std::string name = objInfo ? objInfo->GetObjectName() : "Object";
+        if (m_isPrefabEditMode)
+        {
+            ImGui::TextColored(ImVec4(1.0f, 0.8f, 0.2f, 1.0f), "PREFAB TARGET: %s", name.c_str());
+        }
+        else
+        {
+            ImGui::Text("Selected: %s (Tag %d, Idx %d)", name.c_str(), m_selectedTagIndex, m_selectedObjectIndex);
+        }
                 if (objInfo)
                 {
                     char nameBuf[128];
@@ -693,6 +736,29 @@ void CInspectorUI::Draw()
                 {
                     if (ImGui::CollapsingHeader("Model & Shader", ImGuiTreeNodeFlags_DefaultOpen))
                     {
+                        static char modelPathInput[256] = "";
+                        std::string curPath = model->GetModelPath();
+                        if (!curPath.empty())
+                        {
+                            strncpy_s(modelPathInput, sizeof(modelPathInput), curPath.c_str(), _TRUNCATE);
+                        }
+                        else if (modelPathInput[0] == '\0')
+                        {
+                            strncpy_s(modelPathInput, sizeof(modelPathInput), "Assets/Model/Wizard.glb", _TRUNCATE);
+                        }
+
+                        ImGui::InputText("Model Path", modelPathInput, sizeof(modelPathInput));
+                        if (ImGui::Button("Load / Copy Model"))
+                        {
+                            auto sharedModel = ModelManager::GetInstance().GetModel(modelPathInput);
+                            if (sharedModel)
+                            {
+                                model->CopyFrom(sharedModel);
+                                model->SetModelPath(modelPathInput);
+                                model->PlayAnimation("Idle");
+                            }
+                        }
+
                         static const char* rLayerNames[] = { "Opaque", "Transparent", "UI" };
                         int curModelLayer = (int)model->GetRenderLayer();
                         if (ImGui::Combo("Render Layer", &curModelLayer, rLayerNames, IM_ARRAYSIZE(rLayerNames)))
@@ -925,9 +991,94 @@ void CInspectorUI::Draw()
                         }
                     }
                 }
+
+                // -------------------------------------------------------------
+                // Add Component Dropdown Button
+                // -------------------------------------------------------------
+                ImGui::Spacing();
+                ImGui::Separator();
+                ImGui::Spacing();
+
+                if (ImGui::Button("+ Add Component", ImVec2(-1.0f, 28.0f)))
+                {
+                    ImGui::OpenPopup("AddComponentPopup");
+                }
+
+                if (ImGui::BeginPopup("AddComponentPopup"))
+                {
+                    ImGui::TextDisabled("Select Component to Add:");
+                    ImGui::Separator();
+
+                    if (!selectedObj->GetComponent<CModel>())
+                    {
+                        if (ImGui::Selectable("Model Component (CModel)"))
+                        {
+                            CModel* newModel = selectedObj->AddComponent<CModel>();
+                            if (newModel)
+                            {
+                                auto sharedModel = ModelManager::GetInstance().GetModel("Assets/Model/Wizard.glb");
+                                if (sharedModel)
+                                {
+                                    newModel->CopyFrom(sharedModel);
+                                    newModel->SetModelPath("Assets/Model/Wizard.glb");
+                                    newModel->PlayAnimation("Idle");
+                                }
+                            }
+                        }
+                    }
+                    if (!selectedObj->GetComponent<BoxCollider3D>())
+                    {
+                        if (ImGui::Selectable("Box Collider 3D (BoxCollider3D)"))
+                        {
+                            selectedObj->AddComponent<BoxCollider3D>();
+                        }
+                    }
+                    if (!selectedObj->GetComponent<Audio>())
+                    {
+                        if (ImGui::Selectable("Audio Component (Audio)"))
+                        {
+                            selectedObj->AddComponent<Audio>();
+                        }
+                    }
+                    if (!selectedObj->GetComponent<GravityComponent>())
+                    {
+                        if (ImGui::Selectable("Gravity Component"))
+                        {
+                            selectedObj->AddComponent<GravityComponent>();
+                        }
+                    }
+                    if (!selectedObj->GetComponent<CharacterMovementComponent>())
+                    {
+                        if (ImGui::Selectable("Character Movement Component"))
+                        {
+                            selectedObj->AddComponent<CharacterMovementComponent>();
+                        }
+                    }
+                    if (!selectedObj->GetComponent<HealthComponent>())
+                    {
+                        if (ImGui::Selectable("Health Component"))
+                        {
+                            selectedObj->AddComponent<HealthComponent>();
+                        }
+                    }
+                    if (!selectedObj->GetComponent<PlayerControllerComponent>())
+                    {
+                        if (ImGui::Selectable("Player Controller Component"))
+                        {
+                            selectedObj->AddComponent<PlayerControllerComponent>();
+                        }
+                    }
+                    if (!selectedObj->GetComponent<EnemyAIComponent>())
+                    {
+                        if (ImGui::Selectable("Enemy AI Component"))
+                        {
+                            selectedObj->AddComponent<EnemyAIComponent>();
+                        }
+                    }
+
+                    ImGui::EndPopup();
+                }
             }
-        }
-    }
     else
     {
         ImGui::TextDisabled("Select an object from Hierarchy.");
@@ -955,5 +1106,39 @@ void CInspectorUI::Draw()
             }
         }
     }
+}
+
+namespace fs = std::filesystem;
+
+void CInspectorUI::OpenPrefabEditMode(const std::string& jsonPath)
+{
+    m_editingPrefabPath = jsonPath;
+    std::string prefabName = fs::path(jsonPath).stem().string();
+
+    CObject* rawObj = PrefabManager::GetInstance().InstantiateFromJSON(jsonPath, "Editing_" + prefabName);
+    if (rawObj)
+    {
+        CTransform* t = rawObj->GetComponent<CTransform>();
+        if (t) t->SetPos({ 0.0f, 0.0f, 0.0f });
+
+        rawObj->Awake();
+        rawObj->Start();
+
+        m_prefabEditTarget = std::unique_ptr<CObject>(rawObj);
+        m_isPrefabEditMode = true;
+    }
+}
+
+void CInspectorUI::ClosePrefabEditMode()
+{
+    m_prefabEditTarget.reset();
+    m_editingPrefabPath = "";
+    m_isPrefabEditMode = false;
+}
+
+bool CInspectorUI::SaveCurrentPrefab()
+{
+    if (!m_isPrefabEditMode || !m_prefabEditTarget || m_editingPrefabPath.empty()) return false;
+    return PrefabSerializer::SavePrefab(m_editingPrefabPath, m_prefabEditTarget.get());
 }
 

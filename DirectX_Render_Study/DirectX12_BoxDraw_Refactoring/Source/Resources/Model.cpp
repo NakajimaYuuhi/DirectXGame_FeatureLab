@@ -1,4 +1,4 @@
-#include "Model.h"
+﻿#include "Model.h"
 #include "DX12Manager.h"
 #include "gltfLoader.h"
 #include "Transform.h"
@@ -103,7 +103,7 @@ void CModel::CreateBoneBuffer()
 	UINT bufferSize = sizeof(DirectX::XMMATRIX) * boneCount;
 
 	//=============================
-	// �  リソース佁EE E EPLOAD E E
+	// �  リソース佁EE E EPLOAD E E
 	//=============================
 	CD3DX12_HEAP_PROPERTIES heapProps(D3D12_HEAP_TYPE_UPLOAD);
 	CD3DX12_RESOURCE_DESC resourceDesc = CD3DX12_RESOURCE_DESC::Buffer(bufferSize);
@@ -219,7 +219,7 @@ void CModel::ModelLoad(std::string _Path)
 		}
 	}
 
-	//ラ� ダ関数の定義
+	//ラ� ダ関数の定義
 	auto lambdaComputeBindPose = [&](auto& self, int nodeIdx, const DirectX::XMMATRIX& parentMatrix) -> void 
 	{
 		//Boneの取征E
@@ -253,20 +253,20 @@ void CModel::ModelLoad(std::string _Path)
 		bone->inverseBindPose = DirectX::XMMatrixInverse(nullptr, bone->globalBindPose);
 	}
 
-	// スキンチE Eタ E  Eーン?E   E がある� �合、gLTFの正確な送E  インド衁EEで上書ぁE
+	// スキンチE Eタ E  Eーン?E   E がある� �合、gLTFの正確な送E  インド衁EEで上書ぁE
 	if (!loadedModelData.skins.empty())
 	{
 		//単一スキンを想宁E
-		//単�?スキンを想宁E
-		const auto& skin = loadedModelData.skins[0]; // キャラクター用の単�?skin
+		//単�?スキンを想宁E
+		const auto& skin = loadedModelData.skins[0]; // キャラクター用の単�?skin
 		m_SkinJoints = skin.joints;
 
 		for (size_t i = 0; i < skin.joints.size(); ++i)
 		{
-			int nodeIdx = skin.joints[i]; // skin���i�Ԗڂ̃{�[�����w���A�S�m�[�h(m_Bones)�̒��̃C���f�b�N�X
+			int nodeIdx = skin.joints[i]; // skin���i�Ԗڂ̃{�[�����w���A�S�m�[�h(m_Bones)�̒��̃C���f�b�N�X
 
-			// GLTF�̍s��͗�D��(column-major)�Ȃ̂ŁAXMLoadFloat4x4�œǂނƎ����I�ɍs�D��(row-major)�ɕϊ������B
-			// ���̂��߁A�����ł�Transpose�����Ă͂����Ȃ��I
+			// GLTF�̍s��͗�D��(column-major)�Ȃ̂ŁAXMLoadFloat4x4�œǂނƎ����I�ɍs�D��(row-major)�ɕϊ������B
+			// ���̂��߁A�����ł�Transpose����Ă͂����Ȃ��I
 			m_Bones[nodeIdx]->inverseBindPose = DirectX::XMLoadFloat4x4(&skin.inverseBindMatrices[i]);
 		}
 	}
@@ -277,7 +277,7 @@ void CModel::ModelLoad(std::string _Path)
 
 	//----- マテリアル佁EE -----
 	//マテリアル仮佁EE
-	// ���f���̃f�B���N�g���p�X�𒊏o
+	// ���f���̃f�B���N�g���p�X�𒊏o
 	std::string directory = "";
 	size_t lastSlash = _Path.find_last_of("/\\");
 	if (lastSlash != std::string::npos)
@@ -383,13 +383,20 @@ void CModel::Init()
 
 }
 
-void CModel::Update() 
+void CModel::Update(float deltaTime)
 {
-	//Meshの更新
+	if (deltaTime <= 0.0f) deltaTime = TimeManager::GetInstance().GetDeltaTime();
+	UpdateAnimation(deltaTime);
 	for (auto& mesh : m_Meshes)
 	{
 		mesh->Update();
 	}
+}
+
+void CModel::Update()
+{
+	float dt = TimeManager::GetInstance().GetDeltaTime();
+	Update(dt);
 }
 
 void CModel::Draw() 
@@ -456,10 +463,10 @@ void CModel::RegisterMesh(UINT _MatIdx, const MeshVertex* vertices, size_t verte
 }
 
 //ファイルチE Eタ通りに読み込むこと前提
-//色� け変えたキャラクターを用意したいなら、何か手段を老E  めEE  があるかめE
+//色� け変えたキャラクターを用意したいなら、何か手段を老E  めEE  があるかめE
 UINT CModel::RegisterMatarial(wstring _FilePath, DirectX::XMFLOAT4 _Color)
 {
-	//MaterialのVectorに追� 
+	//MaterialのVectorに追� 
 	//ここでチE  スチャの読み込みも行う
 	m_Materials.push_back(std::make_shared<CMaterial>(_FilePath, _Color));
 

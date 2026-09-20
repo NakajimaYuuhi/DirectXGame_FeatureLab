@@ -22,6 +22,8 @@ public:
 	int GetMaxHP() const { return m_maxHp; }
 	bool IsDead() const { return m_hp <= 0; }
 	bool IsInvincible() const { return m_invincibleTimer > 0.0f; }
+	float GetInvincibleDuration() const { return m_invincibleDuration; }
+	float GetBlinkInterval() const { return m_blinkInterval; }
 
 	// Setters
 	void SetMaxHP(int maxHp, bool resetCurrentHp = true);

@@ -8,6 +8,7 @@
 #include "Mesh.h"
 #include "Material.h"
 #include "Bone.h"
+#include "TimeManager.h"
 #include <windows.h>
 #include <memory>
 #include <vector>
@@ -32,9 +33,12 @@ public:
 	CModel();
 	~CModel();
 
-	void Init();
+	void Init() override;
+	void Update(float deltaTime) override;
 	void Update();
-	void Draw();
+	void Draw() override;
+
+	UpdatePhase GetUpdatePhase() const override { return UpdatePhase::Animation; }
 
 	// Render layer
 	RenderLayer GetRenderLayer() const { return m_renderLayer; }
@@ -106,9 +110,13 @@ public:
 		}
 
 		m_SkinningMatrices = other->m_SkinningMatrices;
+		m_modelPath = other->m_modelPath;
 
 		CreateBoneBuffer();
 	}
+
+	const std::string& GetModelPath() const { return m_modelPath; }
+	void SetModelPath(const std::string& path) { m_modelPath = path; }
 
 	void SetMaterialTexture(const std::wstring& texturePath, UINT materialIndex = 0)
 	{
@@ -187,4 +195,5 @@ private:
 	float m_animationTime = 0.0f;
 	bool m_isLoop = true;
 	bool m_isAnimationFinished = false;
+	std::string m_modelPath;
 };

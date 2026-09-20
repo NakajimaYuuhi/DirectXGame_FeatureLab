@@ -12,6 +12,7 @@ std::shared_ptr<CModel> ModelManager::GetModel(const std::string& filePath)
     // Otherwise, create a new model and load it.
     auto model = std::make_shared<CModel>();
     model->ModelLoad(filePath);
+    model->SetModelPath(filePath);
     m_modelCache[filePath] = model;
 
     return model;

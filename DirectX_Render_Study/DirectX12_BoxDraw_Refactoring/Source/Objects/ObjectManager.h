@@ -21,6 +21,9 @@ public:
 	// Overload: default ObjectName to _TypeName
 	CObject* Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::string _TypeName);
 
+	// Add pre-created object instance
+	void AddObject(ObjectTag _Tag, CObject* _Object);
+
 	//初期化処理
 	void Init(Scenes::ID _SceneID);
 

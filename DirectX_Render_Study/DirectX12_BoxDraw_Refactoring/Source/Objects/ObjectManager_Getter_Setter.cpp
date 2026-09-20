@@ -19,6 +19,16 @@
 
 //====== メソッド定義 =====
 
+void ObjectManager::AddObject(ObjectTag _Tag, CObject* _Object)
+{
+	if (!_Object) return;
+	int tagIdx = static_cast<int>(_Tag);
+	if (tagIdx >= 0 && tagIdx < static_cast<int>(vecObject.size()))
+	{
+		vecObject[tagIdx].push_back(UniquePtr<CObject>(_Object));
+	}
+}
+
 //----- Player -----
 CObject* ObjectManager::GetPlayer()
 {

@@ -6,6 +6,7 @@
 #include "Enemy.h"
 
 #include "BoxCollider3D.h"
+#include "HealthComponent.h"
 
 #include "ObjectManager.h"
 #include "CollisionLayers.h"
@@ -60,6 +61,12 @@ void Bullet::OnCollision(CObject* _Other)
 	if (otherInfo && otherInfo->GetObjectTag() == ObjectTag::ENEMY)
 	{
 		SetIsDestroyed(true);
+
+		HealthComponent* health = _Other->GetComponent<HealthComponent>();
+		if (health)
+		{
+			health->TakeDamage(1);
+		}
 
 		//パーティクルを出す(20個)
 		for (int i = 0; i < 20; i++)
