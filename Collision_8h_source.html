@@ -108,7 +108,7 @@ $(document).ready(function(){initNavTree('Collision_8h_source.html',''); initRes
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="comment">//è¡çªåˆ¤å®š</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="comment">//Õ“Ë”»’è</span></div>
 <div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classCollision.html#ac29040c1e49f60f0ab80299983553c15">   11</a></span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classCollision.html#ac29040c1e49f60f0ab80299983553c15">CheckCollision</a>(<a class="code hl_class" href="classBoxCollider3D.html">BoxCollider3D</a>* colliderA, <a class="code hl_class" href="classBoxCollider3D.html">BoxCollider3D</a>* colliderB)</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    {</div>
@@ -116,14 +116,14 @@ $(document).ready(function(){initNavTree('Collision_8h_source.html',''); initRes
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        DirectX::XMFLOAT3 sizeA = colliderA-&gt;<a class="code hl_function" href="classBoxCollider3D.html#af49ce1d04ef24c80bc015fee062d7882">GetSize</a>();</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        DirectX::XMFLOAT3 posB = colliderB-&gt;<a class="code hl_function" href="classBoxCollider3D.html#ae16b4d180b0a674f3e9007bc5cc3cfde">GetWorldPos</a>();</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        DirectX::XMFLOAT3 sizeB = colliderB-&gt;<a class="code hl_function" href="classBoxCollider3D.html#af49ce1d04ef24c80bc015fee062d7882">GetSize</a>();</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="comment">// AABBåŒå£«ã®è¡çªåˆ¤å®š</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="comment">// AABB“¯m‚ÌÕ“Ë”»’è</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keywordflow">if</span> (abs(posA.x - posB.x) &lt; (sizeA.x / 2 + sizeB.x / 2) &amp;&amp;</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            abs(posA.y - posB.y) &lt; (sizeA.y / 2 + sizeB.y / 2) &amp;&amp;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            abs(posA.z - posB.z) &lt; (sizeA.z / 2 + sizeB.z / 2))</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// è¡çªã—ã¦ã„ã‚‹</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// Õ“Ë‚µ‚Ä‚¢‚é</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        }</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// è¡çªã—ã¦ã„ãªã„</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Õ“Ë‚µ‚Ä‚¢‚È‚¢</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    }</div>
 </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
@@ -135,32 +135,32 @@ $(document).ready(function(){initNavTree('Collision_8h_source.html',''); initRes
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classCollision.html#a6b1e1b61c9822815b55a4248f860b91d">ResolveCollisions</a>(<a class="code hl_typedef" href="Object_8h.html#a81fe4d2f62958ae48f36d6a3beb16bb1">Vector</a>&lt;<a class="code hl_typedef" href="Object_8h.html#a81fe4d2f62958ae48f36d6a3beb16bb1">Vector</a>&lt;<a class="code hl_typedef" href="main_8cpp.html#a74b90b47b1100dfbcfdf6892a7b2e479">UniquePtr&lt;CObject&gt;</a>&gt;&gt;&amp; objectList);</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="comment">//Collisionã®é †ç•ª</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="comment">//Collision‚Ì‡”Ô</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classCollision.html#abfbbbce6868c0c0a8792807940b5caaf">   36</a></span>    <a class="code hl_typedef" href="Object_8h.html#a81fe4d2f62958ae48f36d6a3beb16bb1">Vector&lt;Vector&lt;ObjectTag&gt;</a>&gt; <a class="code hl_variable" href="classCollision.html#abfbbbce6868c0c0a8792807940b5caaf">CollisionOrder</a>;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="comment">//----- ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³ã®å®Ÿè£…ã«å¿…è¦ -----</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="comment">//----- ƒVƒ“ƒOƒ‹ƒgƒ“‚ÌÀ‘•‚É•K—v -----</span></div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">public</span>:</div>
 <div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classCollision.html#af5b922f50591e21aae31c02fd07a0005">   40</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classCollision.html">Collision</a>&amp; <a class="code hl_function" href="classCollision.html#af5b922f50591e21aae31c02fd07a0005">GetInstance</a>()</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keyword">static</span> <a class="code hl_class" href="classCollision.html">Collision</a> Instance;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="comment">//ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’è¿”ã™</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="comment">//ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ•Ô‚·</span></div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordflow">return</span> Instance;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    }</div>
 </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="comment">//ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="comment">//ƒRƒ“ƒXƒgƒ‰ƒNƒ^</span></div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_function" href="classCollision.html#aea8004fbf48b79b5db7b784688b23788">Collision</a>();</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="comment">//ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="comment">//ƒfƒXƒgƒ‰ƒNƒ^</span></div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classCollision.html#a19ae49bcb3b16f4622443a34a171590c">   53</a></span>    <a class="code hl_function" href="classCollision.html#a19ae49bcb3b16f4622443a34a171590c">~Collision</a>(){}</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="comment">//ã‚³ãƒ”ãƒ¼ç¦æ­¢</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="comment">//ƒRƒs[‹Ö~</span></div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classCollision.html#a187236f2a581226801e9e84d2a3da5fb">   56</a></span>    <a class="code hl_function" href="classCollision.html#a187236f2a581226801e9e84d2a3da5fb">Collision</a>(<span class="keyword">const</span> <a class="code hl_class" href="classCollision.html">Collision</a>&amp;) = <span class="keyword">delete</span>;</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="comment">//ä»£å…¥ç¦æ­¢</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="comment">//‘ã“ü‹Ö~</span></div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classCollision.html#aac71fe0312dcfae9c20dad1b8cb7c14f">   59</a></span>    <a class="code hl_class" href="classCollision.html">Collision</a>&amp; <a class="code hl_function" href="classCollision.html#aac71fe0312dcfae9c20dad1b8cb7c14f">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classCollision.html">Collision</a>&amp;) = <span class="keyword">delete</span>;</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>};</div>
 </div>

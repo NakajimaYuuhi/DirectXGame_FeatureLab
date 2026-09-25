@@ -122,11 +122,11 @@ $(document).ready(function(){initNavTree('PSOManager_8h_source.html',''); initRe
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPSOManager.html#a07102bf5eb04e6ae16611ef7edc64482">Init</a>(ID3D12Device* device);</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="comment">// 蜍慕噪PSO逕滓・</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="comment">// 動的PSO生?E</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    ID3D12PipelineState* <a class="code hl_function" href="classPSOManager.html#a565aee5f527d1e601b5ea763cffa1c86">GetPSO</a>(<a class="code hl_class" href="classCMaterial.html">CMaterial</a>* material, ID3D12RootSignature* rootSig);</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="comment">// PSO繧ｭ繝｣繝・す繝･: 繧ｭ繝ｼ縺ｯ &quot;繧ｷ繧ｧ繝ｼ繝繝ｼ繝代せ_繝悶Ξ繝ｳ繝峨Δ繝ｼ繝・ 縺ｪ縺ｩ縺ｮ荳諢上・譁・ｭ怜・</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="comment">// PSOキャチE??ュ: キーは &quot;シェーダーパス_ブレンドモーチE などの一意?E?E???E</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classPSOManager.html#aeb51977243b3c4525fe3cd8dc3369879">   27</a></span>    std::unordered_map&lt;std::wstring, ComPtr&lt;ID3D12PipelineState&gt;&gt; <a class="code hl_variable" href="classPSOManager.html#aeb51977243b3c4525fe3cd8dc3369879">m_psoCache</a>;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>

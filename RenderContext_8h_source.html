@@ -101,8 +101,8 @@ $(document).ready(function(){initNavTree('RenderContext_8h_source.html',''); ini
 <a href="RenderContext_8h.html">[隧ｳ隗｣]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;d3d12.h&gt;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="SceneEnums_8h.html">SceneEnums.h</a>&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// #include &quot;Scene.h&quot; // Scenes::ID を使用する場合</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// #include &quot;Camera.h&quot; // Cameraクラスを参照する場合</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// #include &quot;Scene.h&quot; // Scenes::ID ??g?p?????</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// #include &quot;Camera.h&quot; // Camera?N???X??Q??????</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="structRenderContext.html">    7</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structRenderContext.html">RenderContext</a> {</div>
@@ -110,14 +110,14 @@ $(document).ready(function(){initNavTree('RenderContext_8h_source.html',''); ini
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="structRenderContext.html#a79378dfcb4efb75a6af5ef8b0e0255f4">    9</a></span>    <a class="code hl_enumeration" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275">Scenes::ID</a> <a class="code hl_variable" href="structRenderContext.html#a79378dfcb4efb75a6af5ef8b0e0255f4">sceneID</a>; </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="structRenderContext.html#a2077e0523174f7d57033c9d17a3fd6ab">   10</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structRenderContext.html#a2077e0523174f7d57033c9d17a3fd6ab">deltaTime</a>;</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="comment">// 描画先・参照元となるリソースのハンドル</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="comment">// ?`???E?Q??????郊?\?[?X??n???h??</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="structRenderContext.html#a29fab28400da468e68cf3707367f2fdb">   13</a></span>    D3D12_CPU_DESCRIPTOR_HANDLE <a class="code hl_variable" href="structRenderContext.html#a29fab28400da468e68cf3707367f2fdb">backBufferRTV</a>;</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structRenderContext.html#a853fe777f17050a3a8e2a03cf34d02ce">   14</a></span>    D3D12_CPU_DESCRIPTOR_HANDLE <a class="code hl_variable" href="structRenderContext.html#a853fe777f17050a3a8e2a03cf34d02ce">mainDSV</a>;</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="structRenderContext.html#a48cc31ad9631e46bf6962109a9e5fb21">   15</a></span>    UINT <a class="code hl_variable" href="structRenderContext.html#a48cc31ad9631e46bf6962109a9e5fb21">screenWidth</a>;</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="structRenderContext.html#a7b3b9f9f770f884a63fa870dc0e86c41">   16</a></span>    UINT <a class="code hl_variable" href="structRenderContext.html#a7b3b9f9f770f884a63fa870dc0e86c41">screenHeight</a>;</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="comment">// 将来のポストプロセス・コンピュートパス等で参照するためのカメラ情報</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="comment">// (値のバインドはせず、必要なパスが View/Proj 行列を取得するためだけに使用)</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="comment">// ??????|?X?g?v???Z?X?E?R???s???[?g?p?X????Q????????J???????</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="comment">// (?l??o?C???h??????A?K?v??p?X?? View/Proj ?s???擾???????????g?p)</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="comment">//const Camera* pCamera = nullptr; </span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>};</div>
 </div>

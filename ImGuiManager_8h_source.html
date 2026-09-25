@@ -114,7 +114,7 @@ $(document).ready(function(){initNavTree('ImGuiManager_8h_source.html',''); init
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classCImGuiManager.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="classCImGuiManager.html">CImGuiManager</a> {</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">//いらない気がする</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">//???????C??????</span></div>
 <div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="structCImGuiManager_1_1SrvAllocUserData.html">   17</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structCImGuiManager_1_1SrvAllocUserData.html">SrvAllocUserData</a></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    {</div>
@@ -124,24 +124,24 @@ $(document).ready(function(){initNavTree('ImGuiManager_8h_source.html',''); init
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">static</span> <a class="code hl_class" href="classCImGuiManager.html">CImGuiManager</a>&amp; <a class="code hl_function" href="classCImGuiManager.html#aacc770a179a9869968274ccd3ee24e30">GetInstance</a>();</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="comment">//画面の拡大率の取得</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="comment">//????g????擾</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classCImGuiManager.html#a1b96280a980c6c91a68d673633856035">GetSystemScaleFactor</a>();</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment">//実際に拡大する倍率の取得</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="comment">//拡大率にしたがって拡大するのが理想だが、今使ってるノートパソコンだと大きくて困るので、適用するかをフラグで決める</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment">//?????g?傷??{????擾</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="comment">//?g?????????????g?傷???????z?????A???g?????m?[?g?p?\?R????????????????A?K?p??????t???O??????</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classCImGuiManager.html#acffe3c94525f1e853f09afabda528080">GetActualScaleFactor</a>();</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="comment">// 初期化 (ウィンドウハンドルとDX12のデバイス、バッファ数、フォーマットが必要)</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="comment">// ?????? (?E?B???h?E?n???h????DX12??f?o?C?X?A?o?b?t?@???A?t?H?[?}?b?g???K?v)</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classCImGuiManager.html#a4352fabcab1c1388132d25609de90f87">Initialize</a>(HWND hwnd);</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="comment">// 終了処理</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="comment">// ?I??????</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCImGuiManager.html#a2ed92a60fb38ccbbc811d39b49418df1">Finalize</a>();</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="comment">// フレーム開始時の処理</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="comment">// ?t???[???J?n???????</span></div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCImGuiManager.html#ae8fa4e17313895d74c06663af5c38f77">Begin</a>();</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="comment">// フレーム終了時の描画処理 (コマンドリストを渡す)</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="comment">// ?t???[???I??????`???? (?R?}???h???X?g??n??)</span></div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCImGuiManager.html#a68c30eb6de22c921ee3dea98895417e9">End</a>(ID3D12GraphicsCommandList* commandList);</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classCImGuiManager.html#accf11b02aa280e150fd447bdc6090a1a">   44</a></span>    <a class="code hl_class" href="classCDescriptorHeapAllocator.html">CDescriptorHeapAllocator</a>&amp; <a class="code hl_function" href="classCImGuiManager.html#accf11b02aa280e150fd447bdc6090a1a">GetDescriptorHeapAllocator</a>() { <span class="keywordflow">return</span> <a class="code hl_variable" href="classCImGuiManager.html#afb7f26d2ec25bf3ed5bc05d58b358302">m_DescriptorHeapAllocator</a>; }</div>
@@ -150,7 +150,7 @@ $(document).ready(function(){initNavTree('ImGuiManager_8h_source.html',''); init
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classCImGuiManager.html#a2f43a6efa4df2a67460f1d6c16cf400c">   47</a></span>    <a class="code hl_function" href="classCImGuiManager.html#a2f43a6efa4df2a67460f1d6c16cf400c">CImGuiManager</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classCImGuiManager.html#a001800d54ca39a7ef94d34d0a789379c">   48</a></span>    <a class="code hl_function" href="classCImGuiManager.html#a001800d54ca39a7ef94d34d0a789379c">~CImGuiManager</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment">// ImGui用のフォントテクスチャ等を配置するためのSRVヒープ</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment">// ImGui?p??t?H???g?e?N?X?`??????z?u???????SRV?q?[?v</span></div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classCImGuiManager.html#a99ff56b1eb2cee5ca4ddb52aec5d6ea8">   51</a></span>    Microsoft::WRL::ComPtr&lt;ID3D12DescriptorHeap&gt; <a class="code hl_variable" href="classCImGuiManager.html#a99ff56b1eb2cee5ca4ddb52aec5d6ea8">m_srvHeap</a>;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classCImGuiManager.html#afb7f26d2ec25bf3ed5bc05d58b358302">   52</a></span>    <a class="code hl_class" href="classCDescriptorHeapAllocator.html">CDescriptorHeapAllocator</a> <a class="code hl_variable" href="classCImGuiManager.html#afb7f26d2ec25bf3ed5bc05d58b358302">m_DescriptorHeapAllocator</a>;</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classCImGuiManager.html#a6e23cb13670295c904d1c815c10c1579">   53</a></span>    <a class="code hl_struct" href="structCImGuiManager_1_1SrvAllocUserData.html">SrvAllocUserData</a> <a class="code hl_variable" href="classCImGuiManager.html#a6e23cb13670295c904d1c815c10c1579">m_SrvAllocUserData</a>;</div>

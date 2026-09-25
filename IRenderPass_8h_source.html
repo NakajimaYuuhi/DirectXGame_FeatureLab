@@ -108,13 +108,13 @@ $(document).ready(function(){initNavTree('IRenderPass_8h_source.html',''); initR
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="classIRenderPass.html#a52c6a9a8b5ae4b98d6c9d9d6899998e0">    8</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classIRenderPass.html#a52c6a9a8b5ae4b98d6c9d9d6899998e0">~IRenderPass</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="comment">// パスの初期化（PSOの生成や必要なリソースの確保など）</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="comment">// ?p?X????????iPSO???????K?v????\?[?X??m????j</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classIRenderPass.html#a1771179659c4abc6e253814080bba19d">   11</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classIRenderPass.html#a1771179659c4abc6e253814080bba19d">Init</a>(ID3D12Device* pDevice) = 0;</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="comment">// コマンドリストへのコマンド積み込み処理</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="comment">// ?R?}???h???X?g???R?}???h?????????</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classIRenderPass.html#a296b54adab092c7100589ea49f2bfd15">   14</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classIRenderPass.html#a296b54adab092c7100589ea49f2bfd15">Execute</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structRenderContext.html">RenderContext</a>&amp; ctx) = 0;</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">// デバッグやプロファイリング用にパスの名前を返せるようにしておくと便利です</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">// ?f?o?b?O??v???t?@?C?????O?p??p?X????O??????????????????????</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classIRenderPass.html#aa0620af6b0dfcf2951f413c8fdcb451a">   17</a></span>    <span class="keyword">virtual</span> std::string <a class="code hl_function" href="classIRenderPass.html#aa0620af6b0dfcf2951f413c8fdcb451a">GetName</a>() <span class="keyword">const</span> = 0;</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>};</div>
 </div>

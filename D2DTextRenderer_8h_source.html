@@ -123,10 +123,10 @@ $(document).ready(function(){initNavTree('D2DTextRenderer_8h_source.html',''); i
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classD2DTextRenderer.html#af495f36dddda70ff4abd49775498f5b9">Resize</a>(UINT width, UINT height, IDXGISwapChain4* swapChain);</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classD2DTextRenderer.html#acab4d487d5f24e27dc5775ea3a6806f0">ReleaseSizeDependentResources</a>();</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="comment">// ãƒ†ã‚­ã‚¹ãƒˆæç”»ã®ãƒªã‚¯ã‚¨ã‚¹ãƒˆã‚’ç™»éŒ²</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="comment">// ƒeƒLƒXƒg•`‰æ‚ÌƒŠƒNƒGƒXƒg‚ğ“o˜^</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classD2DTextRenderer.html#a6f734623307b2c5ad1f6d49d346358e0">DrawTextStr</a>(<span class="keyword">const</span> std::wstring&amp; text, <span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> fontSize = 24.0f, D2D1::ColorF color = D2D1::ColorF::White, <span class="keyword">const</span> std::wstring&amp; fontFamily = L<span class="stringliteral">&quot;Meiryo&quot;</span>);</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="comment">// æç”»å®Ÿè¡Œï¼ˆDX12ã®ãƒ¬ãƒ³ãƒ€ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã«å¯¾ã—ã¦ï¼‰</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="comment">// •`‰æÀsiDX12‚ÌƒŒƒ“ƒ_[ƒ^[ƒQƒbƒg‚É‘Î‚µ‚Äj</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classD2DTextRenderer.html#ab0456ecf42ec83b4e7f7f585646b929a">Render</a>(UINT frameIndex);</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">private</span>:</div>
@@ -139,21 +139,21 @@ $(document).ready(function(){initNavTree('D2DTextRenderer_8h_source.html',''); i
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classD2DTextRenderer.html#a9c52a3b417bb655412d7b8cb8326205a">CreateSizeDependentResources</a>(UINT width, UINT height, IDXGISwapChain4* swapChain);</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="comment">// D3D11ã‚ªãƒ³12 é–¢é€£</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="comment">// D3D11ƒIƒ“12 ŠÖ˜A</span></div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classD2DTextRenderer.html#a2089c469530d5db412bdec918fefe04c">   42</a></span>    ComPtr&lt;ID3D11Device&gt; <a class="code hl_variable" href="classD2DTextRenderer.html#a2089c469530d5db412bdec918fefe04c">m_d3d11Device</a>;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classD2DTextRenderer.html#a79305b085a8482adac7a3f4cfc104e97">   43</a></span>    ComPtr&lt;ID3D11DeviceContext&gt; <a class="code hl_variable" href="classD2DTextRenderer.html#a79305b085a8482adac7a3f4cfc104e97">m_d3d11DeviceContext</a>;</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classD2DTextRenderer.html#a2f6b3d2f4c4660f9b46fb785e97b8dcc">   44</a></span>    ComPtr&lt;ID3D11On12Device&gt; <a class="code hl_variable" href="classD2DTextRenderer.html#a2f6b3d2f4c4660f9b46fb785e97b8dcc">m_d3d11On12Device</a>;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="comment">// D2D é–¢é€£</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="comment">// D2D ŠÖ˜A</span></div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classD2DTextRenderer.html#a0841655c4c731e9fbfd84795bae54205">   47</a></span>    ComPtr&lt;ID2D1Factory3&gt; <a class="code hl_variable" href="classD2DTextRenderer.html#a0841655c4c731e9fbfd84795bae54205">m_d2dFactory</a>;</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classD2DTextRenderer.html#aeec078de037dab6f948ae8e6f19d9878">   48</a></span>    ComPtr&lt;ID2D1Device2&gt; <a class="code hl_variable" href="classD2DTextRenderer.html#aeec078de037dab6f948ae8e6f19d9878">m_d2dDevice</a>;</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classD2DTextRenderer.html#a6c3c773034aa5922f4923d98a66bf069">   49</a></span>    ComPtr&lt;ID2D1DeviceContext2&gt; <a class="code hl_variable" href="classD2DTextRenderer.html#a6c3c773034aa5922f4923d98a66bf069">m_d2dContext</a>;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="comment">// DWrite é–¢é€£</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="comment">// DWrite ŠÖ˜A</span></div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classD2DTextRenderer.html#a42b140ba0af1f20769ad7380b48045a4">   52</a></span>    ComPtr&lt;IDWriteFactory&gt; <a class="code hl_variable" href="classD2DTextRenderer.html#a42b140ba0af1f20769ad7380b48045a4">m_dwriteFactory</a>;</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classD2DTextRenderer.html#ae4b52f177ed2ad84e4c2b4fcf4031ecc">   53</a></span>    ComPtr&lt;IDWriteTextFormat&gt; <a class="code hl_variable" href="classD2DTextRenderer.html#ae4b52f177ed2ad84e4c2b4fcf4031ecc">m_defaultTextFormat</a>;</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="comment">// ãƒãƒƒã‚¯ãƒãƒƒãƒ•ã‚¡é–¢é€£ã®ãƒªã‚½ãƒ¼ã‚¹</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="comment">// ƒoƒbƒNƒoƒbƒtƒ@ŠÖ˜A‚ÌƒŠƒ\[ƒX</span></div>
 <div class="foldopen" id="foldopen00056" data-start="{" data-end="};">
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="structD2DTextRenderer_1_1FrameResources.html">   56</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structD2DTextRenderer_1_1FrameResources.html">FrameResources</a></div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    {</div>
@@ -166,7 +166,7 @@ $(document).ready(function(){initNavTree('D2DTextRenderer_8h_source.html',''); i
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classD2DTextRenderer.html#af4587bca318f82f3655e10b295dc97d0">   63</a></span>    UINT <a class="code hl_variable" href="classD2DTextRenderer.html#af4587bca318f82f3655e10b295dc97d0">m_width</a> = 0;</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classD2DTextRenderer.html#a5947f62511d7ba78a2e2519df6ff1787">   64</a></span>    UINT <a class="code hl_variable" href="classD2DTextRenderer.html#a5947f62511d7ba78a2e2519df6ff1787">m_height</a> = 0;</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="comment">// æç”»ãƒ†ã‚­ã‚¹ãƒˆæƒ…å ±</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="comment">// •`‰æƒeƒLƒXƒgî•ñ</span></div>
 <div class="foldopen" id="foldopen00067" data-start="{" data-end="};">
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="structD2DTextRenderer_1_1TextInfo.html">   67</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structD2DTextRenderer_1_1TextInfo.html">TextInfo</a></div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    {</div>

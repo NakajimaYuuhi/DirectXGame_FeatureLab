@@ -100,12 +100,12 @@ $(document).ready(function(){initNavTree('ForwardRenderPass_8h_source.html','');
 <div class="contents">
 <a href="ForwardRenderPass_8h.html">[隧ｳ隗｣]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="IRenderPass_8h.html">IRenderPass.h</a>&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="RenderTexture_8h.html">RenderTexture.h</a>&quot;</span> <span class="comment">// 霑ｽ蜉</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="RenderTexture_8h.html">RenderTexture.h</a>&quot;</span> <span class="comment">// 追加</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="classForwardRenderPass.html">    5</a></span><span class="keyword">class </span><a class="code hl_class" href="classForwardRenderPass.html">ForwardRenderPass</a> : <span class="keyword">public</span> <a class="code hl_class" href="classIRenderPass.html">IRenderPass</a> {</div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <span class="comment">// コンストラクタで出力先のテクスチャを受け取る (nullptrなら画面へ直接出力)</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <span class="comment">// ?R???X?g???N?^??o????e?N?X?`???????? (nullptr?????????o??)</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <a class="code hl_class" href="classForwardRenderPass.html">ForwardRenderPass</a>(<a class="code hl_class" href="classRenderTexture.html">RenderTexture</a>* pDestTex = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classForwardRenderPass.html#a6e1fc3210db4d9029fd3e918de9e72b2">    9</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classForwardRenderPass.html#a6e1fc3210db4d9029fd3e918de9e72b2">~ForwardRenderPass</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
@@ -114,7 +114,7 @@ $(document).ready(function(){initNavTree('ForwardRenderPass_8h_source.html','');
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">virtual</span> std::string <a class="code hl_function" href="classForwardRenderPass.html#a26a980c3a726cdd518af46056fddfffc">GetName</a>() <span class="keyword">const override</span>;</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">// 出力先のテクスチャを保存しておくメンバ変数</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">// ?o????e?N?X?`??????????????????o???</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classForwardRenderPass.html#a610a3488d9ed339b3808b9e9f56a26a2">   17</a></span>    <a class="code hl_class" href="classRenderTexture.html">RenderTexture</a>* <a class="code hl_variable" href="classForwardRenderPass.html#a610a3488d9ed339b3808b9e9f56a26a2">m_pDestTex</a> = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>};</div>
 </div>

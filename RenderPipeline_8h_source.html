@@ -110,16 +110,16 @@ $(document).ready(function(){initNavTree('RenderPipeline_8h_source.html',''); in
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classRenderPipeline.html#a3c9e0506a98203dbf56bcffb2473b076">    9</a></span>    <a class="code hl_function" href="classRenderPipeline.html#a3c9e0506a98203dbf56bcffb2473b076">RenderPipeline</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classRenderPipeline.html#ab7205ae3fd2392efdf01d6344f41e735">   10</a></span>    <a class="code hl_function" href="classRenderPipeline.html#ab7205ae3fd2392efdf01d6344f41e735">~RenderPipeline</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="comment">// パスをパイプラインの末尾に追加する</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="comment">// ?p?X??p?C?v???C???????????????</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classRenderPipeline.html#a5c1ce524c923471950e1a87204398203">AddPass</a>(std::unique_ptr&lt;IRenderPass&gt; pass);</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="comment">// 登録されたすべてのパスを初期化する</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="comment">// ?o?^??????????p?X???????????</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classRenderPipeline.html#ac850ebd2a1e379e5b43c7cfc20bb1efb">Init</a>(ID3D12Device* pDevice);</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="comment">// 毎フレーム呼ばれ、登録された順にパスを実行する</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="comment">// ???t???[??????A?o?^????????p?X????s????</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classRenderPipeline.html#a0f0d5927dbdb9d8e6a0ac30b29c19a71">Execute</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structRenderContext.html">RenderContext</a>&amp; ctx);</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="comment">// 必要に応じてパスをクリアする処理</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="comment">// ?K?v???????p?X??N???A???鏈??</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classRenderPipeline.html#aad822f0fad32d3277aa92f4f0d317822">ClearPasses</a>();</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">private</span>:</div>
