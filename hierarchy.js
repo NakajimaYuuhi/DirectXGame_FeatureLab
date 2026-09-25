@@ -101,6 +101,7 @@ var hierarchy =
     [ "nlohmann::detail::detector< Default, void_t< Op< Args... > >, Op, Args... >", "structnlohmann_1_1detail_1_1detector_3_01Default_00_01void__t_3_01Op_3_01Args_8_8_8_01_4_01_4_00_01Op_00_01Args_8_8_8_01_4.html", null ],
     [ "nlohmann::detail::dtoa_impl::diyfp", "structnlohmann_1_1detail_1_1dtoa__impl_1_1diyfp.html", null ],
     [ "DX12Manager", "classDX12Manager.html", null ],
+    [ "EditorRaycast", "classEditorRaycast.html", null ],
     [ "Event", "classEvent.html", null ],
     [ "EventData", "classEventData.html", [
       [ "EventData_NextScene", "classEventData__NextScene.html", null ]
@@ -505,6 +506,7 @@ var hierarchy =
     [ "nlohmann::detail::priority_tag< 0 >", "structnlohmann_1_1detail_1_1priority__tag_3_010_01_4.html", null ],
     [ "PSOBuilder", "classPSOBuilder.html", null ],
     [ "PSOManager", "classPSOManager.html", null ],
+    [ "Ray", "structRay.html", null ],
     [ "RenderContext", "structRenderContext.html", null ],
     [ "RenderPipeline", "classRenderPipeline.html", null ],
     [ "RenderTexture", "classRenderTexture.html", null ],

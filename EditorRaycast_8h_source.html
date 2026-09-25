@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Core/EditorRaycast.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('EditorRaycast_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">EditorRaycast.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="EditorRaycast_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;DirectXMath.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">class </span><a class="code hl_class" href="classCObject.html">CObject</a>;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">class </span><a class="code hl_class" href="classCamera.html">Camera</a>;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="structRay.html">    9</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structRay.html">Ray</a></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="structRay.html#a7d090400d5d63ab4b0e9e8ab62f928f3">   11</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="structRay.html#a7d090400d5d63ab4b0e9e8ab62f928f3">origin</a>{ 0.0f, 0.0f, 0.0f };</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="structRay.html#abb9215b020dc467c154b94aa8f765f53">   12</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="structRay.html#abb9215b020dc467c154b94aa8f765f53">direction</a>{ 0.0f, 0.0f, 1.0f };</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>};</div>
+</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classEditorRaycast.html">   15</a></span><span class="keyword">class </span><a class="code hl_class" href="classEditorRaycast.html">EditorRaycast</a></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">static</span> <a class="code hl_struct" href="structRay.html">Ray</a> <a class="code hl_function" href="classEditorRaycast.html#a196945a4cccb2ae2712372a93ef45a39">CreateRayFromScreen</a>(</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keywordtype">float</span> screenX, <span class="keywordtype">float</span> screenY,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keywordtype">float</span> screenWidth, <span class="keywordtype">float</span> screenHeight,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keyword">const</span> DirectX::XMMATRIX&amp; view,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keyword">const</span> DirectX::XMMATRIX&amp; proj</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    );</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classEditorRaycast.html#a2b30dc63fc01d33feac40d310c397a2c">RayIntersectAABB</a>(</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keyword">const</span> <a class="code hl_struct" href="structRay.html">Ray</a>&amp; ray,</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keyword">const</span> DirectX::XMFLOAT3&amp; boxMin,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keyword">const</span> DirectX::XMFLOAT3&amp; boxMax,</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordtype">float</span>&amp; outDistance</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    );</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">static</span> <a class="code hl_class" href="classCObject.html">CObject</a>* <a class="code hl_function" href="classEditorRaycast.html#a610ac4666d1f40176643facd866464ac">PickObject</a>(</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordtype">float</span> screenX, <span class="keywordtype">float</span> screenY,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordtype">float</span> screenWidth, <span class="keywordtype">float</span> screenHeight,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <a class="code hl_class" href="classCamera.html">Camera</a>* camera,</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keyword">const</span> std::vector&lt;std::vector&lt;std::unique_ptr&lt;CObject&gt;&gt;&gt;&amp; objectList,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordtype">int</span>&amp; outTagIndex,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keywordtype">int</span>&amp; outObjectIndex</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    );</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
+</div>
+<div class="ttc" id="aclassCObject_html"><div class="ttname"><a href="classCObject.html">CObject</a></div><div class="ttdef"><b>Definition</b> Object.h:43</div></div>
+<div class="ttc" id="aclassCamera_html"><div class="ttname"><a href="classCamera.html">Camera</a></div><div class="ttdef"><b>Definition</b> Camera.h:8</div></div>
+<div class="ttc" id="aclassEditorRaycast_html"><div class="ttname"><a href="classEditorRaycast.html">EditorRaycast</a></div><div class="ttdef"><b>Definition</b> EditorRaycast.h:16</div></div>
+<div class="ttc" id="aclassEditorRaycast_html_a196945a4cccb2ae2712372a93ef45a39"><div class="ttname"><a href="classEditorRaycast.html#a196945a4cccb2ae2712372a93ef45a39">EditorRaycast::CreateRayFromScreen</a></div><div class="ttdeci">static Ray CreateRayFromScreen(float screenX, float screenY, float screenWidth, float screenHeight, const DirectX::XMMATRIX &amp;view, const DirectX::XMMATRIX &amp;proj)</div><div class="ttdef"><b>Definition</b> EditorRaycast.cpp:12</div></div>
+<div class="ttc" id="aclassEditorRaycast_html_a2b30dc63fc01d33feac40d310c397a2c"><div class="ttname"><a href="classEditorRaycast.html#a2b30dc63fc01d33feac40d310c397a2c">EditorRaycast::RayIntersectAABB</a></div><div class="ttdeci">static bool RayIntersectAABB(const Ray &amp;ray, const DirectX::XMFLOAT3 &amp;boxMin, const DirectX::XMFLOAT3 &amp;boxMax, float &amp;outDistance)</div><div class="ttdef"><b>Definition</b> EditorRaycast.cpp:43</div></div>
+<div class="ttc" id="aclassEditorRaycast_html_a610ac4666d1f40176643facd866464ac"><div class="ttname"><a href="classEditorRaycast.html#a610ac4666d1f40176643facd866464ac">EditorRaycast::PickObject</a></div><div class="ttdeci">static CObject * PickObject(float screenX, float screenY, float screenWidth, float screenHeight, Camera *camera, const std::vector&lt; std::vector&lt; std::unique_ptr&lt; CObject &gt; &gt; &gt; &amp;objectList, int &amp;outTagIndex, int &amp;outObjectIndex)</div><div class="ttdef"><b>Definition</b> EditorRaycast.cpp:85</div></div>
+<div class="ttc" id="astructRay_html"><div class="ttname"><a href="structRay.html">Ray</a></div><div class="ttdef"><b>Definition</b> EditorRaycast.h:10</div></div>
+<div class="ttc" id="astructRay_html_a7d090400d5d63ab4b0e9e8ab62f928f3"><div class="ttname"><a href="structRay.html#a7d090400d5d63ab4b0e9e8ab62f928f3">Ray::origin</a></div><div class="ttdeci">DirectX::XMFLOAT3 origin</div><div class="ttdef"><b>Definition</b> EditorRaycast.h:11</div></div>
+<div class="ttc" id="astructRay_html_abb9215b020dc467c154b94aa8f765f53"><div class="ttname"><a href="structRay.html#abb9215b020dc467c154b94aa8f765f53">Ray::direction</a></div><div class="ttdeci">DirectX::XMFLOAT3 direction</div><div class="ttdef"><b>Definition</b> EditorRaycast.h:12</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_1ad6433457b0067ef8f54a4fa85f5c9a.html">Core</a></li><li class="navelem"><a class="el" href="EditorRaycast_8h.html">EditorRaycast.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>
