@@ -456,6 +456,10 @@ var hierarchy =
     [ "nlohmann::detail::iterator_types< T >", "structnlohmann_1_1detail_1_1iterator__types.html", [
       [ "nlohmann::detail::iterator_traits< T, enable_if_t< !std::is_pointer< T >::value > >", "structnlohmann_1_1detail_1_1iterator__traits_3_01T_00_01enable__if__t_3_01_9std_1_1is__pointer_3_01T_01_4_1_1value_01_4_01_4.html", null ]
     ] ],
+    [ "IUndoCommand", "classIUndoCommand.html", [
+      [ "DeleteObjectUndoCommand", "classDeleteObjectUndoCommand.html", null ],
+      [ "TransformUndoCommand", "classTransformUndoCommand.html", null ]
+    ] ],
     [ "nlohmann::json_pointer< BasicJsonType >", "classnlohmann_1_1json__pointer.html", null ],
     [ "nlohmann::detail::json_ref< BasicJsonType >", "classnlohmann_1_1detail_1_1json__ref.html", null ],
     [ "nlohmann::json_sax< BasicJsonType >", "structnlohmann_1_1json__sax.html", null ],
@@ -606,6 +610,7 @@ var hierarchy =
     [ "std::conditional::type", null, [
       [ "nlohmann::detail::conjunction< B1, Bn... >", "structnlohmann_1_1detail_1_1conjunction_3_01B1_00_01Bn_8_8_8_01_4.html", null ]
     ] ],
+    [ "UndoManager", "classUndoManager.html", null ],
     [ "tinygltf::URICallbacks", "structtinygltf_1_1URICallbacks.html", null ],
     [ "tinygltf::Value", "classtinygltf_1_1Value.html", null ],
     [ "std::vector< std::pair< const Key, T >, std::allocator< std::pair< const Key, T > > >", null, [

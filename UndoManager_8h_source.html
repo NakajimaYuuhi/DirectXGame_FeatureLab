@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Core/UndoManager.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('UndoManager_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">UndoManager.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="UndoManager_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;DirectXMath.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">class </span><a class="code hl_class" href="classCObject.html">CObject</a>;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// Command Interface for Undo/Redo</span></div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classIUndoCommand.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="classIUndoCommand.html">IUndoCommand</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classIUndoCommand.html#ab8ecf4cf39f3a1a2fdd2a09916bee509">   13</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classIUndoCommand.html#ab8ecf4cf39f3a1a2fdd2a09916bee509">~IUndoCommand</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classIUndoCommand.html#af626e75748867a390e7bec3406284599">   14</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classIUndoCommand.html#af626e75748867a390e7bec3406284599">Execute</a>() = 0;   <span class="comment">// Redo / Apply action</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classIUndoCommand.html#af6b4e4966306fbe2be9a968b394d4edc">   15</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classIUndoCommand.html#af6b4e4966306fbe2be9a968b394d4edc">Undo</a>() = 0;      <span class="comment">// Undo action</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classIUndoCommand.html#a0d65748e43b68517f2c06cd0ca31b8e4">   16</a></span>    <span class="keyword">virtual</span> std::string <a class="code hl_function" href="classIUndoCommand.html#a0d65748e43b68517f2c06cd0ca31b8e4">GetName</a>() <span class="keyword">const</span> = 0; <span class="comment">// Command label for UI tooltip</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>};</div>
+</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">// UndoManager Singleton</span></div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classUndoManager.html">   20</a></span><span class="keyword">class </span><a class="code hl_class" href="classUndoManager.html">UndoManager</a></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="}">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classUndoManager.html#adb9159b11f3505da200dbbad4f4dc6df">   23</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classUndoManager.html">UndoManager</a>&amp; <a class="code hl_function" href="classUndoManager.html#adb9159b11f3505da200dbbad4f4dc6df">GetInstance</a>()</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keyword">static</span> <a class="code hl_class" href="classUndoManager.html">UndoManager</a> instance;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keywordflow">return</span> instance;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    }</div>
+</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUndoManager.html#aafa61c48a7e19ec8e32b3151ecb3da04">RecordCommand</a>(std::unique_ptr&lt;IUndoCommand&gt; command);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classUndoManager.html#aa8e3eaa45c81119ea2e3ff75c12dad49">Undo</a>();</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classUndoManager.html#a5edafa9ffce88b4b653d043ccf55645b">Redo</a>();</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classUndoManager.html#ab65c9beedf5ddbe1bc83c3dfd35bc2ed">   33</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classUndoManager.html#ab65c9beedf5ddbe1bc83c3dfd35bc2ed">CanUndo</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> !<a class="code hl_variable" href="classUndoManager.html#ad3fc56a434e58395db5e8a9566eb8937">m_undoStack</a>.empty(); }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classUndoManager.html#a34d3eed904fd1c717da64a0b68a7d80b">   34</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classUndoManager.html#a34d3eed904fd1c717da64a0b68a7d80b">CanRedo</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> !<a class="code hl_variable" href="classUndoManager.html#aa5f4178dbb720f4df6d7e91c59b41ae4">m_redoStack</a>.empty(); }</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    std::string <a class="code hl_function" href="classUndoManager.html#a4520115c178c9861858ef27f1c57ddc7">GetUndoName</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    std::string <a class="code hl_function" href="classUndoManager.html#aef46696c83691dc4ecf32df546d24965">GetRedoName</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUndoManager.html#add392bda00eb77487c1bded0f555a7ab">Clear</a>();</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classUndoManager.html#a20e595ff51ea0a52b3b6d558b2eab68b">   42</a></span>    <a class="code hl_function" href="classUndoManager.html#a20e595ff51ea0a52b3b6d558b2eab68b">UndoManager</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classUndoManager.html#a256ef74bbbfd6804dfb6ca0fda8ade80">   43</a></span>    <a class="code hl_function" href="classUndoManager.html#a256ef74bbbfd6804dfb6ca0fda8ade80">~UndoManager</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classUndoManager.html#a6f748648d5f9e310003a79958895e4db">   44</a></span>    <a class="code hl_function" href="classUndoManager.html#a6f748648d5f9e310003a79958895e4db">UndoManager</a>(<span class="keyword">const</span> <a class="code hl_class" href="classUndoManager.html">UndoManager</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classUndoManager.html#a7017fc5b0419cc704ada378e0c2b1659">   45</a></span>    <a class="code hl_class" href="classUndoManager.html">UndoManager</a>&amp; <a class="code hl_function" href="classUndoManager.html#a7017fc5b0419cc704ada378e0c2b1659">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classUndoManager.html">UndoManager</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classUndoManager.html#ad3fc56a434e58395db5e8a9566eb8937">   47</a></span>    std::vector&lt;std::unique_ptr&lt;IUndoCommand&gt;&gt; <a class="code hl_variable" href="classUndoManager.html#ad3fc56a434e58395db5e8a9566eb8937">m_undoStack</a>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classUndoManager.html#aa5f4178dbb720f4df6d7e91c59b41ae4">   48</a></span>    std::vector&lt;std::unique_ptr&lt;IUndoCommand&gt;&gt; <a class="code hl_variable" href="classUndoManager.html#aa5f4178dbb720f4df6d7e91c59b41ae4">m_redoStack</a>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classUndoManager.html#a1c12b2f8edd896e7ed9b2b35430f35f8">   49</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_variable" href="classUndoManager.html#a1c12b2f8edd896e7ed9b2b35430f35f8">m_maxHistorySize</a> = 50;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>};</div>
+</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">// Built-in Command: Transform Change (Pos, Rotation, Scale)</span></div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="};">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classTransformUndoCommand.html">   53</a></span><span class="keyword">class </span><a class="code hl_class" href="classTransformUndoCommand.html">TransformUndoCommand</a> : <span class="keyword">public</span> <a class="code hl_class" href="classIUndoCommand.html">IUndoCommand</a></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>{</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_class" href="classTransformUndoCommand.html">TransformUndoCommand</a>(</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <a class="code hl_class" href="classCObject.html">CObject</a>* target,</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keyword">const</span> DirectX::XMFLOAT3&amp; oldPos, <span class="keyword">const</span> DirectX::XMFLOAT3&amp; newPos,</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keyword">const</span> DirectX::XMFLOAT3&amp; oldRot, <span class="keyword">const</span> DirectX::XMFLOAT3&amp; newRot,</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keyword">const</span> DirectX::XMFLOAT3&amp; oldScale, <span class="keyword">const</span> DirectX::XMFLOAT3&amp; newScale</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    );</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTransformUndoCommand.html#aeccf124ed136ef2ec2f0d185133ec41b">Execute</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTransformUndoCommand.html#aac4102009abdbeb28dbea7d477603e63">Undo</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classTransformUndoCommand.html#a60336120f9ac96f94ad6df4368f3903c">   65</a></span>    std::string <a class="code hl_function" href="classTransformUndoCommand.html#a60336120f9ac96f94ad6df4368f3903c">GetName</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;Transform Change&quot;</span>; }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classTransformUndoCommand.html#ad34ffa496e09c6b39868ad991c01f5d9">   68</a></span>    <a class="code hl_class" href="classCObject.html">CObject</a>* <a class="code hl_variable" href="classTransformUndoCommand.html#ad34ffa496e09c6b39868ad991c01f5d9">m_targetObj</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classTransformUndoCommand.html#a3cad29af247e4a7d993972334ebfab91">   69</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="classTransformUndoCommand.html#a3cad29af247e4a7d993972334ebfab91">m_oldPos</a>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classTransformUndoCommand.html#a05f99002f39dc19a9f19da7142d8e7d1">   70</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="classTransformUndoCommand.html#a05f99002f39dc19a9f19da7142d8e7d1">m_newPos</a>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classTransformUndoCommand.html#aa08ed4e165e23a85c242222101173f2c">   71</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="classTransformUndoCommand.html#aa08ed4e165e23a85c242222101173f2c">m_oldRot</a>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classTransformUndoCommand.html#a295607c59b1e9c93731a42fd84ee8ab9">   72</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="classTransformUndoCommand.html#a295607c59b1e9c93731a42fd84ee8ab9">m_newRot</a>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classTransformUndoCommand.html#a23241e57e67d19651c468de55453d114">   73</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="classTransformUndoCommand.html#a23241e57e67d19651c468de55453d114">m_oldScale</a>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classTransformUndoCommand.html#a7e69a7e75d322f903573400d6df27e78">   74</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="classTransformUndoCommand.html#a7e69a7e75d322f903573400d6df27e78">m_newScale</a>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>};</div>
+</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">// Built-in Command: Object Delete (Destroy/Restore)</span></div>
+<div class="foldopen" id="foldopen00078" data-start="{" data-end="};">
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classDeleteObjectUndoCommand.html">   78</a></span><span class="keyword">class </span><a class="code hl_class" href="classDeleteObjectUndoCommand.html">DeleteObjectUndoCommand</a> : <span class="keyword">public</span> <a class="code hl_class" href="classIUndoCommand.html">IUndoCommand</a></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>{</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_class" href="classDeleteObjectUndoCommand.html">DeleteObjectUndoCommand</a>(<a class="code hl_class" href="classCObject.html">CObject</a>* target);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDeleteObjectUndoCommand.html#a8a1c8215acfb37f833cee4c03c007af3">Execute</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classDeleteObjectUndoCommand.html#a126cd7cb0b6e41f64b08819ffc16c4d3">Undo</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classDeleteObjectUndoCommand.html#a4a07b75768d6e92c2a9925f0a40bc2e1">   85</a></span>    std::string <a class="code hl_function" href="classDeleteObjectUndoCommand.html#a4a07b75768d6e92c2a9925f0a40bc2e1">GetName</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;Delete Object&quot;</span>; }</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classDeleteObjectUndoCommand.html#a3cbe7c7d9fe4a70955a390cbb0e20f70">   88</a></span>    <a class="code hl_class" href="classCObject.html">CObject</a>* <a class="code hl_variable" href="classDeleteObjectUndoCommand.html#a3cbe7c7d9fe4a70955a390cbb0e20f70">m_targetObj</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>};</div>
+</div>
+<div class="ttc" id="aclassCObject_html"><div class="ttname"><a href="classCObject.html">CObject</a></div><div class="ttdef"><b>Definition</b> Object.h:43</div></div>
+<div class="ttc" id="aclassDeleteObjectUndoCommand_html"><div class="ttname"><a href="classDeleteObjectUndoCommand.html">DeleteObjectUndoCommand</a></div><div class="ttdef"><b>Definition</b> UndoManager.h:79</div></div>
+<div class="ttc" id="aclassDeleteObjectUndoCommand_html_a126cd7cb0b6e41f64b08819ffc16c4d3"><div class="ttname"><a href="classDeleteObjectUndoCommand.html#a126cd7cb0b6e41f64b08819ffc16c4d3">DeleteObjectUndoCommand::Undo</a></div><div class="ttdeci">void Undo() override</div><div class="ttdef"><b>Definition</b> UndoManager.cpp:112</div></div>
+<div class="ttc" id="aclassDeleteObjectUndoCommand_html_a3cbe7c7d9fe4a70955a390cbb0e20f70"><div class="ttname"><a href="classDeleteObjectUndoCommand.html#a3cbe7c7d9fe4a70955a390cbb0e20f70">DeleteObjectUndoCommand::m_targetObj</a></div><div class="ttdeci">CObject * m_targetObj</div><div class="ttdef"><b>Definition</b> UndoManager.h:88</div></div>
+<div class="ttc" id="aclassDeleteObjectUndoCommand_html_a4a07b75768d6e92c2a9925f0a40bc2e1"><div class="ttname"><a href="classDeleteObjectUndoCommand.html#a4a07b75768d6e92c2a9925f0a40bc2e1">DeleteObjectUndoCommand::GetName</a></div><div class="ttdeci">std::string GetName() const override</div><div class="ttdef"><b>Definition</b> UndoManager.h:85</div></div>
+<div class="ttc" id="aclassDeleteObjectUndoCommand_html_a8a1c8215acfb37f833cee4c03c007af3"><div class="ttname"><a href="classDeleteObjectUndoCommand.html#a8a1c8215acfb37f833cee4c03c007af3">DeleteObjectUndoCommand::Execute</a></div><div class="ttdeci">void Execute() override</div><div class="ttdef"><b>Definition</b> UndoManager.cpp:104</div></div>
+<div class="ttc" id="aclassIUndoCommand_html"><div class="ttname"><a href="classIUndoCommand.html">IUndoCommand</a></div><div class="ttdef"><b>Definition</b> UndoManager.h:11</div></div>
+<div class="ttc" id="aclassIUndoCommand_html_a0d65748e43b68517f2c06cd0ca31b8e4"><div class="ttname"><a href="classIUndoCommand.html#a0d65748e43b68517f2c06cd0ca31b8e4">IUndoCommand::GetName</a></div><div class="ttdeci">virtual std::string GetName() const =0</div></div>
+<div class="ttc" id="aclassIUndoCommand_html_ab8ecf4cf39f3a1a2fdd2a09916bee509"><div class="ttname"><a href="classIUndoCommand.html#ab8ecf4cf39f3a1a2fdd2a09916bee509">IUndoCommand::~IUndoCommand</a></div><div class="ttdeci">virtual ~IUndoCommand()=default</div></div>
+<div class="ttc" id="aclassIUndoCommand_html_af626e75748867a390e7bec3406284599"><div class="ttname"><a href="classIUndoCommand.html#af626e75748867a390e7bec3406284599">IUndoCommand::Execute</a></div><div class="ttdeci">virtual void Execute()=0</div></div>
+<div class="ttc" id="aclassIUndoCommand_html_af6b4e4966306fbe2be9a968b394d4edc"><div class="ttname"><a href="classIUndoCommand.html#af6b4e4966306fbe2be9a968b394d4edc">IUndoCommand::Undo</a></div><div class="ttdeci">virtual void Undo()=0</div></div>
+<div class="ttc" id="aclassTransformUndoCommand_html"><div class="ttname"><a href="classTransformUndoCommand.html">TransformUndoCommand</a></div><div class="ttdef"><b>Definition</b> UndoManager.h:54</div></div>
+<div class="ttc" id="aclassTransformUndoCommand_html_a05f99002f39dc19a9f19da7142d8e7d1"><div class="ttname"><a href="classTransformUndoCommand.html#a05f99002f39dc19a9f19da7142d8e7d1">TransformUndoCommand::m_newPos</a></div><div class="ttdeci">DirectX::XMFLOAT3 m_newPos</div><div class="ttdef"><b>Definition</b> UndoManager.h:70</div></div>
+<div class="ttc" id="aclassTransformUndoCommand_html_a23241e57e67d19651c468de55453d114"><div class="ttname"><a href="classTransformUndoCommand.html#a23241e57e67d19651c468de55453d114">TransformUndoCommand::m_oldScale</a></div><div class="ttdeci">DirectX::XMFLOAT3 m_oldScale</div><div class="ttdef"><b>Definition</b> UndoManager.h:73</div></div>
+<div class="ttc" id="aclassTransformUndoCommand_html_a295607c59b1e9c93731a42fd84ee8ab9"><div class="ttname"><a href="classTransformUndoCommand.html#a295607c59b1e9c93731a42fd84ee8ab9">TransformUndoCommand::m_newRot</a></div><div class="ttdeci">DirectX::XMFLOAT3 m_newRot</div><div class="ttdef"><b>Definition</b> UndoManager.h:72</div></div>
+<div class="ttc" id="aclassTransformUndoCommand_html_a3cad29af247e4a7d993972334ebfab91"><div class="ttname"><a href="classTransformUndoCommand.html#a3cad29af247e4a7d993972334ebfab91">TransformUndoCommand::m_oldPos</a></div><div class="ttdeci">DirectX::XMFLOAT3 m_oldPos</div><div class="ttdef"><b>Definition</b> UndoManager.h:69</div></div>
+<div class="ttc" id="aclassTransformUndoCommand_html_a60336120f9ac96f94ad6df4368f3903c"><div class="ttname"><a href="classTransformUndoCommand.html#a60336120f9ac96f94ad6df4368f3903c">TransformUndoCommand::GetName</a></div><div class="ttdeci">std::string GetName() const override</div><div class="ttdef"><b>Definition</b> UndoManager.h:65</div></div>
+<div class="ttc" id="aclassTransformUndoCommand_html_a7e69a7e75d322f903573400d6df27e78"><div class="ttname"><a href="classTransformUndoCommand.html#a7e69a7e75d322f903573400d6df27e78">TransformUndoCommand::m_newScale</a></div><div class="ttdeci">DirectX::XMFLOAT3 m_newScale</div><div class="ttdef"><b>Definition</b> UndoManager.h:74</div></div>
+<div class="ttc" id="aclassTransformUndoCommand_html_aa08ed4e165e23a85c242222101173f2c"><div class="ttname"><a href="classTransformUndoCommand.html#aa08ed4e165e23a85c242222101173f2c">TransformUndoCommand::m_oldRot</a></div><div class="ttdeci">DirectX::XMFLOAT3 m_oldRot</div><div class="ttdef"><b>Definition</b> UndoManager.h:71</div></div>
+<div class="ttc" id="aclassTransformUndoCommand_html_aac4102009abdbeb28dbea7d477603e63"><div class="ttname"><a href="classTransformUndoCommand.html#aac4102009abdbeb28dbea7d477603e63">TransformUndoCommand::Undo</a></div><div class="ttdeci">void Undo() override</div><div class="ttdef"><b>Definition</b> UndoManager.cpp:86</div></div>
+<div class="ttc" id="aclassTransformUndoCommand_html_ad34ffa496e09c6b39868ad991c01f5d9"><div class="ttname"><a href="classTransformUndoCommand.html#ad34ffa496e09c6b39868ad991c01f5d9">TransformUndoCommand::m_targetObj</a></div><div class="ttdeci">CObject * m_targetObj</div><div class="ttdef"><b>Definition</b> UndoManager.h:68</div></div>
+<div class="ttc" id="aclassTransformUndoCommand_html_aeccf124ed136ef2ec2f0d185133ec41b"><div class="ttname"><a href="classTransformUndoCommand.html#aeccf124ed136ef2ec2f0d185133ec41b">TransformUndoCommand::Execute</a></div><div class="ttdeci">void Execute() override</div><div class="ttdef"><b>Definition</b> UndoManager.cpp:74</div></div>
+<div class="ttc" id="aclassUndoManager_html"><div class="ttname"><a href="classUndoManager.html">UndoManager</a></div><div class="ttdef"><b>Definition</b> UndoManager.h:21</div></div>
+<div class="ttc" id="aclassUndoManager_html_a1c12b2f8edd896e7ed9b2b35430f35f8"><div class="ttname"><a href="classUndoManager.html#a1c12b2f8edd896e7ed9b2b35430f35f8">UndoManager::m_maxHistorySize</a></div><div class="ttdeci">size_t m_maxHistorySize</div><div class="ttdef"><b>Definition</b> UndoManager.h:49</div></div>
+<div class="ttc" id="aclassUndoManager_html_a20e595ff51ea0a52b3b6d558b2eab68b"><div class="ttname"><a href="classUndoManager.html#a20e595ff51ea0a52b3b6d558b2eab68b">UndoManager::UndoManager</a></div><div class="ttdeci">UndoManager()=default</div></div>
+<div class="ttc" id="aclassUndoManager_html_a256ef74bbbfd6804dfb6ca0fda8ade80"><div class="ttname"><a href="classUndoManager.html#a256ef74bbbfd6804dfb6ca0fda8ade80">UndoManager::~UndoManager</a></div><div class="ttdeci">~UndoManager()=default</div></div>
+<div class="ttc" id="aclassUndoManager_html_a34d3eed904fd1c717da64a0b68a7d80b"><div class="ttname"><a href="classUndoManager.html#a34d3eed904fd1c717da64a0b68a7d80b">UndoManager::CanRedo</a></div><div class="ttdeci">bool CanRedo() const</div><div class="ttdef"><b>Definition</b> UndoManager.h:34</div></div>
+<div class="ttc" id="aclassUndoManager_html_a4520115c178c9861858ef27f1c57ddc7"><div class="ttname"><a href="classUndoManager.html#a4520115c178c9861858ef27f1c57ddc7">UndoManager::GetUndoName</a></div><div class="ttdeci">std::string GetUndoName() const</div><div class="ttdef"><b>Definition</b> UndoManager.cpp:43</div></div>
+<div class="ttc" id="aclassUndoManager_html_a5edafa9ffce88b4b653d043ccf55645b"><div class="ttname"><a href="classUndoManager.html#a5edafa9ffce88b4b653d043ccf55645b">UndoManager::Redo</a></div><div class="ttdeci">bool Redo()</div><div class="ttdef"><b>Definition</b> UndoManager.cpp:31</div></div>
+<div class="ttc" id="aclassUndoManager_html_a6f748648d5f9e310003a79958895e4db"><div class="ttname"><a href="classUndoManager.html#a6f748648d5f9e310003a79958895e4db">UndoManager::UndoManager</a></div><div class="ttdeci">UndoManager(const UndoManager &amp;)=delete</div></div>
+<div class="ttc" id="aclassUndoManager_html_a7017fc5b0419cc704ada378e0c2b1659"><div class="ttname"><a href="classUndoManager.html#a7017fc5b0419cc704ada378e0c2b1659">UndoManager::operator=</a></div><div class="ttdeci">UndoManager &amp; operator=(const UndoManager &amp;)=delete</div></div>
+<div class="ttc" id="aclassUndoManager_html_aa5f4178dbb720f4df6d7e91c59b41ae4"><div class="ttname"><a href="classUndoManager.html#aa5f4178dbb720f4df6d7e91c59b41ae4">UndoManager::m_redoStack</a></div><div class="ttdeci">std::vector&lt; std::unique_ptr&lt; IUndoCommand &gt; &gt; m_redoStack</div><div class="ttdef"><b>Definition</b> UndoManager.h:48</div></div>
+<div class="ttc" id="aclassUndoManager_html_aa8e3eaa45c81119ea2e3ff75c12dad49"><div class="ttname"><a href="classUndoManager.html#aa8e3eaa45c81119ea2e3ff75c12dad49">UndoManager::Undo</a></div><div class="ttdeci">bool Undo()</div><div class="ttdef"><b>Definition</b> UndoManager.cpp:19</div></div>
+<div class="ttc" id="aclassUndoManager_html_aafa61c48a7e19ec8e32b3151ecb3da04"><div class="ttname"><a href="classUndoManager.html#aafa61c48a7e19ec8e32b3151ecb3da04">UndoManager::RecordCommand</a></div><div class="ttdeci">void RecordCommand(std::unique_ptr&lt; IUndoCommand &gt; command)</div><div class="ttdef"><b>Definition</b> UndoManager.cpp:5</div></div>
+<div class="ttc" id="aclassUndoManager_html_ab65c9beedf5ddbe1bc83c3dfd35bc2ed"><div class="ttname"><a href="classUndoManager.html#ab65c9beedf5ddbe1bc83c3dfd35bc2ed">UndoManager::CanUndo</a></div><div class="ttdeci">bool CanUndo() const</div><div class="ttdef"><b>Definition</b> UndoManager.h:33</div></div>
+<div class="ttc" id="aclassUndoManager_html_ad3fc56a434e58395db5e8a9566eb8937"><div class="ttname"><a href="classUndoManager.html#ad3fc56a434e58395db5e8a9566eb8937">UndoManager::m_undoStack</a></div><div class="ttdeci">std::vector&lt; std::unique_ptr&lt; IUndoCommand &gt; &gt; m_undoStack</div><div class="ttdef"><b>Definition</b> UndoManager.h:47</div></div>
+<div class="ttc" id="aclassUndoManager_html_adb9159b11f3505da200dbbad4f4dc6df"><div class="ttname"><a href="classUndoManager.html#adb9159b11f3505da200dbbad4f4dc6df">UndoManager::GetInstance</a></div><div class="ttdeci">static UndoManager &amp; GetInstance()</div><div class="ttdef"><b>Definition</b> UndoManager.h:23</div></div>
+<div class="ttc" id="aclassUndoManager_html_add392bda00eb77487c1bded0f555a7ab"><div class="ttname"><a href="classUndoManager.html#add392bda00eb77487c1bded0f555a7ab">UndoManager::Clear</a></div><div class="ttdeci">void Clear()</div><div class="ttdef"><b>Definition</b> UndoManager.cpp:55</div></div>
+<div class="ttc" id="aclassUndoManager_html_aef46696c83691dc4ecf32df546d24965"><div class="ttname"><a href="classUndoManager.html#aef46696c83691dc4ecf32df546d24965">UndoManager::GetRedoName</a></div><div class="ttdeci">std::string GetRedoName() const</div><div class="ttdef"><b>Definition</b> UndoManager.cpp:49</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_1ad6433457b0067ef8f54a4fa85f5c9a.html">Core</a></li><li class="navelem"><a class="el" href="UndoManager_8h.html">UndoManager.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

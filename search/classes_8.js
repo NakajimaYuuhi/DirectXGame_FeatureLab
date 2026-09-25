@@ -292,5 +292,6 @@ var searchData=
   ['iterator_5ftraits_3c_20t_2c_20enable_5fif_5ft_3c_20_21std_3a_3ais_5fpointer_3c_20t_20_3e_3a_3avalue_20_3e_20_3e_289',['iterator_traits&lt; T, enable_if_t&lt; !std::is_pointer&lt; T &gt;::value &gt; &gt;',['../structnlohmann_1_1detail_1_1iterator__traits_3_01T_00_01enable__if__t_3_01_9std_1_1is__pointer_3_01T_01_4_1_1value_01_4_01_4.html',1,'nlohmann::detail']]],
   ['iterator_5ftypes_290',['iterator_types',['../structnlohmann_1_1detail_1_1iterator__types.html',1,'nlohmann::detail']]],
   ['iterator_5ftypes_3c_20it_2c_20void_5ft_3c_20typename_20it_3a_3adifference_5ftype_2c_20typename_20it_3a_3avalue_5ftype_2c_20typename_20it_3a_3apointer_2c_20typename_20it_3a_3areference_2c_20typename_20it_3a_3aiterator_5fcategory_20_3e_20_3e_291',['iterator_types&lt; It, void_t&lt; typename It::difference_type, typename It::value_type, typename It::pointer, typename It::reference, typename It::iterator_category &gt; &gt;',['../structnlohmann_1_1detail_1_1iterator__types_3_01It_00_01void__t_3_01typename_01It_1_1difference_d2be8685966c97e00e99d4fd2366dc0b.html',1,'nlohmann::detail']]],
-  ['iterator_5ftypes_3c_20t_20_3e_292',['iterator_types&lt; T &gt;',['../structnlohmann_1_1detail_1_1iterator__types.html',1,'nlohmann::detail']]]
+  ['iterator_5ftypes_3c_20t_20_3e_292',['iterator_types&lt; T &gt;',['../structnlohmann_1_1detail_1_1iterator__types.html',1,'nlohmann::detail']]],
+  ['iundocommand_293',['IUndoCommand',['../classIUndoCommand.html',1,'']]]
 ];

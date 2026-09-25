@@ -235,6 +235,7 @@ var annotated_dup =
     [ "CUIButton", "classCUIButton.html", "classCUIButton" ],
     [ "CUIObject", "classCUIObject.html", "classCUIObject" ],
     [ "D2DTextRenderer", "classD2DTextRenderer.html", "classD2DTextRenderer" ],
+    [ "DeleteObjectUndoCommand", "classDeleteObjectUndoCommand.html", "classDeleteObjectUndoCommand" ],
     [ "DX12Manager", "classDX12Manager.html", "classDX12Manager" ],
     [ "EditorRaycast", "classEditorRaycast.html", "classEditorRaycast" ],
     [ "Enemy", "classEnemy.html", "classEnemy" ],
@@ -410,6 +411,7 @@ var annotated_dup =
     [ "ImVector", "structImVector.html", "structImVector" ],
     [ "IRenderPass", "classIRenderPass.html", "classIRenderPass" ],
     [ "ISelectable", "classISelectable.html", "classISelectable" ],
+    [ "IUndoCommand", "classIUndoCommand.html", "classIUndoCommand" ],
     [ "LoadedModelData", "structLoadedModelData.html", "structLoadedModelData" ],
     [ "Manager", "classManager.html", "classManager" ],
     [ "MaterialData", "structMaterialData.html", "structMaterialData" ],
@@ -476,6 +478,8 @@ var annotated_dup =
     [ "tinygltf_json", "classtinygltf__json.html", "classtinygltf__json" ],
     [ "tinygltf_json_member", "structtinygltf__json__member.html", "structtinygltf__json__member" ],
     [ "TitleUI", "classTitleUI.html", "classTitleUI" ],
+    [ "TransformUndoCommand", "classTransformUndoCommand.html", "classTransformUndoCommand" ],
+    [ "UndoManager", "classUndoManager.html", "classUndoManager" ],
     [ "Vertex", "structVertex.html", "structVertex" ],
     [ "VERTEX_CONSTANT_BUFFER_DX12", "structVERTEX__CONSTANT__BUFFER__DX12.html", "structVERTEX__CONSTANT__BUFFER__DX12" ]
 ];

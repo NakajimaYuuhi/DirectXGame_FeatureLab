@@ -165,6 +165,9 @@ var NAVTREEINDEX1 =
 "UIObject_8cpp.html":[3,0,0,6,22],
 "UIObject_8h.html":[3,0,0,6,23],
 "UIObject_8h_source.html":[3,0,0,6,23],
+"UndoManager_8cpp.html":[3,0,0,1,20],
+"UndoManager_8h.html":[3,0,0,1,21],
+"UndoManager_8h_source.html":[3,0,0,1,21],
 "annotated.html":[2,0],
 "audio_8cpp.html":[3,0,0,7,1],
 "audio_8h.html":[3,0,0,7,2],
@@ -246,8 +249,5 @@ var NAVTREEINDEX1 =
 "classCBone.html#a60a4afcee7b51b7d52039e52f03f7b80":[2,0,13,11],
 "classCBone.html#a6337419012ef76fc4ebce195ac72d412":[2,0,13,0],
 "classCBone.html#a63d58937a7656baf5a3ac90afb63a2c3":[2,0,13,7],
-"classCBone.html#a88389a987709db62d01c2aaf82202e30":[2,0,13,9],
-"classCBone.html#aaf18a5e420df4521c481641002ccd622":[2,0,13,5],
-"classCBone.html#ab3a233914958249d45bce73c111691e7":[2,0,13,8],
-"classCBone.html#ad1fb57d928358383601c7766377f8b24":[2,0,13,6]
+"classCBone.html#a88389a987709db62d01c2aaf82202e30":[2,0,13,9]
 };
