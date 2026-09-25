@@ -70,7 +70,27 @@ void CEditorToolbarUI::Draw()
         ImGui::Text("|");
         ImGui::SameLine();
 
-        // 2. Scene Operations
+        // 2. Gizmo Mode Selection
+        GizmoMode currentGizmoMode = CInspectorUI::GetInstance().GetGizmoMode();
+        if (currentGizmoMode == GizmoMode::Translate) ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.2f, 0.6f, 0.9f, 1.0f));
+        if (ImGui::Button("Move (W)")) CInspectorUI::GetInstance().SetGizmoMode(GizmoMode::Translate);
+        if (currentGizmoMode == GizmoMode::Translate) ImGui::PopStyleColor();
+
+        ImGui::SameLine();
+        if (currentGizmoMode == GizmoMode::Rotate) ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.2f, 0.6f, 0.9f, 1.0f));
+        if (ImGui::Button("Rotate (E)")) CInspectorUI::GetInstance().SetGizmoMode(GizmoMode::Rotate);
+        if (currentGizmoMode == GizmoMode::Rotate) ImGui::PopStyleColor();
+
+        ImGui::SameLine();
+        if (currentGizmoMode == GizmoMode::Scale) ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.2f, 0.6f, 0.9f, 1.0f));
+        if (ImGui::Button("Scale (R)")) CInspectorUI::GetInstance().SetGizmoMode(GizmoMode::Scale);
+        if (currentGizmoMode == GizmoMode::Scale) ImGui::PopStyleColor();
+
+        ImGui::SameLine();
+        ImGui::Text("|");
+        ImGui::SameLine();
+
+        // 3. Scene Operations
         if (ImGui::Button("Save Scene"))
         {
             Scenes::ID activeScene = SceneManager::GetInstance().GetActiveSceneID();
@@ -90,7 +110,7 @@ void CEditorToolbarUI::Draw()
         ImGui::Text("|");
         ImGui::SameLine();
 
-        // 3. UI Window Toggles
+        // 4. UI Window Toggles
         if (ImGui::Button("Content Drawer (Ctrl+Space)"))
         {
             CContentDrawerUI::GetInstance().ToggleVisible();

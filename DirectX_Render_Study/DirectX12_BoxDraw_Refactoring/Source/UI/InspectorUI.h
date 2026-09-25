@@ -1,8 +1,16 @@
 #pragma once
 #include <string>
 #include <memory>
+#include <DirectXMath.h>
 
 class CObject;
+
+enum class GizmoMode
+{
+    Translate = 0,
+    Rotate = 1,
+    Scale = 2
+};
 
 class CInspectorUI
 {
@@ -22,6 +30,9 @@ public:
     bool ShouldShowColliders() const { return m_showColliders; }
     void SetShowColliders(bool show) { m_showColliders = show; }
     bool ShouldUpdateGame();
+
+    GizmoMode GetGizmoMode() const { return m_gizmoMode; }
+    void SetGizmoMode(GizmoMode mode) { m_gizmoMode = mode; }
 
     int GetSelectedTagIndex() const { return m_selectedTagIndex; }
     int GetSelectedObjectIndex() const { return m_selectedObjectIndex; }
@@ -47,6 +58,7 @@ private:
     char m_shaderPathInput[256] = "Assets/Shader/Wireframe.hlsl";
     char m_sceneJsonPath[256] = "Assets/Scene/SceneTest.json";
     bool m_showColliders = true;
+    GizmoMode m_gizmoMode = GizmoMode::Translate;
 
     bool m_isEditMode = true;
     bool m_isPaused = false;
@@ -57,4 +69,11 @@ private:
     bool m_isPrefabEditMode = false;
     std::string m_editingPrefabPath = "";
     std::unique_ptr<CObject> m_prefabEditTarget = nullptr;
+
+    // 3D Gizmo Direct Mouse Dragging State
+    bool m_isDraggingGizmo = false;
+    int m_draggedAxis = -1;
+    float m_dragStartMouseX = 0.0f;
+    float m_dragStartMouseY = 0.0f;
+    DirectX::XMFLOAT3 m_dragStartVal{ 0.0f, 0.0f, 0.0f };
 };
