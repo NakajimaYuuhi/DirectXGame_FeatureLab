@@ -18,14 +18,14 @@ void PlayerIdleState::OnUpdate(float deltaTime)
 {
 	if (!owner) return;
 
-	// 攻撃入力チェック
+	// �U�����̓`�F�b�N
 	if (CInputManager::GetInstance().IsKeyTrigger('I') || CInputManager::GetInstance().IsKeyTrigger('J'))
 	{
 		owner->GetStateMachine().ChangeState(std::make_shared<PlayerAttackState>());
 		return;
 	}
 
-	// 移動入力チェック
+	// �ړ����̓`�F�b�N
 	if (owner->HasMoveInput())
 	{
 		owner->GetStateMachine().ChangeState(std::make_shared<PlayerMoveState>());
@@ -52,14 +52,14 @@ void PlayerMoveState::OnUpdate(float deltaTime)
 {
 	if (!owner) return;
 
-	// 攻撃入力チェック
+	// �U�����̓`�F�b�N
 	if (CInputManager::GetInstance().IsKeyTrigger('I') || CInputManager::GetInstance().IsKeyTrigger('J'))
 	{
 		owner->GetStateMachine().ChangeState(std::make_shared<PlayerAttackState>());
 		return;
 	}
 
-	// 移動入力がない場合は IdleState へ
+	// �ړ����͂��Ȃ��ꍇ�� IdleState ��
 	if (!owner->HasMoveInput())
 	{
 		owner->GetStateMachine().ChangeState(std::make_shared<PlayerIdleState>());

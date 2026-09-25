@@ -15,7 +15,7 @@ public:
 
 
 
-	//ç”Ÿæˆå‡¦ç†	// Instantiate with TypeName and unique ObjectName
+	//¶¬ˆ—	// Instantiate with TypeName and unique ObjectName
 	CObject* Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::string _TypeName, std::string _ObjectName);
 
 	// Overload: default ObjectName to _TypeName
@@ -24,16 +24,16 @@ public:
 	// Add pre-created object instance
 	void AddObject(ObjectTag _Tag, CObject* _Object);
 
-	//åˆæœŸåŒ–å‡¦ç†
+	//‰Šú‰»ˆ—
 	void Init(Scenes::ID _SceneID);
 
-	//çµ‚äº†å‡¦ç†
+	//I—¹ˆ—
 	void Uninit();
 
-	//æ›´æ–°å‡¦ç†
+	//XVˆ—
 	void Update(Scenes::ID _SceneID);
 
-	void CollisionUpdate(Scenes::ID _SceneID);	//Collisionã®æ›´æ–°
+	void CollisionUpdate(Scenes::ID _SceneID);	//Collision‚ÌXV
 
 	void Draw(Scenes::ID _SceneID);
 	void DrawByLayer(RenderLayer layer);
@@ -41,8 +41,8 @@ public:
 	void FlushDestroyedObjects();
 
 private:
-	//ä¸€æ—¦é…åˆ—ã¯1ã¤(2æ¬¡å…ƒ)
-	Vector <Vector<UniquePtr<CObject>>> vecObject;	//ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®é…åˆ—
+	//ˆê’U”z—ñ‚Í1‚Â(2ŸŒ³)
+	Vector <Vector<UniquePtr<CObject>>> vecObject;	//ƒIƒuƒWƒFƒNƒg‚Ì”z—ñ
 
 
 public:
@@ -62,27 +62,27 @@ public:
 	//All Objects for ImGui Inspector
 	const Vector<Vector<UniquePtr<CObject>>>& GetObjectList() const { return vecObject; }
 
-//----- ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³ã®å®Ÿè£…ã«å¿…è¦ -----
+//----- ƒVƒ“ƒOƒ‹ƒgƒ“‚ÌÀ‘•‚É•K—v -----
 public:
 	static ObjectManager& GetInstance()
 	{
 		static ObjectManager Instance;
 
-		//ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’è¿”ã™
+		//ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ•Ô‚·
 		return Instance;
 	}
 
 private:
-	//ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+	//ƒRƒ“ƒXƒgƒ‰ƒNƒ^
 	ObjectManager();
 
-	//ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+	//ƒfƒXƒgƒ‰ƒNƒ^
 	~ObjectManager();
 
-	//ã‚³ãƒ”ãƒ¼ç¦æ­¢
+	//ƒRƒs[‹Ö~
 	ObjectManager(const ObjectManager&) = delete;
 
-	//ä»£å…¥ç¦æ­¢
+	//‘ã“ü‹Ö~
 	ObjectManager& operator=(const ObjectManager&) = delete;
 };
 

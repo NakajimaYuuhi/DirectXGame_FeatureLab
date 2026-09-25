@@ -1,18 +1,18 @@
 
-//ãƒ˜ãƒƒãƒ€
+//ƒwƒbƒ_
 #include "EnemyCounter.h"
 
 #include "ObjectManager.h"
 
 #include "EnemyCount.h"
 
-// ã‚¤ãƒ™ãƒ³ãƒˆç®¡ç†
+// ƒCƒxƒ“ƒgŠÇ—
 #include "EventManager.h"
 
 #include "EventData_NextScene.h"
 
 
-//ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+//ƒRƒ“ƒXƒgƒ‰ƒNƒ^
 EnemyCounter::EnemyCounter(String _Name) 
 	:enemyCount_	(0) 
 	,defeatCount_	(0)
@@ -90,17 +90,17 @@ void EnemyCounter::Init()
 	}
 }
 
-//ã‚«ã‚¦ãƒ³ãƒˆ
+//ƒJƒEƒ“ƒg
 void EnemyCounter::Increment(int num_) { enemyCount_ += num_; OutputDebugStringA((std::to_string(enemyCount_) + "\n").c_str()); }
 
 void EnemyCounter::Decrement(int num_) { enemyCount_ -= num_; if (enemyCount_ < 0) enemyCount_ = 0; OutputDebugStringA((std::to_string(enemyCount_) + "\n").c_str()); }
 
-//æ’ƒç ´æ™‚
+//Œ‚”j
 void EnemyCounter::Defeat(int num_)
 {
 	defeatCount_ += num_;
 
-	// ãƒªã‚¢ãƒ«ã‚¿ã‚¤ãƒ ã«ç”Ÿå­˜æ•µã®æ•°ã‚’å†è¨ˆç®—
+	// ƒŠƒAƒ‹ƒ^ƒCƒ€‚É¶‘¶“G‚Ì”‚ğÄŒvZ
 	RecountEnemies();
 
 	EnemyCount* ui = GetUI();
@@ -109,7 +109,7 @@ void EnemyCounter::Defeat(int num_)
 		ui->UpdateText(defeatCount_);
 	}
 
-	// ç”Ÿå­˜æ•µãŒ 0 ä»¥ä¸‹ãªã‚‰ã‚¯ãƒªã‚¢ã‚·ãƒ¼ãƒ³ã«é·ç§»
+	// ¶‘¶“G‚ª 0 ˆÈ‰º‚È‚çƒNƒŠƒAƒV[ƒ“‚É‘JˆÚ
 	if (enemyCount_ <= 0)
 	{
 		Event event;

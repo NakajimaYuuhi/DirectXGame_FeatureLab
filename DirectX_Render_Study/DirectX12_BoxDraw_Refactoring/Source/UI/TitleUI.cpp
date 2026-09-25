@@ -1,6 +1,6 @@
 #include "TitleUI.h"
 
-// 繧ｳ繝ｳ繧ｹ繝医Λ繧ｯ繧ｿ
+// コンストラクタ
 TitleUI::TitleUI(const std::string& _Name)
     : CUIObject(_Name)
 {

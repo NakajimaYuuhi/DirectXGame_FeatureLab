@@ -16,11 +16,11 @@ private:
     ID3D12Resource* m_pResource = nullptr;
     D3D12_RESOURCE_STATES m_currentState = D3D12_RESOURCE_STATE_COMMON;
 
-    // RTVは自身でヒープを持つ
+    // RTV????g??q?[?v?????
     ID3D12DescriptorHeap* m_pRtvHeap = nullptr;
     D3D12_CPU_DESCRIPTOR_HANDLE m_rtvHandleCPU{};
 
-    // SRVはメインヒープの固定スロットを間借りする
+    // SRV????C???q?[?v????X???b?g???????
     D3D12_CPU_DESCRIPTOR_HANDLE m_srvHandleCPU{};
     D3D12_GPU_DESCRIPTOR_HANDLE m_srvHandleGPU{};
 };

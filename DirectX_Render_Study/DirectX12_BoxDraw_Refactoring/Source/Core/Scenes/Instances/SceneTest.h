@@ -1,14 +1,14 @@
-//===== インクルード =====
+//===== ?C???N???[?h =====
 #pragma once
 #include "../Base/Scene.h"
 
 #include "SmartPtrAlias.h"
 #include "ContainerAlias.h"
 
-//===== 前方宣言 =====
+//===== ?O???? =====
 class CObject;
 
-//===== クラス定義 =====
+//===== ?N???X??` =====
 class CSceneTest : public CScene
 {
 public:

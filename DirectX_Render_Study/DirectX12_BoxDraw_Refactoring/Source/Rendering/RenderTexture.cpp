@@ -1,11 +1,11 @@
 #include "RenderTexture.h"
 #include <stdexcept>
-#include "DX12Manager.h" // GetSRVHeap などを呼ぶため
+#include "DX12Manager.h" // GetSRVHeap ?????????
 
 RenderTexture::RenderTexture(ID3D12Device* pDevice, UINT width, UINT height, DXGI_FORMAT format)
     : m_currentState(D3D12_RESOURCE_STATE_COMMON)
 {
-    // 1. テクスチャリソースの生成
+    // 1. ?e?N?X?`?????\?[?X?????
     D3D12_HEAP_PROPERTIES heapProp = {};
     heapProp.Type = D3D12_HEAP_TYPE_DEFAULT;
 
@@ -32,7 +32,7 @@ RenderTexture::RenderTexture(ID3D12Device* pDevice, UINT width, UINT height, DXG
     );
     if (FAILED(hr)) throw std::runtime_error("Failed to create RenderTexture resource.");
 
-    // 2. RTV用ヒープの生成と View の作成 (自前で持つ
+    // 2. RTV?p?q?[?v??????? View ??? (???O?????
     D3D12_DESCRIPTOR_HEAP_DESC rtvHeapDesc = {};
     rtvHeapDesc.NumDescriptors = 1;
     rtvHeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_RTV;
@@ -46,8 +46,8 @@ RenderTexture::RenderTexture(ID3D12Device* pDevice, UINT width, UINT height, DXG
     rtvDesc.ViewDimension = D3D12_RTV_DIMENSION_TEXTURE2D;
     pDevice->CreateRenderTargetView(m_pResource, &rtvDesc, m_rtvHandleCPU);
 
-    // 3. SRV用ハンドルの計算と View の作成 (固定インデックス 100)
-    // ※DX12Manager に GetSRVHeap() がある想定で書いています。コンパイルエラーが出たらその関数名を教えてください！
+    // 3. SRV?p?n???h????v?Z?? View ??? (???C???f?b?N?X 100)
+    // ??DX12Manager ?? GetSRVHeap() ??????z?????????????B?R???p?C???G???[???o???炻?????????????????????I
     UINT srvIndex = 100;
     ID3D12DescriptorHeap* pMainSrvHeap = DX12Manager::GetInstance().GetSRVHeap();
     UINT srvIncrement = pDevice->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);

@@ -1,4 +1,4 @@
-//===== インクルード =====
+//===== ?C???N???[?h =====
 #include "DX12Manager.h"
 
 #include <d3dcompiler.h>
@@ -16,26 +16,26 @@
 #include "Camera.h"
 
 
-// グラボのドライバ（NVIDIA / AMD）に対して、このアプリ起動時は外部GPUを強制使用するように伝える魔法
+// ?O???{??h???C?o?iNVIDIA / AMD?j??????A????A?v???N??????O??GPU??????g?p???????`???閂?@
 extern "C" {
 	_declspec(dllexport) DWORD NvOptimusEnablement = 0x00000001;
 	_declspec(dllexport) int AmdPowerXpressRequestHighPerformance = 1;
 }
 
-//===== 定数・マクロ定義 =====
-const UINT DX12Manager::m_FrameBufferCount = FRAME_BUFFER_COUNT;   //フレームバッファの数
+//===== ???E?}?N????` =====
+const UINT DX12Manager::m_FrameBufferCount = FRAME_BUFFER_COUNT;   //?t???[???o?b?t?@???
 
-//===== メソッド定義 =====
+//===== ???\?b?h??` =====
 
-//インスタンス取得
+//?C???X?^???X?擾
 DX12Manager& DX12Manager::GetInstance()
 {
 	static DX12Manager instance;
 	return instance;
 }
 
-// <初期化、終了処理>
-//初期化処理
+// <???????A?I??????>
+//??????????
 bool DX12Manager::Initialize(HWND hwnd)
 {
 	HRESULT hr;
@@ -50,12 +50,12 @@ bool DX12Manager::Initialize(HWND hwnd)
 	}
 #endif
 
-	//DXGI Factory 作成
+	//DXGI Factory ??
 	//hr = CreateDXGIFactory1(IID_PPV_ARGS(&m_factory));
 	//if (FAILED(hr))
 	//	return false;
 
-	////アダプタ取得
+	////?A?_?v?^?擾
 	//ComPtr<IDXGIAdapter1> adapter;
 
 	//for (UINT i = 0;
@@ -65,28 +65,28 @@ bool DX12Manager::Initialize(HWND hwnd)
 	//	DXGI_ADAPTER_DESC1 desc;
 	//	adapter->GetDesc1(&desc);
 
-	//	// ソフトウェア（Microsoft Basic Render Driverなど）はスキップ
+	//	// ?\?t?g?E?F?A?iMicrosoft Basic Render Driver???j??X?L?b?v
 	//	if (desc.Flags & DXGI_ADAPTER_FLAG_SOFTWARE)
 	//		continue;
 	//	break;
 	//}
 
-	// ----- 高性能なグラボが選ばれるように修正 -----
+	// ----- ?????\??O???{???I???????C?? -----
 
-	//DXGI Factory 作成 (※後続の関数を使うため、IDXGIFactory6 に変換できるように CreateDXGIFactory1 を使用)
+	//DXGI Factory ?? (??????????g??????AIDXGIFactory6 ???????????? CreateDXGIFactory1 ??g?p)
 	hr = CreateDXGIFactory1(IID_PPV_ARGS(&m_factory));
 	if (FAILED(hr))
 		return false;
 
-	// アダプタ取得
+	// ?A?_?v?^?擾
 	ComPtr<IDXGIAdapter1> adapter;
 	ComPtr<IDXGIFactory6> factory6;
 
-	// FactoryをIDXGIFactory6にキャストして、EnumAdapterByGpuPreferenceを使えるようにする
+	// Factory??IDXGIFactory6??L???X?g????AEnumAdapterByGpuPreference??g??????????
 	if (SUCCEEDED(m_factory.As(&factory6)))
 	{
-		// DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE を指定することで、
-		// 一番性能が高い（VRAMが多い外部GPUなど）順にグラボを列挙してくれる
+		// DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE ??w???邱???A
+		// ?????\???????iVRAM???????O??GPU???j????O???{???????????
 		for (UINT i = 0;
 			factory6->EnumAdapterByGpuPreference(i, DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE, IID_PPV_ARGS(&adapter)) != DXGI_ERROR_NOT_FOUND;
 			++i)
@@ -94,17 +94,17 @@ bool DX12Manager::Initialize(HWND hwnd)
 			DXGI_ADAPTER_DESC1 desc;
 			adapter->GetDesc1(&desc);
 
-			// ソフトウェア（Microsoft Basic Render Driverなど）はスキップ
+			// ?\?t?g?E?F?A?iMicrosoft Basic Render Driver???j??X?L?b?v
 			if (desc.Flags & DXGI_ADAPTER_FLAG_SOFTWARE)
 				continue;
 
-			// 高パフォーマンスなハードウェアGPUが見つかった時点で確定
+			// ???p?t?H?[?}???X??n?[?h?E?F?AGPU??????????????_??m??
 			break;
 		}
 	}
 	else
 	{
-		// 古いOSなどでIDXGIFactory6が使えない場合のフォールバック（元のコードの挙動）
+		// ?A?OS????IDXGIFactory6???g?????????t?H?[???o?b?N?i????R?[?h??????j
 		for (UINT i = 0;
 			m_factory->EnumAdapters1(i, &adapter) != DXGI_ERROR_NOT_FOUND;
 			++i)
@@ -119,7 +119,7 @@ bool DX12Manager::Initialize(HWND hwnd)
 		}
 	}
 
-	//デバイス作成
+	//?f?o?C?X??
 	hr = D3D12CreateDevice(
 		adapter.Get(),
 		D3D_FEATURE_LEVEL_11_0,
@@ -129,7 +129,7 @@ bool DX12Manager::Initialize(HWND hwnd)
 	if (FAILED(hr))
 		return false;
 
-	//コマンドキュー作成
+	//?R?}???h?L???[??
 	D3D12_COMMAND_QUEUE_DESC queueDesc = {};
 	queueDesc.Type = D3D12_COMMAND_LIST_TYPE_DIRECT;
 	queueDesc.Flags = D3D12_COMMAND_QUEUE_FLAG_NONE;
@@ -143,12 +143,12 @@ bool DX12Manager::Initialize(HWND hwnd)
 		return false;
 
 
-	// <スワップチェーン作成>
+	// <?X???b?v?`?F?[????>
 	
-	//スワップチェーンの設定
+	//?X???b?v?`?F?[??????
 	DXGI_SWAP_CHAIN_DESC1 swapChainDesc = {};
 	swapChainDesc.BufferCount = m_FrameBufferCount;
-	//0でウィンドウに合わせてもらう
+	//0??E?B???h?E?????????
 	swapChainDesc.Width = 0;
 	swapChainDesc.Height = 0;
 	swapChainDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
@@ -156,7 +156,7 @@ bool DX12Manager::Initialize(HWND hwnd)
 	swapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD;
 	swapChainDesc.SampleDesc.Count = 1;
 
-	//スワップチェーン作成
+	//?X???b?v?`?F?[????
 	ComPtr<IDXGISwapChain1> swapChain1;
 
 	hr = m_factory->CreateSwapChainForHwnd(
@@ -171,12 +171,12 @@ bool DX12Manager::Initialize(HWND hwnd)
 	if (FAILED(hr))
 		return false;
 
-	//IDXGISwapChain4 に変換
+	//IDXGISwapChain4 ????
 	swapChain1.As(&m_swapChain);
 
 
-	// <RTV作成>
-	//RTVヒープの設定、作成
+	// <RTV??>
+	//RTV?q?[?v????A??
 	D3D12_DESCRIPTOR_HEAP_DESC rtvHeapDesc = {};
 	rtvHeapDesc.NumDescriptors = m_FrameBufferCount;
 	rtvHeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_RTV;
@@ -190,20 +190,20 @@ bool DX12Manager::Initialize(HWND hwnd)
 	if (FAILED(hr))
 		return false;
 
-	//ディスクリプタサイズ取得
+	//?f?B?X?N???v?^?T?C?Y?擾
 	m_rtvDescriptorSize =
 		m_device->GetDescriptorHandleIncrementSize(
 			D3D12_DESCRIPTOR_HEAP_TYPE_RTV
 		);
 
-	//バックバッファ取得＆RTV作成
-	//ヒープの先頭ハンドル取得
+	//?o?b?N?o?b?t?@?擾??RTV??
+	//?q?[?v????n???h???擾
 	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle =
 		m_rtvHeap->GetCPUDescriptorHandleForHeapStart();
 
 	for (UINT i = 0; i < m_FrameBufferCount; ++i)
 	{
-		//バックバッファ取得
+		//?o?b?N?o?b?t?@?擾
 		hr = m_swapChain->GetBuffer(
 			i,
 			IID_PPV_ARGS(&m_renderTargets[i])
@@ -212,33 +212,33 @@ bool DX12Manager::Initialize(HWND hwnd)
 		if (FAILED(hr))
 			return false;
 
-		//RTV作成
+		//RTV??
 		m_device->CreateRenderTargetView(
 			m_renderTargets[i].Get(),
 			nullptr,
 			rtvHandle
 		);
 
-		// 次のディスクリプタへ移動
+		// ????f?B?X?N???v?^????
 		rtvHandle.ptr += m_rtvDescriptorSize;
 	}
 
 
-	//コマンドオブジェクト作成
+	//?R?}???h?I?u?W?F?N?g??
 	CreateCommandObjects();
 
 
-	//フェンス作成
+	//?t?F???X??
 	CreateFence();
 
-	//ImGUi作成、初期化
+	//ImGUi???A??????
 
 
 
 
 
 
-	// ===== 深度バッファ作成 =====
+	// ===== ?[?x?o?b?t?@?? =====
 	D3D12_HEAP_PROPERTIES heapProps = {};
 	heapProps.Type = D3D12_HEAP_TYPE_DEFAULT;
 	heapProps.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
@@ -312,23 +312,23 @@ bool DX12Manager::Initialize(HWND hwnd)
 
 	m_srvAllocator.Create(m_device.Get(), m_srvHeap.Get());
 
-	//ハンドルテスト
+	//?n???h???e?X?g
 	D3D12_GPU_DESCRIPTOR_HANDLE gpuHandle = m_srvHeap->GetGPUDescriptorHandleForHeapStart();
 
 
 
 
-	//view,projの初期化
+	//view,proj???????
 	//view
 	m_view = DirectX::XMMatrixLookAtLH(
 		DirectX::XMVectorSet(0, 2.5, -5, 1),
 		DirectX::XMVectorSet(0, 2, 0, 1),
 		DirectX::XMVectorSet(0, 1, 0, 0));
 ;
-//Todo : Modelの描画テストをするときは、正面からに直す
+//Todo : Model??`??e?X?g?????????A???????????
 
 
-	//横から見る用
+	//?????猩??p
 	//m_view = DirectX::XMMatrixLookAtLH(
 	//	DirectX::XMVectorSet(40, 0, 0, 1),
 	//	DirectX::XMVectorSet(0, 0, 0, 1),
@@ -347,7 +347,7 @@ bool DX12Manager::Initialize(HWND hwnd)
 	return true;
 }
 
-//終了処理
+//?I??????
 void DX12Manager::Finalize()
 {
 	m_srvAllocator.Destroy();
@@ -358,31 +358,31 @@ void DX12Manager::Finalize()
 }
 
 
-//----- 更新処理 -----
+//----- ?X?V???? -----
 void DX12Manager::Update()
 {
 }
 
 void DX12Manager::ForceWait()
 {
-	// 今積んである命令（コピーなど）に目印をつける
+	// ???????????i?R?s?[???j?????????
 	m_commandQueue->Signal(m_fence.Get(), m_fenceValue);
 
-	// その目印に到達するまで、CPUを完全に停止させて待つ
+	// ?????????B??????ACPU????S???~????????
 	m_fence->SetEventOnCompletion(m_fenceValue, m_fenceEvent);
 	WaitForSingleObject(m_fenceEvent, INFINITE);
 
-	// 次のために値を更新しておく
+	// ????????l??X?V???????
 	m_fenceValue++;
 }
 
-//仮のview,projのGetter
+//????view,proj??Getter
 DirectX::XMMATRIX DX12Manager::GetView() { return ObjectManager::GetInstance().GetCamera()->GetView(); }
 
 DirectX::XMMATRIX DX12Manager::GetProj() { return ObjectManager::GetInstance().GetCamera()->GetProj(); }
 
 
-//----- 描画処理 -----
+//----- ?`???? -----
 void DX12Manager::BeginDraw()
 {
 
@@ -390,7 +390,7 @@ void DX12Manager::BeginDraw()
 
 
 
-	// GPUが前のフレームの処理を終えるのを待つ
+	// GPU???O??t???[?????????I????????
 	if (m_fence->GetCompletedValue() < m_fenceValue - 1)
 	{
 		m_fence->SetEventOnCompletion(m_fenceValue - 1, m_fenceEvent);
@@ -398,22 +398,22 @@ void DX12Manager::BeginDraw()
 	}
 
 
-	// ここで一旦、今のコマンドリストの状態を強制的にクリアにする
+	// ???????U?A????R?}???h???X?g?????????I??N???A?????
 	//m_commandAllocator->Reset();
 	//m_commandList->Reset(m_commandAllocator.Get(), nullptr);
 
-	//変数のリセット
+	//???????Z?b?g
 	ResetIsOccluded();
 
-	// 1. フレームインデックス更新
+	// 1. ?t???[???C???f?b?N?X?X?V
 	m_frameIndex = m_swapChain->GetCurrentBackBufferIndex();
 
-	// 2. リセット
+	// 2. ???Z?b?g
 	m_commandAllocator->Reset();
 	m_commandList->Reset(m_commandAllocator.Get(), nullptr);
 
 
-	// 3. PRESENT → RENDER_TARGET へ遷移
+	// 3. PRESENT ?? RENDER_TARGET ??J??
 	D3D12_RESOURCE_BARRIER barrier{};
 	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
 	barrier.Transition.pResource = m_renderTargets[m_frameIndex].Get();
@@ -423,7 +423,7 @@ void DX12Manager::BeginDraw()
 
 	m_commandList->ResourceBarrier(1, &barrier);
 
-	// 4. RTVハンドル取得
+	// 4. RTV?n???h???擾
 	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle =
 		m_rtvHeap->GetCPUDescriptorHandleForHeapStart();
 
@@ -449,16 +449,16 @@ void DX12Manager::BeginDraw()
 	m_commandList->RSSetViewports(1, &viewport);
 	m_commandList->RSSetScissorRects(1, &scissorRect);
 
-	// 5. DSVハンドル取得
+	// 5. DSV?n???h???擾
 	D3D12_CPU_DESCRIPTOR_HANDLE dsvHandle =
 		m_dsvHeap->GetCPUDescriptorHandleForHeapStart();
 
 
-	// 6. クリア
-	//画面の色
+	// 6. ?N???A
+	//????F
 	FLOAT clearColor[] = { 0.1f, 0.2f, 0.4f, 1.0f };
 
-	//レンダーターゲットのセット
+	//?????_?[?^?[?Q?b?g??Z?b?g
 	m_commandList->OMSetRenderTargets(
 		1,
 		&rtvHandle,
@@ -466,7 +466,7 @@ void DX12Manager::BeginDraw()
 		&dsvHandle
 	);
 
-	//RtV,DSVのセット
+	//RtV,DSV??Z?b?g
 	m_commandList->ClearRenderTargetView(rtvHandle, clearColor, 0, nullptr);
 	m_commandList->ClearDepthStencilView(
 		dsvHandle,
@@ -495,24 +495,24 @@ void DX12Manager::EndDraw()
 	//HRESULT hr = g_pSwapChain->Present(0, g_SwapChainTearingSupport ? DXGI_PRESENT_ALLOW_TEARING : 0); // Present without vsync
 	m_SwapChainOccluded = (hr == DXGI_STATUS_OCCLUDED);
 
-	// 5. フェンスをキューに挿入
+	// 5. ?t?F???X??L???[??}??
 	const UINT64 fenceToWaitFor = m_fenceValue;
 	m_commandQueue->Signal(m_fence.Get(), fenceToWaitFor);
 	m_fenceValue++;
 }
 
 
-//初期化用の関数達
+//???????p?????B
 void DX12Manager::CreateCommandObjects()
 {
 
-	//コマンドアロケーター作成
+	//?R?}???h?A???P?[?^?[??
 	m_device->CreateCommandAllocator(
 		D3D12_COMMAND_LIST_TYPE_DIRECT,
 		IID_PPV_ARGS(&m_commandAllocator)
 	);
 
-	//コマンドリスト作成
+	//?R?}???h???X?g??
 	m_device->CreateCommandList(
 		0,
 		D3D12_COMMAND_LIST_TYPE_DIRECT,
@@ -521,7 +521,7 @@ void DX12Manager::CreateCommandObjects()
 		IID_PPV_ARGS(&m_commandList)
 	);
 
-	//コマンドリストは作成直後は recording 状態なので、Close しておく
+	//?R?}???h???X?g???????? recording ??????AClose ???????
 	m_commandList->Close();
 }
 
@@ -542,10 +542,10 @@ void DX12Manager::CreateFence()
 void DX12Manager::ResizeRenderTarget(LPARAM lParam)
 {
 	D2DTextRenderer::GetInstance().Finalize();
-	CleanupRenderTarget();              //RenderTargetの破棄
+	CleanupRenderTarget();              //RenderTarget??j??
 	DXGI_SWAP_CHAIN_DESC1 desc = {};
 	m_swapChain->GetDesc1(&desc);
-	HRESULT result = m_swapChain->ResizeBuffers(0, (UINT)LOWORD(lParam), (UINT)HIWORD(lParam), desc.Format, desc.Flags);   //バッファーのリサイズ
+	HRESULT result = m_swapChain->ResizeBuffers(0, (UINT)LOWORD(lParam), (UINT)HIWORD(lParam), desc.Format, desc.Flags);   //?o?b?t?@?[????T?C?Y
 	IM_ASSERT(SUCCEEDED(result) && "Failed to resize swapchain.");
 
 	//m_commandAllocator->Reset();
@@ -575,11 +575,11 @@ void DX12Manager::ResizeViewPort(LPARAM lParam)
 void DX12Manager::ResizeDepthBuffer(LPARAM lParam)
 {
 
-	// 古いリソース破棄
+	// ?A????\?[?X?j??
 	m_depthBuffer.Reset();
 	m_dsvHeap.Reset();
 
-	// 1. ヒーププロパティ（初期化時と同じ）
+	// 1. ?q?[?v?v???p?e?B?i??????????????j
 	D3D12_HEAP_PROPERTIES heapProps = {};
 	heapProps.Type = D3D12_HEAP_TYPE_DEFAULT;
 	heapProps.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
@@ -587,7 +587,7 @@ void DX12Manager::ResizeDepthBuffer(LPARAM lParam)
 	heapProps.CreationNodeMask = 1;
 	heapProps.VisibleNodeMask = 1;
 
-	// 2. リサイズ後の DepthStencil のリソース作成
+	// 2. ???T?C?Y??? DepthStencil ????\?[?X??
 	D3D12_RESOURCE_DESC depthResourceDesc = {};
 	depthResourceDesc.Dimension = D3D12_RESOURCE_DIMENSION_TEXTURE2D;
 	depthResourceDesc.Alignment = 0;
@@ -621,7 +621,7 @@ void DX12Manager::ResizeDepthBuffer(LPARAM lParam)
 		return;
 	}
 
-	// 3. DSV ヒープ作成
+	// 3. DSV ?q?[?v??
 	D3D12_DESCRIPTOR_HEAP_DESC heapDesc = {};
 	heapDesc.NumDescriptors = 1;
 	heapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_DSV;
@@ -637,7 +637,7 @@ void DX12Manager::ResizeDepthBuffer(LPARAM lParam)
 		return;
 	}
 
-	// 4. DSV の作成
+	// 4. DSV ???
 	D3D12_DEPTH_STENCIL_VIEW_DESC dsvDesc = {};
 	dsvDesc.Format = DXGI_FORMAT_D32_FLOAT;
 	dsvDesc.ViewDimension = D3D12_DSV_DIMENSION_TEXTURE2D;
@@ -655,7 +655,7 @@ void DX12Manager::CreateRenderTarget()
 
 	for (UINT i = 0; i < m_FrameBufferCount; ++i)
 	{
-		//バックバッファ取得
+		//?o?b?N?o?b?t?@?擾
 		HRESULT hr = m_swapChain->GetBuffer(
 			i,
 			IID_PPV_ARGS(&m_renderTargets[i])
@@ -666,14 +666,14 @@ void DX12Manager::CreateRenderTarget()
 
 
 
-		//RTV作成
+		//RTV??
 		m_device->CreateRenderTargetView(
 			m_renderTargets[i].Get(),
 			nullptr,
 			rtvHandle
 		);
 
-		// 次のディスクリプタへ移動
+		// ????f?B?X?N???v?^????
 		rtvHandle.ptr += m_rtvDescriptorSize;
 	}
 }

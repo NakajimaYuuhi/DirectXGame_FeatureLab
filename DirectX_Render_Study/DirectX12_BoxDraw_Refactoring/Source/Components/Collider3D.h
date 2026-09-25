@@ -9,16 +9,16 @@ public:
     Collider3D() {}
 	virtual ~Collider3D() = default;
    
-    //WorldPosの取得
+    //WorldPos??擾
     virtual DirectX::XMFLOAT3 GetWorldPos() = 0;
 
-	//オフセットの設定
+	//?I?t?Z?b?g????
 	void SetOffset(DirectX::XMFLOAT3 _Offset) { Offset = _Offset; }
-	//オフセットの取得
+	//?I?t?Z?b?g??擾
 	DirectX::XMFLOAT3 GetOffset() { return Offset; }
 
 protected:
-    //オフセット
+    //?I?t?Z?b?g
 	DirectX::XMFLOAT3 Offset = { 0.0f,0.0f,0.0f };
 
 

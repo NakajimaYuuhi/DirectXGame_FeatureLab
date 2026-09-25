@@ -1,14 +1,14 @@
 //Mesh.h
-//メッシュのクラス
+//???b?V????N???X
 
-//===== インクルード =====
+//===== ?C???N???[?h =====
 #pragma once
 
-//----- DirectX12関連 -----
+//----- DirectX12??A -----
 #include <d3d12.h>
 #include <DirectXMath.h>
 
-//----- スマートポインタ用 -----
+//----- ?X?}?[?g?|?C???^?p -----
 #include <wrl.h>
 using Microsoft::WRL::ComPtr;
 
@@ -16,46 +16,46 @@ using Microsoft::WRL::ComPtr;
 
 
 //----- Texture -----
-//綺麗じゃないけど、一旦ここに入れる
+//?Y??????????A??U??????????
 #include "Texture.h"
 #include "BasicSettings.h"
 
-//構造体情報
+//?\??????
 #include "ModelData.h"
 
-//===== 前方宣言 =====
+//===== ?O???? =====
 class CObject;
-class CTransform;	//毎フレーム使うから置いとく
+class CTransform;	//???t???[???g??????u?????
 class CMaterial;
 
-//===== 構造体定義(別の場所に移す) =====
+//===== ?\?????`(????????) =====
 struct MeshConstantBufferData
 {
 	DirectX::XMMATRIX WVP;
 };
 
-//===== クラス定義 =====
+//===== ?N???X??` =====
 class CMesh
 {
 
-//===== 仮実装 =====
-//ビルボード対応用
+//===== ?????? =====
+//?r???{?[?h????p
 
 
 
 
 public:
-	//Initializeをどこかで呼ぶ必要有り
+	//Initialize??????????K?v?L??
 	CMesh();
 
-	//DX12Managerから取得する(仮)
+	//DX12Manager????擾????(??)
 	void Init();
 	void Update();
 	void Draw(class CTransform* transform, class CMaterial* material, BlendMode blendMode);
 
 	void BindBoneSRV(D3D12_GPU_DESCRIPTOR_HANDLE handle);
 
-	//頂点、インデックス情報のセット
+	//???_?A?C???f?b?N?X????Z?b?g
 	void SetVertex(const MeshVertex* vertices, size_t vertexCount,
 		const uint32_t* indices, size_t indexCount);
 
@@ -67,17 +67,17 @@ private:
 
 	D3D12_GPU_DESCRIPTOR_HANDLE m_BoneSrvGpuHandle;
 
-	//----- 情報 -----
+	//----- ??? -----
 
-	//CObjectの参照
-	std::vector<MeshVertex> m_Vertices;	//頂点
-	std::vector<uint32_t>	m_Indices;	//インデックス
+	//CObject??Q??
+	std::vector<MeshVertex> m_Vertices;	//???_
+	std::vector<uint32_t>	m_Indices;	//?C???f?b?N?X
 
 
 
 private:
 	
-	//CObjectの参照
+	//CObject??Q??
 	CObject* m_Owner;
 
 
@@ -85,7 +85,7 @@ private:
 
 	//----- Getter,Setter -----
 public:
-	//頂点データの取得
+	//???_?f?[?^??擾
 	void RegisterOwner(CObject* _Owner);
 
 	void SetBoneSRV(D3D12_GPU_DESCRIPTOR_HANDLE handle)

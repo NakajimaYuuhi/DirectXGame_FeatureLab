@@ -12,43 +12,43 @@
 
 #include "gltfLoader.h"
 
-//構造体情報
+//?\??????
 #include "ModelData.h"
 
 
 
-//読み込み成功したっぽい
+//??????????????????
 LoadedModelData TestLoadGLTF(std::string _fileName)
 {
 
-    //----- 変数宣言 -----
-    // GLTF関連
-    //< ロードに必要なもの >
-    tinygltf::TinyGLTF loader;  //コンテキスト
-    tinygltf::Model model;      //読み込んだデータを格納
+    //----- ????? -----
+    // GLTF??A
+    //< ???[?h??K?v???? >
+    tinygltf::TinyGLTF loader;  //?R???e?L?X?g
+    tinygltf::Model model;      //???????f?[?^??i?[
 
-    //< エラーチェック用 >
+    //< ?G???[?`?F?b?N?p >
     bool loadResult;
     std::string warn;
     std::string err;
 
-    //< ファイル名 >
-    //読みたい glb/gltf ファイル名
+    //< ?t?@?C???? >
+    //?????? glb/gltf ?t?@?C????
     std::string filename = _fileName;
     //std::string filename = "Assets/Model/OffensiveIdle.glb";
     //std::string filename = "Assets/Model/cube.glb";
 
 
 
-    //モデルの情報
+    //???f??????
 	LoadedModelData loadedModelData;
 
 
-    //----- 変数の初期化 -----
+    //----- ?????????? -----
     loadResult = false;
 
 
-	//----- 読み込み -----
+	//----- ?????? -----
     if (filename.ends_with(".glb")) {
         loadResult = loader.LoadBinaryFromFile(&model, &err, &warn, filename);
     }
@@ -56,7 +56,7 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
         loadResult = loader.LoadASCIIFromFile(&model, &err, &warn, filename);
     }
 
-	//----- 読み込み失敗 -----
+	//----- ????????s -----
     if (!warn.empty()) {
         std::cout << "Warn: " << warn << std::endl;
     }
@@ -70,10 +70,10 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
         //return ;
     }
 
-	//----- 読み込み成功 -----
+	//----- ????????? -----
     std::cout << "Success! Loaded: " << filename << std::endl;
 
-    //----- デバッグテスト -----
+    //----- ?f?o?b?O?e?X?g -----
     std::cout << "Meshes:   " << model.meshes.size() << std::endl;
     std::cout << "Nodes:    " << model.nodes.size() << std::endl;
     std::cout << "Buffers:  " << model.buffers.size() << std::endl;
@@ -81,56 +81,56 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
     std::cout << "Anims:    " << model.animations.size() << std::endl;
 
 
-	//----- メッシュデータを取得する -----
-	for (const auto& mesh : model.meshes) // メッシュごとにループ
+	//----- ???b?V???f?[?^??擾???? -----
+	for (const auto& mesh : model.meshes) // ???b?V?????????[?v
     {
     
-		//== 変数宣言 ==
-        //GLTFはMesh -> Primitiveの構造
-        //Primitiveをメッシュとして取り込むので、ベースになるものを宣言しておく
-        std::string meshName;   //メッシュの名前
-        int PrimitiveNum;       //プリミティブのインデックス
+		//== ????? ==
+        //GLTF??Mesh -> Primitive??\??
+        //Primitive????b?V?????????????A?x?[?X???????????????
+        std::string meshName;   //???b?V??????O
+        int PrimitiveNum;       //?v???~?e?B?u??C???f?b?N?X
 
-        //== 変数の初期化 ==
-        meshName = mesh.name;   //名前を取得
+        //== ?????????? ==
+        meshName = mesh.name;   //???O??擾
         PrimitiveNum = 0;       
 
 
-		//== 頂点データの取得 ==
-		// メッシュのプリミティブごとにループ
+		//== ???_?f?[?^??擾 ==
+		// ???b?V????v???~?e?B?u???????[?v
         for (const auto& primitive : mesh.primitives) 
         {
-            //== 変数宣言 ==
+            //== ????? ==
             std::string primitiveName;
-            MeshData meshData;                  //メッシュの情報
-            std::vector<MeshVertex> vertices;   //頂点データのVector
+            MeshData meshData;                  //???b?V??????
+            std::vector<MeshVertex> vertices;   //???_?f?[?^??Vector
 
-            // 頂点属性を取得
+            // ???_??????擾
             const auto& attributes = primitive.attributes;        
 
-            //頂点数を取得
+            //???_????擾
             const tinygltf::Accessor& posAccessor = model.accessors[attributes.at("POSITION")];
             size_t VertexCount = posAccessor.count;
 
 
-			//----- Vectorの準備 -----
-            //Vector?サイズを直す
-            vertices.resize(VertexCount);       //Resizeをしておく
+			//----- Vector????? -----
+            //Vector??T?C?Y????
+            vertices.resize(VertexCount);       //Resize????????
 
-            // ゴミデータが入るのを防ぐため、ボーン情報とウェイトを初期化
+            // ?S?~?f?[?^????????h??????A?{?[??????E?F?C?g???????
             for (size_t i = 0; i < VertexCount; i++)
             {
                 vertices[i].boneIndices[0] = 0;
                 vertices[i].boneIndices[1] = 0;
                 vertices[i].boneIndices[2] = 0;
                 vertices[i].boneIndices[3] = 0;
-                vertices[i].boneWeights[0] = 1.0f; // 最初のボーンにウェイト100%
+                vertices[i].boneWeights[0] = 1.0f; // ?????{?[????E?F?C?g100%
                 vertices[i].boneWeights[1] = 0.0f;
                 vertices[i].boneWeights[2] = 0.0f;
                 vertices[i].boneWeights[3] = 0.0f;
             }
 
-            //== verticesにデータを入れる ==
+            //== vertices??f?[?^?????? ==
             
             //----- POSITION -----
             if (attributes.find("POSITION") != attributes.end()) 
@@ -271,25 +271,25 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
                 }
             }
 
-            //----- マテリアルの情報 -----
+            //----- ?}?e???A?????? -----
             int materialIndex = primitive.material;
             meshData.materialIndex = materialIndex;
 
 
-            //名前を入れる
+            //???O??????
             primitiveName = meshName;
             primitiveName += "_Primitive";
             primitiveName += std::to_string(PrimitiveNum);
 
             meshData.name = primitiveName;
 
-            //verticesのvectorを格納する
+            //vertices??vector??i?[????
             meshData.vertices = vertices;
 
 
 
 
-            //== Indexの情報を読み取る
+            //== Index?????????
             std::vector<uint32_t> indices;
 
             if (primitive.indices < 0) {
@@ -302,7 +302,7 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
 
             const unsigned char* dataPtr = buffer.data.data() + bufferView.byteOffset + accessor.byteOffset;
 
-            // componentType によって読み方が変わる
+            // componentType ???????????????
             switch (accessor.componentType)
             {
             case TINYGLTF_COMPONENT_TYPE_UNSIGNED_SHORT:
@@ -334,29 +334,29 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
                 break;
             }
 
-            // 読み込んだ indices を格納
+            // ?????? indices ??i?[
             meshData.indices.assign(std::begin(indices), std::end(indices));
 
 
-            //loadModelDataに格納
+            //loadModelData??i?[
             loadedModelData.meshes.push_back(meshData);
     
 
 
-            //Primitiveのインデックスのカウント
+            //Primitive??C???f?b?N?X??J?E???g
             PrimitiveNum++;
         }
 	}
 
-    //----- マテリアルのデータの取得 -----
-    for (const auto& material : model.materials)//マテリアルごとに実行
+    //----- ?}?e???A????f?[?^??擾 -----
+    for (const auto& material : model.materials)//?}?e???A?????????s
     {
         MaterialData materialData;
 
-        // 名前
+        // ???O
         materialData.name = material.name;
 
-        // PBR メイン情報
+        // PBR ???C?????
         const auto& pbr = material.pbrMetallicRoughness;
 
         // BaseColorFactor
@@ -423,22 +423,22 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
             }
         }
 
-        // LoadedModelData に追加
+        // LoadedModelData ????
         loadedModelData.materials.push_back(materialData);
     }
 
-    //----- ノードのデータの取得 -----
+    //----- ?m?[?h??f?[?^??擾 -----
     for (const auto& node : model.nodes)
     {
         NodeData nodeData;
 
-        //--- 名前 ---
+        //--- ???O ---
         nodeData.name = node.name;
 
-        //--- メッシュ参照 ---
-        nodeData.meshIndex = node.mesh;  // -1 の場合は mesh なし
+        //--- ???b?V???Q?? ---
+        nodeData.meshIndex = node.mesh;  // -1 ????? mesh ???
 
-        //--- 子ノード ---
+        //--- ?q?m?[?h ---
         nodeData.children = node.children;
 
         //--- TRS or Matrix ---
@@ -465,7 +465,7 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
             nodeData.scale[2] = node.scale[2];
         }
 
-        // Matrix（4x4行列）
+        // Matrix?i4x4?s??j
         if (!node.matrix.empty()) 
         {
             for (int i = 0; i < 16; i++) {
@@ -474,28 +474,28 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
         }
         else 
         {
-            // TRS → 行列変換が必要ならここでする
-            // 今は省略可能
+            // TRS ?? ?s???????K?v??????????
+            // ????????\
         }
 
-        //--- Skin index（スケルトン） ---
+        //--- Skin index?i?X?P???g???j ---
         nodeData.skinIndex = node.skin;
 
-        //→ LoadedModelData に追加
+        //?? LoadedModelData ????
         loadedModelData.nodes.push_back(nodeData);
     }
 
-    //----- スキンのデータの取得 -----
+    //----- ?X?L????f?[?^??擾 -----
     for (const auto& skin : model.skins)
     {
         SkinData skinData;
 
-        //jointsを入れる
+        //joints??????
         skinData.joints = skin.joints;
 
         //
         if (skin.inverseBindMatrices >= 0) {
-            // bufferView から inverseBindMatrices を読む
+            // bufferView ???? inverseBindMatrices ????
             const tinygltf::Accessor& accessor = model.accessors[skin.inverseBindMatrices];
             const tinygltf::BufferView& bufferView = model.bufferViews[accessor.bufferView];
             const tinygltf::Buffer& buffer = model.buffers[bufferView.buffer];
@@ -508,7 +508,7 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
             for (size_t i = 0; i < count; ++i) {
                 const float* m = reinterpret_cast<const float*>(dataPtr + accessor.ByteStride(bufferView) * i);
 
-                // glTF は列優先(column-major)
+                // glTF ???D??(column-major)
                 DirectX::XMFLOAT4X4 mat;
                 memcpy(&mat, m, sizeof(float) * 16);
 
@@ -594,6 +594,6 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
     }
     OutputDebugString("");
 
-    //値を返す
+    //?l????
     return loadedModelData;
 }

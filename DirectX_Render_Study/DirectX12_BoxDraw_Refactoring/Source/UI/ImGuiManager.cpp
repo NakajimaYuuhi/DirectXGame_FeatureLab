@@ -9,7 +9,7 @@ CImGuiManager& CImGuiManager::GetInstance() {
     return instance;
 }
 
-//画面の拡大率の取得
+//????g????擾
 float CImGuiManager::GetSystemScaleFactor()
 {
     ImGui_ImplWin32_EnableDpiAwareness();
@@ -24,10 +24,10 @@ float CImGuiManager::GetActualScaleFactor()
 {
     float scale = GetSystemScaleFactor();
 
-    //falseなら適用しない
+    //false???K?p?????
     if (!DISPLAY_SCALING_ENABLED)return 1.0f;
 
-    //trueなら拡大率をそのまま返す
+    //true???g???????????
     return GetSystemScaleFactor();
 }
 
@@ -38,29 +38,29 @@ bool CImGuiManager::Initialize(HWND hwnd)
 
 
     auto& dx12 = DX12Manager::GetInstance();
-    ID3D12Device* device = dx12.GetDevice(); // CDX12ManagerにGetDevice()が必要
+    ID3D12Device* device = dx12.GetDevice(); // CDX12Manager??GetDevice()???K?v
     ID3D12CommandQueue* commandQueue = dx12.GetCommandQueue();
 
-    // 安全チェック：デバイスが空っぽならエラー！
+    // ???S?`?F?b?N?F?f?o?C?X?????????G???[?I
     if (!device) {
         OutputDebugString("Error: DX12 Device is NULL!\n");
         return false;
     }
 
 
-    // 1. ImGuiコンテキストの作成
-    IMGUI_CHECKVERSION();           //バージョンチェック
-    ImGui::CreateContext();         //コンテキスト(グローバルな状態)作成
-    ImGuiIO& io = ImGui::GetIO();   //入出力に関する設定（ImGuiIO）を触れるように取得
+    // 1. ImGui?R???e?L?X?g???
+    IMGUI_CHECKVERSION();           //?o?[?W?????`?F?b?N
+    ImGui::CreateContext();         //?R???e?L?X?g(?O???[?o??????)??
+    ImGuiIO& io = ImGui::GetIO();   //???o?????????iImGuiIO?j??G??????擾
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
     //io.Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\msgothic.ttc", 20.0f, nullptr, io.Fonts->GetGlyphRangesJapanese());
     //io.Fonts->Build();
 
-    // スタイル設定
+    // ?X?^?C?????
     ImGui::StyleColorsDark();
 
-    // 2. ImGui用のSRVディスクリプタヒープ作成
+    // 2. ImGui?p??SRV?f?B?X?N???v?^?q?[?v??
     D3D12_DESCRIPTOR_HEAP_DESC desc = {};
     desc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
     desc.NumDescriptors = 3;
@@ -70,7 +70,7 @@ bool CImGuiManager::Initialize(HWND hwnd)
         return false;
     }
 
-    //ディスクリプタヒープのアロケータも作っておく
+    //?f?B?X?N???v?^?q?[?v??A???P?[?^?????????
     m_DescriptorHeapAllocator.Create(device, m_srvHeap.Get());
 
     ImGuiStyle& style = ImGui::GetStyle();
@@ -80,7 +80,7 @@ bool CImGuiManager::Initialize(HWND hwnd)
 
 
 
-    // 3. プラットフォームとレンダラーの初期化
+    // 3. ?v???b?g?t?H?[????????_???[???????
     //ImGui_ImplWin32_Init(hwnd);
 
 
@@ -91,15 +91,15 @@ bool CImGuiManager::Initialize(HWND hwnd)
 
 
 
-    //DirectX関連の初期化
-    //引数が多くて分かりにくかったInit処理を、InitInfoにまとめたもの
+    //DirectX??A???????
+    //?????????????????????????Init??????AInitInfo?????????
 
     ImGui_ImplDX12_InitInfo init_info = {};
-    init_info.Device = device;            //デバイス
-    init_info.CommandQueue = commandQueue;//コマンドキューも必要になった
-    init_info.NumFramesInFlight = FRAME_BUFFER_COUNT;//フレームバッファの数 スワップチェーンのバックバッファの数と合わせる(大体2か3)
+    init_info.Device = device;            //?f?o?C?X
+    init_info.CommandQueue = commandQueue;//?R?}???h?L???[??K?v??????
+    init_info.NumFramesInFlight = FRAME_BUFFER_COUNT;//?t???[???o?b?t?@??? ?X???b?v?`?F?[????o?b?N?o?b?t?@??????????(???2??3)
     init_info.RTVFormat = DXGI_FORMAT_R8G8B8A8_UNORM;//RTVFormat
-    init_info.DSVFormat = DXGI_FORMAT_UNKNOWN;  //深度ステンシルのフォーマット（使わないなら UNKNOWN でOK)
+    init_info.DSVFormat = DXGI_FORMAT_UNKNOWN;  //?[?x?X?e???V????t?H?[?}?b?g?i?g??????? UNKNOWN ??OK)
     init_info.SrvDescriptorHeap = m_srvHeap.Get();
     init_info.SrvDescriptorAllocFn = [](ImGui_ImplDX12_InitInfo*, D3D12_CPU_DESCRIPTOR_HANDLE* out_cpu_handle, D3D12_GPU_DESCRIPTOR_HANDLE* out_gpu_handle) { return CImGuiManager::GetInstance().GetDescriptorHeapAllocator().Alloc(out_cpu_handle, out_gpu_handle); };
     init_info.SrvDescriptorFreeFn = [](ImGui_ImplDX12_InitInfo*, D3D12_CPU_DESCRIPTOR_HANDLE cpu_handle, D3D12_GPU_DESCRIPTOR_HANDLE gpu_handle) { return CImGuiManager::GetInstance().GetDescriptorHeapAllocator().Free(cpu_handle, gpu_handle); };
@@ -114,15 +114,15 @@ bool CImGuiManager::Initialize(HWND hwnd)
     //    m_srvHeap->GetGPUDescriptorHandleForHeapStart()
     //);
 
-    //----- フォントのセット -----
+    //----- ?t?H???g??Z?b?g -----
     ImFontConfig config;
     config.SizePixels = 18.0f;
 
-    // 日本語の文字セットを追加
+    // ???{???????Z?b?g????
     static const ImWchar japanese_range[] = {
         0x0020, 0x00FF,   // Basic Latin
-        0x3000, 0x30FF,   // ひらがな・カタカナ
-        0x4E00, 0x9FAF,   // 漢字（基本）
+        0x3000, 0x30FF,   // ?????E?J?^?J?i
+        0x4E00, 0x9FAF,   // ?????i??{?j
         0,
     };
 
@@ -151,15 +151,15 @@ void CImGuiManager::Begin()
 void CImGuiManager::End(ID3D12GraphicsCommandList* commandList) 
 {
 
-    // ImGuiの内部データをレンダリング用にまとめる
-    //貯めた描画命令を描画データ(ImDrawData)に変換する
+    // ImGui?????f?[?^??????_?????O?p??????
+    //??????`?施???`??f?[?^(ImDrawData)????????
     ImGui::Render();
 
-    // 描画先ヒープをImGui用のものに設定
+    // ?`???q?[?v??ImGui?p???????
     ID3D12DescriptorHeap* heaps[] = { m_srvHeap.Get() };
     commandList->SetDescriptorHeaps(_countof(heaps), heaps);
 
-    // コマンドリストにImGuiの描画コマンドを積む(GPUに送る)
+    // ?R?}???h???X?g??ImGui??`??R?}???h????(GPU?????)
     ImGui_ImplDX12_RenderDrawData(ImGui::GetDrawData(), commandList);
 }
 

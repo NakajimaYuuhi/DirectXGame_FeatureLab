@@ -7,23 +7,23 @@
 
 void PSOManager::Init(ID3D12Device* device)
 {
-    // ===== 変数宣言 =====
+    // ===== ????? =====
 
-	// --エラーハンドリング用
-    HRESULT hr;                 // DirectX関連
+	// --?G???[?n???h?????O?p
+    HRESULT hr;                 // DirectX??A
 
-    // --シェーダ関連
-    // メッシュ用
+    // --?V?F?[?_??A
+    // ???b?V???p
     auto vertexShader = ShaderManager::GetInstance().GetShader(L"Assets/Shader/Triangle.hlsl", "VSMain", "vs_5_0");
     auto pixelShader = ShaderManager::GetInstance().GetShader(L"Assets/Shader/Triangle.hlsl", "PSMain", "ps_5_0");
     auto spriteVertexShader = ShaderManager::GetInstance().GetShader(L"Assets/Shader/Sprite.hlsl", "VSMain", "vs_5_0");
     auto spritePixelShader = ShaderManager::GetInstance().GetShader(L"Assets/Shader/Sprite.hlsl", "PSMain", "ps_5_0");
 
     // =========================================================
-    //  2. ルートシグネチャ作成
+    //  2. ???[?g?V?O?l?`????
     // =========================================================
 
-    // ----- メッシュ用ルートシグネチャ -----
+    // ----- ???b?V???p???[?g?V?O?l?`?? -----
     {
         RootSignatureBuilder rsBuilder;
         rsBuilder.AddConstants(20, 0, 0, D3D12_SHADER_VISIBILITY_VERTEX); // WVP + uvOffset + uvScale
@@ -42,7 +42,7 @@ void PSOManager::Init(ID3D12Device* device)
         rsBuilder.Build(device, &m_meshRootSignature);
     }
 
-    // ----- スプライト用ルートシグネチャ -----
+    // ----- ?X?v???C?g?p???[?g?V?O?l?`?? -----
     {
         RootSignatureBuilder rsBuilder;
         rsBuilder.AddConstants(20, 0, 0, D3D12_SHADER_VISIBILITY_ALL); // WVP + color
@@ -62,10 +62,10 @@ void PSOManager::Init(ID3D12Device* device)
 
 
     // =========================================================
-    //  3. PSOの構築
+    //  3. PSO??\?z
     // =========================================================
 
-    // ----- メッシュ用 InputLayout -----
+    // ----- ???b?V???p InputLayout -----
     D3D12_INPUT_ELEMENT_DESC inputLayout[] =
     {
         { "POSITION",     0, DXGI_FORMAT_R32G32B32_FLOAT,    0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
@@ -77,7 +77,7 @@ void PSOManager::Init(ID3D12Device* device)
 
     DXGI_FORMAT rtvFormat = DXGI_FORMAT_R8G8B8A8_UNORM;
 
-    // ----- 通常メッシュPSO -----
+    // ----- ????b?V??PSO -----
     {
         PSOBuilder psoBuilder;
         psoBuilder.SetRootSignature(m_meshRootSignature.Get())
@@ -89,7 +89,7 @@ void PSOManager::Init(ID3D12Device* device)
         psoBuilder.Build(device, &m_meshPipelineState);
     }
 
-    // ----- 加算合成メッシュPSO -----
+    // ----- ???Z???????b?V??PSO -----
     {
         D3D12_BLEND_DESC blendDesc = {};
         blendDesc.RenderTarget[0].BlendEnable = TRUE;
@@ -103,7 +103,7 @@ void PSOManager::Init(ID3D12Device* device)
 
         D3D12_DEPTH_STENCIL_DESC depthDesc = {};
         depthDesc.DepthEnable = TRUE;
-        depthDesc.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ZERO; // Z書き込みなし
+        depthDesc.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ZERO; // Z??????????
         depthDesc.DepthFunc = D3D12_COMPARISON_FUNC_LESS;
 
         PSOBuilder psoBuilder;
@@ -118,18 +118,18 @@ void PSOManager::Init(ID3D12Device* device)
         psoBuilder.Build(device, &m_additivePipelineState);
     }
 
-    // ----- スプライト用 InputLayout -----
+    // ----- ?X?v???C?g?p InputLayout -----
     D3D12_INPUT_ELEMENT_DESC spriteInputLayout[] =
     {
         { "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
         { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT,    0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
     };
 
-    // ----- スプライト用 PSO -----
+    // ----- ?X?v???C?g?p PSO -----
     {
         D3D12_RASTERIZER_DESC rasterDesc = {};
         rasterDesc.FillMode = D3D12_FILL_MODE_SOLID;
-        rasterDesc.CullMode = D3D12_CULL_MODE_NONE; // カリングなし
+        rasterDesc.CullMode = D3D12_CULL_MODE_NONE; // ?J?????O???
         rasterDesc.DepthClipEnable = FALSE;
 
         D3D12_DEPTH_STENCIL_DESC depthDesc = {};
@@ -152,7 +152,7 @@ void PSOManager::Init(ID3D12Device* device)
                   .SetInputLayout(spriteInputLayout, _countof(spriteInputLayout))
                   .SetShaders(spriteVertexShader->GetBytecode(), spritePixelShader->GetBytecode())
                   .SetPrimitiveTopologyType(D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE)
-                  .SetRenderTargetFormats(1, &rtvFormat, DXGI_FORMAT_UNKNOWN) // DepthBuffer使わなぁE
+                  .SetRenderTargetFormats(1, &rtvFormat, DXGI_FORMAT_UNKNOWN) // DepthBuffer?g????E
                   .SetRasterizerState(rasterDesc)
                   .SetDepthStencilState(depthDesc)
                   .SetBlendState(blendDesc);
@@ -165,19 +165,19 @@ ID3D12PipelineState* PSOManager::GetPSO(CMaterial* material, ID3D12RootSignature
 {
     if (!material) return nullptr;
 
-    // キャッシュキーの作成 (シェーダーファイル + エントリ + ブレンドモード)
+    // ?L???b?V???L?[??? (?V?F?[?_?[?t?@?C?? + ?G???g?? + ?u?????h???[?h)
     const std::string& vsEntry = material->GetVsEntry();
     std::wstring key = material->GetShaderFile() + L"_" + 
                        std::wstring(vsEntry.begin(), vsEntry.end()) + L"_" + 
                        std::to_wstring(static_cast<int>(material->GetBlendMode()));
 
-    // キャッシュヒット
+    // ?L???b?V???q?b?g
     if (m_psoCache.find(key) != m_psoCache.end())
     {
         return m_psoCache[key].Get();
     }
 
-    // なければ作る
+    // ????????
     ID3D12Device* device = DX12Manager::GetInstance().GetDevice();
     
     auto vs = ShaderManager::GetInstance().GetShader(material->GetShaderFile().c_str(), material->GetVsEntry().c_str(), "vs_5_0");
@@ -207,7 +207,7 @@ ID3D12PipelineState* PSOManager::GetPSO(CMaterial* material, ID3D12RootSignature
               .SetPrimitiveTopologyType(D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE)
               .SetRenderTargetFormats(1, &rtvFormat, DXGI_FORMAT_D32_FLOAT);
 
-    // ブレンドモードに応じた設?E
+    // ?u?????h???[?h??????????E
     if (material->GetBlendMode() == BlendMode::Additive)
     {
         D3D12_BLEND_DESC blendDesc = {};
@@ -222,7 +222,7 @@ ID3D12PipelineState* PSOManager::GetPSO(CMaterial* material, ID3D12RootSignature
 
         D3D12_DEPTH_STENCIL_DESC depthDesc = {};
         depthDesc.DepthEnable = TRUE;
-        depthDesc.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ZERO; // Z書き込みなぁE
+        depthDesc.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ZERO; // Z??????????E
         depthDesc.DepthFunc = D3D12_COMPARISON_FUNC_LESS;
         
         psoBuilder.SetBlendState(blendDesc).SetDepthStencilState(depthDesc);

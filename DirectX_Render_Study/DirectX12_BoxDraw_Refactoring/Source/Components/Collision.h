@@ -7,21 +7,21 @@ class Collision
 {
 public:
 
-	//è¡çªåˆ¤å®š
+	//Õ“Ë”»’è
 	static bool CheckCollision(BoxCollider3D* colliderA, BoxCollider3D* colliderB)
 	{
 		DirectX::XMFLOAT3 posA = colliderA->GetWorldPos();
 		DirectX::XMFLOAT3 sizeA = colliderA->GetSize();
 		DirectX::XMFLOAT3 posB = colliderB->GetWorldPos();
 		DirectX::XMFLOAT3 sizeB = colliderB->GetSize();
-		// AABBåŒå£«ã®è¡çªåˆ¤å®š
+		// AABB“¯m‚ÌÕ“Ë”»’è
 		if (abs(posA.x - posB.x) < (sizeA.x / 2 + sizeB.x / 2) &&
 			abs(posA.y - posB.y) < (sizeA.y / 2 + sizeB.y / 2) &&
 			abs(posA.z - posB.z) < (sizeA.z / 2 + sizeB.z / 2))
 		{
-			return true; // è¡çªã—ã¦ã„ã‚‹
+			return true; // Õ“Ë‚µ‚Ä‚¢‚é
 		}
-		return false; // è¡çªã—ã¦ã„ãªã„
+		return false; // Õ“Ë‚µ‚Ä‚¢‚È‚¢
 	}
 
 	Vector<Vector<ObjectTag>>& GetCollisionOrder() { return CollisionOrder; }
@@ -32,30 +32,30 @@ public:
 	static void ResolveCollisions(Vector<Vector<UniquePtr<CObject>>>& objectList);
 
 private:
-	//Collisionã®é †ç•ª
+	//Collision‚Ì‡”Ô
 	Vector<Vector<ObjectTag>> CollisionOrder;
 
-	//----- ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³ã®å®Ÿè£…ã«å¿…è¦ -----
+	//----- ƒVƒ“ƒOƒ‹ƒgƒ“‚ÌÀ‘•‚É•K—v -----
 public:
 	static Collision& GetInstance()
 	{
 		static Collision Instance;
 
-		//ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’è¿”ã™
+		//ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ•Ô‚·
 		return Instance;
 	}
 
 private:
-	//ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+	//ƒRƒ“ƒXƒgƒ‰ƒNƒ^
 	Collision();
 
-	//ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+	//ƒfƒXƒgƒ‰ƒNƒ^
 	~Collision(){}
 
-	//ã‚³ãƒ”ãƒ¼ç¦æ­¢
+	//ƒRƒs[‹Ö~
 	Collision(const Collision&) = delete;
 
-	//ä»£å…¥ç¦æ­¢
+	//‘ã“ü‹Ö~
 	Collision& operator=(const Collision&) = delete;
 };
 

@@ -4,10 +4,10 @@
 
 using String = std::string;
 
-//===== 前方宣言 =====
+//===== ?O???? =====
 //class CObject;
 
-//===== クラス定義 =====
+//===== ?N???X??` =====
 class CScene
 {
 public:

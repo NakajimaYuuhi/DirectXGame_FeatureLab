@@ -1,7 +1,7 @@
-//インクルード
+//?C???N???[?h
 #include "Transform.h"
 
-//World行列の取得
+//World?s???擾
 DirectX::XMMATRIX CTransform::GetWorld() 
 {
     DirectX::XMMATRIX scale = DirectX::XMMatrixScaling(

@@ -19,11 +19,11 @@ public:
 
     void Init(ID3D12Device* device);
 
-	// 蜍慕噪PSO逕滓・
+	// 動的PSO生?E
 	ID3D12PipelineState* GetPSO(CMaterial* material, ID3D12RootSignature* rootSig);
 
 private:
-	// PSO繧ｭ繝｣繝・す繝･: 繧ｭ繝ｼ縺ｯ "繧ｷ繧ｧ繝ｼ繝繝ｼ繝代せ_繝悶Ξ繝ｳ繝峨Δ繝ｼ繝・ 縺ｪ縺ｩ縺ｮ荳諢上・譁・ｭ怜・
+	// PSOキャチE??ュ: キーは "シェーダーパス_ブレンドモーチE などの一意?E?E???E
 	std::unordered_map<std::wstring, ComPtr<ID3D12PipelineState>> m_psoCache;
 
 

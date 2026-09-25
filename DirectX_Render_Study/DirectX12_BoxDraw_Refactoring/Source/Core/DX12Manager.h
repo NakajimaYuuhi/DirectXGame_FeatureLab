@@ -1,4 +1,4 @@
-//===== インクルード =====
+//===== ?C???N???[?h =====
 #pragma once
 
 #include <d3d12.h>
@@ -8,29 +8,29 @@
 #include "BasicSettings.h"
 #include "DescriptorHeapAllocator.h"
 
-// 仮置き
+// ???u??
 #include "Box.h"
 #include "Mesh.h"
 
 using Microsoft::WRL::ComPtr;
 
-//===== クラス定義 =====
+//===== ?N???X??` =====
 class DX12Manager {
 public:
-  // <インスタンス取得>
+  // <?C???X?^???X?擾>
   static DX12Manager &GetInstance();
 
-  // <初期化、終了処理>
+  // <???????A?I??????>
   bool Initialize(HWND hwnd);
   void Finalize();
 
-  // <描画処理>
+  // <?`????>
   void BeginDraw();
   void EndDraw();
 
-  // < 別で切り出したい >
+  // < ?????o?????? >
 
-  // 更新処理
+  // ?X?V????
   void Update();
 
   void ResizeRenderTarget(LPARAM lParam);
@@ -47,7 +47,7 @@ public:
 
   void ForceWait();
 
-  // 仮のview,projのGetter
+  // ????view,proj??Getter
   DirectX::XMMATRIX GetView();
   DirectX::XMMATRIX GetProj();
 
@@ -61,10 +61,10 @@ public:
     return m_commandAllocator.Get();
   }
 
-  // 現在のバックバッファの RTV ハンドルを取得する
+  // ?????o?b?N?o?b?t?@?? RTV ?n???h????擾????
   D3D12_CPU_DESCRIPTOR_HANDLE GetCurrentBackBufferRTV() const {
-    // 例:
-    // RTVヒープの先頭から、現在のフレーム(m_frameIndex)分だけズラした場所を返す
+    // ??:
+    // RTV?q?[?v???????A?????t???[??(m_frameIndex)???????Y????????????
     SIZE_T rtvDescriptorSize = m_device->GetDescriptorHandleIncrementSize(
         D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
     D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle =
@@ -72,14 +72,14 @@ public:
     rtvHandle.ptr += m_frameIndex * rtvDescriptorSize;
     return rtvHandle;
 
-    // ※もし CD3DX12_CPU_DESCRIPTOR_HANDLE を使っているなら以下のように書けます
+    // ????? CD3DX12_CPU_DESCRIPTOR_HANDLE ??g??????????????????????
     // return
     // CD3DX12_CPU_DESCRIPTOR_HANDLE(m_rtvHeap->GetCPUDescriptorHandleForHeapStart(),
     // m_frameIndex, rtvDescriptorSize);
   }
-  // 深度バッファの DSV ハンドルを取得する
+  // ?[?x?o?b?t?@?? DSV ?n???h????擾????
   D3D12_CPU_DESCRIPTOR_HANDLE GetMainDSV() const {
-    // DSVは通常1つなので、ヒープの先頭をそのまま返すことが多いです
+    // DSV????1?????A?q?[?v????????????????????????
     return m_dsvHeap->GetCPUDescriptorHandleForHeapStart();
   }
 
@@ -90,48 +90,48 @@ public:
   D3D12_GPU_DESCRIPTOR_HANDLE GetHeadGpuSrvHandle();
 
 private:
-  // DirectX 12関連のメンバ変数
-  ComPtr<IDXGIFactory6> m_factory;           // ファクトリー
-  ComPtr<ID3D12Device> m_device;             // デバイス
-  ComPtr<ID3D12CommandQueue> m_commandQueue; // コマンドキュー
+  // DirectX 12??A??????o???
+  ComPtr<IDXGIFactory6> m_factory;           // ?t?@?N?g???[
+  ComPtr<ID3D12Device> m_device;             // ?f?o?C?X
+  ComPtr<ID3D12CommandQueue> m_commandQueue; // ?R?}???h?L???[
 
-  ComPtr<IDXGISwapChain4> m_swapChain; // スワップチェーン
+  ComPtr<IDXGISwapChain4> m_swapChain; // ?X???b?v?`?F?[??
 
-  ComPtr<ID3D12DescriptorHeap> m_rtvHeap; // RTVヒープ
+  ComPtr<ID3D12DescriptorHeap> m_rtvHeap; // RTV?q?[?v
   ComPtr<ID3D12Resource>
-      m_renderTargets[FRAME_BUFFER_COUNT]; // レンダーターゲット
+      m_renderTargets[FRAME_BUFFER_COUNT]; // ?????_?[?^?[?Q?b?g
 
-  UINT m_frameIndex = 0;        // フレームインデックス
-  UINT m_rtvDescriptorSize = 0; // RTVディスクリプタサイズ
+  UINT m_frameIndex = 0;        // ?t???[???C???f?b?N?X
+  UINT m_rtvDescriptorSize = 0; // RTV?f?B?X?N???v?^?T?C?Y
 
-  ComPtr<ID3D12CommandAllocator> m_commandAllocator; // コマンドアロケーター
-  ComPtr<ID3D12GraphicsCommandList> m_commandList; // コマンドリスト
+  ComPtr<ID3D12CommandAllocator> m_commandAllocator; // ?R?}???h?A???P?[?^?[
+  ComPtr<ID3D12GraphicsCommandList> m_commandList; // ?R?}???h???X?g
 
-  ComPtr<ID3D12Fence> m_fence;   // フェンス
-  UINT64 m_fenceValue = 0;       // フェンス値
-  HANDLE m_fenceEvent = nullptr; // フェンスイベント
+  ComPtr<ID3D12Fence> m_fence;   // ?t?F???X
+  UINT64 m_fenceValue = 0;       // ?t?F???X?l
+  HANDLE m_fenceEvent = nullptr; // ?t?F???X?C?x???g
 
-  // 深度バッファ
+  // ?[?x?o?b?t?@
   ComPtr<ID3D12Resource> m_depthBuffer;
 
-  // DSVヒープ
+  // DSV?q?[?v
   ComPtr<ID3D12DescriptorHeap> m_dsvHeap;
 
-  // SRVは全体で1つ
+  // SRV??S???1??
   ComPtr<ID3D12DescriptorHeap> m_srvHeap;
   UINT m_srvDescriptorSize;
   CDescriptorHeapAllocator m_srvAllocator;
 
-  // 画面関連
-  static const UINT m_FrameBufferCount; // フレームバッファの数
-  UINT m_Width = SCREEN_WIDTH;          // 画面の幅
-  UINT m_Height = SCREEN_HEIGHT;        // 画面の高さ
+  // ????A
+  static const UINT m_FrameBufferCount; // ?t???[???o?b?t?@???
+  UINT m_Width = SCREEN_WIDTH;          // ?????
+  UINT m_Height = SCREEN_HEIGHT;        // ???????
 
-  // 一旦持っておく
+  // ??U?????????
   DirectX::XMMATRIX m_view;
   DirectX::XMMATRIX m_proj;
 
-  //----- 画面が隠れているかの判定 -----
+  //----- ?????B??????????? -----
 public:
   bool IsOccluded(HWND hwnd);
 
@@ -139,7 +139,7 @@ private:
   void ResetIsOccluded();
   bool m_SwapChainOccluded = false;
 
-  // シングルトン実装
+  // ?V???O???g??????
 private:
   DX12Manager() = default;
   ~DX12Manager() = default;

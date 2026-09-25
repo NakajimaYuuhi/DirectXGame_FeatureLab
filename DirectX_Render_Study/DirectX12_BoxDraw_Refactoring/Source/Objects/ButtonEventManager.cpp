@@ -21,7 +21,7 @@ void ButtonEventManager::SetSelectedGameObject(ISelectable* newSelected)
 {
     if (m_currentSelected == newSelected) return;
 
-    // 古いオブジェクトからフォーカスを外す
+    // ?A??I?u?W?F?N?g????t?H?[?J?X??O??
     if (m_currentSelected)
     {
         m_currentSelected->OnDeselect();
@@ -29,7 +29,7 @@ void ButtonEventManager::SetSelectedGameObject(ISelectable* newSelected)
 
     m_currentSelected = newSelected;
 
-    // 新しいオブジェクトにフォーカスを当てる
+    // ?V?????I?u?W?F?N?g??t?H?[?J?X?????
     if (m_currentSelected)
     {
         m_currentSelected->OnSelect();
@@ -42,15 +42,15 @@ void ButtonEventManager::Update()
 
     CInputManager& input = CInputManager::GetInstance();
 
-    // 現在のフォーカスがCUIButtonであるかチェックしてナビゲーションを処理
+    // ?????t?H?[?J?X??CUIButton??????`?F?b?N????i?r?Q?[?V?????????
     CUIButton* currentBtn = dynamic_cast<CUIButton*>(m_currentSelected);
     if (currentBtn)
     {
-        // キーボード入力によるナビゲーション
+        // ?L?[?{?[?h???????i?r?Q?[?V????
         if ((input.IsKeyTrigger(VK_UP)||input.IsKeyTrigger('W')) && currentBtn->GetSelectOnUp())
         {
             SetSelectedGameObject(currentBtn->GetSelectOnUp());
-            return; // 1フレームで複数移動しないようにreturn
+            return; // 1?t???[???????????????????return
         }
         else if ((input.IsKeyTrigger(VK_DOWN)||input.IsKeyTrigger('S')) && currentBtn->GetSelectOnDown())
         {
@@ -69,7 +69,7 @@ void ButtonEventManager::Update()
         }
     }
 
-    // 決定処理（Enterキーなど）
+    // ???????iEnter?L?[???j
     if (input.IsKeyTrigger(VK_RETURN) || input.IsKeyTrigger(VK_SPACE))
     {
         m_currentSelected->OnSubmit();

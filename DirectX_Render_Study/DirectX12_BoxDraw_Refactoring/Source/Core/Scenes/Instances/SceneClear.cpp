@@ -24,9 +24,9 @@
 
 //
 #include "ForwardRenderPass.h"
-#include "PostProcessPass.h" // 追加
+#include "PostProcessPass.h" // ???
 
-//設定(width,height取得)
+//???(width,height?擾)
 #include "BasicSettings.h"
 
 #include <memory>
@@ -41,13 +41,13 @@ SceneClear::~SceneClear() = default;
 void SceneClear::Init()
 {
 
-    // ボタンの初期化
+    // ?{?^?????????
     ButtonEventManager::GetInstance();
 
 
-    // ===== オブジェクトの生成
+    // ===== ?I?u?W?F?N?g?????
 
-    // 1.Camera これは絶対
+    // 1.Camera ???????
     ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::CAMERA, "Camera", "Camera");
 
     CUIObject* titleUI = (CUIObject*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "CUIObject", "ClearBG"));
@@ -79,21 +79,21 @@ void SceneClear::Init()
     ButtonEventManager::GetInstance().SetSelectedGameObject((CUIButton*)titleButton);
 
 
-    // ----- パイプラインの作成 -----
+    // ----- ?p?C?v???C????? -----
     m_renderPipeline = std::make_unique<RenderPipeline>();
-    // 1. オフスクリーンテクスチャの生成
+    // 1. ?I?t?X?N???[???e?N?X?`???????
     ID3D12Device* pDevice = DX12Manager::GetInstance().GetDevice();
-    UINT width = SCREEN_WIDTH; // 画面幅
-    UINT height = SCREEN_HEIGHT; // 画面高さ
+    UINT width = SCREEN_WIDTH; // ????
+    UINT height = SCREEN_HEIGHT; // ??????
     m_pOffscreenTexture = std::make_unique<RenderTexture>(pDevice, width, height, DXGI_FORMAT_R8G8B8A8_UNORM);
-    // 2. パイプラインの生成とパスの登録
+    // 2. ?p?C?v???C?????????p?X??o?^
     m_renderPipeline = std::make_unique<RenderPipeline>();
 
-    // ForwardRenderPass 何も設定しなければバックバッファに変えない実装になってる
+    // ForwardRenderPass ????????????o?b?N?o?b?t?@??????????????????
     m_renderPipeline->AddPass(std::make_unique<ForwardRenderPass>(nullptr));
 
     
-    // 3. パイプライン内の全パスを初期化 (PSOの生成などが走る)
+    // 3. ?p?C?v???C?????S?p?X??????? (PSO?????????????)
     m_renderPipeline->Init(pDevice);
 }
 
@@ -102,7 +102,7 @@ void SceneClear::Update()
 
     ButtonEventManager::GetInstance().Update();
 
-    //キー入力でイベントを入れる
+    //?L?[?????C?x???g??????
     if (CInputManager::GetInstance().IsKeyTrigger('P'))
     {
         Event event;
@@ -127,12 +127,12 @@ void SceneClear::Draw()
     RenderContext ctx;
     ctx.cmdList = DX12Manager::GetInstance().GetCommandList();
     ctx.sceneID = Scenes::ID::NONE;
-    ctx.deltaTime = 1.0f / 60.0f; // 実際の deltaTime に置き換えてください
+    ctx.deltaTime = 1.0f / 60.0f; // ????? deltaTime ??u???????????????
     ctx.backBufferRTV = DX12Manager::GetInstance().GetCurrentBackBufferRTV();
     ctx.mainDSV = DX12Manager::GetInstance().GetMainDSV();
     ctx.screenWidth = SCREEN_WIDTH;
     ctx.screenHeight = SCREEN_HEIGHT;
-    //ctx.pCamera       = ObjectManager::GetInstance().GetCamera(); // カメラ情報のセット
-   // 2. パイプラインの実行！
+    //ctx.pCamera       = ObjectManager::GetInstance().GetCamera(); // ?J????????Z?b?g
+   // 2. ?p?C?v???C??????s?I
     m_renderPipeline->Execute(ctx);
 }

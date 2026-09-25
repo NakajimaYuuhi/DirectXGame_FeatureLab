@@ -12,7 +12,7 @@ CTexture::~CTexture()
 
 bool CTexture::LoadTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdList, const wchar_t* filePath)
 {
-    // WICç³» (PNG/JPG/BMP)
+    // WICŒn (PNG/JPG/BMP)
     HRESULT hr = DirectX::LoadFromWICFile(
         filePath,
         DirectX::WIC_FLAGS_NONE,
@@ -23,7 +23,7 @@ bool CTexture::LoadTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdL
 
     const DirectX::Image* img = scratch.GetImage(0, 0, 0);
 
-    // --- GPUç”¨ã®ãƒ†ã‚¯ã‚¹ãƒãƒ£
+    // --- GPU—p‚ÌƒeƒNƒXƒ`ƒƒ
     D3D12_RESOURCE_DESC texDesc = {};
     texDesc.Dimension = D3D12_RESOURCE_DIMENSION_TEXTURE2D;
     texDesc.Width = metadata.width;
@@ -64,7 +64,7 @@ bool CTexture::LoadTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdL
     );
     if (FAILED(hr)) return false;
 
-    // --- ã‚µãƒ–ãƒªã‚½ãƒ¼ã‚¹ã®ã‚³ãƒ”ãƒ¼
+    // --- ƒTƒuƒŠƒ\[ƒX‚ÌƒRƒs[
     D3D12_SUBRESOURCE_DATA textureData = {};
     textureData.pData = img->pixels;
     textureData.RowPitch = img->rowPitch;
@@ -72,7 +72,7 @@ bool CTexture::LoadTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdL
 
     UpdateSubresources(cmdList, texture.Get(), uploadHeap.Get(), 0, 0, metadata.mipLevels, &textureData);
 
-    // æœ€å¾Œã«ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ã§èª­ã‚ã‚‹ã‚ˆã†ã«
+    // ÅŒã‚ÉƒVƒF[ƒ_[‚Å“Ç‚ß‚é‚æ‚¤‚É
     CD3DX12_RESOURCE_BARRIER barrier =
         CD3DX12_RESOURCE_BARRIER::Transition(
             texture.Get(),
@@ -87,9 +87,9 @@ bool CTexture::LoadTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdL
 void CTexture::CreateSRV(ID3D12Device* device)
 {
 
-    // ã“ã‚Œã‚’å…¥ã‚Œã‚‹ã ã‘ã§ã€ã¨ã‚Šã‚ãˆãšã‚¯ãƒ©ãƒƒã‚·ãƒ¥ã¯é˜²ã’ã‚‹ã¯ãš
+    // ‚±‚ê‚ğ“ü‚ê‚é‚¾‚¯‚ÅA‚Æ‚è‚ ‚¦‚¸ƒNƒ‰ƒbƒVƒ…‚Í–h‚°‚é‚Í‚¸
     if (!texture) {
-        OutputDebugStringA("è­¦å‘Š: ãƒ†ã‚¯ã‚¹ãƒãƒ£ãŒãƒ­ãƒ¼ãƒ‰ã•ã‚Œã¦ã„ã¾ã›ã‚“ï¼\n");
+        OutputDebugStringA("Œx: ƒeƒNƒXƒ`ƒƒ‚ªƒ[ƒh‚³‚ê‚Ä‚¢‚Ü‚¹‚ñI\n");
         return;
     }
 

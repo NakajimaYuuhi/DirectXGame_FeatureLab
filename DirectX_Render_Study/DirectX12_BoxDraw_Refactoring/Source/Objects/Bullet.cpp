@@ -27,36 +27,36 @@ Bullet::Bullet(String _Name)
 
 void Bullet::Update()
 {
-	//Transformã®å–å¾—
+	//Transform‚Ìæ“¾
 	CTransform* transform = GetComponent<CTransform>();
 
-	//ç§»å‹•
+	//ˆÚ“®
 	DirectX::XMFLOAT3 pos = transform->GetPos();
 	
-	//ç§»å‹•é‡ã®è¨ˆç®—
+	//ˆÚ“®—Ê‚ÌŒvZ
 	DirectX::XMFLOAT3 moveAmount = {
 		Direction.x * Speed,
 		Direction.y * Speed,
 		Direction.z * Speed
 	};
 
-	//æ–°ã—ã„ä½ç½®ã®è¨ˆç®—
+	//V‚µ‚¢ˆÊ’u‚ÌŒvZ
 	pos.x += moveAmount.x;
 	pos.y += moveAmount.y;
 	pos.z += moveAmount.z;
 
-	//ä½ç½®ã®ã‚»ãƒƒãƒˆ
+	//ˆÊ’u‚ÌƒZƒbƒg
 	transform->SetPos(pos);
 
-	//UVã‚’ã„ã˜ã£ã¦ã¿ã‚‹
+	//UV‚ğ‚¢‚¶‚Á‚Ä‚İ‚é
 	DirectX::XMFLOAT2 currentUV = transform->GetUVOffset();
-	currentUV.x += 0.01f; // Xæ–¹å‘ã«ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ï¼ˆé€Ÿåº¦ã¯ãŠå¥½ã¿ã§ï¼‰
+	currentUV.x += 0.01f; // X•ûŒü‚ÉƒXƒNƒ[ƒ‹i‘¬“x‚Í‚¨D‚İ‚Åj
 	transform->SetUVOffset(currentUV);
 }
 
 void Bullet::OnCollision(CObject* _Other)
 {
-	//è¡çªã—ãŸç›¸æ‰‹ãŒEnemyã ã£ãŸã‚‰æ¶ˆãˆã‚‹
+	//Õ“Ë‚µ‚½‘Šè‚ªEnemy‚¾‚Á‚½‚çÁ‚¦‚é
 	CObjectInfo* otherInfo = _Other->GetComponent<CObjectInfo>();
 	if (otherInfo && otherInfo->GetObjectTag() == ObjectTag::ENEMY)
 	{
@@ -68,14 +68,14 @@ void Bullet::OnCollision(CObject* _Other)
 			health->TakeDamage(1);
 		}
 
-		//ãƒ‘ãƒ¼ãƒ†ã‚£ã‚¯ãƒ«ã‚’å‡ºã™(20å€‹)
+		//ƒp[ƒeƒBƒNƒ‹‚ğo‚·(20ŒÂ)
 		for (int i = 0; i < 20; i++)
 		{
 			CObject* particle = ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::BILLBOARD, "RandomParticle");
 			if (particle)
 			{
 				CTransform* transform = particle->GetComponent<CTransform>();
-				//ä½ç½®
+				//ˆÊ’u
 				DirectX::XMFLOAT3 pos = GetPos();
 				transform->SetPos(pos);
 				transform->SetScale({ 0.05f, 1.0f, 0.05f });

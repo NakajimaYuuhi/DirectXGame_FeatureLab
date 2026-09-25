@@ -14,6 +14,9 @@
 
 namespace fs = std::filesystem;
 
+// -----------------------------------------------------------------
+// Assets/Prefabs フォルダ内の JSON プレハブ一覧をスキャン・更新する
+// -----------------------------------------------------------------
 void CContentDrawerUI::RefreshPrefabList()
 {
     m_prefabItems.clear();
@@ -27,10 +30,11 @@ void CContentDrawerUI::RefreshPrefabList()
             {
                 PrefabItem item;
                 item.path = entry.path().string();
-                // Replace backslashes with forward slashes
+                // パス区切り文字をスラッシュに統一
                 std::replace(item.path.begin(), item.path.end(), '\\', '/');
                 item.name = entry.path().stem().string();
 
+                // JSONファイルを開いてタグ情報を読み取る
                 std::ifstream file(item.path);
                 if (file.is_open())
                 {
@@ -53,9 +57,12 @@ void CContentDrawerUI::RefreshPrefabList()
     m_isInitialized = true;
 }
 
+// -----------------------------------------------------------------
+// コンテンツドロワーのImGuiウィンドウを描画する
+// -----------------------------------------------------------------
 void CContentDrawerUI::Draw()
 {
-    // Toggle via Ctrl + Space
+    // ショートカットキー (Ctrl + Space) による表示切り替え
     if (CInputManager::GetInstance().IsKeyPress(VK_CONTROL) && CInputManager::GetInstance().IsKeyTrigger(VK_SPACE))
     {
         ToggleVisible();
@@ -63,6 +70,7 @@ void CContentDrawerUI::Draw()
 
     if (!m_isVisible) return;
 
+    // 未初期化の場合はプレハブ一覧を取得
     if (!m_isInitialized)
     {
         RefreshPrefabList();
@@ -71,11 +79,14 @@ void CContentDrawerUI::Draw()
     ImGui::SetNextWindowSize(ImVec2(650, 260), ImGuiCond_FirstUseEver);
     if (ImGui::Begin("Content Drawer (Prefabs)", &m_isVisible, ImGuiWindowFlags_NoCollapse))
     {
+        // 手動更新ボタン
         if (ImGui::Button("Refresh"))
         {
             RefreshPrefabList();
         }
         ImGui::SameLine();
+        
+        // 検索フィルター入力欄
         ImGui::SetNextItemWidth(200.0f);
         ImGui::InputText("Filter", m_searchFilter, sizeof(m_searchFilter));
 
@@ -84,6 +95,7 @@ void CContentDrawerUI::Draw()
 
         ImGui::Separator();
 
+        // プレハブカードのグリッドレイアウト設定
         float windowWidth = ImGui::GetContentRegionAvail().x;
         float cardWidth = 180.0f;
         int columns = static_cast<int>(windowWidth / (cardWidth + 12.0f));
@@ -95,6 +107,7 @@ void CContentDrawerUI::Draw()
             {
                 const auto& item = m_prefabItems[i];
 
+                // 検索フィルター適用
                 if (m_searchFilter[0] != '\0')
                 {
                     if (item.name.find(m_searchFilter) == std::string::npos &&
@@ -109,11 +122,11 @@ void CContentDrawerUI::Draw()
 
                 ImGui::BeginGroup();
                 
-                // Prefab Card UI
+                // プレハブ情報の表示（名前・タグ）
                 ImGui::TextColored(ImVec4(0.3f, 0.8f, 1.0f, 1.0f), "[Prefab] %s", item.name.c_str());
                 ImGui::TextDisabled("Tag: %s", item.tag.c_str());
 
-                // Edit Prefab Button
+                // プレハブ編集ボタン（インスペクターで編集モードを開く）
                 ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.8f, 0.5f, 0.1f, 1.0f));
                 if (ImGui::Button("Edit Prefab"))
                 {
@@ -121,7 +134,7 @@ void CContentDrawerUI::Draw()
                 }
                 ImGui::PopStyleColor();
 
-                // Spawn at Camera Front
+                // カメラ前方に生成するボタン
                 if (ImGui::Button("Spawn (Cam Front)"))
                 {
                     Camera* cam = ObjectManager::GetInstance().GetCamera();
@@ -153,7 +166,7 @@ void CContentDrawerUI::Draw()
                     }
                 }
 
-                // Spawn at Origin
+                // ワールド原点 (0, 0, 0) に生成するボタン
                 if (ImGui::Button("Spawn (Origin)"))
                 {
                     static int spawnCounter = 0;

@@ -1,23 +1,23 @@
 //ObjectManager_Getter_Setter.cpp
 
-//Getter,Setteré–¢é€£ã®å‡¦ç†
+//Getter,SetterŠÖ˜A‚Ìˆ—
 
-//====== ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ =====
+//====== ƒCƒ“ƒNƒ‹[ƒh =====
 
-//ãƒ˜ãƒƒãƒ€
+//ƒwƒbƒ_
 #include "ObjectManager.h"
 
-//ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
+//ƒRƒ“ƒ|[ƒlƒ“ƒg
 #include "ObjectInfo.h"
 
-//ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+//ƒIƒuƒWƒFƒNƒg
 #include "Player.h"
 #include "Camera.h"
 #include "Field.h"
 
 
 
-//====== ãƒ¡ã‚½ãƒƒãƒ‰å®šç¾© =====
+//====== ƒƒ\ƒbƒh’è‹` =====
 
 void ObjectManager::AddObject(ObjectTag _Tag, CObject* _Object)
 {
@@ -32,7 +32,7 @@ void ObjectManager::AddObject(ObjectTag _Tag, CObject* _Object)
 //----- Player -----
 CObject* ObjectManager::GetPlayer()
 {
-	//ä½•ã‚‚ç„¡ã„ãªã‚‰nullptr
+	//‰½‚à–³‚¢‚È‚çnullptr
 	if (vecObject[Object::objectTag::PLAYER].size() < 1)return nullptr;
 
 
@@ -40,10 +40,10 @@ CObject* ObjectManager::GetPlayer()
 }
 
 //----- Camera -----
-//Todo : è¤‡æ•°ã‚ã‚‹ã‚«ãƒ¡ãƒ©ã‚’å–å¾—ã§ãã‚‹ã‚ˆã†ã«ã™ã‚‹
+//Todo : •¡”‚ ‚éƒJƒƒ‰‚ğæ“¾‚Å‚«‚é‚æ‚¤‚É‚·‚é
 Camera* ObjectManager::GetCamera()
 {
-	//ä½•ã‚‚ç„¡ã„ãªã‚‰nullptr
+	//‰½‚à–³‚¢‚È‚çnullptr
 	if (vecObject[Object::objectTag::CAMERA].size() < 1)return nullptr;
 
 
@@ -51,18 +51,18 @@ Camera* ObjectManager::GetCamera()
 }
 
 //----- Manager -----
-//åå‰ã§æ¢ã—ã¦,Getã™ã‚‹
-//å°†æ¥çš„ã«ã¯ã€ObjectInfoã§æ¢ã—ã¦ã€Getã™ã‚Œã°ã„ã„ã‹ï¼Ÿ
+//–¼‘O‚Å’T‚µ‚Ä,Get‚·‚é
+//«—ˆ“I‚É‚ÍAObjectInfo‚Å’T‚µ‚ÄAGet‚·‚ê‚Î‚¢‚¢‚©H
 CObject* ObjectManager::GetManager(String name)
 {
 	for (auto& object : vecObject[Object::objectTag::MANAGER])
 	{
 		String str = object->GetComponent<CObjectInfo>()->GetObjectName();
 
-		//åå‰ã‚’getã™ã‚‹
+		//–¼‘O‚ğget‚·‚é
 		if (name == str)
 		{
-			//ä¸€è‡´ã—ã¦ã„ãŸã‚‰è¿”ã™
+			//ˆê’v‚µ‚Ä‚¢‚½‚ç•Ô‚·
 			return object.get();
 		}
 	}

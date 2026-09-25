@@ -1,4 +1,4 @@
-//===== インクルード =====
+//===== ?C???N???[?h =====
 #pragma once
 #include "../Base/Scene.h"
 
@@ -8,10 +8,10 @@
 #include "RenderPipeline.h"
 #include "RenderTexture.h"
 
-//===== 前方宣言 =====
+//===== ?O???? =====
 class CObject;
 
-//===== クラス定義 =====
+//===== ?N???X??` =====
 class SceneTitle : public CScene
 {
 public:

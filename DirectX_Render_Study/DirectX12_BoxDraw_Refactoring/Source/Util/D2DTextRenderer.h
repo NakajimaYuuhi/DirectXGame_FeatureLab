@@ -22,10 +22,10 @@ public:
     void Resize(UINT width, UINT height, IDXGISwapChain4* swapChain);
     void ReleaseSizeDependentResources();
 
-    // ãƒ†ã‚­ã‚¹ãƒˆæç”»ã®ãƒªã‚¯ã‚¨ã‚¹ãƒˆã‚’ç™»éŒ²
+    // ƒeƒLƒXƒg•`‰æ‚ÌƒŠƒNƒGƒXƒg‚ğ“o˜^
     void DrawTextStr(const std::wstring& text, float x, float y, float fontSize = 24.0f, D2D1::ColorF color = D2D1::ColorF::White, const std::wstring& fontFamily = L"Meiryo");
 
-    // æç”»å®Ÿè¡Œï¼ˆDX12ã®ãƒ¬ãƒ³ãƒ€ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã«å¯¾ã—ã¦ï¼‰
+    // •`‰æÀsiDX12‚ÌƒŒƒ“ƒ_[ƒ^[ƒQƒbƒg‚É‘Î‚µ‚Äj
     void Render(UINT frameIndex);
 
 private:
@@ -38,21 +38,21 @@ private:
     bool CreateSizeDependentResources(UINT width, UINT height, IDXGISwapChain4* swapChain);
 
 private:
-    // D3D11ã‚ªãƒ³12 é–¢é€£
+    // D3D11ƒIƒ“12 ŠÖ˜A
     ComPtr<ID3D11Device> m_d3d11Device;
     ComPtr<ID3D11DeviceContext> m_d3d11DeviceContext;
     ComPtr<ID3D11On12Device> m_d3d11On12Device;
 
-    // D2D é–¢é€£
+    // D2D ŠÖ˜A
     ComPtr<ID2D1Factory3> m_d2dFactory;
     ComPtr<ID2D1Device2> m_d2dDevice;
     ComPtr<ID2D1DeviceContext2> m_d2dContext;
 
-    // DWrite é–¢é€£
+    // DWrite ŠÖ˜A
     ComPtr<IDWriteFactory> m_dwriteFactory;
     ComPtr<IDWriteTextFormat> m_defaultTextFormat;
 
-    // ãƒãƒƒã‚¯ãƒãƒƒãƒ•ã‚¡é–¢é€£ã®ãƒªã‚½ãƒ¼ã‚¹
+    // ƒoƒbƒNƒoƒbƒtƒ@ŠÖ˜A‚ÌƒŠƒ\[ƒX
     struct FrameResources
     {
         ComPtr<ID3D11Resource> wrappedResource;
@@ -63,7 +63,7 @@ private:
     UINT m_width = 0;
     UINT m_height = 0;
 
-    // æç”»ãƒ†ã‚­ã‚¹ãƒˆæƒ…å ±
+    // •`‰æƒeƒLƒXƒgî•ñ
     struct TextInfo
     {
         std::wstring text;

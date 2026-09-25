@@ -1,8 +1,8 @@
 //3D_Object.h
-//3D描画するオブジェクトで使用する
-//TransformとかMeshをデフォルトで持っておくようにする
+//3D?`????I?u?W?F?N?g??g?p????
+//Transform???Mesh??f?t?H???g?????????????????
 
-//===== インクルード =====
+//===== ?C???N???[?h =====
 #pragma once
 #include "Object.h"
 #include <DirectXMath.h>
@@ -11,7 +11,7 @@
 #include "Transform.h"
 
 
-//===== クラスの定義 =====
+//===== ?N???X???` =====
 class C3D_Object : public CObject
 {
 public:
@@ -32,8 +32,8 @@ private:
     //----- Getter,Setter -----
 public:
     
-    //理想は外部データで持っていること
-    //--- 初期化用 ---
+    //???z??O???f?[?^?????????邱??
+    //--- ???????p ---
     //Transform
     void SetTransform(DirectX::XMFLOAT3 _Position, DirectX::XMFLOAT3 _Scale, DirectX::XMFLOAT3 _Rotation);
     //Mesh
@@ -41,7 +41,7 @@ public:
     //Material
     //void SetMaterial(wstring _TexturePath, XMFloat4 Color);
 
-    //--- 利便性のため追加 ---
+    //--- ???????????? ---
     DirectX::XMFLOAT3 GetPos();
     void	SetPos(DirectX::XMFLOAT3 _Position);
 
@@ -51,7 +51,7 @@ public:
     DirectX::XMFLOAT3	GetRotation();
     void	SetRotation(DirectX::XMFLOAT3 _Rotation);
 
-	//Front,Right,Upのベクトル取得
+	//Front,Right,Up??x?N?g???擾
 	DirectX::XMFLOAT3 GetFront()
     {
         CTransform* transform = GetComponent<CTransform>();

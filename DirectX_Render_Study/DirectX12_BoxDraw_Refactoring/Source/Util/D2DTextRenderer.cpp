@@ -17,7 +17,7 @@ bool D2DTextRenderer::Initialize(ID3D12Device* d3d12Device, ID3D12CommandQueue* 
     m_width = width;
     m_height = height;
 
-    // 1. D3D11ã‚ªãƒ³12ãƒ‡ãƒã‚¤ã‚¹ã®ä½œæˆ
+    // 1. D3D11ƒIƒ“12ƒfƒoƒCƒX‚Ìì¬
     UINT d3d11DeviceFlags = D3D11_CREATE_DEVICE_BGRA_SUPPORT;
 #if defined(_DEBUG)
     d3d11DeviceFlags |= D3D11_CREATE_DEVICE_DEBUG;
@@ -33,7 +33,7 @@ bool D2DTextRenderer::Initialize(ID3D12Device* d3d12Device, ID3D12CommandQueue* 
         _countof(featureLevels),
         &queueInterface,
         1,
-        0, // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒãƒ¼ãƒ‰
+        0, // ƒfƒtƒHƒ‹ƒgƒm[ƒh
         &m_d3d11Device,
         &m_d3d11DeviceContext,
         nullptr
@@ -51,7 +51,7 @@ bool D2DTextRenderer::Initialize(ID3D12Device* d3d12Device, ID3D12CommandQueue* 
         return false;
     }
 
-    // 2. Direct2D ãƒ‡ãƒã‚¤ã‚¹ã¨ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã®ä½œæˆ
+    // 2. Direct2D ƒfƒoƒCƒX‚ÆƒRƒ“ƒeƒLƒXƒg‚Ìì¬
     ComPtr<IDXGIDevice3> dxgiDevice;
     hr = m_d3d11Device.As(&dxgiDevice);
     if (FAILED(hr)) return false;
@@ -70,11 +70,11 @@ bool D2DTextRenderer::Initialize(ID3D12Device* d3d12Device, ID3D12CommandQueue* 
     hr = m_d2dDevice->CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE, &m_d2dContext);
     if (FAILED(hr)) return false;
 
-    // 3. DirectWrite ãƒ•ã‚¡ã‚¯ãƒˆãƒªã®ä½œæˆ
+    // 3. DirectWrite ƒtƒ@ƒNƒgƒŠ‚Ìì¬
     hr = DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED, __uuidof(IDWriteFactory), &m_dwriteFactory);
     if (FAILED(hr)) return false;
 
-    // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã®ä½œæˆ
+    // ƒfƒtƒHƒ‹ƒgƒeƒLƒXƒgƒtƒH[ƒ}ƒbƒg‚Ìì¬
     hr = m_dwriteFactory->CreateTextFormat(
         L"Meiryo",
         nullptr,
@@ -87,7 +87,7 @@ bool D2DTextRenderer::Initialize(ID3D12Device* d3d12Device, ID3D12CommandQueue* 
     );
     if (FAILED(hr)) return false;
 
-    // 4. ã‚µã‚¤ã‚ºä¾å­˜ãƒªã‚½ãƒ¼ã‚¹ï¼ˆãƒ¬ãƒ³ãƒ€ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ï¼‰ã®ä½œæˆ
+    // 4. ƒTƒCƒYˆË‘¶ƒŠƒ\[ƒXiƒŒƒ“ƒ_[ƒ^[ƒQƒbƒgƒrƒbƒgƒ}ƒbƒvj‚Ìì¬
     return CreateSizeDependentResources(width, height, swapChain);
 }
 
@@ -110,10 +110,10 @@ bool D2DTextRenderer::CreateSizeDependentResources(UINT width, UINT height, IDXG
     m_height = height;
     m_frameResources.resize(m_frameBufferCount);
 
-    // ãƒ†ã‚­ã‚¹ãƒˆè§£åƒåº¦ï¼ˆDPIï¼‰ã®è¨­å®š
+    // ƒeƒLƒXƒg‰ğ‘œ“xiDPIj‚Ìİ’è
     float dpiX = 96.0f;
     float dpiY = 96.0f;
-    // DPIæƒ…å ±ã‚’è¨­å®š
+    // DPIî•ñ‚ğİ’è
     m_d2dContext->SetDpi(dpiX, dpiY);
 
     D2D1_BITMAP_PROPERTIES1 bitmapProperties = D2D1::BitmapProperties1(
@@ -129,7 +129,7 @@ bool D2DTextRenderer::CreateSizeDependentResources(UINT width, UINT height, IDXG
         HRESULT hr = swapChain->GetBuffer(i, IID_PPV_ARGS(&backBuffer));
         if (FAILED(hr)) return false;
 
-        // D3D11ã®ãƒªã‚½ãƒ¼ã‚¹ã¨ã—ã¦ãƒ©ãƒƒãƒ—ã™ã‚‹
+        // D3D11‚ÌƒŠƒ\[ƒX‚Æ‚µ‚Äƒ‰ƒbƒv‚·‚é
         D3D11_RESOURCE_FLAGS d3d11Flags = { D3D11_BIND_RENDER_TARGET };
         hr = m_d3d11On12Device->CreateWrappedResource(
             backBuffer.Get(),
@@ -141,12 +141,12 @@ bool D2DTextRenderer::CreateSizeDependentResources(UINT width, UINT height, IDXG
 
         if (FAILED(hr)) return false;
 
-        // DXGI ã‚µãƒ¼ãƒ•ã‚§ã‚¹ã‚’å–å¾—
+        // DXGI ƒT[ƒtƒFƒX‚ğæ“¾
         ComPtr<IDXGISurface> dxgiSurface;
         hr = m_frameResources[i].wrappedResource.As(&dxgiSurface);
         if (FAILED(hr)) return false;
 
-        // D2D ãƒ“ãƒƒãƒˆãƒãƒƒãƒ—ã‚’ä½œæˆ
+        // D2D ƒrƒbƒgƒ}ƒbƒv‚ğì¬
         hr = m_d2dContext->CreateBitmapFromDxgiSurface(
             dxgiSurface.Get(),
             &bitmapProperties,
@@ -195,25 +195,25 @@ void D2DTextRenderer::Render(UINT frameIndex)
 
     ID3D11Resource* wrappedResource = m_frameResources[frameIndex].wrappedResource.Get();
 
-    // 1. ãƒ©ãƒƒãƒ—ã•ã‚ŒãŸãƒªã‚½ãƒ¼ã‚¹ã‚’å–å¾— (RENDER_TARGET ã«é·ç§»)
+    // 1. ƒ‰ƒbƒv‚³‚ê‚½ƒŠƒ\[ƒX‚ğæ“¾ (RENDER_TARGET ‚É‘JˆÚ)
     m_d3d11On12Device->AcquireWrappedResources(&wrappedResource, 1);
 
-    // ãƒ†ã‚­ã‚¹ãƒˆãŒã‚ã‚‹å ´åˆã®ã¿æç”»ã‚’è¡Œã†
+    // ƒeƒLƒXƒg‚ª‚ ‚éê‡‚Ì‚İ•`‰æ‚ğs‚¤
     if (!m_textQueue.empty())
     {
-        // 2. ãƒ¬ãƒ³ãƒ€ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã®è¨­å®š
+        // 2. ƒŒƒ“ƒ_[ƒ^[ƒQƒbƒg‚Ìİ’è
         m_d2dContext->SetTarget(m_frameResources[frameIndex].d2dBitmap.Get());
 
-        // 3. æç”»é–‹å§‹
+        // 3. •`‰æŠJn
         m_d2dContext->BeginDraw();
 
         for (const auto& info : m_textQueue)
         {
-            // è‰²ãƒ–ãƒ©ã‚·ã®ä½œæˆ
+            // Fƒuƒ‰ƒV‚Ìì¬
             ComPtr<ID2D1SolidColorBrush> brush;
             m_d2dContext->CreateSolidColorBrush(info.color, &brush);
 
-            // ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã®ä½œæˆ
+            // ƒeƒLƒXƒgƒtƒH[ƒ}ƒbƒg‚Ìì¬
             ComPtr<IDWriteTextFormat> textFormat;
             if (info.fontSize == 24.0f && info.fontFamily == L"Meiryo")
             {
@@ -235,7 +235,7 @@ void D2DTextRenderer::Render(UINT frameIndex)
 
             if (textFormat && brush)
             {
-                // æç”»é ˜åŸŸã®è¨­å®š
+                // •`‰æ—Ìˆæ‚Ìİ’è
                 D2D1_RECT_F rect = D2D1::RectF(info.x, info.y, (float)m_width, (float)m_height);
                 m_d2dContext->DrawText(
                     info.text.c_str(),
@@ -247,16 +247,16 @@ void D2DTextRenderer::Render(UINT frameIndex)
             }
         }
 
-        // 4. æç”»çµ‚äº†
+        // 4. •`‰æI—¹
         m_d2dContext->EndDraw();
     }
 
-    // 5. ãƒªã‚½ãƒ¼ã‚¹ã‚’è§£æ”¾ (PRESENT ã«é·ç§»)
+    // 5. ƒŠƒ\[ƒX‚ğ‰ğ•ú (PRESENT ‚É‘JˆÚ)
     m_d3d11On12Device->ReleaseWrappedResources(&wrappedResource, 1);
 
-    // 6. ãƒ•ãƒ©ãƒƒã‚·ãƒ¥
+    // 6. ƒtƒ‰ƒbƒVƒ…
     m_d3d11DeviceContext->Flush();
 
-    // ã‚­ãƒ¥ãƒ¼ã‚’ã‚¯ãƒªã‚¢
+    // ƒLƒ…[‚ğƒNƒŠƒA
     m_textQueue.clear();
 }

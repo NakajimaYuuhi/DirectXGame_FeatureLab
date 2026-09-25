@@ -2,7 +2,7 @@
 #include <algorithm>
 #pragma comment(lib, "xinput.lib")
 //------------------------------------------------------------------------------
-// インスタンス取得（唯一のインスタンスを返す）
+// ?C???X?^???X?擾?i?B???C???X?^???X?????j
 //------------------------------------------------------------------------------
 CInputManager& CInputManager::GetInstance()
 {
@@ -11,88 +11,88 @@ CInputManager& CInputManager::GetInstance()
 }
 
 //------------------------------------------------------------------------------
-// コンストラクタ
+// ?R???X?g???N?^
 //------------------------------------------------------------------------------
 CInputManager::CInputManager()
 {
-    // キー入力配列を初期化
+    // ?L?[????z????????
     ZeroMemory(m_keyTable, sizeof(m_keyTable));
     ZeroMemory(m_oldKeyTable, sizeof(m_oldKeyTable));
 
-    // ゲームパッド入力状態を初期化
+    // ?Q?[???p?b?h????????????
     ZeroMemory(&m_state, sizeof(m_state));
     ZeroMemory(&m_oldstate, sizeof(m_oldstate));
 
-    // 振動を初期化（停止状態）
+    // ?U??????????i??~???j
     ZeroMemory(&m_vibration, sizeof(m_vibration));
 }
 
 //------------------------------------------------------------------------------
-// 毎フレーム呼ぶ更新処理
-// キーボードとゲームパッドの状態を取得して保持
+// ???t???[?????X?V????
+// ?L?[?{?[?h??Q?[???p?b?h?????擾??????
 //------------------------------------------------------------------------------
 void CInputManager::Update()
 {
-    //--- キーボード更新 ---
+    //--- ?L?[?{?[?h?X?V ---
     for (int i = 0; i < 256; ++i)
     {
-        // 前フレームの状態を保存
+        // ?O?t???[?????????
         m_oldKeyTable[i] = m_keyTable[i];
 
-        // 現在のキー状態を取得（押されているなら1、押されていなければ0）
+        // ?????L?[????擾?i????????????1?A??????????????0?j
         m_keyTable[i] = (GetAsyncKeyState(i) & 0x8000) ? 1 : 0;
     }
 
-    //このフレームで入力したキーを保存
+    //????t???[???????????L?[????
     m_oldstate = m_state;
 
-    //--- ゲームパッド更新 ---
+    //--- ?Q?[???p?b?h?X?V ---
 
     ZeroMemory(&m_state, sizeof(XINPUT_STATE));
-    DWORD dwResult = XInputGetState(0, &m_state); // プレイヤー1のみ入力を取る
+    DWORD dwResult = XInputGetState(0, &m_state); // ?v???C???[1?????????
     if (dwResult != ERROR_SUCCESS)
     {
-        // 未接続の場合はすべて0
+        // ??????????????0
         ZeroMemory(&m_state.Gamepad, sizeof(XINPUT_GAMEPAD));
     }
 
   
 
-    // アナログスティックのデッドゾーン処理
+    // ?A?i???O?X?e?B?b?N??f?b?h?]?[??????
     if ((m_state.Gamepad.sThumbLX < XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE &&
         m_state.Gamepad.sThumbLX > -XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE) &&
         (m_state.Gamepad.sThumbLY < XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE &&
             m_state.Gamepad.sThumbLY > -XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE))
     {
-        // 微小な入力を0として無視
+        // ??????????0????????
         m_state.Gamepad.sThumbLX = 0;
         m_state.Gamepad.sThumbLY = 0;
     }
 
-    //--- 振動リセット ---
+    //--- ?U?????Z?b?g ---
     ZeroMemory(&m_vibration, sizeof(XINPUT_VIBRATION));
 }
 
 //------------------------------------------------------------------------------
-// キーボード判定関数
+// ?L?[?{?[?h??????
 //------------------------------------------------------------------------------
 bool CInputManager::IsKeyPress(int key) const
 {
-    return m_keyTable[key]; // 押されているか
+    return m_keyTable[key]; // ??????????
 }
 
 bool CInputManager::IsKeyTrigger(int key) const
 {
-    return m_keyTable[key] && !m_oldKeyTable[key]; // 押された瞬間
+    return m_keyTable[key] && !m_oldKeyTable[key]; // ???????u??
 }
 
 bool CInputManager::IsKeyRelease(int key) const
 {
-    return !m_keyTable[key] && m_oldKeyTable[key]; // 離された瞬間
+    return !m_keyTable[key] && m_oldKeyTable[key]; // ???????u??
 }
 
 //------------------------------------------------------------------------------
-// ゲームパッド判定
+// ?Q?[???p?b?h????
 //------------------------------------------------------------------------------
 bool CInputManager::IsPadPress(WORD button) const
 {
@@ -109,7 +109,7 @@ bool CInputManager::IsPadRelease(WORD button) const
     return !(m_state.Gamepad.wButtons & button) && (m_oldstate.Gamepad.wButtons & button);
 }
 
-// アナログスティック (-1.0f ~ 1.0f)
+// ?A?i???O?X?e?B?b?N (-1.0f ~ 1.0f)
 float CInputManager::GetThumbLX() const
 {
     return m_state.Gamepad.sThumbLX / 32767.0f;
@@ -120,7 +120,7 @@ float CInputManager::GetThumbLY() const
     return m_state.Gamepad.sThumbLY / 32767.0f;
 }
 
-// トリガー入力 (0~255)
+// ?g???K?[???? (0~255)
 BYTE CInputManager::GetLeftTrigger() const
 {
     return m_state.Gamepad.bLeftTrigger;
@@ -132,7 +132,7 @@ BYTE CInputManager::GetRightTrigger() const
 }
 
 //------------------------------------------------------------------------------
-// ゲームパッド振動設定
+// ?Q?[???p?b?h?U?????
 // leftMotor, rightMotor = 0~65535
 //------------------------------------------------------------------------------
 void CInputManager::SetVibration(WORD leftMotor, WORD rightMotor)

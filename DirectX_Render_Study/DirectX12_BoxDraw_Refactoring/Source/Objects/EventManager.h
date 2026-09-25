@@ -9,55 +9,55 @@ class EventManager
 {
 public:
 
-	//----- 基本の処理 -----
-	void Init(void) {}		//初期化
-	void Uninit(void) {}	//終了処理
-	void Update(void) {}	//更新処理
+	//----- ??{????? -----
+	void Init(void) {}		//??????
+	void Uninit(void) {}	//?I??????
+	void Update(void) {}	//?X?V????
 
-	//----- イベントの管理 -----
-	//追加
+	//----- ?C?x???g???? -----
+	//???
 	void AddEvent(Event _event){eventList.push_back(_event);}
 
-	//取得
+	//?擾
 	const Vector<Event>& GetEventList() const{return eventList;}
 
-	//クリア
+	//?N???A
 	void ClearEvents(){eventList.clear();}
 
-	//削除(インデックス)
+	//??(?C???f?b?N?X)
 	void RemoveEvent(int _index){eventList.erase(eventList.begin() + _index);}
 
-	//削除
+	//??
 
 
 
-	// イベントの検索
+	// ?C?x???g?????
 	Event* FindEventByID(Events::ID _ID);
 
 private:
 	Vector<Event> eventList;
 
-//----- シングルトンの実装に必要 -----
+//----- ?V???O???g?????????K?v -----
 public:
 	static EventManager& GetInstance()
 	{
 		static EventManager Instance;
 
-		//インスタンスを返す
+		//?C???X?^???X????
 		return Instance;
 	}
 
 private:
-	//コンストラクタ
+	//?R???X?g???N?^
 	EventManager()=default;
 
-	//デストラクタ
+	//?f?X?g???N?^
 	~EventManager() = default;
 
-	//コピー禁止
+	//?R?s?[??~
 	EventManager(const EventManager&) = delete;
 
-	//代入禁止
+	//?????~
 	EventManager& operator=(const EventManager&) = delete;
 };
 

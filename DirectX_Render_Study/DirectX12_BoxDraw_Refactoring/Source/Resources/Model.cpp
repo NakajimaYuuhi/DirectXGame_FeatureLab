@@ -62,7 +62,7 @@ void CModel::UpdateBones()
   			m_Bones[i]->inverseBindPose * m_Bones[i]->globalPose);
 	}
 
-		//アニメーションがおかしかったら、ここをぁE  めE
+		//?A?j???[?V????????????????????A???????E  ??E
 		//m_SkinningMatrices[i] =
 		//	 m_Bones[i]->inverseBindPose* m_Bones[i]->globalPose;
 	
@@ -70,7 +70,7 @@ void CModel::UpdateBones()
 
 void CModel::CreateTmpBoneData()
 {
-	//----- チEEンのチE Eタ仮?EE -----
+	//----- ?`EE????`E E?^???EE -----
 	Bone bone;
 	bone = std::make_shared<CBone>();
 
@@ -78,18 +78,18 @@ void CModel::CreateTmpBoneData()
 	bone->parentIndex = -1;
 	bone->children = {};
 
-	// 初期姿勢 E EindPose E E
+	// ?????p?? E EindPose E E
 	bone->localBindPose = DirectX::XMMatrixIdentity();
 
-	// 送E   E
+	// ??E   E
 	bone->inverseBindPose = DirectX::XMMatrixInverse(nullptr, bone->localBindPose);
 
-	// 現在チEEズ
+	// ????`EE?Y
 	bone->localPose = DirectX::XMMatrixIdentity();
 	bone->globalPose = DirectX::XMMatrixIdentity();
 	m_Bones.push_back(bone);
 
-	//チEEンバッファの?EE
+	//?`EE???o?b?t?@???EE
 	CreateBoneBuffer();
 }
 
@@ -103,7 +103,7 @@ void CModel::CreateBoneBuffer()
 	UINT bufferSize = sizeof(DirectX::XMMATRIX) * boneCount;
 
 	//=============================
-	//    リソース?EE E EPLOAD E E
+	//    ???\?[?X?EE E EPLOAD E E
 	//=============================
 	CD3DX12_HEAP_PROPERTIES heapProps(D3D12_HEAP_TYPE_UPLOAD);
 	CD3DX12_RESOURCE_DESC resourceDesc = CD3DX12_RESOURCE_DESC::Buffer(bufferSize);
@@ -118,16 +118,16 @@ void CModel::CreateBoneBuffer()
 	);
 
 	//=============================
-	// ② SRVの登録
+	// ?A SRV??o?^
 	//=============================
 
 	DX12Manager::GetInstance().GetSRVAllocator()->Alloc(&m_BoneSrvCpuHandle, &m_BoneSrvGpuHandle);
 
 	//========================
-	// ③ SRV?EE
+	// ?B SRV?EE
 	//========================
 	D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
-	srvDesc.Format = DXGI_FORMAT_UNKNOWN; // StructuredBufferはUNORM不要E
+	srvDesc.Format = DXGI_FORMAT_UNKNOWN; // StructuredBuffer??UNORM?s?vE
 	srvDesc.ViewDimension = D3D12_SRV_DIMENSION_BUFFER;
 	srvDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
 
@@ -219,46 +219,46 @@ void CModel::ModelLoad(std::string _Path)
 		}
 	}
 
-	//ラ  ダ関数の定義
+	//??  ?_??????`
 	auto lambdaComputeBindPose = [&](auto& self, int nodeIdx, const DirectX::XMMATRIX& parentMatrix) -> void 
 	{
-		//Boneの取征E
+		//Bone???E
 		auto& bone = m_Bones[nodeIdx];
 
-		// グローバル?EE = 自身のローカル * 親のグローバル
+		// ?O???[?o???EE = ???g????[?J?? * ?e??O???[?o??
 		bone->globalBindPose = bone->localBindPose * parentMatrix;
-		bone->globalPose = bone->globalBindPose; // 現在のチEEズも同?E
+		bone->globalPose = bone->globalBindPose; // ?????`EE?Y????E
 
-		// 子ノードへ伝播
+		// ?q?m?[?h??`?d
 		for (int childIdx : bone->children) 
 		{
 			self(self, childIdx, bone->globalBindPose);
 		}
 	};
 
-	//親がいなぁE  ード！EarentIndex == -1 の RootチEEド）を起点に走らせめE
+	//?e???????E  ?[?h?IEarentIndex == -1 ?? Root?`EE?h?j??N?_????点??E
 	for (int i = 0; i < m_Bones.size(); ++i)
 	{
-		//-1が起点
+		//-1???N?_
 		if (m_Bones[i]->parentIndex == -1)
 		{
 			lambdaComputeBindPose(lambdaComputeBindPose, i, DirectX::XMMatrixIdentity());
 		}
 	}
 
-	//-- 4.SkinData から正式な inverseBindPose E 送E   E E を割り当てめE
-	// まぁEEチEEドに対して、スチE  チEのglobalBindPoseの送E   Eを?EE用に入れておく
+	//-- 4.SkinData ???琳???? inverseBindPose E ??E   E E ????蓖???E
+	// ???EE?`EE?h??????A?X?`E  ?`E??globalBindPose???E   E???EE?p?????????
 	for (auto& bone : m_Bones)
 	{
 		bone->inverseBindPose = DirectX::XMMatrixInverse(nullptr, bone->globalBindPose);
 	}
 
-	// スキンチE Eタ E  Eーン?E   E がある   合、gLTFの正確な送E  インド?EEで上書ぁE
+	// ?X?L???`E E?^ E  E?[???E   E ??????   ???AgLTF????m???E  ?C???h?EE?????E
 	if (!loadedModelData.skins.empty())
 	{
-		//単一スキンを想?E
-		//単 ?スキンを想?E
-		const auto& skin = loadedModelData.skins[0]; // キャラクター用の単 ?skin
+		//?P??X?L????z?E
+		//?P ??X?L????z?E
+		const auto& skin = loadedModelData.skins[0]; // ?L?????N?^?[?p??P ?skin
 		m_SkinJoints = skin.joints;
 
 		for (size_t i = 0; i < skin.joints.size(); ++i)
@@ -271,12 +271,12 @@ void CModel::ModelLoad(std::string _Path)
 		}
 	}
 
-	//チEEンバッファ?EE
+	//?`EE???o?b?t?@?EE
 	CreateBoneBuffer();
 
 
-	//----- マテリアル?EE -----
-	//マテリアル仮?EE
+	//----- ?}?e???A???EE -----
+	//?}?e???A?????EE
 	//    f   ?f B   N g   p X ??o
 	std::string directory = "";
 	size_t lastSlash = _Path.find_last_of("/\\");
@@ -364,13 +364,13 @@ void CModel::ModelLoad(std::string _Path)
 
 
 
-	//返って来たものから、Mesh,Material,BoneのチE Eタを?EEする
-	//MakeBones(チEEチEEチE Eタから?EE) 
-	//Skinの?E  を探索して、BoneのインチE  クスのリストを?EEする
+	//??????????????AMesh,Material,Bone??`E E?^???EE????
+	//MakeBones(?`EE?`EE?`E E?^?????EE) 
+	//Skin???E  ??T??????ABone??C???`E  ?N?X????X?g???EE????
 
 	
 
-	//MakeMashes(マテリアルのチE Eタから?EE)
+	//MakeMashes(?}?e???A????`E E?^?????EE)
 
 	//MakeMaterials
 
@@ -401,15 +401,15 @@ void CModel::Update()
 
 void CModel::Draw() 
 {
-	//チEEンの更新
+	//?`EE????X?V
 	UpdateBones();
 
-	//static float time = 0.01f; // 適当に時間
+	//static float time = 0.01f; // ?K???????
 	//time += 0.01f;
 	//DirectX::XMMATRIX rot = DirectX::XMMatrixRotationX(time);
 	//m_Bones[0]->localPose = rot;
 
-	// GPUへチEEン?EEを送る
+	// GPU??`EE???EE????
 	UpdateBoneBuffer();
 
 	ID3D12GraphicsCommandList* commandList =
@@ -424,7 +424,7 @@ void CModel::Draw()
 
 	CTransform* transform = m_Owner->GetComponent<CTransform>();
 
-	//Meshの描画
+	//Mesh??`??
 	for (size_t i = 0; i < m_Meshes.size(); ++i)
 	{
 		m_Meshes[i]->SetBoneSRV(m_BoneSrvGpuHandle);
@@ -462,15 +462,15 @@ void CModel::RegisterMesh(UINT _MatIdx, const MeshVertex* vertices, size_t verte
 	m_MeshMaterialIndices.push_back(_MatIdx);
 }
 
-//ファイルチE Eタ通りに読み込むこと前提
-//色  け変えたキャラクターを用意したいなら、何か手段を老E  めEE  があるかめE
+//?t?@?C???`E E?^????????????O??
+//?F  ????????L?????N?^?[??p??????????A??????i??VE  ??EE  ????????E
 UINT CModel::RegisterMatarial(wstring _FilePath, DirectX::XMFLOAT4 _Color)
 {
-	//MaterialのVectorに追  
-	//ここでチE  スチャの読み込みも行う
+	//Material??Vector???  
+	//??????`E  ?X?`??????????s??
 	m_Materials.push_back(std::make_shared<CMaterial>(_FilePath, _Color));
 
-	//LastIndexを返せばぁE  ぁEキャチE  ュがあめEE話は別かも)
+	//LastIndex???????E  ??E?L???`E  ????????EE?b??????)
 	return m_Materials.size() - 1;
 }
 

@@ -20,7 +20,7 @@ namespace Scenes
 
 		Exit,
 
-		NUM,//ƒV[ƒ“‚ÌÅ‘å”
+		NUM,//?V?[??????
 	}ID;
 
 }

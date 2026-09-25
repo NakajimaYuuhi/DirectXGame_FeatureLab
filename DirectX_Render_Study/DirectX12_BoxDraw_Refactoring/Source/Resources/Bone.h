@@ -3,21 +3,21 @@
 #include "StringAlias.h"
 #include "ContainerAlias.h"
 
-//ボーンの情報
+//?{?[??????
 class CBone
 {
 public:
     string name;
 
-    int parentIndex; // -1ならルート
+    int parentIndex; // -1??烋?[?g
     Vector<int> children;
 
-    DirectX::XMMATRIX localBindPose;     // 初期ローカル
-    DirectX::XMMATRIX globalBindPose;    // 初期グローバル
-    DirectX::XMMATRIX inverseBindPose;   // 逆行列（超重要）
+    DirectX::XMMATRIX localBindPose;     // ???????[?J??
+    DirectX::XMMATRIX globalBindPose;    // ?????O???[?o??
+    DirectX::XMMATRIX inverseBindPose;   // ?t?s??i???d?v?j
 
-    DirectX::XMMATRIX localPose;   // 現在のローカル（アニメーション）
-    DirectX::XMMATRIX globalPose;  // 親子伝播後
+    DirectX::XMMATRIX localPose;   // ???????[?J???i?A?j???[?V?????j
+    DirectX::XMMATRIX globalPose;  // ?e?q?`?d??
 
     // TRS for animation
     DirectX::XMFLOAT3 translation;
