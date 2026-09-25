@@ -475,7 +475,7 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
         else 
         {
             // TRS ?? ?s???????K?v??????????
-            // ????????\
+            // ????????
         }
 
         //--- Skin index?i?X?P???g???j ---
@@ -485,7 +485,7 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
         loadedModelData.nodes.push_back(nodeData);
     }
 
-    //----- ?X?L????f?[?^??èÔ -----
+    // Skin Data Parse
     for (const auto& skin : model.skins)
     {
         SkinData skinData;
@@ -597,3 +597,4 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
     //?l????
     return loadedModelData;
 }
+

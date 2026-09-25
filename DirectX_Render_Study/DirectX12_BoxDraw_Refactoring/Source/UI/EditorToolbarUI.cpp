@@ -1,5 +1,6 @@
 #include "EditorToolbarUI.h"
 #include "InspectorUI.h"
+#include "Source/Core/UndoManager.h"
 #include "ContentDrawerUI.h"
 #include "imgui.h"
 #include "ObjectManager.h"
@@ -8,7 +9,7 @@
 #include "Source/Core/Scenes/Serializer/SceneSerializer.h"
 
 // -----------------------------------------------------------------
-// ƒc[ƒ‹ƒo[UI‚Ì•`‰æXVˆ—iƒfƒoƒbƒOƒrƒ‹ƒh‚Ì‚İ—LŒøj
+// ãƒ„ãƒ¼ãƒ«ãƒãƒ¼UIã®æç”»æ›´æ–°å‡¦ç†ï¼ˆãƒ‡ãƒãƒƒã‚°ãƒ“ãƒ«ãƒ‰æ™‚ã®ã¿æœ‰åŠ¹ï¼‰
 // -----------------------------------------------------------------
 void CEditorToolbarUI::Draw()
 {
@@ -22,12 +23,12 @@ void CEditorToolbarUI::Draw()
     if (ImGui::Begin("Editor Toolbar", &m_isVisible, ImGuiWindowFlags_NoScrollbar))
     {
         // ---------------------------------------------------------
-        // 1. ƒvƒŒƒCƒ‚[ƒh / •ÒWƒ‚[ƒh / ƒvƒŒƒnƒu•ÒWƒ‚[ƒh‚Ì§Œäƒ{ƒ^ƒ“
+        // 1. ãƒ—ãƒ¬ã‚¤ãƒ¢ãƒ¼ãƒ‰ / ç·¨é›†ãƒ¢ãƒ¼ãƒ‰ / ãƒ—ãƒ¬ãƒãƒ–ç·¨é›†ãƒ¢ãƒ¼ãƒ‰ã®åˆ¶å¾¡ãƒœã‚¿ãƒ³
         // ---------------------------------------------------------
         bool isPrefabMode = CInspectorUI::GetInstance().IsPrefabEditMode();
         if (isPrefabMode)
         {
-            // ƒvƒŒƒnƒu•ÒWƒXƒe[ƒW’†‚Ì‘€ìƒ{ƒ^ƒ“
+            // ãƒ—ãƒ¬ãƒãƒ–ç·¨é›†ã‚¹ãƒ†ãƒ¼ã‚¸ä¸­ã®æ“ä½œãƒœã‚¿ãƒ³
             std::string path = CInspectorUI::GetInstance().GetEditingPrefabPath();
             ImGui::TextColored(ImVec4(1.0f, 0.8f, 0.2f, 1.0f), "[PREFAB STAGE MODE] %s", path.c_str());
             ImGui::SameLine();
@@ -43,7 +44,7 @@ void CEditorToolbarUI::Draw()
         }
         else
         {
-            // ’ÊíƒV[ƒ“‚Å‚Ì•ÒWEÄ¶Eˆê’â~Ø‘Ö
+            // é€šå¸¸ã‚·ãƒ¼ãƒ³ã§ã®ç·¨é›†ãƒ»å†ç”Ÿãƒ»ä¸€æ™‚åœæ­¢åˆ‡æ›¿
             bool isEditMode = CInspectorUI::GetInstance().IsEditMode();
             bool isPaused = CInspectorUI::GetInstance().IsPaused();
 
@@ -78,7 +79,7 @@ void CEditorToolbarUI::Draw()
         ImGui::SameLine();
 
         // ---------------------------------------------------------
-        // 2. ƒMƒYƒ‚‘€ìƒ‚[ƒhØ‚è‘Ö‚¦iˆÚ“®: W / ‰ñ“]: E / Šg‘åk¬: Rj
+        // 2. ã‚®ã‚ºãƒ¢æ“ä½œãƒ¢ãƒ¼ãƒ‰åˆ‡ã‚Šæ›¿ãˆï¼ˆç§»å‹•: W / å›è»¢: E / æ‹¡å¤§ç¸®å°: Rï¼‰
         // ---------------------------------------------------------
         GizmoMode currentGizmoMode = CInspectorUI::GetInstance().GetGizmoMode();
         if (currentGizmoMode == GizmoMode::Translate) ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.2f, 0.6f, 0.9f, 1.0f));
@@ -99,8 +100,41 @@ void CEditorToolbarUI::Draw()
         ImGui::Text("|");
         ImGui::SameLine();
 
+        // 3. Undo / Redo Controls
+        bool canUndo = UndoManager::GetInstance().CanUndo();
+        if (!canUndo) ImGui::BeginDisabled();
+        if (ImGui::Button("Undo (Ctrl+Z)"))
+        {
+            UndoManager::GetInstance().Undo();
+        }
+        if (!canUndo) ImGui::EndDisabled();
+        if (canUndo && ImGui::IsItemHovered())
+        {
+            ImGui::SetTooltip("Undo: %s", UndoManager::GetInstance().GetUndoName().c_str());
+        }
+
+        ImGui::SameLine();
+
+        bool canRedo = UndoManager::GetInstance().CanRedo();
+        if (!canRedo) ImGui::BeginDisabled();
+        if (ImGui::Button("Redo (Ctrl+Y)"))
+        {
+            UndoManager::GetInstance().Redo();
+        }
+        if (!canRedo) ImGui::EndDisabled();
+        if (canRedo && ImGui::IsItemHovered())
+        {
+            ImGui::SetTooltip("Redo: %s", UndoManager::GetInstance().GetRedoName().c_str());
+        }
+
+        ImGui::SameLine();
+        ImGui::Text("|");
+        ImGui::SameLine();
+
+        // 4. Save / Reload Scene
+
         // ---------------------------------------------------------
-        // 3. ƒV[ƒ“‚ÌƒVƒŠƒAƒ‰ƒCƒY‘€ìi•Û‘¶ / Ä“Ç‚İ‚İj
+        // 3. ã‚·ãƒ¼ãƒ³ã®ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºæ“ä½œï¼ˆä¿å­˜ / å†èª­ã¿è¾¼ã¿ï¼‰
         // ---------------------------------------------------------
         if (ImGui::Button("Save Scene"))
         {
@@ -122,7 +156,7 @@ void CEditorToolbarUI::Draw()
         ImGui::SameLine();
 
         // ---------------------------------------------------------
-        // 4. UIƒTƒuƒEƒBƒ“ƒhƒE‚ÌŠJ•ÂƒgƒOƒ‹iƒRƒ“ƒeƒ“ƒcƒhƒƒ[j
+        // 4. UIã‚µãƒ–ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®é–‹é–‰ãƒˆã‚°ãƒ«ï¼ˆã‚³ãƒ³ãƒ†ãƒ³ãƒ„ãƒ‰ãƒ­ãƒ¯ãƒ¼ï¼‰
         // ---------------------------------------------------------
         if (ImGui::Button("Content Drawer (Ctrl+Space)"))
         {

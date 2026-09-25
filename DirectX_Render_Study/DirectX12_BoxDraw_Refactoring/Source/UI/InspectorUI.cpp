@@ -1,5 +1,6 @@
 #include "InspectorUI.h"
 #include "Source/Core/EditorRaycast.h"
+#include "Source/Core/UndoManager.h"
 #include <d3d12.h>
 #include "ContentDrawerUI.h"
 #include "ModelManager.h"
@@ -124,12 +125,29 @@ void CInspectorUI::Draw()
     ImGuiIO& io = ImGui::GetIO();
     Camera* camera = ObjectManager::GetInstance().GetCamera();
 
-    // Keyboard Shortcuts for Gizmo Modes (W = Translate, E = Rotate, R = Scale)
+    // Keyboard Shortcuts (Undo: Ctrl+Z, Redo: Ctrl+Y / Ctrl+Shift+Z, Gizmo Mode: W/E/R)
     if (!io.WantCaptureKeyboard && !io.WantTextInput)
     {
-        if (ImGui::IsKeyPressed(ImGuiKey_W)) m_gizmoMode = GizmoMode::Translate;
-        if (ImGui::IsKeyPressed(ImGuiKey_E)) m_gizmoMode = GizmoMode::Rotate;
-        if (ImGui::IsKeyPressed(ImGuiKey_R)) m_gizmoMode = GizmoMode::Scale;
+        if (io.KeyCtrl)
+        {
+            if (ImGui::IsKeyPressed(ImGuiKey_Z))
+            {
+                if (io.KeyShift)
+                    UndoManager::GetInstance().Redo();
+                else
+                    UndoManager::GetInstance().Undo();
+            }
+            else if (ImGui::IsKeyPressed(ImGuiKey_Y))
+            {
+                UndoManager::GetInstance().Redo();
+            }
+        }
+        else
+        {
+            if (ImGui::IsKeyPressed(ImGuiKey_W)) m_gizmoMode = GizmoMode::Translate;
+            if (ImGui::IsKeyPressed(ImGuiKey_E)) m_gizmoMode = GizmoMode::Rotate;
+            if (ImGui::IsKeyPressed(ImGuiKey_R)) m_gizmoMode = GizmoMode::Scale;
+        }
     }
 
     // 3D Viewport Mouse Picking (Raycasting)
@@ -1264,6 +1282,24 @@ void CInspectorUI::Draw()
                         {
                             m_isDraggingGizmo = false;
                             m_draggedAxis = -1;
+
+                            DirectX::XMFLOAT3 curPos = transform->GetPos();
+                            DirectX::XMFLOAT3 curRot = transform->GetRotation();
+                            DirectX::XMFLOAT3 curScale = transform->GetScale();
+
+                            if (curPos.x != m_dragStartPos.x || curPos.y != m_dragStartPos.y || curPos.z != m_dragStartPos.z ||
+                                curRot.x != m_dragStartRot.x || curRot.y != m_dragStartRot.y || curRot.z != m_dragStartRot.z ||
+                                curScale.x != m_dragStartScale.x || curScale.y != m_dragStartScale.y || curScale.z != m_dragStartScale.z)
+                            {
+                                UndoManager::GetInstance().RecordCommand(
+                                    std::make_unique<TransformUndoCommand>(
+                                        targetObj,
+                                        m_dragStartPos, curPos,
+                                        m_dragStartRot, curRot,
+                                        m_dragStartScale, curScale
+                                    )
+                                );
+                            }
                         }
                     }
                     else
@@ -1274,9 +1310,12 @@ void CInspectorUI::Draw()
                             m_draggedAxis = hoverAxis;
                             m_dragStartMouseX = mousePos.x;
                             m_dragStartMouseY = mousePos.y;
-                            if (m_gizmoMode == GizmoMode::Translate) m_dragStartVal = transform->GetPos();
-                            else if (m_gizmoMode == GizmoMode::Rotate) m_dragStartVal = transform->GetRotation();
-                            else if (m_gizmoMode == GizmoMode::Scale) m_dragStartVal = transform->GetScale();
+                            m_dragStartPos = transform->GetPos();
+                            m_dragStartRot = transform->GetRotation();
+                            m_dragStartScale = transform->GetScale();
+                            if (m_gizmoMode == GizmoMode::Translate) m_dragStartVal = m_dragStartPos;
+                            else if (m_gizmoMode == GizmoMode::Rotate) m_dragStartVal = m_dragStartRot;
+                            else if (m_gizmoMode == GizmoMode::Scale) m_dragStartVal = m_dragStartScale;
                         }
                     }
 

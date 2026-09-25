@@ -76,4 +76,7 @@ private:
     float m_dragStartMouseX = 0.0f;
     float m_dragStartMouseY = 0.0f;
     DirectX::XMFLOAT3 m_dragStartVal{ 0.0f, 0.0f, 0.0f };
+    DirectX::XMFLOAT3 m_dragStartPos{ 0.0f, 0.0f, 0.0f };
+    DirectX::XMFLOAT3 m_dragStartRot{ 0.0f, 0.0f, 0.0f };
+    DirectX::XMFLOAT3 m_dragStartScale{ 1.0f, 1.0f, 1.0f };
 };
