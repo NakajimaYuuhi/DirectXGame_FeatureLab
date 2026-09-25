@@ -1,4 +1,4 @@
-﻿#include "TextRenderer.h"
+#include "TextRenderer.h"
 #include "D2DTextRenderer.h"
 #include "Transform.h"
 #include "Object.h"

@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include "UIObject.h"
 
 class TitleUI : public CUIObject

@@ -1,4 +1,4 @@
-ï»¿#pragma once
+#pragma once
 #include "Object.h"
 #include <string>
 #include <d2d1.h>
@@ -14,7 +14,7 @@ public:
     virtual void LateUpdate() override;
     virtual void Draw() override;
 
-    // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è¨­å®šç”¨ã®ãƒ©ãƒƒãƒ‘ãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰
+    // ƒpƒ‰ƒ[ƒ^İ’è—p‚Ìƒ‰ƒbƒp[ƒƒ\ƒbƒh
     void SetText(const std::wstring& text);
     void SetPosition(float x, float y);
     void SetFontSize(float size);

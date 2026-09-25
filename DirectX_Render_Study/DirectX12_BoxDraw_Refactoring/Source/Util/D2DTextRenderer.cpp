@@ -1,4 +1,4 @@
-﻿#include "D2DTextRenderer.h"
+#include "D2DTextRenderer.h"
 #include <d3d11on12.h>
 
 #pragma comment(lib, "d3d11.lib")

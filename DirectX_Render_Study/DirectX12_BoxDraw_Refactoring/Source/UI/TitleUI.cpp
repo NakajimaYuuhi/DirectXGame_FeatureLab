@@ -1,5 +1,6 @@
-﻿#include "TitleUI.h"
+#include "TitleUI.h"
 
+// コンストラクタ
 TitleUI::TitleUI(const std::string& _Name)
     : CUIObject(_Name)
 {
