@@ -310,6 +310,7 @@ var menudata={children:[
 {text:"b",url:"globals_enum.html#index_b"},
 {text:"e",url:"globals_enum.html#index_e"},
 {text:"f",url:"globals_enum.html#index_f"},
+{text:"g",url:"globals_enum.html#index_g"},
 {text:"i",url:"globals_enum.html#index_i"},
 {text:"m",url:"globals_enum.html#index_m"},
 {text:"p",url:"globals_enum.html#index_p"},

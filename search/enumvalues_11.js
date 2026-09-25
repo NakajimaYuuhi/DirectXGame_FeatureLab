@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['scale_0',['SCALE',['../ModelData_8h.html#a7dca5cb9d4d9db5af72040c09db4ea20a127ea1d20becc4dba06d9d152db0c2e5',1,'ModelData.h']]],
+  ['scale_0',['scale',['../ModelData_8h.html#a7dca5cb9d4d9db5af72040c09db4ea20a127ea1d20becc4dba06d9d152db0c2e5',1,'SCALE:&#160;ModelData.h'],['../InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817a85a7cd587d6142dbfc1a4de05af7b75d',1,'Scale:&#160;InspectorUI.h']]],
   ['stbi_5fdefault_1',['STBI_default',['../stb__image_8h.html#a6b7b47dd702d9e331586d485013fd1eaa0177ac2c5002f4f251bb766d41752029',1,'stb_image.h']]],
   ['stbi_5fgrey_2',['STBI_grey',['../stb__image_8h.html#a6b7b47dd702d9e331586d485013fd1eaad1eb95ca1fa7706bf732bf35a0ed40aa',1,'stb_image.h']]],
   ['stbi_5fgrey_5falpha_3',['STBI_grey_alpha',['../stb__image_8h.html#a6b7b47dd702d9e331586d485013fd1eaaf5829d16d4cca6077465c5abd346e2f8',1,'stb_image.h']]],

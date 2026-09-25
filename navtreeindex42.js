@@ -1,5 +1,17 @@
 var NAVTREEINDEX42 =
 {
+"structImGuiStyle.html#a495f55e77c7b13320a5b121c05c264c2":[2,0,172,2],
+"structImGuiStyle.html#a4b33eff3854b4427af0964b084ddb235":[2,0,172,62],
+"structImGuiStyle.html#a4e2af4dd711f57ee841f9c843a18bec2":[2,0,172,69],
+"structImGuiStyle.html#a56645f0f87af1714871c6cc942b6f8ba":[2,0,172,23],
+"structImGuiStyle.html#a5dd4fc33733ac7171d88740eb777f2e3":[2,0,172,10],
+"structImGuiStyle.html#a63913c1da22332ca132aedb7a082dbfd":[2,0,172,24],
+"structImGuiStyle.html#a6448eb2273c8868d7ecccf1152857f68":[2,0,172,43],
+"structImGuiStyle.html#a64b5fdd495573fa07a80dc0071e99802":[2,0,172,13],
+"structImGuiStyle.html#a6bc07d81e049cd75e86e6b3753c0da4a":[2,0,172,41],
+"structImGuiStyle.html#a6c8674e8aa93236717b36110d7b1f1da":[2,0,172,42],
+"structImGuiStyle.html#a7c9d3e0974a239f65e433cc952be0627":[2,0,172,1],
+"structImGuiStyle.html#a7d32779113a08f74b5654f3069f8a430":[2,0,172,52],
 "structImGuiStyle.html#a7e522a0be6df5271f0da530708d7f4fc":[2,0,172,57],
 "structImGuiStyle.html#a848650199d21b9d6824169771ad497cf":[2,0,172,37],
 "structImGuiStyle.html#a8dd02a6a031ec8667e76aab1e28755bd":[2,0,172,19],
@@ -237,17 +249,5 @@ var NAVTREEINDEX42 =
 "structImGuiTableColumn.html#a0e71a32a995e7e68b50cd88eb93e2098":[2,0,180,19],
 "structImGuiTableColumn.html#a1e76d6659e59f751c863f360cdb6bdb9":[2,0,180,35],
 "structImGuiTableColumn.html#a2f3464e809b6952d1a429a7bc27b922d":[2,0,180,4],
-"structImGuiTableColumn.html#a30b397fb788df97b1cf85242a173c31e":[2,0,180,8],
-"structImGuiTableColumn.html#a335b58f6a43d6e776327d6a3a4a5f237":[2,0,180,29],
-"structImGuiTableColumn.html#a37158a53f49ad89709cde68fb3179611":[2,0,180,16],
-"structImGuiTableColumn.html#a3b3ca3f9832c94586083f40b4688b92e":[2,0,180,14],
-"structImGuiTableColumn.html#a3cbce4e74538399b950ea94570c47ffd":[2,0,180,37],
-"structImGuiTableColumn.html#a41e54f7b02880ad716544c0928338443":[2,0,180,36],
-"structImGuiTableColumn.html#a46f41e471f2be0a226fef2782d8318e3":[2,0,180,12],
-"structImGuiTableColumn.html#a49adaa46050cecbc2edff0c510973dd8":[2,0,180,31],
-"structImGuiTableColumn.html#a5092f8954b431b15748dfcd6a6338f8b":[2,0,180,11],
-"structImGuiTableColumn.html#a533be5aba6d7965ffe6d39afaf189e26":[2,0,180,26],
-"structImGuiTableColumn.html#a54f5dfe34300039711393b058fb9a867":[2,0,180,41],
-"structImGuiTableColumn.html#a5693cdc4775bdba3c1b295c77208e72d":[2,0,180,30],
-"structImGuiTableColumn.html#a59c15fb68259b05b9a6fcea792e5366b":[2,0,180,10]
+"structImGuiTableColumn.html#a30b397fb788df97b1cf85242a173c31e":[2,0,180,8]
 };

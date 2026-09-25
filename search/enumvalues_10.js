@@ -11,5 +11,6 @@ var searchData=
   ['require_5fscenes_8',['REQUIRE_SCENES',['../namespacetinygltf.html#a673082113ce9b7a462eff741a771d6d2ae92ecf9d75b2ffdf5570bc54f8d2edf2',1,'tinygltf']]],
   ['require_5fversion_9',['REQUIRE_VERSION',['../namespacetinygltf.html#a673082113ce9b7a462eff741a771d6d2a609149331fcb3c07b2f96f6da07d1bef',1,'tinygltf']]],
   ['result_10',['RESULT',['../namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275a9c570ec5ab47d2d247a5ae66d10cbd79',1,'Scenes']]],
-  ['rotation_11',['ROTATION',['../ModelData_8h.html#a7dca5cb9d4d9db5af72040c09db4ea20aa27939099e0fe4086159364fcf8d5f73',1,'ModelData.h']]]
+  ['rotate_11',['Rotate',['../InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817a8d2de5368588552fbae54044ac5c7b3d',1,'InspectorUI.h']]],
+  ['rotation_12',['ROTATION',['../ModelData_8h.html#a7dca5cb9d4d9db5af72040c09db4ea20aa27939099e0fe4086159364fcf8d5f73',1,'ModelData.h']]]
 ];
