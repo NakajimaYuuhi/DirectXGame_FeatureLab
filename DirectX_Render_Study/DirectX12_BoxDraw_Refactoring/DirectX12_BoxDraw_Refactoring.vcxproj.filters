@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Assets">
@@ -9,6 +9,27 @@
     </Filter>
     <Filter Include="Source">
       <UniqueIdentifier>{ca581584-f94a-4109-97d4-c25c76ab38ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Engine">
+      <UniqueIdentifier>{0F3E36FA-9E10-44E3-B65A-5A60D0BA91EF}</UniqueIdentifier>
+    </Filter>
+        <Filter Include="Source\Game">
+      <UniqueIdentifier>{3389B105-EB85-4C8B-A0AF-E491BEBC1A99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Game\Entities">
+      <UniqueIdentifier>{7F633E5A-7323-4ECD-8251-E67A4377A28B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Game\Entities\Player">
+      <UniqueIdentifier>{C532C293-53C8-47DA-8C7F-7F842037EAFE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Game\Entities\Enemy">
+      <UniqueIdentifier>{FF6D2570-321C-4A3C-8272-671A60C4EA72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Game\Features">
+      <UniqueIdentifier>{F3B5C181-33A0-4DAA-ACB2-12D3C0E48F8E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Game\Features\Status">
+      <UniqueIdentifier>{D2D6197E-13BA-4025-BAC1-BFEE104FFD54}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source\Components">
       <UniqueIdentifier>{e0782bb3-35e5-444a-b4dc-fa565dc20a8f}</UniqueIdentifier>
@@ -27,6 +48,9 @@
     </Filter>
     <Filter Include="Source\Resources">
       <UniqueIdentifier>{1a7e8737-6c88-4617-aa92-e154aa3cd6c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Editor">
+      <UniqueIdentifier>{60334A41-5FD0-4DE1-9EE8-E4C40F53B580}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source\UI">
       <UniqueIdentifier>{af6bbe27-8e7b-4434-9215-b0b50f9994e6}</UniqueIdentifier>
@@ -54,6 +78,9 @@
     </Filter>
     <Filter Include="Source\Util\Logic\StateMachine">
       <UniqueIdentifier>{17238fc0-93c4-4b7e-8c54-785500c4abc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Engine\Component">
+      <UniqueIdentifier>{AAA34694-DD47-4F0C-8686-92207CF58B02}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -129,23 +156,23 @@
     <ClCompile Include="Source\Resources\Bone.cpp">
       <Filter>Source\Resources</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Components\BoxCollider3D.cpp">
-      <Filter>Source\Components</Filter>
+    <ClCompile Include="Source\Engine\Component\BoxCollider3D.cpp">
+      <Filter>Source\Engine\Component</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Components\GravityComponent.cpp">
-      <Filter>Source\Components</Filter>
+    <ClCompile Include="Source\Engine\Component\GravityComponent.cpp">
+      <Filter>Source\Engine\Component</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Components\HealthComponent.cpp">
-      <Filter>Source\Components</Filter>
+    <ClCompile Include="Source\Game\Features\Status\HealthComponent.cpp">
+      <Filter>Source\Game\Features\Status</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Components\CharacterMovementComponent.cpp">
-      <Filter>Source\Components</Filter>
+    <ClCompile Include="Source\Engine\Component\CharacterMovementComponent.cpp">
+      <Filter>Source\Engine\Component</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Components\PlayerControllerComponent.cpp">
-      <Filter>Source\Components</Filter>
+    <ClCompile Include="Source\Game\Entities\Player\PlayerControllerComponent.cpp">
+      <Filter>Source\Game\Entities\Player</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Components\EnemyAIComponent.cpp">
-      <Filter>Source\Components</Filter>
+    <ClCompile Include="Source\Game\Entities\Enemy\EnemyAIComponent.cpp">
+      <Filter>Source\Game\Entities\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Source\Core\PrefabManager.cpp">
       <Filter>Source\Core</Filter>
@@ -153,22 +180,19 @@
     <ClCompile Include="Source\Objects\Bullet.cpp">
       <Filter>Source\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Components\Collider.cpp">
-      <Filter>Source\Components</Filter>
+    <ClCompile Include="Source\Engine\Component\Collider.cpp">
+      <Filter>Source\Engine\Component</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Components\Collider3D.cpp">
-      <Filter>Source\Components</Filter>
+    <ClCompile Include="Source\Engine\Component\Collider3D.cpp">
+      <Filter>Source\Engine\Component</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Components\Collision.cpp">
-      <Filter>Source\Components</Filter>
+    <ClCompile Include="Source\Engine\Component\Collision.cpp">
+      <Filter>Source\Engine\Component</Filter>
     </ClCompile>
     <ClCompile Include="Source\Rendering\DescriptorHeapAllocator.cpp">
       <Filter>Source\Rendering</Filter>
     </ClCompile>
-        <ClCompile Include="Source\Objects\Enemy\EnemyState.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-        <ClCompile Include="Source\Objects\Enemy\EnemyState.cpp">
+    <ClCompile Include="Source\Objects\Enemy\EnemyState.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\Objects\Enemy\Enemy.cpp">
@@ -182,9 +206,6 @@
     </ClCompile>
     <ClCompile Include="Source\External\imgui.cpp">
       <Filter>Source\External</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\UI\ImGuiManager.cpp">
-      <Filter>Source\UI</Filter>
     </ClCompile>
     <ClCompile Include="Source\External\imgui_demo.cpp">
       <Filter>Source\External</Filter>
@@ -222,14 +243,11 @@
     <ClCompile Include="Source\Objects\3D_Object.cpp">
       <Filter>Source\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Components\Component.cpp">
-      <Filter>Source\Components</Filter>
+    <ClCompile Include="Source\Engine\Component\Component.cpp">
+      <Filter>Source\Engine\Component</Filter>
     </ClCompile>
     <ClCompile Include="Source\Core\DX12Manager.cpp">
       <Filter>Source\Core</Filter>
-    </ClCompile>
-        <ClCompile Include="Source\Core\TimeManager.cpp">
-      <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\Core\InputManager.cpp">
       <Filter>Source\Core</Filter>
@@ -249,10 +267,7 @@
     <ClCompile Include="Source\Objects\ObjectManager.cpp">
       <Filter>Source\Objects</Filter>
     </ClCompile>
-        <ClCompile Include="Source\Objects\Player\PlayerState.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-        <ClCompile Include="Source\Objects\Player\PlayerState.cpp">
+    <ClCompile Include="Source\Objects\Player\PlayerState.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\Objects\Player\Player.cpp">
@@ -279,14 +294,11 @@
     <ClCompile Include="Source\UI\SpriteRenderer.cpp">
       <Filter>Source\UI</Filter>
     </ClCompile>
-    <ClCompile Include="Source\UI\InspectorUI.cpp">
-      <Filter>Source\UI</Filter>
-    </ClCompile>
     <ClCompile Include="Source\UI\UIObject.cpp">
       <Filter>Source\UI</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Components\Transform.cpp">
-      <Filter>Source\Components</Filter>
+    <ClCompile Include="Source\Engine\Component\Transform.cpp">
+      <Filter>Source\Engine\Component</Filter>
     </ClCompile>
     <ClCompile Include="Source\UI\TitleUI.cpp">
       <Filter>Source\UI</Filter>
@@ -303,15 +315,39 @@
     <ClCompile Include="Source\Core\Scenes\Manager\SceneManager.cpp">
       <Filter>Source\Core\Scenes\Manager</Filter>
     </ClCompile>
-        <ClCompile Include="Source\Core\Scenes\Instances\SceneFade.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Core\Scenes\Instances\SceneTitle.cpp">
       <Filter>Source\Core\Scenes\Instances</Filter>
     </ClCompile>
     <ClCompile Include="Source\Core\Scenes\Instances\SceneTest.cpp">
       <Filter>Source\Core\Scenes\Instances</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Editor\ContentDrawerUI.cpp">
+      <Filter>Source\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Editor\EditorRaycast.cpp">
+      <Filter>Source\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Editor\EditorToolbarUI.cpp">
+      <Filter>Source\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Editor\HierarchyUI.cpp">
+      <Filter>Source\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Editor\ImGuiManager.cpp">
+      <Filter>Source\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Editor\InspectorUI.cpp">
+      <Filter>Source\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Editor\UndoManager.cpp">
+      <Filter>Source\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\Scenes\Instances\SceneFade.cpp" />
+    <ClCompile Include="Source\Objects\Enemy\EnemyState.cpp" />
+    <ClCompile Include="Source\Core\TimeManager.cpp" />
+    <ClCompile Include="Source\Objects\Player\PlayerState.cpp" />
+    <ClCompile Include="Source\Core\PrefabSerializer.cpp" />
+    <ClCompile Include="Source\Core\Scenes\Serializer\SceneSerializer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Util\audio.h">
@@ -393,23 +429,23 @@
     <ClInclude Include="Source\Resources\Bone.h">
       <Filter>Source\Resources</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Components\BoxCollider3D.h">
-      <Filter>Source\Components</Filter>
+    <ClInclude Include="Source\Engine\Component\BoxCollider3D.h">
+      <Filter>Source\Engine\Component</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Components\GravityComponent.h">
-      <Filter>Source\Components</Filter>
+    <ClInclude Include="Source\Engine\Component\GravityComponent.h">
+      <Filter>Source\Engine\Component</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Components\HealthComponent.h">
-      <Filter>Source\Components</Filter>
+    <ClInclude Include="Source\Game\Features\Status\HealthComponent.h">
+      <Filter>Source\Game\Features\Status</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Components\CharacterMovementComponent.h">
-      <Filter>Source\Components</Filter>
+    <ClInclude Include="Source\Engine\Component\CharacterMovementComponent.h">
+      <Filter>Source\Engine\Component</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Components\PlayerControllerComponent.h">
-      <Filter>Source\Components</Filter>
+    <ClInclude Include="Source\Game\Entities\Player\PlayerControllerComponent.h">
+      <Filter>Source\Game\Entities\Player</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Components\EnemyAIComponent.h">
-      <Filter>Source\Components</Filter>
+    <ClInclude Include="Source\Game\Entities\Enemy\EnemyAIComponent.h">
+      <Filter>Source\Game\Entities\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Source\Core\PrefabManager.h">
       <Filter>Source\Core</Filter>
@@ -423,14 +459,14 @@
     <ClInclude Include="Source\Objects\Bullet.h">
       <Filter>Source\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Components\Collider.h">
-      <Filter>Source\Components</Filter>
+    <ClInclude Include="Source\Engine\Component\Collider.h">
+      <Filter>Source\Engine\Component</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Components\Collider3D.h">
-      <Filter>Source\Components</Filter>
+    <ClInclude Include="Source\Engine\Component\Collider3D.h">
+      <Filter>Source\Engine\Component</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Components\Collision.h">
-      <Filter>Source\Components</Filter>
+    <ClInclude Include="Source\Engine\Component\Collision.h">
+      <Filter>Source\Engine\Component</Filter>
     </ClInclude>
     <ClInclude Include="Source\Util\ContainerAlias.h">
       <Filter>Source\Util</Filter>
@@ -441,10 +477,7 @@
     <ClInclude Include="Source\Util\DirectXPtrAlias.h">
       <Filter>Source\Util</Filter>
     </ClInclude>
-        <ClInclude Include="Source\Objects\Enemy\EnemyState.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-        <ClInclude Include="Source\Objects\Enemy\EnemyState.h">
+    <ClInclude Include="Source\Objects\Enemy\EnemyState.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\Objects\Enemy\Enemy.h">
@@ -461,9 +494,6 @@
     </ClInclude>
     <ClInclude Include="Source\External\imgui.h">
       <Filter>Source\External</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\UI\ImGuiManager.h">
-      <Filter>Source\UI</Filter>
     </ClInclude>
     <ClInclude Include="Source\External\imgui_impl_dx12.h">
       <Filter>Source\External</Filter>
@@ -510,17 +540,14 @@
     <ClInclude Include="Source\Objects\3D_Object.h">
       <Filter>Source\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Components\Component.h">
-      <Filter>Source\Components</Filter>
+    <ClInclude Include="Source\Engine\Component\Component.h">
+      <Filter>Source\Engine\Component</Filter>
     </ClInclude>
     <ClInclude Include="Source\Core\DX12Manager.h">
       <Filter>Source\Core</Filter>
     </ClInclude>
     <ClInclude Include="Source\Rendering\PSOBuilder.h">
       <Filter>Source\Rendering</Filter>
-    </ClInclude>
-        <ClInclude Include="Source\Core\TimeManager.h">
-      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\Core\InputManager.h">
       <Filter>Source\Core</Filter>
@@ -537,10 +564,7 @@
     <ClInclude Include="Source\Core\ObjectTag.h">
       <Filter>Source\Core</Filter>
     </ClInclude>
-        <ClInclude Include="Source\Objects\Player\PlayerState.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-        <ClInclude Include="Source\Objects\Player\PlayerState.h">
+    <ClInclude Include="Source\Objects\Player\PlayerState.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\Objects\Player\Player.h">
@@ -585,14 +609,11 @@
     <ClInclude Include="Source\UI\SpriteRenderer.h">
       <Filter>Source\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Source\UI\InspectorUI.h">
-      <Filter>Source\UI</Filter>
-    </ClInclude>
     <ClInclude Include="Source\UI\UIObject.h">
       <Filter>Source\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Components\Transform.h">
-      <Filter>Source\Components</Filter>
+    <ClInclude Include="Source\Engine\Component\Transform.h">
+      <Filter>Source\Engine\Component</Filter>
     </ClInclude>
     <ClInclude Include="Source\UI\TitleUI.h">
       <Filter>Source\UI</Filter>
@@ -615,9 +636,6 @@
     <ClInclude Include="Source\Core\Scenes\Instances\SceneTest.h">
       <Filter>Source\Core\Scenes\Instances</Filter>
     </ClInclude>
-        <ClInclude Include="Source\Core\Scenes\Instances\SceneFade.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Core\Scenes\Instances\SceneTitle.h">
       <Filter>Source\Core\Scenes\Instances</Filter>
     </ClInclude>
@@ -627,6 +645,33 @@
     <ClInclude Include="Source\Util\Logic\StateMachine\StateMachine.h">
       <Filter>Source\Util\Logic\StateMachine</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Editor\ContentDrawerUI.h">
+      <Filter>Source\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Editor\EditorRaycast.h">
+      <Filter>Source\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Editor\EditorToolbarUI.h">
+      <Filter>Source\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Editor\HierarchyUI.h">
+      <Filter>Source\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Editor\ImGuiManager.h">
+      <Filter>Source\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Editor\InspectorUI.h">
+      <Filter>Source\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Editor\UndoManager.h">
+      <Filter>Source\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Scenes\Instances\SceneFade.h" />
+    <ClInclude Include="Source\Objects\Enemy\EnemyState.h" />
+    <ClInclude Include="Source\Core\TimeManager.h" />
+    <ClInclude Include="Source\Objects\Player\PlayerState.h" />
+    <ClInclude Include="Source\Core\PrefabSerializer.h" />
+    <ClInclude Include="Source\Core\Scenes\Serializer\SceneSerializer.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Assets\Shader\PostProcess.hlsl">

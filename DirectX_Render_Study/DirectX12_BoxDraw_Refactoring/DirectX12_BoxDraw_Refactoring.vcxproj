@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -73,8 +73,8 @@
   <PropertyGroup Label="UserMacros" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities\Player;$(ProjectDir)Source\Game\Entities\Enemy;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities\Player;$(ProjectDir)Source\Game\Entities\Enemy;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -87,8 +87,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities\Player;$(ProjectDir)Source\Game\Entities\Enemy;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities\Player;$(ProjectDir)Source\Game\Entities\Enemy;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -105,8 +105,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities\Player;$(ProjectDir)Source\Game\Entities\Enemy;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities\Player;$(ProjectDir)Source\Game\Entities\Enemy;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -127,8 +127,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities\Player;$(ProjectDir)Source\Game\Entities\Enemy;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities\Player;$(ProjectDir)Source\Game\Entities\Enemy;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -183,24 +183,24 @@
     <ClCompile Include="Source\UI\TextRenderer.cpp" />
     <ClCompile Include="Source\Objects\BillBoard.cpp" />
     <ClCompile Include="Source\Resources\Bone.cpp" />
-    <ClCompile Include="Source\Components\BoxCollider3D.cpp" />
-    <ClCompile Include="Source\Components\GravityComponent.cpp" />
-    <ClCompile Include="Source\Components\HealthComponent.cpp" />
-    <ClCompile Include="Source\Components\CharacterMovementComponent.cpp" />
-    <ClCompile Include="Source\Components\PlayerControllerComponent.cpp" />
-    <ClCompile Include="Source\Components\EnemyAIComponent.cpp" />
+    <ClCompile Include="Source\Engine\Component\BoxCollider3D.cpp" />
+    <ClCompile Include="Source\Engine\Component\GravityComponent.cpp" />
+    <ClCompile Include="Source\Game\Features\Status\HealthComponent.cpp" />
+    <ClCompile Include="Source\Engine\Component\CharacterMovementComponent.cpp" />
+    <ClCompile Include="Source\Game\Entities\Player\PlayerControllerComponent.cpp" />
+    <ClCompile Include="Source\Game\Entities\Enemy\EnemyAIComponent.cpp" />
     <ClCompile Include="Source\Core\PrefabManager.cpp" />
     <ClCompile Include="Source\Objects\Bullet.cpp" />
-    <ClCompile Include="Source\Components\Collider.cpp" />
-    <ClCompile Include="Source\Components\Collider3D.cpp" />
-    <ClCompile Include="Source\Components\Collision.cpp" />
+    <ClCompile Include="Source\Engine\Component\Collider.cpp" />
+    <ClCompile Include="Source\Engine\Component\Collider3D.cpp" />
+    <ClCompile Include="Source\Engine\Component\Collision.cpp" />
     <ClCompile Include="Source\Rendering\DescriptorHeapAllocator.cpp" />
     <ClCompile Include="Source\Objects\Enemy\Enemy.cpp" />
     <ClCompile Include="Source\Objects\Enemy\EnemyState.cpp" />
     <ClCompile Include="Source\Objects\Explosion.cpp" />
     <ClCompile Include="Source\Resources\gltfLoader.cpp" />
     <ClCompile Include="Source\External\imgui.cpp" />
-    <ClCompile Include="Source\UI\ImGuiManager.cpp" />
+    <ClCompile Include="Source\Editor\ImGuiManager.cpp" />
     <ClCompile Include="Source\External\imgui_demo.cpp" />
     <ClCompile Include="Source\External\imgui_draw.cpp" />
     <ClCompile Include="Source\External\imgui_impl_dx12.cpp" />
@@ -213,7 +213,7 @@
     <ClCompile Include="Source\Objects\ObjectInfo.cpp" />
     <ClCompile Include="Source\Objects\Box.cpp" />
     <ClCompile Include="Source\Objects\3D_Object.cpp" />
-    <ClCompile Include="Source\Components\Component.cpp" />
+    <ClCompile Include="Source\Engine\Component\Component.cpp" />
     <ClCompile Include="Source\Core\DX12Manager.cpp" />
     <ClCompile Include="Source\Core\InputManager.cpp" />
     <ClCompile Include="Source\Core\TimeManager.cpp" />
@@ -231,16 +231,16 @@
     <ClCompile Include="Source\Resources\Texture.cpp" />
     <ClCompile Include="Source\Rendering\TextureManager.cpp" />
     <ClCompile Include="Source\UI\SpriteRenderer.cpp" />
-    <ClCompile Include="Source\UI\InspectorUI.cpp" />
-    <ClCompile Include="Source\UI\EditorToolbarUI.cpp" />
-    <ClCompile Include="Source\UI\HierarchyUI.cpp" />
-    <ClCompile Include="Source\UI\ContentDrawerUI.cpp" />
+    <ClCompile Include="Source\Editor\InspectorUI.cpp" />
+    <ClCompile Include="Source\Editor\EditorToolbarUI.cpp" />
+    <ClCompile Include="Source\Editor\HierarchyUI.cpp" />
+    <ClCompile Include="Source\Editor\ContentDrawerUI.cpp" />
     <ClCompile Include="Source\Core\PrefabSerializer.cpp" />
-    <ClCompile Include="Source\Core\EditorRaycast.cpp" />
-    <ClCompile Include="Source\Core\UndoManager.cpp" />
+    <ClCompile Include="Source\Editor\EditorRaycast.cpp" />
+    <ClCompile Include="Source\Editor\UndoManager.cpp" />
     <ClCompile Include="Source\Core\Scenes\Serializer\SceneSerializer.cpp" />
     <ClCompile Include="Source\UI\UIObject.cpp" />
-    <ClCompile Include="Source\Components\Transform.cpp" />
+    <ClCompile Include="Source\Engine\Component\Transform.cpp" />
     <ClCompile Include="Source\UI\TitleUI.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -278,20 +278,20 @@
     <ClInclude Include="Source\UI\TextRenderer.h" />
     <ClInclude Include="Source\Objects\BillBoard.h" />
     <ClInclude Include="Source\Resources\Bone.h" />
-    <ClInclude Include="Source\Components\BoxCollider3D.h" />
-    <ClInclude Include="Source\Components\GravityComponent.h" />
-    <ClInclude Include="Source\Components\HealthComponent.h" />
-    <ClInclude Include="Source\Components\CharacterMovementComponent.h" />
-    <ClInclude Include="Source\Components\PlayerControllerComponent.h" />
-    <ClInclude Include="Source\Components\EnemyAIComponent.h" />
+    <ClInclude Include="Source\Engine\Component\BoxCollider3D.h" />
+    <ClInclude Include="Source\Engine\Component\GravityComponent.h" />
+    <ClInclude Include="Source\Game\Features\Status\HealthComponent.h" />
+    <ClInclude Include="Source\Engine\Component\CharacterMovementComponent.h" />
+    <ClInclude Include="Source\Game\Entities\Player\PlayerControllerComponent.h" />
+    <ClInclude Include="Source\Game\Entities\Enemy\EnemyAIComponent.h" />
     <ClInclude Include="Source\Core\PrefabManager.h" />
-    <ClInclude Include="Source\Core\EditorRaycast.h" />
+    <ClInclude Include="Source\Editor\EditorRaycast.h" />
     <ClInclude Include="Source\Core\CollisionLayers.h" />
     <ClInclude Include="Source\Rendering\RenderLayer.h" />
     <ClInclude Include="Source\Objects\Bullet.h" />
-    <ClInclude Include="Source\Components\Collider.h" />
-    <ClInclude Include="Source\Components\Collider3D.h" />
-    <ClInclude Include="Source\Components\Collision.h" />
+    <ClInclude Include="Source\Engine\Component\Collider.h" />
+    <ClInclude Include="Source\Engine\Component\Collider3D.h" />
+    <ClInclude Include="Source\Engine\Component\Collision.h" />
     <ClInclude Include="Source\Util\ContainerAlias.h" />
     <ClInclude Include="Source\Rendering\DescriptorHeapAllocator.h" />
     <ClInclude Include="Source\Util\DirectXPtrAlias.h" />
@@ -301,7 +301,7 @@
     <ClInclude Include="Source\Resources\gltfLoader.h" />
     <ClInclude Include="Source\External\imconfig.h" />
     <ClInclude Include="Source\External\imgui.h" />
-    <ClInclude Include="Source\UI\ImGuiManager.h" />
+    <ClInclude Include="Source\Editor\ImGuiManager.h" />
     <ClInclude Include="Source\External\imgui_impl_dx12.h" />
     <ClInclude Include="Source\External\imgui_impl_win32.h" />
     <ClInclude Include="Source\External\imgui_internal.h" />
@@ -317,12 +317,12 @@
     <ClInclude Include="Source\Util\BasicSettings.h" />
     <ClInclude Include="Source\Objects\Box.h" />
     <ClInclude Include="Source\Objects\3D_Object.h" />
-    <ClInclude Include="Source\Components\Component.h" />
+    <ClInclude Include="Source\Engine\Component\Component.h" />
     <ClInclude Include="Source\Core\DX12Manager.h" />
     <ClInclude Include="Source\Rendering\PSOBuilder.h" />
     <ClInclude Include="Source\Core\InputManager.h" />
     <ClInclude Include="Source\Core\TimeManager.h" />
-    <ClInclude Include="Source\Core\UndoManager.h" />
+    <ClInclude Include="Source\Editor\UndoManager.h" />
     <ClInclude Include="Source\Resources\Mesh.h" />
     <ClInclude Include="Source\Objects\Object.h" />
     <ClInclude Include="Source\Objects\ObjectManager.h" />
@@ -345,14 +345,14 @@
     <ClInclude Include="Source\External\tinygltf_json.h" />
     <ClInclude Include="Source\External\tiny_gltf.h" />
     <ClInclude Include="Source\UI\SpriteRenderer.h" />
-    <ClInclude Include="Source\UI\InspectorUI.h" />
-    <ClInclude Include="Source\UI\EditorToolbarUI.h" />
-    <ClInclude Include="Source\UI\HierarchyUI.h" />
-    <ClInclude Include="Source\UI\ContentDrawerUI.h" />
+    <ClInclude Include="Source\Editor\InspectorUI.h" />
+    <ClInclude Include="Source\Editor\EditorToolbarUI.h" />
+    <ClInclude Include="Source\Editor\HierarchyUI.h" />
+    <ClInclude Include="Source\Editor\ContentDrawerUI.h" />
     <ClInclude Include="Source\Core\PrefabSerializer.h" />
     <ClInclude Include="Source\Core\Scenes\Serializer\SceneSerializer.h" />
     <ClInclude Include="Source\UI\UIObject.h" />
-    <ClInclude Include="Source\Components\Transform.h" />
+    <ClInclude Include="Source\Engine\Component\Transform.h" />
     <ClInclude Include="Source\UI\TitleUI.h" />
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,7 @@
-#include "../UI/InspectorUI.h"
-#include "../UI/EditorToolbarUI.h"
-#include "../UI/HierarchyUI.h"
-#include "../UI/ContentDrawerUI.h"
+#include "InspectorUI.h"
+#include "EditorToolbarUI.h"
+#include "HierarchyUI.h"
+#include "ContentDrawerUI.h"
 ///////////////////////////////////////////
 //main.cpp                               
 //                                       

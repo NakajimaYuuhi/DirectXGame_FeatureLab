@@ -1,6 +1,6 @@
 #include "InspectorUI.h"
-#include "Source/Core/EditorRaycast.h"
-#include "Source/Core/UndoManager.h"
+#include "EditorRaycast.h"
+#include "UndoManager.h"
 #include <d3d12.h>
 #include "ContentDrawerUI.h"
 #include "ModelManager.h"

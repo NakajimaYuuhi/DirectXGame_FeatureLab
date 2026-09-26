@@ -1,6 +1,6 @@
 #include "EditorToolbarUI.h"
 #include "InspectorUI.h"
-#include "Source/Core/UndoManager.h"
+#include "UndoManager.h"
 #include "ContentDrawerUI.h"
 #include "imgui.h"
 #include "ObjectManager.h"
@@ -9,7 +9,7 @@
 #include "Source/Core/Scenes/Serializer/SceneSerializer.h"
 
 // -----------------------------------------------------------------
-// ツールバーUIの描画更新処理（デバッグビルド時のみ有効）
+// チE�Eルバ�EUIの描画更新処琁E��デバッグビルド時のみ有効
 // -----------------------------------------------------------------
 void CEditorToolbarUI::Draw()
 {
@@ -23,12 +23,12 @@ void CEditorToolbarUI::Draw()
     if (ImGui::Begin("Editor Toolbar", &m_isVisible, ImGuiWindowFlags_NoScrollbar))
     {
         // ---------------------------------------------------------
-        // 1. プレイモード / 編集モード / プレハブ編集モードの制御ボタン
+        // 1. プレイモーチE/ 編雁E��ーチE/ プレハブ編雁E��ード�E制御ボタン
         // ---------------------------------------------------------
         bool isPrefabMode = CInspectorUI::GetInstance().IsPrefabEditMode();
         if (isPrefabMode)
         {
-            // プレハブ編集ステージ中の操作ボタン
+            // プレハブ編雁E��チE�Eジ中の操作�Eタン
             std::string path = CInspectorUI::GetInstance().GetEditingPrefabPath();
             ImGui::TextColored(ImVec4(1.0f, 0.8f, 0.2f, 1.0f), "[PREFAB STAGE MODE] %s", path.c_str());
             ImGui::SameLine();
@@ -44,7 +44,7 @@ void CEditorToolbarUI::Draw()
         }
         else
         {
-            // 通常シーンでの編集・再生・一時停止切替
+            // 通常シーンでの編雁E�E再生・一時停止刁E��
             bool isEditMode = CInspectorUI::GetInstance().IsEditMode();
             bool isPaused = CInspectorUI::GetInstance().IsPaused();
 
@@ -79,7 +79,7 @@ void CEditorToolbarUI::Draw()
         ImGui::SameLine();
 
         // ---------------------------------------------------------
-        // 2. ギズモ操作モード切り替え（移動: W / 回転: E / 拡大縮小: R）
+        // 2. ギズモ操作モード�Eり替え（移勁E W / 回転: E / 拡大縮封E R
         // ---------------------------------------------------------
         GizmoMode currentGizmoMode = CInspectorUI::GetInstance().GetGizmoMode();
         if (currentGizmoMode == GizmoMode::Translate) ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.2f, 0.6f, 0.9f, 1.0f));
@@ -134,8 +134,7 @@ void CEditorToolbarUI::Draw()
         // 4. Save / Reload Scene
 
         // ---------------------------------------------------------
-        // 3. シーンのシリアライズ操作（保存 / 再読み込み）
-        // ---------------------------------------------------------
+        // 3. シーンのシリアライズ操作（保孁E/ 再読み込み�E�E        // ---------------------------------------------------------
         if (ImGui::Button("Save Scene"))
         {
             Scenes::ID activeScene = SceneManager::GetInstance().GetActiveSceneID();
@@ -156,8 +155,7 @@ void CEditorToolbarUI::Draw()
         ImGui::SameLine();
 
         // ---------------------------------------------------------
-        // 4. UIサブウィンドウの開閉トグル（コンテンツドロワー）
-        // ---------------------------------------------------------
+        // 4. UIサブウィンドウの開閉トグル�E�コンチE��チE��ロワー�E�E        // ---------------------------------------------------------
         if (ImGui::Button("Content Drawer (Ctrl+Space)"))
         {
             CContentDrawerUI::GetInstance().ToggleVisible();
