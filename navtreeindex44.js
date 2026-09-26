@@ -1,5 +1,6 @@
 var NAVTREEINDEX44 =
 {
+"structImGuiWindow.html#a040ebb8ac7de890df6cb6bfe048a72d5":[2,0,198,87],
 "structImGuiWindow.html#a045526cada44318c4b02ef7e5a80b8af":[2,0,198,16],
 "structImGuiWindow.html#a04e6b533b2401d1c7e78b47e31538e7b":[2,0,198,24],
 "structImGuiWindow.html#a06884e1bc80e460e51e1626b5b976196":[2,0,198,9],
@@ -248,6 +249,5 @@ var NAVTREEINDEX44 =
 "structImPool.html":[2,0,203],
 "structImPool.html#a0129c0e467c287a5a7441f2abe0baf35":[2,0,203,7],
 "structImPool.html#a2434a4efa2eab4aeca8e15ac208c18d8":[2,0,203,4],
-"structImPool.html#a3073eefd71bfd53dede8a5d62ad5e019":[2,0,203,5],
-"structImPool.html#a36a6b758775e849f3ccc20727376476a":[2,0,203,15]
+"structImPool.html#a3073eefd71bfd53dede8a5d62ad5e019":[2,0,203,5]
 };

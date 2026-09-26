@@ -4,7 +4,7 @@ var searchData=
   ['acceptdragdroppayload_1',['AcceptDragDropPayload',['../namespaceImGui.html#a5e0dac39e249bf50e2ae96dc4a97cb18',1,'ImGui']]],
   ['accessor_2',['Accessor',['../structtinygltf_1_1Accessor.html#a5a6cde4e462c70f419d359a019abda11',1,'tinygltf::Accessor']]],
   ['activateitembyid_3',['ActivateItemByID',['../namespaceImGui.html#a155c653da8d562c00e7b4a9b7335c558',1,'ImGui']]],
-  ['add_4',['add',['../structImRect.html#a68996cb6b16a023f0a051981cd5be89e',1,'ImRect::Add()'],['../classnlohmann_1_1detail_1_1lexer.html#a36ffc3c33c3aea18291ead7a30fa7cc6',1,'nlohmann::detail::lexer::add()'],['../structImPool.html#a39f9b742304d164c4298031537c1b09c',1,'ImPool::Add()'],['../structImRect.html#ab07f581cc78eee99b42f40f77d9fac8e',1,'ImRect::Add()']]],
+  ['add_4',['add',['../structImRect.html#ab07f581cc78eee99b42f40f77d9fac8e',1,'ImRect::Add(const ImRect &amp;r)'],['../structImRect.html#a68996cb6b16a023f0a051981cd5be89e',1,'ImRect::Add(const ImVec2 &amp;p)'],['../classnlohmann_1_1detail_1_1lexer.html#a36ffc3c33c3aea18291ead7a30fa7cc6',1,'nlohmann::detail::lexer::add()'],['../structImPool.html#a39f9b742304d164c4298031537c1b09c',1,'ImPool::Add()']]],
   ['addbeziercubic_5',['AddBezierCubic',['../structImDrawList.html#a90ebb3c38b997ef3a3adb4d211a1b2a8',1,'ImDrawList']]],
   ['addbezierquadratic_6',['AddBezierQuadratic',['../structImDrawList.html#a2ca1f97b873778fc53fa4c1f1ca8bb1f',1,'ImDrawList']]],
   ['addcallback_7',['AddCallback',['../structImDrawList.html#a37a53f9597188ba5e49a88329ceab6c9',1,'ImDrawList']]],
