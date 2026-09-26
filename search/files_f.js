@@ -21,14 +21,12 @@ var searchData=
   ['shader_2eh_18',['Shader.h',['../Shader_8h.html',1,'']]],
   ['shadermanager_2ecpp_19',['ShaderManager.cpp',['../ShaderManager_8cpp.html',1,'']]],
   ['shadermanager_2eh_20',['ShaderManager.h',['../ShaderManager_8h.html',1,'']]],
-  ['skydome_2ecpp_21',['Skydome.cpp',['../Skydome_8cpp.html',1,'']]],
-  ['skydome_2eh_22',['Skydome.h',['../Skydome_8h.html',1,'']]],
-  ['smartptralias_2eh_23',['SmartPtrAlias.h',['../SmartPtrAlias_8h.html',1,'']]],
-  ['spriterenderer_2ecpp_24',['SpriteRenderer.cpp',['../SpriteRenderer_8cpp.html',1,'']]],
-  ['spriterenderer_2eh_25',['SpriteRenderer.h',['../SpriteRenderer_8h.html',1,'']]],
-  ['statebase_2eh_26',['StateBase.h',['../StateBase_8h.html',1,'']]],
-  ['statemachine_2eh_27',['StateMachine.h',['../StateMachine_8h.html',1,'']]],
-  ['stb_5fimage_2eh_28',['stb_image.h',['../stb__image_8h.html',1,'']]],
-  ['stb_5fimage_5fwrite_2eh_29',['stb_image_write.h',['../stb__image__write_8h.html',1,'']]],
-  ['stringalias_2eh_30',['StringAlias.h',['../StringAlias_8h.html',1,'']]]
+  ['smartptralias_2eh_21',['SmartPtrAlias.h',['../SmartPtrAlias_8h.html',1,'']]],
+  ['spriterenderer_2ecpp_22',['SpriteRenderer.cpp',['../SpriteRenderer_8cpp.html',1,'']]],
+  ['spriterenderer_2eh_23',['SpriteRenderer.h',['../SpriteRenderer_8h.html',1,'']]],
+  ['statebase_2eh_24',['StateBase.h',['../StateBase_8h.html',1,'']]],
+  ['statemachine_2eh_25',['StateMachine.h',['../StateMachine_8h.html',1,'']]],
+  ['stb_5fimage_2eh_26',['stb_image.h',['../stb__image_8h.html',1,'']]],
+  ['stb_5fimage_5fwrite_2eh_27',['stb_image_write.h',['../stb__image__write_8h.html',1,'']]],
+  ['stringalias_2eh_28',['StringAlias.h',['../StringAlias_8h.html',1,'']]]
 ];

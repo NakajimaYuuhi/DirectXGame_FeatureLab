@@ -20,7 +20,7 @@ var searchData=
   ['hasgamepad_17',['HasGamepad',['../structImGui__ImplWin32__Data.html#a3ebc71caf46955c90bb8d6f4f94c08ce',1,'ImGui_ImplWin32_Data']]],
   ['hash_18',['hash',['../namespacenlohmann_1_1detail.html#a679e5e522ac6afa5d5923292fab450b8',1,'nlohmann::detail']]],
   ['hash_3c_20nlohmann_3a_3ajson_20_3e_19',['hash&lt; nlohmann::json &gt;',['../structstd_1_1hash_3_01nlohmann_1_1json_01_4.html',1,'std']]],
-  ['hasmoveinput_20',['hasmoveinput',['../classPlayerControllerComponent.html#a5088a431877482b62415edbcf2ac5dea',1,'PlayerControllerComponent::HasMoveInput()'],['../classPlayer.html#a5eaa899175123ab5d2dc951ab61c58ce',1,'Player::HasMoveInput()']]],
+  ['hasmoveinput_20',['HasMoveInput',['../classPlayerControllerComponent.html#a5088a431877482b62415edbcf2ac5dea',1,'PlayerControllerComponent']]],
   ['hasscrollbarycurr_21',['HasScrollbarYCurr',['../structImGuiTable.html#a7c1826bfb454ce6b72ca910570a0f319',1,'ImGuiTable']]],
   ['hasscrollbaryprev_22',['HasScrollbarYPrev',['../structImGuiTable.html#ab3160cf8f571c580c7fa9e6c2e0115a1',1,'ImGuiTable']]],
   ['hasselection_23',['hasselection',['../structImGuiInputTextCallbackData.html#aae1b69a904053961be171d7f47ef430e',1,'ImGuiInputTextCallbackData::HasSelection()'],['../structImGuiInputTextState.html#ab17832413ff121a5663319c06bbb989a',1,'ImGuiInputTextState::HasSelection()']]],
@@ -51,7 +51,7 @@ var searchData=
   ['highlightviewportid_48',['HighlightViewportID',['../structImGuiMetricsConfig.html#aebe978c4967142abdd80f83a07bee4cd',1,'ImGuiMetricsConfig']]],
   ['history_49',['History',['../structExampleAppConsole.html#a11c7fa54e744288f3606e4d6521d6345',1,'ExampleAppConsole']]],
   ['historypos_50',['HistoryPos',['../structExampleAppConsole.html#a2508db0a7d205947cea65b141d4ed589',1,'ExampleAppConsole']]],
-  ['hit_5ftiming_51',['hit_timing',['../classEnemyAIComponent.html#a109574444d9f0089226cb97c0d0c5d7d',1,'EnemyAIComponent::HIT_TIMING'],['../classEnemyAttackState.html#a72b247af104e2afc45130096e37174af',1,'EnemyAttackState::HIT_TIMING']]],
+  ['hit_5ftiming_51',['HIT_TIMING',['../classEnemyAIComponent.html#a109574444d9f0089226cb97c0d0c5d7d',1,'EnemyAIComponent']]],
   ['hittestholeoffset_52',['HitTestHoleOffset',['../structImGuiWindow.html#a656437e7e87dd567069579fb813d6e91',1,'ImGuiWindow']]],
   ['hittestholesize_53',['HitTestHoleSize',['../structImGuiWindow.html#aad97a90bf66307eaf3d9ad4a5697285d',1,'ImGuiWindow']]],
   ['hmtx_54',['hmtx',['../structstbtt__fontinfo.html#aebf42701e99b88d07a59bf99cb84b9a1',1,'stbtt_fontinfo']]],
@@ -101,6 +101,6 @@ var searchData=
   ['hoverwindowunlockedstationaryid_98',['HoverWindowUnlockedStationaryId',['../structImGuiContext.html#a955abe10fd2747c00a2b0de10529ce4d',1,'ImGuiContext']]],
   ['hsv_99',['HSV',['../structImColor.html#ac8cb52119648523038818a613becf010',1,'ImColor']]],
   ['hurt_100',['hurt',['../EnemyAIComponent_8h.html#a588700cbbd7d8e80b51ef81b140213fca62c8a2522be2668b5452181d07dd8964',1,'Hurt:&#160;EnemyAIComponent.h'],['../PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2a62c8a2522be2668b5452181d07dd8964',1,'Hurt:&#160;PlayerControllerComponent.h']]],
-  ['hurt_5fduration_101',['hurt_duration',['../classEnemyAIComponent.html#a1f7aaf79d3f51ea344a37350efadba72',1,'EnemyAIComponent::HURT_DURATION'],['../classPlayerControllerComponent.html#a8c63ca3a1cfa3fcaf58330ba397d70a6',1,'PlayerControllerComponent::HURT_DURATION'],['../classEnemyHurtState.html#a10361fffae272acc78b23559be27a7ca',1,'EnemyHurtState::HURT_DURATION'],['../classPlayerHurtState.html#a244f64472c929d1671485aebc0bea085',1,'PlayerHurtState::HURT_DURATION']]],
+  ['hurt_5fduration_101',['hurt_duration',['../classEnemyAIComponent.html#a1f7aaf79d3f51ea344a37350efadba72',1,'EnemyAIComponent::HURT_DURATION'],['../classPlayerControllerComponent.html#a8c63ca3a1cfa3fcaf58330ba397d70a6',1,'PlayerControllerComponent::HURT_DURATION']]],
   ['hwnd_102',['hWnd',['../structImGui__ImplWin32__Data.html#a73c8b66f6315225a32f5143165d61df4',1,'ImGui_ImplWin32_Data']]]
 ];

@@ -32,7 +32,7 @@ var searchData=
   ['highlightviewportid_29',['HighlightViewportID',['../structImGuiMetricsConfig.html#aebe978c4967142abdd80f83a07bee4cd',1,'ImGuiMetricsConfig']]],
   ['history_30',['History',['../structExampleAppConsole.html#a11c7fa54e744288f3606e4d6521d6345',1,'ExampleAppConsole']]],
   ['historypos_31',['HistoryPos',['../structExampleAppConsole.html#a2508db0a7d205947cea65b141d4ed589',1,'ExampleAppConsole']]],
-  ['hit_5ftiming_32',['hit_timing',['../classEnemyAIComponent.html#a109574444d9f0089226cb97c0d0c5d7d',1,'EnemyAIComponent::HIT_TIMING'],['../classEnemyAttackState.html#a72b247af104e2afc45130096e37174af',1,'EnemyAttackState::HIT_TIMING']]],
+  ['hit_5ftiming_32',['HIT_TIMING',['../classEnemyAIComponent.html#a109574444d9f0089226cb97c0d0c5d7d',1,'EnemyAIComponent']]],
   ['hittestholeoffset_33',['HitTestHoleOffset',['../structImGuiWindow.html#a656437e7e87dd567069579fb813d6e91',1,'ImGuiWindow']]],
   ['hittestholesize_34',['HitTestHoleSize',['../structImGuiWindow.html#aad97a90bf66307eaf3d9ad4a5697285d',1,'ImGuiWindow']]],
   ['hmtx_35',['hmtx',['../structstbtt__fontinfo.html#aebf42701e99b88d07a59bf99cb84b9a1',1,'stbtt_fontinfo']]],
@@ -80,6 +80,6 @@ var searchData=
   ['hoveritemunlockedstationaryid_77',['HoverItemUnlockedStationaryId',['../structImGuiContext.html#a47e8a4a544d940b22238aaf45a79072b',1,'ImGuiContext']]],
   ['hoverstationarydelay_78',['HoverStationaryDelay',['../structImGuiStyle.html#acc9238d7c4075d17f609ce6330a5cbe6',1,'ImGuiStyle']]],
   ['hoverwindowunlockedstationaryid_79',['HoverWindowUnlockedStationaryId',['../structImGuiContext.html#a955abe10fd2747c00a2b0de10529ce4d',1,'ImGuiContext']]],
-  ['hurt_5fduration_80',['hurt_duration',['../classEnemyAIComponent.html#a1f7aaf79d3f51ea344a37350efadba72',1,'EnemyAIComponent::HURT_DURATION'],['../classPlayerControllerComponent.html#a8c63ca3a1cfa3fcaf58330ba397d70a6',1,'PlayerControllerComponent::HURT_DURATION'],['../classEnemyHurtState.html#a10361fffae272acc78b23559be27a7ca',1,'EnemyHurtState::HURT_DURATION'],['../classPlayerHurtState.html#a244f64472c929d1671485aebc0bea085',1,'PlayerHurtState::HURT_DURATION']]],
+  ['hurt_5fduration_80',['hurt_duration',['../classEnemyAIComponent.html#a1f7aaf79d3f51ea344a37350efadba72',1,'EnemyAIComponent::HURT_DURATION'],['../classPlayerControllerComponent.html#a8c63ca3a1cfa3fcaf58330ba397d70a6',1,'PlayerControllerComponent::HURT_DURATION']]],
   ['hwnd_81',['hWnd',['../structImGui__ImplWin32__Data.html#a73c8b66f6315225a32f5143165d61df4',1,'ImGui_ImplWin32_Data']]]
 ];

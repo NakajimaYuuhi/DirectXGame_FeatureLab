@@ -30,6 +30,7 @@ var hierarchy =
     [ "CBox", "classCBox.html", null ],
     [ "CComponent", "classCComponent.html", [
       [ "Audio", "classAudio.html", null ],
+      [ "BulletComponent", "classBulletComponent.html", null ],
       [ "CModel", "classCModel.html", null ],
       [ "CObjectInfo", "classCObjectInfo.html", null ],
       [ "CSpriteRenderer", "classCSpriteRenderer.html", null ],
@@ -66,12 +67,8 @@ var hierarchy =
           [ "Explosion", "classExplosion.html", null ],
           [ "RandomParticle", "classRandomParticle.html", null ]
         ] ],
-        [ "Bullet", "classBullet.html", null ],
         [ "Camera", "classCamera.html", null ],
-        [ "Enemy", "classEnemy.html", null ],
-        [ "Field", "classField.html", null ],
-        [ "Player", "classPlayer.html", null ],
-        [ "Skydome", "classSkydome.html", null ]
+        [ "Field", "classField.html", null ]
       ] ],
       [ "CUIObject", "classCUIObject.html", [
         [ "CUIButton", "classCUIButton.html", null ],
@@ -533,23 +530,7 @@ var hierarchy =
     [ "SpriteVertex", "structSpriteVertex.html", null ],
     [ "CImGuiManager::SrvAllocUserData", "structCImGuiManager_1_1SrvAllocUserData.html", null ],
     [ "StateBase< T >", "classStateBase.html", null ],
-    [ "StateBase< Enemy >", "classStateBase.html", [
-      [ "EnemyAttackState", "classEnemyAttackState.html", null ],
-      [ "EnemyChaseState", "classEnemyChaseState.html", null ],
-      [ "EnemyDeadState", "classEnemyDeadState.html", null ],
-      [ "EnemyHurtState", "classEnemyHurtState.html", null ],
-      [ "EnemyIdleState", "classEnemyIdleState.html", null ]
-    ] ],
-    [ "StateBase< Player >", "classStateBase.html", [
-      [ "PlayerAttackState", "classPlayerAttackState.html", null ],
-      [ "PlayerDeadState", "classPlayerDeadState.html", null ],
-      [ "PlayerHurtState", "classPlayerHurtState.html", null ],
-      [ "PlayerIdleState", "classPlayerIdleState.html", null ],
-      [ "PlayerMoveState", "classPlayerMoveState.html", null ]
-    ] ],
     [ "StateMachine< T >", "classStateMachine.html", null ],
-    [ "StateMachine< Enemy >", "classStateMachine.html", null ],
-    [ "StateMachine< Player >", "classStateMachine.html", null ],
     [ "nlohmann::detail::static_const< T >", "structnlohmann_1_1detail_1_1static__const.html", null ],
     [ "STB_TexteditState", "structSTB__TexteditState.html", null ],
     [ "stbi_io_callbacks", "structstbi__io__callbacks.html", null ],

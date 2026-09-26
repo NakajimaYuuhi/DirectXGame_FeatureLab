@@ -8,7 +8,7 @@ var searchData=
   ['boxcollider3d_5',['BoxCollider3D',['../classBoxCollider3D.html',1,'']]],
   ['buffer_6',['Buffer',['../structtinygltf_1_1Buffer.html',1,'tinygltf']]],
   ['bufferview_7',['BufferView',['../structtinygltf_1_1BufferView.html',1,'tinygltf']]],
-  ['bullet_8',['Bullet',['../classBullet.html',1,'']]],
+  ['bulletcomponent_8',['BulletComponent',['../classBulletComponent.html',1,'']]],
   ['buttoneventmanager_9',['ButtonEventManager',['../classButtonEventManager.html',1,'']]],
   ['byte_5fcontainer_5fwith_5fsubtype_10',['byte_container_with_subtype',['../classnlohmann_1_1byte__container__with__subtype.html',1,'nlohmann']]]
 ];

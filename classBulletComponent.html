@@ -1,0 +1,808 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: BulletComponent クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classBulletComponent.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classBulletComponent-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">BulletComponent クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="BulletComponent_8h_source.html">BulletComponent.h</a>&gt;</code></p>
+<div class="dynheader">
+BulletComponent の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBulletComponent__inherit__graph.svg" width="146" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+BulletComponent 連携図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBulletComponent__coll__graph.svg" width="146" height="199"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:add543b0ee51d7696b9b098b777bf7c99" id="r_add543b0ee51d7696b9b098b777bf7c99"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBulletComponent.html#add543b0ee51d7696b9b098b777bf7c99">BulletComponent</a> ()</td></tr>
+<tr class="separator:add543b0ee51d7696b9b098b777bf7c99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3d33d1db011b6abf639bf02800fe46a" id="r_ad3d33d1db011b6abf639bf02800fe46a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBulletComponent.html#ad3d33d1db011b6abf639bf02800fe46a">~BulletComponent</a> ()=default</td></tr>
+<tr class="separator:ad3d33d1db011b6abf639bf02800fe46a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add19907a8d0a914d01c697cca20b56da" id="r_add19907a8d0a914d01c697cca20b56da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBulletComponent.html#add19907a8d0a914d01c697cca20b56da">Init</a> () override</td></tr>
+<tr class="separator:add19907a8d0a914d01c697cca20b56da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a632e48e0c9af0142ad5bf607b8e51f70" id="r_a632e48e0c9af0142ad5bf607b8e51f70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBulletComponent.html#a632e48e0c9af0142ad5bf607b8e51f70">Update</a> (float deltaTime) override</td></tr>
+<tr class="separator:a632e48e0c9af0142ad5bf607b8e51f70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fc92da279ad04a453b4b71a50d40656" id="r_a7fc92da279ad04a453b4b71a50d40656"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBulletComponent.html#a7fc92da279ad04a453b4b71a50d40656">OnCollision</a> (<a class="el" href="classCObject.html">CObject</a> *_Other) override</td></tr>
+<tr class="separator:a7fc92da279ad04a453b4b71a50d40656"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87803cad72651b466f2620fe09285864" id="r_a87803cad72651b466f2620fe09285864"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBulletComponent.html#a87803cad72651b466f2620fe09285864">GetUpdatePhase</a> () const override</td></tr>
+<tr class="separator:a87803cad72651b466f2620fe09285864"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5adef2df3b746ab99984ce9a012d75d6" id="r_a5adef2df3b746ab99984ce9a012d75d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBulletComponent.html#a5adef2df3b746ab99984ce9a012d75d6">SetDirection</a> (const DirectX::XMFLOAT3 &amp;dir)</td></tr>
+<tr class="separator:a5adef2df3b746ab99984ce9a012d75d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a33bf7cdaf62e92e75a110cd4d2457c" id="r_a0a33bf7cdaf62e92e75a110cd4d2457c"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBulletComponent.html#a0a33bf7cdaf62e92e75a110cd4d2457c">GetDirection</a> () const</td></tr>
+<tr class="separator:a0a33bf7cdaf62e92e75a110cd4d2457c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade2fd17d3c4c40f63cbc34ffc0628404" id="r_ade2fd17d3c4c40f63cbc34ffc0628404"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBulletComponent.html#ade2fd17d3c4c40f63cbc34ffc0628404">SetSpeed</a> (float speed)</td></tr>
+<tr class="separator:ade2fd17d3c4c40f63cbc34ffc0628404"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63eb29a6c0d97e967236cc55bbca39d5" id="r_a63eb29a6c0d97e967236cc55bbca39d5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBulletComponent.html#a63eb29a6c0d97e967236cc55bbca39d5">GetSpeed</a> () const</td></tr>
+<tr class="separator:a63eb29a6c0d97e967236cc55bbca39d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accdfaccf9ee523c3e6df6868845a9ceb" id="r_accdfaccf9ee523c3e6df6868845a9ceb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBulletComponent.html#accdfaccf9ee523c3e6df6868845a9ceb">SetLifeTime</a> (float lifeTime)</td></tr>
+<tr class="separator:accdfaccf9ee523c3e6df6868845a9ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc7d112044ce1cbc5732704191d4f449" id="r_acc7d112044ce1cbc5732704191d4f449"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBulletComponent.html#acc7d112044ce1cbc5732704191d4f449">GetLifeTime</a> () const</td></tr>
+<tr class="separator:acc7d112044ce1cbc5732704191d4f449"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1be86fd9fb7f6d89536f97c201ef85a" id="r_aa1be86fd9fb7f6d89536f97c201ef85a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBulletComponent.html#aa1be86fd9fb7f6d89536f97c201ef85a">SetDamage</a> (int damage)</td></tr>
+<tr class="separator:aa1be86fd9fb7f6d89536f97c201ef85a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a518b42d9984e746e6e41c0bcddf1ed97" id="r_a518b42d9984e746e6e41c0bcddf1ed97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBulletComponent.html#a518b42d9984e746e6e41c0bcddf1ed97">GetDamage</a> () const</td></tr>
+<tr class="separator:a518b42d9984e746e6e41c0bcddf1ed97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c0452b3c0b1fdff2adb22e888c6f62d" id="r_a3c0452b3c0b1fdff2adb22e888c6f62d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBulletComponent.html#a3c0452b3c0b1fdff2adb22e888c6f62d">SetTargetTag</a> (<a class="el" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0">ObjectTag</a> tag)</td></tr>
+<tr class="separator:a3c0452b3c0b1fdff2adb22e888c6f62d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d5992886bd09b7891abfe3c04d53f64" id="r_a7d5992886bd09b7891abfe3c04d53f64"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0">ObjectTag</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBulletComponent.html#a7d5992886bd09b7891abfe3c04d53f64">GetTargetTag</a> () const</td></tr>
+<tr class="separator:a7d5992886bd09b7891abfe3c04d53f64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classCComponent"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCComponent')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCComponent.html">CComponent</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:ab87a6940be69962c3f4f5a8552643245 inherit pub_methods_classCComponent" id="r_ab87a6940be69962c3f4f5a8552643245"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ab87a6940be69962c3f4f5a8552643245">CComponent</a> ()</td></tr>
+<tr class="separator:ab87a6940be69962c3f4f5a8552643245 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accf17908f97e4d07d7f04fbde292dcda inherit pub_methods_classCComponent" id="r_accf17908f97e4d07d7f04fbde292dcda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#accf17908f97e4d07d7f04fbde292dcda">CComponent</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:accf17908f97e4d07d7f04fbde292dcda inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2ad4d80f616aedbf6b08f33bdd9d2d5 inherit pub_methods_classCComponent" id="r_af2ad4d80f616aedbf6b08f33bdd9d2d5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#af2ad4d80f616aedbf6b08f33bdd9d2d5">~CComponent</a> ()=default</td></tr>
+<tr class="separator:af2ad4d80f616aedbf6b08f33bdd9d2d5 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf3ad4406a744d3fa20d83cc704345cf inherit pub_methods_classCComponent" id="r_adf3ad4406a744d3fa20d83cc704345cf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#adf3ad4406a744d3fa20d83cc704345cf">Awake</a> ()</td></tr>
+<tr class="separator:adf3ad4406a744d3fa20d83cc704345cf inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcee296a2416501cf52755038d4f27eb inherit pub_methods_classCComponent" id="r_adcee296a2416501cf52755038d4f27eb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#adcee296a2416501cf52755038d4f27eb">Start</a> ()</td></tr>
+<tr class="separator:adcee296a2416501cf52755038d4f27eb inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad72e93375519950fa4cbc176ede60db1 inherit pub_methods_classCComponent" id="r_ad72e93375519950fa4cbc176ede60db1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ad72e93375519950fa4cbc176ede60db1">LateUpdate</a> (float deltaTime)</td></tr>
+<tr class="separator:ad72e93375519950fa4cbc176ede60db1 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cce55e18bd5fff318f8448bf260540d inherit pub_methods_classCComponent" id="r_a2cce55e18bd5fff318f8448bf260540d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a2cce55e18bd5fff318f8448bf260540d">Draw</a> ()</td></tr>
+<tr class="separator:a2cce55e18bd5fff318f8448bf260540d inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a281a46452f6f59625e5488936cd70aa7 inherit pub_methods_classCComponent" id="r_a281a46452f6f59625e5488936cd70aa7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a281a46452f6f59625e5488936cd70aa7">GetName</a> () const</td></tr>
+<tr class="separator:a281a46452f6f59625e5488936cd70aa7 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1df83625aa856f9cc7047da68dce131d inherit pub_methods_classCComponent" id="r_a1df83625aa856f9cc7047da68dce131d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a1df83625aa856f9cc7047da68dce131d">GetIsValid</a> () const</td></tr>
+<tr class="separator:a1df83625aa856f9cc7047da68dce131d inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf4188a21189f533eed52041962cafd4 inherit pub_methods_classCComponent" id="r_abf4188a21189f533eed52041962cafd4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#abf4188a21189f533eed52041962cafd4">GetIsVarid</a> () const</td></tr>
+<tr class="separator:abf4188a21189f533eed52041962cafd4 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5bf6fd967c58b6784aa399a27ce0eaa inherit pub_methods_classCComponent" id="r_ad5bf6fd967c58b6784aa399a27ce0eaa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ad5bf6fd967c58b6784aa399a27ce0eaa">SetName</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:ad5bf6fd967c58b6784aa399a27ce0eaa inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96b82c9108e83190f29a5dd8bafe59fe inherit pub_methods_classCComponent" id="r_a96b82c9108e83190f29a5dd8bafe59fe"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a96b82c9108e83190f29a5dd8bafe59fe">SetIsValid</a> (bool _IsValid)</td></tr>
+<tr class="separator:a96b82c9108e83190f29a5dd8bafe59fe inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ababe3aca6f026b146eb458dab2a57587 inherit pub_methods_classCComponent" id="r_ababe3aca6f026b146eb458dab2a57587"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ababe3aca6f026b146eb458dab2a57587">SetOwner</a> (<a class="el" href="classCObject.html">CObject</a> *_Object)</td></tr>
+<tr class="separator:ababe3aca6f026b146eb458dab2a57587 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa05b48a46eeaff9527c00de7547edd32 inherit pub_methods_classCComponent" id="r_aa05b48a46eeaff9527c00de7547edd32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#aa05b48a46eeaff9527c00de7547edd32">GetOwner</a> () const</td></tr>
+<tr class="separator:aa05b48a46eeaff9527c00de7547edd32 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:a9c64d9fc648879f806b50594b6263f81" id="r_a9c64d9fc648879f806b50594b6263f81"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBulletComponent.html#a9c64d9fc648879f806b50594b6263f81">m_direction</a> = { 1.0f, 0.0f, 0.0f }</td></tr>
+<tr class="separator:a9c64d9fc648879f806b50594b6263f81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae56b9416252bc728f5e12afd0d3fc2c9" id="r_ae56b9416252bc728f5e12afd0d3fc2c9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBulletComponent.html#ae56b9416252bc728f5e12afd0d3fc2c9">m_speed</a> = 0.04f</td></tr>
+<tr class="separator:ae56b9416252bc728f5e12afd0d3fc2c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a884f2cb496813878a34ad36397bcd6b7" id="r_a884f2cb496813878a34ad36397bcd6b7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBulletComponent.html#a884f2cb496813878a34ad36397bcd6b7">m_lifeTime</a> = 5.0f</td></tr>
+<tr class="separator:a884f2cb496813878a34ad36397bcd6b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f59e33fd5962b4c1c26f62cf92f2246" id="r_a4f59e33fd5962b4c1c26f62cf92f2246"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBulletComponent.html#a4f59e33fd5962b4c1c26f62cf92f2246">m_elapsedTime</a> = 0.0f</td></tr>
+<tr class="separator:a4f59e33fd5962b4c1c26f62cf92f2246"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b1e9a8e98c7b8b09326766361f999cd" id="r_a1b1e9a8e98c7b8b09326766361f999cd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBulletComponent.html#a1b1e9a8e98c7b8b09326766361f999cd">m_damage</a> = 1</td></tr>
+<tr class="separator:a1b1e9a8e98c7b8b09326766361f999cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a823bbcc42819ad3806135ac383778f8d" id="r_a823bbcc42819ad3806135ac383778f8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0">ObjectTag</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBulletComponent.html#a823bbcc42819ad3806135ac383778f8d">m_targetTag</a> = ObjectTag::ENEMY</td></tr>
+<tr class="separator:a823bbcc42819ad3806135ac383778f8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+その他の継承メンバ</h2></td></tr>
+<tr class="inherit_header pro_attribs_classCComponent"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classCComponent')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCComponent.html">CComponent</a> に属する継承限定公開変数類</td></tr>
+<tr class="memitem:a76959a9e98ef06163c56858026e9da5b inherit pro_attribs_classCComponent" id="r_a76959a9e98ef06163c56858026e9da5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a76959a9e98ef06163c56858026e9da5b">m_Owner</a> = nullptr</td></tr>
+<tr class="separator:a76959a9e98ef06163c56858026e9da5b inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4918d7f95edb1a545724dab2be500e75 inherit pro_attribs_classCComponent" id="r_a4918d7f95edb1a545724dab2be500e75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a4918d7f95edb1a545724dab2be500e75">m_ComponentName</a> = &quot;&quot;</td></tr>
+<tr class="separator:a4918d7f95edb1a545724dab2be500e75 inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f8c7080b1f9972952ceda4e155568cb inherit pro_attribs_classCComponent" id="r_a8f8c7080b1f9972952ceda4e155568cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a8f8c7080b1f9972952ceda4e155568cb">m_ComponentIsValid</a> = true</td></tr>
+<tr class="separator:a8f8c7080b1f9972952ceda4e155568cb inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="add543b0ee51d7696b9b098b777bf7c99" name="add543b0ee51d7696b9b098b777bf7c99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add543b0ee51d7696b9b098b777bf7c99">&#9670;&#160;</a></span>BulletComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BulletComponent::BulletComponent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad3d33d1db011b6abf639bf02800fe46a" name="ad3d33d1db011b6abf639bf02800fe46a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3d33d1db011b6abf639bf02800fe46a">&#9670;&#160;</a></span>~BulletComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual BulletComponent::~BulletComponent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a518b42d9984e746e6e41c0bcddf1ed97" name="a518b42d9984e746e6e41c0bcddf1ed97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a518b42d9984e746e6e41c0bcddf1ed97">&#9670;&#160;</a></span>GetDamage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int BulletComponent::GetDamage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBulletComponent_a518b42d9984e746e6e41c0bcddf1ed97_icgraph.svg" width="554" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0a33bf7cdaf62e92e75a110cd4d2457c" name="a0a33bf7cdaf62e92e75a110cd4d2457c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a33bf7cdaf62e92e75a110cd4d2457c">&#9670;&#160;</a></span>GetDirection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 BulletComponent::GetDirection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBulletComponent_a0a33bf7cdaf62e92e75a110cd4d2457c_icgraph.svg" width="558" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="acc7d112044ce1cbc5732704191d4f449" name="acc7d112044ce1cbc5732704191d4f449"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc7d112044ce1cbc5732704191d4f449">&#9670;&#160;</a></span>GetLifeTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float BulletComponent::GetLifeTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBulletComponent_acc7d112044ce1cbc5732704191d4f449_icgraph.svg" width="555" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a63eb29a6c0d97e967236cc55bbca39d5" name="a63eb29a6c0d97e967236cc55bbca39d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63eb29a6c0d97e967236cc55bbca39d5">&#9670;&#160;</a></span>GetSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float BulletComponent::GetSpeed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBulletComponent_a63eb29a6c0d97e967236cc55bbca39d5_icgraph.svg" width="539" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7d5992886bd09b7891abfe3c04d53f64" name="a7d5992886bd09b7891abfe3c04d53f64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d5992886bd09b7891abfe3c04d53f64">&#9670;&#160;</a></span>GetTargetTag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0">ObjectTag</a> BulletComponent::GetTargetTag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a87803cad72651b466f2620fe09285864" name="a87803cad72651b466f2620fe09285864"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87803cad72651b466f2620fe09285864">&#9670;&#160;</a></span>GetUpdatePhase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a> BulletComponent::GetUpdatePhase </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCComponent.html#a8cb4ec11d3210b5f3278d8e55b7308bd">CComponent</a>を再実装しています。</p>
+
+</div>
+</div>
+<a id="add19907a8d0a914d01c697cca20b56da" name="add19907a8d0a914d01c697cca20b56da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add19907a8d0a914d01c697cca20b56da">&#9670;&#160;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BulletComponent::Init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCComponent.html#ac9bf36b35de54f49a3d604da091228a4">CComponent</a>を再実装しています。</p>
+
+</div>
+</div>
+<a id="a7fc92da279ad04a453b4b71a50d40656" name="a7fc92da279ad04a453b4b71a50d40656"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fc92da279ad04a453b4b71a50d40656">&#9670;&#160;</a></span>OnCollision()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BulletComponent::OnCollision </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCObject.html">CObject</a> *&#160;</td>
+          <td class="paramname"><em>_Other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCComponent.html#a26e97bcceac386d951092ade96512283">CComponent</a>を再実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classBulletComponent_a7fc92da279ad04a453b4b71a50d40656_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aa1be86fd9fb7f6d89536f97c201ef85a" name="aa1be86fd9fb7f6d89536f97c201ef85a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1be86fd9fb7f6d89536f97c201ef85a">&#9670;&#160;</a></span>SetDamage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BulletComponent::SetDamage </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>damage</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBulletComponent_aa1be86fd9fb7f6d89536f97c201ef85a_icgraph.svg" width="551" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a5adef2df3b746ab99984ce9a012d75d6" name="a5adef2df3b746ab99984ce9a012d75d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5adef2df3b746ab99984ce9a012d75d6">&#9670;&#160;</a></span>SetDirection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BulletComponent::SetDirection </td>
+          <td>(</td>
+          <td class="paramtype">const DirectX::XMFLOAT3 &amp;&#160;</td>
+          <td class="paramname"><em>dir</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classBulletComponent_a5adef2df3b746ab99984ce9a012d75d6_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="accdfaccf9ee523c3e6df6868845a9ceb" name="accdfaccf9ee523c3e6df6868845a9ceb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accdfaccf9ee523c3e6df6868845a9ceb">&#9670;&#160;</a></span>SetLifeTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BulletComponent::SetLifeTime </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>lifeTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBulletComponent_accdfaccf9ee523c3e6df6868845a9ceb_icgraph.svg" width="554" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ade2fd17d3c4c40f63cbc34ffc0628404" name="ade2fd17d3c4c40f63cbc34ffc0628404"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade2fd17d3c4c40f63cbc34ffc0628404">&#9670;&#160;</a></span>SetSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BulletComponent::SetSpeed </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>speed</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classBulletComponent_ade2fd17d3c4c40f63cbc34ffc0628404_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a3c0452b3c0b1fdff2adb22e888c6f62d" name="a3c0452b3c0b1fdff2adb22e888c6f62d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c0452b3c0b1fdff2adb22e888c6f62d">&#9670;&#160;</a></span>SetTargetTag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BulletComponent::SetTargetTag </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0">ObjectTag</a>&#160;</td>
+          <td class="paramname"><em>tag</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a632e48e0c9af0142ad5bf607b8e51f70" name="a632e48e0c9af0142ad5bf607b8e51f70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a632e48e0c9af0142ad5bf607b8e51f70">&#9670;&#160;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BulletComponent::Update </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCComponent.html#ae575194dbb8c5f6ad344bb8c17fa778b">CComponent</a>を再実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBulletComponent_a632e48e0c9af0142ad5bf607b8e51f70_cgraph.svg" width="435" height="283"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a1b1e9a8e98c7b8b09326766361f999cd" name="a1b1e9a8e98c7b8b09326766361f999cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b1e9a8e98c7b8b09326766361f999cd">&#9670;&#160;</a></span>m_damage</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int BulletComponent::m_damage = 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9c64d9fc648879f806b50594b6263f81" name="a9c64d9fc648879f806b50594b6263f81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c64d9fc648879f806b50594b6263f81">&#9670;&#160;</a></span>m_direction</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 BulletComponent::m_direction = { 1.0f, 0.0f, 0.0f }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4f59e33fd5962b4c1c26f62cf92f2246" name="a4f59e33fd5962b4c1c26f62cf92f2246"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f59e33fd5962b4c1c26f62cf92f2246">&#9670;&#160;</a></span>m_elapsedTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float BulletComponent::m_elapsedTime = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a884f2cb496813878a34ad36397bcd6b7" name="a884f2cb496813878a34ad36397bcd6b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a884f2cb496813878a34ad36397bcd6b7">&#9670;&#160;</a></span>m_lifeTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float BulletComponent::m_lifeTime = 5.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae56b9416252bc728f5e12afd0d3fc2c9" name="ae56b9416252bc728f5e12afd0d3fc2c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae56b9416252bc728f5e12afd0d3fc2c9">&#9670;&#160;</a></span>m_speed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float BulletComponent::m_speed = 0.04f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a823bbcc42819ad3806135ac383778f8d" name="a823bbcc42819ad3806135ac383778f8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a823bbcc42819ad3806135ac383778f8d">&#9670;&#160;</a></span>m_targetTag</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0">ObjectTag</a> BulletComponent::m_targetTag = ObjectTag::ENEMY</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/Game/Entities/Bullet/PlayerBullet/<a class="el" href="BulletComponent_8h_source.html">BulletComponent.h</a></li>
+<li>Source/Game/Entities/Bullet/PlayerBullet/<a class="el" href="BulletComponent_8cpp.html">BulletComponent.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classBulletComponent.html">BulletComponent</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

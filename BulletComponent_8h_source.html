@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Game/Entities/Bullet/PlayerBullet/BulletComponent.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('BulletComponent_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">BulletComponent.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="BulletComponent_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="Component_8h.html">Component.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="ObjectTag_8h.html">ObjectTag.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;DirectXMath.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="foldopen" id="foldopen00006" data-start="{" data-end="};">
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="classBulletComponent.html">    6</a></span><span class="keyword">class </span><a class="code hl_class" href="classBulletComponent.html">BulletComponent</a> : <span class="keyword">public</span> <a class="code hl_class" href="classCComponent.html">CComponent</a></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_function" href="classBulletComponent.html#add543b0ee51d7696b9b098b777bf7c99">BulletComponent</a>();</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classBulletComponent.html#ad3d33d1db011b6abf639bf02800fe46a">   10</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classBulletComponent.html#ad3d33d1db011b6abf639bf02800fe46a">~BulletComponent</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBulletComponent.html#add19907a8d0a914d01c697cca20b56da">Init</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBulletComponent.html#a632e48e0c9af0142ad5bf607b8e51f70">Update</a>(<span class="keywordtype">float</span> deltaTime) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBulletComponent.html#a7fc92da279ad04a453b4b71a50d40656">OnCollision</a>(<a class="code hl_class" href="classCObject.html">CObject</a>* _Other) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classBulletComponent.html#a87803cad72651b466f2620fe09285864">   16</a></span>    <a class="code hl_enumeration" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a> <a class="code hl_function" href="classBulletComponent.html#a87803cad72651b466f2620fe09285864">GetUpdatePhase</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa4642e767f9251fa40afadbc963f80b7a">UpdatePhase::Movement</a>; }</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="comment">// Getters &amp; Setters</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classBulletComponent.html#a5adef2df3b746ab99984ce9a012d75d6">   19</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBulletComponent.html#a5adef2df3b746ab99984ce9a012d75d6">SetDirection</a>(<span class="keyword">const</span> DirectX::XMFLOAT3&amp; dir) { <a class="code hl_variable" href="classBulletComponent.html#a9c64d9fc648879f806b50594b6263f81">m_direction</a> = dir; }</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classBulletComponent.html#a0a33bf7cdaf62e92e75a110cd4d2457c">   20</a></span>    DirectX::XMFLOAT3 <a class="code hl_function" href="classBulletComponent.html#a0a33bf7cdaf62e92e75a110cd4d2457c">GetDirection</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classBulletComponent.html#a9c64d9fc648879f806b50594b6263f81">m_direction</a>; }</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classBulletComponent.html#ade2fd17d3c4c40f63cbc34ffc0628404">   22</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBulletComponent.html#ade2fd17d3c4c40f63cbc34ffc0628404">SetSpeed</a>(<span class="keywordtype">float</span> speed) { <a class="code hl_variable" href="classBulletComponent.html#ae56b9416252bc728f5e12afd0d3fc2c9">m_speed</a> = speed; }</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classBulletComponent.html#a63eb29a6c0d97e967236cc55bbca39d5">   23</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classBulletComponent.html#a63eb29a6c0d97e967236cc55bbca39d5">GetSpeed</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classBulletComponent.html#ae56b9416252bc728f5e12afd0d3fc2c9">m_speed</a>; }</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classBulletComponent.html#accdfaccf9ee523c3e6df6868845a9ceb">   25</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBulletComponent.html#accdfaccf9ee523c3e6df6868845a9ceb">SetLifeTime</a>(<span class="keywordtype">float</span> lifeTime) { <a class="code hl_variable" href="classBulletComponent.html#a884f2cb496813878a34ad36397bcd6b7">m_lifeTime</a> = lifeTime; }</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classBulletComponent.html#acc7d112044ce1cbc5732704191d4f449">   26</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classBulletComponent.html#acc7d112044ce1cbc5732704191d4f449">GetLifeTime</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classBulletComponent.html#a884f2cb496813878a34ad36397bcd6b7">m_lifeTime</a>; }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classBulletComponent.html#aa1be86fd9fb7f6d89536f97c201ef85a">   28</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBulletComponent.html#aa1be86fd9fb7f6d89536f97c201ef85a">SetDamage</a>(<span class="keywordtype">int</span> damage) { <a class="code hl_variable" href="classBulletComponent.html#a1b1e9a8e98c7b8b09326766361f999cd">m_damage</a> = damage; }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classBulletComponent.html#a518b42d9984e746e6e41c0bcddf1ed97">   29</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classBulletComponent.html#a518b42d9984e746e6e41c0bcddf1ed97">GetDamage</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classBulletComponent.html#a1b1e9a8e98c7b8b09326766361f999cd">m_damage</a>; }</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classBulletComponent.html#a3c0452b3c0b1fdff2adb22e888c6f62d">   31</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBulletComponent.html#a3c0452b3c0b1fdff2adb22e888c6f62d">SetTargetTag</a>(<a class="code hl_enumeration" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0">ObjectTag</a> tag) { <a class="code hl_variable" href="classBulletComponent.html#a823bbcc42819ad3806135ac383778f8d">m_targetTag</a> = tag; }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classBulletComponent.html#a7d5992886bd09b7891abfe3c04d53f64">   32</a></span>    <a class="code hl_enumeration" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0">ObjectTag</a> <a class="code hl_function" href="classBulletComponent.html#a7d5992886bd09b7891abfe3c04d53f64">GetTargetTag</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classBulletComponent.html#a823bbcc42819ad3806135ac383778f8d">m_targetTag</a>; }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classBulletComponent.html#a9c64d9fc648879f806b50594b6263f81">   35</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="classBulletComponent.html#a9c64d9fc648879f806b50594b6263f81">m_direction</a> = { 1.0f, 0.0f, 0.0f };</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classBulletComponent.html#ae56b9416252bc728f5e12afd0d3fc2c9">   36</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classBulletComponent.html#ae56b9416252bc728f5e12afd0d3fc2c9">m_speed</a> = 0.04f;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classBulletComponent.html#a884f2cb496813878a34ad36397bcd6b7">   37</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classBulletComponent.html#a884f2cb496813878a34ad36397bcd6b7">m_lifeTime</a> = 5.0f;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classBulletComponent.html#a4f59e33fd5962b4c1c26f62cf92f2246">   38</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classBulletComponent.html#a4f59e33fd5962b4c1c26f62cf92f2246">m_elapsedTime</a> = 0.0f;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classBulletComponent.html#a1b1e9a8e98c7b8b09326766361f999cd">   39</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classBulletComponent.html#a1b1e9a8e98c7b8b09326766361f999cd">m_damage</a> = 1;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classBulletComponent.html#a823bbcc42819ad3806135ac383778f8d">   40</a></span>    <a class="code hl_enumeration" href="namespaceObject.html#a601de737429833556e7418bb4a8975b0">ObjectTag</a> <a class="code hl_variable" href="classBulletComponent.html#a823bbcc42819ad3806135ac383778f8d">m_targetTag</a> = ObjectTag::ENEMY;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
+</div>
+<div class="ttc" id="aComponent_8h_html"><div class="ttname"><a href="Component_8h.html">Component.h</a></div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93f"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a></div><div class="ttdeci">UpdatePhase</div><div class="ttdef"><b>Definition</b> Component.h:10</div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fa4642e767f9251fa40afadbc963f80b7a"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa4642e767f9251fa40afadbc963f80b7a">UpdatePhase::Movement</a></div><div class="ttdeci">@ Movement</div></div>
+<div class="ttc" id="aObjectTag_8h_html"><div class="ttname"><a href="ObjectTag_8h.html">ObjectTag.h</a></div></div>
+<div class="ttc" id="aclassBulletComponent_html"><div class="ttname"><a href="classBulletComponent.html">BulletComponent</a></div><div class="ttdef"><b>Definition</b> BulletComponent.h:7</div></div>
+<div class="ttc" id="aclassBulletComponent_html_a0a33bf7cdaf62e92e75a110cd4d2457c"><div class="ttname"><a href="classBulletComponent.html#a0a33bf7cdaf62e92e75a110cd4d2457c">BulletComponent::GetDirection</a></div><div class="ttdeci">DirectX::XMFLOAT3 GetDirection() const</div><div class="ttdef"><b>Definition</b> BulletComponent.h:20</div></div>
+<div class="ttc" id="aclassBulletComponent_html_a1b1e9a8e98c7b8b09326766361f999cd"><div class="ttname"><a href="classBulletComponent.html#a1b1e9a8e98c7b8b09326766361f999cd">BulletComponent::m_damage</a></div><div class="ttdeci">int m_damage</div><div class="ttdef"><b>Definition</b> BulletComponent.h:39</div></div>
+<div class="ttc" id="aclassBulletComponent_html_a3c0452b3c0b1fdff2adb22e888c6f62d"><div class="ttname"><a href="classBulletComponent.html#a3c0452b3c0b1fdff2adb22e888c6f62d">BulletComponent::SetTargetTag</a></div><div class="ttdeci">void SetTargetTag(ObjectTag tag)</div><div class="ttdef"><b>Definition</b> BulletComponent.h:31</div></div>
+<div class="ttc" id="aclassBulletComponent_html_a4f59e33fd5962b4c1c26f62cf92f2246"><div class="ttname"><a href="classBulletComponent.html#a4f59e33fd5962b4c1c26f62cf92f2246">BulletComponent::m_elapsedTime</a></div><div class="ttdeci">float m_elapsedTime</div><div class="ttdef"><b>Definition</b> BulletComponent.h:38</div></div>
+<div class="ttc" id="aclassBulletComponent_html_a518b42d9984e746e6e41c0bcddf1ed97"><div class="ttname"><a href="classBulletComponent.html#a518b42d9984e746e6e41c0bcddf1ed97">BulletComponent::GetDamage</a></div><div class="ttdeci">int GetDamage() const</div><div class="ttdef"><b>Definition</b> BulletComponent.h:29</div></div>
+<div class="ttc" id="aclassBulletComponent_html_a5adef2df3b746ab99984ce9a012d75d6"><div class="ttname"><a href="classBulletComponent.html#a5adef2df3b746ab99984ce9a012d75d6">BulletComponent::SetDirection</a></div><div class="ttdeci">void SetDirection(const DirectX::XMFLOAT3 &amp;dir)</div><div class="ttdef"><b>Definition</b> BulletComponent.h:19</div></div>
+<div class="ttc" id="aclassBulletComponent_html_a632e48e0c9af0142ad5bf607b8e51f70"><div class="ttname"><a href="classBulletComponent.html#a632e48e0c9af0142ad5bf607b8e51f70">BulletComponent::Update</a></div><div class="ttdeci">void Update(float deltaTime) override</div><div class="ttdef"><b>Definition</b> BulletComponent.cpp:17</div></div>
+<div class="ttc" id="aclassBulletComponent_html_a63eb29a6c0d97e967236cc55bbca39d5"><div class="ttname"><a href="classBulletComponent.html#a63eb29a6c0d97e967236cc55bbca39d5">BulletComponent::GetSpeed</a></div><div class="ttdeci">float GetSpeed() const</div><div class="ttdef"><b>Definition</b> BulletComponent.h:23</div></div>
+<div class="ttc" id="aclassBulletComponent_html_a7d5992886bd09b7891abfe3c04d53f64"><div class="ttname"><a href="classBulletComponent.html#a7d5992886bd09b7891abfe3c04d53f64">BulletComponent::GetTargetTag</a></div><div class="ttdeci">ObjectTag GetTargetTag() const</div><div class="ttdef"><b>Definition</b> BulletComponent.h:32</div></div>
+<div class="ttc" id="aclassBulletComponent_html_a7fc92da279ad04a453b4b71a50d40656"><div class="ttname"><a href="classBulletComponent.html#a7fc92da279ad04a453b4b71a50d40656">BulletComponent::OnCollision</a></div><div class="ttdeci">void OnCollision(CObject *_Other) override</div><div class="ttdef"><b>Definition</b> BulletComponent.cpp:48</div></div>
+<div class="ttc" id="aclassBulletComponent_html_a823bbcc42819ad3806135ac383778f8d"><div class="ttname"><a href="classBulletComponent.html#a823bbcc42819ad3806135ac383778f8d">BulletComponent::m_targetTag</a></div><div class="ttdeci">ObjectTag m_targetTag</div><div class="ttdef"><b>Definition</b> BulletComponent.h:40</div></div>
+<div class="ttc" id="aclassBulletComponent_html_a87803cad72651b466f2620fe09285864"><div class="ttname"><a href="classBulletComponent.html#a87803cad72651b466f2620fe09285864">BulletComponent::GetUpdatePhase</a></div><div class="ttdeci">UpdatePhase GetUpdatePhase() const override</div><div class="ttdef"><b>Definition</b> BulletComponent.h:16</div></div>
+<div class="ttc" id="aclassBulletComponent_html_a884f2cb496813878a34ad36397bcd6b7"><div class="ttname"><a href="classBulletComponent.html#a884f2cb496813878a34ad36397bcd6b7">BulletComponent::m_lifeTime</a></div><div class="ttdeci">float m_lifeTime</div><div class="ttdef"><b>Definition</b> BulletComponent.h:37</div></div>
+<div class="ttc" id="aclassBulletComponent_html_a9c64d9fc648879f806b50594b6263f81"><div class="ttname"><a href="classBulletComponent.html#a9c64d9fc648879f806b50594b6263f81">BulletComponent::m_direction</a></div><div class="ttdeci">DirectX::XMFLOAT3 m_direction</div><div class="ttdef"><b>Definition</b> BulletComponent.h:35</div></div>
+<div class="ttc" id="aclassBulletComponent_html_aa1be86fd9fb7f6d89536f97c201ef85a"><div class="ttname"><a href="classBulletComponent.html#aa1be86fd9fb7f6d89536f97c201ef85a">BulletComponent::SetDamage</a></div><div class="ttdeci">void SetDamage(int damage)</div><div class="ttdef"><b>Definition</b> BulletComponent.h:28</div></div>
+<div class="ttc" id="aclassBulletComponent_html_acc7d112044ce1cbc5732704191d4f449"><div class="ttname"><a href="classBulletComponent.html#acc7d112044ce1cbc5732704191d4f449">BulletComponent::GetLifeTime</a></div><div class="ttdeci">float GetLifeTime() const</div><div class="ttdef"><b>Definition</b> BulletComponent.h:26</div></div>
+<div class="ttc" id="aclassBulletComponent_html_accdfaccf9ee523c3e6df6868845a9ceb"><div class="ttname"><a href="classBulletComponent.html#accdfaccf9ee523c3e6df6868845a9ceb">BulletComponent::SetLifeTime</a></div><div class="ttdeci">void SetLifeTime(float lifeTime)</div><div class="ttdef"><b>Definition</b> BulletComponent.h:25</div></div>
+<div class="ttc" id="aclassBulletComponent_html_ad3d33d1db011b6abf639bf02800fe46a"><div class="ttname"><a href="classBulletComponent.html#ad3d33d1db011b6abf639bf02800fe46a">BulletComponent::~BulletComponent</a></div><div class="ttdeci">virtual ~BulletComponent()=default</div></div>
+<div class="ttc" id="aclassBulletComponent_html_add19907a8d0a914d01c697cca20b56da"><div class="ttname"><a href="classBulletComponent.html#add19907a8d0a914d01c697cca20b56da">BulletComponent::Init</a></div><div class="ttdeci">void Init() override</div><div class="ttdef"><b>Definition</b> BulletComponent.cpp:13</div></div>
+<div class="ttc" id="aclassBulletComponent_html_add543b0ee51d7696b9b098b777bf7c99"><div class="ttname"><a href="classBulletComponent.html#add543b0ee51d7696b9b098b777bf7c99">BulletComponent::BulletComponent</a></div><div class="ttdeci">BulletComponent()</div><div class="ttdef"><b>Definition</b> BulletComponent.cpp:8</div></div>
+<div class="ttc" id="aclassBulletComponent_html_ade2fd17d3c4c40f63cbc34ffc0628404"><div class="ttname"><a href="classBulletComponent.html#ade2fd17d3c4c40f63cbc34ffc0628404">BulletComponent::SetSpeed</a></div><div class="ttdeci">void SetSpeed(float speed)</div><div class="ttdef"><b>Definition</b> BulletComponent.h:22</div></div>
+<div class="ttc" id="aclassBulletComponent_html_ae56b9416252bc728f5e12afd0d3fc2c9"><div class="ttname"><a href="classBulletComponent.html#ae56b9416252bc728f5e12afd0d3fc2c9">BulletComponent::m_speed</a></div><div class="ttdeci">float m_speed</div><div class="ttdef"><b>Definition</b> BulletComponent.h:36</div></div>
+<div class="ttc" id="aclassCComponent_html"><div class="ttname"><a href="classCComponent.html">CComponent</a></div><div class="ttdef"><b>Definition</b> Component.h:21</div></div>
+<div class="ttc" id="aclassCObject_html"><div class="ttname"><a href="classCObject.html">CObject</a></div><div class="ttdef"><b>Definition</b> Object.h:43</div></div>
+<div class="ttc" id="anamespaceObject_html_a601de737429833556e7418bb4a8975b0"><div class="ttname"><a href="namespaceObject.html#a601de737429833556e7418bb4a8975b0">Object::objectTag</a></div><div class="ttdeci">objectTag</div><div class="ttdef"><b>Definition</b> ObjectTag.h:6</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_3777292849a1481e53303ca2af78ff89.html">Game</a></li><li class="navelem"><a class="el" href="dir_71cf26ea1ccbb2ce8790e936c1c8c6cf.html">Entities</a></li><li class="navelem"><a class="el" href="dir_116d03cbf6758b9b550df8eaf790f5a7.html">Bullet</a></li><li class="navelem"><a class="el" href="dir_aee3b6b5f95c1328484d1e936011135f.html">PlayerBullet</a></li><li class="navelem"><a class="el" href="BulletComponent_8h.html">BulletComponent.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>
