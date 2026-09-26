@@ -1,5 +1,5 @@
 #pragma once
-#include "../Base/Scene.h"
+#include "Scene.h"
 #include <memory>
 
 enum class FadeState

@@ -16,14 +16,20 @@
         <Filter Include="Source\Game">
       <UniqueIdentifier>{3389B105-EB85-4C8B-A0AF-E491BEBC1A99}</UniqueIdentifier>
     </Filter>
+        <Filter Include="Source\Game\Scenes">
+      <UniqueIdentifier>{4BAA74AD-D0C2-4515-9F24-B731CB876701}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source\Game\Entities">
       <UniqueIdentifier>{7F633E5A-7323-4ECD-8251-E67A4377A28B}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Game\Entities\Player">
-      <UniqueIdentifier>{C532C293-53C8-47DA-8C7F-7F842037EAFE}</UniqueIdentifier>
+        <Filter Include="Source\Game\Entities\Characters">
+      <UniqueIdentifier>{43A38386-5C1F-420F-A0EC-664D9E8030E7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Game\Entities\Enemy">
-      <UniqueIdentifier>{FF6D2570-321C-4A3C-8272-671A60C4EA72}</UniqueIdentifier>
+    <Filter Include="Source\Game\Entities\Characters\Player">
+      <UniqueIdentifier>{7A4369FF-2596-4D38-90FC-041C7D20B43B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Game\Entities\Characters\Enemy">
+      <UniqueIdentifier>{BDC5A770-3232-45EF-9B2F-02852AE30B2A}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source\Game\Features">
       <UniqueIdentifier>{F3B5C181-33A0-4DAA-ACB2-12D3C0E48F8E}</UniqueIdentifier>
@@ -69,9 +75,6 @@
     </Filter>
     <Filter Include="Source\Core\Scenes\Manager">
       <UniqueIdentifier>{51fd999b-bcf9-497e-bab5-0240981d61f5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Core\Scenes\Instances">
-      <UniqueIdentifier>{000e584d-7cea-4a1f-8f96-3d5cd12cce81}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source\Util\Logic">
       <UniqueIdentifier>{cdae6aaf-3c23-4263-ab7d-f2651a450747}</UniqueIdentifier>
@@ -168,11 +171,11 @@
     <ClCompile Include="Source\Engine\Component\CharacterMovementComponent.cpp">
       <Filter>Source\Engine\Component</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Game\Entities\Player\PlayerControllerComponent.cpp">
-      <Filter>Source\Game\Entities\Player</Filter>
+    <ClCompile Include="Source\Game\Entities\Characters\Player\PlayerControllerComponent.cpp">
+      <Filter>Source\Game\Entities\Characters\Player</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Game\Entities\Enemy\EnemyAIComponent.cpp">
-      <Filter>Source\Game\Entities\Enemy</Filter>
+    <ClCompile Include="Source\Game\Entities\Characters\Enemy\EnemyAIComponent.cpp">
+      <Filter>Source\Game\Entities\Characters\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Source\Core\PrefabManager.cpp">
       <Filter>Source\Core</Filter>
@@ -303,11 +306,11 @@
     <ClCompile Include="Source\UI\TitleUI.cpp">
       <Filter>Source\UI</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Core\Scenes\Instances\SceneClear.cpp">
-      <Filter>Source\Core\Scenes\Instances</Filter>
+    <ClCompile Include="Source\Game\Scenes\SceneClear.cpp">
+      <Filter>Source\Game\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Core\Scenes\Instances\SceneFailed.cpp">
-      <Filter>Source\Core\Scenes\Instances</Filter>
+    <ClCompile Include="Source\Game\Scenes\SceneFailed.cpp">
+      <Filter>Source\Game\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="Source\Core\Scenes\Base\Scene.cpp">
       <Filter>Source\Core\Scenes\Base</Filter>
@@ -315,11 +318,11 @@
     <ClCompile Include="Source\Core\Scenes\Manager\SceneManager.cpp">
       <Filter>Source\Core\Scenes\Manager</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Core\Scenes\Instances\SceneTitle.cpp">
-      <Filter>Source\Core\Scenes\Instances</Filter>
+    <ClCompile Include="Source\Game\Scenes\SceneTitle.cpp">
+      <Filter>Source\Game\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Core\Scenes\Instances\SceneTest.cpp">
-      <Filter>Source\Core\Scenes\Instances</Filter>
+    <ClCompile Include="Source\Game\Scenes\SceneTest.cpp">
+      <Filter>Source\Game\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="Source\Editor\ContentDrawerUI.cpp">
       <Filter>Source\Editor</Filter>
@@ -441,11 +444,11 @@
     <ClInclude Include="Source\Engine\Component\CharacterMovementComponent.h">
       <Filter>Source\Engine\Component</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Game\Entities\Player\PlayerControllerComponent.h">
-      <Filter>Source\Game\Entities\Player</Filter>
+    <ClInclude Include="Source\Game\Entities\Characters\Player\PlayerControllerComponent.h">
+      <Filter>Source\Game\Entities\Characters\Player</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Game\Entities\Enemy\EnemyAIComponent.h">
-      <Filter>Source\Game\Entities\Enemy</Filter>
+    <ClInclude Include="Source\Game\Entities\Characters\Enemy\EnemyAIComponent.h">
+      <Filter>Source\Game\Entities\Characters\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Source\Core\PrefabManager.h">
       <Filter>Source\Core</Filter>
@@ -621,11 +624,11 @@
     <ClInclude Include="Source\Core\SceneEnums.h">
       <Filter>Source\Core\Scenes\Settings</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Core\Scenes\Instances\SceneClear.h">
-      <Filter>Source\Core\Scenes\Instances</Filter>
+    <ClInclude Include="Source\Game\Scenes\SceneClear.h">
+      <Filter>Source\Game\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Core\Scenes\Instances\SceneFailed.h">
-      <Filter>Source\Core\Scenes\Instances</Filter>
+    <ClInclude Include="Source\Game\Scenes\SceneFailed.h">
+      <Filter>Source\Game\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="Source\Core\Scenes\Base\Scene.h">
       <Filter>Source\Core\Scenes\Base</Filter>
@@ -633,11 +636,11 @@
     <ClInclude Include="Source\Core\Scenes\Manager\SceneManager.h">
       <Filter>Source\Core\Scenes\Manager</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Core\Scenes\Instances\SceneTest.h">
-      <Filter>Source\Core\Scenes\Instances</Filter>
+    <ClInclude Include="Source\Game\Scenes\SceneTest.h">
+      <Filter>Source\Game\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Core\Scenes\Instances\SceneTitle.h">
-      <Filter>Source\Core\Scenes\Instances</Filter>
+    <ClInclude Include="Source\Game\Scenes\SceneTitle.h">
+      <Filter>Source\Game\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="Source\Util\Logic\StateMachine\StateBase.h">
       <Filter>Source\Util\Logic\StateMachine</Filter>

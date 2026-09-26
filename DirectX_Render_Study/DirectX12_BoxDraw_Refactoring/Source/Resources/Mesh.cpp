@@ -11,7 +11,7 @@
 
 //Transform
 #include "Transform.h"
-#include "Source/Core/Scenes/Instances/SceneTest.h"
+#include "SceneTest.h"
 
 #include "Material.h"
 

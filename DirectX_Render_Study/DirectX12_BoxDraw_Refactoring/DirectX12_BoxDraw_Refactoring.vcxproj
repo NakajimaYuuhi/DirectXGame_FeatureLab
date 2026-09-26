@@ -73,8 +73,8 @@
   <PropertyGroup Label="UserMacros" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities\Player;$(ProjectDir)Source\Game\Entities\Enemy;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities\Player;$(ProjectDir)Source\Game\Entities\Enemy;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Core\Scenes\Base;$(ProjectDir)Source\Core\Scenes\Manager;$(ProjectDir)Source\Core\Scenes\Serializer;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities;$(ProjectDir)Source\Game\Entities\Characters\Player;$(ProjectDir)Source\Game\Entities\Characters\Enemy;$(ProjectDir)Source\Game\Scenes;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Core\Scenes\Base;$(ProjectDir)Source\Core\Scenes\Manager;$(ProjectDir)Source\Core\Scenes\Serializer;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities;$(ProjectDir)Source\Game\Entities\Characters\Player;$(ProjectDir)Source\Game\Entities\Characters\Enemy;$(ProjectDir)Source\Game\Scenes;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -87,8 +87,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities\Player;$(ProjectDir)Source\Game\Entities\Enemy;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities\Player;$(ProjectDir)Source\Game\Entities\Enemy;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Core\Scenes\Base;$(ProjectDir)Source\Core\Scenes\Manager;$(ProjectDir)Source\Core\Scenes\Serializer;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities;$(ProjectDir)Source\Game\Entities\Characters\Player;$(ProjectDir)Source\Game\Entities\Characters\Enemy;$(ProjectDir)Source\Game\Scenes;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Core\Scenes\Base;$(ProjectDir)Source\Core\Scenes\Manager;$(ProjectDir)Source\Core\Scenes\Serializer;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities;$(ProjectDir)Source\Game\Entities\Characters\Player;$(ProjectDir)Source\Game\Entities\Characters\Enemy;$(ProjectDir)Source\Game\Scenes;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -105,8 +105,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities\Player;$(ProjectDir)Source\Game\Entities\Enemy;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities\Player;$(ProjectDir)Source\Game\Entities\Enemy;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Core\Scenes\Base;$(ProjectDir)Source\Core\Scenes\Manager;$(ProjectDir)Source\Core\Scenes\Serializer;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities;$(ProjectDir)Source\Game\Entities\Characters\Player;$(ProjectDir)Source\Game\Entities\Characters\Enemy;$(ProjectDir)Source\Game\Scenes;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Core\Scenes\Base;$(ProjectDir)Source\Core\Scenes\Manager;$(ProjectDir)Source\Core\Scenes\Serializer;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities;$(ProjectDir)Source\Game\Entities\Characters\Player;$(ProjectDir)Source\Game\Entities\Characters\Enemy;$(ProjectDir)Source\Game\Scenes;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -127,8 +127,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities\Player;$(ProjectDir)Source\Game\Entities\Enemy;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities\Player;$(ProjectDir)Source\Game\Entities\Enemy;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Core\Scenes\Base;$(ProjectDir)Source\Core\Scenes\Manager;$(ProjectDir)Source\Core\Scenes\Serializer;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities;$(ProjectDir)Source\Game\Entities\Characters\Player;$(ProjectDir)Source\Game\Entities\Characters\Enemy;$(ProjectDir)Source\Game\Scenes;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir);$(ProjectDir)Source\External;$(ProjectDir)Source\Core;$(ProjectDir)Source\Core\Scenes\Base;$(ProjectDir)Source\Core\Scenes\Manager;$(ProjectDir)Source\Core\Scenes\Serializer;$(ProjectDir)Source\Rendering;$(ProjectDir)Source\Resources;$(ProjectDir)Source\Engine\Component;$(ProjectDir)Source\Engine;$(ProjectDir)Source\Game;$(ProjectDir)Source\Game\Entities;$(ProjectDir)Source\Game\Entities\Characters\Player;$(ProjectDir)Source\Game\Entities\Characters\Enemy;$(ProjectDir)Source\Game\Scenes;$(ProjectDir)Source\Game\Features\Status;$(ProjectDir)Source\Components;$(ProjectDir)Source\Objects;$(ProjectDir)Source\Objects\Player;$(ProjectDir)Source\Objects\Enemy;Source\Objects\Player;Source\Objects\Enemy;$(ProjectDir)Source\Editor;$(ProjectDir)Source\UI;$(ProjectDir)Source\Util;$(ProjectDir)Source\Util\Logic\StateMachine</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -153,11 +153,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\Core\Scenes\Base\Scene.cpp" />
-    <ClCompile Include="Source\Core\Scenes\Instances\SceneClear.cpp" />
-    <ClCompile Include="Source\Core\Scenes\Instances\SceneFailed.cpp" />
-    <ClCompile Include="Source\Core\Scenes\Instances\SceneTest.cpp" />
-    <ClCompile Include="Source\Core\Scenes\Instances\SceneTitle.cpp" />
-    <ClCompile Include="Source\Core\Scenes\Instances\SceneFade.cpp" />
+    <ClCompile Include="Source\Game\Scenes\SceneClear.cpp" />
+    <ClCompile Include="Source\Game\Scenes\SceneFailed.cpp" />
+    <ClCompile Include="Source\Game\Scenes\SceneTest.cpp" />
+    <ClCompile Include="Source\Game\Scenes\SceneTitle.cpp" />
+    <ClCompile Include="Source\Game\Scenes\SceneFade.cpp" />
     <ClCompile Include="Source\Core\Scenes\Manager\SceneManager.cpp" />
     <ClCompile Include="Source\Util\audio.cpp" />
     <ClCompile Include="Source\Objects\Camera.cpp" />
@@ -187,8 +187,8 @@
     <ClCompile Include="Source\Engine\Component\GravityComponent.cpp" />
     <ClCompile Include="Source\Game\Features\Status\HealthComponent.cpp" />
     <ClCompile Include="Source\Engine\Component\CharacterMovementComponent.cpp" />
-    <ClCompile Include="Source\Game\Entities\Player\PlayerControllerComponent.cpp" />
-    <ClCompile Include="Source\Game\Entities\Enemy\EnemyAIComponent.cpp" />
+    <ClCompile Include="Source\Game\Entities\Characters\Player\PlayerControllerComponent.cpp" />
+    <ClCompile Include="Source\Game\Entities\Characters\Enemy\EnemyAIComponent.cpp" />
     <ClCompile Include="Source\Core\PrefabManager.cpp" />
     <ClCompile Include="Source\Objects\Bullet.cpp" />
     <ClCompile Include="Source\Engine\Component\Collider.cpp" />
@@ -245,11 +245,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core\Scenes\Base\Scene.h" />
-    <ClInclude Include="Source\Core\Scenes\Instances\SceneClear.h" />
-    <ClInclude Include="Source\Core\Scenes\Instances\SceneFailed.h" />
-    <ClInclude Include="Source\Core\Scenes\Instances\SceneTest.h" />
-    <ClInclude Include="Source\Core\Scenes\Instances\SceneTitle.h" />
-    <ClInclude Include="Source\Core\Scenes\Instances\SceneFade.h" />
+    <ClInclude Include="Source\Game\Scenes\SceneClear.h" />
+    <ClInclude Include="Source\Game\Scenes\SceneFailed.h" />
+    <ClInclude Include="Source\Game\Scenes\SceneTest.h" />
+    <ClInclude Include="Source\Game\Scenes\SceneTitle.h" />
+    <ClInclude Include="Source\Game\Scenes\SceneFade.h" />
     <ClInclude Include="Source\Core\Scenes\Manager\SceneManager.h" />
     <ClInclude Include="Source\Util\audio.h" />
     <ClInclude Include="Source\Objects\Camera.h" />
@@ -282,8 +282,8 @@
     <ClInclude Include="Source\Engine\Component\GravityComponent.h" />
     <ClInclude Include="Source\Game\Features\Status\HealthComponent.h" />
     <ClInclude Include="Source\Engine\Component\CharacterMovementComponent.h" />
-    <ClInclude Include="Source\Game\Entities\Player\PlayerControllerComponent.h" />
-    <ClInclude Include="Source\Game\Entities\Enemy\EnemyAIComponent.h" />
+    <ClInclude Include="Source\Game\Entities\Characters\Player\PlayerControllerComponent.h" />
+    <ClInclude Include="Source\Game\Entities\Characters\Enemy\EnemyAIComponent.h" />
     <ClInclude Include="Source\Core\PrefabManager.h" />
     <ClInclude Include="Source\Editor\EditorRaycast.h" />
     <ClInclude Include="Source\Core\CollisionLayers.h" />
