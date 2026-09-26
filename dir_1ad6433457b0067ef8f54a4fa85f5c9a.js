@@ -4,8 +4,6 @@ var dir_1ad6433457b0067ef8f54a4fa85f5c9a =
     [ "CollisionLayers.h", "CollisionLayers_8h.html", "CollisionLayers_8h" ],
     [ "DX12Manager.cpp", "DX12Manager_8cpp.html", "DX12Manager_8cpp" ],
     [ "DX12Manager.h", "DX12Manager_8h.html", "DX12Manager_8h" ],
-    [ "EditorRaycast.cpp", "EditorRaycast_8cpp.html", null ],
-    [ "EditorRaycast.h", "EditorRaycast_8h.html", "EditorRaycast_8h" ],
     [ "EventEnums.h", "EventEnums_8h.html", "EventEnums_8h" ],
     [ "InputManager.cpp", "InputManager_8cpp.html", null ],
     [ "InputManager.h", "InputManager_8h.html", "InputManager_8h" ],
@@ -19,7 +17,5 @@ var dir_1ad6433457b0067ef8f54a4fa85f5c9a =
     [ "PrefabSerializer.h", "PrefabSerializer_8h.html", "PrefabSerializer_8h" ],
     [ "SceneEnums.h", "SceneEnums_8h.html", "SceneEnums_8h" ],
     [ "TimeManager.cpp", "TimeManager_8cpp.html", null ],
-    [ "TimeManager.h", "TimeManager_8h.html", "TimeManager_8h" ],
-    [ "UndoManager.cpp", "UndoManager_8cpp.html", null ],
-    [ "UndoManager.h", "UndoManager_8h.html", "UndoManager_8h" ]
+    [ "TimeManager.h", "TimeManager_8h.html", "TimeManager_8h" ]
 ];

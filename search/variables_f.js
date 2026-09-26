@@ -47,7 +47,7 @@ var searchData=
   ['oversampleh_44',['OversampleH',['../structImFontConfig.html#a5647b48c5fafc123d64c463e2b4f0053',1,'ImFontConfig']]],
   ['oversamplev_45',['OversampleV',['../structImFontConfig.html#ab7c763baffbc4e0ea222deaeb15afdab',1,'ImFontConfig']]],
   ['owned_5fvalue_46',['owned_value',['../classnlohmann_1_1detail_1_1json__ref.html#a5d7bd67a5ab713d9be1e248cf9d509cd',1,'nlohmann::detail::json_ref']]],
-  ['owner_47',['owner',['../structImGuiContextHook.html#a7b6ce62215c093535dd36c4a1303befc',1,'ImGuiContextHook::Owner'],['../classStateBase.html#a73ed9e9744d667312b22211b2514d576',1,'StateBase::owner']]],
+  ['owner_47',['owner',['../classStateBase.html#a73ed9e9744d667312b22211b2514d576',1,'StateBase::owner'],['../structImGuiContextHook.html#a7b6ce62215c093535dd36c4a1303befc',1,'ImGuiContextHook::Owner']]],
   ['owneratlas_48',['OwnerAtlas',['../structImFont.html#af1bd9aa75b12bce61bd6d6b96cbf74c4',1,'ImFont']]],
   ['ownercontext_49',['OwnerContext',['../structImFontAtlas.html#aadf1a2c2334dbfc28c431c9b63342efc',1,'ImFontAtlas']]],
   ['ownercurr_50',['OwnerCurr',['../structImGuiKeyOwnerData.html#a957b86d9290c4f2655c8ff9e6a7d4a16',1,'ImGuiKeyOwnerData']]],

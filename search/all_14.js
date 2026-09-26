@@ -148,7 +148,7 @@ var searchData=
   ['require_5fversion_145',['REQUIRE_VERSION',['../namespacetinygltf.html#a673082113ce9b7a462eff741a771d6d2a609149331fcb3c07b2f96f6da07d1bef',1,'tinygltf']]],
   ['reserve_146',['reserve',['../structImVector.html#a0f14f5736c3372157856eebb67123b75',1,'ImVector::reserve()'],['../structImSpanAllocator.html#a89b08935873f324a44642c9be7388004',1,'ImSpanAllocator::Reserve()'],['../structImPool.html#a62a34bcb3efcaaa3f4402c0c3cc1d600',1,'ImPool::Reserve()'],['../structImGuiTextBuffer.html#a3271f361e0f1997f4c3eb77665fdf161',1,'ImGuiTextBuffer::reserve()'],['../structImStableVector.html#ad3413a7a930eb4611e62fe834d637c6d',1,'ImStableVector::reserve()']]],
   ['reserve_5fdiscard_147',['reserve_discard',['../structImVector.html#a4120d4da7804ae0a34aa521dbb8e1994',1,'ImVector']]],
-  ['reset_148',['reset',['../structImGuiListClipperData.html#a2fd1f3adb3fda313acddc1203fec0d1c',1,'ImGuiListClipperData::Reset()'],['../classnlohmann_1_1detail_1_1lexer.html#a3bda093837339813916d11fb6e396606',1,'nlohmann::detail::lexer::reset()']]],
+  ['reset_148',['reset',['../classnlohmann_1_1detail_1_1lexer.html#a3bda093837339813916d11fb6e396606',1,'nlohmann::detail::lexer::reset()'],['../structImGuiListClipperData.html#a2fd1f3adb3fda313acddc1203fec0d1c',1,'ImGuiListClipperData::Reset()']]],
   ['resetcount_149',['ResetCount',['../classEnemyCounter.html#a781da9fc134195b4e43c754b0c54ba50',1,'EnemyCounter']]],
   ['resetisoccluded_150',['ResetIsOccluded',['../classDX12Manager.html#ad80d1c45d94aad340fd38833beab0640',1,'DX12Manager']]],
   ['resetmousedragdelta_151',['ResetMouseDragDelta',['../namespaceImGui.html#a771c37d1bb71fb7f30632721618633b9',1,'ImGui']]],
