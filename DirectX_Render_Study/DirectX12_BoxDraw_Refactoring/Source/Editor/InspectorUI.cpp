@@ -19,8 +19,6 @@
 #include "Source/Core/Scenes/Manager/SceneManager.h"
 #include "Source/Core/Scenes/Serializer/SceneSerializer.h"
 #include "SceneEnums.h"
-#include "Player.h"
-#include "Enemy.h"
 #include "Box.h"
 #include "UIObject.h"
 #include "CUIButton.h"
@@ -34,6 +32,7 @@
 #include "CharacterMovementComponent.h"
 #include "PlayerControllerComponent.h"
 #include "EnemyAIComponent.h"
+#include "BulletComponent.h"
 #include "CollisionLayers.h"
 #include "RenderLayer.h"
 #include <typeinfo>
@@ -1015,6 +1014,37 @@ void CInspectorUI::Draw()
                     }
                 }
 
+                BulletComponent* bulletComp = selectedObj->GetComponent<BulletComponent>();
+                if (bulletComp)
+                {
+                    if (ImGui::CollapsingHeader("BulletComponent", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        DirectX::XMFLOAT3 dir = bulletComp->GetDirection();
+                        if (ImGui::DragFloat3("Direction", &dir.x, 0.01f))
+                        {
+                            bulletComp->SetDirection(dir);
+                        }
+
+                        float speed = bulletComp->GetSpeed();
+                        if (ImGui::DragFloat("Speed", &speed, 0.005f, 0.0f, 10.0f))
+                        {
+                            bulletComp->SetSpeed(speed);
+                        }
+
+                        float lifeTime = bulletComp->GetLifeTime();
+                        if (ImGui::DragFloat("LifeTime", &lifeTime, 0.1f, 0.0f, 60.0f))
+                        {
+                            bulletComp->SetLifeTime(lifeTime);
+                        }
+
+                        int damage = bulletComp->GetDamage();
+                        if (ImGui::DragInt("Damage", &damage, 1, 0, 100))
+                        {
+                            bulletComp->SetDamage(damage);
+                        }
+                    }
+                }
+
                 // -------------------------------------------------------------
                 // Other Components (Components without custom inspector panels)
                 // -------------------------------------------------------------
@@ -1025,7 +1055,7 @@ void CInspectorUI::Draw()
                     CComponent* cPtr = comp.get();
                     if (cPtr != transform && cPtr != sprite && cPtr != textComp && cPtr != model &&
                         cPtr != boxCollider && cPtr != gravityComp && cPtr != healthComp &&
-                        cPtr != movementComp && cPtr != playerCtrl && cPtr != enemyAI && cPtr != objInfo)
+                        cPtr != movementComp && cPtr != playerCtrl && cPtr != enemyAI && cPtr != bulletComp && cPtr != objInfo)
                     {
                         otherCompNames.push_back(GetCleanComponentName(cPtr));
                     }
@@ -1122,6 +1152,13 @@ void CInspectorUI::Draw()
                         if (ImGui::Selectable("Enemy AI Component"))
                         {
                             selectedObj->AddComponent<EnemyAIComponent>();
+                        }
+                    }
+                    if (!selectedObj->GetComponent<BulletComponent>())
+                    {
+                        if (ImGui::Selectable("Bullet Component"))
+                        {
+                            selectedObj->AddComponent<BulletComponent>();
                         }
                     }
 

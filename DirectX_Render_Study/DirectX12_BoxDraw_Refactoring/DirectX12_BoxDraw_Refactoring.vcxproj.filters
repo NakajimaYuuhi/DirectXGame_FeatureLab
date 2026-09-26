@@ -31,6 +31,12 @@
     <Filter Include="Source\Game\Entities\Characters\Enemy">
       <UniqueIdentifier>{BDC5A770-3232-45EF-9B2F-02852AE30B2A}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Game\Entities\Bullet">
+      <UniqueIdentifier>{8A4369FF-2596-4D38-90FC-041C7D20B43C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Game\Entities\Bullet\PlayerBullet">
+      <UniqueIdentifier>{8A4369FF-2596-4D38-90FC-041C7D20B43D}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source\Game\Features">
       <UniqueIdentifier>{F3B5C181-33A0-4DAA-ACB2-12D3C0E48F8E}</UniqueIdentifier>
     </Filter>
@@ -141,9 +147,6 @@
     <ClCompile Include="Source\Rendering\RenderTexture.cpp">
       <Filter>Source\Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Objects\Skydome.cpp">
-      <Filter>Source\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Objects\Field.cpp">
       <Filter>Source\Objects</Filter>
     </ClCompile>
@@ -177,11 +180,11 @@
     <ClCompile Include="Source\Game\Entities\Characters\Enemy\EnemyAIComponent.cpp">
       <Filter>Source\Game\Entities\Characters\Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Game\Entities\Bullet\PlayerBullet\BulletComponent.cpp">
+      <Filter>Source\Game\Entities\Bullet\PlayerBullet</Filter>
+    </ClCompile>
     <ClCompile Include="Source\Core\PrefabManager.cpp">
       <Filter>Source\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Objects\Bullet.cpp">
-      <Filter>Source\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Source\Engine\Component\Collider.cpp">
       <Filter>Source\Engine\Component</Filter>
@@ -194,12 +197,6 @@
     </ClCompile>
     <ClCompile Include="Source\Rendering\DescriptorHeapAllocator.cpp">
       <Filter>Source\Rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Objects\Enemy\EnemyState.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Objects\Enemy\Enemy.cpp">
-      <Filter>Source\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Source\Objects\Explosion.cpp">
       <Filter>Source\Objects</Filter>
@@ -268,12 +265,6 @@
       <Filter>Source\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Source\Objects\ObjectManager.cpp">
-      <Filter>Source\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Objects\Player\PlayerState.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Objects\Player\Player.cpp">
       <Filter>Source\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Source\Rendering\PSOManager.cpp">
@@ -345,10 +336,7 @@
     <ClCompile Include="Source\Editor\UndoManager.cpp">
       <Filter>Source\Editor</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Core\Scenes\Instances\SceneFade.cpp" />
-    <ClCompile Include="Source\Objects\Enemy\EnemyState.cpp" />
     <ClCompile Include="Source\Core\TimeManager.cpp" />
-    <ClCompile Include="Source\Objects\Player\PlayerState.cpp" />
     <ClCompile Include="Source\Core\PrefabSerializer.cpp" />
     <ClCompile Include="Source\Core\Scenes\Serializer\SceneSerializer.cpp" />
   </ItemGroup>
@@ -414,9 +402,6 @@
       <Filter>Source\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="resource.h" />
-    <ClInclude Include="Source\Objects\Skydome.h">
-      <Filter>Source\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Objects\Field.h">
       <Filter>Source\Objects</Filter>
     </ClInclude>
@@ -450,6 +435,9 @@
     <ClInclude Include="Source\Game\Entities\Characters\Enemy\EnemyAIComponent.h">
       <Filter>Source\Game\Entities\Characters\Enemy</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Game\Entities\Bullet\PlayerBullet\BulletComponent.h">
+      <Filter>Source\Game\Entities\Bullet\PlayerBullet</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Core\PrefabManager.h">
       <Filter>Source\Core</Filter>
     </ClInclude>
@@ -458,9 +446,6 @@
     </ClInclude>
     <ClInclude Include="Source\Rendering\RenderLayer.h">
       <Filter>Source\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Objects\Bullet.h">
-      <Filter>Source\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Source\Engine\Component\Collider.h">
       <Filter>Source\Engine\Component</Filter>
@@ -479,12 +464,6 @@
     </ClInclude>
     <ClInclude Include="Source\Util\DirectXPtrAlias.h">
       <Filter>Source\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Objects\Enemy\EnemyState.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Objects\Enemy\Enemy.h">
-      <Filter>Source\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Source\Objects\Explosion.h">
       <Filter>Source\Objects</Filter>
@@ -566,12 +545,6 @@
     </ClInclude>
     <ClInclude Include="Source\Core\ObjectTag.h">
       <Filter>Source\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Objects\Player\PlayerState.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Objects\Player\Player.h">
-      <Filter>Source\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Source\Rendering\PSOManager.h">
       <Filter>Source\Rendering</Filter>
@@ -669,10 +642,7 @@
     <ClInclude Include="Source\Editor\UndoManager.h">
       <Filter>Source\Editor</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Core\Scenes\Instances\SceneFade.h" />
-    <ClInclude Include="Source\Objects\Enemy\EnemyState.h" />
     <ClInclude Include="Source\Core\TimeManager.h" />
-    <ClInclude Include="Source\Objects\Player\PlayerState.h" />
     <ClInclude Include="Source\Core\PrefabSerializer.h" />
     <ClInclude Include="Source\Core\Scenes\Serializer\SceneSerializer.h" />
   </ItemGroup>

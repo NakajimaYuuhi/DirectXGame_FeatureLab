@@ -4,7 +4,7 @@
 #include "Model.h"
 #include "ModelManager.h"
 #include "Camera.h"
-#include "Bullet.h"
+#include "BulletComponent.h"
 #include "audio.h"
 #include "InputManager.h"
 #include "ObjectManager.h"
@@ -252,26 +252,25 @@ void PlayerControllerComponent::PerformAttack()
 	CTransform* transform = m_Owner->GetComponent<CTransform>();
 	Audio* audio = m_Owner->GetComponent<Audio>();
 
-	Bullet* bullet = (Bullet*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::GAME, ObjectTag::PLAYER_BULLET, "Bullet"));
-	if (bullet && transform)
+	CObject* bulletObj = ObjectManager::GetInstance().Instantiate(Scenes::ID::GAME, ObjectTag::PLAYER_BULLET, "PlayerBullet");
+	if (bulletObj && transform)
 	{
 		DirectX::XMFLOAT3 pos = transform->GetPos();
 		DirectX::XMFLOAT3 front = transform->GetFront();
 
-		bullet->SetTransform(
-			{ pos.x + front.x * 0.6f, pos.y + 0.8f, pos.z + front.z * 0.6f },
-			{ 0.15f, 0.15f, 0.15f },
-			{ 0.0f, 0.0f, 0.0f }
-		);
-
-		CModel* bulletModel = bullet->GetComponent<CModel>();
-		if (bulletModel)
+		CTransform* bulletTransform = bulletObj->GetComponent<CTransform>();
+		if (bulletTransform)
 		{
-			auto sharedModel = ModelManager::GetInstance().GetModel("Assets/Model/cube.glb");
-			bulletModel->CopyFrom(sharedModel);
+			bulletTransform->SetPos({ pos.x + front.x * 0.6f, pos.y + 0.8f, pos.z + front.z * 0.6f });
+			bulletTransform->SetScale({ 0.15f, 0.15f, 0.15f });
+			bulletTransform->SetRotation({ 0.0f, 0.0f, 0.0f });
 		}
 
-		bullet->SetDirection(front);
+		BulletComponent* bulletComp = bulletObj->GetComponent<BulletComponent>();
+		if (bulletComp)
+		{
+			bulletComp->SetDirection(front);
+		}
 	}
 
 	if (audio)

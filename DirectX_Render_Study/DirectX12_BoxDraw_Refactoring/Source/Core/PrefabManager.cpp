@@ -10,6 +10,7 @@
 #include "HealthComponent.h"
 #include "PlayerControllerComponent.h"
 #include "EnemyAIComponent.h"
+#include "BulletComponent.h"
 #include "audio.h"
 #include "Source/External/json.hpp"
 #include <fstream>
@@ -126,6 +127,8 @@ void PrefabManager::InitDefaultPrefabs()
 	// Register JSON Prefabs if available
 	RegisterPrefabJSON("PlayerJSON", "Assets/Prefabs/Player.json");
 	RegisterPrefabJSON("EnemyJSON", "Assets/Prefabs/Enemy.json");
+	RegisterPrefabJSON("SkydomeJSON", "Assets/Prefabs/Skydome.json");
+	RegisterPrefabJSON("PlayerBulletJSON", "Assets/Prefabs/PlayerBullet.json");
 }
 
 CObject* PrefabManager::InstantiateFromJSON(const std::string& jsonPath, const std::string& instanceName)
@@ -160,6 +163,9 @@ CObject* PrefabManager::InstantiateFromJSON(const std::string& jsonPath, const s
 		else if (tagStr == "ENEMY") info->SetObjectTag(ObjectTag::ENEMY);
 		else if (tagStr == "PLAYER_BULLET") info->SetObjectTag(ObjectTag::PLAYER_BULLET);
 		else if (tagStr == "ENEMY_BULLET") info->SetObjectTag(ObjectTag::ENEMY_BULLET);
+		else if (tagStr == "BACKGROUND") info->SetObjectTag(ObjectTag::BACKGROUND);
+		else if (tagStr == "FIELD") info->SetObjectTag(ObjectTag::FIELD);
+		else if (tagStr == "UI") info->SetObjectTag(ObjectTag::UI);
 	}
 
 	if (!j.contains("Components")) return obj;
@@ -169,10 +175,21 @@ CObject* PrefabManager::InstantiateFromJSON(const std::string& jsonPath, const s
 	if (comps.contains("Transform"))
 	{
 		const auto& t = comps["Transform"];
-		if (t.contains("Scale") && t["Scale"].is_array() && t["Scale"].size() >= 3)
+		CTransform* transform = obj->GetComponent<CTransform>();
+		if (transform)
 		{
-			CTransform* transform = obj->GetComponent<CTransform>();
-			if (transform) transform->SetScale({ t["Scale"][0], t["Scale"][1], t["Scale"][2] });
+			if (t.contains("Position") && t["Position"].is_array() && t["Position"].size() >= 3)
+			{
+				transform->SetPos({ t["Position"][0], t["Position"][1], t["Position"][2] });
+			}
+			if (t.contains("Rotation") && t["Rotation"].is_array() && t["Rotation"].size() >= 3)
+			{
+				transform->SetRotation({ t["Rotation"][0], t["Rotation"][1], t["Rotation"][2] });
+			}
+			if (t.contains("Scale") && t["Scale"].is_array() && t["Scale"].size() >= 3)
+			{
+				transform->SetScale({ t["Scale"][0], t["Scale"][1], t["Scale"][2] });
+			}
 		}
 	}
 
@@ -196,8 +213,21 @@ CObject* PrefabManager::InstantiateFromJSON(const std::string& jsonPath, const s
 					model->CopyFrom(sharedModel);
 					model->SetModelPath(modelPath);
 				}
-				std::string defAnim = m.value("DefaultAnimation", "Idle");
-				model->PlayAnimation(defAnim);
+				if (m.contains("DefaultAnimation"))
+				{
+					if (m["DefaultAnimation"].is_number())
+					{
+						model->PlayAnimation(m["DefaultAnimation"].get<int>());
+					}
+					else if (m["DefaultAnimation"].is_string())
+					{
+						model->PlayAnimation(m["DefaultAnimation"].get<std::string>());
+					}
+				}
+				else
+				{
+					model->PlayAnimation(0);
+				}
 
 				std::string rLayerStr = m.value("RenderLayer", "Opaque");
 				if (rLayerStr == "Transparent") model->SetRenderLayer(RenderLayer::Transparent);
@@ -295,6 +325,23 @@ CObject* PrefabManager::InstantiateFromJSON(const std::string& jsonPath, const s
 			health->SetOnDieCallback([ai]() {
 				if (ai) ai->OnDie();
 			});
+		}
+	}
+
+	// BulletComponent
+	if (comps.contains("BulletComponent") || comps.contains("Bullet"))
+	{
+		const auto& b = comps.contains("BulletComponent") ? comps["BulletComponent"] : comps["Bullet"];
+		auto bulletComp = obj->AddComponent<BulletComponent>();
+		if (bulletComp)
+		{
+			bulletComp->SetSpeed(b.value("Speed", 0.04f));
+			bulletComp->SetLifeTime(b.value("LifeTime", 5.0f));
+			bulletComp->SetDamage(b.value("Damage", 1));
+			if (b.contains("Direction") && b["Direction"].is_array() && b["Direction"].size() >= 3)
+			{
+				bulletComp->SetDirection({ b["Direction"][0], b["Direction"][1], b["Direction"][2] });
+			}
 		}
 	}
 

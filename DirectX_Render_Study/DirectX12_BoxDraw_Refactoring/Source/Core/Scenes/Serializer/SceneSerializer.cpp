@@ -3,9 +3,6 @@
 #include "ObjectInfo.h"
 #include "Transform.h"
 #include "Model.h"
-#include "Player.h"
-#include "Enemy.h"
-#include "Skydome.h"
 #include "Field.h"
 #include "EnemyCounter.h"
 #include "EnemyCount.h"
@@ -73,11 +70,11 @@ bool SceneSerializer::SaveScene(const std::string& filepath, Scenes::ID sceneID)
 				objJson["type"] = "EnemyCount";
 			else if (dynamic_cast<TextObject*>(obj.get()))
 				objJson["type"] = "TextObject";
-			else if (objInfo->GetObjectTag() == ObjectTag::PLAYER || dynamic_cast<Player*>(obj.get()))
+			else if (objInfo->GetObjectTag() == ObjectTag::PLAYER)
 				objJson["type"] = "Player";
-			else if (objInfo->GetObjectTag() == ObjectTag::ENEMY || dynamic_cast<Enemy*>(obj.get()))
+			else if (objInfo->GetObjectTag() == ObjectTag::ENEMY)
 				objJson["type"] = "Enemy";
-			else if (dynamic_cast<Skydome*>(obj.get()))
+			else if (objInfo->GetObjectTag() == ObjectTag::BACKGROUND)
 				objJson["type"] = "Skydome";
 			else if (dynamic_cast<Field*>(obj.get()))
 				objJson["type"] = "Field";

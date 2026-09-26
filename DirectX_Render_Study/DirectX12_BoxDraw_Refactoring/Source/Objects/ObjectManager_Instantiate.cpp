@@ -13,12 +13,7 @@
 // --3D
 #include "3D_Object.h"
 
-//character
-#include "Player.h"
-#include "Enemy.h"
-
 //bullet
-#include "Bullet.h"
 
 //billboard
 #include "BillBoard.h"
@@ -26,9 +21,6 @@
 //effect
 #include "RandomParticle.h"
 #include "Explosion.h"
-
-//skydome
-#include "Skydome.h"
 
 //field
 #include "Field.h"
@@ -68,9 +60,13 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 		break;
 
 	case ObjectTag::BACKGROUND:
-		tmpObject = std::make_unique<Skydome>(_ObjectName);
-		returnObject = tmpObject.get();
-		vecObject[static_cast<int>(ObjectTag::BACKGROUND)].push_back(std::move(tmpObject));
+		{
+			CObject* rawObj = PrefabManager::GetInstance().Instantiate("SkydomeJSON", _ObjectName);
+			if (!rawObj) rawObj = PrefabManager::GetInstance().InstantiateFromJSON("Assets/Prefabs/Skydome.json", _ObjectName);
+			tmpObject = std::unique_ptr<CObject>(rawObj);
+			returnObject = tmpObject.get();
+			vecObject[static_cast<int>(ObjectTag::BACKGROUND)].push_back(std::move(tmpObject));
+		}
 		break;
 
 	case ObjectTag::UI:
@@ -98,9 +94,13 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 		break;
 
 	case ObjectTag::PLAYER_BULLET:
-		tmpObject = std::make_unique<Bullet>(_ObjectName);
-		returnObject = tmpObject.get();
-		vecObject[static_cast<int>(ObjectTag::PLAYER_BULLET)].push_back(std::move(tmpObject));
+		{
+			CObject* rawObj = PrefabManager::GetInstance().Instantiate("PlayerBulletJSON", _ObjectName);
+			if (!rawObj) rawObj = PrefabManager::GetInstance().InstantiateFromJSON("Assets/Prefabs/PlayerBullet.json", _ObjectName);
+			tmpObject = std::unique_ptr<CObject>(rawObj);
+			returnObject = tmpObject.get();
+			vecObject[static_cast<int>(ObjectTag::PLAYER_BULLET)].push_back(std::move(tmpObject));
+		}
 		break;
 
 	case ObjectTag::ENEMY:

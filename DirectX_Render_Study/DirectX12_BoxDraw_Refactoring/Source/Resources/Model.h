@@ -162,6 +162,11 @@ public:
 			}
 		}
 
+		if (!m_Animations.empty()) {
+			PlayAnimation(0, isLoop);
+			return;
+		}
+
 #ifdef _DEBUG
 		std::string msg = "[Model] Animation not found: " + name + "\n";
 		OutputDebugStringA(msg.c_str());
