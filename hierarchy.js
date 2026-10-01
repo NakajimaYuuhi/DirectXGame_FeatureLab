@@ -72,13 +72,13 @@ var hierarchy =
           [ "Explosion", "classExplosion.html", null ],
           [ "RandomParticle", "classRandomParticle.html", null ]
         ] ],
-        [ "Camera", "classCamera.html", null ],
         [ "Field", "classField.html", null ]
       ] ],
       [ "CUIObject", "classCUIObject.html", [
         [ "CUIButton", "classCUIButton.html", null ],
         [ "TitleUI", "classTitleUI.html", null ]
       ] ],
+      [ "Camera", "classCamera.html", null ],
       [ "Manager", "classManager.html", [
         [ "EnemyCounter", "classEnemyCounter.html", null ]
       ] ],
