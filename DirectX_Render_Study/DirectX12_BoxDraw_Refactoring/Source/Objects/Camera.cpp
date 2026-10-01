@@ -5,15 +5,19 @@
 #include "ObjectManager.h"
 #include "ObjectInfo.h"
 #include "BasicSettings.h"
+#include "audio.h"
 #include <cmath>
 
-#include "audio.h"
-
 Camera::Camera(String _Name)
-	:C3D_Object(_Name)
+	: C3D_Object(_Name)
 {
 	CObjectInfo* objectInfo = GetComponent<CObjectInfo>();
-	objectInfo->SetObjectTag(ObjectTag::CAMERA);
+	if (objectInfo)
+	{
+		objectInfo->SetObjectTag(ObjectTag::CAMERA);
+	}
+
+	m_cameraComponent = AddComponent<CameraComponent>();
 
 	view = DirectX::XMMatrixLookAtLH(
 		DirectX::XMVectorSet(0, 2.5, -5, 1),
@@ -27,14 +31,20 @@ Camera::Camera(String _Name)
 		1000.0f);
 
 	Audio* audio = AddComponent<Audio>();
-	audio->Load("Assets/Audio/BGM/Ska_01.wav");
-	
+	if (audio)
+	{
+		audio->Load("Assets/Audio/BGM/Ska_01.wav");
+	}
 }
 
 void Camera::Awake()
 {
 	if (m_hasAwoken) return;
 	m_player = ObjectManager::GetInstance().GetPlayer();
+	if (m_cameraComponent && m_player)
+	{
+		m_cameraComponent->SetTarget(m_player);
+	}
 	m_hasAwoken = true;
 }
 
@@ -42,6 +52,10 @@ void Camera::Start()
 {
 	if (m_hasStarted) return;
 	m_player = ObjectManager::GetInstance().GetPlayer();
+	if (m_cameraComponent && m_player)
+	{
+		m_cameraComponent->SetTarget(m_player);
+	}
 	Audio* audio = GetComponent<Audio>();
 	if (audio) audio->Play(true);
 	m_hasStarted = true;
@@ -58,27 +72,45 @@ void Camera::Init()
 
 void Camera::Update()
 {
-	if (CInputManager::GetInstance().IsKeyPress('L'))
+	CObject::Update();
+
+	// Legacy update fallback if CameraComponent is missing
+	if (!m_cameraComponent)
 	{
-		m_angleY -= m_rotationSpeed;
+		if (CInputManager::GetInstance().IsKeyPress('L')) m_angleY -= m_rotationSpeed;
+		if (CInputManager::GetInstance().IsKeyPress('J')) m_angleY += m_rotationSpeed;
+
+		if (m_player)
+		{
+			CTransform* transform = m_player->GetComponent<CTransform>();
+			DirectX::XMFLOAT3 playerPos = transform ? transform->GetPos() : DirectX::XMFLOAT3{ 0.0f, 0.0f, 0.0f };
+
+			float offsetX = sinf(m_angleY) * m_distance;
+			float offsetZ = -cosf(m_angleY) * m_distance;
+
+			DirectX::XMVECTOR camPos = DirectX::XMVectorSet(playerPos.x + offsetX, playerPos.y + m_height, playerPos.z + offsetZ, 1.0f);
+			DirectX::XMVECTOR targetPos = DirectX::XMVectorSet(playerPos.x, playerPos.y + 1.0f, playerPos.z, 1.0f);
+			DirectX::XMVECTOR up = DirectX::XMVectorSet(0, 1, 0, 0);
+
+			view = DirectX::XMMatrixLookAtLH(camPos, targetPos, up);
+		}
 	}
-	if (CInputManager::GetInstance().IsKeyPress('J'))
-	{
-		m_angleY += m_rotationSpeed;
-	}
+}
 
-	if (m_player)
-	{
-		CTransform* transform = m_player->GetComponent<CTransform>();
-		DirectX::XMFLOAT3 playerPos = transform ? transform->GetPos() : DirectX::XMFLOAT3{ 0.0f, 0.0f, 0.0f };
+DirectX::XMMATRIX Camera::GetView()
+{
+	if (m_cameraComponent) return m_cameraComponent->GetViewMatrix();
+	return view;
+}
 
-		float offsetX = sinf(m_angleY) * m_distance;
-		float offsetZ = -cosf(m_angleY) * m_distance;
+DirectX::XMMATRIX Camera::GetProj()
+{
+	if (m_cameraComponent) return m_cameraComponent->GetProjectionMatrix();
+	return proj;
+}
 
-		DirectX::XMVECTOR camPos = DirectX::XMVectorSet(playerPos.x + offsetX, playerPos.y + m_height, playerPos.z + offsetZ, 1.0f);
-		DirectX::XMVECTOR targetPos = DirectX::XMVectorSet(playerPos.x, playerPos.y + 1.0f, playerPos.z, 1.0f);
-		DirectX::XMVECTOR up = DirectX::XMVectorSet(0, 1, 0, 0);
-
-		view = DirectX::XMMatrixLookAtLH(camPos, targetPos, up);
-	}
+float Camera::GetAngleY() const
+{
+	if (m_cameraComponent) return m_cameraComponent->GetAngleY();
+	return m_angleY;
 }

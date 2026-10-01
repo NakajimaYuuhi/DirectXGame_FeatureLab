@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -189,6 +189,7 @@
     <ClCompile Include="Source\Game\Entities\Characters\Player\PlayerControllerComponent.cpp" />
     <ClCompile Include="Source\Game\Entities\Characters\Enemy\EnemyAIComponent.cpp" />
     <ClCompile Include="Source\Game\Entities\Bullet\PlayerBullet\BulletComponent.cpp" />
+    <ClCompile Include="Source\Engine\Component\CameraComponent.cpp" />
     <ClCompile Include="Source\Core\PrefabManager.cpp" />
     <ClCompile Include="Source\Engine\Component\Collider.cpp" />
     <ClCompile Include="Source\Engine\Component\Collider3D.cpp" />
@@ -236,9 +237,20 @@
     <ClCompile Include="Source\Core\Scenes\Serializer\SceneSerializer.cpp" />
     <ClCompile Include="Source\UI\UIObject.cpp" />
     <ClCompile Include="Source\Engine\Component\Transform.cpp" />
+    <ClCompile Include="Source\Engine\Component\ComponentFactory.cpp" />
+    <ClCompile Include="Source\Engine\Component\BillboardComponent.cpp" />
+    <ClCompile Include="Source\Engine\Component\ParticleComponent.cpp" />
+    <ClCompile Include="Source\Engine\Component\UVAnimationComponent.cpp" />
+    <ClCompile Include="Source\Engine\Component\ParticleEmitterComponent.cpp" />
     <ClCompile Include="Source\UI\TitleUI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Engine\Component\ComponentFactory.h" />
+    <ClInclude Include="Source\Engine\Component\ComponentManager.h" />
+    <ClInclude Include="Source\Engine\Component\BillboardComponent.h" />
+    <ClInclude Include="Source\Engine\Component\ParticleComponent.h" />
+    <ClInclude Include="Source\Engine\Component\UVAnimationComponent.h" />
+    <ClInclude Include="Source\Engine\Component\ParticleEmitterComponent.h" />
     <ClInclude Include="Source\Core\Scenes\Base\Scene.h" />
     <ClInclude Include="Source\Game\Scenes\SceneClear.h" />
     <ClInclude Include="Source\Game\Scenes\SceneFailed.h" />
@@ -280,6 +292,7 @@
     <ClInclude Include="Source\Game\Entities\Characters\Enemy\EnemyAIComponent.h" />
     <ClInclude Include="Source\Game\Entities\Characters\Enemy\EnemyAIComponent.h" />
     <ClInclude Include="Source\Game\Entities\Bullet\PlayerBullet\BulletComponent.h" />
+    <ClInclude Include="Source\Engine\Component\CameraComponent.h" />
     <ClInclude Include="Source\Core\PrefabManager.h" />
     <ClInclude Include="Source\Editor\EditorRaycast.h" />
     <ClInclude Include="Source\Core\CollisionLayers.h" />

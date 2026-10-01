@@ -47,6 +47,12 @@ public:
     void ClosePrefabEditMode();
     bool SaveCurrentPrefab();
 
+    void SetStatusMessage(const std::string& msg, float duration = 3.0f)
+    {
+        m_statusMessage = msg;
+        m_statusTimer = duration;
+    }
+
 private:
     CInspectorUI() = default;
     ~CInspectorUI() = default;
@@ -69,6 +75,10 @@ private:
     bool m_isPrefabEditMode = false;
     std::string m_editingPrefabPath = "";
     std::unique_ptr<CObject> m_prefabEditTarget = nullptr;
+
+    // Status Notification Message
+    std::string m_statusMessage = "";
+    float m_statusTimer = 0.0f;
 
     // 3D Gizmo Direct Mouse Dragging State
     bool m_isDraggingGizmo = false;

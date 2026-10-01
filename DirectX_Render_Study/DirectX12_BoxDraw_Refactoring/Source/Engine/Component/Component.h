@@ -20,14 +20,16 @@ enum class UpdatePhase
 class CComponent
 {
 public:
-    CComponent() : m_ComponentName(""), m_ComponentIsValid(true), m_Owner(nullptr) {}
-    CComponent(String _Name) : m_ComponentName(_Name), m_ComponentIsValid(true), m_Owner(nullptr) {}
+    CComponent() : m_ComponentName(""), m_ComponentIsValid(true), m_enabled(true), m_Owner(nullptr) {}
+    CComponent(String _Name) : m_ComponentName(_Name), m_ComponentIsValid(true), m_enabled(true), m_Owner(nullptr) {}
     virtual ~CComponent() = default;
 
     // Lifecycle methods
     virtual void Init() {}
     virtual void Awake() {}
     virtual void Start() {}
+    virtual void OnEnable() {}
+    virtual void OnDisable() {}
     virtual void Update(float deltaTime) {}
     virtual void LateUpdate(float deltaTime) {}
     virtual void Draw() {}
@@ -35,6 +37,19 @@ public:
 
     // Execution phase priority (default is Movement)
     virtual UpdatePhase GetUpdatePhase() const { return UpdatePhase::Movement; }
+
+    // Enable / Disable management
+    bool IsEnabled() const { return m_enabled && m_ComponentIsValid; }
+    bool GetEnabled() const { return IsEnabled(); }
+    void SetEnabled(bool enabled)
+    {
+        if (m_enabled != enabled)
+        {
+            m_enabled = enabled;
+            if (m_enabled) OnEnable();
+            else OnDisable();
+        }
+    }
 
     // Getter / Setter
     String GetName() const { return m_ComponentName; }
@@ -49,4 +64,5 @@ protected:
     CObject* m_Owner = nullptr;
     String   m_ComponentName = "";
     bool     m_ComponentIsValid = true;
+    bool     m_enabled = true;
 };

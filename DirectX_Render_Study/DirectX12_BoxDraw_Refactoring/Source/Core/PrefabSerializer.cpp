@@ -10,6 +10,12 @@
 #include "HealthComponent.h"
 #include "PlayerControllerComponent.h"
 #include "EnemyAIComponent.h"
+#include "BulletComponent.h"
+#include "CameraComponent.h"
+#include "BillboardComponent.h"
+#include "ParticleComponent.h"
+#include "UVAnimationComponent.h"
+#include "ParticleEmitterComponent.h"
 #include "Source/External/json.hpp"
 #include <fstream>
 #include <filesystem>
@@ -21,6 +27,17 @@ namespace fs = std::filesystem;
 bool PrefabSerializer::SavePrefab(const std::string& filepath, CObject* obj)
 {
     if (!obj) return false;
+
+    // Ensure parent directory exists
+    try
+    {
+        fs::path p(filepath);
+        if (p.has_parent_path())
+        {
+            fs::create_directories(p.parent_path());
+        }
+    }
+    catch (...) {}
 
     json root;
 
@@ -40,6 +57,9 @@ bool PrefabSerializer::SavePrefab(const std::string& filepath, CObject* obj)
         case ObjectTag::ENEMY_BULLET:  tagStr = "ENEMY_BULLET"; break;
         case ObjectTag::BACKGROUND:    tagStr = "BACKGROUND"; break;
         case ObjectTag::FIELD:         tagStr = "FIELD"; break;
+        case ObjectTag::UI:            tagStr = "UI"; break;
+        case ObjectTag::TEXT:          tagStr = "TEXT"; break;
+        case ObjectTag::EFFECT:        tagStr = "EFFECT"; break;
         default:                       tagStr = "NONE"; break;
         }
     }
@@ -53,7 +73,11 @@ bool PrefabSerializer::SavePrefab(const std::string& filepath, CObject* obj)
     CTransform* transform = obj->GetComponent<CTransform>();
     if (transform)
     {
+        DirectX::XMFLOAT3 pos = transform->GetPos();
+        DirectX::XMFLOAT3 rot = transform->GetRotation();
         DirectX::XMFLOAT3 scale = transform->GetScale();
+        comps["Transform"]["Position"] = { pos.x, pos.y, pos.z };
+        comps["Transform"]["Rotation"] = { rot.x, rot.y, rot.z };
         comps["Transform"]["Scale"] = { scale.x, scale.y, scale.z };
     }
 
@@ -62,7 +86,6 @@ bool PrefabSerializer::SavePrefab(const std::string& filepath, CObject* obj)
     if (model)
     {
         std::string modelPath = model->GetModelPath();
-        if (modelPath.empty()) modelPath = "Assets/Model/Wizard.glb";
         comps["Model"]["ModelPath"] = modelPath;
         comps["Model"]["DefaultAnimation"] = "Idle";
         RenderLayer rLayer = model->GetRenderLayer();
@@ -128,7 +151,78 @@ bool PrefabSerializer::SavePrefab(const std::string& filepath, CObject* obj)
     EnemyAIComponent* ai = obj->GetComponent<EnemyAIComponent>();
     if (ai)
     {
-        comps["EnemyAI"] = json::object();
+        comps["EnemyAI"]["DeathEffectPrefab"] = ai->GetDeathEffectPrefab();
+        comps["EnemyAI"]["DamagedEffectPrefab"] = ai->GetDamagedEffectPrefab();
+    }
+
+    // 10. BulletComponent
+    BulletComponent* bulletComp = obj->GetComponent<BulletComponent>();
+    if (bulletComp)
+    {
+        comps["BulletComponent"]["Speed"] = bulletComp->GetSpeed();
+        comps["BulletComponent"]["LifeTime"] = bulletComp->GetLifeTime();
+        comps["BulletComponent"]["Damage"] = bulletComp->GetDamage();
+        comps["BulletComponent"]["HitEffectPrefab"] = bulletComp->GetHitEffectPrefab();
+        DirectX::XMFLOAT3 dir = bulletComp->GetDirection();
+        comps["BulletComponent"]["Direction"] = { dir.x, dir.y, dir.z };
+    }
+
+    // 11. CameraComponent
+    CameraComponent* cameraComp = obj->GetComponent<CameraComponent>();
+    if (cameraComp)
+    {
+        comps["CameraComponent"]["Distance"] = cameraComp->GetDistance();
+        comps["CameraComponent"]["Height"] = cameraComp->GetHeight();
+        comps["CameraComponent"]["AngleY"] = cameraComp->GetAngleY();
+        comps["CameraComponent"]["AngleX"] = cameraComp->GetAngleX();
+        comps["CameraComponent"]["Fov"] = cameraComp->GetFov();
+        comps["CameraComponent"]["NearZ"] = cameraComp->GetNearZ();
+        comps["CameraComponent"]["FarZ"] = cameraComp->GetFarZ();
+        comps["CameraComponent"]["FollowSpeed"] = cameraComp->GetFollowSpeed();
+        DirectX::XMFLOAT3 offset = cameraComp->GetTargetOffset();
+        comps["CameraComponent"]["TargetOffset"] = { offset.x, offset.y, offset.z };
+    }
+
+    // 12. BillboardComponent
+    BillboardComponent* bbComp = obj->GetComponent<BillboardComponent>();
+    if (bbComp)
+    {
+        comps["BillboardComponent"]["LockYAxis"] = bbComp->GetLockYAxis();
+    }
+
+    // 13. ParticleComponent
+    ParticleComponent* ptComp = obj->GetComponent<ParticleComponent>();
+    if (ptComp)
+    {
+        comps["ParticleComponent"]["Speed"] = ptComp->GetSpeed();
+        comps["ParticleComponent"]["LifeTime"] = ptComp->GetLifeTime();
+        comps["ParticleComponent"]["RandomDirection"] = ptComp->IsRandomDirection();
+        DirectX::XMFLOAT3 dir = ptComp->GetDirection();
+        comps["ParticleComponent"]["Direction"] = { dir.x, dir.y, dir.z };
+    }
+
+    // 14. UVAnimationComponent
+    UVAnimationComponent* uvComp = obj->GetComponent<UVAnimationComponent>();
+    if (uvComp)
+    {
+        comps["UVAnimationComponent"]["Rows"] = uvComp->GetRows();
+        comps["UVAnimationComponent"]["Cols"] = uvComp->GetCols();
+        comps["UVAnimationComponent"]["TotalFrames"] = uvComp->GetTotalFrames();
+        comps["UVAnimationComponent"]["FrameDuration"] = uvComp->GetFrameDuration();
+        comps["UVAnimationComponent"]["Loop"] = uvComp->IsLoop();
+        comps["UVAnimationComponent"]["DestroyOnComplete"] = uvComp->IsDestroyOnComplete();
+    }
+
+    // 15. ParticleEmitterComponent
+    ParticleEmitterComponent* peComp = obj->GetComponent<ParticleEmitterComponent>();
+    if (peComp)
+    {
+        comps["ParticleEmitterComponent"]["ParticlePrefab"] = peComp->GetParticlePrefab();
+        comps["ParticleEmitterComponent"]["BurstCount"] = peComp->GetBurstCount();
+        comps["ParticleEmitterComponent"]["SpawnInterval"] = peComp->GetSpawnInterval();
+        comps["ParticleEmitterComponent"]["BurstOnStart"] = peComp->GetBurstOnStart();
+        DirectX::XMFLOAT3 pScale = peComp->GetParticleScale();
+        comps["ParticleEmitterComponent"]["ParticleScale"] = { pScale.x, pScale.y, pScale.z };
     }
 
     root["Components"] = comps;

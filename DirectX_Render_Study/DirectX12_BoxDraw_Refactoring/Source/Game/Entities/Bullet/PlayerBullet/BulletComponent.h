@@ -31,6 +31,9 @@ public:
 	void SetTargetTag(ObjectTag tag) { m_targetTag = tag; }
 	ObjectTag GetTargetTag() const { return m_targetTag; }
 
+	void SetHitEffectPrefab(const std::string& prefab) { m_hitEffectPrefab = prefab; }
+	std::string GetHitEffectPrefab() const { return m_hitEffectPrefab; }
+
 private:
 	DirectX::XMFLOAT3 m_direction = { 1.0f, 0.0f, 0.0f };
 	float m_speed = 0.04f;
@@ -38,4 +41,5 @@ private:
 	float m_elapsedTime = 0.0f;
 	int m_damage = 1;
 	ObjectTag m_targetTag = ObjectTag::ENEMY;
+	std::string m_hitEffectPrefab = "RandomParticle";
 };

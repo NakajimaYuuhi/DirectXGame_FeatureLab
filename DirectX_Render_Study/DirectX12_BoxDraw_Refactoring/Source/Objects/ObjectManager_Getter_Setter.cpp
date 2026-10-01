@@ -40,13 +40,27 @@ CObject* ObjectManager::GetPlayer()
 
 //----- Camera -----
 //Todo : •¡”‚ ‚éƒJƒƒ‰‚ğæ“¾‚Å‚«‚é‚æ‚¤‚É‚·‚é
+CObject* ObjectManager::GetCameraObject()
+{
+	const auto& cameras = vecObject[static_cast<int>(ObjectTag::CAMERA)];
+	for (const auto& obj : cameras)
+	{
+		if (obj && !obj->GetIsDestroyed())
+		{
+			return obj.get();
+		}
+	}
+	return nullptr;
+}
+
 Camera* ObjectManager::GetCamera()
 {
-	//‰½‚à–³‚¢‚È‚çnullptr
-	if (vecObject[Object::objectTag::CAMERA].size() < 1)return nullptr;
-
-
-	return (Camera*)(vecObject[Object::objectTag::CAMERA][0].get());
+	CObject* camObj = GetCameraObject();
+	if (camObj)
+	{
+		return dynamic_cast<Camera*>(camObj);
+	}
+	return nullptr;
 }
 
 //----- Manager -----

@@ -51,6 +51,7 @@ public:
 	CObject* GetPlayer();
 
 	//Camera
+	CObject* GetCameraObject();
 	Camera* GetCamera();
 
 	//Field

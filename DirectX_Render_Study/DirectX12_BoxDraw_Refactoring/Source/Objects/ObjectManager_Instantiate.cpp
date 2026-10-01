@@ -7,6 +7,7 @@
 //?w?b?_
 #include "ObjectManager.h"
 #include "PrefabManager.h"
+#include "ObjectInfo.h"
 
 //?I?u?W?F?N?g
 
@@ -51,6 +52,34 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 	std::unique_ptr<CObject> tmpObject = std::unique_ptr<CObject>(nullptr);
 	CObject* returnObject = nullptr;
 
+	// 1. Try dynamic PrefabManager lookup first (Data-driven prefabs)
+	if (PrefabManager::GetInstance().HasPrefab(_TypeName))
+	{
+		CObject* rawObj = PrefabManager::GetInstance().Instantiate(_TypeName, _ObjectName);
+		if (rawObj)
+		{
+			tmpObject = std::unique_ptr<CObject>(rawObj);
+			returnObject = tmpObject.get();
+
+			ObjectTag finalTag = _Tag;
+			if (auto info = rawObj->GetComponent<CObjectInfo>())
+			{
+				if (info->GetObjectTag() != ObjectTag::NONE)
+				{
+					finalTag = info->GetObjectTag();
+				}
+				else
+				{
+					info->SetObjectTag(_Tag);
+				}
+			}
+
+			vecObject[static_cast<int>(finalTag)].push_back(std::move(tmpObject));
+			return returnObject;
+		}
+	}
+
+	// 2. Fallback to C++ class-based instantiation
 	switch (_Tag)
 	{
 	case ObjectTag::NONE:

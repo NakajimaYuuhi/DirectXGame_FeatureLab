@@ -1,3 +1,4 @@
+#include "CameraComponent.h"
 //===== ?C???N???[?h =====
 #include "DX12Manager.h"
 
@@ -377,9 +378,39 @@ void DX12Manager::ForceWait()
 }
 
 //????view,proj??Getter
-DirectX::XMMATRIX DX12Manager::GetView() { return ObjectManager::GetInstance().GetCamera()->GetView(); }
+DirectX::XMMATRIX DX12Manager::GetView()
+{
+	CObject* camObj = ObjectManager::GetInstance().GetCameraObject();
+	if (camObj && !camObj->GetIsDestroyed())
+	{
+		if (auto camComp = camObj->GetComponent<CameraComponent>())
+		{
+			return camComp->GetViewMatrix();
+		}
+		if (auto legacyCam = dynamic_cast<Camera*>(camObj))
+		{
+			return legacyCam->GetView();
+		}
+	}
+	return DirectX::XMMatrixIdentity();
+}
 
-DirectX::XMMATRIX DX12Manager::GetProj() { return ObjectManager::GetInstance().GetCamera()->GetProj(); }
+DirectX::XMMATRIX DX12Manager::GetProj()
+{
+	CObject* camObj = ObjectManager::GetInstance().GetCameraObject();
+	if (camObj && !camObj->GetIsDestroyed())
+	{
+		if (auto camComp = camObj->GetComponent<CameraComponent>())
+		{
+			return camComp->GetProjectionMatrix();
+		}
+		if (auto legacyCam = dynamic_cast<Camera*>(camObj))
+		{
+			return legacyCam->GetProj();
+		}
+	}
+	return DirectX::XMMatrixIdentity();
+}
 
 
 //----- ?`???? -----

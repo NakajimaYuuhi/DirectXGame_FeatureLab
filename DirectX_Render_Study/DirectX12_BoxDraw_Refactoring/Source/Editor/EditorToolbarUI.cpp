@@ -135,19 +135,41 @@ void CEditorToolbarUI::Draw()
 
         // ---------------------------------------------------------
         // 3. 繧ｷ繝ｼ繝ｳ縺ｮ繧ｷ繝ｪ繧｢繝ｩ繧､繧ｺ謫堺ｽ懶ｼ井ｿ晏ｭ・/ 蜀崎ｪｭ縺ｿ霎ｼ縺ｿ・・        // ---------------------------------------------------------
-        if (ImGui::Button("Save Scene"))
+        // ---------------------------------------------------------
+        // 3. シーンのシリアライズ操作（保存 / 再読み込み）
+        // ---------------------------------------------------------
+        static char scenePathBuf[256] = "Assets/Scene/SceneTest.json";
+        ImGui::SetNextItemWidth(160.0f);
+        ImGui::InputText("##ScenePath", scenePathBuf, sizeof(scenePathBuf));
+
+        ImGui::SameLine();
+        if (ImGui::Button("Save Scene (Ctrl+S)"))
         {
             Scenes::ID activeScene = SceneManager::GetInstance().GetActiveSceneID();
-            std::string path = "Assets/Scene/SceneTest.json";
-            SceneSerializer::SaveScene(path, activeScene);
+            std::string path = scenePathBuf;
+            if (SceneSerializer::SaveScene(path, activeScene))
+            {
+                CInspectorUI::GetInstance().SetStatusMessage("Scene saved: " + path, 3.0f);
+            }
+            else
+            {
+                CInspectorUI::GetInstance().SetStatusMessage("Failed to save scene: " + path, 3.0f);
+            }
         }
 
         ImGui::SameLine();
         if (ImGui::Button("Reload Scene"))
         {
             Scenes::ID activeScene = SceneManager::GetInstance().GetActiveSceneID();
-            std::string path = "Assets/Scene/SceneTest.json";
-            SceneSerializer::LoadScene(path, activeScene);
+            std::string path = scenePathBuf;
+            if (SceneSerializer::LoadScene(path, activeScene))
+            {
+                CInspectorUI::GetInstance().SetStatusMessage("Scene loaded: " + path, 3.0f);
+            }
+            else
+            {
+                CInspectorUI::GetInstance().SetStatusMessage("Failed to load scene: " + path, 3.0f);
+            }
         }
 
         ImGui::SameLine();

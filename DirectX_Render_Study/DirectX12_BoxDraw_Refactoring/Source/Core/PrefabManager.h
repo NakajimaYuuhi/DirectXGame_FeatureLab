@@ -24,6 +24,9 @@ public:
 	// JSON Prefab methods
 	CObject* InstantiateFromJSON(const std::string& jsonPath, const std::string& instanceName = "");
 	bool RegisterPrefabJSON(const std::string& typeName, const std::string& jsonPath);
+	void RegisterPrefabsInDirectory(const std::string& directoryPath);
+
+	bool HasPrefab(const std::string& typeName) const;
 
 private:
 	PrefabManager();

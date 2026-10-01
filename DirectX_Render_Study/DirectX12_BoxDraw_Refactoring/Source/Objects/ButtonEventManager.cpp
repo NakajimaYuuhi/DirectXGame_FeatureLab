@@ -3,7 +3,7 @@
 #include "CUIButton.h"
 #include "ButtonEventManager.h"
 #include "InputManager.h"
-#include "CUIButton.h"
+#include "InspectorUI.h"
 #include <windows.h>
 
 ButtonEventManager& ButtonEventManager::GetInstance()
@@ -21,7 +21,6 @@ void ButtonEventManager::SetSelectedGameObject(ISelectable* newSelected)
 {
     if (m_currentSelected == newSelected) return;
 
-    // ?A??I?u?W?F?N?g????t?H?[?J?X??O??
     if (m_currentSelected)
     {
         m_currentSelected->OnDeselect();
@@ -29,7 +28,6 @@ void ButtonEventManager::SetSelectedGameObject(ISelectable* newSelected)
 
     m_currentSelected = newSelected;
 
-    // ?V?????I?u?W?F?N?g??t?H?[?J?X?????
     if (m_currentSelected)
     {
         m_currentSelected->OnSelect();
@@ -38,6 +36,7 @@ void ButtonEventManager::SetSelectedGameObject(ISelectable* newSelected)
 
 void ButtonEventManager::Update()
 {
+    if (!CInspectorUI::GetInstance().ShouldUpdateGame()) return;
     if (!m_currentSelected) return;
 
     CInputManager& input = CInputManager::GetInstance();

@@ -217,6 +217,21 @@ void EnemyAIComponent::UpdateDead(float deltaTime)
 void EnemyAIComponent::OnDamaged()
 {
 	ChangeState(EnemyAIState::Hurt);
+
+	if (!m_damagedEffectPrefab.empty() && m_Owner)
+	{
+		CObject* effect = ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::EFFECT, m_damagedEffectPrefab);
+		if (effect)
+		{
+			CTransform* transform = effect->GetComponent<CTransform>();
+			CTransform* myTransform = m_Owner->GetComponent<CTransform>();
+			if (transform && myTransform)
+			{
+				transform->SetPos(myTransform->GetPos());
+			}
+			effect->Awake();
+		}
+	}
 }
 
 void EnemyAIComponent::OnDie()
@@ -231,15 +246,19 @@ void EnemyAIComponent::OnDie()
 		enemyCounter->Defeat();
 	}
 
-	CObject* billBoard = ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::EFFECT, "Explosion");
-	if (billBoard)
+	if (!m_deathEffectPrefab.empty())
 	{
-		CTransform* transform = billBoard->GetComponent<CTransform>();
-		CTransform* myTransform = m_Owner->GetComponent<CTransform>();
-		if (transform && myTransform)
+		CObject* effect = ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::EFFECT, m_deathEffectPrefab);
+		if (effect)
 		{
-			transform->SetPos(myTransform->GetPos());
-			transform->SetScale({ 0.8f, 1.0f, 0.8f });
+			CTransform* transform = effect->GetComponent<CTransform>();
+			CTransform* myTransform = m_Owner->GetComponent<CTransform>();
+			if (transform && myTransform)
+			{
+				transform->SetPos(myTransform->GetPos());
+				transform->SetScale({ 0.8f, 1.0f, 0.8f });
+			}
+			effect->Awake();
 		}
 	}
 }

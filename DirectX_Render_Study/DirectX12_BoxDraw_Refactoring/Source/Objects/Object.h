@@ -34,7 +34,7 @@ using String = std::string;
 
 
 ////===== 前方宣言 =====
-class CComponent;
+#include "Component.h"
 
 
 
@@ -83,17 +83,56 @@ public:
 	template<class T>
 	T* GetComponent() 
 	{
-		//コンテナ内を探索
 		for (auto& c : components) 
 		{
-			//生ポインタ取得
-			//キャストができれば、それを返す
 			if (auto ptr = dynamic_cast<T*>(c.get())) 
 			{
 				return ptr;
 			}
 		}
 		return nullptr;
+	}
+
+	template<class T>
+	Vector<T*> GetComponentsOfType()
+	{
+		Vector<T*> result;
+		for (auto& c : components)
+		{
+			if (auto ptr = dynamic_cast<T*>(c.get()))
+			{
+				result.push_back(ptr);
+			}
+		}
+		return result;
+	}
+
+	template<class T>
+	bool RemoveComponent()
+	{
+		for (auto it = components.begin(); it != components.end(); ++it)
+		{
+			if (dynamic_cast<T*>(it->get()))
+			{
+				components.erase(it);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	bool RemoveComponent(CComponent* targetComp)
+	{
+		if (!targetComp) return false;
+		for (auto it = components.begin(); it != components.end(); ++it)
+		{
+			if (it->get() == targetComp)
+			{
+				components.erase(it);
+				return true;
+			}
+		}
+		return false;
 	}
 
 	// --コンポーネントの追加

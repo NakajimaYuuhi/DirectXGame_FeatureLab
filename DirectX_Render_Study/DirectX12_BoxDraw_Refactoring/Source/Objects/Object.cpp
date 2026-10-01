@@ -58,7 +58,7 @@ void CObject::Draw()
 	if (!m_isVisible) return;
 	for (auto& c : components)
 	{
-		if (c && c->GetIsValid())
+		if (c && c->IsEnabled())
 		{
 			c->Draw();
 		}
@@ -74,7 +74,7 @@ void CObject::AwakeComponents()
 {
 	for (auto& c : components)
 	{
-		if (c && c->GetIsValid())
+		if (c && c->IsEnabled())
 		{
 			c->Awake();
 		}
@@ -85,7 +85,7 @@ void CObject::StartComponents()
 {
 	for (auto& c : components)
 	{
-		if (c && c->GetIsValid())
+		if (c && c->IsEnabled())
 		{
 			c->Start();
 		}
@@ -99,7 +99,7 @@ void CObject::UpdateComponents(float deltaTime)
 	{
 		for (auto& c : components)
 		{
-			if (c && c->GetIsValid() && static_cast<int>(c->GetUpdatePhase()) == phase)
+			if (c && c->IsEnabled() && static_cast<int>(c->GetUpdatePhase()) == phase)
 			{
 				c->Update(deltaTime);
 			}
@@ -111,7 +111,7 @@ void CObject::LateUpdateComponents(float deltaTime)
 {
 	for (auto& c : components)
 	{
-		if (c && c->GetIsValid())
+		if (c && c->IsEnabled())
 		{
 			c->LateUpdate(deltaTime);
 		}
@@ -122,7 +122,7 @@ void CObject::CollisionComponents(CObject* _Other)
 {
 	for (auto& c : components)
 	{
-		if (c && c->GetIsValid())
+		if (c && c->IsEnabled())
 		{
 			c->OnCollision(_Other);
 		}

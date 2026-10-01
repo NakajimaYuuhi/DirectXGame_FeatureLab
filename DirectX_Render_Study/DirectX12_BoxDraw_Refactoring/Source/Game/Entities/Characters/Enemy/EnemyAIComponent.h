@@ -35,6 +35,12 @@ public:
 	EnemyAIState GetCurrentState() const { return m_currentState; }
 	void ChangeState(EnemyAIState newState);
 
+	void SetDeathEffectPrefab(const std::string& prefab) { m_deathEffectPrefab = prefab; }
+	std::string GetDeathEffectPrefab() const { return m_deathEffectPrefab; }
+
+	void SetDamagedEffectPrefab(const std::string& prefab) { m_damagedEffectPrefab = prefab; }
+	std::string GetDamagedEffectPrefab() const { return m_damagedEffectPrefab; }
+
 private:
 	void UpdateState(float deltaTime);
 	void UpdateIdle(float deltaTime);
@@ -67,4 +73,7 @@ private:
 	CharacterMovementComponent* m_movementComp = nullptr;
 	GravityComponent*           m_gravityComp = nullptr;
 	HealthComponent*            m_healthComp = nullptr;
+
+	std::string m_deathEffectPrefab = "Explosion";
+	std::string m_damagedEffectPrefab = "RandomParticle";
 };

@@ -1,0 +1,35 @@
+{
+  "PrefabName": "Explosion",
+  "Tag": "EFFECT",
+  "Components": {
+    "Transform": {
+      "Position": [ 0.0, 0.0, 0.0 ],
+      "Rotation": [ 0.0, 0.0, 0.0 ],
+      "Scale": [ 1.0, 1.0, 1.0 ]
+    },
+    "Model": {
+      "ModelPath": "Assets/Model/Plane.glb",
+      "RenderLayer": "Transparent",
+      "BlendMode": "Additive",
+      "TexturePath": "Assets/Texture/explosion.png"
+    },
+    "Billboard": {
+      "LockYAxis": false
+    },
+    "UVAnimation": {
+      "Rows": 4,
+      "Cols": 4,
+      "TotalFrames": 16,
+      "FrameDuration": 0.05,
+      "Loop": false,
+      "DestroyOnComplete": true
+    },
+    "ParticleEmitter": {
+      "ParticlePrefab": "RandomParticle",
+      "BurstCount": 12,
+      "BurstOnStart": true,
+      "SpawnInterval": 0.0,
+      "ParticleScale": [ 0.2, 0.2, 0.2 ]
+    }
+  }
+}

@@ -33,6 +33,11 @@
 #include "PlayerControllerComponent.h"
 #include "EnemyAIComponent.h"
 #include "BulletComponent.h"
+#include "CameraComponent.h"
+#include "BillboardComponent.h"
+#include "ParticleComponent.h"
+#include "UVAnimationComponent.h"
+#include "ParticleEmitterComponent.h"
 #include "CollisionLayers.h"
 #include "RenderLayer.h"
 #include <typeinfo>
@@ -139,6 +144,15 @@ void CInspectorUI::Draw()
             else if (ImGui::IsKeyPressed(ImGuiKey_Y))
             {
                 UndoManager::GetInstance().Redo();
+            }
+            else if (ImGui::IsKeyPressed(ImGuiKey_S))
+            {
+                Scenes::ID activeScene = SceneManager::GetInstance().GetActiveSceneID();
+                std::string path = "Assets/Scene/SceneTest.json";
+                if (SceneSerializer::SaveScene(path, activeScene))
+                {
+                    SetStatusMessage("Scene saved (Ctrl+S): " + path, 3.0f);
+                }
             }
         }
         else
@@ -439,6 +453,14 @@ void CInspectorUI::Draw()
     ImGui::Text("Inspector");
     ImGui::Separator();
 
+    float dt = TimeManager::GetInstance().GetDeltaTime();
+    if (m_statusTimer > 0.0f)
+    {
+        m_statusTimer -= dt;
+        ImGui::TextColored(ImVec4(0.2f, 1.0f, 0.4f, 1.0f), "[STATUS] %s", m_statusMessage.c_str());
+        ImGui::Separator();
+    }
+
     CObject* selectedObj = nullptr;
     if (m_isPrefabEditMode && m_prefabEditTarget)
     {
@@ -526,6 +548,54 @@ void CInspectorUI::Draw()
                     selectedObj->SetIsDestroyed(true);
                     m_selectedObjectIndex = -1;
                     m_selectedTagIndex = -1;
+                }
+                ImGui::SameLine();
+                if (ImGui::Button("Save as Prefab"))
+                {
+                    ImGui::OpenPopup("Save Object as Prefab");
+                }
+
+                if (ImGui::BeginPopupModal("Save Object as Prefab", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+                {
+                    static char prefabPathBuf[256] = "";
+                    if (prefabPathBuf[0] == '\0')
+                    {
+                        CObjectInfo* info = selectedObj->GetComponent<CObjectInfo>();
+                        std::string objName = info ? info->GetObjectName() : "PrefabObject";
+                        std::string defaultPath = "Assets/Prefabs/" + objName + ".json";
+                        strncpy_s(prefabPathBuf, sizeof(prefabPathBuf), defaultPath.c_str(), _TRUNCATE);
+                    }
+
+                    ImGui::Text("Save selected object as a JSON Prefab:");
+                    ImGui::InputText("Save Path", prefabPathBuf, sizeof(prefabPathBuf));
+
+                    if (ImGui::Button("Save", ImVec2(120, 0)))
+                    {
+                        std::string savePath = prefabPathBuf;
+                        if (PrefabSerializer::SavePrefab(savePath, selectedObj))
+                        {
+                            std::string stemName = std::filesystem::path(savePath).stem().string();
+                            PrefabManager::GetInstance().RegisterPrefabJSON(stemName, savePath);
+                            PrefabManager::GetInstance().RegisterPrefabJSON(stemName + "JSON", savePath);
+                            CContentDrawerUI::GetInstance().RefreshPrefabList();
+                            m_statusMessage = "Prefab saved & registered: " + savePath;
+                            m_statusTimer = 3.0f;
+                        }
+                        else
+                        {
+                            m_statusMessage = "Failed to save prefab: " + savePath;
+                            m_statusTimer = 3.0f;
+                        }
+                        prefabPathBuf[0] = '\0';
+                        ImGui::CloseCurrentPopup();
+                    }
+                    ImGui::SameLine();
+                    if (ImGui::Button("Cancel", ImVec2(120, 0)))
+                    {
+                        prefabPathBuf[0] = '\0';
+                        ImGui::CloseCurrentPopup();
+                    }
+                    ImGui::EndPopup();
                 }
 
                 // -------------------------------------------------------------
@@ -873,6 +943,8 @@ void CInspectorUI::Draw()
                 {
                     if (ImGui::CollapsingHeader("GravityComponent", ImGuiTreeNodeFlags_DefaultOpen))
                     {
+                        bool enabled = gravityComp->IsEnabled();
+                        if (ImGui::Checkbox("Enabled##GravityComp", &enabled)) gravityComp->SetEnabled(enabled);
                         float grav = gravityComp->GetGravity();
                         if (ImGui::DragFloat("Gravity Accel", &grav, 0.5f, -100.0f, 0.0f, "%.1f"))
                         {
@@ -915,6 +987,8 @@ void CInspectorUI::Draw()
                 {
                     if (ImGui::CollapsingHeader("HealthComponent", ImGuiTreeNodeFlags_DefaultOpen))
                     {
+                        bool enabled = healthComp->IsEnabled();
+                        if (ImGui::Checkbox("Enabled##HealthComp", &enabled)) healthComp->SetEnabled(enabled);
                         int curHp = healthComp->GetHP();
                         int maxHp = healthComp->GetMaxHP();
 
@@ -966,6 +1040,8 @@ void CInspectorUI::Draw()
                 {
                     if (ImGui::CollapsingHeader("CharacterMovementComponent", ImGuiTreeNodeFlags_DefaultOpen))
                     {
+                        bool enabled = movementComp->IsEnabled();
+                        if (ImGui::Checkbox("Enabled##MovementComp", &enabled)) movementComp->SetEnabled(enabled);
                         float spd = movementComp->GetSpeed();
                         if (ImGui::DragFloat("Move Speed", &spd, 0.005f, 0.0f, 2.0f, "%.3f"))
                         {
@@ -994,6 +1070,8 @@ void CInspectorUI::Draw()
                 {
                     if (ImGui::CollapsingHeader("PlayerControllerComponent", ImGuiTreeNodeFlags_DefaultOpen))
                     {
+                        bool enabled = playerCtrl->IsEnabled();
+                        if (ImGui::Checkbox("Enabled##PlayerCtrlComp", &enabled)) playerCtrl->SetEnabled(enabled);
                         static const char* stateNames[] = { "Idle", "Move", "Attack", "Hurt", "Dead" };
                         int curState = (int)playerCtrl->GetCurrentState();
                         const char* curStateName = (curState >= 0 && curState < 5) ? stateNames[curState] : "Unknown";
@@ -1007,10 +1085,26 @@ void CInspectorUI::Draw()
                 {
                     if (ImGui::CollapsingHeader("EnemyAIComponent", ImGuiTreeNodeFlags_DefaultOpen))
                     {
+                        bool enabled = enemyAI->IsEnabled();
+                        if (ImGui::Checkbox("Enabled##EnemyAIComp", &enabled)) enemyAI->SetEnabled(enabled);
                         static const char* aiStateNames[] = { "Idle", "Chase", "Attack", "Hurt", "Dead" };
                         int curState = (int)enemyAI->GetCurrentState();
                         const char* curStateName = (curState >= 0 && curState < 5) ? aiStateNames[curState] : "Unknown";
                         ImGui::Text("AI State: %s", curStateName);
+
+                        char dPrefabBuf[128];
+                        strncpy_s(dPrefabBuf, sizeof(dPrefabBuf), enemyAI->GetDeathEffectPrefab().c_str(), _TRUNCATE);
+                        if (ImGui::InputText("Death Effect Prefab", dPrefabBuf, sizeof(dPrefabBuf)))
+                        {
+                            enemyAI->SetDeathEffectPrefab(std::string(dPrefabBuf));
+                        }
+
+                        char dmgPrefabBuf[128];
+                        strncpy_s(dmgPrefabBuf, sizeof(dmgPrefabBuf), enemyAI->GetDamagedEffectPrefab().c_str(), _TRUNCATE);
+                        if (ImGui::InputText("Damaged Effect Prefab", dmgPrefabBuf, sizeof(dmgPrefabBuf)))
+                        {
+                            enemyAI->SetDamagedEffectPrefab(std::string(dmgPrefabBuf));
+                        }
                     }
                 }
 
@@ -1019,6 +1113,8 @@ void CInspectorUI::Draw()
                 {
                     if (ImGui::CollapsingHeader("BulletComponent", ImGuiTreeNodeFlags_DefaultOpen))
                     {
+                        bool enabled = bulletComp->IsEnabled();
+                        if (ImGui::Checkbox("Enabled##BulletComp", &enabled)) bulletComp->SetEnabled(enabled);
                         DirectX::XMFLOAT3 dir = bulletComp->GetDirection();
                         if (ImGui::DragFloat3("Direction", &dir.x, 0.01f))
                         {
@@ -1042,6 +1138,159 @@ void CInspectorUI::Draw()
                         {
                             bulletComp->SetDamage(damage);
                         }
+
+                        char hitPrefabBuf[128];
+                        strncpy_s(hitPrefabBuf, sizeof(hitPrefabBuf), bulletComp->GetHitEffectPrefab().c_str(), _TRUNCATE);
+                        if (ImGui::InputText("Hit Effect Prefab", hitPrefabBuf, sizeof(hitPrefabBuf)))
+                        {
+                            bulletComp->SetHitEffectPrefab(std::string(hitPrefabBuf));
+                        }
+                    }
+                }
+
+                CameraComponent* cameraComp = selectedObj->GetComponent<CameraComponent>();
+                if (cameraComp)
+                {
+                    if (ImGui::CollapsingHeader("CameraComponent", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        bool enabled = cameraComp->IsEnabled();
+                        if (ImGui::Checkbox("Enabled##CameraComp", &enabled)) cameraComp->SetEnabled(enabled);
+                        CObject* target = cameraComp->GetTarget();
+                        CObjectInfo* targetInfo = target ? target->GetComponent<CObjectInfo>() : nullptr;
+                        std::string targetName = targetInfo ? targetInfo->GetObjectName() : (target ? "Target" : "(Auto Player)");
+                        ImGui::Text("Follow Target: %s", targetName.c_str());
+
+                        float dist = cameraComp->GetDistance();
+                        if (ImGui::DragFloat("Distance", &dist, 0.1f, 0.5f, 50.0f))
+                        {
+                            cameraComp->SetDistance(dist);
+                        }
+
+                        float height = cameraComp->GetHeight();
+                        if (ImGui::DragFloat("Height", &height, 0.1f, -10.0f, 30.0f))
+                        {
+                            cameraComp->SetHeight(height);
+                        }
+
+                        float angleY = cameraComp->GetAngleY();
+                        if (ImGui::DragFloat("Angle Y (Yaw)", &angleY, 0.02f, -6.28f, 6.28f))
+                        {
+                            cameraComp->SetAngleY(angleY);
+                        }
+
+                        float angleX = cameraComp->GetAngleX();
+                        if (ImGui::DragFloat("Angle X (Pitch)", &angleX, 0.02f, -1.5f, 1.5f))
+                        {
+                            cameraComp->SetAngleX(angleX);
+                        }
+
+                        float fovDeg = cameraComp->GetFov() * (180.0f / 3.14159265f);
+                        if (ImGui::DragFloat("FOV (Degrees)", &fovDeg, 0.5f, 10.0f, 120.0f))
+                        {
+                            cameraComp->SetFov(fovDeg * (3.14159265f / 180.0f));
+                        }
+
+                        float followSpeed = cameraComp->GetFollowSpeed();
+                        if (ImGui::DragFloat("Follow Speed", &followSpeed, 0.5f, 0.0f, 50.0f))
+                        {
+                            cameraComp->SetFollowSpeed(followSpeed);
+                        }
+
+                        DirectX::XMFLOAT3 tOffset = cameraComp->GetTargetOffset();
+                        if (ImGui::DragFloat3("Target Offset", &tOffset.x, 0.1f))
+                        {
+                            cameraComp->SetTargetOffset(tOffset);
+                        }
+
+                        ImGui::Spacing();
+                        if (ImGui::Button("Shake Camera Test"))
+                        {
+                            cameraComp->Shake(0.3f, 0.5f);
+                        }
+                    }
+                }
+
+                BillboardComponent* bbComp = selectedObj->GetComponent<BillboardComponent>();
+                if (bbComp)
+                {
+                    if (ImGui::CollapsingHeader("BillboardComponent", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        bool enabled = bbComp->IsEnabled();
+                        if (ImGui::Checkbox("Enabled##BillboardComp", &enabled)) bbComp->SetEnabled(enabled);
+                        bool lockY = bbComp->GetLockYAxis();
+                        if (ImGui::Checkbox("Lock Y Axis", &lockY)) bbComp->SetLockYAxis(lockY);
+                    }
+                }
+
+                ParticleComponent* ptComp = selectedObj->GetComponent<ParticleComponent>();
+                if (ptComp)
+                {
+                    if (ImGui::CollapsingHeader("ParticleComponent", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        bool enabled = ptComp->IsEnabled();
+                        if (ImGui::Checkbox("Enabled##ParticleComp", &enabled)) ptComp->SetEnabled(enabled);
+                        float spd = ptComp->GetSpeed();
+                        if (ImGui::DragFloat("Speed", &spd, 0.005f, 0.0f, 10.0f)) ptComp->SetSpeed(spd);
+                        float life = ptComp->GetLifeTime();
+                        if (ImGui::DragFloat("Life Time", &life, 0.1f, 0.0f, 60.0f)) ptComp->SetLifeTime(life);
+                        DirectX::XMFLOAT3 dir = ptComp->GetDirection();
+                        if (ImGui::DragFloat3("Direction", &dir.x, 0.01f)) ptComp->SetDirection(dir);
+                        ImGui::Text("Random Direction: %s", ptComp->IsRandomDirection() ? "YES" : "NO");
+                    }
+                }
+
+                UVAnimationComponent* uvComp = selectedObj->GetComponent<UVAnimationComponent>();
+                if (uvComp)
+                {
+                    if (ImGui::CollapsingHeader("UVAnimationComponent", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        bool enabled = uvComp->IsEnabled();
+                        if (ImGui::Checkbox("Enabled##UVAnimComp", &enabled)) uvComp->SetEnabled(enabled);
+                        int grid[2] = { uvComp->GetRows(), uvComp->GetCols() };
+                        if (ImGui::DragInt2("Grid (Rows, Cols)", grid, 1, 1, 32)) uvComp->SetGrid(grid[0], grid[1]);
+                        int totalFrames = uvComp->GetTotalFrames();
+                        if (ImGui::DragInt("Total Frames", &totalFrames, 1, 1, 256)) uvComp->SetTotalFrames(totalFrames);
+                        float frameDur = uvComp->GetFrameDuration();
+                        if (ImGui::DragFloat("Frame Duration", &frameDur, 0.005f, 0.001f, 1.0f)) uvComp->SetFrameDuration(frameDur);
+                        bool loop = uvComp->IsLoop();
+                        if (ImGui::Checkbox("Loop Animation", &loop)) uvComp->SetLoop(loop);
+                        bool destroyComplete = uvComp->IsDestroyOnComplete();
+                        if (ImGui::Checkbox("Destroy On Complete", &destroyComplete)) uvComp->SetDestroyOnComplete(destroyComplete);
+                        ImGui::Text("Current Frame: %d", uvComp->GetCurrentFrame());
+                    }
+                }
+
+                ParticleEmitterComponent* peComp = selectedObj->GetComponent<ParticleEmitterComponent>();
+                if (peComp)
+                {
+                    if (ImGui::CollapsingHeader("ParticleEmitterComponent", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        bool enabled = peComp->IsEnabled();
+                        if (ImGui::Checkbox("Enabled##ParticleEmitterComp", &enabled)) peComp->SetEnabled(enabled);
+
+                        char prefabBuf[128];
+                        strncpy_s(prefabBuf, sizeof(prefabBuf), peComp->GetParticlePrefab().c_str(), _TRUNCATE);
+                        if (ImGui::InputText("Particle Prefab", prefabBuf, sizeof(prefabBuf)))
+                        {
+                            peComp->SetParticlePrefab(std::string(prefabBuf));
+                        }
+
+                        int count = peComp->GetBurstCount();
+                        if (ImGui::DragInt("Burst Count", &count, 1, 1, 100)) peComp->SetBurstCount(count);
+
+                        float interval = peComp->GetSpawnInterval();
+                        if (ImGui::DragFloat("Spawn Interval", &interval, 0.05f, 0.0f, 60.0f)) peComp->SetSpawnInterval(interval);
+
+                        bool burstStart = peComp->GetBurstOnStart();
+                        if (ImGui::Checkbox("Burst On Start", &burstStart)) peComp->SetBurstOnStart(burstStart);
+
+                        DirectX::XMFLOAT3 pScale = peComp->GetParticleScale();
+                        if (ImGui::DragFloat3("Particle Scale", &pScale.x, 0.01f, 0.01f, 10.0f)) peComp->SetParticleScale(pScale);
+
+                        if (ImGui::Button("Emit Test"))
+                        {
+                            peComp->Emit();
+                        }
                     }
                 }
 
@@ -1055,7 +1304,8 @@ void CInspectorUI::Draw()
                     CComponent* cPtr = comp.get();
                     if (cPtr != transform && cPtr != sprite && cPtr != textComp && cPtr != model &&
                         cPtr != boxCollider && cPtr != gravityComp && cPtr != healthComp &&
-                        cPtr != movementComp && cPtr != playerCtrl && cPtr != enemyAI && cPtr != bulletComp && cPtr != objInfo)
+                        cPtr != movementComp && cPtr != playerCtrl && cPtr != enemyAI && cPtr != bulletComp && cPtr != cameraComp &&
+                        cPtr != bbComp && cPtr != ptComp && cPtr != uvComp && cPtr != peComp && cPtr != objInfo)
                     {
                         otherCompNames.push_back(GetCleanComponentName(cPtr));
                     }
@@ -1159,6 +1409,41 @@ void CInspectorUI::Draw()
                         if (ImGui::Selectable("Bullet Component"))
                         {
                             selectedObj->AddComponent<BulletComponent>();
+                        }
+                    }
+                    if (!selectedObj->GetComponent<CameraComponent>())
+                    {
+                        if (ImGui::Selectable("Camera Component"))
+                        {
+                            selectedObj->AddComponent<CameraComponent>();
+                        }
+                    }
+                    if (!selectedObj->GetComponent<BillboardComponent>())
+                    {
+                        if (ImGui::Selectable("Billboard Component"))
+                        {
+                            selectedObj->AddComponent<BillboardComponent>();
+                        }
+                    }
+                    if (!selectedObj->GetComponent<ParticleComponent>())
+                    {
+                        if (ImGui::Selectable("Particle Component"))
+                        {
+                            selectedObj->AddComponent<ParticleComponent>();
+                        }
+                    }
+                    if (!selectedObj->GetComponent<UVAnimationComponent>())
+                    {
+                        if (ImGui::Selectable("UV Animation Component"))
+                        {
+                            selectedObj->AddComponent<UVAnimationComponent>();
+                        }
+                    }
+                    if (!selectedObj->GetComponent<ParticleEmitterComponent>())
+                    {
+                        if (ImGui::Selectable("Particle Emitter Component"))
+                        {
+                            selectedObj->AddComponent<ParticleEmitterComponent>();
                         }
                     }
 
@@ -1446,6 +1731,15 @@ void CInspectorUI::ClosePrefabEditMode()
 bool CInspectorUI::SaveCurrentPrefab()
 {
     if (!m_isPrefabEditMode || !m_prefabEditTarget || m_editingPrefabPath.empty()) return false;
-    return PrefabSerializer::SavePrefab(m_editingPrefabPath, m_prefabEditTarget.get());
+    bool success = PrefabSerializer::SavePrefab(m_editingPrefabPath, m_prefabEditTarget.get());
+    if (success)
+    {
+        std::string stemName = std::filesystem::path(m_editingPrefabPath).stem().string();
+        PrefabManager::GetInstance().RegisterPrefabJSON(stemName, m_editingPrefabPath);
+        PrefabManager::GetInstance().RegisterPrefabJSON(stemName + "JSON", m_editingPrefabPath);
+        CContentDrawerUI::GetInstance().RefreshPrefabList();
+        SetStatusMessage("Prefab updated: " + m_editingPrefabPath, 3.0f);
+    }
+    return success;
 }
 

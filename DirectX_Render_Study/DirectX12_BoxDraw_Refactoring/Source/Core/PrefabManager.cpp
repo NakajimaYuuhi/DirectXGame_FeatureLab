@@ -11,9 +11,12 @@
 #include "PlayerControllerComponent.h"
 #include "EnemyAIComponent.h"
 #include "BulletComponent.h"
+#include "CameraComponent.h"
 #include "audio.h"
+#include "ComponentFactory.h"
 #include "Source/External/json.hpp"
 #include <fstream>
+#include <filesystem>
 
 PrefabManager::PrefabManager()
 {
@@ -124,11 +127,8 @@ void PrefabManager::InitDefaultPrefabs()
 		return obj;
 	});
 
-	// Register JSON Prefabs if available
-	RegisterPrefabJSON("PlayerJSON", "Assets/Prefabs/Player.json");
-	RegisterPrefabJSON("EnemyJSON", "Assets/Prefabs/Enemy.json");
-	RegisterPrefabJSON("SkydomeJSON", "Assets/Prefabs/Skydome.json");
-	RegisterPrefabJSON("PlayerBulletJSON", "Assets/Prefabs/PlayerBullet.json");
+	// Automatically scan and register all JSON prefabs in Assets/Prefabs
+	RegisterPrefabsInDirectory("Assets/Prefabs");
 }
 
 CObject* PrefabManager::InstantiateFromJSON(const std::string& jsonPath, const std::string& instanceName)
@@ -168,180 +168,11 @@ CObject* PrefabManager::InstantiateFromJSON(const std::string& jsonPath, const s
 		else if (tagStr == "UI") info->SetObjectTag(ObjectTag::UI);
 	}
 
-	if (!j.contains("Components")) return obj;
-	const auto& comps = j["Components"];
-
-	// Transform
-	if (comps.contains("Transform"))
+	if (j.contains("Components") && j["Components"].is_object())
 	{
-		const auto& t = comps["Transform"];
-		CTransform* transform = obj->GetComponent<CTransform>();
-		if (transform)
+		for (const auto& [compName, compJson] : j["Components"].items())
 		{
-			if (t.contains("Position") && t["Position"].is_array() && t["Position"].size() >= 3)
-			{
-				transform->SetPos({ t["Position"][0], t["Position"][1], t["Position"][2] });
-			}
-			if (t.contains("Rotation") && t["Rotation"].is_array() && t["Rotation"].size() >= 3)
-			{
-				transform->SetRotation({ t["Rotation"][0], t["Rotation"][1], t["Rotation"][2] });
-			}
-			if (t.contains("Scale") && t["Scale"].is_array() && t["Scale"].size() >= 3)
-			{
-				transform->SetScale({ t["Scale"][0], t["Scale"][1], t["Scale"][2] });
-			}
-		}
-	}
-
-	// Model
-	if (comps.contains("Model"))
-	{
-		const auto& m = comps["Model"];
-		std::string modelPath = m.value("ModelPath", "");
-		if (!modelPath.empty())
-		{
-			CModel* model = obj->GetComponent<CModel>();
-			if (!model)
-			{
-				model = obj->AddComponent<CModel>();
-			}
-			if (model)
-			{
-				auto sharedModel = ModelManager::GetInstance().GetModel(modelPath);
-				if (sharedModel)
-				{
-					model->CopyFrom(sharedModel);
-					model->SetModelPath(modelPath);
-				}
-				if (m.contains("DefaultAnimation"))
-				{
-					if (m["DefaultAnimation"].is_number())
-					{
-						model->PlayAnimation(m["DefaultAnimation"].get<int>());
-					}
-					else if (m["DefaultAnimation"].is_string())
-					{
-						model->PlayAnimation(m["DefaultAnimation"].get<std::string>());
-					}
-				}
-				else
-				{
-					model->PlayAnimation(0);
-				}
-
-				std::string rLayerStr = m.value("RenderLayer", "Opaque");
-				if (rLayerStr == "Transparent") model->SetRenderLayer(RenderLayer::Transparent);
-				else if (rLayerStr == "UI") model->SetRenderLayer(RenderLayer::UI);
-				else model->SetRenderLayer(RenderLayer::Opaque);
-			}
-		}
-	}
-
-	// BoxCollider3D
-	if (comps.contains("BoxCollider3D"))
-	{
-		const auto& c = comps["BoxCollider3D"];
-		BoxCollider3D* collider = obj->AddComponent<BoxCollider3D>();
-
-		if (c.contains("Size") && c["Size"].is_array() && c["Size"].size() >= 3)
-		{
-			collider->SetSize({ c["Size"][0], c["Size"][1], c["Size"][2] });
-		}
-		if (c.contains("Offset") && c["Offset"].is_array() && c["Offset"].size() >= 3)
-		{
-			collider->SetOffset({ c["Offset"][0], c["Offset"][1], c["Offset"][2] });
-		}
-		collider->SetIsTrigger(c.value("IsTrigger", false));
-		collider->SetLayer(c.value("Layer", (uint32_t)CollisionLayer::Default));
-		collider->SetCollisionMask(c.value("CollisionMask", (uint32_t)CollisionLayer::All));
-	}
-
-	// Audio
-	if (comps.contains("Audio"))
-	{
-		const auto& a = comps["Audio"];
-		std::string audioPath = a.value("FilePath", "");
-		if (!audioPath.empty())
-		{
-			Audio* audio = obj->AddComponent<Audio>();
-			audio->Load(audioPath.c_str());
-		}
-	}
-
-	// Gravity
-	if (comps.contains("Gravity"))
-	{
-		const auto& g = comps["Gravity"];
-		float grav = g.value("Gravity", -25.0f);
-		float jPow = g.value("JumpPower", 0.0f);
-		obj->AddComponent<GravityComponent>(grav, jPow);
-	}
-
-	// Movement
-	if (comps.contains("Movement"))
-	{
-		const auto& mv = comps["Movement"];
-		float spd = mv.value("Speed", 0.05f);
-		auto moveComp = obj->AddComponent<CharacterMovementComponent>(spd);
-		moveComp->SetMinClimbNormalY(mv.value("MinClimbNormalY", 0.45f));
-		moveComp->SetAutoRotate(mv.value("AutoRotate", true));
-	}
-
-	// Health
-	HealthComponent* health = nullptr;
-	if (comps.contains("Health"))
-	{
-		const auto& h = comps["Health"];
-		int maxHp = h.value("MaxHP", 10);
-		float invDur = h.value("InvincibleDuration", 1.5f);
-		float blkInt = h.value("BlinkInterval", 0.08f);
-		health = obj->AddComponent<HealthComponent>(maxHp, invDur, blkInt);
-	}
-
-	// PlayerController
-	if (comps.contains("PlayerController"))
-	{
-		auto controller = obj->AddComponent<PlayerControllerComponent>();
-		if (health)
-		{
-			health->SetOnDamagedCallback([controller](int, int) {
-				if (controller) controller->OnDamaged();
-			});
-			health->SetOnDieCallback([controller]() {
-				if (controller) controller->OnDie();
-			});
-		}
-	}
-
-	// EnemyAI
-	if (comps.contains("EnemyAI"))
-	{
-		auto ai = obj->AddComponent<EnemyAIComponent>();
-		if (health)
-		{
-			health->SetOnDamagedCallback([ai](int, int) {
-				if (ai) ai->OnDamaged();
-			});
-			health->SetOnDieCallback([ai]() {
-				if (ai) ai->OnDie();
-			});
-		}
-	}
-
-	// BulletComponent
-	if (comps.contains("BulletComponent") || comps.contains("Bullet"))
-	{
-		const auto& b = comps.contains("BulletComponent") ? comps["BulletComponent"] : comps["Bullet"];
-		auto bulletComp = obj->AddComponent<BulletComponent>();
-		if (bulletComp)
-		{
-			bulletComp->SetSpeed(b.value("Speed", 0.04f));
-			bulletComp->SetLifeTime(b.value("LifeTime", 5.0f));
-			bulletComp->SetDamage(b.value("Damage", 1));
-			if (b.contains("Direction") && b["Direction"].is_array() && b["Direction"].size() >= 3)
-			{
-				bulletComp->SetDirection({ b["Direction"][0], b["Direction"][1], b["Direction"][2] });
-			}
+			ComponentFactory::GetInstance().CreateComponent(compName, obj, compJson);
 		}
 	}
 
@@ -354,4 +185,44 @@ bool PrefabManager::RegisterPrefabJSON(const std::string& typeName, const std::s
 		return InstantiateFromJSON(jsonPath, name);
 	});
 	return true;
+}
+
+void PrefabManager::RegisterPrefabsInDirectory(const std::string& directoryPath)
+{
+	namespace fs = std::filesystem;
+	if (!fs::exists(directoryPath) || !fs::is_directory(directoryPath)) return;
+
+	for (const auto& entry : fs::directory_iterator(directoryPath))
+	{
+		if (entry.is_regular_file() && entry.path().extension() == ".json")
+		{
+			std::string jsonPath = entry.path().string();
+			std::string stemName = entry.path().stem().string();
+
+			std::ifstream file(jsonPath);
+			if (file.is_open())
+			{
+				nlohmann::json j;
+				try
+				{
+					file >> j;
+					std::string prefabName = j.value("PrefabName", stemName);
+					RegisterPrefabJSON(prefabName, jsonPath);
+					if (prefabName != stemName)
+					{
+						RegisterPrefabJSON(stemName, jsonPath);
+					}
+				}
+				catch (...)
+				{
+					RegisterPrefabJSON(stemName, jsonPath);
+				}
+			}
+		}
+	}
+}
+
+bool PrefabManager::HasPrefab(const std::string& typeName) const
+{
+	return m_registry.find(typeName) != m_registry.end();
 }
