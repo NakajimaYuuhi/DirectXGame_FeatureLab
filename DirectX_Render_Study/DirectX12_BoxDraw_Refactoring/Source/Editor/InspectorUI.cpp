@@ -605,11 +605,12 @@ void CInspectorUI::Draw()
                 if (ImGui::CollapsingHeader("Attached Components", ImGuiTreeNodeFlags_DefaultOpen))
                 {
                     ImGui::Text("Total Components: %d", (int)compList.size());
-                    if (ImGui::BeginTable("AttachedCompTable", 3, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_SizingStretchProp))
+                    if (ImGui::BeginTable("AttachedCompTable", 4, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_SizingStretchProp))
                     {
                         ImGui::TableSetupColumn("Active", ImGuiTableColumnFlags_WidthFixed, 50.0f);
                         ImGui::TableSetupColumn("Component Name", ImGuiTableColumnFlags_WidthStretch);
                         ImGui::TableSetupColumn("Phase", ImGuiTableColumnFlags_WidthFixed, 90.0f);
+                        ImGui::TableSetupColumn("Action", ImGuiTableColumnFlags_WidthFixed, 70.0f);
                         ImGui::TableHeadersRow();
 
                         for (size_t i = 0; i < compList.size(); ++i)
@@ -646,6 +647,26 @@ void CInspectorUI::Draw()
                             // Phase column
                             ImGui::TableSetColumnIndex(2);
                             ImGui::TextDisabled("%s", GetUpdatePhaseName(comp->GetUpdatePhase()));
+
+                            // Action column
+                            ImGui::TableSetColumnIndex(3);
+                            bool isNonRemovable = (dynamic_cast<CObjectInfo*>(comp.get()) != nullptr || dynamic_cast<CTransform*>(comp.get()) != nullptr);
+                            if (!isNonRemovable)
+                            {
+                                ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.7f, 0.2f, 0.2f, 1.0f));
+                                if (ImGui::Button("Remove"))
+                                {
+                                    selectedObj->RemoveComponent(comp.get());
+                                    ImGui::PopStyleColor();
+                                    ImGui::PopID();
+                                    break;
+                                }
+                                ImGui::PopStyleColor();
+                            }
+                            else
+                            {
+                                ImGui::TextDisabled("Locked");
+                            }
 
                             ImGui::PopID();
                         }

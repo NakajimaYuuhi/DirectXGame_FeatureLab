@@ -159,13 +159,21 @@ CObject* PrefabManager::InstantiateFromJSON(const std::string& jsonPath, const s
 	CObjectInfo* info = obj->GetComponent<CObjectInfo>();
 	if (info)
 	{
-		if (tagStr == "PLAYER") info->SetObjectTag(ObjectTag::PLAYER);
-		else if (tagStr == "ENEMY") info->SetObjectTag(ObjectTag::ENEMY);
+		if (tagStr == "BACKGROUND") info->SetObjectTag(ObjectTag::BACKGROUND);
+		else if (tagStr == "PLAYER") info->SetObjectTag(ObjectTag::PLAYER);
 		else if (tagStr == "PLAYER_BULLET") info->SetObjectTag(ObjectTag::PLAYER_BULLET);
+		else if (tagStr == "ENEMY") info->SetObjectTag(ObjectTag::ENEMY);
 		else if (tagStr == "ENEMY_BULLET") info->SetObjectTag(ObjectTag::ENEMY_BULLET);
-		else if (tagStr == "BACKGROUND") info->SetObjectTag(ObjectTag::BACKGROUND);
 		else if (tagStr == "FIELD") info->SetObjectTag(ObjectTag::FIELD);
+		else if (tagStr == "TRIANGLE") info->SetObjectTag(ObjectTag::TRIANGLE);
+		else if (tagStr == "BILLBOARD") info->SetObjectTag(ObjectTag::BILLBOARD);
+		else if (tagStr == "EFFECT") info->SetObjectTag(ObjectTag::EFFECT);
 		else if (tagStr == "UI") info->SetObjectTag(ObjectTag::UI);
+		else if (tagStr == "TEXT") info->SetObjectTag(ObjectTag::TEXT);
+		else if (tagStr == "CAMERA") info->SetObjectTag(ObjectTag::CAMERA);
+		else if (tagStr == "FADE") info->SetObjectTag(ObjectTag::FADE);
+		else if (tagStr == "MANAGER") info->SetObjectTag(ObjectTag::MANAGER);
+		else info->SetObjectTag(ObjectTag::NONE);
 	}
 
 	if (j.contains("Components") && j["Components"].is_object())

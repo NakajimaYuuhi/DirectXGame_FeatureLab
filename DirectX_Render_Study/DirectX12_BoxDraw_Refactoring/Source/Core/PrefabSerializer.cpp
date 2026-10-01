@@ -51,15 +51,20 @@ bool PrefabSerializer::SavePrefab(const std::string& filepath, CObject* obj)
         ObjectTag tag = info->GetObjectTag();
         switch (tag)
         {
-        case ObjectTag::PLAYER:        tagStr = "PLAYER"; break;
-        case ObjectTag::ENEMY:         tagStr = "ENEMY"; break;
-        case ObjectTag::PLAYER_BULLET: tagStr = "PLAYER_BULLET"; break;
-        case ObjectTag::ENEMY_BULLET:  tagStr = "ENEMY_BULLET"; break;
         case ObjectTag::BACKGROUND:    tagStr = "BACKGROUND"; break;
+        case ObjectTag::PLAYER:        tagStr = "PLAYER"; break;
+        case ObjectTag::PLAYER_BULLET: tagStr = "PLAYER_BULLET"; break;
+        case ObjectTag::ENEMY:         tagStr = "ENEMY"; break;
+        case ObjectTag::ENEMY_BULLET:  tagStr = "ENEMY_BULLET"; break;
         case ObjectTag::FIELD:         tagStr = "FIELD"; break;
+        case ObjectTag::TRIANGLE:      tagStr = "TRIANGLE"; break;
+        case ObjectTag::BILLBOARD:     tagStr = "BILLBOARD"; break;
+        case ObjectTag::EFFECT:        tagStr = "EFFECT"; break;
         case ObjectTag::UI:            tagStr = "UI"; break;
         case ObjectTag::TEXT:          tagStr = "TEXT"; break;
-        case ObjectTag::EFFECT:        tagStr = "EFFECT"; break;
+        case ObjectTag::CAMERA:        tagStr = "CAMERA"; break;
+        case ObjectTag::FADE:          tagStr = "FADE"; break;
+        case ObjectTag::MANAGER:       tagStr = "MANAGER"; break;
         default:                       tagStr = "NONE"; break;
         }
     }

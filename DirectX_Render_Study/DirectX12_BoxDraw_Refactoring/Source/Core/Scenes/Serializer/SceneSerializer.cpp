@@ -14,6 +14,8 @@
 #include "TextRenderer.h"
 #include "ButtonEventManager.h"
 #include "ButtonAction.h"
+#include "Camera.h"
+#include "CameraComponent.h"
 #include "Source/External/json.hpp"
 #include <fstream>
 #include <iostream>
@@ -80,6 +82,8 @@ bool SceneSerializer::SaveScene(const std::string& filepath, Scenes::ID sceneID)
 				objJson["type"] = "Field";
 			else if (dynamic_cast<EnemyCounter*>(obj.get()))
 				objJson["type"] = "EnemyCounter";
+			else if (objInfo->GetObjectTag() == ObjectTag::CAMERA || obj->GetComponent<CameraComponent>() || dynamic_cast<Camera*>(obj.get()))
+				objJson["type"] = "Camera";
 			else
 				objJson["type"] = "CObject";
 
@@ -214,9 +218,13 @@ bool SceneSerializer::LoadScene(const std::string& filepath, Scenes::ID sceneID)
 		ObjectTag tag = static_cast<ObjectTag>(tagInt);
 		std::string type = objJson.value("type", "");
 
-		if (tag == ObjectTag::NONE || tagInt == -1)
+		if (tag == ObjectTag::NONE || tagInt == -1 || type == "Camera" || name == "Camera" || type == "CameraComponent")
 		{
-			if (type == "CUIObject" || type == "CUIButton")
+			if (type == "Camera" || name == "Camera" || type == "CameraComponent")
+			{
+				tag = ObjectTag::CAMERA;
+			}
+			else if (type == "CUIObject" || type == "CUIButton")
 			{
 				tag = ObjectTag::UI;
 			}
@@ -247,6 +255,13 @@ bool SceneSerializer::LoadScene(const std::string& filepath, Scenes::ID sceneID)
 		}
 
 		CObject* newObj = ObjectManager::GetInstance().Instantiate(sceneID, tag, type.empty() ? name : type, name);
+		if (newObj && (type == "Camera" || name == "Camera" || type == "CameraComponent"))
+		{
+			if (auto info = newObj->GetComponent<CObjectInfo>())
+			{
+				info->SetObjectTag(ObjectTag::CAMERA);
+			}
+		}
 
 		if (newObj)
 		{

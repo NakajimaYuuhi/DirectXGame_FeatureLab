@@ -50,6 +50,21 @@ CObject* ObjectManager::GetCameraObject()
 			return obj.get();
 		}
 	}
+
+	for (const auto& vec : vecObject)
+	{
+		for (const auto& obj : vec)
+		{
+			if (obj && !obj->GetIsDestroyed())
+			{
+				if (obj->GetComponent<CameraComponent>() || dynamic_cast<Camera*>(obj.get()))
+				{
+					return obj.get();
+				}
+			}
+		}
+	}
+
 	return nullptr;
 }
 

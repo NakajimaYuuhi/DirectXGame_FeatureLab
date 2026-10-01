@@ -79,10 +79,22 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 		}
 	}
 
+	if (_Tag == ObjectTag::NONE && (_TypeName == "Camera" || _ObjectName == "Camera" || _TypeName == "CameraComponent"))
+	{
+		_Tag = ObjectTag::CAMERA;
+	}
+
 	// 2. Fallback to C++ class-based instantiation
 	switch (_Tag)
 	{
 	case ObjectTag::NONE:
+		if (_TypeName == "Camera" || _ObjectName == "Camera" || _TypeName == "CameraComponent")
+		{
+			tmpObject = std::make_unique<Camera>(_ObjectName);
+			returnObject = tmpObject.get();
+			vecObject[static_cast<int>(ObjectTag::CAMERA)].push_back(std::move(tmpObject));
+			break;
+		}
 		tmpObject = std::make_unique<C3D_Object>(_ObjectName);
 		returnObject = tmpObject.get();
 		vecObject[static_cast<int>(ObjectTag::FIELD)].push_back(std::move(tmpObject));

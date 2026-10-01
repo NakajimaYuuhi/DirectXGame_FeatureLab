@@ -1,9 +1,9 @@
 #pragma once
-#include "3D_Object.h"
+#include "Object.h"
 #include "StringAlias.h"
 #include "CameraComponent.h"
 
-class Camera : public C3D_Object
+class Camera : public CObject
 {
 public:
 	Camera(String _Name);

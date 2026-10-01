@@ -1,25 +1,41 @@
 {
-  "PrefabName": "Camera",
-  "Tag": "CAMERA",
   "Components": {
-    "Transform": {
-      "Position": [ 0.0, 0.0, 0.0 ],
-      "Rotation": [ 0.0, 0.0, 0.0 ],
-      "Scale": [ 1.0, 1.0, 1.0 ]
-    },
-    "CameraComponent": {
-      "Distance": 5.0,
-      "Height": 2.0,
-      "AngleY": 0.0,
-      "AngleX": 0.0,
-      "Fov": 0.7853981852531433,
-      "NearZ": 0.1,
-      "FarZ": 1000.0,
-      "FollowSpeed": 12.0,
-      "TargetOffset": [ 0.0, 1.0, 0.0 ]
-    },
     "Audio": {
       "FilePath": "Assets/Audio/BGM/Ska_01.wav"
+    },
+    "CameraComponent": {
+      "AngleX": 0.0,
+      "AngleY": 0.0,
+      "Distance": 5.0,
+      "FarZ": 1000.0,
+      "FollowSpeed": 12.0,
+      "Fov": 0.7853981852531433,
+      "Height": 2.5,
+      "NearZ": 0.1,
+      "TargetOffset": [
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    "Transform": {
+      "Position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "Rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "Scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
     }
-  }
+  },
+  "PrefabName": "Camera",
+  "Tag": "CAMERA"
 }
