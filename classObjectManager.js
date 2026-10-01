@@ -9,6 +9,7 @@ var classObjectManager =
     [ "DrawByLayer", "classObjectManager.html#ae70e58ca78e40f6d3cf1a7b04a83d18c", null ],
     [ "FlushDestroyedObjects", "classObjectManager.html#ab16bd9ac9432145857d4e09f1fd9920b", null ],
     [ "GetCamera", "classObjectManager.html#a0fb8e1c4fc8cd99de5fd13b3992ae5db", null ],
+    [ "GetCameraObject", "classObjectManager.html#a798f6b962a7d37df8dbbaf907f85cd39", null ],
     [ "GetField", "classObjectManager.html#ac3ecf278939d7a76e11306d62c98f479", null ],
     [ "GetInstance", "classObjectManager.html#aa3effb46aaa14ce422f1ba657b514446", null ],
     [ "GetManager", "classObjectManager.html#abcaffd5bfd414d3fe89c2334e246ade0", null ],

@@ -22,6 +22,7 @@ var classCInspectorUI =
     [ "SetPaused", "classCInspectorUI.html#a1e6b728be6e300a02b032d4c6493db8c", null ],
     [ "SetSelectedObject", "classCInspectorUI.html#acf8e5b4cee2bd608946bf31a556f8ccc", null ],
     [ "SetShowColliders", "classCInspectorUI.html#a3f68dfd483a570c48faee2a6b317f819", null ],
+    [ "SetStatusMessage", "classCInspectorUI.html#ad7390b4558b44a9e96fcfb1125c544fc", null ],
     [ "ShouldShowColliders", "classCInspectorUI.html#a86769b90acd0ae7da92d783310284e07", null ],
     [ "ShouldUpdateGame", "classCInspectorUI.html#a572e690e5d9b15903f72e2aed3e0a785", null ],
     [ "m_draggedAxis", "classCInspectorUI.html#abab67c24fe57c11369aa17a9b0126118", null ],
@@ -43,6 +44,8 @@ var classCInspectorUI =
     [ "m_selectedTagIndex", "classCInspectorUI.html#a247c691454fe46541d446e64dc0d0ab9", null ],
     [ "m_shaderPathInput", "classCInspectorUI.html#abb8abee3d709e4fc284f6db9eb4a1a57", null ],
     [ "m_showColliders", "classCInspectorUI.html#af7b96a8abbbb09057c8f476c396c79aa", null ],
+    [ "m_statusMessage", "classCInspectorUI.html#a59e872a8b0272db97e4b45696b3e1941", null ],
+    [ "m_statusTimer", "classCInspectorUI.html#a544dde6c9edf42adad21cd528136c665", null ],
     [ "m_stepNextFrame", "classCInspectorUI.html#a7004b4ca88e519853064b1577156ae7c", null ],
     [ "m_timeScale", "classCInspectorUI.html#aff39dcf6a8aec9fcd5c5c57021758377", null ]
 ];

@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Engine/Component/UVAnimationComponent.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('UVAnimationComponent_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">UVAnimationComponent.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="UVAnimationComponent_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="Component_8h.html">Component.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;directxmath.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="classUVAnimationComponent.html">    5</a></span><span class="keyword">class </span><a class="code hl_class" href="classUVAnimationComponent.html">UVAnimationComponent</a> : <span class="keyword">public</span> <a class="code hl_class" href="classCComponent.html">CComponent</a></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <a class="code hl_function" href="classUVAnimationComponent.html#a01c72f881df6858988a8715bf6ce5b71">UVAnimationComponent</a>();</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classUVAnimationComponent.html#a4db882ce8aac5894b292905688cbbf8a">    9</a></span>    <a class="code hl_function" href="classUVAnimationComponent.html#a4db882ce8aac5894b292905688cbbf8a">~UVAnimationComponent</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUVAnimationComponent.html#a0c9a3b0e9024c1aa9855102a60b44fe4">Update</a>(<span class="keywordtype">float</span> deltaTime) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classUVAnimationComponent.html#a90a2b0adaa37e23c141c0b7374c5d14c">   13</a></span>    <a class="code hl_enumeration" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a> <a class="code hl_function" href="classUVAnimationComponent.html#a90a2b0adaa37e23c141c0b7374c5d14c">GetUpdatePhase</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fad6b6b668dbca9d4fe774bb654226ebe3">UpdatePhase::Animation</a>; }</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUVAnimationComponent.html#a4550e4e4a74816d5fbfe727b4e5161fc">SetGrid</a>(<span class="keywordtype">int</span> rows, <span class="keywordtype">int</span> cols);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classUVAnimationComponent.html#a64d9c1a862272945eb8f7e38f73f7574">   16</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUVAnimationComponent.html#a64d9c1a862272945eb8f7e38f73f7574">SetTotalFrames</a>(<span class="keywordtype">int</span> count) { <a class="code hl_variable" href="classUVAnimationComponent.html#a14cffff0698205e939cae6fe00cad270">m_totalFrames</a> = count; }</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classUVAnimationComponent.html#aeff8369214964d42e1b43d5b703c0e57">   17</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUVAnimationComponent.html#aeff8369214964d42e1b43d5b703c0e57">SetFrameDuration</a>(<span class="keywordtype">float</span> duration) { <a class="code hl_variable" href="classUVAnimationComponent.html#aaf44f938208b2495f14229789a3d2992">m_frameDuration</a> = duration; }</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classUVAnimationComponent.html#a502a14fee7c49aeb465df17ee1980818">   18</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUVAnimationComponent.html#a502a14fee7c49aeb465df17ee1980818">SetLoop</a>(<span class="keywordtype">bool</span> loop) { <a class="code hl_variable" href="classUVAnimationComponent.html#a7c8ddcf4773a6d43ded17cb386c9f78b">m_loop</a> = loop; }</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classUVAnimationComponent.html#a7253092a9f2b926bd009a76662d8fdc7">   19</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUVAnimationComponent.html#a7253092a9f2b926bd009a76662d8fdc7">SetDestroyOnComplete</a>(<span class="keywordtype">bool</span> destroy) { <a class="code hl_variable" href="classUVAnimationComponent.html#a630bc70b8d31ef4a823a9d71725e4d83">m_destroyOnComplete</a> = destroy; }</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classUVAnimationComponent.html#a54b30027486abcd61b13c6afb48278e4">   21</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classUVAnimationComponent.html#a54b30027486abcd61b13c6afb48278e4">GetCurrentFrame</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classUVAnimationComponent.html#a70ea517f62ec2e4a35cf0c4997953a53">m_currentFrame</a>; }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classUVAnimationComponent.html#a32539813974c8eaffc6a48087f4edff2">   22</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classUVAnimationComponent.html#a32539813974c8eaffc6a48087f4edff2">GetRows</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classUVAnimationComponent.html#a6db6984f1e17d036de5a97daf1dbf44e">m_rows</a>; }</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classUVAnimationComponent.html#a761dc778e309717273f9cec2c3dfb5f8">   23</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classUVAnimationComponent.html#a761dc778e309717273f9cec2c3dfb5f8">GetCols</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classUVAnimationComponent.html#aae38c6ed6d5ff98e14b7f8291c8a22d4">m_cols</a>; }</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classUVAnimationComponent.html#a758f480c604a96d72ecba40ea5d0c0b0">   24</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classUVAnimationComponent.html#a758f480c604a96d72ecba40ea5d0c0b0">GetTotalFrames</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classUVAnimationComponent.html#a14cffff0698205e939cae6fe00cad270">m_totalFrames</a>; }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classUVAnimationComponent.html#af5000a8bccb9c964cb515644ed4a03c8">   25</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classUVAnimationComponent.html#af5000a8bccb9c964cb515644ed4a03c8">GetFrameDuration</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classUVAnimationComponent.html#aaf44f938208b2495f14229789a3d2992">m_frameDuration</a>; }</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classUVAnimationComponent.html#ab356482787e82605efb3f87807a25b0a">   26</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classUVAnimationComponent.html#ab356482787e82605efb3f87807a25b0a">IsLoop</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classUVAnimationComponent.html#a7c8ddcf4773a6d43ded17cb386c9f78b">m_loop</a>; }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classUVAnimationComponent.html#a21b5b6fea998d6d2c19a3dc542faa925">   27</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classUVAnimationComponent.html#a21b5b6fea998d6d2c19a3dc542faa925">IsDestroyOnComplete</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classUVAnimationComponent.html#a630bc70b8d31ef4a823a9d71725e4d83">m_destroyOnComplete</a>; }</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classUVAnimationComponent.html#a6db6984f1e17d036de5a97daf1dbf44e">   30</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classUVAnimationComponent.html#a6db6984f1e17d036de5a97daf1dbf44e">m_rows</a> = 1;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classUVAnimationComponent.html#aae38c6ed6d5ff98e14b7f8291c8a22d4">   31</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classUVAnimationComponent.html#aae38c6ed6d5ff98e14b7f8291c8a22d4">m_cols</a> = 1;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classUVAnimationComponent.html#a14cffff0698205e939cae6fe00cad270">   32</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classUVAnimationComponent.html#a14cffff0698205e939cae6fe00cad270">m_totalFrames</a> = 1;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classUVAnimationComponent.html#aaf44f938208b2495f14229789a3d2992">   33</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classUVAnimationComponent.html#aaf44f938208b2495f14229789a3d2992">m_frameDuration</a> = 0.05f;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classUVAnimationComponent.html#a2884c088dbff7f148c11a72c07886944">   34</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classUVAnimationComponent.html#a2884c088dbff7f148c11a72c07886944">m_timer</a> = 0.0f;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classUVAnimationComponent.html#a70ea517f62ec2e4a35cf0c4997953a53">   35</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classUVAnimationComponent.html#a70ea517f62ec2e4a35cf0c4997953a53">m_currentFrame</a> = 0;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classUVAnimationComponent.html#a7c8ddcf4773a6d43ded17cb386c9f78b">   36</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classUVAnimationComponent.html#a7c8ddcf4773a6d43ded17cb386c9f78b">m_loop</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classUVAnimationComponent.html#a630bc70b8d31ef4a823a9d71725e4d83">   37</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classUVAnimationComponent.html#a630bc70b8d31ef4a823a9d71725e4d83">m_destroyOnComplete</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>};</div>
+</div>
+<div class="ttc" id="aComponent_8h_html"><div class="ttname"><a href="Component_8h.html">Component.h</a></div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93f"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a></div><div class="ttdeci">UpdatePhase</div><div class="ttdef"><b>Definition</b> Component.h:10</div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fad6b6b668dbca9d4fe774bb654226ebe3"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fad6b6b668dbca9d4fe774bb654226ebe3">UpdatePhase::Animation</a></div><div class="ttdeci">@ Animation</div></div>
+<div class="ttc" id="aclassCComponent_html"><div class="ttname"><a href="classCComponent.html">CComponent</a></div><div class="ttdef"><b>Definition</b> Component.h:21</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html"><div class="ttname"><a href="classUVAnimationComponent.html">UVAnimationComponent</a></div><div class="ttdef"><b>Definition</b> UVAnimationComponent.h:6</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_a01c72f881df6858988a8715bf6ce5b71"><div class="ttname"><a href="classUVAnimationComponent.html#a01c72f881df6858988a8715bf6ce5b71">UVAnimationComponent::UVAnimationComponent</a></div><div class="ttdeci">UVAnimationComponent()</div><div class="ttdef"><b>Definition</b> UVAnimationComponent.cpp:5</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_a0c9a3b0e9024c1aa9855102a60b44fe4"><div class="ttname"><a href="classUVAnimationComponent.html#a0c9a3b0e9024c1aa9855102a60b44fe4">UVAnimationComponent::Update</a></div><div class="ttdeci">void Update(float deltaTime) override</div><div class="ttdef"><b>Definition</b> UVAnimationComponent.cpp:17</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_a14cffff0698205e939cae6fe00cad270"><div class="ttname"><a href="classUVAnimationComponent.html#a14cffff0698205e939cae6fe00cad270">UVAnimationComponent::m_totalFrames</a></div><div class="ttdeci">int m_totalFrames</div><div class="ttdef"><b>Definition</b> UVAnimationComponent.h:32</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_a21b5b6fea998d6d2c19a3dc542faa925"><div class="ttname"><a href="classUVAnimationComponent.html#a21b5b6fea998d6d2c19a3dc542faa925">UVAnimationComponent::IsDestroyOnComplete</a></div><div class="ttdeci">bool IsDestroyOnComplete() const</div><div class="ttdef"><b>Definition</b> UVAnimationComponent.h:27</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_a2884c088dbff7f148c11a72c07886944"><div class="ttname"><a href="classUVAnimationComponent.html#a2884c088dbff7f148c11a72c07886944">UVAnimationComponent::m_timer</a></div><div class="ttdeci">float m_timer</div><div class="ttdef"><b>Definition</b> UVAnimationComponent.h:34</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_a32539813974c8eaffc6a48087f4edff2"><div class="ttname"><a href="classUVAnimationComponent.html#a32539813974c8eaffc6a48087f4edff2">UVAnimationComponent::GetRows</a></div><div class="ttdeci">int GetRows() const</div><div class="ttdef"><b>Definition</b> UVAnimationComponent.h:22</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_a4550e4e4a74816d5fbfe727b4e5161fc"><div class="ttname"><a href="classUVAnimationComponent.html#a4550e4e4a74816d5fbfe727b4e5161fc">UVAnimationComponent::SetGrid</a></div><div class="ttdeci">void SetGrid(int rows, int cols)</div><div class="ttdef"><b>Definition</b> UVAnimationComponent.cpp:10</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_a4db882ce8aac5894b292905688cbbf8a"><div class="ttname"><a href="classUVAnimationComponent.html#a4db882ce8aac5894b292905688cbbf8a">UVAnimationComponent::~UVAnimationComponent</a></div><div class="ttdeci">~UVAnimationComponent() override=default</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_a502a14fee7c49aeb465df17ee1980818"><div class="ttname"><a href="classUVAnimationComponent.html#a502a14fee7c49aeb465df17ee1980818">UVAnimationComponent::SetLoop</a></div><div class="ttdeci">void SetLoop(bool loop)</div><div class="ttdef"><b>Definition</b> UVAnimationComponent.h:18</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_a54b30027486abcd61b13c6afb48278e4"><div class="ttname"><a href="classUVAnimationComponent.html#a54b30027486abcd61b13c6afb48278e4">UVAnimationComponent::GetCurrentFrame</a></div><div class="ttdeci">int GetCurrentFrame() const</div><div class="ttdef"><b>Definition</b> UVAnimationComponent.h:21</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_a630bc70b8d31ef4a823a9d71725e4d83"><div class="ttname"><a href="classUVAnimationComponent.html#a630bc70b8d31ef4a823a9d71725e4d83">UVAnimationComponent::m_destroyOnComplete</a></div><div class="ttdeci">bool m_destroyOnComplete</div><div class="ttdef"><b>Definition</b> UVAnimationComponent.h:37</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_a64d9c1a862272945eb8f7e38f73f7574"><div class="ttname"><a href="classUVAnimationComponent.html#a64d9c1a862272945eb8f7e38f73f7574">UVAnimationComponent::SetTotalFrames</a></div><div class="ttdeci">void SetTotalFrames(int count)</div><div class="ttdef"><b>Definition</b> UVAnimationComponent.h:16</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_a6db6984f1e17d036de5a97daf1dbf44e"><div class="ttname"><a href="classUVAnimationComponent.html#a6db6984f1e17d036de5a97daf1dbf44e">UVAnimationComponent::m_rows</a></div><div class="ttdeci">int m_rows</div><div class="ttdef"><b>Definition</b> UVAnimationComponent.h:30</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_a70ea517f62ec2e4a35cf0c4997953a53"><div class="ttname"><a href="classUVAnimationComponent.html#a70ea517f62ec2e4a35cf0c4997953a53">UVAnimationComponent::m_currentFrame</a></div><div class="ttdeci">int m_currentFrame</div><div class="ttdef"><b>Definition</b> UVAnimationComponent.h:35</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_a7253092a9f2b926bd009a76662d8fdc7"><div class="ttname"><a href="classUVAnimationComponent.html#a7253092a9f2b926bd009a76662d8fdc7">UVAnimationComponent::SetDestroyOnComplete</a></div><div class="ttdeci">void SetDestroyOnComplete(bool destroy)</div><div class="ttdef"><b>Definition</b> UVAnimationComponent.h:19</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_a758f480c604a96d72ecba40ea5d0c0b0"><div class="ttname"><a href="classUVAnimationComponent.html#a758f480c604a96d72ecba40ea5d0c0b0">UVAnimationComponent::GetTotalFrames</a></div><div class="ttdeci">int GetTotalFrames() const</div><div class="ttdef"><b>Definition</b> UVAnimationComponent.h:24</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_a761dc778e309717273f9cec2c3dfb5f8"><div class="ttname"><a href="classUVAnimationComponent.html#a761dc778e309717273f9cec2c3dfb5f8">UVAnimationComponent::GetCols</a></div><div class="ttdeci">int GetCols() const</div><div class="ttdef"><b>Definition</b> UVAnimationComponent.h:23</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_a7c8ddcf4773a6d43ded17cb386c9f78b"><div class="ttname"><a href="classUVAnimationComponent.html#a7c8ddcf4773a6d43ded17cb386c9f78b">UVAnimationComponent::m_loop</a></div><div class="ttdeci">bool m_loop</div><div class="ttdef"><b>Definition</b> UVAnimationComponent.h:36</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_a90a2b0adaa37e23c141c0b7374c5d14c"><div class="ttname"><a href="classUVAnimationComponent.html#a90a2b0adaa37e23c141c0b7374c5d14c">UVAnimationComponent::GetUpdatePhase</a></div><div class="ttdeci">UpdatePhase GetUpdatePhase() const override</div><div class="ttdef"><b>Definition</b> UVAnimationComponent.h:13</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_aae38c6ed6d5ff98e14b7f8291c8a22d4"><div class="ttname"><a href="classUVAnimationComponent.html#aae38c6ed6d5ff98e14b7f8291c8a22d4">UVAnimationComponent::m_cols</a></div><div class="ttdeci">int m_cols</div><div class="ttdef"><b>Definition</b> UVAnimationComponent.h:31</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_aaf44f938208b2495f14229789a3d2992"><div class="ttname"><a href="classUVAnimationComponent.html#aaf44f938208b2495f14229789a3d2992">UVAnimationComponent::m_frameDuration</a></div><div class="ttdeci">float m_frameDuration</div><div class="ttdef"><b>Definition</b> UVAnimationComponent.h:33</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_ab356482787e82605efb3f87807a25b0a"><div class="ttname"><a href="classUVAnimationComponent.html#ab356482787e82605efb3f87807a25b0a">UVAnimationComponent::IsLoop</a></div><div class="ttdeci">bool IsLoop() const</div><div class="ttdef"><b>Definition</b> UVAnimationComponent.h:26</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_aeff8369214964d42e1b43d5b703c0e57"><div class="ttname"><a href="classUVAnimationComponent.html#aeff8369214964d42e1b43d5b703c0e57">UVAnimationComponent::SetFrameDuration</a></div><div class="ttdeci">void SetFrameDuration(float duration)</div><div class="ttdef"><b>Definition</b> UVAnimationComponent.h:17</div></div>
+<div class="ttc" id="aclassUVAnimationComponent_html_af5000a8bccb9c964cb515644ed4a03c8"><div class="ttname"><a href="classUVAnimationComponent.html#af5000a8bccb9c964cb515644ed4a03c8">UVAnimationComponent::GetFrameDuration</a></div><div class="ttdeci">float GetFrameDuration() const</div><div class="ttdef"><b>Definition</b> UVAnimationComponent.h:25</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_5405398c23c020946029b9f4e6e04094.html">Engine</a></li><li class="navelem"><a class="el" href="dir_5f693e8ad8d60326c758affc3b922e76.html">Component</a></li><li class="navelem"><a class="el" href="UVAnimationComponent_8h.html">UVAnimationComponent.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -142,6 +142,8 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
 <tr class="separator:acc9fcaf5e012e3ce9b2ae475c5f0e281"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac707ab3cad0d06aecf856e43f30ba4b4" id="r_ac707ab3cad0d06aecf856e43f30ba4b4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#ac707ab3cad0d06aecf856e43f30ba4b4">SaveCurrentPrefab</a> ()</td></tr>
 <tr class="separator:ac707ab3cad0d06aecf856e43f30ba4b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7390b4558b44a9e96fcfb1125c544fc" id="r_ad7390b4558b44a9e96fcfb1125c544fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#ad7390b4558b44a9e96fcfb1125c544fc">SetStatusMessage</a> (const std::string &amp;msg, float duration=3.0f)</td></tr>
+<tr class="separator:ad7390b4558b44a9e96fcfb1125c544fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
@@ -187,6 +189,10 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
 <tr class="separator:a86a0f885bff073058900b7c7cca35658"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfda704c19894efffc5707ec47ba1718" id="r_abfda704c19894efffc5707ec47ba1718"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classCObject.html">CObject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#abfda704c19894efffc5707ec47ba1718">m_prefabEditTarget</a> = nullptr</td></tr>
 <tr class="separator:abfda704c19894efffc5707ec47ba1718"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59e872a8b0272db97e4b45696b3e1941" id="r_a59e872a8b0272db97e4b45696b3e1941"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a59e872a8b0272db97e4b45696b3e1941">m_statusMessage</a> = &quot;&quot;</td></tr>
+<tr class="separator:a59e872a8b0272db97e4b45696b3e1941"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a544dde6c9edf42adad21cd528136c665" id="r_a544dde6c9edf42adad21cd528136c665"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a544dde6c9edf42adad21cd528136c665">m_statusTimer</a> = 0.0f</td></tr>
+<tr class="separator:a544dde6c9edf42adad21cd528136c665"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab552a7a59897595e79c58f6920c585ea" id="r_ab552a7a59897595e79c58f6920c585ea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#ab552a7a59897595e79c58f6920c585ea">m_isDraggingGizmo</a> = false</td></tr>
 <tr class="separator:ab552a7a59897595e79c58f6920c585ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abab67c24fe57c11369aa17a9b0126118" id="r_abab67c24fe57c11369aa17a9b0126118"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#abab67c24fe57c11369aa17a9b0126118">m_draggedAxis</a> = -1</td></tr>
@@ -411,7 +417,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_abce0acbca04254ac1d87a98791609f9b_icgraph.svg" width="638" height="359"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_abce0acbca04254ac1d87a98791609f9b_icgraph.svg" width="638" height="400"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -834,6 +840,47 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad7390b4558b44a9e96fcfb1125c544fc" name="ad7390b4558b44a9e96fcfb1125c544fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7390b4558b44a9e96fcfb1125c544fc">&#9670;&#160;</a></span>SetStatusMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CInspectorUI::SetStatusMessage </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>duration</em> = <code>3.0f</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_ad7390b4558b44a9e96fcfb1125c544fc_icgraph.svg" width="100%" height="364"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -1287,6 +1334,50 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       <table class="memname">
         <tr>
           <td class="memname">bool CInspectorUI::m_showColliders = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a59e872a8b0272db97e4b45696b3e1941" name="a59e872a8b0272db97e4b45696b3e1941"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59e872a8b0272db97e4b45696b3e1941">&#9670;&#160;</a></span>m_statusMessage</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string CInspectorUI::m_statusMessage = &quot;&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a544dde6c9edf42adad21cd528136c665" name="a544dde6c9edf42adad21cd528136c665"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a544dde6c9edf42adad21cd528136c665">&#9670;&#160;</a></span>m_statusTimer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CInspectorUI::m_statusTimer = 0.0f</td>
         </tr>
       </table>
   </td>

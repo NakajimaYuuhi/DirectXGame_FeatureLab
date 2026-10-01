@@ -4442,6 +4442,11 @@ see <a class="el" href="classnlohmann_1_1basic__json.html#adb82c1f34c73486e013da
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classnlohmann_1_1basic__json_a02c9bc4d0f33b7dec20b2798301d6971_cgraph.svg" width="384" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classnlohmann_1_1basic__json_a02c9bc4d0f33b7dec20b2798301d6971_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -4838,7 +4843,7 @@ template&lt;template&lt; typename U, typename V, typename... Args &gt; class Obj
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classnlohmann_1_1basic__json_a476756fb08e7f2416aad116d137977f4_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classnlohmann_1_1basic__json_a476756fb08e7f2416aad116d137977f4_icgraph.svg" width="100%" height="487"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -7378,6 +7383,11 @@ template&lt;typename ValueTypeCV , typename ValueType  = detail::uncvref_t&lt;Va
   </dd>
 </dl>
 <dl class="section since"><dt>から</dt><dd>version 2.1.0 </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classnlohmann_1_1basic__json_af1650e004db368459b3c0db041b32adc_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -9876,6 +9886,11 @@ template&lt;template&lt; typename U, typename V, typename... Args &gt; class Obj
 <p>@exceptionsafety Strong guarantee: if an exception is thrown, there are no changes in the JSON value.</p>
 <p>@complexity Constant.</p>
 <dl class="section since"><dt>から</dt><dd>version 3.1.0, structured bindings support since 3.5.0. </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classnlohmann_1_1basic__json_a02ed1d1f38310ccc2fbb02d2b75387a2_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -9919,12 +9934,11 @@ template&lt;template&lt; typename U, typename V, typename... Args &gt; class Obj
 <div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;value: &quot;</span> &lt;&lt; it &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>Range-based for loop with iterator proxy:</p>
-<div class="fragment"><div class="line"><span class="keywordflow">for</span> (<span class="keyword">auto</span> it : <a class="code hl_typedef" href="namespacenlohmann.html#a2bfd99e845a2e5cd90aeaf1b1431f474">json</a>::<a class="code hl_function" href="classnlohmann_1_1basic__json.html#a7cd832311e7c2f2cf5ca07c4bc4011cd">iterator_wrapper</a>(j_object))</div>
+<div class="fragment"><div class="line"><span class="keywordflow">for</span> (<span class="keyword">auto</span> it : <a class="code hl_class" href="classnlohmann_1_1basic__json.html">json</a>::<a class="code hl_function" href="classnlohmann_1_1basic__json.html#a7cd832311e7c2f2cf5ca07c4bc4011cd">iterator_wrapper</a>(j_object))</div>
 <div class="line">{</div>
 <div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;key: &quot;</span> &lt;&lt; it.key() &lt;&lt; <span class="stringliteral">&quot;, value:&quot;</span> &lt;&lt; it.value() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassnlohmann_1_1basic__json_html_a7cd832311e7c2f2cf5ca07c4bc4011cd"><div class="ttname"><a href="classnlohmann_1_1basic__json.html#a7cd832311e7c2f2cf5ca07c4bc4011cd">nlohmann::basic_json::iterator_wrapper</a></div><div class="ttdeci">static iteration_proxy&lt; iterator &gt; iterator_wrapper(reference ref) noexcept</div><div class="ttdoc">wrapper to access iterator member functions in range-based for</div><div class="ttdef"><b>Definition</b> json.hpp:22489</div></div>
-<div class="ttc" id="anamespacenlohmann_html_a2bfd99e845a2e5cd90aeaf1b1431f474"><div class="ttname"><a href="namespacenlohmann.html#a2bfd99e845a2e5cd90aeaf1b1431f474">nlohmann::json</a></div><div class="ttdeci">basic_json&lt;&gt; json</div><div class="ttdoc">default JSON class</div><div class="ttdef"><b>Definition</b> json.hpp:3472</div></div>
 </div><!-- fragment --><dl class="section note"><dt>覚え書き</dt><dd>When iterating over an array, <code>key()</code> will return the index of the element as string (see example).</dd></dl>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
@@ -9981,7 +9995,7 @@ template&lt;template&lt; typename U, typename V, typename... Args &gt; class Obj
 <div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;value: &quot;</span> &lt;&lt; it &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>Range-based for loop with iterator proxy:</p>
-<div class="fragment"><div class="line"><span class="keywordflow">for</span> (<span class="keyword">auto</span> it : <a class="code hl_typedef" href="namespacenlohmann.html#a2bfd99e845a2e5cd90aeaf1b1431f474">json</a>::<a class="code hl_function" href="classnlohmann_1_1basic__json.html#a7cd832311e7c2f2cf5ca07c4bc4011cd">iterator_wrapper</a>(j_object))</div>
+<div class="fragment"><div class="line"><span class="keywordflow">for</span> (<span class="keyword">auto</span> it : <a class="code hl_class" href="classnlohmann_1_1basic__json.html">json</a>::<a class="code hl_function" href="classnlohmann_1_1basic__json.html#a7cd832311e7c2f2cf5ca07c4bc4011cd">iterator_wrapper</a>(j_object))</div>
 <div class="line">{</div>
 <div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;key: &quot;</span> &lt;&lt; it.key() &lt;&lt; <span class="stringliteral">&quot;, value:&quot;</span> &lt;&lt; it.value() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">}</div>
@@ -10771,7 +10785,7 @@ see <a class="el" href="classnlohmann_1_1basic__json.html#ad2b075c694e4564c9742d
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classnlohmann_1_1basic__json_a9a4df356e05415438fadf8a15e583903_icgraph.svg" width="100%" height="594"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classnlohmann_1_1basic__json_a9a4df356e05415438fadf8a15e583903_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -11725,7 +11739,7 @@ template&lt;typename InputType &gt; </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classnlohmann_1_1basic__json_a15018ade392a844ea32d5188d1a0b9c6_icgraph.svg" width="384" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classnlohmann_1_1basic__json_a15018ade392a844ea32d5188d1a0b9c6_icgraph.svg" width="384" height="166"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -11982,7 +11996,7 @@ template&lt;template&lt; typename U, typename V, typename... Args &gt; class Obj
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classnlohmann_1_1basic__json_ab9e0253c92736db021840105d374c4c4_icgraph.svg" width="384" height="459"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classnlohmann_1_1basic__json_ab9e0253c92736db021840105d374c4c4_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -12758,7 +12772,7 @@ see <a class="el" href="classnlohmann_1_1basic__json.html#a1b46c6631e30b8394e89b
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classnlohmann_1_1basic__json_a33c7c8638bb0b12e6d1b69d8106dd2e0_icgraph.svg" width="100%" height="586"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classnlohmann_1_1basic__json_a33c7c8638bb0b12e6d1b69d8106dd2e0_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

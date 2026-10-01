@@ -1,0 +1,1723 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: CameraComponent クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classCameraComponent.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classCameraComponent-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">CameraComponent クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="CameraComponent_8h_source.html">CameraComponent.h</a>&gt;</code></p>
+<div class="dynheader">
+CameraComponent の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCameraComponent__inherit__graph.svg" width="159" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+CameraComponent 連携図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCameraComponent__coll__graph.svg" width="238" height="199"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a6f14fb3dfa5ca8cfbaae2936413837d8" id="r_a6f14fb3dfa5ca8cfbaae2936413837d8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a6f14fb3dfa5ca8cfbaae2936413837d8">CameraComponent</a> ()</td></tr>
+<tr class="separator:a6f14fb3dfa5ca8cfbaae2936413837d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad09247e529f8dfffd372d339ec5b0de9" id="r_ad09247e529f8dfffd372d339ec5b0de9"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#ad09247e529f8dfffd372d339ec5b0de9">~CameraComponent</a> ()=default</td></tr>
+<tr class="separator:ad09247e529f8dfffd372d339ec5b0de9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52d56401b088da4fa3cab5d7468905d2" id="r_a52d56401b088da4fa3cab5d7468905d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a52d56401b088da4fa3cab5d7468905d2">Init</a> () override</td></tr>
+<tr class="separator:a52d56401b088da4fa3cab5d7468905d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa181187764b65cdd763c66477e51a9c3" id="r_aa181187764b65cdd763c66477e51a9c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#aa181187764b65cdd763c66477e51a9c3">Start</a> () override</td></tr>
+<tr class="separator:aa181187764b65cdd763c66477e51a9c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a937f5fa962b7f9bb7212a7bd94f12657" id="r_a937f5fa962b7f9bb7212a7bd94f12657"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a937f5fa962b7f9bb7212a7bd94f12657">Update</a> (float deltaTime) override</td></tr>
+<tr class="separator:a937f5fa962b7f9bb7212a7bd94f12657"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa136250b3f266364a37bde2061fc6a11" id="r_aa136250b3f266364a37bde2061fc6a11"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#aa136250b3f266364a37bde2061fc6a11">GetUpdatePhase</a> () const override</td></tr>
+<tr class="separator:aa136250b3f266364a37bde2061fc6a11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a96415b6ac22e946c8ed03fdff8f8ed" id="r_a6a96415b6ac22e946c8ed03fdff8f8ed"><td class="memItemLeft" align="right" valign="top">DirectX::XMMATRIX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a6a96415b6ac22e946c8ed03fdff8f8ed">GetViewMatrix</a> () const</td></tr>
+<tr class="separator:a6a96415b6ac22e946c8ed03fdff8f8ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9797c5faea62e91da19070e77bad7865" id="r_a9797c5faea62e91da19070e77bad7865"><td class="memItemLeft" align="right" valign="top">DirectX::XMMATRIX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a9797c5faea62e91da19070e77bad7865">GetProjectionMatrix</a> () const</td></tr>
+<tr class="separator:a9797c5faea62e91da19070e77bad7865"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78fedc3dbfd0fccc457ab70d5ca3cbbb" id="r_a78fedc3dbfd0fccc457ab70d5ca3cbbb"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a78fedc3dbfd0fccc457ab70d5ca3cbbb">GetEyePosition</a> () const</td></tr>
+<tr class="separator:a78fedc3dbfd0fccc457ab70d5ca3cbbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69642f3a080819c66b24210b40455bf3" id="r_a69642f3a080819c66b24210b40455bf3"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a69642f3a080819c66b24210b40455bf3">GetTargetPosition</a> () const</td></tr>
+<tr class="separator:a69642f3a080819c66b24210b40455bf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91e2ea0b9b2f02145bb56d8c6306b7bc" id="r_a91e2ea0b9b2f02145bb56d8c6306b7bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a91e2ea0b9b2f02145bb56d8c6306b7bc">Shake</a> (float intensity=0.25f, float duration=0.4f)</td></tr>
+<tr class="separator:a91e2ea0b9b2f02145bb56d8c6306b7bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7b5fdc947ced71be4194e0ca7e06e00" id="r_ae7b5fdc947ced71be4194e0ca7e06e00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#ae7b5fdc947ced71be4194e0ca7e06e00">SetTarget</a> (<a class="el" href="classCObject.html">CObject</a> *target)</td></tr>
+<tr class="separator:ae7b5fdc947ced71be4194e0ca7e06e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a221668d539645bf1bfa383e8c7186b9e" id="r_a221668d539645bf1bfa383e8c7186b9e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a221668d539645bf1bfa383e8c7186b9e">GetTarget</a> () const</td></tr>
+<tr class="separator:a221668d539645bf1bfa383e8c7186b9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19697cc6b30ad9b6bf4aef82e0d670c3" id="r_a19697cc6b30ad9b6bf4aef82e0d670c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a19697cc6b30ad9b6bf4aef82e0d670c3">SetDistance</a> (float dist)</td></tr>
+<tr class="separator:a19697cc6b30ad9b6bf4aef82e0d670c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac567b6f227b1274504a7b14a5228cf3e" id="r_ac567b6f227b1274504a7b14a5228cf3e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#ac567b6f227b1274504a7b14a5228cf3e">GetDistance</a> () const</td></tr>
+<tr class="separator:ac567b6f227b1274504a7b14a5228cf3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7cf671ba97b3a3c4d41984c0f5ebc89" id="r_ab7cf671ba97b3a3c4d41984c0f5ebc89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#ab7cf671ba97b3a3c4d41984c0f5ebc89">SetHeight</a> (float height)</td></tr>
+<tr class="separator:ab7cf671ba97b3a3c4d41984c0f5ebc89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbba9c5dc1a655896abf150cf809c1d1" id="r_adbba9c5dc1a655896abf150cf809c1d1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#adbba9c5dc1a655896abf150cf809c1d1">GetHeight</a> () const</td></tr>
+<tr class="separator:adbba9c5dc1a655896abf150cf809c1d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2422b7d3b06576d3bcac59a3fec7e66d" id="r_a2422b7d3b06576d3bcac59a3fec7e66d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a2422b7d3b06576d3bcac59a3fec7e66d">SetAngleY</a> (float angleY)</td></tr>
+<tr class="separator:a2422b7d3b06576d3bcac59a3fec7e66d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4e11d0dcb026c22a94d4d6cfb4652dc" id="r_ad4e11d0dcb026c22a94d4d6cfb4652dc"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#ad4e11d0dcb026c22a94d4d6cfb4652dc">GetAngleY</a> () const</td></tr>
+<tr class="separator:ad4e11d0dcb026c22a94d4d6cfb4652dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8835f01313806b3f300e6c706f591a7" id="r_aa8835f01313806b3f300e6c706f591a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#aa8835f01313806b3f300e6c706f591a7">SetAngleX</a> (float angleX)</td></tr>
+<tr class="separator:aa8835f01313806b3f300e6c706f591a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a3879f319e7b44755ca86df22bed9f0" id="r_a6a3879f319e7b44755ca86df22bed9f0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a6a3879f319e7b44755ca86df22bed9f0">GetAngleX</a> () const</td></tr>
+<tr class="separator:a6a3879f319e7b44755ca86df22bed9f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9eb13e68c65831332ad88968de95bf4" id="r_ae9eb13e68c65831332ad88968de95bf4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#ae9eb13e68c65831332ad88968de95bf4">SetRotationSpeed</a> (float speed)</td></tr>
+<tr class="separator:ae9eb13e68c65831332ad88968de95bf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74c9c2e85a8ab0c937df24124ae89df1" id="r_a74c9c2e85a8ab0c937df24124ae89df1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a74c9c2e85a8ab0c937df24124ae89df1">GetRotationSpeed</a> () const</td></tr>
+<tr class="separator:a74c9c2e85a8ab0c937df24124ae89df1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac660722f0ca1e79f368b44bf011dcd3c" id="r_ac660722f0ca1e79f368b44bf011dcd3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#ac660722f0ca1e79f368b44bf011dcd3c">SetFollowSpeed</a> (float speed)</td></tr>
+<tr class="separator:ac660722f0ca1e79f368b44bf011dcd3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a929065bbf083ac55c1e4f43fb6c77f43" id="r_a929065bbf083ac55c1e4f43fb6c77f43"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a929065bbf083ac55c1e4f43fb6c77f43">GetFollowSpeed</a> () const</td></tr>
+<tr class="separator:a929065bbf083ac55c1e4f43fb6c77f43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69642007a7a654fcf2837b971a30e275" id="r_a69642007a7a654fcf2837b971a30e275"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a69642007a7a654fcf2837b971a30e275">SetTargetOffset</a> (const DirectX::XMFLOAT3 &amp;offset)</td></tr>
+<tr class="separator:a69642007a7a654fcf2837b971a30e275"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1244339a0c71975de3e712755e08200" id="r_ad1244339a0c71975de3e712755e08200"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#ad1244339a0c71975de3e712755e08200">GetTargetOffset</a> () const</td></tr>
+<tr class="separator:ad1244339a0c71975de3e712755e08200"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7178ec43b5ab09b2091d5e982b37fa6d" id="r_a7178ec43b5ab09b2091d5e982b37fa6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a7178ec43b5ab09b2091d5e982b37fa6d">SetFov</a> (float fov)</td></tr>
+<tr class="separator:a7178ec43b5ab09b2091d5e982b37fa6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14451cf39f5441f8600bba67a488bff6" id="r_a14451cf39f5441f8600bba67a488bff6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a14451cf39f5441f8600bba67a488bff6">GetFov</a> () const</td></tr>
+<tr class="separator:a14451cf39f5441f8600bba67a488bff6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cd3dbd4f9018cca81b808d2673bc66d" id="r_a9cd3dbd4f9018cca81b808d2673bc66d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a9cd3dbd4f9018cca81b808d2673bc66d">SetNearZ</a> (float nearZ)</td></tr>
+<tr class="separator:a9cd3dbd4f9018cca81b808d2673bc66d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8de0a3a33c4245c2f8bbbce0630919c2" id="r_a8de0a3a33c4245c2f8bbbce0630919c2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a8de0a3a33c4245c2f8bbbce0630919c2">GetNearZ</a> () const</td></tr>
+<tr class="separator:a8de0a3a33c4245c2f8bbbce0630919c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b36c76742fabcef9a9fffe2fe173bff" id="r_a3b36c76742fabcef9a9fffe2fe173bff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a3b36c76742fabcef9a9fffe2fe173bff">SetFarZ</a> (float farZ)</td></tr>
+<tr class="separator:a3b36c76742fabcef9a9fffe2fe173bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8fe2b33e5b91f52e91d0b8d98f3a95a" id="r_af8fe2b33e5b91f52e91d0b8d98f3a95a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#af8fe2b33e5b91f52e91d0b8d98f3a95a">GetFarZ</a> () const</td></tr>
+<tr class="separator:af8fe2b33e5b91f52e91d0b8d98f3a95a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac767854e8f7e9659aedfe12f261e0a8d" id="r_ac767854e8f7e9659aedfe12f261e0a8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#ac767854e8f7e9659aedfe12f261e0a8d">UpdateProjection</a> ()</td></tr>
+<tr class="separator:ac767854e8f7e9659aedfe12f261e0a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classCComponent"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCComponent')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCComponent.html">CComponent</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:ab87a6940be69962c3f4f5a8552643245 inherit pub_methods_classCComponent" id="r_ab87a6940be69962c3f4f5a8552643245"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ab87a6940be69962c3f4f5a8552643245">CComponent</a> ()</td></tr>
+<tr class="separator:ab87a6940be69962c3f4f5a8552643245 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accf17908f97e4d07d7f04fbde292dcda inherit pub_methods_classCComponent" id="r_accf17908f97e4d07d7f04fbde292dcda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#accf17908f97e4d07d7f04fbde292dcda">CComponent</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:accf17908f97e4d07d7f04fbde292dcda inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2ad4d80f616aedbf6b08f33bdd9d2d5 inherit pub_methods_classCComponent" id="r_af2ad4d80f616aedbf6b08f33bdd9d2d5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#af2ad4d80f616aedbf6b08f33bdd9d2d5">~CComponent</a> ()=default</td></tr>
+<tr class="separator:af2ad4d80f616aedbf6b08f33bdd9d2d5 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf3ad4406a744d3fa20d83cc704345cf inherit pub_methods_classCComponent" id="r_adf3ad4406a744d3fa20d83cc704345cf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#adf3ad4406a744d3fa20d83cc704345cf">Awake</a> ()</td></tr>
+<tr class="separator:adf3ad4406a744d3fa20d83cc704345cf inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a760d6a0423bc53cb943410926a0d1c65 inherit pub_methods_classCComponent" id="r_a760d6a0423bc53cb943410926a0d1c65"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a760d6a0423bc53cb943410926a0d1c65">OnEnable</a> ()</td></tr>
+<tr class="separator:a760d6a0423bc53cb943410926a0d1c65 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a4d61758b48e83685c1ffe002dc1b41 inherit pub_methods_classCComponent" id="r_a0a4d61758b48e83685c1ffe002dc1b41"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a0a4d61758b48e83685c1ffe002dc1b41">OnDisable</a> ()</td></tr>
+<tr class="separator:a0a4d61758b48e83685c1ffe002dc1b41 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad72e93375519950fa4cbc176ede60db1 inherit pub_methods_classCComponent" id="r_ad72e93375519950fa4cbc176ede60db1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ad72e93375519950fa4cbc176ede60db1">LateUpdate</a> (float deltaTime)</td></tr>
+<tr class="separator:ad72e93375519950fa4cbc176ede60db1 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cce55e18bd5fff318f8448bf260540d inherit pub_methods_classCComponent" id="r_a2cce55e18bd5fff318f8448bf260540d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a2cce55e18bd5fff318f8448bf260540d">Draw</a> ()</td></tr>
+<tr class="separator:a2cce55e18bd5fff318f8448bf260540d inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26e97bcceac386d951092ade96512283 inherit pub_methods_classCComponent" id="r_a26e97bcceac386d951092ade96512283"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a26e97bcceac386d951092ade96512283">OnCollision</a> (<a class="el" href="classCObject.html">CObject</a> *_Other)</td></tr>
+<tr class="separator:a26e97bcceac386d951092ade96512283 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9de9cd78a132d68bdb0977b7d9272df8 inherit pub_methods_classCComponent" id="r_a9de9cd78a132d68bdb0977b7d9272df8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a9de9cd78a132d68bdb0977b7d9272df8">IsEnabled</a> () const</td></tr>
+<tr class="separator:a9de9cd78a132d68bdb0977b7d9272df8 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72945a287cdce2b3dd7cd9a33ce022f9 inherit pub_methods_classCComponent" id="r_a72945a287cdce2b3dd7cd9a33ce022f9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a72945a287cdce2b3dd7cd9a33ce022f9">GetEnabled</a> () const</td></tr>
+<tr class="separator:a72945a287cdce2b3dd7cd9a33ce022f9 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3588f81b9d893984ece9dfa4cdaf8383 inherit pub_methods_classCComponent" id="r_a3588f81b9d893984ece9dfa4cdaf8383"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a3588f81b9d893984ece9dfa4cdaf8383">SetEnabled</a> (bool enabled)</td></tr>
+<tr class="separator:a3588f81b9d893984ece9dfa4cdaf8383 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a281a46452f6f59625e5488936cd70aa7 inherit pub_methods_classCComponent" id="r_a281a46452f6f59625e5488936cd70aa7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a281a46452f6f59625e5488936cd70aa7">GetName</a> () const</td></tr>
+<tr class="separator:a281a46452f6f59625e5488936cd70aa7 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1df83625aa856f9cc7047da68dce131d inherit pub_methods_classCComponent" id="r_a1df83625aa856f9cc7047da68dce131d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a1df83625aa856f9cc7047da68dce131d">GetIsValid</a> () const</td></tr>
+<tr class="separator:a1df83625aa856f9cc7047da68dce131d inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf4188a21189f533eed52041962cafd4 inherit pub_methods_classCComponent" id="r_abf4188a21189f533eed52041962cafd4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#abf4188a21189f533eed52041962cafd4">GetIsVarid</a> () const</td></tr>
+<tr class="separator:abf4188a21189f533eed52041962cafd4 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5bf6fd967c58b6784aa399a27ce0eaa inherit pub_methods_classCComponent" id="r_ad5bf6fd967c58b6784aa399a27ce0eaa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ad5bf6fd967c58b6784aa399a27ce0eaa">SetName</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:ad5bf6fd967c58b6784aa399a27ce0eaa inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96b82c9108e83190f29a5dd8bafe59fe inherit pub_methods_classCComponent" id="r_a96b82c9108e83190f29a5dd8bafe59fe"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a96b82c9108e83190f29a5dd8bafe59fe">SetIsValid</a> (bool _IsValid)</td></tr>
+<tr class="separator:a96b82c9108e83190f29a5dd8bafe59fe inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ababe3aca6f026b146eb458dab2a57587 inherit pub_methods_classCComponent" id="r_ababe3aca6f026b146eb458dab2a57587"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ababe3aca6f026b146eb458dab2a57587">SetOwner</a> (<a class="el" href="classCObject.html">CObject</a> *_Object)</td></tr>
+<tr class="separator:ababe3aca6f026b146eb458dab2a57587 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa05b48a46eeaff9527c00de7547edd32 inherit pub_methods_classCComponent" id="r_aa05b48a46eeaff9527c00de7547edd32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#aa05b48a46eeaff9527c00de7547edd32">GetOwner</a> () const</td></tr>
+<tr class="separator:aa05b48a46eeaff9527c00de7547edd32 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:a7627de6a4e47acffa02fdc50a36ad8c0" id="r_a7627de6a4e47acffa02fdc50a36ad8c0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a7627de6a4e47acffa02fdc50a36ad8c0">m_fov</a> = DirectX::XM_PIDIV4</td></tr>
+<tr class="separator:a7627de6a4e47acffa02fdc50a36ad8c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9615eb7b512f73d9b053bb6db3068f29" id="r_a9615eb7b512f73d9b053bb6db3068f29"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a9615eb7b512f73d9b053bb6db3068f29">m_nearZ</a> = 0.1f</td></tr>
+<tr class="separator:a9615eb7b512f73d9b053bb6db3068f29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1c6061d03ea8dea023ee7be189d93ee" id="r_ac1c6061d03ea8dea023ee7be189d93ee"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#ac1c6061d03ea8dea023ee7be189d93ee">m_farZ</a> = 1000.0f</td></tr>
+<tr class="separator:ac1c6061d03ea8dea023ee7be189d93ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69ec13d8485a4f3b05a82ddf5232dddd" id="r_a69ec13d8485a4f3b05a82ddf5232dddd"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a69ec13d8485a4f3b05a82ddf5232dddd">m_aspectRatio</a> = 16.0f / 9.0f</td></tr>
+<tr class="separator:a69ec13d8485a4f3b05a82ddf5232dddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54fc8aef4dc66c8f5106070ac120d5fe" id="r_a54fc8aef4dc66c8f5106070ac120d5fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a54fc8aef4dc66c8f5106070ac120d5fe">m_target</a> = nullptr</td></tr>
+<tr class="separator:a54fc8aef4dc66c8f5106070ac120d5fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace37862cdf44f8f395853424e7b46694" id="r_ace37862cdf44f8f395853424e7b46694"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#ace37862cdf44f8f395853424e7b46694">m_distance</a> = 5.0f</td></tr>
+<tr class="separator:ace37862cdf44f8f395853424e7b46694"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac33b9ecb6c12f392046ac05efed2cfd" id="r_aac33b9ecb6c12f392046ac05efed2cfd"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#aac33b9ecb6c12f392046ac05efed2cfd">m_height</a> = 2.5f</td></tr>
+<tr class="separator:aac33b9ecb6c12f392046ac05efed2cfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37d4d57e86276aa554fb33dcf7902301" id="r_a37d4d57e86276aa554fb33dcf7902301"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a37d4d57e86276aa554fb33dcf7902301">m_angleY</a> = 0.0f</td></tr>
+<tr class="separator:a37d4d57e86276aa554fb33dcf7902301"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37e9ec26a3dbebcf1a9743553e4221e2" id="r_a37e9ec26a3dbebcf1a9743553e4221e2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a37e9ec26a3dbebcf1a9743553e4221e2">m_angleX</a> = 0.0f</td></tr>
+<tr class="separator:a37e9ec26a3dbebcf1a9743553e4221e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cb2277a62cbc3bc800e684adee31b4e" id="r_a9cb2277a62cbc3bc800e684adee31b4e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a9cb2277a62cbc3bc800e684adee31b4e">m_rotationSpeed</a> = 0.02f</td></tr>
+<tr class="separator:a9cb2277a62cbc3bc800e684adee31b4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad25217abfa17c95c52f9b0876aee4f8b" id="r_ad25217abfa17c95c52f9b0876aee4f8b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#ad25217abfa17c95c52f9b0876aee4f8b">m_followSpeed</a> = 12.0f</td></tr>
+<tr class="separator:ad25217abfa17c95c52f9b0876aee4f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa1a43bc3591d376ddf93ff6c519a053" id="r_afa1a43bc3591d376ddf93ff6c519a053"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#afa1a43bc3591d376ddf93ff6c519a053">m_targetOffset</a> = { 0.0f, 1.0f, 0.0f }</td></tr>
+<tr class="separator:afa1a43bc3591d376ddf93ff6c519a053"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b0efc7a5984cf11089b2da7f19f75e2" id="r_a7b0efc7a5984cf11089b2da7f19f75e2"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a7b0efc7a5984cf11089b2da7f19f75e2">m_eyePos</a> = { 0.0f, 2.5f, -5.0f }</td></tr>
+<tr class="separator:a7b0efc7a5984cf11089b2da7f19f75e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a436b8c56398e0d9e611232b66eb59288" id="r_a436b8c56398e0d9e611232b66eb59288"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a436b8c56398e0d9e611232b66eb59288">m_targetPos</a> = { 0.0f, 1.0f, 0.0f }</td></tr>
+<tr class="separator:a436b8c56398e0d9e611232b66eb59288"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a808e139ad3da8c1b0e831dd8e46eced8" id="r_a808e139ad3da8c1b0e831dd8e46eced8"><td class="memItemLeft" align="right" valign="top">DirectX::XMMATRIX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a808e139ad3da8c1b0e831dd8e46eced8">m_viewMatrix</a> = DirectX::XMMatrixIdentity()</td></tr>
+<tr class="separator:a808e139ad3da8c1b0e831dd8e46eced8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a749cfd8d826478a74a8d9e20ecb9d786" id="r_a749cfd8d826478a74a8d9e20ecb9d786"><td class="memItemLeft" align="right" valign="top">DirectX::XMMATRIX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a749cfd8d826478a74a8d9e20ecb9d786">m_projMatrix</a> = DirectX::XMMatrixIdentity()</td></tr>
+<tr class="separator:a749cfd8d826478a74a8d9e20ecb9d786"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaeca018a515ce1388d8fac402f0c7cfc" id="r_aaeca018a515ce1388d8fac402f0c7cfc"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#aaeca018a515ce1388d8fac402f0c7cfc">m_shakeIntensity</a> = 0.0f</td></tr>
+<tr class="separator:aaeca018a515ce1388d8fac402f0c7cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4196cce8144afc3c9927ec5d18cc2e31" id="r_a4196cce8144afc3c9927ec5d18cc2e31"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#a4196cce8144afc3c9927ec5d18cc2e31">m_shakeDuration</a> = 0.0f</td></tr>
+<tr class="separator:a4196cce8144afc3c9927ec5d18cc2e31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0ae57d78af19e37ba5e98bac5d37d96" id="r_ab0ae57d78af19e37ba5e98bac5d37d96"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCameraComponent.html#ab0ae57d78af19e37ba5e98bac5d37d96">m_shakeTimer</a> = 0.0f</td></tr>
+<tr class="separator:ab0ae57d78af19e37ba5e98bac5d37d96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+その他の継承メンバ</h2></td></tr>
+<tr class="inherit_header pro_attribs_classCComponent"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classCComponent')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCComponent.html">CComponent</a> に属する継承限定公開変数類</td></tr>
+<tr class="memitem:a76959a9e98ef06163c56858026e9da5b inherit pro_attribs_classCComponent" id="r_a76959a9e98ef06163c56858026e9da5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a76959a9e98ef06163c56858026e9da5b">m_Owner</a> = nullptr</td></tr>
+<tr class="separator:a76959a9e98ef06163c56858026e9da5b inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4918d7f95edb1a545724dab2be500e75 inherit pro_attribs_classCComponent" id="r_a4918d7f95edb1a545724dab2be500e75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a4918d7f95edb1a545724dab2be500e75">m_ComponentName</a> = &quot;&quot;</td></tr>
+<tr class="separator:a4918d7f95edb1a545724dab2be500e75 inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f8c7080b1f9972952ceda4e155568cb inherit pro_attribs_classCComponent" id="r_a8f8c7080b1f9972952ceda4e155568cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a8f8c7080b1f9972952ceda4e155568cb">m_ComponentIsValid</a> = true</td></tr>
+<tr class="separator:a8f8c7080b1f9972952ceda4e155568cb inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9d3c1123f1a477922084a25423b2579 inherit pro_attribs_classCComponent" id="r_af9d3c1123f1a477922084a25423b2579"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#af9d3c1123f1a477922084a25423b2579">m_enabled</a> = true</td></tr>
+<tr class="separator:af9d3c1123f1a477922084a25423b2579 inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="a6f14fb3dfa5ca8cfbaae2936413837d8" name="a6f14fb3dfa5ca8cfbaae2936413837d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f14fb3dfa5ca8cfbaae2936413837d8">&#9670;&#160;</a></span>CameraComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CameraComponent::CameraComponent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCameraComponent_a6f14fb3dfa5ca8cfbaae2936413837d8_cgraph.svg" width="610" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad09247e529f8dfffd372d339ec5b0de9" name="ad09247e529f8dfffd372d339ec5b0de9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad09247e529f8dfffd372d339ec5b0de9">&#9670;&#160;</a></span>~CameraComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual CameraComponent::~CameraComponent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a6a3879f319e7b44755ca86df22bed9f0" name="a6a3879f319e7b44755ca86df22bed9f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a3879f319e7b44755ca86df22bed9f0">&#9670;&#160;</a></span>GetAngleX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CameraComponent::GetAngleX </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCameraComponent_a6a3879f319e7b44755ca86df22bed9f0_icgraph.svg" width="100%" height="395"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ad4e11d0dcb026c22a94d4d6cfb4652dc" name="ad4e11d0dcb026c22a94d4d6cfb4652dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4e11d0dcb026c22a94d4d6cfb4652dc">&#9670;&#160;</a></span>GetAngleY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CameraComponent::GetAngleY </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCameraComponent_ad4e11d0dcb026c22a94d4d6cfb4652dc_icgraph.svg" width="100%" height="426"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ac567b6f227b1274504a7b14a5228cf3e" name="ac567b6f227b1274504a7b14a5228cf3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac567b6f227b1274504a7b14a5228cf3e">&#9670;&#160;</a></span>GetDistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CameraComponent::GetDistance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCameraComponent_ac567b6f227b1274504a7b14a5228cf3e_icgraph.svg" width="100%" height="395"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a78fedc3dbfd0fccc457ab70d5ca3cbbb" name="a78fedc3dbfd0fccc457ab70d5ca3cbbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78fedc3dbfd0fccc457ab70d5ca3cbbb">&#9670;&#160;</a></span>GetEyePosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 CameraComponent::GetEyePosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af8fe2b33e5b91f52e91d0b8d98f3a95a" name="af8fe2b33e5b91f52e91d0b8d98f3a95a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8fe2b33e5b91f52e91d0b8d98f3a95a">&#9670;&#160;</a></span>GetFarZ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CameraComponent::GetFarZ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCameraComponent_af8fe2b33e5b91f52e91d0b8d98f3a95a_icgraph.svg" width="100%" height="370"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a929065bbf083ac55c1e4f43fb6c77f43" name="a929065bbf083ac55c1e4f43fb6c77f43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a929065bbf083ac55c1e4f43fb6c77f43">&#9670;&#160;</a></span>GetFollowSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CameraComponent::GetFollowSpeed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCameraComponent_a929065bbf083ac55c1e4f43fb6c77f43_icgraph.svg" width="100%" height="400"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a14451cf39f5441f8600bba67a488bff6" name="a14451cf39f5441f8600bba67a488bff6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14451cf39f5441f8600bba67a488bff6">&#9670;&#160;</a></span>GetFov()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CameraComponent::GetFov </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCameraComponent_a14451cf39f5441f8600bba67a488bff6_icgraph.svg" width="100%" height="395"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="adbba9c5dc1a655896abf150cf809c1d1" name="adbba9c5dc1a655896abf150cf809c1d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbba9c5dc1a655896abf150cf809c1d1">&#9670;&#160;</a></span>GetHeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CameraComponent::GetHeight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCameraComponent_adbba9c5dc1a655896abf150cf809c1d1_icgraph.svg" width="100%" height="395"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a8de0a3a33c4245c2f8bbbce0630919c2" name="a8de0a3a33c4245c2f8bbbce0630919c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8de0a3a33c4245c2f8bbbce0630919c2">&#9670;&#160;</a></span>GetNearZ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CameraComponent::GetNearZ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCameraComponent_a8de0a3a33c4245c2f8bbbce0630919c2_icgraph.svg" width="100%" height="370"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a9797c5faea62e91da19070e77bad7865" name="a9797c5faea62e91da19070e77bad7865"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9797c5faea62e91da19070e77bad7865">&#9670;&#160;</a></span>GetProjectionMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMMATRIX CameraComponent::GetProjectionMatrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCameraComponent_a9797c5faea62e91da19070e77bad7865_icgraph.svg" width="100%" height="379"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a74c9c2e85a8ab0c937df24124ae89df1" name="a74c9c2e85a8ab0c937df24124ae89df1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74c9c2e85a8ab0c937df24124ae89df1">&#9670;&#160;</a></span>GetRotationSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CameraComponent::GetRotationSpeed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a221668d539645bf1bfa383e8c7186b9e" name="a221668d539645bf1bfa383e8c7186b9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a221668d539645bf1bfa383e8c7186b9e">&#9670;&#160;</a></span>GetTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCObject.html">CObject</a> * CameraComponent::GetTarget </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCameraComponent_a221668d539645bf1bfa383e8c7186b9e_icgraph.svg" width="551" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad1244339a0c71975de3e712755e08200" name="ad1244339a0c71975de3e712755e08200"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1244339a0c71975de3e712755e08200">&#9670;&#160;</a></span>GetTargetOffset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 CameraComponent::GetTargetOffset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCameraComponent_ad1244339a0c71975de3e712755e08200_icgraph.svg" width="100%" height="400"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a69642f3a080819c66b24210b40455bf3" name="a69642f3a080819c66b24210b40455bf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69642f3a080819c66b24210b40455bf3">&#9670;&#160;</a></span>GetTargetPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 CameraComponent::GetTargetPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa136250b3f266364a37bde2061fc6a11" name="aa136250b3f266364a37bde2061fc6a11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa136250b3f266364a37bde2061fc6a11">&#9670;&#160;</a></span>GetUpdatePhase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a> CameraComponent::GetUpdatePhase </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCComponent.html#a8cb4ec11d3210b5f3278d8e55b7308bd">CComponent</a>を再実装しています。</p>
+
+</div>
+</div>
+<a id="a6a96415b6ac22e946c8ed03fdff8f8ed" name="a6a96415b6ac22e946c8ed03fdff8f8ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a96415b6ac22e946c8ed03fdff8f8ed">&#9670;&#160;</a></span>GetViewMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMMATRIX CameraComponent::GetViewMatrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCameraComponent_a6a96415b6ac22e946c8ed03fdff8f8ed_icgraph.svg" width="100%" height="379"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a52d56401b088da4fa3cab5d7468905d2" name="a52d56401b088da4fa3cab5d7468905d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52d56401b088da4fa3cab5d7468905d2">&#9670;&#160;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraComponent::Init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCComponent.html#ac9bf36b35de54f49a3d604da091228a4">CComponent</a>を再実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCameraComponent_a52d56401b088da4fa3cab5d7468905d2_cgraph.svg" width="504" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa8835f01313806b3f300e6c706f591a7" name="aa8835f01313806b3f300e6c706f591a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8835f01313806b3f300e6c706f591a7">&#9670;&#160;</a></span>SetAngleX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraComponent::SetAngleX </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>angleX</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCameraComponent_aa8835f01313806b3f300e6c706f591a7_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a2422b7d3b06576d3bcac59a3fec7e66d" name="a2422b7d3b06576d3bcac59a3fec7e66d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2422b7d3b06576d3bcac59a3fec7e66d">&#9670;&#160;</a></span>SetAngleY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraComponent::SetAngleY </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>angleY</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCameraComponent_a2422b7d3b06576d3bcac59a3fec7e66d_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a19697cc6b30ad9b6bf4aef82e0d670c3" name="a19697cc6b30ad9b6bf4aef82e0d670c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19697cc6b30ad9b6bf4aef82e0d670c3">&#9670;&#160;</a></span>SetDistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraComponent::SetDistance </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>dist</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCameraComponent_a19697cc6b30ad9b6bf4aef82e0d670c3_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a3b36c76742fabcef9a9fffe2fe173bff" name="a3b36c76742fabcef9a9fffe2fe173bff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b36c76742fabcef9a9fffe2fe173bff">&#9670;&#160;</a></span>SetFarZ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraComponent::SetFarZ </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>farZ</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCameraComponent_a3b36c76742fabcef9a9fffe2fe173bff_cgraph.svg" width="532" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCameraComponent_a3b36c76742fabcef9a9fffe2fe173bff_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ac660722f0ca1e79f368b44bf011dcd3c" name="ac660722f0ca1e79f368b44bf011dcd3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac660722f0ca1e79f368b44bf011dcd3c">&#9670;&#160;</a></span>SetFollowSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraComponent::SetFollowSpeed </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>speed</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCameraComponent_ac660722f0ca1e79f368b44bf011dcd3c_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a7178ec43b5ab09b2091d5e982b37fa6d" name="a7178ec43b5ab09b2091d5e982b37fa6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7178ec43b5ab09b2091d5e982b37fa6d">&#9670;&#160;</a></span>SetFov()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraComponent::SetFov </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>fov</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCameraComponent_a7178ec43b5ab09b2091d5e982b37fa6d_cgraph.svg" width="527" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCameraComponent_a7178ec43b5ab09b2091d5e982b37fa6d_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ab7cf671ba97b3a3c4d41984c0f5ebc89" name="ab7cf671ba97b3a3c4d41984c0f5ebc89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7cf671ba97b3a3c4d41984c0f5ebc89">&#9670;&#160;</a></span>SetHeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraComponent::SetHeight </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>height</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCameraComponent_ab7cf671ba97b3a3c4d41984c0f5ebc89_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a9cd3dbd4f9018cca81b808d2673bc66d" name="a9cd3dbd4f9018cca81b808d2673bc66d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cd3dbd4f9018cca81b808d2673bc66d">&#9670;&#160;</a></span>SetNearZ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraComponent::SetNearZ </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>nearZ</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCameraComponent_a9cd3dbd4f9018cca81b808d2673bc66d_cgraph.svg" width="544" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCameraComponent_a9cd3dbd4f9018cca81b808d2673bc66d_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ae9eb13e68c65831332ad88968de95bf4" name="ae9eb13e68c65831332ad88968de95bf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9eb13e68c65831332ad88968de95bf4">&#9670;&#160;</a></span>SetRotationSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraComponent::SetRotationSpeed </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>speed</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae7b5fdc947ced71be4194e0ca7e06e00" name="ae7b5fdc947ced71be4194e0ca7e06e00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7b5fdc947ced71be4194e0ca7e06e00">&#9670;&#160;</a></span>SetTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraComponent::SetTarget </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCObject.html">CObject</a> *&#160;</td>
+          <td class="paramname"><em>target</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCameraComponent_ae7b5fdc947ced71be4194e0ca7e06e00_icgraph.svg" width="551" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a69642007a7a654fcf2837b971a30e275" name="a69642007a7a654fcf2837b971a30e275"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69642007a7a654fcf2837b971a30e275">&#9670;&#160;</a></span>SetTargetOffset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraComponent::SetTargetOffset </td>
+          <td>(</td>
+          <td class="paramtype">const DirectX::XMFLOAT3 &amp;&#160;</td>
+          <td class="paramname"><em>offset</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCameraComponent_a69642007a7a654fcf2837b971a30e275_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a91e2ea0b9b2f02145bb56d8c6306b7bc" name="a91e2ea0b9b2f02145bb56d8c6306b7bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91e2ea0b9b2f02145bb56d8c6306b7bc">&#9670;&#160;</a></span>Shake()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraComponent::Shake </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>intensity</em> = <code>0.25f</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>duration</em> = <code>0.4f</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCameraComponent_a91e2ea0b9b2f02145bb56d8c6306b7bc_icgraph.svg" width="527" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa181187764b65cdd763c66477e51a9c3" name="aa181187764b65cdd763c66477e51a9c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa181187764b65cdd763c66477e51a9c3">&#9670;&#160;</a></span>Start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraComponent::Start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCComponent.html#adcee296a2416501cf52755038d4f27eb">CComponent</a>を再実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCameraComponent_aa181187764b65cdd763c66477e51a9c3_cgraph.svg" width="514" height="283"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a937f5fa962b7f9bb7212a7bd94f12657" name="a937f5fa962b7f9bb7212a7bd94f12657"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a937f5fa962b7f9bb7212a7bd94f12657">&#9670;&#160;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraComponent::Update </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCComponent.html#ae575194dbb8c5f6ad344bb8c17fa778b">CComponent</a>を再実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCameraComponent_a937f5fa962b7f9bb7212a7bd94f12657_cgraph.svg" width="468" height="283"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac767854e8f7e9659aedfe12f261e0a8d" name="ac767854e8f7e9659aedfe12f261e0a8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac767854e8f7e9659aedfe12f261e0a8d">&#9670;&#160;</a></span>UpdateProjection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CameraComponent::UpdateProjection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCameraComponent_ac767854e8f7e9659aedfe12f261e0a8d_icgraph.svg" width="100%" height="512"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a37e9ec26a3dbebcf1a9743553e4221e2" name="a37e9ec26a3dbebcf1a9743553e4221e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37e9ec26a3dbebcf1a9743553e4221e2">&#9670;&#160;</a></span>m_angleX</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CameraComponent::m_angleX = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a37d4d57e86276aa554fb33dcf7902301" name="a37d4d57e86276aa554fb33dcf7902301"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37d4d57e86276aa554fb33dcf7902301">&#9670;&#160;</a></span>m_angleY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CameraComponent::m_angleY = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a69ec13d8485a4f3b05a82ddf5232dddd" name="a69ec13d8485a4f3b05a82ddf5232dddd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69ec13d8485a4f3b05a82ddf5232dddd">&#9670;&#160;</a></span>m_aspectRatio</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CameraComponent::m_aspectRatio = 16.0f / 9.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ace37862cdf44f8f395853424e7b46694" name="ace37862cdf44f8f395853424e7b46694"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace37862cdf44f8f395853424e7b46694">&#9670;&#160;</a></span>m_distance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CameraComponent::m_distance = 5.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7b0efc7a5984cf11089b2da7f19f75e2" name="a7b0efc7a5984cf11089b2da7f19f75e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b0efc7a5984cf11089b2da7f19f75e2">&#9670;&#160;</a></span>m_eyePos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 CameraComponent::m_eyePos = { 0.0f, 2.5f, -5.0f }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac1c6061d03ea8dea023ee7be189d93ee" name="ac1c6061d03ea8dea023ee7be189d93ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1c6061d03ea8dea023ee7be189d93ee">&#9670;&#160;</a></span>m_farZ</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CameraComponent::m_farZ = 1000.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad25217abfa17c95c52f9b0876aee4f8b" name="ad25217abfa17c95c52f9b0876aee4f8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad25217abfa17c95c52f9b0876aee4f8b">&#9670;&#160;</a></span>m_followSpeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CameraComponent::m_followSpeed = 12.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7627de6a4e47acffa02fdc50a36ad8c0" name="a7627de6a4e47acffa02fdc50a36ad8c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7627de6a4e47acffa02fdc50a36ad8c0">&#9670;&#160;</a></span>m_fov</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CameraComponent::m_fov = DirectX::XM_PIDIV4</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aac33b9ecb6c12f392046ac05efed2cfd" name="aac33b9ecb6c12f392046ac05efed2cfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac33b9ecb6c12f392046ac05efed2cfd">&#9670;&#160;</a></span>m_height</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CameraComponent::m_height = 2.5f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9615eb7b512f73d9b053bb6db3068f29" name="a9615eb7b512f73d9b053bb6db3068f29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9615eb7b512f73d9b053bb6db3068f29">&#9670;&#160;</a></span>m_nearZ</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CameraComponent::m_nearZ = 0.1f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a749cfd8d826478a74a8d9e20ecb9d786" name="a749cfd8d826478a74a8d9e20ecb9d786"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a749cfd8d826478a74a8d9e20ecb9d786">&#9670;&#160;</a></span>m_projMatrix</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMMATRIX CameraComponent::m_projMatrix = DirectX::XMMatrixIdentity()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9cb2277a62cbc3bc800e684adee31b4e" name="a9cb2277a62cbc3bc800e684adee31b4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cb2277a62cbc3bc800e684adee31b4e">&#9670;&#160;</a></span>m_rotationSpeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CameraComponent::m_rotationSpeed = 0.02f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4196cce8144afc3c9927ec5d18cc2e31" name="a4196cce8144afc3c9927ec5d18cc2e31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4196cce8144afc3c9927ec5d18cc2e31">&#9670;&#160;</a></span>m_shakeDuration</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CameraComponent::m_shakeDuration = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaeca018a515ce1388d8fac402f0c7cfc" name="aaeca018a515ce1388d8fac402f0c7cfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaeca018a515ce1388d8fac402f0c7cfc">&#9670;&#160;</a></span>m_shakeIntensity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CameraComponent::m_shakeIntensity = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab0ae57d78af19e37ba5e98bac5d37d96" name="ab0ae57d78af19e37ba5e98bac5d37d96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0ae57d78af19e37ba5e98bac5d37d96">&#9670;&#160;</a></span>m_shakeTimer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CameraComponent::m_shakeTimer = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a54fc8aef4dc66c8f5106070ac120d5fe" name="a54fc8aef4dc66c8f5106070ac120d5fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54fc8aef4dc66c8f5106070ac120d5fe">&#9670;&#160;</a></span>m_target</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCObject.html">CObject</a>* CameraComponent::m_target = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afa1a43bc3591d376ddf93ff6c519a053" name="afa1a43bc3591d376ddf93ff6c519a053"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa1a43bc3591d376ddf93ff6c519a053">&#9670;&#160;</a></span>m_targetOffset</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 CameraComponent::m_targetOffset = { 0.0f, 1.0f, 0.0f }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a436b8c56398e0d9e611232b66eb59288" name="a436b8c56398e0d9e611232b66eb59288"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a436b8c56398e0d9e611232b66eb59288">&#9670;&#160;</a></span>m_targetPos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 CameraComponent::m_targetPos = { 0.0f, 1.0f, 0.0f }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a808e139ad3da8c1b0e831dd8e46eced8" name="a808e139ad3da8c1b0e831dd8e46eced8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a808e139ad3da8c1b0e831dd8e46eced8">&#9670;&#160;</a></span>m_viewMatrix</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMMATRIX CameraComponent::m_viewMatrix = DirectX::XMMatrixIdentity()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/Engine/Component/<a class="el" href="CameraComponent_8h_source.html">CameraComponent.h</a></li>
+<li>Source/Engine/Component/<a class="el" href="CameraComponent_8cpp.html">CameraComponent.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classCameraComponent.html">CameraComponent</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -4,6 +4,7 @@ var classBulletComponent =
     [ "~BulletComponent", "classBulletComponent.html#ad3d33d1db011b6abf639bf02800fe46a", null ],
     [ "GetDamage", "classBulletComponent.html#a518b42d9984e746e6e41c0bcddf1ed97", null ],
     [ "GetDirection", "classBulletComponent.html#a0a33bf7cdaf62e92e75a110cd4d2457c", null ],
+    [ "GetHitEffectPrefab", "classBulletComponent.html#ad65135f2629abdfe457453363dee24cb", null ],
     [ "GetLifeTime", "classBulletComponent.html#acc7d112044ce1cbc5732704191d4f449", null ],
     [ "GetSpeed", "classBulletComponent.html#a63eb29a6c0d97e967236cc55bbca39d5", null ],
     [ "GetTargetTag", "classBulletComponent.html#a7d5992886bd09b7891abfe3c04d53f64", null ],
@@ -12,6 +13,7 @@ var classBulletComponent =
     [ "OnCollision", "classBulletComponent.html#a7fc92da279ad04a453b4b71a50d40656", null ],
     [ "SetDamage", "classBulletComponent.html#aa1be86fd9fb7f6d89536f97c201ef85a", null ],
     [ "SetDirection", "classBulletComponent.html#a5adef2df3b746ab99984ce9a012d75d6", null ],
+    [ "SetHitEffectPrefab", "classBulletComponent.html#a529053e784f5ad42fceb9e4929c02a92", null ],
     [ "SetLifeTime", "classBulletComponent.html#accdfaccf9ee523c3e6df6868845a9ceb", null ],
     [ "SetSpeed", "classBulletComponent.html#ade2fd17d3c4c40f63cbc34ffc0628404", null ],
     [ "SetTargetTag", "classBulletComponent.html#a3c0452b3c0b1fdff2adb22e888c6f62d", null ],
@@ -19,6 +21,7 @@ var classBulletComponent =
     [ "m_damage", "classBulletComponent.html#a1b1e9a8e98c7b8b09326766361f999cd", null ],
     [ "m_direction", "classBulletComponent.html#a9c64d9fc648879f806b50594b6263f81", null ],
     [ "m_elapsedTime", "classBulletComponent.html#a4f59e33fd5962b4c1c26f62cf92f2246", null ],
+    [ "m_hitEffectPrefab", "classBulletComponent.html#aa9069ff035d7d85cb6c4a73da1bedaa8", null ],
     [ "m_lifeTime", "classBulletComponent.html#a884f2cb496813878a34ad36397bcd6b7", null ],
     [ "m_speed", "classBulletComponent.html#ae56b9416252bc728f5e12afd0d3fc2c9", null ],
     [ "m_targetTag", "classBulletComponent.html#a823bbcc42819ad3806135ac383778f8d", null ]

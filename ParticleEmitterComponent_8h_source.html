@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Engine/Component/ParticleEmitterComponent.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('ParticleEmitterComponent_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ParticleEmitterComponent.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="ParticleEmitterComponent_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="Component_8h.html">Component.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;directxmath.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="foldopen" id="foldopen00006" data-start="{" data-end="};">
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="classParticleEmitterComponent.html">    6</a></span><span class="keyword">class </span><a class="code hl_class" href="classParticleEmitterComponent.html">ParticleEmitterComponent</a> : <span class="keyword">public</span> <a class="code hl_class" href="classCComponent.html">CComponent</a></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_function" href="classParticleEmitterComponent.html#a787c8a84606b5659970b73eeada1a2cb">ParticleEmitterComponent</a>();</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classParticleEmitterComponent.html#a41c77deb76156cad5880fb421e37194d">   10</a></span>    <a class="code hl_function" href="classParticleEmitterComponent.html#a41c77deb76156cad5880fb421e37194d">~ParticleEmitterComponent</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classParticleEmitterComponent.html#a33acbdbd5a27a222ef67593644532204">Start</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classParticleEmitterComponent.html#a42bcf0f582a416b32b23a556a8df78da">Update</a>(<span class="keywordtype">float</span> deltaTime) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classParticleEmitterComponent.html#ae71b9c9e7bdf2e8b145f97ab3af5d010">   15</a></span>    <a class="code hl_enumeration" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a> <a class="code hl_function" href="classParticleEmitterComponent.html#ae71b9c9e7bdf2e8b145f97ab3af5d010">GetUpdatePhase</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa4642e767f9251fa40afadbc963f80b7a">UpdatePhase::Movement</a>; }</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classParticleEmitterComponent.html#afc4bb362afd3a8ca0617dc718290dcf8">Emit</a>();</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classParticleEmitterComponent.html#a52ee6f6616f12c95b408f51cd9ca6df0">   19</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classParticleEmitterComponent.html#a52ee6f6616f12c95b408f51cd9ca6df0">SetParticlePrefab</a>(<span class="keyword">const</span> std::string&amp; prefab) { <a class="code hl_variable" href="classParticleEmitterComponent.html#aa4d50bbdcddcd262e5af66619169ac53">m_particlePrefab</a> = prefab; }</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classParticleEmitterComponent.html#a278ec639d7542e74b1ca8d9b5a3ddc49">   20</a></span>    std::string <a class="code hl_function" href="classParticleEmitterComponent.html#a278ec639d7542e74b1ca8d9b5a3ddc49">GetParticlePrefab</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classParticleEmitterComponent.html#aa4d50bbdcddcd262e5af66619169ac53">m_particlePrefab</a>; }</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classParticleEmitterComponent.html#ac235ddd9513f42c0d2c4485edafafade">   22</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classParticleEmitterComponent.html#ac235ddd9513f42c0d2c4485edafafade">SetBurstCount</a>(<span class="keywordtype">int</span> count) { <a class="code hl_variable" href="classParticleEmitterComponent.html#a8da12b28af6304d4e1f96ef01b1f44b2">m_burstCount</a> = count; }</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classParticleEmitterComponent.html#a169d6d67cbb5db6bf2e14e47a236a4f6">   23</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classParticleEmitterComponent.html#a169d6d67cbb5db6bf2e14e47a236a4f6">GetBurstCount</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classParticleEmitterComponent.html#a8da12b28af6304d4e1f96ef01b1f44b2">m_burstCount</a>; }</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classParticleEmitterComponent.html#a9f2bad27c3a3f0dfe58909bd4b126c47">   25</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classParticleEmitterComponent.html#a9f2bad27c3a3f0dfe58909bd4b126c47">SetSpawnInterval</a>(<span class="keywordtype">float</span> interval) { <a class="code hl_variable" href="classParticleEmitterComponent.html#a4ff1113496c973408cfbee8fcde0582f">m_spawnInterval</a> = interval; }</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classParticleEmitterComponent.html#aaa98f2e2c399d1b57a64bd3afdae9be7">   26</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classParticleEmitterComponent.html#aaa98f2e2c399d1b57a64bd3afdae9be7">GetSpawnInterval</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classParticleEmitterComponent.html#a4ff1113496c973408cfbee8fcde0582f">m_spawnInterval</a>; }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classParticleEmitterComponent.html#aa4c2a72dfbc4570c79259bd4216d7c20">   28</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classParticleEmitterComponent.html#aa4c2a72dfbc4570c79259bd4216d7c20">SetBurstOnStart</a>(<span class="keywordtype">bool</span> burst) { <a class="code hl_variable" href="classParticleEmitterComponent.html#aff2670ddeece2ae1a83760428e2e5812">m_burstOnStart</a> = burst; }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classParticleEmitterComponent.html#a8c24e921911dc56c319ddb26c6757543">   29</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParticleEmitterComponent.html#a8c24e921911dc56c319ddb26c6757543">GetBurstOnStart</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classParticleEmitterComponent.html#aff2670ddeece2ae1a83760428e2e5812">m_burstOnStart</a>; }</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classParticleEmitterComponent.html#ab189ea3bf385b5461d297ccbbeb53299">   31</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classParticleEmitterComponent.html#ab189ea3bf385b5461d297ccbbeb53299">SetParticleScale</a>(<span class="keyword">const</span> DirectX::XMFLOAT3&amp; scale) { <a class="code hl_variable" href="classParticleEmitterComponent.html#a9b7e510582600eb5e8cea213b2ee1148">m_particleScale</a> = scale; }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classParticleEmitterComponent.html#a34188edc52f8280a680b65b2ed1b3419">   32</a></span>    DirectX::XMFLOAT3 <a class="code hl_function" href="classParticleEmitterComponent.html#a34188edc52f8280a680b65b2ed1b3419">GetParticleScale</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classParticleEmitterComponent.html#a9b7e510582600eb5e8cea213b2ee1148">m_particleScale</a>; }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classParticleEmitterComponent.html#aa4d50bbdcddcd262e5af66619169ac53">   35</a></span>    std::string <a class="code hl_variable" href="classParticleEmitterComponent.html#aa4d50bbdcddcd262e5af66619169ac53">m_particlePrefab</a> = <span class="stringliteral">&quot;RandomParticle&quot;</span>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classParticleEmitterComponent.html#a8da12b28af6304d4e1f96ef01b1f44b2">   36</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classParticleEmitterComponent.html#a8da12b28af6304d4e1f96ef01b1f44b2">m_burstCount</a> = 10;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classParticleEmitterComponent.html#a4ff1113496c973408cfbee8fcde0582f">   37</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classParticleEmitterComponent.html#a4ff1113496c973408cfbee8fcde0582f">m_spawnInterval</a> = 0.0f;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classParticleEmitterComponent.html#ad0ea8de4e97c983c00b1f752528abe92">   38</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classParticleEmitterComponent.html#ad0ea8de4e97c983c00b1f752528abe92">m_timer</a> = 0.0f;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classParticleEmitterComponent.html#aff2670ddeece2ae1a83760428e2e5812">   39</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classParticleEmitterComponent.html#aff2670ddeece2ae1a83760428e2e5812">m_burstOnStart</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classParticleEmitterComponent.html#a2eb9289285710a1ab17b9809177c8169">   40</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classParticleEmitterComponent.html#a2eb9289285710a1ab17b9809177c8169">m_hasBurstOnStart</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classParticleEmitterComponent.html#a9b7e510582600eb5e8cea213b2ee1148">   41</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="classParticleEmitterComponent.html#a9b7e510582600eb5e8cea213b2ee1148">m_particleScale</a> = { 0.2f, 0.2f, 0.2f };</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
+</div>
+<div class="ttc" id="aComponent_8h_html"><div class="ttname"><a href="Component_8h.html">Component.h</a></div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93f"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a></div><div class="ttdeci">UpdatePhase</div><div class="ttdef"><b>Definition</b> Component.h:10</div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fa4642e767f9251fa40afadbc963f80b7a"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa4642e767f9251fa40afadbc963f80b7a">UpdatePhase::Movement</a></div><div class="ttdeci">@ Movement</div></div>
+<div class="ttc" id="aclassCComponent_html"><div class="ttname"><a href="classCComponent.html">CComponent</a></div><div class="ttdef"><b>Definition</b> Component.h:21</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html"><div class="ttname"><a href="classParticleEmitterComponent.html">ParticleEmitterComponent</a></div><div class="ttdef"><b>Definition</b> ParticleEmitterComponent.h:7</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html_a169d6d67cbb5db6bf2e14e47a236a4f6"><div class="ttname"><a href="classParticleEmitterComponent.html#a169d6d67cbb5db6bf2e14e47a236a4f6">ParticleEmitterComponent::GetBurstCount</a></div><div class="ttdeci">int GetBurstCount() const</div><div class="ttdef"><b>Definition</b> ParticleEmitterComponent.h:23</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html_a278ec639d7542e74b1ca8d9b5a3ddc49"><div class="ttname"><a href="classParticleEmitterComponent.html#a278ec639d7542e74b1ca8d9b5a3ddc49">ParticleEmitterComponent::GetParticlePrefab</a></div><div class="ttdeci">std::string GetParticlePrefab() const</div><div class="ttdef"><b>Definition</b> ParticleEmitterComponent.h:20</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html_a2eb9289285710a1ab17b9809177c8169"><div class="ttname"><a href="classParticleEmitterComponent.html#a2eb9289285710a1ab17b9809177c8169">ParticleEmitterComponent::m_hasBurstOnStart</a></div><div class="ttdeci">bool m_hasBurstOnStart</div><div class="ttdef"><b>Definition</b> ParticleEmitterComponent.h:40</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html_a33acbdbd5a27a222ef67593644532204"><div class="ttname"><a href="classParticleEmitterComponent.html#a33acbdbd5a27a222ef67593644532204">ParticleEmitterComponent::Start</a></div><div class="ttdeci">void Start() override</div><div class="ttdef"><b>Definition</b> ParticleEmitterComponent.cpp:12</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html_a34188edc52f8280a680b65b2ed1b3419"><div class="ttname"><a href="classParticleEmitterComponent.html#a34188edc52f8280a680b65b2ed1b3419">ParticleEmitterComponent::GetParticleScale</a></div><div class="ttdeci">DirectX::XMFLOAT3 GetParticleScale() const</div><div class="ttdef"><b>Definition</b> ParticleEmitterComponent.h:32</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html_a41c77deb76156cad5880fb421e37194d"><div class="ttname"><a href="classParticleEmitterComponent.html#a41c77deb76156cad5880fb421e37194d">ParticleEmitterComponent::~ParticleEmitterComponent</a></div><div class="ttdeci">~ParticleEmitterComponent() override=default</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html_a42bcf0f582a416b32b23a556a8df78da"><div class="ttname"><a href="classParticleEmitterComponent.html#a42bcf0f582a416b32b23a556a8df78da">ParticleEmitterComponent::Update</a></div><div class="ttdeci">void Update(float deltaTime) override</div><div class="ttdef"><b>Definition</b> ParticleEmitterComponent.cpp:21</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html_a4ff1113496c973408cfbee8fcde0582f"><div class="ttname"><a href="classParticleEmitterComponent.html#a4ff1113496c973408cfbee8fcde0582f">ParticleEmitterComponent::m_spawnInterval</a></div><div class="ttdeci">float m_spawnInterval</div><div class="ttdef"><b>Definition</b> ParticleEmitterComponent.h:37</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html_a52ee6f6616f12c95b408f51cd9ca6df0"><div class="ttname"><a href="classParticleEmitterComponent.html#a52ee6f6616f12c95b408f51cd9ca6df0">ParticleEmitterComponent::SetParticlePrefab</a></div><div class="ttdeci">void SetParticlePrefab(const std::string &amp;prefab)</div><div class="ttdef"><b>Definition</b> ParticleEmitterComponent.h:19</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html_a787c8a84606b5659970b73eeada1a2cb"><div class="ttname"><a href="classParticleEmitterComponent.html#a787c8a84606b5659970b73eeada1a2cb">ParticleEmitterComponent::ParticleEmitterComponent</a></div><div class="ttdeci">ParticleEmitterComponent()</div><div class="ttdef"><b>Definition</b> ParticleEmitterComponent.cpp:7</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html_a8c24e921911dc56c319ddb26c6757543"><div class="ttname"><a href="classParticleEmitterComponent.html#a8c24e921911dc56c319ddb26c6757543">ParticleEmitterComponent::GetBurstOnStart</a></div><div class="ttdeci">bool GetBurstOnStart() const</div><div class="ttdef"><b>Definition</b> ParticleEmitterComponent.h:29</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html_a8da12b28af6304d4e1f96ef01b1f44b2"><div class="ttname"><a href="classParticleEmitterComponent.html#a8da12b28af6304d4e1f96ef01b1f44b2">ParticleEmitterComponent::m_burstCount</a></div><div class="ttdeci">int m_burstCount</div><div class="ttdef"><b>Definition</b> ParticleEmitterComponent.h:36</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html_a9b7e510582600eb5e8cea213b2ee1148"><div class="ttname"><a href="classParticleEmitterComponent.html#a9b7e510582600eb5e8cea213b2ee1148">ParticleEmitterComponent::m_particleScale</a></div><div class="ttdeci">DirectX::XMFLOAT3 m_particleScale</div><div class="ttdef"><b>Definition</b> ParticleEmitterComponent.h:41</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html_a9f2bad27c3a3f0dfe58909bd4b126c47"><div class="ttname"><a href="classParticleEmitterComponent.html#a9f2bad27c3a3f0dfe58909bd4b126c47">ParticleEmitterComponent::SetSpawnInterval</a></div><div class="ttdeci">void SetSpawnInterval(float interval)</div><div class="ttdef"><b>Definition</b> ParticleEmitterComponent.h:25</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html_aa4c2a72dfbc4570c79259bd4216d7c20"><div class="ttname"><a href="classParticleEmitterComponent.html#aa4c2a72dfbc4570c79259bd4216d7c20">ParticleEmitterComponent::SetBurstOnStart</a></div><div class="ttdeci">void SetBurstOnStart(bool burst)</div><div class="ttdef"><b>Definition</b> ParticleEmitterComponent.h:28</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html_aa4d50bbdcddcd262e5af66619169ac53"><div class="ttname"><a href="classParticleEmitterComponent.html#aa4d50bbdcddcd262e5af66619169ac53">ParticleEmitterComponent::m_particlePrefab</a></div><div class="ttdeci">std::string m_particlePrefab</div><div class="ttdef"><b>Definition</b> ParticleEmitterComponent.h:35</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html_aaa98f2e2c399d1b57a64bd3afdae9be7"><div class="ttname"><a href="classParticleEmitterComponent.html#aaa98f2e2c399d1b57a64bd3afdae9be7">ParticleEmitterComponent::GetSpawnInterval</a></div><div class="ttdeci">float GetSpawnInterval() const</div><div class="ttdef"><b>Definition</b> ParticleEmitterComponent.h:26</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html_ab189ea3bf385b5461d297ccbbeb53299"><div class="ttname"><a href="classParticleEmitterComponent.html#ab189ea3bf385b5461d297ccbbeb53299">ParticleEmitterComponent::SetParticleScale</a></div><div class="ttdeci">void SetParticleScale(const DirectX::XMFLOAT3 &amp;scale)</div><div class="ttdef"><b>Definition</b> ParticleEmitterComponent.h:31</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html_ac235ddd9513f42c0d2c4485edafafade"><div class="ttname"><a href="classParticleEmitterComponent.html#ac235ddd9513f42c0d2c4485edafafade">ParticleEmitterComponent::SetBurstCount</a></div><div class="ttdeci">void SetBurstCount(int count)</div><div class="ttdef"><b>Definition</b> ParticleEmitterComponent.h:22</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html_ad0ea8de4e97c983c00b1f752528abe92"><div class="ttname"><a href="classParticleEmitterComponent.html#ad0ea8de4e97c983c00b1f752528abe92">ParticleEmitterComponent::m_timer</a></div><div class="ttdeci">float m_timer</div><div class="ttdef"><b>Definition</b> ParticleEmitterComponent.h:38</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html_ae71b9c9e7bdf2e8b145f97ab3af5d010"><div class="ttname"><a href="classParticleEmitterComponent.html#ae71b9c9e7bdf2e8b145f97ab3af5d010">ParticleEmitterComponent::GetUpdatePhase</a></div><div class="ttdeci">UpdatePhase GetUpdatePhase() const override</div><div class="ttdef"><b>Definition</b> ParticleEmitterComponent.h:15</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html_afc4bb362afd3a8ca0617dc718290dcf8"><div class="ttname"><a href="classParticleEmitterComponent.html#afc4bb362afd3a8ca0617dc718290dcf8">ParticleEmitterComponent::Emit</a></div><div class="ttdeci">void Emit()</div><div class="ttdef"><b>Definition</b> ParticleEmitterComponent.cpp:36</div></div>
+<div class="ttc" id="aclassParticleEmitterComponent_html_aff2670ddeece2ae1a83760428e2e5812"><div class="ttname"><a href="classParticleEmitterComponent.html#aff2670ddeece2ae1a83760428e2e5812">ParticleEmitterComponent::m_burstOnStart</a></div><div class="ttdeci">bool m_burstOnStart</div><div class="ttdef"><b>Definition</b> ParticleEmitterComponent.h:39</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_5405398c23c020946029b9f4e6e04094.html">Engine</a></li><li class="navelem"><a class="el" href="dir_5f693e8ad8d60326c758affc3b922e76.html">Component</a></li><li class="navelem"><a class="el" href="ParticleEmitterComponent_8h.html">ParticleEmitterComponent.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

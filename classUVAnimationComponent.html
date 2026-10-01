@@ -1,0 +1,884 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: UVAnimationComponent クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classUVAnimationComponent.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classUVAnimationComponent-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">UVAnimationComponent クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="UVAnimationComponent_8h_source.html">UVAnimationComponent.h</a>&gt;</code></p>
+<div class="dynheader">
+UVAnimationComponent の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classUVAnimationComponent__inherit__graph.svg" width="194" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+UVAnimationComponent 連携図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classUVAnimationComponent__coll__graph.svg" width="194" height="199"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a01c72f881df6858988a8715bf6ce5b71" id="r_a01c72f881df6858988a8715bf6ce5b71"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#a01c72f881df6858988a8715bf6ce5b71">UVAnimationComponent</a> ()</td></tr>
+<tr class="separator:a01c72f881df6858988a8715bf6ce5b71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4db882ce8aac5894b292905688cbbf8a" id="r_a4db882ce8aac5894b292905688cbbf8a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#a4db882ce8aac5894b292905688cbbf8a">~UVAnimationComponent</a> () override=default</td></tr>
+<tr class="separator:a4db882ce8aac5894b292905688cbbf8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c9a3b0e9024c1aa9855102a60b44fe4" id="r_a0c9a3b0e9024c1aa9855102a60b44fe4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#a0c9a3b0e9024c1aa9855102a60b44fe4">Update</a> (float deltaTime) override</td></tr>
+<tr class="separator:a0c9a3b0e9024c1aa9855102a60b44fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90a2b0adaa37e23c141c0b7374c5d14c" id="r_a90a2b0adaa37e23c141c0b7374c5d14c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#a90a2b0adaa37e23c141c0b7374c5d14c">GetUpdatePhase</a> () const override</td></tr>
+<tr class="separator:a90a2b0adaa37e23c141c0b7374c5d14c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4550e4e4a74816d5fbfe727b4e5161fc" id="r_a4550e4e4a74816d5fbfe727b4e5161fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#a4550e4e4a74816d5fbfe727b4e5161fc">SetGrid</a> (int rows, int cols)</td></tr>
+<tr class="separator:a4550e4e4a74816d5fbfe727b4e5161fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64d9c1a862272945eb8f7e38f73f7574" id="r_a64d9c1a862272945eb8f7e38f73f7574"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#a64d9c1a862272945eb8f7e38f73f7574">SetTotalFrames</a> (int count)</td></tr>
+<tr class="separator:a64d9c1a862272945eb8f7e38f73f7574"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeff8369214964d42e1b43d5b703c0e57" id="r_aeff8369214964d42e1b43d5b703c0e57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#aeff8369214964d42e1b43d5b703c0e57">SetFrameDuration</a> (float duration)</td></tr>
+<tr class="separator:aeff8369214964d42e1b43d5b703c0e57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a502a14fee7c49aeb465df17ee1980818" id="r_a502a14fee7c49aeb465df17ee1980818"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#a502a14fee7c49aeb465df17ee1980818">SetLoop</a> (bool loop)</td></tr>
+<tr class="separator:a502a14fee7c49aeb465df17ee1980818"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7253092a9f2b926bd009a76662d8fdc7" id="r_a7253092a9f2b926bd009a76662d8fdc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#a7253092a9f2b926bd009a76662d8fdc7">SetDestroyOnComplete</a> (bool destroy)</td></tr>
+<tr class="separator:a7253092a9f2b926bd009a76662d8fdc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54b30027486abcd61b13c6afb48278e4" id="r_a54b30027486abcd61b13c6afb48278e4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#a54b30027486abcd61b13c6afb48278e4">GetCurrentFrame</a> () const</td></tr>
+<tr class="separator:a54b30027486abcd61b13c6afb48278e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32539813974c8eaffc6a48087f4edff2" id="r_a32539813974c8eaffc6a48087f4edff2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#a32539813974c8eaffc6a48087f4edff2">GetRows</a> () const</td></tr>
+<tr class="separator:a32539813974c8eaffc6a48087f4edff2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a761dc778e309717273f9cec2c3dfb5f8" id="r_a761dc778e309717273f9cec2c3dfb5f8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#a761dc778e309717273f9cec2c3dfb5f8">GetCols</a> () const</td></tr>
+<tr class="separator:a761dc778e309717273f9cec2c3dfb5f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a758f480c604a96d72ecba40ea5d0c0b0" id="r_a758f480c604a96d72ecba40ea5d0c0b0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#a758f480c604a96d72ecba40ea5d0c0b0">GetTotalFrames</a> () const</td></tr>
+<tr class="separator:a758f480c604a96d72ecba40ea5d0c0b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5000a8bccb9c964cb515644ed4a03c8" id="r_af5000a8bccb9c964cb515644ed4a03c8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#af5000a8bccb9c964cb515644ed4a03c8">GetFrameDuration</a> () const</td></tr>
+<tr class="separator:af5000a8bccb9c964cb515644ed4a03c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab356482787e82605efb3f87807a25b0a" id="r_ab356482787e82605efb3f87807a25b0a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#ab356482787e82605efb3f87807a25b0a">IsLoop</a> () const</td></tr>
+<tr class="separator:ab356482787e82605efb3f87807a25b0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21b5b6fea998d6d2c19a3dc542faa925" id="r_a21b5b6fea998d6d2c19a3dc542faa925"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#a21b5b6fea998d6d2c19a3dc542faa925">IsDestroyOnComplete</a> () const</td></tr>
+<tr class="separator:a21b5b6fea998d6d2c19a3dc542faa925"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classCComponent"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCComponent')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCComponent.html">CComponent</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:ab87a6940be69962c3f4f5a8552643245 inherit pub_methods_classCComponent" id="r_ab87a6940be69962c3f4f5a8552643245"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ab87a6940be69962c3f4f5a8552643245">CComponent</a> ()</td></tr>
+<tr class="separator:ab87a6940be69962c3f4f5a8552643245 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accf17908f97e4d07d7f04fbde292dcda inherit pub_methods_classCComponent" id="r_accf17908f97e4d07d7f04fbde292dcda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#accf17908f97e4d07d7f04fbde292dcda">CComponent</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:accf17908f97e4d07d7f04fbde292dcda inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2ad4d80f616aedbf6b08f33bdd9d2d5 inherit pub_methods_classCComponent" id="r_af2ad4d80f616aedbf6b08f33bdd9d2d5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#af2ad4d80f616aedbf6b08f33bdd9d2d5">~CComponent</a> ()=default</td></tr>
+<tr class="separator:af2ad4d80f616aedbf6b08f33bdd9d2d5 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9bf36b35de54f49a3d604da091228a4 inherit pub_methods_classCComponent" id="r_ac9bf36b35de54f49a3d604da091228a4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ac9bf36b35de54f49a3d604da091228a4">Init</a> ()</td></tr>
+<tr class="separator:ac9bf36b35de54f49a3d604da091228a4 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf3ad4406a744d3fa20d83cc704345cf inherit pub_methods_classCComponent" id="r_adf3ad4406a744d3fa20d83cc704345cf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#adf3ad4406a744d3fa20d83cc704345cf">Awake</a> ()</td></tr>
+<tr class="separator:adf3ad4406a744d3fa20d83cc704345cf inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcee296a2416501cf52755038d4f27eb inherit pub_methods_classCComponent" id="r_adcee296a2416501cf52755038d4f27eb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#adcee296a2416501cf52755038d4f27eb">Start</a> ()</td></tr>
+<tr class="separator:adcee296a2416501cf52755038d4f27eb inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a760d6a0423bc53cb943410926a0d1c65 inherit pub_methods_classCComponent" id="r_a760d6a0423bc53cb943410926a0d1c65"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a760d6a0423bc53cb943410926a0d1c65">OnEnable</a> ()</td></tr>
+<tr class="separator:a760d6a0423bc53cb943410926a0d1c65 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a4d61758b48e83685c1ffe002dc1b41 inherit pub_methods_classCComponent" id="r_a0a4d61758b48e83685c1ffe002dc1b41"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a0a4d61758b48e83685c1ffe002dc1b41">OnDisable</a> ()</td></tr>
+<tr class="separator:a0a4d61758b48e83685c1ffe002dc1b41 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad72e93375519950fa4cbc176ede60db1 inherit pub_methods_classCComponent" id="r_ad72e93375519950fa4cbc176ede60db1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ad72e93375519950fa4cbc176ede60db1">LateUpdate</a> (float deltaTime)</td></tr>
+<tr class="separator:ad72e93375519950fa4cbc176ede60db1 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cce55e18bd5fff318f8448bf260540d inherit pub_methods_classCComponent" id="r_a2cce55e18bd5fff318f8448bf260540d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a2cce55e18bd5fff318f8448bf260540d">Draw</a> ()</td></tr>
+<tr class="separator:a2cce55e18bd5fff318f8448bf260540d inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26e97bcceac386d951092ade96512283 inherit pub_methods_classCComponent" id="r_a26e97bcceac386d951092ade96512283"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a26e97bcceac386d951092ade96512283">OnCollision</a> (<a class="el" href="classCObject.html">CObject</a> *_Other)</td></tr>
+<tr class="separator:a26e97bcceac386d951092ade96512283 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9de9cd78a132d68bdb0977b7d9272df8 inherit pub_methods_classCComponent" id="r_a9de9cd78a132d68bdb0977b7d9272df8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a9de9cd78a132d68bdb0977b7d9272df8">IsEnabled</a> () const</td></tr>
+<tr class="separator:a9de9cd78a132d68bdb0977b7d9272df8 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72945a287cdce2b3dd7cd9a33ce022f9 inherit pub_methods_classCComponent" id="r_a72945a287cdce2b3dd7cd9a33ce022f9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a72945a287cdce2b3dd7cd9a33ce022f9">GetEnabled</a> () const</td></tr>
+<tr class="separator:a72945a287cdce2b3dd7cd9a33ce022f9 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3588f81b9d893984ece9dfa4cdaf8383 inherit pub_methods_classCComponent" id="r_a3588f81b9d893984ece9dfa4cdaf8383"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a3588f81b9d893984ece9dfa4cdaf8383">SetEnabled</a> (bool enabled)</td></tr>
+<tr class="separator:a3588f81b9d893984ece9dfa4cdaf8383 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a281a46452f6f59625e5488936cd70aa7 inherit pub_methods_classCComponent" id="r_a281a46452f6f59625e5488936cd70aa7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a281a46452f6f59625e5488936cd70aa7">GetName</a> () const</td></tr>
+<tr class="separator:a281a46452f6f59625e5488936cd70aa7 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1df83625aa856f9cc7047da68dce131d inherit pub_methods_classCComponent" id="r_a1df83625aa856f9cc7047da68dce131d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a1df83625aa856f9cc7047da68dce131d">GetIsValid</a> () const</td></tr>
+<tr class="separator:a1df83625aa856f9cc7047da68dce131d inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf4188a21189f533eed52041962cafd4 inherit pub_methods_classCComponent" id="r_abf4188a21189f533eed52041962cafd4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#abf4188a21189f533eed52041962cafd4">GetIsVarid</a> () const</td></tr>
+<tr class="separator:abf4188a21189f533eed52041962cafd4 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5bf6fd967c58b6784aa399a27ce0eaa inherit pub_methods_classCComponent" id="r_ad5bf6fd967c58b6784aa399a27ce0eaa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ad5bf6fd967c58b6784aa399a27ce0eaa">SetName</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:ad5bf6fd967c58b6784aa399a27ce0eaa inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96b82c9108e83190f29a5dd8bafe59fe inherit pub_methods_classCComponent" id="r_a96b82c9108e83190f29a5dd8bafe59fe"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a96b82c9108e83190f29a5dd8bafe59fe">SetIsValid</a> (bool _IsValid)</td></tr>
+<tr class="separator:a96b82c9108e83190f29a5dd8bafe59fe inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ababe3aca6f026b146eb458dab2a57587 inherit pub_methods_classCComponent" id="r_ababe3aca6f026b146eb458dab2a57587"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ababe3aca6f026b146eb458dab2a57587">SetOwner</a> (<a class="el" href="classCObject.html">CObject</a> *_Object)</td></tr>
+<tr class="separator:ababe3aca6f026b146eb458dab2a57587 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa05b48a46eeaff9527c00de7547edd32 inherit pub_methods_classCComponent" id="r_aa05b48a46eeaff9527c00de7547edd32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#aa05b48a46eeaff9527c00de7547edd32">GetOwner</a> () const</td></tr>
+<tr class="separator:aa05b48a46eeaff9527c00de7547edd32 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:a6db6984f1e17d036de5a97daf1dbf44e" id="r_a6db6984f1e17d036de5a97daf1dbf44e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#a6db6984f1e17d036de5a97daf1dbf44e">m_rows</a> = 1</td></tr>
+<tr class="separator:a6db6984f1e17d036de5a97daf1dbf44e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae38c6ed6d5ff98e14b7f8291c8a22d4" id="r_aae38c6ed6d5ff98e14b7f8291c8a22d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#aae38c6ed6d5ff98e14b7f8291c8a22d4">m_cols</a> = 1</td></tr>
+<tr class="separator:aae38c6ed6d5ff98e14b7f8291c8a22d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14cffff0698205e939cae6fe00cad270" id="r_a14cffff0698205e939cae6fe00cad270"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#a14cffff0698205e939cae6fe00cad270">m_totalFrames</a> = 1</td></tr>
+<tr class="separator:a14cffff0698205e939cae6fe00cad270"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf44f938208b2495f14229789a3d2992" id="r_aaf44f938208b2495f14229789a3d2992"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#aaf44f938208b2495f14229789a3d2992">m_frameDuration</a> = 0.05f</td></tr>
+<tr class="separator:aaf44f938208b2495f14229789a3d2992"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2884c088dbff7f148c11a72c07886944" id="r_a2884c088dbff7f148c11a72c07886944"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#a2884c088dbff7f148c11a72c07886944">m_timer</a> = 0.0f</td></tr>
+<tr class="separator:a2884c088dbff7f148c11a72c07886944"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70ea517f62ec2e4a35cf0c4997953a53" id="r_a70ea517f62ec2e4a35cf0c4997953a53"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#a70ea517f62ec2e4a35cf0c4997953a53">m_currentFrame</a> = 0</td></tr>
+<tr class="separator:a70ea517f62ec2e4a35cf0c4997953a53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c8ddcf4773a6d43ded17cb386c9f78b" id="r_a7c8ddcf4773a6d43ded17cb386c9f78b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#a7c8ddcf4773a6d43ded17cb386c9f78b">m_loop</a> = false</td></tr>
+<tr class="separator:a7c8ddcf4773a6d43ded17cb386c9f78b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a630bc70b8d31ef4a823a9d71725e4d83" id="r_a630bc70b8d31ef4a823a9d71725e4d83"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUVAnimationComponent.html#a630bc70b8d31ef4a823a9d71725e4d83">m_destroyOnComplete</a> = true</td></tr>
+<tr class="separator:a630bc70b8d31ef4a823a9d71725e4d83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+その他の継承メンバ</h2></td></tr>
+<tr class="inherit_header pro_attribs_classCComponent"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classCComponent')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCComponent.html">CComponent</a> に属する継承限定公開変数類</td></tr>
+<tr class="memitem:a76959a9e98ef06163c56858026e9da5b inherit pro_attribs_classCComponent" id="r_a76959a9e98ef06163c56858026e9da5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a76959a9e98ef06163c56858026e9da5b">m_Owner</a> = nullptr</td></tr>
+<tr class="separator:a76959a9e98ef06163c56858026e9da5b inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4918d7f95edb1a545724dab2be500e75 inherit pro_attribs_classCComponent" id="r_a4918d7f95edb1a545724dab2be500e75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a4918d7f95edb1a545724dab2be500e75">m_ComponentName</a> = &quot;&quot;</td></tr>
+<tr class="separator:a4918d7f95edb1a545724dab2be500e75 inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f8c7080b1f9972952ceda4e155568cb inherit pro_attribs_classCComponent" id="r_a8f8c7080b1f9972952ceda4e155568cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a8f8c7080b1f9972952ceda4e155568cb">m_ComponentIsValid</a> = true</td></tr>
+<tr class="separator:a8f8c7080b1f9972952ceda4e155568cb inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9d3c1123f1a477922084a25423b2579 inherit pro_attribs_classCComponent" id="r_af9d3c1123f1a477922084a25423b2579"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#af9d3c1123f1a477922084a25423b2579">m_enabled</a> = true</td></tr>
+<tr class="separator:af9d3c1123f1a477922084a25423b2579 inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="a01c72f881df6858988a8715bf6ce5b71" name="a01c72f881df6858988a8715bf6ce5b71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01c72f881df6858988a8715bf6ce5b71">&#9670;&#160;</a></span>UVAnimationComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UVAnimationComponent::UVAnimationComponent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4db882ce8aac5894b292905688cbbf8a" name="a4db882ce8aac5894b292905688cbbf8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4db882ce8aac5894b292905688cbbf8a">&#9670;&#160;</a></span>~UVAnimationComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UVAnimationComponent::~UVAnimationComponent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a761dc778e309717273f9cec2c3dfb5f8" name="a761dc778e309717273f9cec2c3dfb5f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a761dc778e309717273f9cec2c3dfb5f8">&#9670;&#160;</a></span>GetCols()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UVAnimationComponent::GetCols </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classUVAnimationComponent_a761dc778e309717273f9cec2c3dfb5f8_icgraph.svg" width="100%" height="400"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a54b30027486abcd61b13c6afb48278e4" name="a54b30027486abcd61b13c6afb48278e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54b30027486abcd61b13c6afb48278e4">&#9670;&#160;</a></span>GetCurrentFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UVAnimationComponent::GetCurrentFrame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classUVAnimationComponent_a54b30027486abcd61b13c6afb48278e4_icgraph.svg" width="515" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af5000a8bccb9c964cb515644ed4a03c8" name="af5000a8bccb9c964cb515644ed4a03c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5000a8bccb9c964cb515644ed4a03c8">&#9670;&#160;</a></span>GetFrameDuration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float UVAnimationComponent::GetFrameDuration </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classUVAnimationComponent_af5000a8bccb9c964cb515644ed4a03c8_icgraph.svg" width="100%" height="400"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a32539813974c8eaffc6a48087f4edff2" name="a32539813974c8eaffc6a48087f4edff2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32539813974c8eaffc6a48087f4edff2">&#9670;&#160;</a></span>GetRows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UVAnimationComponent::GetRows </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classUVAnimationComponent_a32539813974c8eaffc6a48087f4edff2_icgraph.svg" width="100%" height="400"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a758f480c604a96d72ecba40ea5d0c0b0" name="a758f480c604a96d72ecba40ea5d0c0b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a758f480c604a96d72ecba40ea5d0c0b0">&#9670;&#160;</a></span>GetTotalFrames()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UVAnimationComponent::GetTotalFrames </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classUVAnimationComponent_a758f480c604a96d72ecba40ea5d0c0b0_icgraph.svg" width="100%" height="400"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a90a2b0adaa37e23c141c0b7374c5d14c" name="a90a2b0adaa37e23c141c0b7374c5d14c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90a2b0adaa37e23c141c0b7374c5d14c">&#9670;&#160;</a></span>GetUpdatePhase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a> UVAnimationComponent::GetUpdatePhase </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCComponent.html#a8cb4ec11d3210b5f3278d8e55b7308bd">CComponent</a>を再実装しています。</p>
+
+</div>
+</div>
+<a id="a21b5b6fea998d6d2c19a3dc542faa925" name="a21b5b6fea998d6d2c19a3dc542faa925"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21b5b6fea998d6d2c19a3dc542faa925">&#9670;&#160;</a></span>IsDestroyOnComplete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool UVAnimationComponent::IsDestroyOnComplete </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classUVAnimationComponent_a21b5b6fea998d6d2c19a3dc542faa925_icgraph.svg" width="100%" height="400"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ab356482787e82605efb3f87807a25b0a" name="ab356482787e82605efb3f87807a25b0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab356482787e82605efb3f87807a25b0a">&#9670;&#160;</a></span>IsLoop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool UVAnimationComponent::IsLoop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classUVAnimationComponent_ab356482787e82605efb3f87807a25b0a_icgraph.svg" width="100%" height="400"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a7253092a9f2b926bd009a76662d8fdc7" name="a7253092a9f2b926bd009a76662d8fdc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7253092a9f2b926bd009a76662d8fdc7">&#9670;&#160;</a></span>SetDestroyOnComplete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UVAnimationComponent::SetDestroyOnComplete </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>destroy</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classUVAnimationComponent_a7253092a9f2b926bd009a76662d8fdc7_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aeff8369214964d42e1b43d5b703c0e57" name="aeff8369214964d42e1b43d5b703c0e57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeff8369214964d42e1b43d5b703c0e57">&#9670;&#160;</a></span>SetFrameDuration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UVAnimationComponent::SetFrameDuration </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>duration</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classUVAnimationComponent_aeff8369214964d42e1b43d5b703c0e57_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a4550e4e4a74816d5fbfe727b4e5161fc" name="a4550e4e4a74816d5fbfe727b4e5161fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4550e4e4a74816d5fbfe727b4e5161fc">&#9670;&#160;</a></span>SetGrid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UVAnimationComponent::SetGrid </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cols</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classUVAnimationComponent_a4550e4e4a74816d5fbfe727b4e5161fc_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a502a14fee7c49aeb465df17ee1980818" name="a502a14fee7c49aeb465df17ee1980818"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a502a14fee7c49aeb465df17ee1980818">&#9670;&#160;</a></span>SetLoop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UVAnimationComponent::SetLoop </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>loop</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classUVAnimationComponent_a502a14fee7c49aeb465df17ee1980818_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a64d9c1a862272945eb8f7e38f73f7574" name="a64d9c1a862272945eb8f7e38f73f7574"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64d9c1a862272945eb8f7e38f73f7574">&#9670;&#160;</a></span>SetTotalFrames()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UVAnimationComponent::SetTotalFrames </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>count</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classUVAnimationComponent_a64d9c1a862272945eb8f7e38f73f7574_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a0c9a3b0e9024c1aa9855102a60b44fe4" name="a0c9a3b0e9024c1aa9855102a60b44fe4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c9a3b0e9024c1aa9855102a60b44fe4">&#9670;&#160;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UVAnimationComponent::Update </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCComponent.html#ae575194dbb8c5f6ad344bb8c17fa778b">CComponent</a>を再実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classUVAnimationComponent_a0c9a3b0e9024c1aa9855102a60b44fe4_cgraph.svg" width="424" height="184"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="aae38c6ed6d5ff98e14b7f8291c8a22d4" name="aae38c6ed6d5ff98e14b7f8291c8a22d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae38c6ed6d5ff98e14b7f8291c8a22d4">&#9670;&#160;</a></span>m_cols</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UVAnimationComponent::m_cols = 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a70ea517f62ec2e4a35cf0c4997953a53" name="a70ea517f62ec2e4a35cf0c4997953a53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70ea517f62ec2e4a35cf0c4997953a53">&#9670;&#160;</a></span>m_currentFrame</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UVAnimationComponent::m_currentFrame = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a630bc70b8d31ef4a823a9d71725e4d83" name="a630bc70b8d31ef4a823a9d71725e4d83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a630bc70b8d31ef4a823a9d71725e4d83">&#9670;&#160;</a></span>m_destroyOnComplete</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool UVAnimationComponent::m_destroyOnComplete = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaf44f938208b2495f14229789a3d2992" name="aaf44f938208b2495f14229789a3d2992"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf44f938208b2495f14229789a3d2992">&#9670;&#160;</a></span>m_frameDuration</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float UVAnimationComponent::m_frameDuration = 0.05f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7c8ddcf4773a6d43ded17cb386c9f78b" name="a7c8ddcf4773a6d43ded17cb386c9f78b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c8ddcf4773a6d43ded17cb386c9f78b">&#9670;&#160;</a></span>m_loop</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool UVAnimationComponent::m_loop = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6db6984f1e17d036de5a97daf1dbf44e" name="a6db6984f1e17d036de5a97daf1dbf44e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6db6984f1e17d036de5a97daf1dbf44e">&#9670;&#160;</a></span>m_rows</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UVAnimationComponent::m_rows = 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2884c088dbff7f148c11a72c07886944" name="a2884c088dbff7f148c11a72c07886944"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2884c088dbff7f148c11a72c07886944">&#9670;&#160;</a></span>m_timer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float UVAnimationComponent::m_timer = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a14cffff0698205e939cae6fe00cad270" name="a14cffff0698205e939cae6fe00cad270"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14cffff0698205e939cae6fe00cad270">&#9670;&#160;</a></span>m_totalFrames</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UVAnimationComponent::m_totalFrames = 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/Engine/Component/<a class="el" href="UVAnimationComponent_8h_source.html">UVAnimationComponent.h</a></li>
+<li>Source/Engine/Component/<a class="el" href="UVAnimationComponent_8cpp.html">UVAnimationComponent.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classUVAnimationComponent.html">UVAnimationComponent</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

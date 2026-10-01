@@ -133,7 +133,7 @@ var searchData=
   ['deletechars_130',['DeleteChars',['../structImGuiInputTextCallbackData.html#ab5dc30d7edcf60efbd5bb8e677dab8bf',1,'ImGuiInputTextCallbackData']]],
   ['deleteobjectundocommand_131',['deleteobjectundocommand',['../classDeleteObjectUndoCommand.html',1,'DeleteObjectUndoCommand'],['../classDeleteObjectUndoCommand.html#affc6310e5d821f618ffdea855a30fdb2',1,'DeleteObjectUndoCommand::DeleteObjectUndoCommand()']]],
   ['delivery_132',['Delivery',['../structImGuiPayload.html#a4c0900e12c8d0bf6869c0ac6f8a66e31',1,'ImGuiPayload']]],
-  ['deltatime_133',['deltatime',['../structRenderContext.html#a2077e0523174f7d57033c9d17a3fd6ab',1,'RenderContext::deltaTime'],['../structImGuiIO.html#a5068d5414a19c2a1bf58029bd732a7c7',1,'ImGuiIO::DeltaTime']]],
+  ['deltatime_133',['deltatime',['../structImGuiIO.html#a5068d5414a19c2a1bf58029bd732a7c7',1,'ImGuiIO::DeltaTime'],['../structRenderContext.html#a2077e0523174f7d57033c9d17a3fd6ab',1,'RenderContext::deltaTime']]],
   ['demomarker_134',['DemoMarker',['../namespaceImGui.html#a278f8a3ea599294debc10050abe9d4f3',1,'ImGui']]],
   ['demomarkercallback_135',['DemoMarkerCallback',['../structImGuiContext.html#a76fb8ba5284ced7bceb0c565e8e130b2',1,'ImGuiContext']]],
   ['demotree_136',['DemoTree',['../structImGuiDemoWindowData.html#a9fedd02505df5772fc67bc83c97a0c84',1,'ImGuiDemoWindowData']]],

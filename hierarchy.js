@@ -30,12 +30,14 @@ var hierarchy =
     [ "CBox", "classCBox.html", null ],
     [ "CComponent", "classCComponent.html", [
       [ "Audio", "classAudio.html", null ],
+      [ "BillboardComponent", "classBillboardComponent.html", null ],
       [ "BulletComponent", "classBulletComponent.html", null ],
       [ "CModel", "classCModel.html", null ],
       [ "CObjectInfo", "classCObjectInfo.html", null ],
       [ "CSpriteRenderer", "classCSpriteRenderer.html", null ],
       [ "CTextRenderer", "classCTextRenderer.html", null ],
       [ "CTransform", "classCTransform.html", null ],
+      [ "CameraComponent", "classCameraComponent.html", null ],
       [ "CharacterMovementComponent", "classCharacterMovementComponent.html", null ],
       [ "Collider", "classCollider.html", [
         [ "Collider3D", "classCollider3D.html", [
@@ -45,7 +47,10 @@ var hierarchy =
       [ "EnemyAIComponent", "classEnemyAIComponent.html", null ],
       [ "GravityComponent", "classGravityComponent.html", null ],
       [ "HealthComponent", "classHealthComponent.html", null ],
-      [ "PlayerControllerComponent", "classPlayerControllerComponent.html", null ]
+      [ "ParticleComponent", "classParticleComponent.html", null ],
+      [ "ParticleEmitterComponent", "classParticleEmitterComponent.html", null ],
+      [ "PlayerControllerComponent", "classPlayerControllerComponent.html", null ],
+      [ "UVAnimationComponent", "classUVAnimationComponent.html", null ]
     ] ],
     [ "CContentDrawerUI", "classCContentDrawerUI.html", null ],
     [ "CDescriptorHeapAllocator", "classCDescriptorHeapAllocator.html", null ],
@@ -82,6 +87,8 @@ var hierarchy =
       ] ]
     ] ],
     [ "Collision", "classCollision.html", null ],
+    [ "ComponentFactory", "classComponentFactory.html", null ],
+    [ "ComponentManager", "classComponentManager.html", null ],
     [ "ConstantBufferData", "structConstantBufferData.html", null ],
     [ "nlohmann::detail::container_input_adapter_factory_impl::container_input_adapter_factory< ContainerType, Enable >", "structnlohmann_1_1detail_1_1container__input__adapter__factory__impl_1_1container__input__adapter__factory.html", null ],
     [ "nlohmann::detail::container_input_adapter_factory_impl::container_input_adapter_factory< ContainerType, void_t< decltype(begin(std::declval< ContainerType >()), end(std::declval< ContainerType >()))> >", "structnlohmann_1_1detail_1_1container__input__adapter__factory__impl_1_1container__input__adapte602516bdb0b70b8ee5c6d4ff825368be.html", null ],

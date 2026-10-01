@@ -1,0 +1,27 @@
+var classUVAnimationComponent =
+[
+    [ "UVAnimationComponent", "classUVAnimationComponent.html#a01c72f881df6858988a8715bf6ce5b71", null ],
+    [ "~UVAnimationComponent", "classUVAnimationComponent.html#a4db882ce8aac5894b292905688cbbf8a", null ],
+    [ "GetCols", "classUVAnimationComponent.html#a761dc778e309717273f9cec2c3dfb5f8", null ],
+    [ "GetCurrentFrame", "classUVAnimationComponent.html#a54b30027486abcd61b13c6afb48278e4", null ],
+    [ "GetFrameDuration", "classUVAnimationComponent.html#af5000a8bccb9c964cb515644ed4a03c8", null ],
+    [ "GetRows", "classUVAnimationComponent.html#a32539813974c8eaffc6a48087f4edff2", null ],
+    [ "GetTotalFrames", "classUVAnimationComponent.html#a758f480c604a96d72ecba40ea5d0c0b0", null ],
+    [ "GetUpdatePhase", "classUVAnimationComponent.html#a90a2b0adaa37e23c141c0b7374c5d14c", null ],
+    [ "IsDestroyOnComplete", "classUVAnimationComponent.html#a21b5b6fea998d6d2c19a3dc542faa925", null ],
+    [ "IsLoop", "classUVAnimationComponent.html#ab356482787e82605efb3f87807a25b0a", null ],
+    [ "SetDestroyOnComplete", "classUVAnimationComponent.html#a7253092a9f2b926bd009a76662d8fdc7", null ],
+    [ "SetFrameDuration", "classUVAnimationComponent.html#aeff8369214964d42e1b43d5b703c0e57", null ],
+    [ "SetGrid", "classUVAnimationComponent.html#a4550e4e4a74816d5fbfe727b4e5161fc", null ],
+    [ "SetLoop", "classUVAnimationComponent.html#a502a14fee7c49aeb465df17ee1980818", null ],
+    [ "SetTotalFrames", "classUVAnimationComponent.html#a64d9c1a862272945eb8f7e38f73f7574", null ],
+    [ "Update", "classUVAnimationComponent.html#a0c9a3b0e9024c1aa9855102a60b44fe4", null ],
+    [ "m_cols", "classUVAnimationComponent.html#aae38c6ed6d5ff98e14b7f8291c8a22d4", null ],
+    [ "m_currentFrame", "classUVAnimationComponent.html#a70ea517f62ec2e4a35cf0c4997953a53", null ],
+    [ "m_destroyOnComplete", "classUVAnimationComponent.html#a630bc70b8d31ef4a823a9d71725e4d83", null ],
+    [ "m_frameDuration", "classUVAnimationComponent.html#aaf44f938208b2495f14229789a3d2992", null ],
+    [ "m_loop", "classUVAnimationComponent.html#a7c8ddcf4773a6d43ded17cb386c9f78b", null ],
+    [ "m_rows", "classUVAnimationComponent.html#a6db6984f1e17d036de5a97daf1dbf44e", null ],
+    [ "m_timer", "classUVAnimationComponent.html#a2884c088dbff7f148c11a72c07886944", null ],
+    [ "m_totalFrames", "classUVAnimationComponent.html#a14cffff0698205e939cae6fe00cad270", null ]
+];
