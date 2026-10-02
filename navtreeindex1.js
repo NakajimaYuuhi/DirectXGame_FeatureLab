@@ -51,6 +51,7 @@ var NAVTREEINDEX1 =
 "PrefabManager_8h.html":[3,0,0,0,12],
 "PrefabManager_8h_source.html":[3,0,0,0,12],
 "PrefabSerializer_8cpp.html":[3,0,0,0,13],
+"PrefabSerializer_8cpp.html#a4bf579657470d623e3be4507a13bf453":[3,0,0,0,13,1],
 "PrefabSerializer_8cpp.html#ab701e3ac61a85b337ec5c1abaad6742d":[3,0,0,0,13,0],
 "PrefabSerializer_8h.html":[3,0,0,0,14],
 "PrefabSerializer_8h_source.html":[3,0,0,0,14],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "classButtonComponent.html#a185dbb2c22c89e9ba6b1960a9a6713d0":[2,0,11,17],
 "classButtonComponent.html#a1bcf1520342f694afb7b5463971beffb":[2,0,11,1],
 "classButtonComponent.html#a27d39b340b47e5268c53ac89016014f7":[2,0,11,4],
-"classButtonComponent.html#a2a43ab4d610fc75313edee299a836f1e":[2,0,11,19],
-"classButtonComponent.html#a313cc9b6e6b3c2e512a0d0a048353072":[2,0,11,21]
+"classButtonComponent.html#a2a43ab4d610fc75313edee299a836f1e":[2,0,11,19]
 };
