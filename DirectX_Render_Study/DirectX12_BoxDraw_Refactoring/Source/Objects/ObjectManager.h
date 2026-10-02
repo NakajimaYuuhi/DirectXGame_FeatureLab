@@ -6,6 +6,7 @@
 #include "RenderLayer.h"
 
 class Camera;
+class CameraComponent;
 class Player;
 class Field;
 
@@ -40,9 +41,13 @@ public:
 
 	void FlushDestroyedObjects();
 
+	// Pending additions to prevent iterator invalidation during Update loops
+	void FlushPendingAddObjects();
+
 private:
 	//一旦配列は1つ(2次元)
 	Vector <Vector<UniquePtr<CObject>>> vecObject;	//オブジェクトの配列
+	Vector<std::pair<ObjectTag, UniquePtr<CObject>>> m_pendingAddObjects;
 
 
 public:
@@ -53,6 +58,7 @@ public:
 	//Camera
 	CObject* GetCameraObject();
 	Camera* GetCamera();
+	CameraComponent* GetCameraComponent();
 
 	//Field
 	Field* GetField();

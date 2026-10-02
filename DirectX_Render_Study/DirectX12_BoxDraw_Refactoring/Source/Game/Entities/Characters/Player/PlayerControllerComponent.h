@@ -3,6 +3,7 @@
 #include <DirectXMath.h>
 
 class Camera;
+class CameraComponent;
 class CharacterMovementComponent;
 class GravityComponent;
 class HealthComponent;
@@ -71,6 +72,7 @@ private:
 
 	// Cached components and camera
 	Camera*                     m_camera = nullptr;
+	CameraComponent*            m_cameraComp = nullptr;
 	CharacterMovementComponent* m_movementComp = nullptr;
 	GravityComponent*           m_gravityComp = nullptr;
 	HealthComponent*            m_healthComp = nullptr;

@@ -9,6 +9,7 @@
 
 //コンポーネント
 #include "ObjectInfo.h"
+#include "CameraComponent.h"
 
 //オブジェクト
 #include "Camera.h"
@@ -21,25 +22,44 @@
 void ObjectManager::AddObject(ObjectTag _Tag, CObject* _Object)
 {
 	if (!_Object) return;
-	int tagIdx = static_cast<int>(_Tag);
-	if (tagIdx >= 0 && tagIdx < static_cast<int>(vecObject.size()))
+	m_pendingAddObjects.push_back({ _Tag, UniquePtr<CObject>(_Object) });
+}
+
+void ObjectManager::FlushPendingAddObjects()
+{
+	if (m_pendingAddObjects.empty()) return;
+
+	for (auto& pair : m_pendingAddObjects)
 	{
-		vecObject[tagIdx].push_back(UniquePtr<CObject>(_Object));
+		int tagIdx = static_cast<int>(pair.first);
+		if (tagIdx >= 0 && tagIdx < static_cast<int>(vecObject.size()) && pair.second)
+		{
+			vecObject[tagIdx].push_back(std::move(pair.second));
+		}
 	}
+	m_pendingAddObjects.clear();
 }
 
 //----- Player -----
 CObject* ObjectManager::GetPlayer()
 {
-	//何も無いならnullptr
-	if (vecObject[Object::objectTag::PLAYER].size() < 1)return nullptr;
+	if (vecObject[Object::objectTag::PLAYER].size() >= 1)
+	{
+		return vecObject[Object::objectTag::PLAYER][0].get();
+	}
 
+	for (const auto& pair : m_pendingAddObjects)
+	{
+		if (pair.second && !pair.second->GetIsDestroyed() && pair.first == ObjectTag::PLAYER)
+		{
+			return pair.second.get();
+		}
+	}
 
-	return vecObject[Object::objectTag::PLAYER][0].get();
+	return nullptr;
 }
 
 //----- Camera -----
-//Todo : 複数あるカメラを取得できるようにする
 CObject* ObjectManager::GetCameraObject()
 {
 	const auto& cameras = vecObject[static_cast<int>(ObjectTag::CAMERA)];
@@ -65,6 +85,17 @@ CObject* ObjectManager::GetCameraObject()
 		}
 	}
 
+	for (const auto& pair : m_pendingAddObjects)
+	{
+		if (pair.second && !pair.second->GetIsDestroyed())
+		{
+			if (pair.first == ObjectTag::CAMERA || pair.second->GetComponent<CameraComponent>() || dynamic_cast<Camera*>(pair.second.get()))
+			{
+				return pair.second.get();
+			}
+		}
+	}
+
 	return nullptr;
 }
 
@@ -74,6 +105,16 @@ Camera* ObjectManager::GetCamera()
 	if (camObj)
 	{
 		return dynamic_cast<Camera*>(camObj);
+	}
+	return nullptr;
+}
+
+CameraComponent* ObjectManager::GetCameraComponent()
+{
+	CObject* camObj = GetCameraObject();
+	if (camObj)
+	{
+		return camObj->GetComponent<CameraComponent>();
 	}
 	return nullptr;
 }

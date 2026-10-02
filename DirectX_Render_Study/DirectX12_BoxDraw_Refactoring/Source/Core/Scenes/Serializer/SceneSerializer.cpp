@@ -392,6 +392,10 @@ bool SceneSerializer::LoadScene(const std::string& filepath, Scenes::ID sceneID)
 					btn->SetAction(action);
 				}
 				ButtonComponent* btnComp = newObj->GetComponent<ButtonComponent>();
+				if (!btn && !btnComp)
+				{
+					btnComp = newObj->AddComponent<ButtonComponent>();
+				}
 				if (btnComp && hasAction)
 				{
 					btnComp->SetAction(action);
@@ -414,6 +418,9 @@ bool SceneSerializer::LoadScene(const std::string& filepath, Scenes::ID sceneID)
 			newObj->Awake();
 		}
 	}
+
+	// Flush all instantiated objects so that navigation links and ApplyFirstSelected can locate them
+	ObjectManager::GetInstance().FlushPendingAddObjects();
 
 	auto FindButtonByName = [](const std::string& targetName) -> std::pair<CUIButton*, ButtonComponent*> {
 		if (targetName.empty()) return { nullptr, nullptr };

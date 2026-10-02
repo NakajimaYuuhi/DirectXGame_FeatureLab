@@ -62,6 +62,10 @@ void CContentDrawerUI::RefreshPrefabList()
 // -----------------------------------------------------------------
 void CContentDrawerUI::Draw()
 {
+#ifndef _DEBUG
+    return;
+#endif // !_DEBUG
+
     // ショートカットキー (Ctrl + Space) による表示切り替え
     if (CInputManager::GetInstance().IsKeyPress(VK_CONTROL) && CInputManager::GetInstance().IsKeyTrigger(VK_SPACE))
     {
@@ -137,7 +141,7 @@ void CContentDrawerUI::Draw()
                 // カメラ前方に生成するボタン
                 if (ImGui::Button("Spawn (Cam Front)"))
                 {
-                    Camera* cam = ObjectManager::GetInstance().GetCamera();
+                    CObject* cam = ObjectManager::GetInstance().GetCameraObject();
                     DirectX::XMFLOAT3 spawnPos = { 0.0f, 0.0f, 0.0f };
                     if (cam)
                     {

@@ -74,7 +74,7 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 				}
 			}
 
-			vecObject[static_cast<int>(finalTag)].push_back(std::move(tmpObject));
+			m_pendingAddObjects.push_back({ static_cast<ObjectTag>(finalTag), std::move(tmpObject) });
 			return returnObject;
 		}
 	}
@@ -92,12 +92,12 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 		{
 			tmpObject = std::make_unique<Camera>(_ObjectName);
 			returnObject = tmpObject.get();
-			vecObject[static_cast<int>(ObjectTag::CAMERA)].push_back(std::move(tmpObject));
+			m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::CAMERA), std::move(tmpObject) });
 			break;
 		}
 		tmpObject = std::make_unique<C3D_Object>(_ObjectName);
 		returnObject = tmpObject.get();
-		vecObject[static_cast<int>(ObjectTag::FIELD)].push_back(std::move(tmpObject));
+		m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::FIELD), std::move(tmpObject) });
 		break;
 
 	case ObjectTag::BACKGROUND:
@@ -106,7 +106,7 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 			if (!rawObj) rawObj = PrefabManager::GetInstance().InstantiateFromJSON("Assets/Prefabs/Skydome.json", _ObjectName);
 			tmpObject = std::unique_ptr<CObject>(rawObj);
 			returnObject = tmpObject.get();
-			vecObject[static_cast<int>(ObjectTag::BACKGROUND)].push_back(std::move(tmpObject));
+			m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::BACKGROUND), std::move(tmpObject) });
 		}
 		break;
 
@@ -121,7 +121,7 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 			tmpObject = std::make_unique<CUIObject>(_ObjectName);
 		}
 		returnObject = tmpObject.get();
-		vecObject[static_cast<int>(ObjectTag::UI)].push_back(std::move(tmpObject));
+		m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::UI), std::move(tmpObject) });
 		break;
 
 	case ObjectTag::PLAYER:
@@ -130,7 +130,7 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 			if (!rawObj) rawObj = PrefabManager::GetInstance().InstantiateFromJSON("Assets/Prefabs/Player.json", _ObjectName);
 			tmpObject = std::unique_ptr<CObject>(rawObj);
 			returnObject = tmpObject.get();
-			vecObject[static_cast<int>(ObjectTag::PLAYER)].push_back(std::move(tmpObject));
+			m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::PLAYER), std::move(tmpObject) });
 		}
 		break;
 
@@ -140,7 +140,7 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 			if (!rawObj) rawObj = PrefabManager::GetInstance().InstantiateFromJSON("Assets/Prefabs/PlayerBullet.json", _ObjectName);
 			tmpObject = std::unique_ptr<CObject>(rawObj);
 			returnObject = tmpObject.get();
-			vecObject[static_cast<int>(ObjectTag::PLAYER_BULLET)].push_back(std::move(tmpObject));
+			m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::PLAYER_BULLET), std::move(tmpObject) });
 		}
 		break;
 
@@ -150,7 +150,7 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 			if (!rawObj) rawObj = PrefabManager::GetInstance().InstantiateFromJSON("Assets/Prefabs/Enemy.json", _ObjectName);
 			tmpObject = std::unique_ptr<CObject>(rawObj);
 			returnObject = tmpObject.get();
-			vecObject[static_cast<int>(ObjectTag::ENEMY)].push_back(std::move(tmpObject));
+			m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::ENEMY), std::move(tmpObject) });
 		}
 		break;
 
@@ -160,7 +160,7 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 	case ObjectTag::FIELD:
 		tmpObject = std::make_unique<Field>(_ObjectName);
 		returnObject = tmpObject.get();
-		vecObject[static_cast<int>(ObjectTag::FIELD)].push_back(std::move(tmpObject));
+		m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::FIELD), std::move(tmpObject) });
 		break;
 
 	case ObjectTag::BILLBOARD:
@@ -168,25 +168,25 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 		{
 			tmpObject = std::make_unique<RandomParticle>(_ObjectName);
 			returnObject = tmpObject.get();
-			vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));
+			m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::BILLBOARD), std::move(tmpObject) });
 			break;
 		}
 		else if (_TypeName == "Explosion")
 		{
 			tmpObject = std::make_unique<Explosion>(_ObjectName);
 			returnObject = tmpObject.get();
-			vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));
+			m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::BILLBOARD), std::move(tmpObject) });
 			break;
 		}
 		tmpObject = std::make_unique<BillBoard>(_ObjectName);
 		returnObject = tmpObject.get();
-		vecObject[static_cast<int>(ObjectTag::BILLBOARD)].push_back(std::move(tmpObject));
+		m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::BILLBOARD), std::move(tmpObject) });
 		break;
 
 	case ObjectTag::EFFECT:
 		tmpObject = std::make_unique<Explosion>(_ObjectName);
 		returnObject = tmpObject.get();
-		vecObject[static_cast<int>(ObjectTag::EFFECT)].push_back(std::move(tmpObject));
+		m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::EFFECT), std::move(tmpObject) });
 		break;
 
 	case ObjectTag::TEXT:
@@ -199,13 +199,13 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 			tmpObject = std::make_unique<TextObject>(_ObjectName);
 		}
 		returnObject = tmpObject.get();
-		vecObject[static_cast<int>(ObjectTag::TEXT)].push_back(std::move(tmpObject));
+		m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::TEXT), std::move(tmpObject) });
 		break;
 
 	case ObjectTag::CAMERA:
 		tmpObject = std::make_unique<Camera>(_ObjectName);
 		returnObject = tmpObject.get();
-		vecObject[static_cast<int>(ObjectTag::CAMERA)].push_back(std::move(tmpObject));
+		m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::CAMERA), std::move(tmpObject) });
 		break;
 
 	case ObjectTag::FADE:
@@ -214,7 +214,7 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 	case ObjectTag::MANAGER:
 		tmpObject = std::make_unique<EnemyCounter>(_ObjectName);
 		returnObject = tmpObject.get();
-		vecObject[static_cast<int>(ObjectTag::MANAGER)].push_back(std::move(tmpObject));
+		m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::MANAGER), std::move(tmpObject) });
 		break;
 	}
 

@@ -13,7 +13,7 @@ void BillboardComponent::LateUpdate(float deltaTime)
 {
 	if (!m_Owner) return;
 
-	if (!ObjectManager::GetInstance().GetCamera()) return;
+	if (!ObjectManager::GetInstance().GetCameraObject()) return;
 
 	CTransform* transform = m_Owner->GetComponent<CTransform>();
 	if (!transform) return;

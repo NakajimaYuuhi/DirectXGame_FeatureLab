@@ -5,6 +5,7 @@
     "objects": [
         {
             "name": "Skydome",
+            "prefab": "Skydome",
             "tag": 0,
             "transform": {
                 "position": [
@@ -27,6 +28,7 @@
         },
         {
             "name": "Player",
+            "prefab": "PlayerPrefab",
             "tag": 1,
             "transform": {
                 "position": [
@@ -49,6 +51,7 @@
         },
         {
             "name": "Enemy",
+            "prefab": "Enemy",
             "tag": 3,
             "transform": {
                 "position": [
@@ -71,6 +74,7 @@
         },
         {
             "name": "Enemy_0",
+            "prefab": "Enemy",
             "tag": 3,
             "transform": {
                 "position": [
@@ -93,6 +97,7 @@
         },
         {
             "name": "Enemy_1",
+            "prefab": "Enemy",
             "tag": 3,
             "transform": {
                 "position": [
@@ -174,6 +179,7 @@
         },
         {
             "name": "Camera",
+            "prefab": "Camera",
             "tag": 11,
             "transform": {
                 "position": [
@@ -192,7 +198,7 @@
                     1.0
                 ]
             },
-            "type": "CObject"
+            "type": "Camera"
         },
         {
             "name": "EnemyCounter",

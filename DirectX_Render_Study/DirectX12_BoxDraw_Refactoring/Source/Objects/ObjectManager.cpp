@@ -7,6 +7,7 @@
 
 void ObjectManager::Init(Scenes::ID _SceneID)
 {
+	FlushPendingAddObjects();
 	for (auto& vec : vecObject)
 	{
 		for (auto& object : vec)
@@ -21,6 +22,7 @@ void ObjectManager::Init(Scenes::ID _SceneID)
 
 void ObjectManager::Uninit()
 {
+	m_pendingAddObjects.clear();
 	vecObject.clear();
 	vecObject.resize(ObjectTag::NUM);
 }
@@ -32,10 +34,15 @@ void ObjectManager::Update(Scenes::ID _SceneID)
 		return;
 	}
 
-	for (auto& vec : vecObject)
+	// Update前に待機中のオブジェクトを追加
+	FlushPendingAddObjects();
+
+	for (size_t tagIdx = 0; tagIdx < vecObject.size(); ++tagIdx)
 	{
-		for (auto& object : vec)
+		auto& vec = vecObject[tagIdx];
+		for (size_t i = 0; i < vec.size(); ++i)
 		{
+			auto& object = vec[i];
 			if (object && !object->GetIsDestroyed())
 			{
 				if (!object->GetHasAwoken()) object->Awake();
@@ -45,18 +52,29 @@ void ObjectManager::Update(Scenes::ID _SceneID)
 		}
 	}
 
+	// Update中に生成されたオブジェクトを反映
+	FlushPendingAddObjects();
+
 	CollisionUpdate(_SceneID);
 
-	for (auto& vec : vecObject)
+	// 衝突判定中に生成されたオブジェクトを反映
+	FlushPendingAddObjects();
+
+	for (size_t tagIdx = 0; tagIdx < vecObject.size(); ++tagIdx)
 	{
-		for (auto& object : vec)
+		auto& vec = vecObject[tagIdx];
+		for (size_t i = 0; i < vec.size(); ++i)
 		{
+			auto& object = vec[i];
 			if (object && !object->GetIsDestroyed())
 			{
 				object->LateUpdate();
 			}
 		}
 	}
+
+	// LateUpdate中に生成されたオブジェクトを反映
+	FlushPendingAddObjects();
 }
 
 void ObjectManager::FlushDestroyedObjects()
@@ -80,10 +98,13 @@ void ObjectManager::CollisionUpdate(Scenes::ID _SceneID)
 
 void ObjectManager::Draw(Scenes::ID _SceneID)
 {
-	for (auto& vec : vecObject)
+	FlushPendingAddObjects();
+	for (size_t tagIdx = 0; tagIdx < vecObject.size(); ++tagIdx)
 	{
-		for (auto& object : vec)
+		auto& vec = vecObject[tagIdx];
+		for (size_t i = 0; i < vec.size(); ++i)
 		{
+			auto& object = vec[i];
 			if (object && !object->GetIsDestroyed())
 			{
 				object->Draw();
@@ -94,10 +115,12 @@ void ObjectManager::Draw(Scenes::ID _SceneID)
 
 void ObjectManager::DrawByLayer(RenderLayer layer)
 {
-	for (auto& vec : vecObject)
+	for (size_t tagIdx = 0; tagIdx < vecObject.size(); ++tagIdx)
 	{
-		for (auto& object : vec)
+		auto& vec = vecObject[tagIdx];
+		for (size_t i = 0; i < vec.size(); ++i)
 		{
+			auto& object = vec[i];
 			if (!object || object->GetIsDestroyed() || !object->GetIsVisible()) continue;
 
 			CModel* model = object->GetComponent<CModel>();

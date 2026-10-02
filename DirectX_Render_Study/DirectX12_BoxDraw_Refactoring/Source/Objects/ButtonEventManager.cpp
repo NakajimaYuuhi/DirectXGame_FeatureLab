@@ -38,7 +38,11 @@ void ButtonEventManager::SetSelectedGameObject(ISelectable* newSelected)
 void ButtonEventManager::Update()
 {
     if (!CInspectorUI::GetInstance().ShouldUpdateGame()) return;
-    if (!m_currentSelected) return;
+    if (!m_currentSelected)
+    {
+        ApplyFirstSelected();
+        if (!m_currentSelected) return;
+    }
 
     CInputManager& input = CInputManager::GetInstance();
 
@@ -119,29 +123,44 @@ void ButtonEventManager::Update()
 
 void ButtonEventManager::ApplyFirstSelected()
 {
-    if (m_firstSelectedName.empty()) return;
     const auto& objectList = ObjectManager::GetInstance().GetObjectList();
+
+    // 1. 全ボタンを収集し、初期状態として非選択化（色を薄くする）
+    std::vector<ISelectable*> allSelectables;
+    ISelectable* targetSelectable = nullptr;
+
     for (const auto& vec : objectList)
     {
         for (const auto& obj : vec)
         {
             if (!obj || obj->GetIsDestroyed()) continue;
-            CObjectInfo* info = obj->GetComponent<CObjectInfo>();
-            if (info && info->GetObjectName() == m_firstSelectedName)
+
+            ISelectable* sel = nullptr;
+            CUIButton* btn = dynamic_cast<CUIButton*>(obj.get());
+            if (btn) sel = btn;
+            else if (auto btnComp = obj->GetComponent<ButtonComponent>()) sel = btnComp;
+
+            if (sel)
             {
-                CUIButton* btn = dynamic_cast<CUIButton*>(obj.get());
-                if (btn)
+                allSelectables.push_back(sel);
+                sel->OnDeselect(); // 初期状態として非選択色にする
+
+                CObjectInfo* info = obj->GetComponent<CObjectInfo>();
+                if (info && !m_firstSelectedName.empty() && info->GetObjectName() == m_firstSelectedName)
                 {
-                    SetSelectedGameObject(btn);
-                    return;
-                }
-                ButtonComponent* btnComp = obj->GetComponent<ButtonComponent>();
-                if (btnComp)
-                {
-                    SetSelectedGameObject(btnComp);
-                    return;
+                    targetSelectable = sel;
                 }
             }
         }
+    }
+
+    // 2. 指定された名前のボタンを選択、見つからなければ先頭のボタンをフォールバック選択
+    if (targetSelectable)
+    {
+        SetSelectedGameObject(targetSelectable);
+    }
+    else if (!allSelectables.empty())
+    {
+        SetSelectedGameObject(allSelectables.front());
     }
 }
