@@ -16,6 +16,10 @@
 #include "ParticleComponent.h"
 #include "UVAnimationComponent.h"
 #include "ParticleEmitterComponent.h"
+#include "SpriteRenderer.h"
+#include "TextRenderer.h"
+#include "ButtonComponent.h"
+#include "CUIButton.h"
 #include "Source/External/json.hpp"
 #include <fstream>
 #include <filesystem>
@@ -23,6 +27,15 @@
 
 using json = nlohmann::json;
 namespace fs = std::filesystem;
+
+static std::string WStringToString(const std::wstring& wstr)
+{
+	if (wstr.empty()) return "";
+	int size = WideCharToMultiByte(CP_UTF8, 0, &wstr[0], (int)wstr.size(), NULL, 0, NULL, NULL);
+	std::string str(size, 0);
+	WideCharToMultiByte(CP_UTF8, 0, &wstr[0], (int)wstr.size(), &str[0], size, NULL, NULL);
+	return str;
+}
 
 bool PrefabSerializer::SavePrefab(const std::string& filepath, CObject* obj)
 {
@@ -44,6 +57,10 @@ bool PrefabSerializer::SavePrefab(const std::string& filepath, CObject* obj)
     // Prefab Name & Tag
     std::string prefabName = fs::path(filepath).stem().string();
     CObjectInfo* info = obj->GetComponent<CObjectInfo>();
+    if (info)
+    {
+        info->SetPrefabName(prefabName);
+    }
     std::string tagStr = "NONE";
 
     if (info)
@@ -228,6 +245,50 @@ bool PrefabSerializer::SavePrefab(const std::string& filepath, CObject* obj)
         comps["ParticleEmitterComponent"]["BurstOnStart"] = peComp->GetBurstOnStart();
         DirectX::XMFLOAT3 pScale = peComp->GetParticleScale();
         comps["ParticleEmitterComponent"]["ParticleScale"] = { pScale.x, pScale.y, pScale.z };
+    }
+
+    // 16. CSpriteRenderer
+    CSpriteRenderer* sprite = obj->GetComponent<CSpriteRenderer>();
+    if (sprite)
+    {
+        comps["SpriteRenderer"]["TexturePath"] = WStringToString(sprite->GetTexturePath());
+        DirectX::XMFLOAT2 sz = sprite->GetSize();
+        comps["SpriteRenderer"]["Size"] = { sz.x, sz.y };
+        DirectX::XMFLOAT4 col = sprite->GetColor();
+        comps["SpriteRenderer"]["Color"] = { col.x, col.y, col.z, col.w };
+    }
+
+    // 17. CTextRenderer
+    CTextRenderer* textComp = obj->GetComponent<CTextRenderer>();
+    if (textComp)
+    {
+        comps["TextRenderer"]["Content"] = WStringToString(textComp->GetText());
+        comps["TextRenderer"]["FontSize"] = textComp->GetFontSize();
+        comps["TextRenderer"]["FontFamily"] = WStringToString(textComp->GetFontFamily());
+    }
+
+    // 18. ButtonComponent & CUIButton
+    ButtonComponent* btnComp = obj->GetComponent<ButtonComponent>();
+    if (btnComp)
+    {
+        comps["ButtonComponent"]["Action"] = ButtonActionToString(btnComp->GetAction());
+        comps["ButtonComponent"]["NavUp"] = btnComp->GetUpName();
+        comps["ButtonComponent"]["NavDown"] = btnComp->GetDownName();
+        comps["ButtonComponent"]["NavLeft"] = btnComp->GetLeftName();
+        comps["ButtonComponent"]["NavRight"] = btnComp->GetRightName();
+    }
+    else if (CUIButton* btn = dynamic_cast<CUIButton*>(obj))
+    {
+        comps["ButtonComponent"]["Action"] = ButtonActionToString(btn->GetAction());
+        auto GetNavName = [](CUIButton* targetBtn) -> std::string {
+            if (!targetBtn) return "";
+            CObjectInfo* info = targetBtn->GetComponent<CObjectInfo>();
+            return info ? info->GetObjectName() : "";
+        };
+        comps["ButtonComponent"]["NavUp"] = GetNavName(btn->GetSelectOnUp());
+        comps["ButtonComponent"]["NavDown"] = GetNavName(btn->GetSelectOnDown());
+        comps["ButtonComponent"]["NavLeft"] = GetNavName(btn->GetSelectOnLeft());
+        comps["ButtonComponent"]["NavRight"] = GetNavName(btn->GetSelectOnRight());
     }
 
     root["Components"] = comps;

@@ -47,10 +47,17 @@ void CHierarchyUI::Draw()
 
                     CObjectInfo* info = obj->GetComponent<CObjectInfo>();
                     std::string objName = info ? info->GetObjectName() : "CObject";
+                    std::string pName = info ? info->GetPrefabName() : "";
 
                     bool isSelected = (curSelTag == static_cast<int>(tagIdx) && curSelObj == static_cast<int>(objIdx));
 
-                    std::string label = objName + "##" + std::to_string(tagIdx) + "_" + std::to_string(objIdx);
+                    if (!pName.empty())
+                    {
+                        ImGui::TextColored(ImVec4(0.3f, 0.85f, 1.0f, 1.0f), "[P]");
+                        ImGui::SameLine();
+                    }
+
+                    std::string label = objName + (pName.empty() ? "" : " (" + pName + ")") + "##" + std::to_string(tagIdx) + "_" + std::to_string(objIdx);
 
                     if (ImGui::Selectable(label.c_str(), isSelected))
                     {

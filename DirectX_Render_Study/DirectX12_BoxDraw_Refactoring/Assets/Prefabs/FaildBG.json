@@ -1,12 +1,5 @@
 {
   "Components": {
-    "ButtonComponent": {
-      "Action": "ChangeScene_Test",
-      "NavDown": "ExitButton",
-      "NavLeft": "",
-      "NavRight": "",
-      "NavUp": "ExitButton"
-    },
     "SpriteRenderer": {
       "Color": [
         1.0,
@@ -15,15 +8,15 @@
         1.0
       ],
       "Size": [
-        400.0,
-        100.0
+        1920.0,
+        1080.0
       ],
-      "TexturePath": "Assets/Texture/T_GameStart.png"
+      "TexturePath": "Assets/Texture/T_Failed.png"
     },
     "Transform": {
       "Position": [
-        740.0,
-        645.0,
+        0.0,
+        0.0,
         0.0
       ],
       "Rotation": [
@@ -38,6 +31,6 @@
       ]
     }
   },
-  "PrefabName": "StartButton",
+  "PrefabName": "FaildBG",
   "Tag": "UI"
 }

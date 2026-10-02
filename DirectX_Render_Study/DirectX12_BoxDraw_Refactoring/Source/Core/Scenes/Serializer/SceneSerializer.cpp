@@ -16,6 +16,8 @@
 #include "ButtonAction.h"
 #include "Camera.h"
 #include "CameraComponent.h"
+#include "ButtonComponent.h"
+#include "PrefabManager.h"
 #include "Source/External/json.hpp"
 #include <fstream>
 #include <iostream>
@@ -63,6 +65,10 @@ bool SceneSerializer::SaveScene(const std::string& filepath, Scenes::ID sceneID)
 			json objJson;
 			objJson["name"] = objInfo->GetObjectName();
 			objJson["tag"] = static_cast<int>(objInfo->GetObjectTag());
+			if (objInfo->IsPrefab())
+			{
+				objJson["prefab"] = objInfo->GetPrefabName();
+			}
 
 			if (dynamic_cast<CUIButton*>(obj.get()))
 				objJson["type"] = "CUIButton";
@@ -128,16 +134,28 @@ bool SceneSerializer::SaveScene(const std::string& filepath, Scenes::ID sceneID)
 			{
 				objJson["button"]["action"] = ButtonActionToString(btn->GetAction());
 
-				auto GetNavName = [](CUIButton* targetBtn) -> std::string {
+				auto GetNavName = [](CUIButton* targetBtn, const std::string& explicitName) -> std::string {
+					if (!explicitName.empty()) return explicitName;
 					if (!targetBtn) return "";
 					CObjectInfo* info = targetBtn->GetComponent<CObjectInfo>();
 					return info ? info->GetObjectName() : "";
 				};
 
-				objJson["button"]["navigation"]["up"] = GetNavName(btn->GetSelectOnUp());
-				objJson["button"]["navigation"]["down"] = GetNavName(btn->GetSelectOnDown());
-				objJson["button"]["navigation"]["left"] = GetNavName(btn->GetSelectOnLeft());
-				objJson["button"]["navigation"]["right"] = GetNavName(btn->GetSelectOnRight());
+				objJson["button"]["navigation"]["up"] = GetNavName(btn->GetSelectOnUp(), btn->GetUpName());
+				objJson["button"]["navigation"]["down"] = GetNavName(btn->GetSelectOnDown(), btn->GetDownName());
+				objJson["button"]["navigation"]["left"] = GetNavName(btn->GetSelectOnLeft(), btn->GetLeftName());
+				objJson["button"]["navigation"]["right"] = GetNavName(btn->GetSelectOnRight(), btn->GetRightName());
+			}
+
+			// ButtonComponent
+			ButtonComponent* btnComp = obj->GetComponent<ButtonComponent>();
+			if (btnComp)
+			{
+				objJson["button"]["action"] = ButtonActionToString(btnComp->GetAction());
+				objJson["button"]["navigation"]["up"] = btnComp->GetUpName();
+				objJson["button"]["navigation"]["down"] = btnComp->GetDownName();
+				objJson["button"]["navigation"]["left"] = btnComp->GetLeftName();
+				objJson["button"]["navigation"]["right"] = btnComp->GetRightName();
 			}
 
 			rootJson["objects"].push_back(objJson);
@@ -203,7 +221,7 @@ bool SceneSerializer::LoadScene(const std::string& filepath, Scenes::ID sceneID)
 
 	struct PendingNav
 	{
-		CUIButton* btn;
+		CObject* obj;
 		std::string up;
 		std::string down;
 		std::string left;
@@ -254,12 +272,24 @@ bool SceneSerializer::LoadScene(const std::string& filepath, Scenes::ID sceneID)
 			}
 		}
 
-		CObject* newObj = ObjectManager::GetInstance().Instantiate(sceneID, tag, type.empty() ? name : type, name);
-		if (newObj && (type == "Camera" || name == "Camera" || type == "CameraComponent"))
+		std::string prefabStr = objJson.value("prefab", "");
+		std::string instantiateType = (!prefabStr.empty() && PrefabManager::GetInstance().HasPrefab(prefabStr))
+			? prefabStr
+			: (type.empty() ? name : type);
+
+		CObject* newObj = ObjectManager::GetInstance().Instantiate(sceneID, tag, instantiateType, name);
+		if (newObj)
 		{
 			if (auto info = newObj->GetComponent<CObjectInfo>())
 			{
-				info->SetObjectTag(ObjectTag::CAMERA);
+				if (!prefabStr.empty())
+				{
+					info->SetPrefabName(prefabStr);
+				}
+				if (type == "Camera" || name == "Camera" || type == "CameraComponent")
+				{
+					info->SetObjectTag(ObjectTag::CAMERA);
+				}
 			}
 		}
 
@@ -344,20 +374,34 @@ bool SceneSerializer::LoadScene(const std::string& filepath, Scenes::ID sceneID)
 				}
 			}
 
-			// CUIButton
-			CUIButton* btn = dynamic_cast<CUIButton*>(newObj);
-			if (btn && objJson.contains("button"))
+			// Button (CUIButton or ButtonComponent)
+			if (objJson.contains("button") || objJson.contains("buttonComponent"))
 			{
-				const auto& btnJson = objJson["button"];
+				const auto& btnJson = objJson.contains("button") ? objJson["button"] : objJson["buttonComponent"];
+				ButtonAction action = ButtonAction::None;
+				bool hasAction = false;
 				if (btnJson.contains("action"))
 				{
-					btn->SetAction(StringToButtonAction(btnJson["action"].get<std::string>()));
+					action = StringToButtonAction(btnJson["action"].get<std::string>());
+					hasAction = true;
 				}
+
+				CUIButton* btn = dynamic_cast<CUIButton*>(newObj);
+				if (btn && hasAction)
+				{
+					btn->SetAction(action);
+				}
+				ButtonComponent* btnComp = newObj->GetComponent<ButtonComponent>();
+				if (btnComp && hasAction)
+				{
+					btnComp->SetAction(action);
+				}
+
 				if (btnJson.contains("navigation"))
 				{
 					const auto& navJson = btnJson["navigation"];
 					PendingNav pnav;
-					pnav.btn = btn;
+					pnav.obj = newObj;
 					pnav.up = navJson.value("up", "");
 					pnav.down = navJson.value("down", "");
 					pnav.left = navJson.value("left", "");
@@ -371,8 +415,8 @@ bool SceneSerializer::LoadScene(const std::string& filepath, Scenes::ID sceneID)
 		}
 	}
 
-	auto FindButtonByName = [](const std::string& targetName) -> CUIButton* {
-		if (targetName.empty()) return nullptr;
+	auto FindButtonByName = [](const std::string& targetName) -> std::pair<CUIButton*, ButtonComponent*> {
+		if (targetName.empty()) return { nullptr, nullptr };
 		const auto& objectList = ObjectManager::GetInstance().GetObjectList();
 		for (const auto& vec : objectList)
 		{
@@ -382,22 +426,36 @@ bool SceneSerializer::LoadScene(const std::string& filepath, Scenes::ID sceneID)
 				CObjectInfo* info = obj->GetComponent<CObjectInfo>();
 				if (info && info->GetObjectName() == targetName)
 				{
-					return dynamic_cast<CUIButton*>(obj.get());
+					return { dynamic_cast<CUIButton*>(obj.get()), obj->GetComponent<ButtonComponent>() };
 				}
 			}
 		}
-		return nullptr;
+		return { nullptr, nullptr };
 	};
 
 	if (!pendingNavs.empty())
 	{
 		for (const auto& pnav : pendingNavs)
 		{
-			CUIButton* upBtn = FindButtonByName(pnav.up);
-			CUIButton* downBtn = FindButtonByName(pnav.down);
-			CUIButton* leftBtn = FindButtonByName(pnav.left);
-			CUIButton* rightBtn = FindButtonByName(pnav.right);
-			pnav.btn->SetNavigation(upBtn, downBtn, leftBtn, rightBtn);
+			if (!pnav.obj) continue;
+
+			auto [upBtn, upComp] = FindButtonByName(pnav.up);
+			auto [downBtn, downComp] = FindButtonByName(pnav.down);
+			auto [leftBtn, leftComp] = FindButtonByName(pnav.left);
+			auto [rightBtn, rightComp] = FindButtonByName(pnav.right);
+
+			CUIButton* cbtn = dynamic_cast<CUIButton*>(pnav.obj);
+			if (cbtn)
+			{
+				cbtn->SetNavigationNames(pnav.up, pnav.down, pnav.left, pnav.right);
+				cbtn->SetNavigation(upBtn, downBtn, leftBtn, rightBtn);
+			}
+
+			ButtonComponent* bComp = pnav.obj->GetComponent<ButtonComponent>();
+			if (bComp)
+			{
+				bComp->SetNavigationNames(pnav.up, pnav.down, pnav.left, pnav.right);
+			}
 		}
 	}
 	else

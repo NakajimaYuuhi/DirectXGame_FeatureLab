@@ -307,7 +307,7 @@ void CInspectorUI::Draw()
         for (const auto& obj : objectList[tagIdx])
         {
             if (!obj || obj->GetIsDestroyed()) continue;
-            if (dynamic_cast<CUIButton*>(obj.get()))
+            if (dynamic_cast<CUIButton*>(obj.get()) || obj->GetComponent<ButtonComponent>())
             {
                 CObjectInfo* info = obj->GetComponent<CObjectInfo>();
                 std::string bName = info ? info->GetObjectName() : "Button";
@@ -487,6 +487,14 @@ void CInspectorUI::Draw()
         else
         {
             ImGui::Text("Selected: %s (Tag %d, Idx %d)", name.c_str(), m_selectedTagIndex, m_selectedObjectIndex);
+            if (objInfo && objInfo->IsPrefab())
+            {
+                ImGui::TextColored(ImVec4(0.3f, 0.85f, 1.0f, 1.0f), "[Prefab Instance: %s.json]", objInfo->GetPrefabName().c_str());
+            }
+            else
+            {
+                ImGui::TextDisabled("[Standalone Scene Object]");
+            }
         }
                 if (objInfo)
                 {
@@ -831,13 +839,12 @@ void CInspectorUI::Draw()
                             for (const auto& obj : objectList[tagIdx])
                             {
                                 if (!obj || obj->GetIsDestroyed()) continue;
-                                CUIButton* targetBtn = dynamic_cast<CUIButton*>(obj.get());
-                                if (targetBtn)
+                                if (dynamic_cast<CUIButton*>(obj.get()) || obj->GetComponent<ButtonComponent>())
                                 {
-                                    CObjectInfo* info = targetBtn->GetComponent<CObjectInfo>();
+                                    CObjectInfo* info = obj->GetComponent<CObjectInfo>();
                                     std::string bName = info ? info->GetObjectName() : "Button";
                                     buttonNames.push_back(bName);
-                                    buttonPtrs.push_back(targetBtn);
+                                    buttonPtrs.push_back(dynamic_cast<CUIButton*>(obj.get()));
                                 }
                             }
                         }
@@ -845,18 +852,28 @@ void CInspectorUI::Draw()
                         std::vector<const char*> btnComboLabels;
                         for (const auto& bName : buttonNames) btnComboLabels.push_back(bName.c_str());
 
-                        auto FindComboIndex = [&](CUIButton* target) -> int {
-                            for (size_t idx = 0; idx < buttonPtrs.size(); ++idx)
+                        auto FindComboIndex = [&](const std::string& targetName, CUIButton* legacyPtr) -> int {
+                            if (!targetName.empty())
                             {
-                                if (buttonPtrs[idx] == target) return (int)idx;
+                                for (size_t idx = 1; idx < buttonNames.size(); ++idx)
+                                {
+                                    if (buttonNames[idx] == targetName) return (int)idx;
+                                }
+                            }
+                            if (legacyPtr)
+                            {
+                                for (size_t idx = 1; idx < buttonPtrs.size(); ++idx)
+                                {
+                                    if (buttonPtrs[idx] == legacyPtr) return (int)idx;
+                                }
                             }
                             return 0;
                         };
 
-                        int upIdx = FindComboIndex(btn->GetSelectOnUp());
-                        int downIdx = FindComboIndex(btn->GetSelectOnDown());
-                        int leftIdx = FindComboIndex(btn->GetSelectOnLeft());
-                        int rightIdx = FindComboIndex(btn->GetSelectOnRight());
+                        int upIdx = FindComboIndex(btn->GetUpName(), btn->GetSelectOnUp());
+                        int downIdx = FindComboIndex(btn->GetDownName(), btn->GetSelectOnDown());
+                        int leftIdx = FindComboIndex(btn->GetLeftName(), btn->GetSelectOnLeft());
+                        int rightIdx = FindComboIndex(btn->GetRightName(), btn->GetSelectOnRight());
 
                         bool navChanged = false;
                         if (ImGui::Combo("Select On Up", &upIdx, btnComboLabels.data(), (int)btnComboLabels.size())) navChanged = true;
@@ -866,6 +883,10 @@ void CInspectorUI::Draw()
 
                         if (navChanged)
                         {
+                            auto GetNameOrEmpty = [&](int idx) -> std::string {
+                                return (idx > 0 && idx < (int)buttonNames.size()) ? buttonNames[idx] : "";
+                            };
+                            btn->SetNavigationNames(GetNameOrEmpty(upIdx), GetNameOrEmpty(downIdx), GetNameOrEmpty(leftIdx), GetNameOrEmpty(rightIdx));
                             btn->SetNavigation(buttonPtrs[upIdx], buttonPtrs[downIdx], buttonPtrs[leftIdx], buttonPtrs[rightIdx]);
                         }
                     }
@@ -1867,9 +1888,6 @@ void CInspectorUI::OpenPrefabEditMode(const std::string& jsonPath)
     CObject* rawObj = PrefabManager::GetInstance().InstantiateFromJSON(jsonPath, "Editing_" + prefabName);
     if (rawObj)
     {
-        CTransform* t = rawObj->GetComponent<CTransform>();
-        if (t) t->SetPos({ 0.0f, 0.0f, 0.0f });
-
         rawObj->Awake();
         rawObj->Start();
 

@@ -163,6 +163,8 @@ void CContentDrawerUI::Draw()
                         ObjectTag tag = info ? info->GetObjectTag() : ObjectTag::NONE;
 
                         ObjectManager::GetInstance().AddObject(tag, newObj);
+                        newObj->Init();
+                        newObj->Awake();
                     }
                 }
 
@@ -170,7 +172,7 @@ void CContentDrawerUI::Draw()
                 if (ImGui::Button("Spawn (Origin)"))
                 {
                     static int spawnCounter = 0;
-                    std::string instanceName = item.name + "_Origin_" + std::to_string(++spawnCounter);
+                    std::string instanceName = item.name + "_" + std::to_string(++spawnCounter);
 
                     CObject* newObj = PrefabManager::GetInstance().InstantiateFromJSON(item.path, instanceName);
                     if (newObj)
@@ -179,6 +181,8 @@ void CContentDrawerUI::Draw()
                         ObjectTag tag = info ? info->GetObjectTag() : ObjectTag::NONE;
 
                         ObjectManager::GetInstance().AddObject(tag, newObj);
+                        newObj->Init();
+                        newObj->Awake();
                     }
                 }
 

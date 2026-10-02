@@ -1,3 +1,4 @@
+#include "SceneSerializer.h"
 #include "SceneFailed.h"
 #include "TextObject.h"
 #include "3D_Object.h"
@@ -45,69 +46,56 @@ void SceneFailed::Init()
     ButtonEventManager::GetInstance();
 
 
-    // ===== ?I?u?W?F?N?g?????
+    if (!SceneSerializer::LoadSceneOrDefault("Assets/Scene/SceneFailed.json", Scenes::ID::Failed))
+    {
+        // 1.Camera ???????
+        ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::CAMERA, "Camera");
 
-    // 1.Camera ???????
-    ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::CAMERA, "Camera");
+        CUIObject* titleUI = (CUIObject*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "TitleUI"));
+        titleUI->SetTexture(L"Assets/Texture/T_Failed.png");
+        titleUI->SetPosition(0.0f, 0.0f);
+        titleUI->SetSize(1920.0f, 1080.0f);
 
+        // --- ?{?^?????
+        CUIButton* titleButton = (CUIButton*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "UIButton"));
+        titleButton->SetTexture(L"Assets/Texture/T_Retry.png");
+        titleButton->SetPosition(740.0f, 650.0f);
+        titleButton->SetSize(400.0f, 100.0f);
 
+        CUIButton* titleButton2 = (CUIButton*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "UIButton"));
+        titleButton2->SetTexture(L"Assets/Texture/T_ToTitle.png");
+        titleButton2->SetPosition(735.0f, 800.0f);
+        titleButton2->SetSize(400.0f, 100.0f);
 
-    // ?w?i
-    // ?w?i??????ABackGround??????A?X?J?C?{?b?N?X????????o????
-    // ??UI??????????UI??o??
-    CUIObject* titleUI = (CUIObject*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "TitleUI"));
-    titleUI->SetTexture(L"Assets/Texture/T_Failed.png");
-    titleUI->SetPosition(0.0f, 0.0f);
-    titleUI->SetSize(1920.0f, 1080.0f);
+        // ?J???
+        titleButton->SetNavigation(titleButton2, titleButton2, nullptr, nullptr);
+        titleButton2->SetNavigation(titleButton, titleButton, nullptr, nullptr);
 
-    // --- ?{?^?????
-    CUIButton* titleButton = (CUIButton*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "UIButton"));
-    titleButton->SetTexture(L"Assets/Texture/T_Retry.png");
-    titleButton->SetPosition(740.0f, 650.0f);
-    titleButton->SetSize(400.0f, 100.0f);
+        titleButton->SetOnClickCallback(
+            [this]() {
+                Event event;
+                EventData_NextScene* eventData_NextScene = new EventData_NextScene(Scenes::ID::TEST);
+                event.SetEventData(eventData_NextScene);
+                event.SetEventID(Events::ID::ChangeScene);
+                EventManager::GetInstance().AddEvent(event);
+            }
+        );
 
-    CUIButton* titleButton2 = (CUIButton*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "UIButton"));
-    titleButton2->SetTexture(L"Assets/Texture/T_ToTitle.png");
-    titleButton2->SetPosition(735.0f, 800.0f);
-    titleButton2->SetSize(400.0f, 100.0f);
+        titleButton2->SetOnClickCallback(
+            [this]() {
+                Event event;
+                EventData_NextScene* eventData_NextScene = new EventData_NextScene(Scenes::ID::TITLE);
+                event.SetEventData(eventData_NextScene);
+                event.SetEventID(Events::ID::ChangeScene);
+                EventManager::GetInstance().AddEvent(event);
+            }
+        );
 
-    // ?J???
-    titleButton->SetNavigation(titleButton2, titleButton2, nullptr, nullptr);
-    titleButton2->SetNavigation(titleButton, titleButton, nullptr, nullptr);
+        ObjectManager::GetInstance().Init(Scenes::ID::NONE);
+        ButtonEventManager::GetInstance().SetSelectedGameObject((CUIButton*)titleButton);
 
-    // ?{?^????N???b?N
-    titleButton->SetOnClickCallback(
-        [this]() {
-            Event event;
-            // ?????????V?[??ID?i??: TITLE?j??w????
-            EventData_NextScene* eventData_NextScene = new EventData_NextScene(Scenes::ID::TEST);
-
-            event.SetEventData(eventData_NextScene);
-            event.SetEventID(Events::ID::ChangeScene);
-
-            EventManager::GetInstance().AddEvent(event);
-        }
-    );
-
-    titleButton2->SetOnClickCallback(
-        [this]() {
-            Event event;
-            // ?????????V?[??ID?i??: TITLE?j??w????
-            EventData_NextScene* eventData_NextScene = new EventData_NextScene(Scenes::ID::TITLE);
-
-            event.SetEventData(eventData_NextScene);
-            event.SetEventID(Events::ID::ChangeScene);
-
-            EventManager::GetInstance().AddEvent(event);
-        }
-    );
-
-
-
-    ObjectManager::GetInstance().Init(Scenes::ID::NONE);
-
-    // --- Select????o?^
-    ButtonEventManager::GetInstance().SetSelectedGameObject((CUIButton*)titleButton);
+        SceneSerializer::SaveScene("Assets/Scene/SceneFailed.json", Scenes::ID::Failed);
+    }
 
 
     // ----- ?p?C?v???C????? -----

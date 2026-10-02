@@ -4,7 +4,8 @@
     },
     "objects": [
         {
-            "name": "TitleUI",
+            "name": "FaildBG",
+            "prefab": "FaildBG",
             "sprite": {
                 "color": [
                     1.0,
@@ -36,19 +37,20 @@
                     1.0
                 ]
             },
-            "type": "CUIObject"
+            "type": "CObject"
         },
         {
             "button": {
-                "action": "None",
+                "action": "ChangeScene_Test",
                 "navigation": {
-                    "down": "UIButton",
+                    "down": "ToTitleButton",
                     "left": "",
                     "right": "",
-                    "up": "UIButton"
+                    "up": "ToTitleButton"
                 }
             },
-            "name": "UIButton",
+            "name": "RetryButton",
+            "prefab": "RetryButton",
             "sprite": {
                 "color": [
                     1.0,
@@ -80,19 +82,20 @@
                     1.0
                 ]
             },
-            "type": "CUIButton"
+            "type": "CObject"
         },
         {
             "button": {
-                "action": "None",
+                "action": "ChangeScene_Title",
                 "navigation": {
-                    "down": "UIButton",
+                    "down": "RetryButton",
                     "left": "",
                     "right": "",
-                    "up": "UIButton"
+                    "up": "RetryButton"
                 }
             },
-            "name": "UIButton",
+            "name": "ToTitleButton",
+            "prefab": "ToTitleButton",
             "sprite": {
                 "color": [
                     1.0,
@@ -124,10 +127,11 @@
                     1.0
                 ]
             },
-            "type": "CUIButton"
+            "type": "CObject"
         },
         {
             "name": "Camera",
+            "prefab": "Camera",
             "tag": 11,
             "transform": {
                 "position": [
@@ -146,7 +150,7 @@
                     1.0
                 ]
             },
-            "type": "CObject"
+            "type": "Camera"
         }
     ],
     "sceneID": 4

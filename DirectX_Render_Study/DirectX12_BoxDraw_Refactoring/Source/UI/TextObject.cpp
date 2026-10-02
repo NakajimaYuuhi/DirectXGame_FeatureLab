@@ -10,21 +10,18 @@ TextObject::TextObject(const std::string& _Name)
     CObjectInfo* info = GetComponent<CObjectInfo>();
     if (info) info->SetObjectTag(ObjectTag::TEXT);
 
-    // ?e?L?X?g?I?u?W?F?N?g??K?v??R???|?[?l???g????
-    AddComponent<CTransform>();
     AddComponent<CTextRenderer>();
 }
 
 TextObject::~TextObject()
 {
-
 }
 
 void TextObject::Init()
 {
     for (auto& c : components)
     {
-        c->Init();
+        if (c) c->Init();
     }
 }
 
@@ -89,5 +86,3 @@ void TextObject::SetFontFamily(const std::wstring& family)
         textRenderer->SetFontFamily(family);
     }
 }
-
-

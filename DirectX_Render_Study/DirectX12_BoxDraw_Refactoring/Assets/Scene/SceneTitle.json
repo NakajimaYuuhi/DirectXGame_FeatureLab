@@ -5,6 +5,7 @@
     "objects": [
         {
             "name": "TitleBG",
+            "prefab": "TitleBG",
             "sprite": {
                 "color": [
                     1.0,
@@ -23,7 +24,7 @@
                 "position": [
                     0.0,
                     0.0,
-                    0.0
+                    3.0
                 ],
                 "rotation": [
                     0.0,
@@ -36,7 +37,7 @@
                     1.0
                 ]
             },
-            "type": "CUIObject"
+            "type": "CObject"
         },
         {
             "button": {
@@ -49,6 +50,7 @@
                 }
             },
             "name": "StartButton",
+            "prefab": "StartButton",
             "sprite": {
                 "color": [
                     1.0,
@@ -66,7 +68,7 @@
             "transform": {
                 "position": [
                     740.0,
-                    650.0,
+                    645.0,
                     0.0
                 ],
                 "rotation": [
@@ -80,7 +82,7 @@
                     1.0
                 ]
             },
-            "type": "CUIButton"
+            "type": "CObject"
         },
         {
             "button": {
@@ -93,12 +95,13 @@
                 }
             },
             "name": "ExitButton",
+            "prefab": "ExitButton",
             "sprite": {
                 "color": [
                     1.0,
                     1.0,
                     1.0,
-                    0.30000001192092896
+                    1.0
                 ],
                 "size": [
                     400.0,
@@ -124,10 +127,11 @@
                     1.0
                 ]
             },
-            "type": "CUIButton"
+            "type": "CObject"
         },
         {
             "name": "Camera",
+            "prefab": "Camera",
             "tag": 11,
             "transform": {
                 "position": [
@@ -146,7 +150,7 @@
                     1.0
                 ]
             },
-            "type": "CObject"
+            "type": "Camera"
         }
     ],
     "sceneID": 0

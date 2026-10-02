@@ -45,50 +45,54 @@ void ButtonEventManager::Update()
     CUIButton* currentBtn = dynamic_cast<CUIButton*>(m_currentSelected);
     ButtonComponent* currentBtnComp = dynamic_cast<ButtonComponent*>(m_currentSelected);
 
+    auto FindSelectableByName = [](const std::string& name) -> ISelectable* {
+        if (name.empty()) return nullptr;
+        const auto& objectList = ObjectManager::GetInstance().GetObjectList();
+        for (const auto& vec : objectList)
+        {
+            for (const auto& obj : vec)
+            {
+                if (!obj || obj->GetIsDestroyed()) continue;
+                CObjectInfo* info = obj->GetComponent<CObjectInfo>();
+                if (info && info->GetObjectName() == name)
+                {
+                    if (auto btn = dynamic_cast<CUIButton*>(obj.get())) return btn;
+                    if (auto btnComp = obj->GetComponent<ButtonComponent>()) return btnComp;
+                }
+            }
+        }
+        return nullptr;
+    };
+
     if (currentBtn)
     {
-        if ((input.IsKeyTrigger(VK_UP)||input.IsKeyTrigger('W')) && currentBtn->GetSelectOnUp())
+        if (input.IsKeyTrigger(VK_UP) || input.IsKeyTrigger('W'))
         {
-            SetSelectedGameObject(currentBtn->GetSelectOnUp());
-            return;
+            ISelectable* next = FindSelectableByName(currentBtn->GetUpName());
+            if (!next) next = currentBtn->GetSelectOnUp();
+            if (next) { SetSelectedGameObject(next); return; }
         }
-        else if ((input.IsKeyTrigger(VK_DOWN)||input.IsKeyTrigger('S')) && currentBtn->GetSelectOnDown())
+        else if (input.IsKeyTrigger(VK_DOWN) || input.IsKeyTrigger('S'))
         {
-            SetSelectedGameObject(currentBtn->GetSelectOnDown());
-            return;
+            ISelectable* next = FindSelectableByName(currentBtn->GetDownName());
+            if (!next) next = currentBtn->GetSelectOnDown();
+            if (next) { SetSelectedGameObject(next); return; }
         }
-        else if ((input.IsKeyTrigger(VK_LEFT)||input.IsKeyTrigger('A')) && currentBtn->GetSelectOnLeft())
+        else if (input.IsKeyTrigger(VK_LEFT) || input.IsKeyTrigger('A'))
         {
-            SetSelectedGameObject(currentBtn->GetSelectOnLeft());
-            return;
+            ISelectable* next = FindSelectableByName(currentBtn->GetLeftName());
+            if (!next) next = currentBtn->GetSelectOnLeft();
+            if (next) { SetSelectedGameObject(next); return; }
         }
-        else if ((input.IsKeyTrigger(VK_RIGHT)||input.IsKeyTrigger('D')) && currentBtn->GetSelectOnRight())
+        else if (input.IsKeyTrigger(VK_RIGHT) || input.IsKeyTrigger('D'))
         {
-            SetSelectedGameObject(currentBtn->GetSelectOnRight());
-            return;
+            ISelectable* next = FindSelectableByName(currentBtn->GetRightName());
+            if (!next) next = currentBtn->GetSelectOnRight();
+            if (next) { SetSelectedGameObject(next); return; }
         }
     }
     else if (currentBtnComp)
     {
-        auto FindSelectableByName = [](const std::string& name) -> ISelectable* {
-            if (name.empty()) return nullptr;
-            const auto& objectList = ObjectManager::GetInstance().GetObjectList();
-            for (const auto& vec : objectList)
-            {
-                for (const auto& obj : vec)
-                {
-                    if (!obj || obj->GetIsDestroyed()) continue;
-                    CObjectInfo* info = obj->GetComponent<CObjectInfo>();
-                    if (info && info->GetObjectName() == name)
-                    {
-                        if (auto btn = dynamic_cast<CUIButton*>(obj.get())) return btn;
-                        if (auto btnComp = obj->GetComponent<ButtonComponent>()) return btnComp;
-                    }
-                }
-            }
-            return nullptr;
-        };
-
         if (input.IsKeyTrigger(VK_UP) || input.IsKeyTrigger('W'))
         {
             if (auto next = FindSelectableByName(currentBtnComp->GetUpName())) { SetSelectedGameObject(next); return; }

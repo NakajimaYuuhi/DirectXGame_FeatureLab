@@ -34,7 +34,16 @@ CObject* PrefabManager::Instantiate(const std::string& typeName, const std::stri
 	if (it != m_registry.end())
 	{
 		std::string finalName = instanceName.empty() ? typeName : instanceName;
-		return it->second(finalName);
+		CObject* obj = it->second(finalName);
+		if (obj)
+		{
+			CObjectInfo* info = obj->GetComponent<CObjectInfo>();
+			if (info && info->GetPrefabName().empty())
+			{
+				info->SetPrefabName(typeName);
+			}
+		}
+		return obj;
 	}
 	return nullptr;
 }
@@ -159,6 +168,7 @@ CObject* PrefabManager::InstantiateFromJSON(const std::string& jsonPath, const s
 	CObjectInfo* info = obj->GetComponent<CObjectInfo>();
 	if (info)
 	{
+		info->SetPrefabName(prefabName);
 		if (tagStr == "BACKGROUND") info->SetObjectTag(ObjectTag::BACKGROUND);
 		else if (tagStr == "PLAYER") info->SetObjectTag(ObjectTag::PLAYER);
 		else if (tagStr == "PLAYER_BULLET") info->SetObjectTag(ObjectTag::PLAYER_BULLET);

@@ -1,3 +1,4 @@
+#include "SceneSerializer.h"
 #include "SceneClear.h"
 #include "TextObject.h"
 #include "3D_Object.h"
@@ -47,36 +48,41 @@ void SceneClear::Init()
 
     // ===== ?I?u?W?F?N?g?????
 
-    // 1.Camera ???????
-    ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::CAMERA, "Camera", "Camera");
+    if (!SceneSerializer::LoadSceneOrDefault("Assets/Scene/SceneClear.json", Scenes::ID::Clear))
+    {
+        // 1.Camera ???????
+        ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::CAMERA, "Camera", "Camera");
 
-    CUIObject* titleUI = (CUIObject*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "CUIObject", "ClearBG"));
-    titleUI->SetTexture(L"Assets/Texture/T_Clear.png");
-    titleUI->SetPosition(0.0f, 0.0f);
-    titleUI->SetSize(1920.0f, 1080.0f);
+        CUIObject* titleUI = (CUIObject*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "CUIObject", "ClearBG"));
+        titleUI->SetTexture(L"Assets/Texture/T_Clear.png");
+        titleUI->SetPosition(0.0f, 0.0f);
+        titleUI->SetSize(1920.0f, 1080.0f);
 
-    // --- Button Creation
-    CUIButton* titleButton = (CUIButton*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "CUIButton", "RetryButton"));
-    titleButton->SetTexture(L"Assets/Texture/T_Retry.png");
-    titleButton->SetPosition(740.0f, 650.0f);
-    titleButton->SetSize(400.0f, 100.0f);
-    titleButton->SetAction(ButtonAction::ChangeScene_Test);
+        // --- Button Creation
+        CUIButton* titleButton = (CUIButton*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "CUIButton", "RetryButton"));
+        titleButton->SetTexture(L"Assets/Texture/T_Retry.png");
+        titleButton->SetPosition(740.0f, 650.0f);
+        titleButton->SetSize(400.0f, 100.0f);
+        titleButton->SetAction(ButtonAction::ChangeScene_Test);
 
-    CUIButton* titleButton2 = (CUIButton*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "CUIButton", "ToTitleButton"));
-    titleButton2->SetTexture(L"Assets/Texture/T_ToTitle.png");
-    titleButton2->SetPosition(735.0f, 800.0f);
-    titleButton2->SetSize(400.0f, 100.0f);
-    titleButton2->SetAction(ButtonAction::ChangeScene_Title);
+        CUIButton* titleButton2 = (CUIButton*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "CUIButton", "ToTitleButton"));
+        titleButton2->SetTexture(L"Assets/Texture/T_ToTitle.png");
+        titleButton2->SetPosition(735.0f, 800.0f);
+        titleButton2->SetSize(400.0f, 100.0f);
+        titleButton2->SetAction(ButtonAction::ChangeScene_Title);
 
-    // Navigation setup
-    titleButton->SetNavigation(titleButton2, titleButton2, nullptr, nullptr);
-    titleButton2->SetNavigation(titleButton, titleButton, nullptr, nullptr);
+        // Navigation setup
+        titleButton->SetNavigation(titleButton2, titleButton2, nullptr, nullptr);
+        titleButton2->SetNavigation(titleButton, titleButton, nullptr, nullptr);
 
-    ObjectManager::GetInstance().Init(Scenes::ID::NONE);
+        ObjectManager::GetInstance().Init(Scenes::ID::NONE);
 
-    // --- Select registration
-    ButtonEventManager::GetInstance().SetFirstSelectedName("RetryButton");
-    ButtonEventManager::GetInstance().SetSelectedGameObject((CUIButton*)titleButton);
+        // --- Select registration
+        ButtonEventManager::GetInstance().SetFirstSelectedName("RetryButton");
+        ButtonEventManager::GetInstance().SetSelectedGameObject((CUIButton*)titleButton);
+
+        SceneSerializer::SaveScene("Assets/Scene/SceneClear.json", Scenes::ID::Clear);
+    }
 
 
     // ----- ?p?C?v???C????? -----

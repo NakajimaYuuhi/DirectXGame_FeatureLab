@@ -3,6 +3,7 @@
 #include "UIObject.h"
 #include "ISelectable.h"
 #include <functional>
+#include <string>
 
 class CUIButton : public CUIObject, public ISelectable
 {
@@ -14,35 +15,48 @@ public:
     virtual void Update() override;
     virtual void Draw() override;
 
-    // --- ISelectable????? ---
+    // --- ISelectable ---
     void OnSelect() override;
     void OnDeselect() override;
     void OnSubmit() override;
 
-    // ?N???b?N?i????j????R?[???o?b?N???
     void SetOnClickCallback(std::function<void()> callback);
     ButtonAction GetAction() const { return m_action; }
     void SetAction(ButtonAction action) { m_action = action; }
 
-    // ?i?r?Q?[?V?????p??|?C???^???i?????E?j
     void SetNavigation(CUIButton* up, CUIButton* down, CUIButton* left, CUIButton* right);
 
-    // ?i?r?Q?[?V?????èÔ?p
     CUIButton* GetSelectOnUp() const { return m_selectOnUp; }
     CUIButton* GetSelectOnDown() const { return m_selectOnDown; }
     CUIButton* GetSelectOnLeft() const { return m_selectOnLeft; }
     CUIButton* GetSelectOnRight() const { return m_selectOnRight; }
 
+    void SetNavigationNames(const std::string& up, const std::string& down, const std::string& left, const std::string& right)
+    {
+        m_upName = up;
+        m_downName = down;
+        m_leftName = left;
+        m_rightName = right;
+    }
+
+    const std::string& GetUpName() const { return m_upName; }
+    const std::string& GetDownName() const { return m_downName; }
+    const std::string& GetLeftName() const { return m_leftName; }
+    const std::string& GetRightName() const { return m_rightName; }
+
 private:
     std::function<void()> m_onClickCallback;
     ButtonAction m_action = ButtonAction::None;
 
-    // Unity??Explicit?i?r?Q?[?V?????????
-    CUIButton* m_selectOnUp;
-    CUIButton* m_selectOnDown;
-    CUIButton* m_selectOnLeft;
-    CUIButton* m_selectOnRight;
+    CUIButton* m_selectOnUp = nullptr;
+    CUIButton* m_selectOnDown = nullptr;
+    CUIButton* m_selectOnLeft = nullptr;
+    CUIButton* m_selectOnRight = nullptr;
 
-    // ?t?H?[?J?X???i?`???????????g?p?j
-    bool m_isSelected;
+    std::string m_upName;
+    std::string m_downName;
+    std::string m_leftName;
+    std::string m_rightName;
+
+    bool m_isSelected = false;
 };

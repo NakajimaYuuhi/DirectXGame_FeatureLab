@@ -1,5 +1,5 @@
 #include "CUIButton.h"
-
+#include "ObjectInfo.h"
 #include "SpriteRenderer.h"
 #include "ButtonEventManager.h"
 
@@ -24,49 +24,41 @@ CUIButton::~CUIButton()
 void CUIButton::Init()
 {
     CUIObject::Init();
-    // ??????????
-    // SpriteRenderer
-    CSpriteRenderer * spriteRenderer = GetComponent<CSpriteRenderer>();
-
-    spriteRenderer->SetColor({ 1.0f,1.0f,1.0f,0.3f });
+    CSpriteRenderer* spriteRenderer = GetComponent<CSpriteRenderer>();
+    if (spriteRenderer)
+    {
+        spriteRenderer->SetColor({ 1.0f, 1.0f, 1.0f, 0.3f });
+    }
 }
 
 void CUIButton::Update()
 {
     CUIObject::Update();
-    // ?{?^????L??X?V????????????????L?q
 }
 
 void CUIButton::Draw()
 {
     CUIObject::Draw();
-    
-    // ?t?H?[?J?X??????????n?C???C?g?`?????s???????????L?q
-    // if (m_isSelected) { ... } else { ... }
 }
 
 void CUIButton::OnSelect()
 {
     m_isSelected = true;
-    // ?t?H?[?J?X??????????X?i????????A?F??X???j
-
-        //SpriteRenderer
     CSpriteRenderer* spriteRenderer = GetComponent<CSpriteRenderer>();
-
-    spriteRenderer->SetColor({ 1.0f,1.0f,1.0f,1.0f });
-
+    if (spriteRenderer)
+    {
+        spriteRenderer->SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
+    }
 }
 
 void CUIButton::OnDeselect()
 {
     m_isSelected = false;
-    // ?t?H?[?J?X???O????????????X
-
-    //SpriteRenderer
     CSpriteRenderer* spriteRenderer = GetComponent<CSpriteRenderer>();
-
-    spriteRenderer->SetColor({ 1.0f,1.0f,1.0f,0.3f });
-
+    if (spriteRenderer)
+    {
+        spriteRenderer->SetColor({ 1.0f, 1.0f, 1.0f, 0.3f });
+    }
 }
 
 void CUIButton::OnSubmit()
@@ -75,7 +67,6 @@ void CUIButton::OnSubmit()
     {
         ExecuteButtonAction(m_action);
     }
-    // ???ŠÎ??R?[???o?b?N????s
     if (m_onClickCallback)
     {
         m_onClickCallback();
@@ -93,5 +84,15 @@ void CUIButton::SetNavigation(CUIButton* up, CUIButton* down, CUIButton* left, C
     m_selectOnDown = down;
     m_selectOnLeft = left;
     m_selectOnRight = right;
-}
 
+    auto GetName = [](CUIButton* btn) -> std::string {
+        if (!btn) return "";
+        auto info = btn->GetComponent<CObjectInfo>();
+        return info ? info->GetObjectName() : "";
+    };
+
+    if (up) m_upName = GetName(up);
+    if (down) m_downName = GetName(down);
+    if (left) m_leftName = GetName(left);
+    if (right) m_rightName = GetName(right);
+}

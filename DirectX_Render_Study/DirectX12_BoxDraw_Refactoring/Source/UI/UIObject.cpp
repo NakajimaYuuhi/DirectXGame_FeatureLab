@@ -10,8 +10,6 @@ CUIObject::CUIObject(const std::string& _Name)
     CObjectInfo* info = GetComponent<CObjectInfo>();
     if (info) info->SetObjectTag(ObjectTag::UI);
 
-    // Add components necessary for 2D UI
-    AddComponent<CTransform>();
     AddComponent<CSpriteRenderer>();
 }
 
@@ -23,13 +21,12 @@ void CUIObject::Init()
 {
     for (auto& c : components)
     {
-        c->Init();
+        if (c) c->Init();
     }
 }
 
 void CUIObject::Update()
 {
-    // Update logic for UI if any
 }
 
 void CUIObject::LateUpdate()
@@ -71,5 +68,3 @@ void CUIObject::SetSize(float width, float height)
         sprite->SetSize(width, height);
     }
 }
-
-

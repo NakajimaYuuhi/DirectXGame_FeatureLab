@@ -1,29 +1,29 @@
 {
   "Components": {
     "ButtonComponent": {
-      "Action": "ChangeScene_Test",
-      "NavDown": "ExitButton",
+      "Action": "ChangeScene_Title",
+      "NavDown": "RetryButton",
       "NavLeft": "",
       "NavRight": "",
-      "NavUp": "ExitButton"
+      "NavUp": "RetryButton"
     },
     "SpriteRenderer": {
       "Color": [
         1.0,
         1.0,
         1.0,
-        1.0
+        0.30000001192092896
       ],
       "Size": [
         400.0,
         100.0
       ],
-      "TexturePath": "Assets/Texture/T_GameStart.png"
+      "TexturePath": "Assets/Texture/T_ToTitle.png"
     },
     "Transform": {
       "Position": [
-        740.0,
-        645.0,
+        735.0,
+        800.0,
         0.0
       ],
       "Rotation": [
@@ -38,6 +38,6 @@
       ]
     }
   },
-  "PrefabName": "StartButton",
+  "PrefabName": "ToTitleButton",
   "Tag": "UI"
 }
