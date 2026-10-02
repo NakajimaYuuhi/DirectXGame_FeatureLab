@@ -19,6 +19,7 @@
 #include "SpriteRenderer.h"
 #include "TextRenderer.h"
 #include "ButtonComponent.h"
+#include "EnemyCounterComponent.h"
 #include "CUIButton.h"
 #include "Source/External/json.hpp"
 #include <fstream>
@@ -291,6 +292,13 @@ bool PrefabSerializer::SavePrefab(const std::string& filepath, CObject* obj)
         comps["ButtonComponent"]["NavDown"] = GetNavName(btn->GetSelectOnDown());
         comps["ButtonComponent"]["NavLeft"] = GetNavName(btn->GetSelectOnLeft());
         comps["ButtonComponent"]["NavRight"] = GetNavName(btn->GetSelectOnRight());
+    }
+
+    // 19. EnemyCounterComponent
+    EnemyCounterComponent* ecComp = obj->GetComponent<EnemyCounterComponent>();
+    if (ecComp)
+    {
+        comps["EnemyCounterComponent"]["TargetTextName"] = ecComp->GetTargetTextName();
     }
 
     root["Components"] = comps;

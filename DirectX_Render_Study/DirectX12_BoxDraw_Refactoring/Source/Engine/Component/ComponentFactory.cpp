@@ -18,6 +18,7 @@
 #include "SpriteRenderer.h"
 #include "TextRenderer.h"
 #include "ButtonComponent.h"
+#include "EnemyCounterComponent.h"
 #include <windows.h>
 
 ComponentFactory::ComponentFactory()
@@ -469,4 +470,17 @@ void ComponentFactory::InitDefaultComponents()
 	};
 	RegisterComponent("Button", buttonCreator);
 	RegisterComponent("ButtonComponent", buttonCreator);
+
+	// 19. EnemyCounterComponent
+	auto enemyCounterCreator = [](CObject* owner, const nlohmann::json& p) -> CComponent* {
+		EnemyCounterComponent* comp = owner->GetComponent<EnemyCounterComponent>();
+		if (!comp) comp = owner->AddComponent<EnemyCounterComponent>();
+		if (comp && p.contains("TargetTextName"))
+		{
+			comp->SetTargetTextName(p["TargetTextName"].get<std::string>());
+		}
+		return comp;
+	};
+	RegisterComponent("EnemyCounterComponent", enemyCounterCreator);
+	RegisterComponent("EnemyCounter", enemyCounterCreator);
 }

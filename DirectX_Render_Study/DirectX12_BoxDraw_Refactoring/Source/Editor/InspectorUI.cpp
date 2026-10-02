@@ -39,6 +39,7 @@
 #include "UVAnimationComponent.h"
 #include "ParticleEmitterComponent.h"
 #include "ButtonComponent.h"
+#include "EnemyCounterComponent.h"
 #include "CollisionLayers.h"
 #include "RenderLayer.h"
 #include <typeinfo>
@@ -1426,6 +1427,24 @@ void CInspectorUI::Draw()
                     }
                 }
 
+                // EnemyCounterComponent
+                EnemyCounterComponent* ecComp = selectedObj->GetComponent<EnemyCounterComponent>();
+                if (ecComp)
+                {
+                    if (ImGui::CollapsingHeader("EnemyCounterComponent Settings", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        ImGui::Text("Active Enemies: %d", ecComp->GetCount());
+                        ImGui::Text("Defeat Count: %d", ecComp->GetDefeatCount());
+
+                        char targetBuf[128] = "";
+                        strncpy_s(targetBuf, sizeof(targetBuf), ecComp->GetTargetTextName().c_str(), _TRUNCATE);
+                        if (ImGui::InputText("Target Text Object", targetBuf, sizeof(targetBuf)))
+                        {
+                            ecComp->SetTargetTextName(targetBuf);
+                        }
+                    }
+                }
+
                 // -------------------------------------------------------------
                 // Other Components (Components without custom inspector panels)
                 // -------------------------------------------------------------
@@ -1437,7 +1456,7 @@ void CInspectorUI::Draw()
                     if (cPtr != transform && cPtr != sprite && cPtr != textComp && cPtr != model &&
                         cPtr != boxCollider && cPtr != gravityComp && cPtr != healthComp &&
                         cPtr != movementComp && cPtr != playerCtrl && cPtr != enemyAI && cPtr != bulletComp && cPtr != cameraComp &&
-                        cPtr != bbComp && cPtr != ptComp && cPtr != uvComp && cPtr != peComp && cPtr != btnComp && cPtr != objInfo)
+                        cPtr != bbComp && cPtr != ptComp && cPtr != uvComp && cPtr != peComp && cPtr != btnComp && cPtr != ecComp && cPtr != objInfo)
                     {
                         otherCompNames.push_back(GetCleanComponentName(cPtr));
                     }
@@ -1592,6 +1611,15 @@ void CInspectorUI::Draw()
                         if (ImGui::Selectable("Button Component"))
                         {
                             selectedObj->AddComponent<ButtonComponent>();
+                        }
+                    }
+
+                    // --- Manager ---
+                    if (MatchesFilter("EnemyCounter Component") && !selectedObj->GetComponent<EnemyCounterComponent>())
+                    {
+                        if (ImGui::Selectable("EnemyCounter Component"))
+                        {
+                            selectedObj->AddComponent<EnemyCounterComponent>();
                         }
                     }
 

@@ -7,6 +7,7 @@
 #include "GravityComponent.h"
 #include "HealthComponent.h"
 #include "EnemyCounter.h"
+#include "EnemyCounterComponent.h"
 #include <cmath>
 
 EnemyAIComponent::EnemyAIComponent()
@@ -240,10 +241,18 @@ void EnemyAIComponent::OnDie()
 
 	m_Owner->SetIsDestroyed(true);
 
-	EnemyCounter* enemyCounter = (EnemyCounter*)ObjectManager::GetInstance().GetManager("EnemyCounter");
-	if (enemyCounter)
+	CObject* mgr = ObjectManager::GetInstance().GetManager("EnemyCounter");
+	if (mgr)
 	{
-		enemyCounter->Defeat();
+		auto counter = mgr->GetComponent<EnemyCounterComponent>();
+		if (counter)
+		{
+			counter->Defeat();
+		}
+		else if (auto legacy = dynamic_cast<EnemyCounter*>(mgr))
+		{
+			legacy->Defeat();
+		}
 	}
 
 	if (!m_deathEffectPrefab.empty())
