@@ -21,6 +21,8 @@ var dir_5f693e8ad8d60326c758affc3b922e76 =
     [ "ComponentFactory.cpp", "ComponentFactory_8cpp.html", null ],
     [ "ComponentFactory.h", "ComponentFactory_8h.html", "ComponentFactory_8h" ],
     [ "ComponentManager.h", "ComponentManager_8h.html", "ComponentManager_8h" ],
+    [ "EnemyCounterComponent.cpp", "EnemyCounterComponent_8cpp.html", null ],
+    [ "EnemyCounterComponent.h", "EnemyCounterComponent_8h.html", "EnemyCounterComponent_8h" ],
     [ "GravityComponent.cpp", "GravityComponent_8cpp.html", null ],
     [ "GravityComponent.h", "GravityComponent_8h.html", "GravityComponent_8h" ],
     [ "ParticleComponent.cpp", "ParticleComponent_8cpp.html", null ],

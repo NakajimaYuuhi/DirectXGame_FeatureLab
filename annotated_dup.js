@@ -246,6 +246,7 @@ var annotated_dup =
     [ "EnemyAIComponent", "classEnemyAIComponent.html", "classEnemyAIComponent" ],
     [ "EnemyCount", "classEnemyCount.html", "classEnemyCount" ],
     [ "EnemyCounter", "classEnemyCounter.html", "classEnemyCounter" ],
+    [ "EnemyCounterComponent", "classEnemyCounterComponent.html", "classEnemyCounterComponent" ],
     [ "Event", "classEvent.html", "classEvent" ],
     [ "EventData", "classEventData.html", "classEventData" ],
     [ "EventData_NextScene", "classEventData__NextScene.html", "classEventData__NextScene" ],

@@ -46,6 +46,7 @@ var hierarchy =
         ] ]
       ] ],
       [ "EnemyAIComponent", "classEnemyAIComponent.html", null ],
+      [ "EnemyCounterComponent", "classEnemyCounterComponent.html", null ],
       [ "GravityComponent", "classGravityComponent.html", null ],
       [ "HealthComponent", "classHealthComponent.html", null ],
       [ "ParticleComponent", "classParticleComponent.html", null ],

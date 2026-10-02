@@ -138,6 +138,9 @@ var NAVTREEINDEX0 =
 "EnemyCount_8cpp.html":[3,0,0,5,10],
 "EnemyCount_8h.html":[3,0,0,5,11],
 "EnemyCount_8h_source.html":[3,0,0,5,11],
+"EnemyCounterComponent_8cpp.html":[3,0,0,2,0,21],
+"EnemyCounterComponent_8h.html":[3,0,0,2,0,22],
+"EnemyCounterComponent_8h_source.html":[3,0,0,2,0,22],
 "EnemyCounter_8cpp.html":[3,0,0,5,12],
 "EnemyCounter_8h.html":[3,0,0,5,13],
 "EnemyCounter_8h_source.html":[3,0,0,5,13],
@@ -170,9 +173,9 @@ var NAVTREEINDEX0 =
 "ForwardRenderPass_8cpp.html":[3,0,0,6,2],
 "ForwardRenderPass_8h.html":[3,0,0,6,3],
 "ForwardRenderPass_8h_source.html":[3,0,0,6,3],
-"GravityComponent_8cpp.html":[3,0,0,2,0,21],
-"GravityComponent_8h.html":[3,0,0,2,0,22],
-"GravityComponent_8h_source.html":[3,0,0,2,0,22],
+"GravityComponent_8cpp.html":[3,0,0,2,0,23],
+"GravityComponent_8h.html":[3,0,0,2,0,24],
+"GravityComponent_8h_source.html":[3,0,0,2,0,24],
 "HealthComponent_8cpp.html":[3,0,0,4,1,0,0],
 "HealthComponent_8h.html":[3,0,0,4,1,0,1],
 "HealthComponent_8h_source.html":[3,0,0,4,1,0,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX0 =
 "ObjectManager_8h.html":[3,0,0,5,31],
 "ObjectManager_8h_source.html":[3,0,0,5,31],
 "ObjectManager__Getter__Setter_8cpp.html":[3,0,0,5,32],
-"ObjectManager__Instantiate_8cpp.html":[3,0,0,5,33],
-"ObjectTag_8h.html":[3,0,0,0,10],
-"ObjectTag_8h.html#a5b743a8e18b1721ab93f64fa1e7d4afb":[3,0,0,0,10,0],
-"ObjectTag_8h.html#a601de737429833556e7418bb4a8975b0":[3,0,0,0,10,1]
+"ObjectManager__Instantiate_8cpp.html":[3,0,0,5,33]
 };
