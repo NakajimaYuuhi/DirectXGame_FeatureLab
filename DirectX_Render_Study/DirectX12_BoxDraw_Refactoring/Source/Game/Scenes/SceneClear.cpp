@@ -1,6 +1,5 @@
 #include "SceneSerializer.h"
 #include "SceneClear.h"
-#include "TextObject.h"
 #include "3D_Object.h"
 
 #include "Object.h"

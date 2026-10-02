@@ -1,5 +1,4 @@
 #include "SceneTitle.h"
-#include "TextObject.h"
 #include "3D_Object.h"
 #include "Object.h"
 #include "UIObject.h"
@@ -33,7 +32,7 @@ void SceneTitle::Init()
     {
         ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::CAMERA, "Camera", "Camera");
 
-        CUIObject* titleUI = (CUIObject*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "TitleUI", "TitleBG"));
+        CUIObject* titleUI = (CUIObject*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "TitleBG", "TitleBG"));
         titleUI->SetTexture(L"Assets/Texture/T_TitleBG.png");
         titleUI->SetPosition(0.0f, 0.0f);
         titleUI->SetSize(1920.0f, 1080.0f);

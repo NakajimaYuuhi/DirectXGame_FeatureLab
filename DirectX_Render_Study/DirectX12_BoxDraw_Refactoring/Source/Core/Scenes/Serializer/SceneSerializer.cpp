@@ -4,12 +4,9 @@
 #include "Transform.h"
 #include "Model.h"
 #include "Field.h"
-#include "EnemyCounter.h"
-#include "EnemyCount.h"
 #include "Box.h"
 #include "UIObject.h"
 #include "CUIButton.h"
-#include "TextObject.h"
 #include "SpriteRenderer.h"
 #include "TextRenderer.h"
 #include "ButtonEventManager.h"
@@ -76,10 +73,6 @@ bool SceneSerializer::SaveScene(const std::string& filepath, Scenes::ID sceneID)
 				objJson["type"] = "CUIButton";
 			else if (dynamic_cast<CUIObject*>(obj.get()))
 				objJson["type"] = "CUIObject";
-			else if (dynamic_cast<EnemyCount*>(obj.get()))
-				objJson["type"] = "EnemyCount";
-			else if (dynamic_cast<TextObject*>(obj.get()))
-				objJson["type"] = "TextObject";
 			else if (objInfo->GetObjectTag() == ObjectTag::PLAYER)
 				objJson["type"] = "Player";
 			else if (objInfo->GetObjectTag() == ObjectTag::ENEMY)
@@ -88,8 +81,6 @@ bool SceneSerializer::SaveScene(const std::string& filepath, Scenes::ID sceneID)
 				objJson["type"] = "Skydome";
 			else if (dynamic_cast<Field*>(obj.get()))
 				objJson["type"] = "Field";
-			else if (dynamic_cast<EnemyCounter*>(obj.get()))
-				objJson["type"] = "EnemyCounter";
 			else if (objInfo->GetObjectTag() == ObjectTag::CAMERA || obj->GetComponent<CameraComponent>() || dynamic_cast<Camera*>(obj.get()))
 				objJson["type"] = "Camera";
 			else

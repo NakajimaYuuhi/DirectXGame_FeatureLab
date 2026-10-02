@@ -1,6 +1,5 @@
 #include "SceneSerializer.h"
 #include "SceneFailed.h"
-#include "TextObject.h"
 #include "3D_Object.h"
 
 #include "Object.h"
@@ -51,7 +50,7 @@ void SceneFailed::Init()
         // 1.Camera ???????
         ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::CAMERA, "Camera");
 
-        CUIObject* titleUI = (CUIObject*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "TitleUI"));
+        CUIObject* titleUI = (CUIObject*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "FaildBG"));
         titleUI->SetTexture(L"Assets/Texture/T_Failed.png");
         titleUI->SetPosition(0.0f, 0.0f);
         titleUI->SetSize(1920.0f, 1080.0f);

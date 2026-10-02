@@ -1,5 +1,4 @@
 #include "SceneTest.h"
-#include "TextObject.h"
 #include "3D_Object.h"
 #include "Object.h"
 #include "UIObject.h"
@@ -10,7 +9,6 @@
 #include "InputManager.h"
 #include "EventManager.h"
 #include "EventData_NextScene.h"
-#include "EnemyCounter.h"
 #include "Source/Core/Scenes/Serializer/SceneSerializer.h"
 
 CSceneTest::CSceneTest()
@@ -44,7 +42,7 @@ void CSceneTest::Init()
         C3D_Object* field = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::FIELD, "Field"));
         field->SetTransform({ 0.0f, 0.0f, 0.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 0.0f, 0.0f });
 
-        EnemyCounter* enemyCounter = (EnemyCounter*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::MANAGER, "EnemyCounter"));
+        CObject* enemyCounter = ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::MANAGER, "EnemyCounter");
 
         ObjectManager::GetInstance().Init(Scenes::ID::NONE);
 

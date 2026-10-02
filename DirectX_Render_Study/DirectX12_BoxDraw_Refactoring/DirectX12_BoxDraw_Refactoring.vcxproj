@@ -164,8 +164,6 @@
     <ClCompile Include="Source\Objects\ButtonEventManager.cpp" />
     <ClCompile Include="Source\UI\CUIButton.cpp" />
     <ClCompile Include="Source\Util\D2DTextRenderer.cpp" />
-    <ClCompile Include="Source\Objects\EnemyCount.cpp" />
-    <ClCompile Include="Source\Objects\EnemyCounter.cpp" />
     <ClCompile Include="Source\Objects\EventManager.cpp" />
     <ClCompile Include="Source\Objects\Event.cpp" />
     <ClCompile Include="Source\Objects\EventData.cpp" />
@@ -178,7 +176,6 @@
     <ClCompile Include="Source\Rendering\RenderPipeline.cpp" />
     <ClCompile Include="Source\Rendering\RenderTexture.cpp" />
     <ClCompile Include="Source\Objects\Field.cpp" />
-    <ClCompile Include="Source\UI\TextObject.cpp" />
     <ClCompile Include="Source\UI\TextRenderer.cpp" />
     <ClCompile Include="Source\Objects\BillBoard.cpp" />
     <ClCompile Include="Source\Resources\Bone.cpp" />
@@ -195,7 +192,6 @@
     <ClCompile Include="Source\Engine\Component\Collider3D.cpp" />
     <ClCompile Include="Source\Engine\Component\Collision.cpp" />
     <ClCompile Include="Source\Rendering\DescriptorHeapAllocator.cpp" />
-    <ClCompile Include="Source\Objects\Explosion.cpp" />
     <ClCompile Include="Source\Resources\gltfLoader.cpp" />
     <ClCompile Include="Source\External\imgui.cpp" />
     <ClCompile Include="Source\Editor\ImGuiManager.cpp" />
@@ -221,7 +217,6 @@
     <ClCompile Include="Source\Objects\Object.cpp" />
     <ClCompile Include="Source\Objects\ObjectManager.cpp" />
     <ClCompile Include="Source\Rendering\PSOManager.cpp" />
-    <ClCompile Include="Source\Objects\RandomParticle.cpp" />
     <ClCompile Include="Source\Rendering\Shader.cpp" />
     <ClCompile Include="Source\Rendering\ShaderManager.cpp" />
     <ClCompile Include="Source\Resources\Texture.cpp" />
@@ -244,7 +239,6 @@
     <ClCompile Include="Source\Engine\Component\ParticleEmitterComponent.cpp" />
     <ClCompile Include="Source\Engine\Component\ButtonComponent.cpp" />
     <ClCompile Include="Source\Engine\Component\EnemyCounterComponent.cpp" />
-    <ClCompile Include="Source\UI\TitleUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Engine\Component\ComponentFactory.h" />
@@ -267,8 +261,6 @@
     <ClInclude Include="Source\Objects\ButtonEventManager.h" />
     <ClInclude Include="Source\UI\CUIButton.h" />
     <ClInclude Include="Source\Util\D2DTextRenderer.h" />
-    <ClInclude Include="Source\Objects\EnemyCount.h" />
-    <ClInclude Include="Source\Objects\EnemyCounter.h" />
     <ClInclude Include="Source\Objects\EventManager.h" />
     <ClInclude Include="Source\Objects\Event.h" />
     <ClInclude Include="Source\Objects\EventData.h" />
@@ -284,7 +276,6 @@
     <ClInclude Include="Source\Rendering\RenderTexture.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Source\Objects\Field.h" />
-    <ClInclude Include="Source\UI\TextObject.h" />
     <ClInclude Include="Source\UI\TextRenderer.h" />
     <ClInclude Include="Source\Objects\BillBoard.h" />
     <ClInclude Include="Source\Resources\Bone.h" />
@@ -307,7 +298,6 @@
     <ClInclude Include="Source\Util\ContainerAlias.h" />
     <ClInclude Include="Source\Rendering\DescriptorHeapAllocator.h" />
     <ClInclude Include="Source\Util\DirectXPtrAlias.h" />
-    <ClInclude Include="Source\Objects\Explosion.h" />
     <ClInclude Include="Source\Resources\gltfLoader.h" />
     <ClInclude Include="Source\External\imconfig.h" />
     <ClInclude Include="Source\External\imgui.h" />
@@ -338,7 +328,6 @@
     <ClInclude Include="Source\Objects\ObjectManager.h" />
     <ClInclude Include="Source\Core\ObjectTag.h" />
     <ClInclude Include="Source\Rendering\PSOManager.h" />
-    <ClInclude Include="Source\Objects\RandomParticle.h" />
     <ClInclude Include="Source\Core\SceneEnums.h" />
     <ClInclude Include="Source\Rendering\Shader.h" />
     <ClInclude Include="Source\Rendering\ShaderManager.h" />
@@ -361,7 +350,6 @@
     <ClInclude Include="Source\Core\Scenes\Serializer\SceneSerializer.h" />
     <ClInclude Include="Source\UI\UIObject.h" />
     <ClInclude Include="Source\Engine\Component\Transform.h" />
-    <ClInclude Include="Source\UI\TitleUI.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Assets\Shader\PostProcess.hlsl">

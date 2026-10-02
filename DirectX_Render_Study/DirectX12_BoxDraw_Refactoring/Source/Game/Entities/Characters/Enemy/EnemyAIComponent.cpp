@@ -6,7 +6,6 @@
 #include "CharacterMovementComponent.h"
 #include "GravityComponent.h"
 #include "HealthComponent.h"
-#include "EnemyCounter.h"
 #include "EnemyCounterComponent.h"
 #include <cmath>
 
@@ -248,10 +247,6 @@ void EnemyAIComponent::OnDie()
 		if (counter)
 		{
 			counter->Defeat();
-		}
-		else if (auto legacy = dynamic_cast<EnemyCounter*>(mgr))
-		{
-			legacy->Defeat();
 		}
 	}
 

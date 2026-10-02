@@ -20,8 +20,6 @@
 #include "BillBoard.h"
 
 //effect
-#include "RandomParticle.h"
-#include "Explosion.h"
 
 //field
 #include "Field.h"
@@ -32,14 +30,11 @@
 
 // --2D
 #include "UIObject.h"
-#include "TextObject.h"
 #include "TextRenderer.h"
-#include "EnemyCount.h"
-#include "TitleUI.h"
 #include "CUIButton.h"
 
 // --Manager
-#include "EnemyCounter.h"
+#include "EnemyCounterComponent.h"
 
 
 //===== ???\?b?h??` =====
@@ -112,10 +107,7 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 		break;
 
 	case ObjectTag::UI:
-		if (_TypeName == "TitleUI") {
-			tmpObject = std::make_unique<TitleUI>(_ObjectName);
-		}
-		else if (_TypeName == "UIButton" || _TypeName == "CUIButton") {
+		if (_TypeName == "UIButton" || _TypeName == "CUIButton") {
 			tmpObject = std::make_unique<CUIButton>(_ObjectName);
 		}
 		else {
@@ -165,27 +157,13 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 		break;
 
 	case ObjectTag::BILLBOARD:
-		if (_TypeName == "RandomParticle")
-		{
-			tmpObject = std::make_unique<RandomParticle>(_ObjectName);
-			returnObject = tmpObject.get();
-			m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::BILLBOARD), std::move(tmpObject) });
-			break;
-		}
-		else if (_TypeName == "Explosion")
-		{
-			tmpObject = std::make_unique<Explosion>(_ObjectName);
-			returnObject = tmpObject.get();
-			m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::BILLBOARD), std::move(tmpObject) });
-			break;
-		}
 		tmpObject = std::make_unique<BillBoard>(_ObjectName);
 		returnObject = tmpObject.get();
 		m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::BILLBOARD), std::move(tmpObject) });
 		break;
 
 	case ObjectTag::EFFECT:
-		tmpObject = std::make_unique<Explosion>(_ObjectName);
+		tmpObject = std::make_unique<BillBoard>(_ObjectName);
 		returnObject = tmpObject.get();
 		m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::EFFECT), std::move(tmpObject) });
 		break;
@@ -211,7 +189,12 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 		break;
 
 	case ObjectTag::MANAGER:
-		tmpObject = std::make_unique<EnemyCounter>(_ObjectName);
+		tmpObject = std::make_unique<CObject>(_ObjectName);
+		if (auto info = tmpObject->GetComponent<CObjectInfo>())
+		{
+			info->SetObjectTag(ObjectTag::MANAGER);
+		}
+		tmpObject->AddComponent<EnemyCounterComponent>();
 		returnObject = tmpObject.get();
 		m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::MANAGER), std::move(tmpObject) });
 		break;

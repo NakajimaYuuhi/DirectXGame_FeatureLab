@@ -22,7 +22,6 @@
 #include "Box.h"
 #include "UIObject.h"
 #include "CUIButton.h"
-#include "TextObject.h"
 #include "SpriteRenderer.h"
 #include "TextRenderer.h"
 #include "ButtonEventManager.h"
@@ -382,7 +381,7 @@ void CInspectorUI::Draw()
     {
         static int txtCounter = 0;
         std::string name = "Text_" + std::to_string(txtCounter++);
-        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::TEXT, "TextObject", name);
+        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::TEXT, "Text", name);
         if (newObj) newObj->Awake();
     }
     ImGui::Separator();
