@@ -1,5 +1,7 @@
 var NAVTREEINDEX28 =
 {
+"imgui__internal_8h.html#ae823424f8f86b5bbfd20a9cd965b2395":[3,0,0,3,9,424],
+"imgui__internal_8h.html#ae85def71d2fcf5409035b583b315964e":[3,0,0,3,9,833],
 "imgui__internal_8h.html#ae8ab0d7dfc90af8e82db3ed9e7829219":[3,0,0,3,9,316],
 "imgui__internal_8h.html#ae944ffc599add73d6f3220165475ffd8":[3,0,0,3,9,327],
 "imgui__internal_8h.html#ae979b3c0513f9f643a502a71a03776e9":[3,0,0,3,9,541],
@@ -247,7 +249,5 @@ var NAVTREEINDEX28 =
 "imstb__textedit_8h.html#a8689614e35e12ab67f08f097dcef95d0":[3,0,0,3,13,5],
 "imstb__textedit_8h.html#aa9499d317b250e833ae92d98992c7b99":[3,0,0,3,13,8],
 "imstb__textedit_8h.html#ad9c91ba430dfd8dd924ecbeefacf6eab":[3,0,0,3,13,6],
-"imstb__textedit_8h.html#adbfdb185853b8825c899126ce0a65990":[3,0,0,3,13,7],
-"imstb__textedit_8h_source.html":[3,0,0,3,13],
-"imstb__truetype_8h.html":[3,0,0,3,14]
+"imstb__textedit_8h.html#adbfdb185853b8825c899126ce0a65990":[3,0,0,3,13,7]
 };

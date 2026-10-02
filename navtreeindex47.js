@@ -1,5 +1,7 @@
 var NAVTREEINDEX47 =
 {
+"structnlohmann_1_1detail_1_1detector.html":[1,0,4,0,8],
+"structnlohmann_1_1detail_1_1detector.html#a0cd69423587748bf3d3d702cc7b7c2ce":[1,0,4,0,8,0],
 "structnlohmann_1_1detail_1_1detector.html#a0cd69423587748bf3d3d702cc7b7c2ce":[2,0,0,0,8,0],
 "structnlohmann_1_1detail_1_1detector.html#a5a132aab543d1706e2439268faf8d487":[1,0,4,0,8,1],
 "structnlohmann_1_1detail_1_1detector.html#a5a132aab543d1706e2439268faf8d487":[2,0,0,0,8,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX47 =
 "structnlohmann_1_1detail_1_1is__getable.html#a2150b5b5398683147928a61c99cd0070":[1,0,4,0,71,0],
 "structnlohmann_1_1detail_1_1is__iterator__of__multibyte.html":[1,0,4,0,72],
 "structnlohmann_1_1detail_1_1is__iterator__of__multibyte.html":[2,0,0,0,72],
-"structnlohmann_1_1detail_1_1is__iterator__of__multibyte.html#a830339a3ad86d82d32a67f9c180523b1":[1,0,4,0,72,0],
-"structnlohmann_1_1detail_1_1is__iterator__of__multibyte.html#a830339a3ad86d82d32a67f9c180523b1":[2,0,0,0,72,0],
-"structnlohmann_1_1detail_1_1is__iterator__traits.html":[1,0,4,0,73]
+"structnlohmann_1_1detail_1_1is__iterator__of__multibyte.html#a830339a3ad86d82d32a67f9c180523b1":[1,0,4,0,72,0]
 };

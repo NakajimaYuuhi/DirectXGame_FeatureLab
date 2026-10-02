@@ -6,6 +6,7 @@ var classEnemyCounter =
     [ "Defeat", "classEnemyCounter.html#adf1be8dab19b6acc6d6582af52558282", null ],
     [ "GetCount", "classEnemyCounter.html#ac46729668d0a3468c55685740ae9e3c7", null ],
     [ "GetDefeatCount", "classEnemyCounter.html#affeccd9da9e6a3719639c179030944b0", null ],
+    [ "GetTextRenderer", "classEnemyCounter.html#ae3da482ff5f92cc66070698ddf899528", null ],
     [ "GetUI", "classEnemyCounter.html#a68c5d06ef7ac7839d6c15cc00a72d75f", null ],
     [ "Increment", "classEnemyCounter.html#aae92c2c4ccc897be66a820258938aa99", null ],
     [ "Init", "classEnemyCounter.html#ab7a7e4cf1ecd38d4add7357dacf437f0", null ],
@@ -14,5 +15,6 @@ var classEnemyCounter =
     [ "ResetCount", "classEnemyCounter.html#a781da9fc134195b4e43c754b0c54ba50", null ],
     [ "defeatCount_", "classEnemyCounter.html#ab393602d446e425599eb5701e8a5cce0", null ],
     [ "enemyCount_", "classEnemyCounter.html#a5bbf47201e14a3711a34d3b0ddc0b00b", null ],
-    [ "enemyCountUI_", "classEnemyCounter.html#a11c20ee14e80544e40876101fdf9cba5", null ]
+    [ "enemyCountUI_", "classEnemyCounter.html#a11c20ee14e80544e40876101fdf9cba5", null ],
+    [ "m_textRenderer", "classEnemyCounter.html#a161be05c18e76f1582abb9cc51ebec2e", null ]
 ];

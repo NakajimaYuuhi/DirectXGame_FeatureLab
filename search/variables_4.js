@@ -68,7 +68,7 @@ var searchData=
   ['detection_5frange_65',['DETECTION_RANGE',['../classEnemyAIComponent.html#aee171b8aed4a9266d2bb0a3728395f46',1,'EnemyAIComponent']]],
   ['device_66',['device',['../structImGui__ImplDX12__InitInfo.html#ae010edaef902b3865896902e1a111d40',1,'ImGui_ImplDX12_InitInfo::Device'],['../structImGui__ImplDX12__RenderState.html#ad27390092da6a903c2cfee9608610f98',1,'ImGui_ImplDX12_RenderState::Device']]],
   ['dimbgratio_67',['DimBgRatio',['../structImGuiContext.html#af5761a79ad40a0b0fbdb1376ce0af4a1',1,'ImGuiContext']]],
-  ['direction_68',['direction',['../classRandomParticle.html#ad397d274730a0e3711b0127d55f7bc2d',1,'RandomParticle::Direction'],['../structRay.html#abb9215b020dc467c154b94aa8f765f53',1,'Ray::direction']]],
+  ['direction_68',['direction',['../structRay.html#abb9215b020dc467c154b94aa8f765f53',1,'Ray::direction'],['../classRandomParticle.html#ad397d274730a0e3711b0127d55f7bc2d',1,'RandomParticle::Direction']]],
   ['dirty_69',['Dirty',['../structMyDocument.html#a8d239384f0e6d16da96b783a4f14eb55',1,'MyDocument']]],
   ['disabledalpha_70',['DisabledAlpha',['../structImGuiStyle.html#ac497d4a539ff1daf63a8e6a23bd23b0e',1,'ImGuiStyle']]],
   ['disabledalphabackup_71',['DisabledAlphaBackup',['../structImGuiContext.html#a3fcd07940c700bf8b106e414d28db79c',1,'ImGuiContext']]],

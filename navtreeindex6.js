@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"classObjectManager.html#aa950727024ad3d6d1095a57a1c10f019":[2,0,231,3],
+"classObjectManager.html#ab14b919449101fdecbbafe794d907cc9":[2,0,231,21],
 "classObjectManager.html#ab16bd9ac9432145857d4e09f1fd9920b":[2,0,231,7],
 "classObjectManager.html#abcaffd5bfd414d3fe89c2334e246ade0":[2,0,231,14],
 "classObjectManager.html#ac3ecf278939d7a76e11306d62c98f479":[2,0,231,12],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "classSceneManager.html#adc159da729d02398cac36e7b857f80f3":[2,0,249,14],
 "classSceneManager.html#ae2267fef4dff45c8f04e0d2ae9a0fbaf":[2,0,249,31],
 "classSceneManager.html#af046472efaa10cec80c54e5e5b69bd4f":[2,0,249,12],
-"classSceneSerializer.html":[2,0,250],
-"classSceneSerializer.html#a1a8588425ab017ee8ff9fb8daede30a8":[2,0,250,2],
-"classSceneSerializer.html#a9144b899b7f463e15e1ca284945ff76b":[2,0,250,1]
+"classSceneSerializer.html":[2,0,250]
 };
