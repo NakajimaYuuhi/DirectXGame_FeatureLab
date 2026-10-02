@@ -1,5 +1,9 @@
 var NAVTREEINDEX38 =
 {
+"structImFontAtlasBuilder.html#a8c9dabbbd389330e1d126c0e790dba81":[2,0,91,8],
+"structImFontAtlasBuilder.html#a93e9e4261c25e461cb169fee28172279":[2,0,91,17],
+"structImFontAtlasBuilder.html#a94c30248204c48b5c152e320f45856ee":[2,0,91,5],
+"structImFontAtlasBuilder.html#a95002e7c792315983b572244b693c89a":[2,0,91,15],
 "structImFontAtlasBuilder.html#ab6557cc9d42fc551619c3411205bfacb":[2,0,91,2],
 "structImFontAtlasBuilder.html#ac2f643d8abc462e7abec1126706663db":[2,0,91,1],
 "structImFontAtlasBuilder.html#acbe56204c9062b3b6bdea756134d7e87":[2,0,91,3],
@@ -245,9 +249,5 @@ var NAVTREEINDEX38 =
 "structImGuiContext.html#a47e8a4a544d940b22238aaf45a79072b":[2,0,111,149],
 "structImGuiContext.html#a4870dd639fa54ed2f3f7ba0b5c11c948":[2,0,111,293],
 "structImGuiContext.html#a48b837ab4012447dde42bab75406abdd":[2,0,111,178],
-"structImGuiContext.html#a48d9613d2debdc972cf22f98c241faa9":[2,0,111,184],
-"structImGuiContext.html#a498c30d93a56d5cc173687ab25d86f85":[2,0,111,235],
-"structImGuiContext.html#a4a370ec661b7ed0372fadf8a8247519d":[2,0,111,88],
-"structImGuiContext.html#a4a3aa38a5b88e2be8fd73b29e39e3fbc":[2,0,111,91],
-"structImGuiContext.html#a4c1de2c1a15e1dda468035b774b84ee1":[2,0,111,133]
+"structImGuiContext.html#a48d9613d2debdc972cf22f98c241faa9":[2,0,111,184]
 };

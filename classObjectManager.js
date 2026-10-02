@@ -8,7 +8,9 @@ var classObjectManager =
     [ "Draw", "classObjectManager.html#a852d554df9444454176abeb96d2524b2", null ],
     [ "DrawByLayer", "classObjectManager.html#ae70e58ca78e40f6d3cf1a7b04a83d18c", null ],
     [ "FlushDestroyedObjects", "classObjectManager.html#ab16bd9ac9432145857d4e09f1fd9920b", null ],
+    [ "FlushPendingAddObjects", "classObjectManager.html#ae0b8e12bcb155a7072b7b9d9f251f22d", null ],
     [ "GetCamera", "classObjectManager.html#a0fb8e1c4fc8cd99de5fd13b3992ae5db", null ],
+    [ "GetCameraComponent", "classObjectManager.html#afe494c2b51bc357f0858cfab053bdc48", null ],
     [ "GetCameraObject", "classObjectManager.html#a798f6b962a7d37df8dbbaf907f85cd39", null ],
     [ "GetField", "classObjectManager.html#ac3ecf278939d7a76e11306d62c98f479", null ],
     [ "GetInstance", "classObjectManager.html#aa3effb46aaa14ce422f1ba657b514446", null ],
@@ -21,5 +23,6 @@ var classObjectManager =
     [ "operator=", "classObjectManager.html#a9fe0f04863126942c396ffe712bb346b", null ],
     [ "Uninit", "classObjectManager.html#ab14b919449101fdecbbafe794d907cc9", null ],
     [ "Update", "classObjectManager.html#a3358b9b3a459e6594b97d098b33020e4", null ],
+    [ "m_pendingAddObjects", "classObjectManager.html#a2d2f39b2f9da4094a84b50aaec211120", null ],
     [ "vecObject", "classObjectManager.html#ae085e527fae047616712ca5c94f56656", null ]
 ];

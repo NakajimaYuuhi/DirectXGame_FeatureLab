@@ -1,5 +1,9 @@
 var NAVTREEINDEX49 =
 {
+"structnlohmann_1_1json__sax.html#ae7c31614e8a82164d2d7f8dbf4671b25":[2,0,0,5,15],
+"structnlohmann_1_1json__sax.html#af31bacfa81aa7818d8639d1da65c8eb5":[2,0,0,5,8],
+"structnlohmann_1_1json__sax.html#af31bacfa81aa7818d8639d1da65c8eb5":[1,0,4,5,8],
+"structnlohmann_1_1json__sax.html#affa7a78b8e9cc9cc3ac99927143142a5":[1,0,4,5,16],
 "structnlohmann_1_1json__sax.html#affa7a78b8e9cc9cc3ac99927143142a5":[2,0,0,5,16],
 "structnlohmann_1_1ordered__map.html":[2,0,0,6],
 "structnlohmann_1_1ordered__map.html":[1,0,4,6],
@@ -245,9 +249,5 @@ var NAVTREEINDEX49 =
 "structtinygltf_1_1Animation.html#aa0e373e4444bc345c5265e12942e0e38":[1,0,8,2,5],
 "structtinygltf_1_1Animation.html#aa0e373e4444bc345c5265e12942e0e38":[2,0,2,2,5],
 "structtinygltf_1_1Animation.html#aa15630bd3ff952d0fac6fb7778a55a49":[1,0,8,2,8],
-"structtinygltf_1_1Animation.html#aa15630bd3ff952d0fac6fb7778a55a49":[2,0,2,2,8],
-"structtinygltf_1_1Animation.html#ad131c6b23235166e09e6128aa67d3c23":[2,0,2,2,0],
-"structtinygltf_1_1Animation.html#ad131c6b23235166e09e6128aa67d3c23":[1,0,8,2,0],
-"structtinygltf_1_1AnimationChannel.html":[1,0,8,3],
-"structtinygltf_1_1AnimationChannel.html":[2,0,2,3]
+"structtinygltf_1_1Animation.html#aa15630bd3ff952d0fac6fb7778a55a49":[2,0,2,2,8]
 };
