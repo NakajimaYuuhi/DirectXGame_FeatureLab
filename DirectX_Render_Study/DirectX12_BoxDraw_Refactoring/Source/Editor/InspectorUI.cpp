@@ -38,6 +38,7 @@
 #include "ParticleComponent.h"
 #include "UVAnimationComponent.h"
 #include "ParticleEmitterComponent.h"
+#include "ButtonComponent.h"
 #include "CollisionLayers.h"
 #include "RenderLayer.h"
 #include <typeinfo>
@@ -1315,6 +1316,95 @@ void CInspectorUI::Draw()
                     }
                 }
 
+                ButtonComponent* btnComp = selectedObj->GetComponent<ButtonComponent>();
+                if (btnComp)
+                {
+                    if (ImGui::CollapsingHeader("ButtonComponent Settings", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        static const char* actionNames[] = {
+                            "None",
+                            "ChangeScene_Test",
+                            "ChangeScene_Title",
+                            "ChangeScene_Clear",
+                            "ChangeScene_Failed",
+                            "ExitGame"
+                        };
+                        static const ButtonAction actionEnums[] = {
+                            ButtonAction::None,
+                            ButtonAction::ChangeScene_Test,
+                            ButtonAction::ChangeScene_Title,
+                            ButtonAction::ChangeScene_Clear,
+                            ButtonAction::ChangeScene_Failed,
+                            ButtonAction::ExitGame
+                        };
+
+                        int currentActionIdx = 0;
+                        ButtonAction curAction = btnComp->GetAction();
+                        for (int a = 0; a < IM_ARRAYSIZE(actionEnums); ++a)
+                        {
+                            if (actionEnums[a] == curAction)
+                            {
+                                currentActionIdx = a;
+                                break;
+                            }
+                        }
+
+                        if (ImGui::Combo("OnClick Action##BtnComp", &currentActionIdx, actionNames, IM_ARRAYSIZE(actionNames)))
+                        {
+                            btnComp->SetAction(actionEnums[currentActionIdx]);
+                        }
+
+                        // Navigation Target Selection
+                        std::vector<std::string> targetNames;
+                        targetNames.push_back("(None)");
+
+                        for (size_t tagIdx = 0; tagIdx < objectList.size(); ++tagIdx)
+                        {
+                            for (const auto& obj : objectList[tagIdx])
+                            {
+                                if (!obj || obj->GetIsDestroyed()) continue;
+                                if (dynamic_cast<CUIButton*>(obj.get()) || obj->GetComponent<ButtonComponent>())
+                                {
+                                    CObjectInfo* info = obj->GetComponent<CObjectInfo>();
+                                    std::string bName = info ? info->GetObjectName() : "Button";
+                                    targetNames.push_back(bName);
+                                }
+                            }
+                        }
+
+                        std::vector<const char*> btnComboLabels;
+                        for (const auto& bName : targetNames) btnComboLabels.push_back(bName.c_str());
+
+                        auto FindComboIndex = [&](const std::string& targetName) -> int {
+                            if (targetName.empty()) return 0;
+                            for (size_t idx = 1; idx < targetNames.size(); ++idx)
+                            {
+                                if (targetNames[idx] == targetName) return (int)idx;
+                            }
+                            return 0;
+                        };
+
+                        int upIdx = FindComboIndex(btnComp->GetUpName());
+                        int downIdx = FindComboIndex(btnComp->GetDownName());
+                        int leftIdx = FindComboIndex(btnComp->GetLeftName());
+                        int rightIdx = FindComboIndex(btnComp->GetRightName());
+
+                        bool navChanged = false;
+                        if (ImGui::Combo("Select On Up##BtnComp", &upIdx, btnComboLabels.data(), (int)btnComboLabels.size())) navChanged = true;
+                        if (ImGui::Combo("Select On Down##BtnComp", &downIdx, btnComboLabels.data(), (int)btnComboLabels.size())) navChanged = true;
+                        if (ImGui::Combo("Select On Left##BtnComp", &leftIdx, btnComboLabels.data(), (int)btnComboLabels.size())) navChanged = true;
+                        if (ImGui::Combo("Select On Right##BtnComp", &rightIdx, btnComboLabels.data(), (int)btnComboLabels.size())) navChanged = true;
+
+                        if (navChanged)
+                        {
+                            auto GetNameOrEmpty = [&](int idx) -> std::string {
+                                return (idx > 0 && idx < (int)targetNames.size()) ? targetNames[idx] : "";
+                            };
+                            btnComp->SetNavigationNames(GetNameOrEmpty(upIdx), GetNameOrEmpty(downIdx), GetNameOrEmpty(leftIdx), GetNameOrEmpty(rightIdx));
+                        }
+                    }
+                }
+
                 // -------------------------------------------------------------
                 // Other Components (Components without custom inspector panels)
                 // -------------------------------------------------------------
@@ -1326,7 +1416,7 @@ void CInspectorUI::Draw()
                     if (cPtr != transform && cPtr != sprite && cPtr != textComp && cPtr != model &&
                         cPtr != boxCollider && cPtr != gravityComp && cPtr != healthComp &&
                         cPtr != movementComp && cPtr != playerCtrl && cPtr != enemyAI && cPtr != bulletComp && cPtr != cameraComp &&
-                        cPtr != bbComp && cPtr != ptComp && cPtr != uvComp && cPtr != peComp && cPtr != objInfo)
+                        cPtr != bbComp && cPtr != ptComp && cPtr != uvComp && cPtr != peComp && cPtr != btnComp && cPtr != objInfo)
                     {
                         otherCompNames.push_back(GetCleanComponentName(cPtr));
                     }
@@ -1343,23 +1433,42 @@ void CInspectorUI::Draw()
                 }
 
                 // -------------------------------------------------------------
-                // Add Component Dropdown Button
+                // Add Component Dropdown Button & Searchable Popup
                 // -------------------------------------------------------------
                 ImGui::Spacing();
                 ImGui::Separator();
                 ImGui::Spacing();
 
+                static char compSearchFilter[128] = "";
                 if (ImGui::Button("+ Add Component", ImVec2(-1.0f, 28.0f)))
                 {
+                    compSearchFilter[0] = '\0';
                     ImGui::OpenPopup("AddComponentPopup");
                 }
 
                 if (ImGui::BeginPopup("AddComponentPopup"))
                 {
-                    ImGui::TextDisabled("Select Component to Add:");
+                    ImGui::TextDisabled("Search Component:");
+                    ImGui::SetNextItemWidth(260.0f);
+                    if (ImGui::IsWindowAppearing())
+                    {
+                        ImGui::SetKeyboardFocusHere();
+                    }
+                    ImGui::InputTextWithHint("##CompSearch", "Type to search...", compSearchFilter, sizeof(compSearchFilter));
                     ImGui::Separator();
 
-                    if (!selectedObj->GetComponent<CModel>())
+                    std::string filterStr = compSearchFilter;
+                    std::transform(filterStr.begin(), filterStr.end(), filterStr.begin(), ::tolower);
+
+                    auto MatchesFilter = [&filterStr](const std::string& name) -> bool {
+                        if (filterStr.empty()) return true;
+                        std::string lowerName = name;
+                        std::transform(lowerName.begin(), lowerName.end(), lowerName.begin(), ::tolower);
+                        return lowerName.find(filterStr) != std::string::npos;
+                    };
+
+                    // --- Visuals & Rendering ---
+                    if (MatchesFilter("Model Component (CModel)") && !selectedObj->GetComponent<CModel>())
                     {
                         if (ImGui::Selectable("Model Component (CModel)"))
                         {
@@ -1376,91 +1485,118 @@ void CInspectorUI::Draw()
                             }
                         }
                     }
-                    if (!selectedObj->GetComponent<BoxCollider3D>())
+                    if (MatchesFilter("Sprite Renderer Component (CSpriteRenderer)") && !selectedObj->GetComponent<CSpriteRenderer>())
                     {
-                        if (ImGui::Selectable("Box Collider 3D (BoxCollider3D)"))
+                        if (ImGui::Selectable("Sprite Renderer Component (CSpriteRenderer)"))
                         {
-                            selectedObj->AddComponent<BoxCollider3D>();
+                            selectedObj->AddComponent<CSpriteRenderer>();
                         }
                     }
-                    if (!selectedObj->GetComponent<Audio>())
+                    if (MatchesFilter("Text Renderer Component (CTextRenderer)") && !selectedObj->GetComponent<CTextRenderer>())
                     {
-                        if (ImGui::Selectable("Audio Component (Audio)"))
+                        if (ImGui::Selectable("Text Renderer Component (CTextRenderer)"))
                         {
-                            selectedObj->AddComponent<Audio>();
+                            selectedObj->AddComponent<CTextRenderer>();
                         }
                     }
-                    if (!selectedObj->GetComponent<GravityComponent>())
-                    {
-                        if (ImGui::Selectable("Gravity Component"))
-                        {
-                            selectedObj->AddComponent<GravityComponent>();
-                        }
-                    }
-                    if (!selectedObj->GetComponent<CharacterMovementComponent>())
-                    {
-                        if (ImGui::Selectable("Character Movement Component"))
-                        {
-                            selectedObj->AddComponent<CharacterMovementComponent>();
-                        }
-                    }
-                    if (!selectedObj->GetComponent<HealthComponent>())
-                    {
-                        if (ImGui::Selectable("Health Component"))
-                        {
-                            selectedObj->AddComponent<HealthComponent>();
-                        }
-                    }
-                    if (!selectedObj->GetComponent<PlayerControllerComponent>())
-                    {
-                        if (ImGui::Selectable("Player Controller Component"))
-                        {
-                            selectedObj->AddComponent<PlayerControllerComponent>();
-                        }
-                    }
-                    if (!selectedObj->GetComponent<EnemyAIComponent>())
-                    {
-                        if (ImGui::Selectable("Enemy AI Component"))
-                        {
-                            selectedObj->AddComponent<EnemyAIComponent>();
-                        }
-                    }
-                    if (!selectedObj->GetComponent<BulletComponent>())
-                    {
-                        if (ImGui::Selectable("Bullet Component"))
-                        {
-                            selectedObj->AddComponent<BulletComponent>();
-                        }
-                    }
-                    if (!selectedObj->GetComponent<CameraComponent>())
-                    {
-                        if (ImGui::Selectable("Camera Component"))
-                        {
-                            selectedObj->AddComponent<CameraComponent>();
-                        }
-                    }
-                    if (!selectedObj->GetComponent<BillboardComponent>())
+                    if (MatchesFilter("Billboard Component") && !selectedObj->GetComponent<BillboardComponent>())
                     {
                         if (ImGui::Selectable("Billboard Component"))
                         {
                             selectedObj->AddComponent<BillboardComponent>();
                         }
                     }
-                    if (!selectedObj->GetComponent<ParticleComponent>())
+
+                    // --- Physics & Gameplay ---
+                    if (MatchesFilter("Box Collider 3D (BoxCollider3D)") && !selectedObj->GetComponent<BoxCollider3D>())
+                    {
+                        if (ImGui::Selectable("Box Collider 3D (BoxCollider3D)"))
+                        {
+                            selectedObj->AddComponent<BoxCollider3D>();
+                        }
+                    }
+                    if (MatchesFilter("Gravity Component") && !selectedObj->GetComponent<GravityComponent>())
+                    {
+                        if (ImGui::Selectable("Gravity Component"))
+                        {
+                            selectedObj->AddComponent<GravityComponent>();
+                        }
+                    }
+                    if (MatchesFilter("Character Movement Component") && !selectedObj->GetComponent<CharacterMovementComponent>())
+                    {
+                        if (ImGui::Selectable("Character Movement Component"))
+                        {
+                            selectedObj->AddComponent<CharacterMovementComponent>();
+                        }
+                    }
+                    if (MatchesFilter("Health Component") && !selectedObj->GetComponent<HealthComponent>())
+                    {
+                        if (ImGui::Selectable("Health Component"))
+                        {
+                            selectedObj->AddComponent<HealthComponent>();
+                        }
+                    }
+                    if (MatchesFilter("Player Controller Component") && !selectedObj->GetComponent<PlayerControllerComponent>())
+                    {
+                        if (ImGui::Selectable("Player Controller Component"))
+                        {
+                            selectedObj->AddComponent<PlayerControllerComponent>();
+                        }
+                    }
+                    if (MatchesFilter("Enemy AI Component") && !selectedObj->GetComponent<EnemyAIComponent>())
+                    {
+                        if (ImGui::Selectable("Enemy AI Component"))
+                        {
+                            selectedObj->AddComponent<EnemyAIComponent>();
+                        }
+                    }
+                    if (MatchesFilter("Bullet Component") && !selectedObj->GetComponent<BulletComponent>())
+                    {
+                        if (ImGui::Selectable("Bullet Component"))
+                        {
+                            selectedObj->AddComponent<BulletComponent>();
+                        }
+                    }
+                    if (MatchesFilter("Camera Component") && !selectedObj->GetComponent<CameraComponent>())
+                    {
+                        if (ImGui::Selectable("Camera Component"))
+                        {
+                            selectedObj->AddComponent<CameraComponent>();
+                        }
+                    }
+
+                    // --- UI & Input ---
+                    if (MatchesFilter("Button Component") && !selectedObj->GetComponent<ButtonComponent>())
+                    {
+                        if (ImGui::Selectable("Button Component"))
+                        {
+                            selectedObj->AddComponent<ButtonComponent>();
+                        }
+                    }
+
+                    // --- Audio & FX ---
+                    if (MatchesFilter("Audio Component (Audio)") && !selectedObj->GetComponent<Audio>())
+                    {
+                        if (ImGui::Selectable("Audio Component (Audio)"))
+                        {
+                            selectedObj->AddComponent<Audio>();
+                        }
+                    }
+                    if (MatchesFilter("Particle Component") && !selectedObj->GetComponent<ParticleComponent>())
                     {
                         if (ImGui::Selectable("Particle Component"))
                         {
                             selectedObj->AddComponent<ParticleComponent>();
                         }
                     }
-                    if (!selectedObj->GetComponent<UVAnimationComponent>())
+                    if (MatchesFilter("UV Animation Component") && !selectedObj->GetComponent<UVAnimationComponent>())
                     {
                         if (ImGui::Selectable("UV Animation Component"))
                         {
                             selectedObj->AddComponent<UVAnimationComponent>();
                         }
                     }
-                    if (!selectedObj->GetComponent<ParticleEmitterComponent>())
+                    if (MatchesFilter("Particle Emitter Component") && !selectedObj->GetComponent<ParticleEmitterComponent>())
                     {
                         if (ImGui::Selectable("Particle Emitter Component"))
                         {

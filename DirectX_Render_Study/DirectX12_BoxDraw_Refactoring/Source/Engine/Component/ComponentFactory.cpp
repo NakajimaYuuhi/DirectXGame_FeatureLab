@@ -15,6 +15,9 @@
 #include "ParticleComponent.h"
 #include "UVAnimationComponent.h"
 #include "ParticleEmitterComponent.h"
+#include "SpriteRenderer.h"
+#include "TextRenderer.h"
+#include "ButtonComponent.h"
 #include <windows.h>
 
 ComponentFactory::ComponentFactory()
@@ -390,4 +393,76 @@ void ComponentFactory::InitDefaultComponents()
 	};
 	RegisterComponent("ParticleEmitter", particleEmitterCreator);
 	RegisterComponent("ParticleEmitterComponent", particleEmitterCreator);
+
+	// 16. CSpriteRenderer Component
+	auto spriteCreator = [](CObject* owner, const nlohmann::json& p) -> CComponent* {
+		CSpriteRenderer* sprite = owner->GetComponent<CSpriteRenderer>();
+		if (!sprite) sprite = owner->AddComponent<CSpriteRenderer>();
+		if (sprite)
+		{
+			if (p.contains("TexturePath"))
+			{
+				std::string texStr = p["TexturePath"].get<std::string>();
+				std::wstring texW(texStr.begin(), texStr.end());
+				sprite->SetTexture(texW);
+			}
+			if (p.contains("Size") && p["Size"].is_array() && p["Size"].size() >= 2)
+			{
+				sprite->SetSize(p["Size"][0], p["Size"][1]);
+			}
+			if (p.contains("Color") && p["Color"].is_array() && p["Color"].size() >= 4)
+			{
+				sprite->SetColor({ p["Color"][0], p["Color"][1], p["Color"][2], p["Color"][3] });
+			}
+		}
+		return sprite;
+	};
+	RegisterComponent("SpriteRenderer", spriteCreator);
+	RegisterComponent("CSpriteRenderer", spriteCreator);
+
+	// 17. CTextRenderer Component
+	auto textCreator = [](CObject* owner, const nlohmann::json& p) -> CComponent* {
+		CTextRenderer* textComp = owner->GetComponent<CTextRenderer>();
+		if (!textComp) textComp = owner->AddComponent<CTextRenderer>();
+		if (textComp)
+		{
+			if (p.contains("Content"))
+			{
+				std::string contentStr = p["Content"].get<std::string>();
+				std::wstring contentW(contentStr.begin(), contentStr.end());
+				textComp->SetText(contentW);
+			}
+			if (p.contains("FontSize")) textComp->SetFontSize(p["FontSize"].get<float>());
+			if (p.contains("FontFamily"))
+			{
+				std::string fontStr = p["FontFamily"].get<std::string>();
+				std::wstring fontW(fontStr.begin(), fontStr.end());
+				textComp->SetFontFamily(fontW);
+			}
+		}
+		return textComp;
+	};
+	RegisterComponent("TextRenderer", textCreator);
+	RegisterComponent("CTextRenderer", textCreator);
+
+	// 18. ButtonComponent
+	auto buttonCreator = [](CObject* owner, const nlohmann::json& p) -> CComponent* {
+		ButtonComponent* btnComp = owner->GetComponent<ButtonComponent>();
+		if (!btnComp) btnComp = owner->AddComponent<ButtonComponent>();
+		if (btnComp)
+		{
+			if (p.contains("Action"))
+			{
+				btnComp->SetAction(StringToButtonAction(p["Action"].get<std::string>()));
+			}
+			std::string up = p.value("NavUp", "");
+			std::string down = p.value("NavDown", "");
+			std::string left = p.value("NavLeft", "");
+			std::string right = p.value("NavRight", "");
+			btnComp->SetNavigationNames(up, down, left, right);
+		}
+		return btnComp;
+	};
+	RegisterComponent("Button", buttonCreator);
+	RegisterComponent("ButtonComponent", buttonCreator);
 }

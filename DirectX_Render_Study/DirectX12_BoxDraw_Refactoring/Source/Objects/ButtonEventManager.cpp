@@ -1,6 +1,7 @@
 #include "ObjectManager.h"
 #include "ObjectInfo.h"
 #include "CUIButton.h"
+#include "ButtonComponent.h"
 #include "ButtonEventManager.h"
 #include "InputManager.h"
 #include "InspectorUI.h"
@@ -41,15 +42,15 @@ void ButtonEventManager::Update()
 
     CInputManager& input = CInputManager::GetInstance();
 
-    // ?????t?H?[?J?X??CUIButton??????`?F?b?N????i?r?Q?[?V?????????
     CUIButton* currentBtn = dynamic_cast<CUIButton*>(m_currentSelected);
+    ButtonComponent* currentBtnComp = dynamic_cast<ButtonComponent*>(m_currentSelected);
+
     if (currentBtn)
     {
-        // ?L?[?{?[?h???????i?r?Q?[?V????
         if ((input.IsKeyTrigger(VK_UP)||input.IsKeyTrigger('W')) && currentBtn->GetSelectOnUp())
         {
             SetSelectedGameObject(currentBtn->GetSelectOnUp());
-            return; // 1?t???[???????????????????return
+            return;
         }
         else if ((input.IsKeyTrigger(VK_DOWN)||input.IsKeyTrigger('S')) && currentBtn->GetSelectOnDown())
         {
@@ -67,8 +68,45 @@ void ButtonEventManager::Update()
             return;
         }
     }
+    else if (currentBtnComp)
+    {
+        auto FindSelectableByName = [](const std::string& name) -> ISelectable* {
+            if (name.empty()) return nullptr;
+            const auto& objectList = ObjectManager::GetInstance().GetObjectList();
+            for (const auto& vec : objectList)
+            {
+                for (const auto& obj : vec)
+                {
+                    if (!obj || obj->GetIsDestroyed()) continue;
+                    CObjectInfo* info = obj->GetComponent<CObjectInfo>();
+                    if (info && info->GetObjectName() == name)
+                    {
+                        if (auto btn = dynamic_cast<CUIButton*>(obj.get())) return btn;
+                        if (auto btnComp = obj->GetComponent<ButtonComponent>()) return btnComp;
+                    }
+                }
+            }
+            return nullptr;
+        };
 
-    // ???????iEnter?L?[???j
+        if (input.IsKeyTrigger(VK_UP) || input.IsKeyTrigger('W'))
+        {
+            if (auto next = FindSelectableByName(currentBtnComp->GetUpName())) { SetSelectedGameObject(next); return; }
+        }
+        else if (input.IsKeyTrigger(VK_DOWN) || input.IsKeyTrigger('S'))
+        {
+            if (auto next = FindSelectableByName(currentBtnComp->GetDownName())) { SetSelectedGameObject(next); return; }
+        }
+        else if (input.IsKeyTrigger(VK_LEFT) || input.IsKeyTrigger('A'))
+        {
+            if (auto next = FindSelectableByName(currentBtnComp->GetLeftName())) { SetSelectedGameObject(next); return; }
+        }
+        else if (input.IsKeyTrigger(VK_RIGHT) || input.IsKeyTrigger('D'))
+        {
+            if (auto next = FindSelectableByName(currentBtnComp->GetRightName())) { SetSelectedGameObject(next); return; }
+        }
+    }
+
     if (input.IsKeyTrigger(VK_RETURN) || input.IsKeyTrigger(VK_SPACE))
     {
         m_currentSelected->OnSubmit();
@@ -91,6 +129,12 @@ void ButtonEventManager::ApplyFirstSelected()
                 if (btn)
                 {
                     SetSelectedGameObject(btn);
+                    return;
+                }
+                ButtonComponent* btnComp = obj->GetComponent<ButtonComponent>();
+                if (btnComp)
+                {
+                    SetSelectedGameObject(btnComp);
                     return;
                 }
             }
