@@ -33,6 +33,7 @@
 // --2D
 #include "UIObject.h"
 #include "TextObject.h"
+#include "TextRenderer.h"
 #include "EnemyCount.h"
 #include "TitleUI.h"
 #include "CUIButton.h"
@@ -190,14 +191,12 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 		break;
 
 	case ObjectTag::TEXT:
-		if (_TypeName == "EnemyCount")
+		tmpObject = std::make_unique<CObject>(_ObjectName);
+		if (auto info = tmpObject->GetComponent<CObjectInfo>())
 		{
-			tmpObject = std::make_unique<EnemyCount>(_ObjectName);
+			info->SetObjectTag(ObjectTag::TEXT);
 		}
-		else
-		{
-			tmpObject = std::make_unique<TextObject>(_ObjectName);
-		}
+		tmpObject->AddComponent<CTextRenderer>();
 		returnObject = tmpObject.get();
 		m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::TEXT), std::move(tmpObject) });
 		break;

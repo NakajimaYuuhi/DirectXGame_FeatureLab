@@ -265,6 +265,8 @@ bool PrefabSerializer::SavePrefab(const std::string& filepath, CObject* obj)
         comps["TextRenderer"]["Content"] = WStringToString(textComp->GetText());
         comps["TextRenderer"]["FontSize"] = textComp->GetFontSize();
         comps["TextRenderer"]["FontFamily"] = WStringToString(textComp->GetFontFamily());
+        D2D1::ColorF col = textComp->GetColor();
+        comps["TextRenderer"]["Color"] = { col.r, col.g, col.b, col.a };
     }
 
     // 18. ButtonComponent & CUIButton

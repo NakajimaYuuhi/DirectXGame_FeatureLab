@@ -45,6 +45,8 @@ static std::wstring StringToWString(const std::string& str)
 
 bool SceneSerializer::SaveScene(const std::string& filepath, Scenes::ID sceneID)
 {
+	ObjectManager::GetInstance().FlushDestroyedObjects();
+
 	json rootJson;
 	rootJson["sceneID"] = static_cast<int>(sceneID);
 	rootJson["eventSystem"]["firstSelected"] = ButtonEventManager::GetInstance().GetFirstSelectedName();
@@ -208,16 +210,8 @@ bool SceneSerializer::LoadScene(const std::string& filepath, Scenes::ID sceneID)
 		ButtonEventManager::GetInstance().SetFirstSelectedName(firstSel);
 	}
 
-	// Clear objects
-	auto& objectList = ObjectManager::GetInstance().GetObjectList();
-	for (auto& vec : objectList)
-	{
-		for (auto& obj : vec)
-		{
-			if (obj) obj->SetIsDestroyed(true);
-		}
-	}
-	ObjectManager::GetInstance().FlushDestroyedObjects();
+	// Clear objects completely including pending additions
+	ObjectManager::GetInstance().Uninit();
 
 	struct PendingNav
 	{
@@ -341,6 +335,10 @@ bool SceneSerializer::LoadScene(const std::string& filepath, Scenes::ID sceneID)
 
 			// CTextRenderer
 			CTextRenderer* textComp = newObj->GetComponent<CTextRenderer>();
+			if (!textComp && objJson.contains("text"))
+			{
+				textComp = newObj->AddComponent<CTextRenderer>();
+			}
 			if (textComp && objJson.contains("text"))
 			{
 				const auto& textJson = objJson["text"];

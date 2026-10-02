@@ -439,6 +439,10 @@ void ComponentFactory::InitDefaultComponents()
 				std::wstring fontW(fontStr.begin(), fontStr.end());
 				textComp->SetFontFamily(fontW);
 			}
+			if (p.contains("Color") && p["Color"].is_array() && p["Color"].size() == 4)
+			{
+				textComp->SetColor(D2D1::ColorF(p["Color"][0], p["Color"][1], p["Color"][2], p["Color"][3]));
+			}
 		}
 		return textComp;
 	};

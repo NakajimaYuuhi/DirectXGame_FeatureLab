@@ -1,46 +1,53 @@
-
-//ヘッダ
 #include "EnemyCounter.h"
-
 #include "ObjectManager.h"
-
 #include "EnemyCount.h"
-
-// イベント管理
+#include "TextRenderer.h"
 #include "EventManager.h"
-
 #include "EventData_NextScene.h"
 
-
-//コンストラクタ
+// コンストラクタ
 EnemyCounter::EnemyCounter(String _Name) 
-	:enemyCount_	(0) 
-	,defeatCount_	(0)
-	,enemyCountUI_  (nullptr)
+	: enemyCount_(0) 
+	, defeatCount_(0)
+	, enemyCountUI_(nullptr)
+	, m_textRenderer(nullptr)
 { 
 	SetName(_Name); 
 }
 
-EnemyCount* EnemyCounter::GetUI()
+CTextRenderer* EnemyCounter::GetTextRenderer()
 {
-	if (!enemyCountUI_)
+	if (m_textRenderer && m_textRenderer->GetOwner() && !m_textRenderer->GetOwner()->GetIsDestroyed())
 	{
-		const auto& objectList = ObjectManager::GetInstance().GetObjectList();
-		if (static_cast<size_t>(ObjectTag::TEXT) < objectList.size())
+		return m_textRenderer;
+	}
+	m_textRenderer = nullptr;
+
+	const auto& objectList = ObjectManager::GetInstance().GetObjectList();
+	if (static_cast<size_t>(ObjectTag::TEXT) < objectList.size())
+	{
+		for (const auto& obj : objectList[static_cast<size_t>(ObjectTag::TEXT)])
 		{
-			for (const auto& obj : objectList[static_cast<size_t>(ObjectTag::TEXT)])
+			if (!obj || obj->GetIsDestroyed()) continue;
+			auto tr = obj->GetComponent<CTextRenderer>();
+			if (tr)
 			{
-				if (!obj || obj->GetIsDestroyed()) continue;
-				EnemyCount* textUI = dynamic_cast<EnemyCount*>(obj.get());
-				if (textUI)
-				{
-					enemyCountUI_ = textUI;
-					break;
-				}
+				m_textRenderer = tr;
+				return m_textRenderer;
 			}
 		}
 	}
-	return enemyCountUI_;
+	return nullptr;
+}
+
+EnemyCount* EnemyCounter::GetUI()
+{
+	CTextRenderer* tr = GetTextRenderer();
+	if (tr && tr->GetOwner())
+	{
+		return dynamic_cast<EnemyCount*>(tr->GetOwner());
+	}
+	return nullptr;
 }
 
 void EnemyCounter::RecountEnemies()
@@ -64,52 +71,45 @@ void EnemyCounter::ResetCount()
 {
 	defeatCount_ = 0;
 	RecountEnemies();
-	EnemyCount* ui = GetUI();
-	if (ui)
+	CTextRenderer* tr = GetTextRenderer();
+	if (tr)
 	{
-		ui->UpdateText(defeatCount_);
+		tr->SetText(L"Score : " + std::to_wstring(defeatCount_));
 	}
 }
 
 void EnemyCounter::Init()
 {
 	CObject::Init();
-
-	EnemyCount* ui = GetUI();
-	if (!ui)
-	{
-		enemyCountUI_ = (EnemyCount*)ObjectManager::GetInstance().Instantiate(Scenes::NONE, ObjectTag::TEXT, "EnemyCount", "EnemyCount");
-		ui = enemyCountUI_;
-	}
-
 	RecountEnemies();
 
-	if (ui)
+	CTextRenderer* tr = GetTextRenderer();
+	if (tr)
 	{
-		ui->UpdateText(defeatCount_);
+		tr->SetText(L"Score : " + std::to_wstring(defeatCount_));
 	}
 }
 
-//カウント
+// カウント
 void EnemyCounter::Increment(int num_) { enemyCount_ += num_; OutputDebugStringA((std::to_string(enemyCount_) + "\n").c_str()); }
 
 void EnemyCounter::Decrement(int num_) { enemyCount_ -= num_; if (enemyCount_ < 0) enemyCount_ = 0; OutputDebugStringA((std::to_string(enemyCount_) + "\n").c_str()); }
 
-//撃破時
+// 撃破
 void EnemyCounter::Defeat(int num_)
 {
 	defeatCount_ += num_;
 
-	// リアルタイムに生存敵の数を再計算
+	// リアルタイムに敵の数を再計算
 	RecountEnemies();
 
-	EnemyCount* ui = GetUI();
-	if (ui)
+	CTextRenderer* tr = GetTextRenderer();
+	if (tr)
 	{
-		ui->UpdateText(defeatCount_);
+		tr->SetText(L"Score : " + std::to_wstring(defeatCount_));
 	}
 
-	// 生存敵が 0 以下ならクリアシーンに遷移
+	// 敵が 0 以下ならクリアシーンに遷移
 	if (enemyCount_ <= 0)
 	{
 		Event event;

@@ -4,8 +4,9 @@
 #include "StringAlias.h"
 
 class EnemyCount;
+class CTextRenderer;
 
-class EnemyCounter :public Manager
+class EnemyCounter : public Manager
 {
 public:
 	EnemyCounter(String _Name);
@@ -31,12 +32,13 @@ public:
 	void Defeat(int num_ = 1);
 
 	EnemyCount* GetUI();
+	CTextRenderer* GetTextRenderer();
 
 protected:
-	//“G‚Ìî•ñ‚ÍA‚±‚±‚Å
 	int enemyCount_;
 	int defeatCount_;
 	EnemyCount* enemyCountUI_ = nullptr;
+	CTextRenderer* m_textRenderer = nullptr;
 
 
 
