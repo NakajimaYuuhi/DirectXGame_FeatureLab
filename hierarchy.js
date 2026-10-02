@@ -70,23 +70,14 @@ var hierarchy =
     [ "CMesh", "classCMesh.html", null ],
     [ "CObject", "classCObject.html", [
       [ "C3D_Object", "classC3D__Object.html", [
-        [ "BillBoard", "classBillBoard.html", [
-          [ "Explosion", "classExplosion.html", null ],
-          [ "RandomParticle", "classRandomParticle.html", null ]
-        ] ],
+        [ "BillBoard", "classBillBoard.html", null ],
         [ "Field", "classField.html", null ]
       ] ],
       [ "CUIObject", "classCUIObject.html", [
-        [ "CUIButton", "classCUIButton.html", null ],
-        [ "TitleUI", "classTitleUI.html", null ]
+        [ "CUIButton", "classCUIButton.html", null ]
       ] ],
       [ "Camera", "classCamera.html", null ],
-      [ "Manager", "classManager.html", [
-        [ "EnemyCounter", "classEnemyCounter.html", null ]
-      ] ],
-      [ "TextObject", "classTextObject.html", [
-        [ "EnemyCount", "classEnemyCount.html", null ]
-      ] ]
+      [ "Manager", "classManager.html", null ]
     ] ],
     [ "Collision", "classCollision.html", null ],
     [ "ComponentFactory", "classComponentFactory.html", null ],
