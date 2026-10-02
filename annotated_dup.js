@@ -200,6 +200,7 @@ var annotated_dup =
     [ "BillboardComponent", "classBillboardComponent.html", "classBillboardComponent" ],
     [ "BoxCollider3D", "classBoxCollider3D.html", "classBoxCollider3D" ],
     [ "BulletComponent", "classBulletComponent.html", "classBulletComponent" ],
+    [ "ButtonComponent", "classButtonComponent.html", "classButtonComponent" ],
     [ "ButtonEventManager", "classButtonEventManager.html", "classButtonEventManager" ],
     [ "C3D_Object", "classC3D__Object.html", "classC3D__Object" ],
     [ "Camera", "classCamera.html", "classCamera" ],

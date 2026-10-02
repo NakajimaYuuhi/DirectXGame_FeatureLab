@@ -32,6 +32,7 @@ var hierarchy =
       [ "Audio", "classAudio.html", null ],
       [ "BillboardComponent", "classBillboardComponent.html", null ],
       [ "BulletComponent", "classBulletComponent.html", null ],
+      [ "ButtonComponent", "classButtonComponent.html", null ],
       [ "CModel", "classCModel.html", null ],
       [ "CObjectInfo", "classCObjectInfo.html", null ],
       [ "CSpriteRenderer", "classCSpriteRenderer.html", null ],
@@ -444,6 +445,7 @@ var hierarchy =
     [ "nlohmann::detail::is_sax< SAX, BasicJsonType >", "structnlohmann_1_1detail_1_1is__sax.html", null ],
     [ "nlohmann::detail::is_sax_static_asserts< SAX, BasicJsonType >", "structnlohmann_1_1detail_1_1is__sax__static__asserts.html", null ],
     [ "ISelectable", "classISelectable.html", [
+      [ "ButtonComponent", "classButtonComponent.html", null ],
       [ "CUIButton", "classCUIButton.html", null ]
     ] ],
     [ "nlohmann::detail::iter_impl< BasicJsonType >", "classnlohmann_1_1detail_1_1iter__impl.html", null ],

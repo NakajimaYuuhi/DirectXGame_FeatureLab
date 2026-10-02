@@ -1,0 +1,872 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: ButtonComponent クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classButtonComponent.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classButtonComponent-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">ButtonComponent クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="ButtonComponent_8h_source.html">ButtonComponent.h</a>&gt;</code></p>
+<div class="dynheader">
+ButtonComponent の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classButtonComponent__inherit__graph.svg" width="238" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+ButtonComponent 連携図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classButtonComponent__coll__graph.svg" width="238" height="199"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:aeb48bbd7e3230710515c0fc5f1d5c11b" id="r_aeb48bbd7e3230710515c0fc5f1d5c11b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonComponent.html#aeb48bbd7e3230710515c0fc5f1d5c11b">ButtonComponent</a> ()</td></tr>
+<tr class="separator:aeb48bbd7e3230710515c0fc5f1d5c11b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bcf1520342f694afb7b5463971beffb" id="r_a1bcf1520342f694afb7b5463971beffb"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonComponent.html#a1bcf1520342f694afb7b5463971beffb">~ButtonComponent</a> ()=default</td></tr>
+<tr class="separator:a1bcf1520342f694afb7b5463971beffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5b55c4b3dffb49c5e9e4da14bcf0d0b" id="r_aa5b55c4b3dffb49c5e9e4da14bcf0d0b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonComponent.html#aa5b55c4b3dffb49c5e9e4da14bcf0d0b">Init</a> () override</td></tr>
+<tr class="separator:aa5b55c4b3dffb49c5e9e4da14bcf0d0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a774eedf9bb1856074de23727ba14e358" id="r_a774eedf9bb1856074de23727ba14e358"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonComponent.html#a774eedf9bb1856074de23727ba14e358">Update</a> (float deltaTime) override</td></tr>
+<tr class="separator:a774eedf9bb1856074de23727ba14e358"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6621a776ed24361c1e2bbba49dabb88" id="r_ae6621a776ed24361c1e2bbba49dabb88"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonComponent.html#ae6621a776ed24361c1e2bbba49dabb88">OnSelect</a> () override</td></tr>
+<tr class="separator:ae6621a776ed24361c1e2bbba49dabb88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15130d07920d9215d1f5dee5b8f05a42" id="r_a15130d07920d9215d1f5dee5b8f05a42"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonComponent.html#a15130d07920d9215d1f5dee5b8f05a42">OnDeselect</a> () override</td></tr>
+<tr class="separator:a15130d07920d9215d1f5dee5b8f05a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad36872bb7ffae382f9491f287c5614ae" id="r_ad36872bb7ffae382f9491f287c5614ae"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonComponent.html#ad36872bb7ffae382f9491f287c5614ae">OnSubmit</a> () override</td></tr>
+<tr class="separator:ad36872bb7ffae382f9491f287c5614ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa36ae88b0ca0a371583b012da0c90eed" id="r_aa36ae88b0ca0a371583b012da0c90eed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonComponent.html#aa36ae88b0ca0a371583b012da0c90eed">SetOnClickCallback</a> (std::function&lt; void()&gt; callback)</td></tr>
+<tr class="separator:aa36ae88b0ca0a371583b012da0c90eed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac29984cb25e1f5c60aa27734c39cd94d" id="r_ac29984cb25e1f5c60aa27734c39cd94d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ButtonAction_8h.html#afa717ac273a5a382f7c01ef7afba1ee7">ButtonAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonComponent.html#ac29984cb25e1f5c60aa27734c39cd94d">GetAction</a> () const</td></tr>
+<tr class="separator:ac29984cb25e1f5c60aa27734c39cd94d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc7f5aff31f47db9cf4ce4b24925bfb7" id="r_afc7f5aff31f47db9cf4ce4b24925bfb7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonComponent.html#afc7f5aff31f47db9cf4ce4b24925bfb7">SetAction</a> (<a class="el" href="ButtonAction_8h.html#afa717ac273a5a382f7c01ef7afba1ee7">ButtonAction</a> action)</td></tr>
+<tr class="separator:afc7f5aff31f47db9cf4ce4b24925bfb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6f2b004d7986c8ae54a77b5943ecbc8" id="r_ac6f2b004d7986c8ae54a77b5943ecbc8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonComponent.html#ac6f2b004d7986c8ae54a77b5943ecbc8">SetNavigationNames</a> (const std::string &amp;up, const std::string &amp;down, const std::string &amp;left, const std::string &amp;right)</td></tr>
+<tr class="separator:ac6f2b004d7986c8ae54a77b5943ecbc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac96a6df2189786721b88abe71bd29e71" id="r_ac96a6df2189786721b88abe71bd29e71"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonComponent.html#ac96a6df2189786721b88abe71bd29e71">GetUpName</a> () const</td></tr>
+<tr class="separator:ac96a6df2189786721b88abe71bd29e71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a898ceba9c7b8e1d2cd135e8bd62a90ca" id="r_a898ceba9c7b8e1d2cd135e8bd62a90ca"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonComponent.html#a898ceba9c7b8e1d2cd135e8bd62a90ca">GetDownName</a> () const</td></tr>
+<tr class="separator:a898ceba9c7b8e1d2cd135e8bd62a90ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27d39b340b47e5268c53ac89016014f7" id="r_a27d39b340b47e5268c53ac89016014f7"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonComponent.html#a27d39b340b47e5268c53ac89016014f7">GetLeftName</a> () const</td></tr>
+<tr class="separator:a27d39b340b47e5268c53ac89016014f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a5955125ddb74ba801179f121ced3c7" id="r_a8a5955125ddb74ba801179f121ced3c7"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonComponent.html#a8a5955125ddb74ba801179f121ced3c7">GetRightName</a> () const</td></tr>
+<tr class="separator:a8a5955125ddb74ba801179f121ced3c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a091d35ef3177fdbe3f7c0d9541bf8330" id="r_a091d35ef3177fdbe3f7c0d9541bf8330"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonComponent.html#a091d35ef3177fdbe3f7c0d9541bf8330">IsSelected</a> () const</td></tr>
+<tr class="separator:a091d35ef3177fdbe3f7c0d9541bf8330"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classCComponent"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCComponent')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCComponent.html">CComponent</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:ab87a6940be69962c3f4f5a8552643245 inherit pub_methods_classCComponent" id="r_ab87a6940be69962c3f4f5a8552643245"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ab87a6940be69962c3f4f5a8552643245">CComponent</a> ()</td></tr>
+<tr class="separator:ab87a6940be69962c3f4f5a8552643245 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accf17908f97e4d07d7f04fbde292dcda inherit pub_methods_classCComponent" id="r_accf17908f97e4d07d7f04fbde292dcda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#accf17908f97e4d07d7f04fbde292dcda">CComponent</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:accf17908f97e4d07d7f04fbde292dcda inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2ad4d80f616aedbf6b08f33bdd9d2d5 inherit pub_methods_classCComponent" id="r_af2ad4d80f616aedbf6b08f33bdd9d2d5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#af2ad4d80f616aedbf6b08f33bdd9d2d5">~CComponent</a> ()=default</td></tr>
+<tr class="separator:af2ad4d80f616aedbf6b08f33bdd9d2d5 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf3ad4406a744d3fa20d83cc704345cf inherit pub_methods_classCComponent" id="r_adf3ad4406a744d3fa20d83cc704345cf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#adf3ad4406a744d3fa20d83cc704345cf">Awake</a> ()</td></tr>
+<tr class="separator:adf3ad4406a744d3fa20d83cc704345cf inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcee296a2416501cf52755038d4f27eb inherit pub_methods_classCComponent" id="r_adcee296a2416501cf52755038d4f27eb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#adcee296a2416501cf52755038d4f27eb">Start</a> ()</td></tr>
+<tr class="separator:adcee296a2416501cf52755038d4f27eb inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a760d6a0423bc53cb943410926a0d1c65 inherit pub_methods_classCComponent" id="r_a760d6a0423bc53cb943410926a0d1c65"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a760d6a0423bc53cb943410926a0d1c65">OnEnable</a> ()</td></tr>
+<tr class="separator:a760d6a0423bc53cb943410926a0d1c65 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a4d61758b48e83685c1ffe002dc1b41 inherit pub_methods_classCComponent" id="r_a0a4d61758b48e83685c1ffe002dc1b41"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a0a4d61758b48e83685c1ffe002dc1b41">OnDisable</a> ()</td></tr>
+<tr class="separator:a0a4d61758b48e83685c1ffe002dc1b41 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad72e93375519950fa4cbc176ede60db1 inherit pub_methods_classCComponent" id="r_ad72e93375519950fa4cbc176ede60db1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ad72e93375519950fa4cbc176ede60db1">LateUpdate</a> (float deltaTime)</td></tr>
+<tr class="separator:ad72e93375519950fa4cbc176ede60db1 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cce55e18bd5fff318f8448bf260540d inherit pub_methods_classCComponent" id="r_a2cce55e18bd5fff318f8448bf260540d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a2cce55e18bd5fff318f8448bf260540d">Draw</a> ()</td></tr>
+<tr class="separator:a2cce55e18bd5fff318f8448bf260540d inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26e97bcceac386d951092ade96512283 inherit pub_methods_classCComponent" id="r_a26e97bcceac386d951092ade96512283"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a26e97bcceac386d951092ade96512283">OnCollision</a> (<a class="el" href="classCObject.html">CObject</a> *_Other)</td></tr>
+<tr class="separator:a26e97bcceac386d951092ade96512283 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cb4ec11d3210b5f3278d8e55b7308bd inherit pub_methods_classCComponent" id="r_a8cb4ec11d3210b5f3278d8e55b7308bd"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a8cb4ec11d3210b5f3278d8e55b7308bd">GetUpdatePhase</a> () const</td></tr>
+<tr class="separator:a8cb4ec11d3210b5f3278d8e55b7308bd inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9de9cd78a132d68bdb0977b7d9272df8 inherit pub_methods_classCComponent" id="r_a9de9cd78a132d68bdb0977b7d9272df8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a9de9cd78a132d68bdb0977b7d9272df8">IsEnabled</a> () const</td></tr>
+<tr class="separator:a9de9cd78a132d68bdb0977b7d9272df8 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72945a287cdce2b3dd7cd9a33ce022f9 inherit pub_methods_classCComponent" id="r_a72945a287cdce2b3dd7cd9a33ce022f9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a72945a287cdce2b3dd7cd9a33ce022f9">GetEnabled</a> () const</td></tr>
+<tr class="separator:a72945a287cdce2b3dd7cd9a33ce022f9 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3588f81b9d893984ece9dfa4cdaf8383 inherit pub_methods_classCComponent" id="r_a3588f81b9d893984ece9dfa4cdaf8383"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a3588f81b9d893984ece9dfa4cdaf8383">SetEnabled</a> (bool enabled)</td></tr>
+<tr class="separator:a3588f81b9d893984ece9dfa4cdaf8383 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a281a46452f6f59625e5488936cd70aa7 inherit pub_methods_classCComponent" id="r_a281a46452f6f59625e5488936cd70aa7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a281a46452f6f59625e5488936cd70aa7">GetName</a> () const</td></tr>
+<tr class="separator:a281a46452f6f59625e5488936cd70aa7 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1df83625aa856f9cc7047da68dce131d inherit pub_methods_classCComponent" id="r_a1df83625aa856f9cc7047da68dce131d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a1df83625aa856f9cc7047da68dce131d">GetIsValid</a> () const</td></tr>
+<tr class="separator:a1df83625aa856f9cc7047da68dce131d inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf4188a21189f533eed52041962cafd4 inherit pub_methods_classCComponent" id="r_abf4188a21189f533eed52041962cafd4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#abf4188a21189f533eed52041962cafd4">GetIsVarid</a> () const</td></tr>
+<tr class="separator:abf4188a21189f533eed52041962cafd4 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5bf6fd967c58b6784aa399a27ce0eaa inherit pub_methods_classCComponent" id="r_ad5bf6fd967c58b6784aa399a27ce0eaa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ad5bf6fd967c58b6784aa399a27ce0eaa">SetName</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:ad5bf6fd967c58b6784aa399a27ce0eaa inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96b82c9108e83190f29a5dd8bafe59fe inherit pub_methods_classCComponent" id="r_a96b82c9108e83190f29a5dd8bafe59fe"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a96b82c9108e83190f29a5dd8bafe59fe">SetIsValid</a> (bool _IsValid)</td></tr>
+<tr class="separator:a96b82c9108e83190f29a5dd8bafe59fe inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ababe3aca6f026b146eb458dab2a57587 inherit pub_methods_classCComponent" id="r_ababe3aca6f026b146eb458dab2a57587"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ababe3aca6f026b146eb458dab2a57587">SetOwner</a> (<a class="el" href="classCObject.html">CObject</a> *_Object)</td></tr>
+<tr class="separator:ababe3aca6f026b146eb458dab2a57587 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa05b48a46eeaff9527c00de7547edd32 inherit pub_methods_classCComponent" id="r_aa05b48a46eeaff9527c00de7547edd32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#aa05b48a46eeaff9527c00de7547edd32">GetOwner</a> () const</td></tr>
+<tr class="separator:aa05b48a46eeaff9527c00de7547edd32 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classISelectable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classISelectable')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classISelectable.html">ISelectable</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:a7d79b05542286f050d68986d297d4025 inherit pub_methods_classISelectable" id="r_a7d79b05542286f050d68986d297d4025"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classISelectable.html#a7d79b05542286f050d68986d297d4025">~ISelectable</a> ()=default</td></tr>
+<tr class="separator:a7d79b05542286f050d68986d297d4025 inherit pub_methods_classISelectable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:a3799f2e4278dedd4d5cd8a2002876495" id="r_a3799f2e4278dedd4d5cd8a2002876495"><td class="memItemLeft" align="right" valign="top">std::function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonComponent.html#a3799f2e4278dedd4d5cd8a2002876495">m_onClickCallback</a></td></tr>
+<tr class="separator:a3799f2e4278dedd4d5cd8a2002876495"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac843ac8d4d168e0554973585068982b3" id="r_ac843ac8d4d168e0554973585068982b3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ButtonAction_8h.html#afa717ac273a5a382f7c01ef7afba1ee7">ButtonAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonComponent.html#ac843ac8d4d168e0554973585068982b3">m_action</a> = <a class="el" href="ButtonAction_8h.html#afa717ac273a5a382f7c01ef7afba1ee7a6adf97f83acf6453d4a6a4b1070f3754">ButtonAction::None</a></td></tr>
+<tr class="separator:ac843ac8d4d168e0554973585068982b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aace7e59f5b32796b63abfcaba49c06b9" id="r_aace7e59f5b32796b63abfcaba49c06b9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonComponent.html#aace7e59f5b32796b63abfcaba49c06b9">m_upName</a></td></tr>
+<tr class="separator:aace7e59f5b32796b63abfcaba49c06b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a185dbb2c22c89e9ba6b1960a9a6713d0" id="r_a185dbb2c22c89e9ba6b1960a9a6713d0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonComponent.html#a185dbb2c22c89e9ba6b1960a9a6713d0">m_downName</a></td></tr>
+<tr class="separator:a185dbb2c22c89e9ba6b1960a9a6713d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a43ab4d610fc75313edee299a836f1e" id="r_a2a43ab4d610fc75313edee299a836f1e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonComponent.html#a2a43ab4d610fc75313edee299a836f1e">m_leftName</a></td></tr>
+<tr class="separator:a2a43ab4d610fc75313edee299a836f1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a313cc9b6e6b3c2e512a0d0a048353072" id="r_a313cc9b6e6b3c2e512a0d0a048353072"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonComponent.html#a313cc9b6e6b3c2e512a0d0a048353072">m_rightName</a></td></tr>
+<tr class="separator:a313cc9b6e6b3c2e512a0d0a048353072"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3902f88e091028f0d5223dd04f0c79f2" id="r_a3902f88e091028f0d5223dd04f0c79f2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classButtonComponent.html#a3902f88e091028f0d5223dd04f0c79f2">m_isSelected</a> = false</td></tr>
+<tr class="separator:a3902f88e091028f0d5223dd04f0c79f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+その他の継承メンバ</h2></td></tr>
+<tr class="inherit_header pro_attribs_classCComponent"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classCComponent')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCComponent.html">CComponent</a> に属する継承限定公開変数類</td></tr>
+<tr class="memitem:a76959a9e98ef06163c56858026e9da5b inherit pro_attribs_classCComponent" id="r_a76959a9e98ef06163c56858026e9da5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a76959a9e98ef06163c56858026e9da5b">m_Owner</a> = nullptr</td></tr>
+<tr class="separator:a76959a9e98ef06163c56858026e9da5b inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4918d7f95edb1a545724dab2be500e75 inherit pro_attribs_classCComponent" id="r_a4918d7f95edb1a545724dab2be500e75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a4918d7f95edb1a545724dab2be500e75">m_ComponentName</a> = &quot;&quot;</td></tr>
+<tr class="separator:a4918d7f95edb1a545724dab2be500e75 inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f8c7080b1f9972952ceda4e155568cb inherit pro_attribs_classCComponent" id="r_a8f8c7080b1f9972952ceda4e155568cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a8f8c7080b1f9972952ceda4e155568cb">m_ComponentIsValid</a> = true</td></tr>
+<tr class="separator:a8f8c7080b1f9972952ceda4e155568cb inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9d3c1123f1a477922084a25423b2579 inherit pro_attribs_classCComponent" id="r_af9d3c1123f1a477922084a25423b2579"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#af9d3c1123f1a477922084a25423b2579">m_enabled</a> = true</td></tr>
+<tr class="separator:af9d3c1123f1a477922084a25423b2579 inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="aeb48bbd7e3230710515c0fc5f1d5c11b" name="aeb48bbd7e3230710515c0fc5f1d5c11b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb48bbd7e3230710515c0fc5f1d5c11b">&#9670;&#160;</a></span>ButtonComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ButtonComponent::ButtonComponent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1bcf1520342f694afb7b5463971beffb" name="a1bcf1520342f694afb7b5463971beffb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bcf1520342f694afb7b5463971beffb">&#9670;&#160;</a></span>~ButtonComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ButtonComponent::~ButtonComponent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="ac29984cb25e1f5c60aa27734c39cd94d" name="ac29984cb25e1f5c60aa27734c39cd94d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac29984cb25e1f5c60aa27734c39cd94d">&#9670;&#160;</a></span>GetAction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ButtonAction_8h.html#afa717ac273a5a382f7c01ef7afba1ee7">ButtonAction</a> ButtonComponent::GetAction </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classButtonComponent_ac29984cb25e1f5c60aa27734c39cd94d_icgraph.svg" width="544" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a898ceba9c7b8e1d2cd135e8bd62a90ca" name="a898ceba9c7b8e1d2cd135e8bd62a90ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a898ceba9c7b8e1d2cd135e8bd62a90ca">&#9670;&#160;</a></span>GetDownName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; ButtonComponent::GetDownName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classButtonComponent_a898ceba9c7b8e1d2cd135e8bd62a90ca_icgraph.svg" width="667" height="184"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a27d39b340b47e5268c53ac89016014f7" name="a27d39b340b47e5268c53ac89016014f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27d39b340b47e5268c53ac89016014f7">&#9670;&#160;</a></span>GetLeftName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; ButtonComponent::GetLeftName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classButtonComponent_a27d39b340b47e5268c53ac89016014f7_icgraph.svg" width="655" height="184"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8a5955125ddb74ba801179f121ced3c7" name="a8a5955125ddb74ba801179f121ced3c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a5955125ddb74ba801179f121ced3c7">&#9670;&#160;</a></span>GetRightName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; ButtonComponent::GetRightName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classButtonComponent_a8a5955125ddb74ba801179f121ced3c7_icgraph.svg" width="664" height="184"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac96a6df2189786721b88abe71bd29e71" name="ac96a6df2189786721b88abe71bd29e71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac96a6df2189786721b88abe71bd29e71">&#9670;&#160;</a></span>GetUpName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; ButtonComponent::GetUpName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classButtonComponent_ac96a6df2189786721b88abe71bd29e71_icgraph.svg" width="648" height="184"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa5b55c4b3dffb49c5e9e4da14bcf0d0b" name="aa5b55c4b3dffb49c5e9e4da14bcf0d0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5b55c4b3dffb49c5e9e4da14bcf0d0b">&#9670;&#160;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ButtonComponent::Init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCComponent.html#ac9bf36b35de54f49a3d604da091228a4">CComponent</a>を再実装しています。</p>
+
+</div>
+</div>
+<a id="a091d35ef3177fdbe3f7c0d9541bf8330" name="a091d35ef3177fdbe3f7c0d9541bf8330"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a091d35ef3177fdbe3f7c0d9541bf8330">&#9670;&#160;</a></span>IsSelected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ButtonComponent::IsSelected </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a15130d07920d9215d1f5dee5b8f05a42" name="a15130d07920d9215d1f5dee5b8f05a42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15130d07920d9215d1f5dee5b8f05a42">&#9670;&#160;</a></span>OnDeselect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ButtonComponent::OnDeselect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classISelectable.html#a08dbc26f02bf0cbe9f104a782c21bc5b">ISelectable</a>を実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classButtonComponent_a15130d07920d9215d1f5dee5b8f05a42_cgraph.svg" width="472" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ae6621a776ed24361c1e2bbba49dabb88" name="ae6621a776ed24361c1e2bbba49dabb88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6621a776ed24361c1e2bbba49dabb88">&#9670;&#160;</a></span>OnSelect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ButtonComponent::OnSelect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classISelectable.html#a399c3ae35b2b71d3e942a6729ea13c22">ISelectable</a>を実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classButtonComponent_ae6621a776ed24361c1e2bbba49dabb88_cgraph.svg" width="456" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad36872bb7ffae382f9491f287c5614ae" name="ad36872bb7ffae382f9491f287c5614ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad36872bb7ffae382f9491f287c5614ae">&#9670;&#160;</a></span>OnSubmit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ButtonComponent::OnSubmit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classISelectable.html#a4c9c1abb9b8b8edf3f65bf76ba6c3b8c">ISelectable</a>を実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classButtonComponent_ad36872bb7ffae382f9491f287c5614ae_cgraph.svg" width="100%" height="364"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="afc7f5aff31f47db9cf4ce4b24925bfb7" name="afc7f5aff31f47db9cf4ce4b24925bfb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc7f5aff31f47db9cf4ce4b24925bfb7">&#9670;&#160;</a></span>SetAction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ButtonComponent::SetAction </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="ButtonAction_8h.html#afa717ac273a5a382f7c01ef7afba1ee7">ButtonAction</a>&#160;</td>
+          <td class="paramname"><em>action</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classButtonComponent_afc7f5aff31f47db9cf4ce4b24925bfb7_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ac6f2b004d7986c8ae54a77b5943ecbc8" name="ac6f2b004d7986c8ae54a77b5943ecbc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6f2b004d7986c8ae54a77b5943ecbc8">&#9670;&#160;</a></span>SetNavigationNames()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ButtonComponent::SetNavigationNames </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>down</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>right</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classButtonComponent_ac6f2b004d7986c8ae54a77b5943ecbc8_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aa36ae88b0ca0a371583b012da0c90eed" name="aa36ae88b0ca0a371583b012da0c90eed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa36ae88b0ca0a371583b012da0c90eed">&#9670;&#160;</a></span>SetOnClickCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ButtonComponent::SetOnClickCallback </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; void()&gt;&#160;</td>
+          <td class="paramname"><em>callback</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a774eedf9bb1856074de23727ba14e358" name="a774eedf9bb1856074de23727ba14e358"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a774eedf9bb1856074de23727ba14e358">&#9670;&#160;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ButtonComponent::Update </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCComponent.html#ae575194dbb8c5f6ad344bb8c17fa778b">CComponent</a>を再実装しています。</p>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="ac843ac8d4d168e0554973585068982b3" name="ac843ac8d4d168e0554973585068982b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac843ac8d4d168e0554973585068982b3">&#9670;&#160;</a></span>m_action</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ButtonAction_8h.html#afa717ac273a5a382f7c01ef7afba1ee7">ButtonAction</a> ButtonComponent::m_action = <a class="el" href="ButtonAction_8h.html#afa717ac273a5a382f7c01ef7afba1ee7a6adf97f83acf6453d4a6a4b1070f3754">ButtonAction::None</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a185dbb2c22c89e9ba6b1960a9a6713d0" name="a185dbb2c22c89e9ba6b1960a9a6713d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a185dbb2c22c89e9ba6b1960a9a6713d0">&#9670;&#160;</a></span>m_downName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ButtonComponent::m_downName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3902f88e091028f0d5223dd04f0c79f2" name="a3902f88e091028f0d5223dd04f0c79f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3902f88e091028f0d5223dd04f0c79f2">&#9670;&#160;</a></span>m_isSelected</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ButtonComponent::m_isSelected = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2a43ab4d610fc75313edee299a836f1e" name="a2a43ab4d610fc75313edee299a836f1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a43ab4d610fc75313edee299a836f1e">&#9670;&#160;</a></span>m_leftName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ButtonComponent::m_leftName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3799f2e4278dedd4d5cd8a2002876495" name="a3799f2e4278dedd4d5cd8a2002876495"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3799f2e4278dedd4d5cd8a2002876495">&#9670;&#160;</a></span>m_onClickCallback</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt;void()&gt; ButtonComponent::m_onClickCallback</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a313cc9b6e6b3c2e512a0d0a048353072" name="a313cc9b6e6b3c2e512a0d0a048353072"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a313cc9b6e6b3c2e512a0d0a048353072">&#9670;&#160;</a></span>m_rightName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ButtonComponent::m_rightName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aace7e59f5b32796b63abfcaba49c06b9" name="aace7e59f5b32796b63abfcaba49c06b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aace7e59f5b32796b63abfcaba49c06b9">&#9670;&#160;</a></span>m_upName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ButtonComponent::m_upName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/Engine/Component/<a class="el" href="ButtonComponent_8h_source.html">ButtonComponent.h</a></li>
+<li>Source/Engine/Component/<a class="el" href="ButtonComponent_8cpp.html">ButtonComponent.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classButtonComponent.html">ButtonComponent</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>
