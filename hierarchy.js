@@ -46,6 +46,7 @@ var hierarchy =
       ] ],
       [ "EnemyAIComponent", "classEnemyAIComponent.html", null ],
       [ "EnemyCounterComponent", "classEnemyCounterComponent.html", null ],
+      [ "FieldComponent", "classFieldComponent.html", null ],
       [ "GravityComponent", "classGravityComponent.html", null ],
       [ "HealthComponent", "classHealthComponent.html", null ],
       [ "ParticleComponent", "classParticleComponent.html", null ],
@@ -69,7 +70,6 @@ var hierarchy =
     [ "CMesh", "classCMesh.html", null ],
     [ "CObject", "classCObject.html", [
       [ "Camera", "classCamera.html", null ],
-      [ "Field", "classField.html", null ],
       [ "Manager", "classManager.html", null ]
     ] ],
     [ "Collision", "classCollision.html", null ],

@@ -1,8 +1,5 @@
 var NAVTREEINDEX52 =
 {
-"structtinygltf_1_1URICallbacks.html#ae3d86a71a21e4d5397d4bbb09bf2d9b7":[2,0,2,33,1],
-"structtinygltf_1_1detail_1_1CJ__NoAllocator.html":[1,0,8,0,0],
-"structtinygltf_1_1detail_1_1CJ__NoAllocator.html":[2,0,2,0,0],
 "structtinygltf__json__member.html":[2,0,271],
 "structtinygltf__json__member.html#a01518399bce8bafe97a4d52ff4d4ff81":[2,0,271,1],
 "structtinygltf__json__member.html#a18af3d6c36e8deb0f26b1156473f1fea":[2,0,271,4],

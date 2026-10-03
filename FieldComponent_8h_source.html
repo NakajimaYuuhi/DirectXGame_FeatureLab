@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Engine/Component/FieldComponent.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('FieldComponent_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">FieldComponent.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="FieldComponent_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="Component_8h.html">Component.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;DirectXMath.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="foldopen" id="foldopen00006" data-start="{" data-end="};">
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="classFieldComponent.html">    6</a></span><span class="keyword">class </span><a class="code hl_class" href="classFieldComponent.html">FieldComponent</a> : <span class="keyword">public</span> <a class="code hl_class" href="classCComponent.html">CComponent</a></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_function" href="classFieldComponent.html#ac92ccb0deb2eb1a65e4284bac2d99b95">FieldComponent</a>();</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classFieldComponent.html#a209c1b3efb3e8e4ad4aeecf95838ba83">   10</a></span>    <a class="code hl_function" href="classFieldComponent.html#a209c1b3efb3e8e4ad4aeecf95838ba83">~FieldComponent</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classFieldComponent.html#a0701f7db023c654f59d0561e1149b380">Init</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classFieldComponent.html#a7e37b4f02b7c0fe7860f051b758f2cbb">Awake</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classFieldComponent.html#a20e544ddc8b101d72a9ec24aeebf8410">Start</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classFieldComponent.html#abcf2aee7ca50302dffe41765a6f1ac42">Update</a>(<span class="keywordtype">float</span> deltaTime) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="comment">// Ground height collision test</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classFieldComponent.html#a395e1a3578ab1981f20ae486cd1828ca">GetHeight</a>(<span class="keywordtype">float</span> worldX, <span class="keywordtype">float</span> worldZ, <span class="keywordtype">float</span>&amp; outHeight) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="comment">// Ground normal calculation</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classFieldComponent.html#a2f91ce26f6f5370118efccb274386f71">GetNormal</a>(<span class="keywordtype">float</span> worldX, <span class="keywordtype">float</span> worldZ, DirectX::XMFLOAT3&amp; outNormal) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="comment">// Field parameters</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classFieldComponent.html#a3133271b37fbf3aef2e279fd66aee674">   24</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classFieldComponent.html#a3133271b37fbf3aef2e279fd66aee674">GetWidth</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classFieldComponent.html#a9f8c4c454b319e840aa842ec97b59062">m_width</a>; }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classFieldComponent.html#a7fdb1a7bae944aa11f6a27a268351028">   25</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classFieldComponent.html#a7fdb1a7bae944aa11f6a27a268351028">SetWidth</a>(<span class="keywordtype">float</span> w) { <a class="code hl_variable" href="classFieldComponent.html#a9f8c4c454b319e840aa842ec97b59062">m_width</a> = w; <a class="code hl_variable" href="classFieldComponent.html#ac0b64d1be87a39539fafae30c958e7c5">m_isMeshGenerated</a> = <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classFieldComponent.html#ad6b93cbf69c1916aaea710b7056a9819">   27</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classFieldComponent.html#ad6b93cbf69c1916aaea710b7056a9819">GetDepth</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classFieldComponent.html#a080264503ed5114d6cfc77014b69b2e8">m_depth</a>; }</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classFieldComponent.html#ad28484b1acb1a42e0b8cad33112e444e">   28</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classFieldComponent.html#ad28484b1acb1a42e0b8cad33112e444e">SetDepth</a>(<span class="keywordtype">float</span> d) { <a class="code hl_variable" href="classFieldComponent.html#a080264503ed5114d6cfc77014b69b2e8">m_depth</a> = d; <a class="code hl_variable" href="classFieldComponent.html#ac0b64d1be87a39539fafae30c958e7c5">m_isMeshGenerated</a> = <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classFieldComponent.html#a295510617373d432490289cf38cebbc7">   30</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classFieldComponent.html#a295510617373d432490289cf38cebbc7">GetGridX</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classFieldComponent.html#ad9e9679c5eb0326c3a5d9190e098547c">m_gridX</a>; }</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classFieldComponent.html#abaa79cb726269ad5b70f5ae7c8a2b347">   31</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classFieldComponent.html#abaa79cb726269ad5b70f5ae7c8a2b347">SetGridX</a>(<span class="keywordtype">int</span> gx) { <a class="code hl_variable" href="classFieldComponent.html#ad9e9679c5eb0326c3a5d9190e098547c">m_gridX</a> = gx; <a class="code hl_variable" href="classFieldComponent.html#ac0b64d1be87a39539fafae30c958e7c5">m_isMeshGenerated</a> = <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classFieldComponent.html#a3089e51b0473833df6a6721622435d01">   33</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classFieldComponent.html#a3089e51b0473833df6a6721622435d01">GetGridZ</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classFieldComponent.html#aa44301bad6cffbc89ef12b2fe37b5d3c">m_gridZ</a>; }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classFieldComponent.html#aa544bbccf39fa6d50991befc3b176ef2">   34</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classFieldComponent.html#aa544bbccf39fa6d50991befc3b176ef2">SetGridZ</a>(<span class="keywordtype">int</span> gz) { <a class="code hl_variable" href="classFieldComponent.html#aa44301bad6cffbc89ef12b2fe37b5d3c">m_gridZ</a> = gz; <a class="code hl_variable" href="classFieldComponent.html#ac0b64d1be87a39539fafae30c958e7c5">m_isMeshGenerated</a> = <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classFieldComponent.html#ac84149ae64404ddc97ce9021af723f94">   36</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classFieldComponent.html#ac84149ae64404ddc97ce9021af723f94">GetUVTiling</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classFieldComponent.html#aab774c54be9257ce9bbc892f70867b52">m_uvTiling</a>; }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classFieldComponent.html#a28aba390d3b66517220a5e420c08261c">   37</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classFieldComponent.html#a28aba390d3b66517220a5e420c08261c">SetUVTiling</a>(<span class="keywordtype">float</span> t) { <a class="code hl_variable" href="classFieldComponent.html#aab774c54be9257ce9bbc892f70867b52">m_uvTiling</a> = t; <a class="code hl_variable" href="classFieldComponent.html#ac0b64d1be87a39539fafae30c958e7c5">m_isMeshGenerated</a> = <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="comment">// Procedural height formula</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="classFieldComponent.html#a2af20744941c2917ac3d017f803956a5">CalculateProceduralHeight</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> z);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classFieldComponent.html#aecdf78ec349dc7ddb0e6cfbbc0809324">GenerateTerrainMesh</a>();</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classFieldComponent.html#a9f8c4c454b319e840aa842ec97b59062">   45</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classFieldComponent.html#a9f8c4c454b319e840aa842ec97b59062">m_width</a> = 80.0f;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classFieldComponent.html#a080264503ed5114d6cfc77014b69b2e8">   46</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classFieldComponent.html#a080264503ed5114d6cfc77014b69b2e8">m_depth</a> = 80.0f;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classFieldComponent.html#ad9e9679c5eb0326c3a5d9190e098547c">   47</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classFieldComponent.html#ad9e9679c5eb0326c3a5d9190e098547c">m_gridX</a> = 80;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classFieldComponent.html#aa44301bad6cffbc89ef12b2fe37b5d3c">   48</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classFieldComponent.html#aa44301bad6cffbc89ef12b2fe37b5d3c">m_gridZ</a> = 80;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classFieldComponent.html#aab774c54be9257ce9bbc892f70867b52">   49</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classFieldComponent.html#aab774c54be9257ce9bbc892f70867b52">m_uvTiling</a> = 20.0f;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classFieldComponent.html#a74c9ebe1e0d7fc397569d09ad66922ca">   51</a></span>    std::vector&lt;float&gt; <a class="code hl_variable" href="classFieldComponent.html#a74c9ebe1e0d7fc397569d09ad66922ca">m_heightMap</a>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classFieldComponent.html#ac0b64d1be87a39539fafae30c958e7c5">   52</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classFieldComponent.html#ac0b64d1be87a39539fafae30c958e7c5">m_isMeshGenerated</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>};</div>
+</div>
+<div class="ttc" id="aComponent_8h_html"><div class="ttname"><a href="Component_8h.html">Component.h</a></div></div>
+<div class="ttc" id="aclassCComponent_html"><div class="ttname"><a href="classCComponent.html">CComponent</a></div><div class="ttdef"><b>Definition</b> Component.h:21</div></div>
+<div class="ttc" id="aclassFieldComponent_html"><div class="ttname"><a href="classFieldComponent.html">FieldComponent</a></div><div class="ttdef"><b>Definition</b> FieldComponent.h:7</div></div>
+<div class="ttc" id="aclassFieldComponent_html_a0701f7db023c654f59d0561e1149b380"><div class="ttname"><a href="classFieldComponent.html#a0701f7db023c654f59d0561e1149b380">FieldComponent::Init</a></div><div class="ttdeci">void Init() override</div><div class="ttdef"><b>Definition</b> FieldComponent.cpp:13</div></div>
+<div class="ttc" id="aclassFieldComponent_html_a080264503ed5114d6cfc77014b69b2e8"><div class="ttname"><a href="classFieldComponent.html#a080264503ed5114d6cfc77014b69b2e8">FieldComponent::m_depth</a></div><div class="ttdeci">float m_depth</div><div class="ttdef"><b>Definition</b> FieldComponent.h:46</div></div>
+<div class="ttc" id="aclassFieldComponent_html_a209c1b3efb3e8e4ad4aeecf95838ba83"><div class="ttname"><a href="classFieldComponent.html#a209c1b3efb3e8e4ad4aeecf95838ba83">FieldComponent::~FieldComponent</a></div><div class="ttdeci">~FieldComponent() override=default</div></div>
+<div class="ttc" id="aclassFieldComponent_html_a20e544ddc8b101d72a9ec24aeebf8410"><div class="ttname"><a href="classFieldComponent.html#a20e544ddc8b101d72a9ec24aeebf8410">FieldComponent::Start</a></div><div class="ttdeci">void Start() override</div><div class="ttdef"><b>Definition</b> FieldComponent.cpp:23</div></div>
+<div class="ttc" id="aclassFieldComponent_html_a28aba390d3b66517220a5e420c08261c"><div class="ttname"><a href="classFieldComponent.html#a28aba390d3b66517220a5e420c08261c">FieldComponent::SetUVTiling</a></div><div class="ttdeci">void SetUVTiling(float t)</div><div class="ttdef"><b>Definition</b> FieldComponent.h:37</div></div>
+<div class="ttc" id="aclassFieldComponent_html_a295510617373d432490289cf38cebbc7"><div class="ttname"><a href="classFieldComponent.html#a295510617373d432490289cf38cebbc7">FieldComponent::GetGridX</a></div><div class="ttdeci">int GetGridX() const</div><div class="ttdef"><b>Definition</b> FieldComponent.h:30</div></div>
+<div class="ttc" id="aclassFieldComponent_html_a2af20744941c2917ac3d017f803956a5"><div class="ttname"><a href="classFieldComponent.html#a2af20744941c2917ac3d017f803956a5">FieldComponent::CalculateProceduralHeight</a></div><div class="ttdeci">static float CalculateProceduralHeight(float x, float z)</div><div class="ttdef"><b>Definition</b> FieldComponent.cpp:36</div></div>
+<div class="ttc" id="aclassFieldComponent_html_a2f91ce26f6f5370118efccb274386f71"><div class="ttname"><a href="classFieldComponent.html#a2f91ce26f6f5370118efccb274386f71">FieldComponent::GetNormal</a></div><div class="ttdeci">bool GetNormal(float worldX, float worldZ, DirectX::XMFLOAT3 &amp;outNormal) const</div><div class="ttdef"><b>Definition</b> FieldComponent.cpp:236</div></div>
+<div class="ttc" id="aclassFieldComponent_html_a3089e51b0473833df6a6721622435d01"><div class="ttname"><a href="classFieldComponent.html#a3089e51b0473833df6a6721622435d01">FieldComponent::GetGridZ</a></div><div class="ttdeci">int GetGridZ() const</div><div class="ttdef"><b>Definition</b> FieldComponent.h:33</div></div>
+<div class="ttc" id="aclassFieldComponent_html_a3133271b37fbf3aef2e279fd66aee674"><div class="ttname"><a href="classFieldComponent.html#a3133271b37fbf3aef2e279fd66aee674">FieldComponent::GetWidth</a></div><div class="ttdeci">float GetWidth() const</div><div class="ttdef"><b>Definition</b> FieldComponent.h:24</div></div>
+<div class="ttc" id="aclassFieldComponent_html_a395e1a3578ab1981f20ae486cd1828ca"><div class="ttname"><a href="classFieldComponent.html#a395e1a3578ab1981f20ae486cd1828ca">FieldComponent::GetHeight</a></div><div class="ttdeci">bool GetHeight(float worldX, float worldZ, float &amp;outHeight) const</div><div class="ttdef"><b>Definition</b> FieldComponent.cpp:161</div></div>
+<div class="ttc" id="aclassFieldComponent_html_a74c9ebe1e0d7fc397569d09ad66922ca"><div class="ttname"><a href="classFieldComponent.html#a74c9ebe1e0d7fc397569d09ad66922ca">FieldComponent::m_heightMap</a></div><div class="ttdeci">std::vector&lt; float &gt; m_heightMap</div><div class="ttdef"><b>Definition</b> FieldComponent.h:51</div></div>
+<div class="ttc" id="aclassFieldComponent_html_a7e37b4f02b7c0fe7860f051b758f2cbb"><div class="ttname"><a href="classFieldComponent.html#a7e37b4f02b7c0fe7860f051b758f2cbb">FieldComponent::Awake</a></div><div class="ttdeci">void Awake() override</div><div class="ttdef"><b>Definition</b> FieldComponent.cpp:18</div></div>
+<div class="ttc" id="aclassFieldComponent_html_a7fdb1a7bae944aa11f6a27a268351028"><div class="ttname"><a href="classFieldComponent.html#a7fdb1a7bae944aa11f6a27a268351028">FieldComponent::SetWidth</a></div><div class="ttdeci">void SetWidth(float w)</div><div class="ttdef"><b>Definition</b> FieldComponent.h:25</div></div>
+<div class="ttc" id="aclassFieldComponent_html_a9f8c4c454b319e840aa842ec97b59062"><div class="ttname"><a href="classFieldComponent.html#a9f8c4c454b319e840aa842ec97b59062">FieldComponent::m_width</a></div><div class="ttdeci">float m_width</div><div class="ttdef"><b>Definition</b> FieldComponent.h:45</div></div>
+<div class="ttc" id="aclassFieldComponent_html_aa44301bad6cffbc89ef12b2fe37b5d3c"><div class="ttname"><a href="classFieldComponent.html#aa44301bad6cffbc89ef12b2fe37b5d3c">FieldComponent::m_gridZ</a></div><div class="ttdeci">int m_gridZ</div><div class="ttdef"><b>Definition</b> FieldComponent.h:48</div></div>
+<div class="ttc" id="aclassFieldComponent_html_aa544bbccf39fa6d50991befc3b176ef2"><div class="ttname"><a href="classFieldComponent.html#aa544bbccf39fa6d50991befc3b176ef2">FieldComponent::SetGridZ</a></div><div class="ttdeci">void SetGridZ(int gz)</div><div class="ttdef"><b>Definition</b> FieldComponent.h:34</div></div>
+<div class="ttc" id="aclassFieldComponent_html_aab774c54be9257ce9bbc892f70867b52"><div class="ttname"><a href="classFieldComponent.html#aab774c54be9257ce9bbc892f70867b52">FieldComponent::m_uvTiling</a></div><div class="ttdeci">float m_uvTiling</div><div class="ttdef"><b>Definition</b> FieldComponent.h:49</div></div>
+<div class="ttc" id="aclassFieldComponent_html_abaa79cb726269ad5b70f5ae7c8a2b347"><div class="ttname"><a href="classFieldComponent.html#abaa79cb726269ad5b70f5ae7c8a2b347">FieldComponent::SetGridX</a></div><div class="ttdeci">void SetGridX(int gx)</div><div class="ttdef"><b>Definition</b> FieldComponent.h:31</div></div>
+<div class="ttc" id="aclassFieldComponent_html_abcf2aee7ca50302dffe41765a6f1ac42"><div class="ttname"><a href="classFieldComponent.html#abcf2aee7ca50302dffe41765a6f1ac42">FieldComponent::Update</a></div><div class="ttdeci">void Update(float deltaTime) override</div><div class="ttdef"><b>Definition</b> FieldComponent.cpp:28</div></div>
+<div class="ttc" id="aclassFieldComponent_html_ac0b64d1be87a39539fafae30c958e7c5"><div class="ttname"><a href="classFieldComponent.html#ac0b64d1be87a39539fafae30c958e7c5">FieldComponent::m_isMeshGenerated</a></div><div class="ttdeci">bool m_isMeshGenerated</div><div class="ttdef"><b>Definition</b> FieldComponent.h:52</div></div>
+<div class="ttc" id="aclassFieldComponent_html_ac84149ae64404ddc97ce9021af723f94"><div class="ttname"><a href="classFieldComponent.html#ac84149ae64404ddc97ce9021af723f94">FieldComponent::GetUVTiling</a></div><div class="ttdeci">float GetUVTiling() const</div><div class="ttdef"><b>Definition</b> FieldComponent.h:36</div></div>
+<div class="ttc" id="aclassFieldComponent_html_ac92ccb0deb2eb1a65e4284bac2d99b95"><div class="ttname"><a href="classFieldComponent.html#ac92ccb0deb2eb1a65e4284bac2d99b95">FieldComponent::FieldComponent</a></div><div class="ttdeci">FieldComponent()</div><div class="ttdef"><b>Definition</b> FieldComponent.cpp:8</div></div>
+<div class="ttc" id="aclassFieldComponent_html_ad28484b1acb1a42e0b8cad33112e444e"><div class="ttname"><a href="classFieldComponent.html#ad28484b1acb1a42e0b8cad33112e444e">FieldComponent::SetDepth</a></div><div class="ttdeci">void SetDepth(float d)</div><div class="ttdef"><b>Definition</b> FieldComponent.h:28</div></div>
+<div class="ttc" id="aclassFieldComponent_html_ad6b93cbf69c1916aaea710b7056a9819"><div class="ttname"><a href="classFieldComponent.html#ad6b93cbf69c1916aaea710b7056a9819">FieldComponent::GetDepth</a></div><div class="ttdeci">float GetDepth() const</div><div class="ttdef"><b>Definition</b> FieldComponent.h:27</div></div>
+<div class="ttc" id="aclassFieldComponent_html_ad9e9679c5eb0326c3a5d9190e098547c"><div class="ttname"><a href="classFieldComponent.html#ad9e9679c5eb0326c3a5d9190e098547c">FieldComponent::m_gridX</a></div><div class="ttdeci">int m_gridX</div><div class="ttdef"><b>Definition</b> FieldComponent.h:47</div></div>
+<div class="ttc" id="aclassFieldComponent_html_aecdf78ec349dc7ddb0e6cfbbc0809324"><div class="ttname"><a href="classFieldComponent.html#aecdf78ec349dc7ddb0e6cfbbc0809324">FieldComponent::GenerateTerrainMesh</a></div><div class="ttdeci">void GenerateTerrainMesh()</div><div class="ttdef"><b>Definition</b> FieldComponent.cpp:48</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_5405398c23c020946029b9f4e6e04094.html">Engine</a></li><li class="navelem"><a class="el" href="dir_5f693e8ad8d60326c758affc3b922e76.html">Component</a></li><li class="navelem"><a class="el" href="FieldComponent_8h.html">FieldComponent.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

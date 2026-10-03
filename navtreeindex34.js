@@ -1,8 +1,5 @@
 var NAVTREEINDEX34 =
 {
-"namespaceImStb.html#aaadd38b7c62661755d9205493a834f1e":[1,0,3,15],
-"namespaceImStb.html#ab4b8a7af0c0063874a6f7ed7e6d0bec9":[1,0,3,9],
-"namespaceImStb.html#ab7f998a5fc7a1f6cab073a2392e786c3":[1,0,3,4],
 "namespaceImStb.html#ac8bb93c44323183c6da702c91ce950f8":[1,0,3,18],
 "namespaceImStb.html#ae245ee4392b26d481ee10f0fa37fb525":[1,0,3,16],
 "namespaceImStb.html#aeb78e41c47236924d5e2b28ce28d042e":[1,0,3,8],
@@ -249,5 +246,8 @@ var NAVTREEINDEX34 =
 "namespacenlohmann_1_1detail_1_1utility__internal.html":[1,0,4,0,2],
 "namespaces.html":[1,0],
 "namespacestd.html":[1,0,7],
-"namespacestd.html#af3f2c23f946bf81b153b863b4acf6bb3":[1,0,7,4]
+"namespacestd.html#af3f2c23f946bf81b153b863b4acf6bb3":[1,0,7,4],
+"namespacetinygltf.html":[1,0,8],
+"namespacetinygltf.html#a0c9787423194dbd8bbda277e89b92fb5":[1,0,8,61],
+"namespacetinygltf.html#a184fc6df93a3fbe8b3f1a71bea165fde":[1,0,8,45]
 };

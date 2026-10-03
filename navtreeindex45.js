@@ -1,8 +1,5 @@
 var NAVTREEINDEX45 =
 {
-"structImRect.html#a140efca57832182e2483e5fe4ba50422":[2,0,195,23],
-"structImRect.html#a1d4d972329722b51dca4499cb5931b4b":[2,0,195,20],
-"structImRect.html#a1e9548c8a334dfd32eaf4d399aa740e9":[2,0,195,0],
 "structImRect.html#a20c399583fc60a1f73715b3c6468a89d":[2,0,195,27],
 "structImRect.html#a2afeb24632fae3848977ff2772036200":[2,0,195,25],
 "structImRect.html#a32a5aaca4161b5ffa3f352d293a449ff":[2,0,195,8],
@@ -249,5 +246,8 @@ var NAVTREEINDEX45 =
 "structMyDocument.html#a38d0b4dc1d4cd036ab39031fbd6d57cc":[2,0,221,4],
 "structMyDocument.html#a43b510961f90f9fb83baa58bf2c771dc":[2,0,221,2],
 "structMyDocument.html#a8d239384f0e6d16da96b783a4f14eb55":[2,0,221,5],
-"structMyDocument.html#a95b8cc478b59e5fc70a187e990506668":[2,0,221,3]
+"structMyDocument.html#a95b8cc478b59e5fc70a187e990506668":[2,0,221,3],
+"structMyDocument.html#aa8b4127cad19be82ea13993d621367a1":[2,0,221,9],
+"structMyDocument.html#ab204604930ba2489fb0f1ef2a53206a9":[2,0,221,1],
+"structMyDocument.html#abe5ed4d7f257d5a2fe5cf2a1844b22f9":[2,0,221,7]
 };

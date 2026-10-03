@@ -253,7 +253,7 @@ var annotated_dup =
     [ "ExampleMemberInfo", "structExampleMemberInfo.html", "structExampleMemberInfo" ],
     [ "ExampleSelectionWithDeletion", "structExampleSelectionWithDeletion.html", "structExampleSelectionWithDeletion" ],
     [ "ExampleTreeNode", "structExampleTreeNode.html", "structExampleTreeNode" ],
-    [ "Field", "classField.html", "classField" ],
+    [ "FieldComponent", "classFieldComponent.html", "classFieldComponent" ],
     [ "ForwardRenderPass", "classForwardRenderPass.html", "classForwardRenderPass" ],
     [ "GravityComponent", "classGravityComponent.html", "classGravityComponent" ],
     [ "HealthComponent", "classHealthComponent.html", "classHealthComponent" ],

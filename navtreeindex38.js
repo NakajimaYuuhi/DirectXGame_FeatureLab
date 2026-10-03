@@ -1,8 +1,5 @@
 var NAVTREEINDEX38 =
 {
-"structImGuiBoxSelectState.html#aa56a1f1ae26cb4d1c483c891de5715ec":[2,0,100,0],
-"structImGuiBoxSelectState.html#ab1cb436af8253dfa4f22bc86c777e355":[2,0,100,5],
-"structImGuiBoxSelectState.html#ad6287c003942dfcf05196cc2e1026ece":[2,0,100,10],
 "structImGuiBoxSelectState.html#ad97366cfdd288e950c98f873078da1f6":[2,0,100,12],
 "structImGuiColorMod.html":[2,0,101],
 "structImGuiColorMod.html#a211171bd30d39348fc9b91289d253e1c":[2,0,101,1],
@@ -249,5 +246,8 @@ var NAVTREEINDEX38 =
 "structImGuiContext.html#ab6f5d3daaa248a26bdbcb098d73640c1":[2,0,103,161],
 "structImGuiContext.html#ab835f6cb1536a4e91b6d589a100612f9":[2,0,103,92],
 "structImGuiContext.html#ab9a1f3b3f15f0a6c5f29aef85f1a8ea2":[2,0,103,124],
-"structImGuiContext.html#ab9e19fbe32a73581cbad3f93b631f3b2":[2,0,103,247]
+"structImGuiContext.html#ab9e19fbe32a73581cbad3f93b631f3b2":[2,0,103,247],
+"structImGuiContext.html#abb075f88a3d5919045be0746a128f7fc":[2,0,103,189],
+"structImGuiContext.html#abb22625c9c2f9b3b339c2ea696def2bb":[2,0,103,106],
+"structImGuiContext.html#abb8012b9102f1ed15d8e5cf1018b79fa":[2,0,103,32]
 };
