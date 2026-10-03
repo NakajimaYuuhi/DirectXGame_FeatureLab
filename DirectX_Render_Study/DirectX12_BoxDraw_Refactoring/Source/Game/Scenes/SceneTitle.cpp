@@ -1,8 +1,10 @@
 #include "SceneTitle.h"
 #include "3D_Object.h"
 #include "Object.h"
-#include "UIObject.h"
-#include "CUIButton.h"
+#include "SpriteRenderer.h"
+#include "ButtonComponent.h"
+#include "ButtonAction.h"
+#include "Transform.h"
 #include "Model.h"
 #include "DX12Manager.h"
 #include "ObjectManager.h"
@@ -32,29 +34,69 @@ void SceneTitle::Init()
     {
         ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::CAMERA, "Camera", "Camera");
 
-        CUIObject* titleUI = (CUIObject*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "TitleBG", "TitleBG"));
-        titleUI->SetTexture(L"Assets/Texture/T_TitleBG.png");
-        titleUI->SetPosition(0.0f, 0.0f);
-        titleUI->SetSize(1920.0f, 1080.0f);
+        CObject* titleUI = ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "UIImage", "TitleBG");
+        if (titleUI)
+        {
+            if (auto sprite = titleUI->GetComponent<CSpriteRenderer>())
+            {
+                sprite->SetTexture(L"Assets/Texture/T_TitleBG.png");
+                sprite->SetSize(1920.0f, 1080.0f);
+            }
+        }
 
-        CUIButton* titleButton = (CUIButton*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "CUIButton", "StartButton"));
-        titleButton->SetTexture(L"Assets/Texture/T_GameStart.png");
-        titleButton->SetPosition(740.0f, 650.0f);
-        titleButton->SetSize(400.0f, 100.0f);
-        titleButton->SetAction(ButtonAction::ChangeScene_Test);
+        CObject* titleButton = ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "UIButton", "StartButton");
+        if (titleButton)
+        {
+            if (auto sprite = titleButton->GetComponent<CSpriteRenderer>())
+            {
+                sprite->SetTexture(L"Assets/Texture/T_GameStart.png");
+                sprite->SetSize(400.0f, 100.0f);
+            }
+            if (auto transform = titleButton->GetComponent<CTransform>())
+            {
+                transform->SetPos({ 740.0f, 650.0f, 0.0f });
+            }
+            if (auto btnComp = titleButton->AddComponent<ButtonComponent>())
+            {
+                btnComp->SetAction(ButtonAction::ChangeScene_Test);
+            }
+        }
 
-        CUIButton* titleButton2 = (CUIButton*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "CUIButton", "ExitButton"));
-        titleButton2->SetTexture(L"Assets/Texture/T_Exit.png");
-        titleButton2->SetPosition(735.0f, 800.0f);
-        titleButton2->SetSize(400.0f, 100.0f);
-        titleButton2->SetAction(ButtonAction::ExitGame);
+        CObject* titleButton2 = ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::UI, "UIButton", "ExitButton");
+        if (titleButton2)
+        {
+            if (auto sprite = titleButton2->GetComponent<CSpriteRenderer>())
+            {
+                sprite->SetTexture(L"Assets/Texture/T_Exit.png");
+                sprite->SetSize(400.0f, 100.0f);
+            }
+            if (auto transform = titleButton2->GetComponent<CTransform>())
+            {
+                transform->SetPos({ 735.0f, 800.0f, 0.0f });
+            }
+            if (auto btnComp = titleButton2->AddComponent<ButtonComponent>())
+            {
+                btnComp->SetAction(ButtonAction::ExitGame);
+            }
+        }
 
-        titleButton->SetNavigation(titleButton2, titleButton2, nullptr, nullptr);
-        titleButton2->SetNavigation(titleButton, titleButton, nullptr, nullptr);
+        if (titleButton && titleButton2)
+        {
+            ButtonComponent* b1 = titleButton->GetComponent<ButtonComponent>();
+            ButtonComponent* b2 = titleButton2->GetComponent<ButtonComponent>();
+            if (b1 && b2)
+            {
+                b1->SetNavigationNames("ExitButton", "ExitButton", "", "");
+                b2->SetNavigationNames("StartButton", "StartButton", "", "");
+            }
+        }
 
         ObjectManager::GetInstance().Init(Scenes::ID::NONE);
         ButtonEventManager::GetInstance().SetFirstSelectedName("StartButton");
-        ButtonEventManager::GetInstance().SetSelectedGameObject(titleButton);
+        if (titleButton)
+        {
+            ButtonEventManager::GetInstance().SetSelectedGameObject(titleButton->GetComponent<ButtonComponent>());
+        }
 
         SceneSerializer::SaveScene("Assets/Scene/SceneTitle.json", Scenes::ID::TITLE);
     }

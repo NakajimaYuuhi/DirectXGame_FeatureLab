@@ -1,7 +1,6 @@
 #include "SceneTest.h"
 #include "3D_Object.h"
 #include "Object.h"
-#include "UIObject.h"
 #include "Model.h"
 #include "DX12Manager.h"
 #include "Transform.h"

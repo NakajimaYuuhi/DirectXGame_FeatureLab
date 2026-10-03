@@ -29,9 +29,7 @@
 
 
 // --2D
-#include "UIObject.h"
 #include "TextRenderer.h"
-#include "CUIButton.h"
 
 // --Manager
 #include "EnemyCounterComponent.h"
@@ -107,12 +105,7 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 		break;
 
 	case ObjectTag::UI:
-		if (_TypeName == "UIButton" || _TypeName == "CUIButton") {
-			tmpObject = std::make_unique<CUIButton>(_ObjectName);
-		}
-		else {
-			tmpObject = std::make_unique<CUIObject>(_ObjectName);
-		}
+		tmpObject = std::make_unique<CObject>(_ObjectName);
 		returnObject = tmpObject.get();
 		m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::UI), std::move(tmpObject) });
 		break;

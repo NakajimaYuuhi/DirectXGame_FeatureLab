@@ -20,7 +20,6 @@
 #include "TextRenderer.h"
 #include "ButtonComponent.h"
 #include "EnemyCounterComponent.h"
-#include "CUIButton.h"
 #include "Source/External/json.hpp"
 #include <fstream>
 #include <filesystem>
@@ -270,7 +269,7 @@ bool PrefabSerializer::SavePrefab(const std::string& filepath, CObject* obj)
         comps["TextRenderer"]["Color"] = { col.r, col.g, col.b, col.a };
     }
 
-    // 18. ButtonComponent & CUIButton
+    // 18. ButtonComponent
     ButtonComponent* btnComp = obj->GetComponent<ButtonComponent>();
     if (btnComp)
     {
@@ -279,19 +278,6 @@ bool PrefabSerializer::SavePrefab(const std::string& filepath, CObject* obj)
         comps["ButtonComponent"]["NavDown"] = btnComp->GetDownName();
         comps["ButtonComponent"]["NavLeft"] = btnComp->GetLeftName();
         comps["ButtonComponent"]["NavRight"] = btnComp->GetRightName();
-    }
-    else if (CUIButton* btn = dynamic_cast<CUIButton*>(obj))
-    {
-        comps["ButtonComponent"]["Action"] = ButtonActionToString(btn->GetAction());
-        auto GetNavName = [](CUIButton* targetBtn) -> std::string {
-            if (!targetBtn) return "";
-            CObjectInfo* info = targetBtn->GetComponent<CObjectInfo>();
-            return info ? info->GetObjectName() : "";
-        };
-        comps["ButtonComponent"]["NavUp"] = GetNavName(btn->GetSelectOnUp());
-        comps["ButtonComponent"]["NavDown"] = GetNavName(btn->GetSelectOnDown());
-        comps["ButtonComponent"]["NavLeft"] = GetNavName(btn->GetSelectOnLeft());
-        comps["ButtonComponent"]["NavRight"] = GetNavName(btn->GetSelectOnRight());
     }
 
     // 19. EnemyCounterComponent
