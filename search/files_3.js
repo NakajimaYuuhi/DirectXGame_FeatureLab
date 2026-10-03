@@ -20,7 +20,5 @@ var searchData=
   ['componentmanager_2eh_17',['ComponentManager.h',['../ComponentManager_8h.html',1,'']]],
   ['containeralias_2eh_18',['ContainerAlias.h',['../ContainerAlias_8h.html',1,'']]],
   ['contentdrawerui_2ecpp_19',['ContentDrawerUI.cpp',['../ContentDrawerUI_8cpp.html',1,'']]],
-  ['contentdrawerui_2eh_20',['ContentDrawerUI.h',['../ContentDrawerUI_8h.html',1,'']]],
-  ['cuibutton_2ecpp_21',['CUIButton.cpp',['../CUIButton_8cpp.html',1,'']]],
-  ['cuibutton_2eh_22',['CUIButton.h',['../CUIButton_8h.html',1,'']]]
+  ['contentdrawerui_2eh_20',['ContentDrawerUI.h',['../ContentDrawerUI_8h.html',1,'']]]
 ];

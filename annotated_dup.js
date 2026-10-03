@@ -237,8 +237,6 @@ var annotated_dup =
     [ "CTextRenderer", "classCTextRenderer.html", "classCTextRenderer" ],
     [ "CTexture", "classCTexture.html", "classCTexture" ],
     [ "CTransform", "classCTransform.html", "classCTransform" ],
-    [ "CUIButton", "classCUIButton.html", "classCUIButton" ],
-    [ "CUIObject", "classCUIObject.html", "classCUIObject" ],
     [ "D2DTextRenderer", "classD2DTextRenderer.html", "classD2DTextRenderer" ],
     [ "DeleteObjectUndoCommand", "classDeleteObjectUndoCommand.html", "classDeleteObjectUndoCommand" ],
     [ "DX12Manager", "classDX12Manager.html", "classDX12Manager" ],

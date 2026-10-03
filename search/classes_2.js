@@ -44,7 +44,5 @@ var searchData=
   ['cspriterenderer_41',['CSpriteRenderer',['../classCSpriteRenderer.html',1,'']]],
   ['ctextrenderer_42',['CTextRenderer',['../classCTextRenderer.html',1,'']]],
   ['ctexture_43',['CTexture',['../classCTexture.html',1,'']]],
-  ['ctransform_44',['CTransform',['../classCTransform.html',1,'']]],
-  ['cuibutton_45',['CUIButton',['../classCUIButton.html',1,'']]],
-  ['cuiobject_46',['CUIObject',['../classCUIObject.html',1,'']]]
+  ['ctransform_44',['CTransform',['../classCTransform.html',1,'']]]
 ];
