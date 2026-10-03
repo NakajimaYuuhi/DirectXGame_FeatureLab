@@ -1,7 +1,7 @@
 #include "GravityComponent.h"
 #include "Object.h"
 #include "Transform.h"
-#include "Field.h"
+#include "FieldComponent.h"
 #include "ObjectManager.h"
 #include <algorithm>
 

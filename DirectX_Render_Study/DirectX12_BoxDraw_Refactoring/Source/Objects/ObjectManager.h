@@ -8,7 +8,8 @@
 class Camera;
 class CameraComponent;
 class Player;
-class Field;
+class FieldComponent;
+#include "FieldComponent.h"
 
 class ObjectManager
 {
@@ -61,7 +62,7 @@ public:
 	CameraComponent* GetCameraComponent();
 
 	//Field
-	Field* GetField();
+	FieldComponent* GetField();
 
 	//Manager
 	CObject* GetManager(String name);

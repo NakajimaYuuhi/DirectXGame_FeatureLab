@@ -36,6 +36,7 @@
 #include "ParticleEmitterComponent.h"
 #include "ButtonComponent.h"
 #include "EnemyCounterComponent.h"
+#include "FieldComponent.h"
 #include "CollisionLayers.h"
 #include "RenderLayer.h"
 #include <typeinfo>
@@ -892,6 +893,29 @@ void CInspectorUI::Draw()
                         {
                             ecComp->SetTargetTextName(targetBuf);
                         }
+                    }
+                }
+
+                // FieldComponent
+                FieldComponent* fComp = selectedObj->GetComponent<FieldComponent>();
+                if (fComp)
+                {
+                    if (ImGui::CollapsingHeader("FieldComponent Settings", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        float w = fComp->GetWidth();
+                        if (ImGui::DragFloat("Width", &w, 1.0f, 1.0f, 500.0f)) fComp->SetWidth(w);
+
+                        float d = fComp->GetDepth();
+                        if (ImGui::DragFloat("Depth", &d, 1.0f, 1.0f, 500.0f)) fComp->SetDepth(d);
+
+                        int gx = fComp->GetGridX();
+                        if (ImGui::InputInt("Grid X", &gx)) fComp->SetGridX(gx);
+
+                        int gz = fComp->GetGridZ();
+                        if (ImGui::InputInt("Grid Z", &gz)) fComp->SetGridZ(gz);
+
+                        float tiling = fComp->GetUVTiling();
+                        if (ImGui::DragFloat("UV Tiling", &tiling, 0.5f, 0.1f, 100.0f)) fComp->SetUVTiling(tiling);
                     }
                 }
 

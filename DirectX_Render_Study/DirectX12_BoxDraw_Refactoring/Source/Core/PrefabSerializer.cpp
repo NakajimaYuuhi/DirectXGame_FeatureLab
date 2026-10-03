@@ -20,6 +20,7 @@
 #include "TextRenderer.h"
 #include "ButtonComponent.h"
 #include "EnemyCounterComponent.h"
+#include "FieldComponent.h"
 #include "Source/External/json.hpp"
 #include <fstream>
 #include <filesystem>

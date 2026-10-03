@@ -1,7 +1,7 @@
 #include "CharacterMovementComponent.h"
 #include "Object.h"
 #include "Transform.h"
-#include "Field.h"
+#include "FieldComponent.h"
 #include "GravityComponent.h"
 #include "ObjectManager.h"
 #include <cmath>

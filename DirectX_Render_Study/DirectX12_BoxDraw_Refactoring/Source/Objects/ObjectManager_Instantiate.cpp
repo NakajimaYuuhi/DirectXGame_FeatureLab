@@ -20,7 +20,7 @@
 //effect
 
 //field
-#include "Field.h"
+#include "FieldComponent.h"
 
 //camera
 #include "Camera.h"
@@ -142,7 +142,8 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 		break;
 
 	case ObjectTag::FIELD:
-		tmpObject = std::make_unique<Field>(_ObjectName);
+		tmpObject = std::make_unique<CObject>(_ObjectName);
+		tmpObject->AddComponent<FieldComponent>();
 		returnObject = tmpObject.get();
 		m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::FIELD), std::move(tmpObject) });
 		break;

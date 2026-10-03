@@ -174,8 +174,7 @@
     <ClCompile Include="Source\Rendering\PostProcessPass.cpp" />
     <ClCompile Include="Source\Rendering\RenderPipeline.cpp" />
     <ClCompile Include="Source\Rendering\RenderTexture.cpp" />
-    <ClCompile Include="Source\Objects\Field.cpp" />
-    <ClCompile Include="Source\UI\TextRenderer.cpp" />
+        <ClCompile Include="Source\UI\TextRenderer.cpp" />
         <ClCompile Include="Source\Resources\Bone.cpp" />
     <ClCompile Include="Source\Engine\Component\BoxCollider3D.cpp" />
     <ClCompile Include="Source\Engine\Component\GravityComponent.cpp" />
@@ -234,6 +233,7 @@
     <ClCompile Include="Source\Engine\Component\ParticleEmitterComponent.cpp" />
     <ClCompile Include="Source\Engine\Component\ButtonComponent.cpp" />
     <ClCompile Include="Source\Engine\Component\EnemyCounterComponent.cpp" />
+    <ClCompile Include="Source\Engine\Component\FieldComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Engine\Component\ComponentFactory.h" />
@@ -244,6 +244,7 @@
     <ClInclude Include="Source\Engine\Component\ParticleEmitterComponent.h" />
     <ClInclude Include="Source\Engine\Component\ButtonComponent.h" />
     <ClInclude Include="Source\Engine\Component\EnemyCounterComponent.h" />
+    <ClInclude Include="Source\Engine\Component\FieldComponent.h" />
     <ClInclude Include="Source\Core\Scenes\Base\Scene.h" />
     <ClInclude Include="Source\Game\Scenes\SceneClear.h" />
     <ClInclude Include="Source\Game\Scenes\SceneFailed.h" />
@@ -269,8 +270,7 @@
     <ClInclude Include="Source\Rendering\RenderPipeline.h" />
     <ClInclude Include="Source\Rendering\RenderTexture.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="Source\Objects\Field.h" />
-    <ClInclude Include="Source\UI\TextRenderer.h" />
+        <ClInclude Include="Source\UI\TextRenderer.h" />
         <ClInclude Include="Source\Resources\Bone.h" />
     <ClInclude Include="Source\Engine\Component\BoxCollider3D.h" />
     <ClInclude Include="Source\Engine\Component\GravityComponent.h" />

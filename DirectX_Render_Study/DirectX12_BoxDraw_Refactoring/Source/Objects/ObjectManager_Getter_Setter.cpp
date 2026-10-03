@@ -13,7 +13,7 @@
 
 //オブジェクト
 #include "Camera.h"
-#include "Field.h"
+#include "FieldComponent.h"
 
 
 
@@ -141,15 +141,14 @@ CObject* ObjectManager::GetManager(String name)
 }
 
 //----- Field -----
-Field* ObjectManager::GetField()
+FieldComponent* ObjectManager::GetField()
 {
 	const auto& fields = vecObject[Object::objectTag::FIELD];
 	for (const auto& obj : fields)
 	{
 		if (obj && !obj->GetIsDestroyed())
 		{
-			Field* f = dynamic_cast<Field*>(obj.get());
-			if (f) return f;
+			if (auto fc = obj->GetComponent<FieldComponent>()) return fc;
 		}
 	}
 	return nullptr;

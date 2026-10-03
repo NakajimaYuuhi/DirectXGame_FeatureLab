@@ -2,7 +2,7 @@
 #include "Component.h"
 #include <DirectXMath.h>
 
-class Field;
+class FieldComponent;
 
 class GravityComponent : public CComponent
 {
@@ -38,7 +38,7 @@ public:
 	void SetStepDownLimit(float limit) { m_stepDownLimit = limit; }
 
 private:
-	Field* m_field = nullptr;
+	FieldComponent* m_field = nullptr;
 
 	float m_verticalVelocity = 0.0f;
 	bool  m_isGrounded = false;

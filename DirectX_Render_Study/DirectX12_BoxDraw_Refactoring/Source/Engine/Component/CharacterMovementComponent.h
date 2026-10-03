@@ -2,7 +2,7 @@
 #include "Component.h"
 #include <DirectXMath.h>
 
-class Field;
+class FieldComponent;
 class GravityComponent;
 
 class CharacterMovementComponent : public CComponent
@@ -41,6 +41,6 @@ private:
 
 	DirectX::XMFLOAT3 m_lastMovement = { 0.0f, 0.0f, 0.0f };
 
-	Field*            m_field = nullptr;
+	FieldComponent*   m_field = nullptr;
 	GravityComponent* m_gravityComp = nullptr;
 };

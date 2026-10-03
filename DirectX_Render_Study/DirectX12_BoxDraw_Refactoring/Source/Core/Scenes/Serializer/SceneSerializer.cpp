@@ -3,7 +3,6 @@
 #include "ObjectInfo.h"
 #include "Transform.h"
 #include "Model.h"
-#include "Field.h"
 #include "SpriteRenderer.h"
 #include "TextRenderer.h"
 #include "ButtonEventManager.h"
@@ -72,7 +71,7 @@ bool SceneSerializer::SaveScene(const std::string& filepath, Scenes::ID sceneID)
 				objJson["type"] = "Enemy";
 			else if (objInfo->GetObjectTag() == ObjectTag::BACKGROUND)
 				objJson["type"] = "Skydome";
-			else if (dynamic_cast<Field*>(obj.get()))
+			else if (obj->GetComponent<FieldComponent>())
 				objJson["type"] = "Field";
 			else if (objInfo->GetObjectTag() == ObjectTag::CAMERA || obj->GetComponent<CameraComponent>() || dynamic_cast<Camera*>(obj.get()))
 				objJson["type"] = "Camera";

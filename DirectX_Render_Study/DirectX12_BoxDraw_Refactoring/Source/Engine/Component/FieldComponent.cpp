@@ -1,55 +1,43 @@
-#include "Field.h"
-#include "ObjectInfo.h"
+#include "FieldComponent.h"
+#include "Object.h"
 #include "Model.h"
 #include "Transform.h"
 #include <cmath>
 #include <algorithm>
 
-Field::Field(String _Name)
-	: CObject(_Name)
+FieldComponent::FieldComponent()
+	: CComponent("FieldComponent")
 {
-	CObjectInfo* objectInfo = GetComponent<CObjectInfo>();
-	if (objectInfo)
-	{
-		objectInfo->SetObjectTag(ObjectTag::FIELD);
-	}
-
-	SetPos({ 0.0f, 0.0f, 0.0f });
-	SetScale({ 1.0f, 1.0f, 1.0f });
-	SetRotation({ 0.0f, 0.0f, 0.0f });
 }
 
-void Field::Init()
+void FieldComponent::Init()
 {
 	Awake();
 }
 
-void Field::Awake()
+void FieldComponent::Awake()
 {
-	if (m_hasAwoken) return;
-
 	GenerateTerrainMesh();
-
-	m_hasAwoken = true;
 }
 
-void Field::Start()
+void FieldComponent::Start()
 {
-	if (m_hasStarted) return;
-	m_hasStarted = true;
+	GenerateTerrainMesh();
 }
 
-void Field::Update()
+void FieldComponent::Update(float deltaTime)
 {
+	if (!m_isMeshGenerated)
+	{
+		GenerateTerrainMesh();
+	}
 }
 
-float Field::CalculateProceduralHeight(float x, float z)
+float FieldComponent::CalculateProceduralHeight(float x, float z)
 {
-	// Smoothly flatten around center (0, 0)
 	float distSq = x * x + z * z;
 	float flattenFactor = 1.0f - std::exp(-distSq / 80.0f);
 
-	// Composite wave for gentle rolling hills
 	float wave1 = sinf(x * 0.12f) * cosf(z * 0.12f) * 2.2f;
 	float wave2 = sinf(x * 0.28f + 1.2f) * sinf(z * 0.25f + 0.8f) * 0.8f;
 	float wave3 = cosf(x * 0.06f) * sinf(z * 0.06f) * 1.5f;
@@ -57,11 +45,12 @@ float Field::CalculateProceduralHeight(float x, float z)
 	return (wave1 + wave2 + wave3) * flattenFactor;
 }
 
-void Field::GenerateTerrainMesh()
+void FieldComponent::GenerateTerrainMesh()
 {
-	if (m_isMeshGenerated) return;
+	if (m_isMeshGenerated || !m_Owner) return;
 
-	CModel* model = GetComponent<CModel>();
+	CModel* model = m_Owner->GetComponent<CModel>();
+	if (!model) model = m_Owner->AddComponent<CModel>();
 	if (!model) return;
 
 	int numVertsX = m_gridX + 1;
@@ -76,7 +65,6 @@ void Field::GenerateTerrainMesh()
 	float dx = m_width / static_cast<float>(m_gridX);
 	float dz = m_depth / static_cast<float>(m_gridZ);
 
-	// 1. Calculate vertex position, UV, height
 	for (int z = 0; z <= m_gridZ; ++z)
 	{
 		for (int x = 0; x <= m_gridX; ++x)
@@ -107,7 +95,6 @@ void Field::GenerateTerrainMesh()
 		}
 	}
 
-	// 2. Vertex normals calculation
 	for (int z = 0; z <= m_gridZ; ++z)
 	{
 		for (int x = 0; x <= m_gridX; ++x)
@@ -142,7 +129,6 @@ void Field::GenerateTerrainMesh()
 		}
 	}
 
-	// 3. Index buffer construction (Clockwise CW)
 	std::vector<uint32_t> indices;
 	indices.reserve(static_cast<size_t>(m_gridX * m_gridZ * 6));
 
@@ -155,19 +141,16 @@ void Field::GenerateTerrainMesh()
 			uint32_t v2 = static_cast<uint32_t>((z + 1) * numVertsX + x);
 			uint32_t v3 = static_cast<uint32_t>((z + 1) * numVertsX + (x + 1));
 
-			// Triangle 1: v0 -> v2 -> v1 (CW)
 			indices.push_back(v0);
 			indices.push_back(v2);
 			indices.push_back(v1);
 
-			// Triangle 2: v1 -> v2 -> v3 (CW)
 			indices.push_back(v1);
 			indices.push_back(v2);
 			indices.push_back(v3);
 		}
 	}
 
-	// 4. Register material and mesh
 	UINT matIdx = model->RegisterMatarial(L"Assets/Texture/Sample1.jpg", { 0.45f, 0.75f, 0.4f, 1.0f });
 	model->RegisterMesh(matIdx, vertices.data(), vertices.size(), indices.data(), indices.size());
 	model->CreateBoneBuffer();
@@ -175,10 +158,13 @@ void Field::GenerateTerrainMesh()
 	m_isMeshGenerated = true;
 }
 
-bool Field::GetHeight(float worldX, float worldZ, float& outHeight) const
+bool FieldComponent::GetHeight(float worldX, float worldZ, float& outHeight) const
 {
-	DirectX::XMFLOAT3 fPos = const_cast<Field*>(this)->GetPos();
-	DirectX::XMFLOAT3 fScale = const_cast<Field*>(this)->GetScale();
+	if (!m_Owner) return false;
+
+	CTransform* trans = m_Owner->GetComponent<CTransform>();
+	DirectX::XMFLOAT3 fPos = trans ? trans->GetPos() : DirectX::XMFLOAT3{ 0.0f, 0.0f, 0.0f };
+	DirectX::XMFLOAT3 fScale = trans ? trans->GetScale() : DirectX::XMFLOAT3{ 1.0f, 1.0f, 1.0f };
 
 	if (fScale.x == 0.0f || fScale.z == 0.0f)
 	{
@@ -247,10 +233,13 @@ bool Field::GetHeight(float worldX, float worldZ, float& outHeight) const
 	return true;
 }
 
-bool Field::GetNormal(float worldX, float worldZ, DirectX::XMFLOAT3& outNormal) const
+bool FieldComponent::GetNormal(float worldX, float worldZ, DirectX::XMFLOAT3& outNormal) const
 {
-	DirectX::XMFLOAT3 fPos = const_cast<Field*>(this)->GetPos();
-	DirectX::XMFLOAT3 fScale = const_cast<Field*>(this)->GetScale();
+	if (!m_Owner) return false;
+
+	CTransform* trans = m_Owner->GetComponent<CTransform>();
+	DirectX::XMFLOAT3 fPos = trans ? trans->GetPos() : DirectX::XMFLOAT3{ 0.0f, 0.0f, 0.0f };
+	DirectX::XMFLOAT3 fScale = trans ? trans->GetScale() : DirectX::XMFLOAT3{ 1.0f, 1.0f, 1.0f };
 
 	if (fScale.x == 0.0f || fScale.z == 0.0f)
 	{

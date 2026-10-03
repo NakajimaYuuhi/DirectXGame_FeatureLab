@@ -19,6 +19,7 @@
 #include "TextRenderer.h"
 #include "ButtonComponent.h"
 #include "EnemyCounterComponent.h"
+#include "FieldComponent.h"
 #include <windows.h>
 
 ComponentFactory::ComponentFactory()
@@ -482,5 +483,19 @@ void ComponentFactory::InitDefaultComponents()
 		return comp;
 	};
 	RegisterComponent("EnemyCounterComponent", enemyCounterCreator);
+
+	// 19. FieldComponent
+	auto fieldCreator = [](CObject* owner, const nlohmann::json& p) -> CComponent* {
+		FieldComponent* fComp = owner->GetComponent<FieldComponent>();
+		if (!fComp) fComp = owner->AddComponent<FieldComponent>();
+		if (p.contains("Width")) fComp->SetWidth(p["Width"].get<float>());
+		if (p.contains("Depth")) fComp->SetDepth(p["Depth"].get<float>());
+		if (p.contains("GridX")) fComp->SetGridX(p["GridX"].get<int>());
+		if (p.contains("GridZ")) fComp->SetGridZ(p["GridZ"].get<int>());
+		if (p.contains("UVTiling")) fComp->SetUVTiling(p["UVTiling"].get<float>());
+		return fComp;
+	};
+	RegisterComponent("FieldComponent", fieldCreator);
+	RegisterComponent("Field", fieldCreator);
 	RegisterComponent("EnemyCounter", enemyCounterCreator);
 }
