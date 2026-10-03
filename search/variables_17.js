@@ -84,5 +84,5 @@ var searchData=
   ['writeallfn_81',['WriteAllFn',['../structImGuiSettingsHandler.html#a8f9d8923be4df1b5e6c17f9857b955f4',1,'ImGuiSettingsHandler']]],
   ['writeimagedata_82',['WriteImageData',['../classtinygltf_1_1TinyGLTF.html#ab3ae31a914319f5b0ab58b85dde423ff',1,'tinygltf::TinyGLTF']]],
   ['writewholefile_83',['WriteWholeFile',['../structtinygltf_1_1FsCallbacks.html#ae4ee45fcb817282585c9ccab443f47da',1,'tinygltf::FsCallbacks']]],
-  ['wvp_84',['wvp',['../structConstantBufferData.html#a0fb3b48085de7144efa532eb1a0b8e64',1,'ConstantBufferData::WVP'],['../structMeshConstantBufferData.html#a48be94b944c9aa664b92885fdaf100f0',1,'MeshConstantBufferData::WVP']]]
+  ['wvp_84',['WVP',['../structMeshConstantBufferData.html#a48be94b944c9aa664b92885fdaf100f0',1,'MeshConstantBufferData']]]
 ];

@@ -1,24 +1,10 @@
 var searchData=
 [
-  ['camera_2ecpp_0',['Camera.cpp',['../Camera_8cpp.html',1,'']]],
-  ['camera_2eh_1',['Camera.h',['../Camera_8h.html',1,'']]],
-  ['cameracomponent_2ecpp_2',['CameraComponent.cpp',['../CameraComponent_8cpp.html',1,'']]],
-  ['cameracomponent_2eh_3',['CameraComponent.h',['../CameraComponent_8h.html',1,'']]],
-  ['charactermovementcomponent_2ecpp_4',['CharacterMovementComponent.cpp',['../CharacterMovementComponent_8cpp.html',1,'']]],
-  ['charactermovementcomponent_2eh_5',['CharacterMovementComponent.h',['../CharacterMovementComponent_8h.html',1,'']]],
-  ['collider_2ecpp_6',['Collider.cpp',['../Collider_8cpp.html',1,'']]],
-  ['collider_2eh_7',['Collider.h',['../Collider_8h.html',1,'']]],
-  ['collider3d_2ecpp_8',['Collider3D.cpp',['../Collider3D_8cpp.html',1,'']]],
-  ['collider3d_2eh_9',['Collider3D.h',['../Collider3D_8h.html',1,'']]],
-  ['collision_2ecpp_10',['Collision.cpp',['../Collision_8cpp.html',1,'']]],
-  ['collision_2eh_11',['Collision.h',['../Collision_8h.html',1,'']]],
-  ['collisionlayers_2eh_12',['CollisionLayers.h',['../CollisionLayers_8h.html',1,'']]],
-  ['component_2ecpp_13',['Component.cpp',['../Component_8cpp.html',1,'']]],
-  ['component_2eh_14',['Component.h',['../Component_8h.html',1,'']]],
-  ['componentfactory_2ecpp_15',['ComponentFactory.cpp',['../ComponentFactory_8cpp.html',1,'']]],
-  ['componentfactory_2eh_16',['ComponentFactory.h',['../ComponentFactory_8h.html',1,'']]],
-  ['componentmanager_2eh_17',['ComponentManager.h',['../ComponentManager_8h.html',1,'']]],
-  ['containeralias_2eh_18',['ContainerAlias.h',['../ContainerAlias_8h.html',1,'']]],
-  ['contentdrawerui_2ecpp_19',['ContentDrawerUI.cpp',['../ContentDrawerUI_8cpp.html',1,'']]],
-  ['contentdrawerui_2eh_20',['ContentDrawerUI.h',['../ContentDrawerUI_8h.html',1,'']]]
+  ['d2dtextrenderer_2ecpp_0',['D2DTextRenderer.cpp',['../D2DTextRenderer_8cpp.html',1,'']]],
+  ['d2dtextrenderer_2eh_1',['D2DTextRenderer.h',['../D2DTextRenderer_8h.html',1,'']]],
+  ['descriptorheapallocator_2ecpp_2',['DescriptorHeapAllocator.cpp',['../DescriptorHeapAllocator_8cpp.html',1,'']]],
+  ['descriptorheapallocator_2eh_3',['DescriptorHeapAllocator.h',['../DescriptorHeapAllocator_8h.html',1,'']]],
+  ['directxptralias_2eh_4',['DirectXPtrAlias.h',['../DirectXPtrAlias_8h.html',1,'']]],
+  ['dx12manager_2ecpp_5',['DX12Manager.cpp',['../DX12Manager_8cpp.html',1,'']]],
+  ['dx12manager_2eh_6',['DX12Manager.h',['../DX12Manager_8h.html',1,'']]]
 ];

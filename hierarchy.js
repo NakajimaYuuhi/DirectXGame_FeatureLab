@@ -27,7 +27,6 @@ var hierarchy =
     [ "nlohmann::detail::dtoa_impl::cached_power", "structnlohmann_1_1detail_1_1dtoa__impl_1_1cached__power.html", null ],
     [ "tinygltf::Camera", "structtinygltf_1_1Camera.html", null ],
     [ "CBone", "classCBone.html", null ],
-    [ "CBox", "classCBox.html", null ],
     [ "CComponent", "classCComponent.html", [
       [ "Audio", "classAudio.html", null ],
       [ "BillboardComponent", "classBillboardComponent.html", null ],
@@ -69,17 +68,13 @@ var hierarchy =
     [ "CMaterial", "classCMaterial.html", null ],
     [ "CMesh", "classCMesh.html", null ],
     [ "CObject", "classCObject.html", [
-      [ "C3D_Object", "classC3D__Object.html", [
-        [ "BillBoard", "classBillBoard.html", null ],
-        [ "Field", "classField.html", null ]
-      ] ],
       [ "Camera", "classCamera.html", null ],
+      [ "Field", "classField.html", null ],
       [ "Manager", "classManager.html", null ]
     ] ],
     [ "Collision", "classCollision.html", null ],
     [ "ComponentFactory", "classComponentFactory.html", null ],
     [ "ComponentManager", "classComponentManager.html", null ],
-    [ "ConstantBufferData", "structConstantBufferData.html", null ],
     [ "nlohmann::detail::container_input_adapter_factory_impl::container_input_adapter_factory< ContainerType, Enable >", "structnlohmann_1_1detail_1_1container__input__adapter__factory__impl_1_1container__input__adapter__factory.html", null ],
     [ "nlohmann::detail::container_input_adapter_factory_impl::container_input_adapter_factory< ContainerType, void_t< decltype(begin(std::declval< ContainerType >()), end(std::declval< ContainerType >()))> >", "structnlohmann_1_1detail_1_1container__input__adapter__factory__impl_1_1container__input__adapte602516bdb0b70b8ee5c6d4ff825368be.html", null ],
     [ "CScene", "classCScene.html", [
@@ -594,7 +589,6 @@ var hierarchy =
     [ "std::vector< std::pair< const Key, T >, std::allocator< std::pair< const Key, T > > >", null, [
       [ "nlohmann::ordered_map< Key, T, IgnoredLess, Allocator >", "structnlohmann_1_1ordered__map.html", null ]
     ] ],
-    [ "Vertex", "structVertex.html", null ],
     [ "VERTEX_CONSTANT_BUFFER_DX12", "structVERTEX__CONSTANT__BUFFER__DX12.html", null ],
     [ "nlohmann::detail::wide_string_input_adapter< BaseInputAdapter, WideCharType >", "classnlohmann_1_1detail_1_1wide__string__input__adapter.html", null ],
     [ "nlohmann::detail::wide_string_input_helper< BaseInputAdapter, T >", "structnlohmann_1_1detail_1_1wide__string__input__helper.html", null ],

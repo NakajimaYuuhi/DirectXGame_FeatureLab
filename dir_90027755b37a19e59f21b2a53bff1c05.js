@@ -1,11 +1,5 @@
 var dir_90027755b37a19e59f21b2a53bff1c05 =
 [
-    [ "3D_Object.cpp", "3D__Object_8cpp.html", null ],
-    [ "3D_Object.h", "3D__Object_8h.html", "3D__Object_8h" ],
-    [ "BillBoard.cpp", "BillBoard_8cpp.html", null ],
-    [ "BillBoard.h", "BillBoard_8h.html", "BillBoard_8h" ],
-    [ "Box.cpp", "Box_8cpp.html", "Box_8cpp" ],
-    [ "Box.h", "Box_8h.html", "Box_8h" ],
     [ "ButtonEventManager.cpp", "ButtonEventManager_8cpp.html", null ],
     [ "ButtonEventManager.h", "ButtonEventManager_8h.html", "ButtonEventManager_8h" ],
     [ "Camera.cpp", "Camera_8cpp.html", null ],

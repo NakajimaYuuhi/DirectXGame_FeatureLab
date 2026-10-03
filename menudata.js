@@ -289,7 +289,6 @@ var menudata={children:[
 {text:"r",url:"globals_vars.html#index_r"},
 {text:"s",url:"globals_vars.html#index_s"},
 {text:"t",url:"globals_vars.html#index_t"},
-{text:"v",url:"globals_vars.html#index_v"},
 {text:"w",url:"globals_vars.html#index_w"}]},
 {text:"型定義",url:"globals_type.html",children:[
 {text:"_",url:"globals_type.html#index__5F"},
