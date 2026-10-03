@@ -1,229 +1,230 @@
 {
-    "eventSystem": {
-        "firstSelected": "RetryButton"
+  "eventSystem": {
+    "firstSelected": "RetryButton"
+  },
+  "objects": [
+    {
+      "name": "Skydome",
+      "prefab": "Skydome",
+      "tag": 0,
+      "transform": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          3.140000104904175,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "type": "Skydome"
     },
-    "objects": [
-        {
-            "name": "Skydome",
-            "prefab": "Skydome",
-            "tag": 0,
-            "transform": {
-                "position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "rotation": [
-                    0.0,
-                    3.140000104904175,
-                    0.0
-                ],
-                "scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ]
-            },
-            "type": "Skydome"
-        },
-        {
-            "name": "Player",
-            "prefab": "PlayerPrefab",
-            "tag": 1,
-            "transform": {
-                "position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "scale": [
-                    0.5,
-                    0.5,
-                    0.5
-                ]
-            },
-            "type": "Player"
-        },
-        {
-            "name": "Enemy",
-            "prefab": "Enemy",
-            "tag": 3,
-            "transform": {
-                "position": [
-                    0.0,
-                    0.0,
-                    10.0
-                ],
-                "rotation": [
-                    0.0,
-                    3.140000104904175,
-                    0.0
-                ],
-                "scale": [
-                    0.5,
-                    0.5,
-                    0.5
-                ]
-            },
-            "type": "Enemy"
-        },
-        {
-            "name": "Enemy_0",
-            "prefab": "Enemy",
-            "tag": 3,
-            "transform": {
-                "position": [
-                    2.0,
-                    0.0,
-                    5.0
-                ],
-                "rotation": [
-                    0.0,
-                    3.140000104904175,
-                    0.0
-                ],
-                "scale": [
-                    0.5,
-                    0.5,
-                    0.5
-                ]
-            },
-            "type": "Enemy"
-        },
-        {
-            "name": "Enemy_1",
-            "prefab": "Enemy",
-            "tag": 3,
-            "transform": {
-                "position": [
-                    -2.0,
-                    0.0,
-                    5.0
-                ],
-                "rotation": [
-                    0.0,
-                    3.140000104904175,
-                    0.0
-                ],
-                "scale": [
-                    0.5,
-                    0.5,
-                    0.5
-                ]
-            },
-            "type": "Enemy"
-        },
-        {
-            "name": "Field",
-            "tag": 5,
-            "transform": {
-                "position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ]
-            },
-            "type": "Field"
-        },
-        {
-            "name": "EnemyCount",
-            "prefab": "EnemyCount",
-            "tag": 10,
-            "text": {
-                "color": [
-                    1.0,
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "content": "Score : 0",
-                "fontFamily": "Meiryo",
-                "fontSize": 24.0,
-                "position": [
-                    0.0,
-                    0.0
-                ]
-            },
-            "transform": {
-                "position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ]
-            },
-            "type": "CObject"
-        },
-        {
-            "name": "Camera",
-            "prefab": "Camera",
-            "tag": 11,
-            "transform": {
-                "position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ]
-            },
-            "type": "Camera"
-        },
-        {
-            "name": "EnemyCounter",
-            "tag": 13,
-            "transform": {
-                "position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ]
-            },
-            "type": "CObject",
-            "prefab": "EnemyCounter"
-        }
-    ],
-    "sceneID": 5
+    {
+      "name": "Player",
+      "prefab": "PlayerPrefab",
+      "tag": 1,
+      "transform": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "type": "Player"
+    },
+    {
+      "name": "Enemy",
+      "prefab": "Enemy",
+      "tag": 3,
+      "transform": {
+        "position": [
+          0.0,
+          0.0,
+          10.0
+        ],
+        "rotation": [
+          0.0,
+          3.140000104904175,
+          0.0
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "type": "Enemy"
+    },
+    {
+      "name": "Enemy_0",
+      "prefab": "Enemy",
+      "tag": 3,
+      "transform": {
+        "position": [
+          2.0,
+          0.0,
+          5.0
+        ],
+        "rotation": [
+          0.0,
+          3.140000104904175,
+          0.0
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "type": "Enemy"
+    },
+    {
+      "name": "Enemy_1",
+      "prefab": "Enemy",
+      "tag": 3,
+      "transform": {
+        "position": [
+          -2.0,
+          0.0,
+          5.0
+        ],
+        "rotation": [
+          0.0,
+          3.140000104904175,
+          0.0
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "type": "Enemy"
+    },
+    {
+      "name": "Field",
+      "tag": 5,
+      "transform": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "type": "Field",
+      "prefab": "Field"
+    },
+    {
+      "name": "EnemyCount",
+      "prefab": "EnemyCount",
+      "tag": 10,
+      "text": {
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "content": "Score : 0",
+        "fontFamily": "Meiryo",
+        "fontSize": 24.0,
+        "position": [
+          0.0,
+          0.0
+        ]
+      },
+      "transform": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "type": "CObject"
+    },
+    {
+      "name": "Camera",
+      "prefab": "Camera",
+      "tag": 11,
+      "transform": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "type": "Camera"
+    },
+    {
+      "name": "EnemyCounter",
+      "tag": 13,
+      "transform": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "type": "CObject",
+      "prefab": "EnemyCounter"
+    }
+  ],
+  "sceneID": 5
 }

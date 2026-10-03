@@ -142,10 +142,18 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 		break;
 
 	case ObjectTag::FIELD:
-		tmpObject = std::make_unique<CObject>(_ObjectName);
-		tmpObject->AddComponent<FieldComponent>();
-		returnObject = tmpObject.get();
-		m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::FIELD), std::move(tmpObject) });
+		{
+			CObject* rawObj = PrefabManager::GetInstance().Instantiate("Field", _ObjectName);
+			if (!rawObj) rawObj = PrefabManager::GetInstance().InstantiateFromJSON("Assets/Prefabs/Field.json", _ObjectName);
+			if (!rawObj)
+			{
+				rawObj = new CObject(_ObjectName);
+				rawObj->AddComponent<FieldComponent>();
+			}
+			tmpObject = std::unique_ptr<CObject>(rawObj);
+			returnObject = tmpObject.get();
+			m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::FIELD), std::move(tmpObject) });
+		}
 		break;
 
 	case ObjectTag::BILLBOARD:
