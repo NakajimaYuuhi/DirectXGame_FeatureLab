@@ -1,5 +1,4 @@
 #include "SceneTest.h"
-#include "3D_Object.h"
 #include "Object.h"
 #include "Model.h"
 #include "DX12Manager.h"
@@ -35,11 +34,15 @@ void CSceneTest::Init()
             if (t) t->SetTransform({ 0.0f, 0.0f, 10.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 3.14f, 0.0f });
         }
 
-        C3D_Object* skydome = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::BACKGROUND, "Skydome"));
-        skydome->SetTransform({ 0.0f, 0.0f, 0.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 3.14f, 0.0f });
+        CObject* skydome = ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::BACKGROUND, "Skydome");
+        if (skydome) {
+            if (auto t = skydome->GetComponent<CTransform>()) t->SetTransform({ 0.0f, 0.0f, 0.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 3.14f, 0.0f });
+        }
 
-        C3D_Object* field = (C3D_Object*)(ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::FIELD, "Field"));
-        field->SetTransform({ 0.0f, 0.0f, 0.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 0.0f, 0.0f });
+        CObject* field = ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::FIELD, "Field");
+        if (field) {
+            if (auto t = field->GetComponent<CTransform>()) t->SetTransform({ 0.0f, 0.0f, 0.0f }, { 1.0f, 1.0f, 1.0f }, { 0.0f, 0.0f, 0.0f });
+        }
 
         CObject* enemyCounter = ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::MANAGER, "EnemyCounter");
 

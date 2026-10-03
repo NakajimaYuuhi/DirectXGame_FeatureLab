@@ -12,12 +12,10 @@
 //?I?u?W?F?N?g
 
 // --3D
-#include "3D_Object.h"
 
 //bullet
 
 //billboard
-#include "BillBoard.h"
 
 //effect
 
@@ -89,7 +87,7 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 			m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::CAMERA), std::move(tmpObject) });
 			break;
 		}
-		tmpObject = std::make_unique<C3D_Object>(_ObjectName);
+		tmpObject = std::make_unique<CObject>(_ObjectName);
 		returnObject = tmpObject.get();
 		m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::FIELD), std::move(tmpObject) });
 		break;
@@ -150,13 +148,13 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 		break;
 
 	case ObjectTag::BILLBOARD:
-		tmpObject = std::make_unique<BillBoard>(_ObjectName);
+		tmpObject = std::make_unique<CObject>(_ObjectName);
 		returnObject = tmpObject.get();
 		m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::BILLBOARD), std::move(tmpObject) });
 		break;
 
 	case ObjectTag::EFFECT:
-		tmpObject = std::make_unique<BillBoard>(_ObjectName);
+		tmpObject = std::make_unique<CObject>(_ObjectName);
 		returnObject = tmpObject.get();
 		m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::EFFECT), std::move(tmpObject) });
 		break;

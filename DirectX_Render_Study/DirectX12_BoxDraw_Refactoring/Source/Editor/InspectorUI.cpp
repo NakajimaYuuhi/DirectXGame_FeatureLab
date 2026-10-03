@@ -19,7 +19,6 @@
 #include "Source/Core/Scenes/Manager/SceneManager.h"
 #include "Source/Core/Scenes/Serializer/SceneSerializer.h"
 #include "SceneEnums.h"
-#include "Box.h"
 #include "SpriteRenderer.h"
 #include "TextRenderer.h"
 #include "ButtonEventManager.h"

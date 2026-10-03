@@ -6,7 +6,7 @@
 #include <algorithm>
 
 Field::Field(String _Name)
-	: C3D_Object(_Name)
+	: CObject(_Name)
 {
 	CObjectInfo* objectInfo = GetComponent<CObjectInfo>();
 	if (objectInfo)

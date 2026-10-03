@@ -4,7 +4,6 @@
 #include "Transform.h"
 #include "Model.h"
 #include "Field.h"
-#include "Box.h"
 #include "SpriteRenderer.h"
 #include "TextRenderer.h"
 #include "ButtonEventManager.h"

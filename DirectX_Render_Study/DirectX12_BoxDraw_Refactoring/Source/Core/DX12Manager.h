@@ -9,7 +9,6 @@
 #include "DescriptorHeapAllocator.h"
 
 // ???u??
-#include "Box.h"
 #include "Mesh.h"
 
 using Microsoft::WRL::ComPtr;
