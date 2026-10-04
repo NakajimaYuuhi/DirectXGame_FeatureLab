@@ -23,7 +23,6 @@ var classPlayerControllerComponent =
     [ "DEATH_DURATION", "classPlayerControllerComponent.html#aadd5f258ecde82f2355470788024a42e", null ],
     [ "HURT_DURATION", "classPlayerControllerComponent.html#a8c63ca3a1cfa3fcaf58330ba397d70a6", null ],
     [ "m_attackTimer", "classPlayerControllerComponent.html#a8a0b8cf63694dd9768e6bc8c2500ee06", null ],
-    [ "m_camera", "classPlayerControllerComponent.html#a30ed6c935688a1d707c9782e934015af", null ],
     [ "m_cameraComp", "classPlayerControllerComponent.html#a6ef9874e943154f3ae28b5c8323aebcf", null ],
     [ "m_currentState", "classPlayerControllerComponent.html#a9cff269c20314c4c42fbadf9b5a1eecd", null ],
     [ "m_deadTimer", "classPlayerControllerComponent.html#a9827ca0197599b6801ea4b249283b381", null ],

@@ -2,8 +2,6 @@ var dir_90027755b37a19e59f21b2a53bff1c05 =
 [
     [ "ButtonEventManager.cpp", "ButtonEventManager_8cpp.html", null ],
     [ "ButtonEventManager.h", "ButtonEventManager_8h.html", "ButtonEventManager_8h" ],
-    [ "Camera.cpp", "Camera_8cpp.html", null ],
-    [ "Camera.h", "Camera_8h.html", "Camera_8h" ],
     [ "Event.cpp", "Event_8cpp.html", null ],
     [ "Event.h", "Event_8h.html", "Event_8h" ],
     [ "EventData.cpp", "EventData_8cpp.html", null ],

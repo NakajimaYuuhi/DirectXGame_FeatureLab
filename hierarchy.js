@@ -69,7 +69,6 @@ var hierarchy =
     [ "CMaterial", "classCMaterial.html", null ],
     [ "CMesh", "classCMesh.html", null ],
     [ "CObject", "classCObject.html", [
-      [ "Camera", "classCamera.html", null ],
       [ "Manager", "classManager.html", null ]
     ] ],
     [ "Collision", "classCollision.html", null ],

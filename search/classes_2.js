@@ -1,7 +1,7 @@
 var searchData=
 [
   ['cached_5fpower_0',['cached_power',['../structnlohmann_1_1detail_1_1dtoa__impl_1_1cached__power.html',1,'nlohmann::detail::dtoa_impl']]],
-  ['camera_1',['camera',['../classCamera.html',1,'Camera'],['../structtinygltf_1_1Camera.html',1,'tinygltf::Camera']]],
+  ['camera_1',['Camera',['../structtinygltf_1_1Camera.html',1,'tinygltf']]],
   ['cameracomponent_2',['CameraComponent',['../classCameraComponent.html',1,'']]],
   ['cbone_3',['CBone',['../classCBone.html',1,'']]],
   ['ccomponent_4',['CComponent',['../classCComponent.html',1,'']]],
