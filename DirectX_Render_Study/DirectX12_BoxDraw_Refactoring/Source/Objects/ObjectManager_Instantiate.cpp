@@ -23,7 +23,6 @@
 #include "FieldComponent.h"
 
 //camera
-#include "Camera.h"
 
 
 // --2D
@@ -82,7 +81,14 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 	case ObjectTag::NONE:
 		if (_TypeName == "Camera" || _ObjectName == "Camera" || _TypeName == "CameraComponent")
 		{
-			tmpObject = std::make_unique<Camera>(_ObjectName);
+			CObject* rawObj = PrefabManager::GetInstance().Instantiate("Camera", _ObjectName);
+			if (!rawObj) rawObj = PrefabManager::GetInstance().InstantiateFromJSON("Assets/Prefabs/Camera.json", _ObjectName);
+			if (!rawObj)
+			{
+				rawObj = new CObject(_ObjectName);
+				rawObj->AddComponent<CameraComponent>();
+			}
+			tmpObject = std::unique_ptr<CObject>(rawObj);
 			returnObject = tmpObject.get();
 			m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::CAMERA), std::move(tmpObject) });
 			break;
@@ -180,7 +186,7 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 		break;
 
 	case ObjectTag::CAMERA:
-		tmpObject = std::make_unique<Camera>(_ObjectName);
+		// tmpObject = std::make_unique<CObject>(_ObjectName);
 		returnObject = tmpObject.get();
 		m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::CAMERA), std::move(tmpObject) });
 		break;
@@ -301,7 +307,7 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 //		vecObject[static_cast<int>(ObjectTag::TEXT)].push_back(std::move(tmpObject));				//?z?????
 //		break;
 //	case ObjectTag::CAMERA:
-//		tmpObject = std::make_unique<Camera>("Camera");		//????
+//		// tmpObject = std::make_unique<CObject>("Camera");		//????
 //		returnObject = tmpObject.get();							//???|?C???^???
 //		vecObject[static_cast<int>(ObjectTag::CAMERA)].push_back(std::move(tmpObject));				//?z?????
 //		break;

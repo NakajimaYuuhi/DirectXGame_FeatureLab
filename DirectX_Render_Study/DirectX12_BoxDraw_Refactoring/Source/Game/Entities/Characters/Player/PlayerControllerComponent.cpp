@@ -3,7 +3,6 @@
 #include "Transform.h"
 #include "Model.h"
 #include "ModelManager.h"
-#include "Camera.h"
 #include "CameraComponent.h"
 #include "BulletComponent.h"
 #include "audio.h"
@@ -26,7 +25,7 @@ void PlayerControllerComponent::Start()
 	if (camObj)
 	{
 		m_cameraComp = camObj->GetComponent<CameraComponent>();
-		m_camera = dynamic_cast<Camera*>(camObj);
+		
 	}
 
 	if (m_Owner)
@@ -67,22 +66,13 @@ DirectX::XMFLOAT3 PlayerControllerComponent::CalculateMoveDirection() const
 	CameraComponent* camComp = m_cameraComp;
 	if (!camComp)
 	{
-		camComp = ObjectManager::GetInstance().GetCameraComponent();
+		camComp = ObjectManager::GetInstance().GetCamera();
 	}
 
 	float angleY = 0.0f;
 	if (camComp)
 	{
 		angleY = camComp->GetAngleY();
-	}
-	else if (m_camera)
-	{
-		angleY = m_camera->GetAngleY();
-	}
-	else
-	{
-		Camera* cam = ObjectManager::GetInstance().GetCamera();
-		if (cam) angleY = cam->GetAngleY();
 	}
 	float s = sinf(angleY);
 	float c = cosf(angleY);

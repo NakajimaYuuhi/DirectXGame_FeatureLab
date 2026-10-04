@@ -4,7 +4,8 @@
 #include "Object.h"
 #include "Transform.h"
 
-class Camera;
+class CameraComponent;
+#include "CameraComponent.h"
 
 class BoxCollider3D : public Collider3D
 {
@@ -131,7 +132,7 @@ public:
 	}
 
 	// デバッグ可視化用
-	void DrawDebug(Camera* camera);
+	void DrawDebug(CameraComponent* camera);
 
 protected:
 	DirectX::XMFLOAT3 Size = { 1.0f, 1.0f, 1.0f };	//大きさ

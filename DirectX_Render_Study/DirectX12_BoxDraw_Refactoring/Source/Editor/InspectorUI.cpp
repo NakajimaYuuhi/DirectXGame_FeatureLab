@@ -14,7 +14,6 @@
 #include "Model.h"
 #include "ObjectInfo.h"
 #include "BoxCollider3D.h"
-#include "Camera.h"
 #include "TimeManager.h"
 #include "Source/Core/Scenes/Manager/SceneManager.h"
 #include "Source/Core/Scenes/Serializer/SceneSerializer.h"
@@ -126,7 +125,7 @@ void CInspectorUI::Draw()
     ImGui::Begin("Level Editor & Inspector");
 
     ImGuiIO& io = ImGui::GetIO();
-    Camera* camera = ObjectManager::GetInstance().GetCamera();
+    CameraComponent* camera = ObjectManager::GetInstance().GetCamera();
 
     // Keyboard Shortcuts (Undo: Ctrl+Z, Redo: Ctrl+Y / Ctrl+Shift+Z, Gizmo Mode: W/E/R)
     if (!io.WantCaptureKeyboard && !io.WantTextInput)
@@ -1165,8 +1164,8 @@ void CInspectorUI::Draw()
             if (transform)
             {
                 DirectX::XMFLOAT3 pos = transform->GetPos();
-                DirectX::XMMATRIX view = camera->GetView();
-                DirectX::XMMATRIX proj = camera->GetProj();
+                DirectX::XMMATRIX view = camera->GetViewMatrix();
+                DirectX::XMMATRIX proj = camera->GetProjectionMatrix();
 
                 DirectX::XMVECTOR vOrigin = DirectX::XMVectorSet(pos.x, pos.y, pos.z, 1.0f);
                 DirectX::XMVECTOR vAxisX = DirectX::XMVectorSet(pos.x + 1.5f, pos.y, pos.z, 1.0f);
@@ -1358,7 +1357,7 @@ void CInspectorUI::Draw()
 
     if (m_showColliders)
     {
-        Camera* camera = ObjectManager::GetInstance().GetCamera();
+        CameraComponent* camera = ObjectManager::GetInstance().GetCamera();
         if (camera)
         {
             const auto& objectList = ObjectManager::GetInstance().GetObjectList();

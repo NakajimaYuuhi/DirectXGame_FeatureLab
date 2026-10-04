@@ -1,8 +1,7 @@
 #include "BoxCollider3D.h"
-#include "Camera.h"
 #include "imgui.h"
 
-void BoxCollider3D::DrawDebug(Camera* camera)
+void BoxCollider3D::DrawDebug(CameraComponent* camera)
 {
 #ifndef _DEBUG
 	return;
@@ -28,7 +27,7 @@ void BoxCollider3D::DrawDebug(Camera* camera)
 		{ center.x - hx, center.y + hy, center.z + hz }
 	};
 
-	DirectX::XMMATRIX viewProj = camera->GetView() * camera->GetProj();
+	DirectX::XMMATRIX viewProj = camera->GetViewMatrix() * camera->GetProjectionMatrix();
 	ImGuiIO& io = ImGui::GetIO();
 	float screenW = io.DisplaySize.x;
 	float screenH = io.DisplaySize.y;

@@ -14,7 +14,6 @@
 #include "D2DTextRenderer.h"
 
 #include "ObjectManager.h"
-#include "Camera.h"
 
 
 // ?O???{??h???C?o?iNVIDIA / AMD?j??????A????A?v???N??????O??GPU??????g?p???????`???èx?@
@@ -387,10 +386,6 @@ DirectX::XMMATRIX DX12Manager::GetView()
 		{
 			return camComp->GetViewMatrix();
 		}
-		if (auto legacyCam = dynamic_cast<Camera*>(camObj))
-		{
-			return legacyCam->GetView();
-		}
 	}
 	return DirectX::XMMatrixIdentity();
 }
@@ -403,10 +398,6 @@ DirectX::XMMATRIX DX12Manager::GetProj()
 		if (auto camComp = camObj->GetComponent<CameraComponent>())
 		{
 			return camComp->GetProjectionMatrix();
-		}
-		if (auto legacyCam = dynamic_cast<Camera*>(camObj))
-		{
-			return legacyCam->GetProj();
 		}
 	}
 	return DirectX::XMMatrixIdentity();

@@ -7,7 +7,6 @@
 #include "TextRenderer.h"
 #include "ButtonEventManager.h"
 #include "ButtonAction.h"
-#include "Camera.h"
 #include "CameraComponent.h"
 #include "ButtonComponent.h"
 #include "PrefabManager.h"
@@ -73,7 +72,7 @@ bool SceneSerializer::SaveScene(const std::string& filepath, Scenes::ID sceneID)
 				objJson["type"] = "Skydome";
 			else if (obj->GetComponent<FieldComponent>())
 				objJson["type"] = "Field";
-			else if (objInfo->GetObjectTag() == ObjectTag::CAMERA || obj->GetComponent<CameraComponent>() || dynamic_cast<Camera*>(obj.get()))
+			else if (objInfo->GetObjectTag() == ObjectTag::CAMERA || obj->GetComponent<CameraComponent>() )
 				objJson["type"] = "Camera";
 			else
 				objJson["type"] = "CObject";

@@ -1,5 +1,5 @@
 #include "EditorRaycast.h"
-#include "Source/Objects/Camera.h"
+#include "CameraComponent.h"
 #include "Object.h"
 #include "Transform.h"
 #include "BoxCollider3D.h"
@@ -85,7 +85,7 @@ bool EditorRaycast::RayIntersectAABB(
 CObject* EditorRaycast::PickObject(
     float screenX, float screenY,
     float screenWidth, float screenHeight,
-    Camera* camera,
+    CameraComponent* camera,
     const std::vector<std::vector<std::unique_ptr<CObject>>>& objectList,
     int& outTagIndex,
     int& outObjectIndex)
@@ -95,8 +95,8 @@ CObject* EditorRaycast::PickObject(
 
     if (!camera) return nullptr;
 
-    XMMATRIX view = camera->GetView();
-    XMMATRIX proj = camera->GetProj();
+    XMMATRIX view = camera->GetViewMatrix();
+    XMMATRIX proj = camera->GetProjectionMatrix();
 
     Ray ray = CreateRayFromScreen(screenX, screenY, screenWidth, screenHeight, view, proj);
 

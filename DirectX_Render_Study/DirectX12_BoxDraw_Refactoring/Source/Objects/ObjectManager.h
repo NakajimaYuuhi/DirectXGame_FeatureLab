@@ -5,7 +5,8 @@
 #include "Object.h"
 #include "RenderLayer.h"
 
-class Camera;
+class CameraComponent;
+#include "CameraComponent.h"
 class CameraComponent;
 class Player;
 class FieldComponent;
@@ -58,7 +59,7 @@ public:
 
 	//Camera
 	CObject* GetCameraObject();
-	Camera* GetCamera();
+	CameraComponent* GetCamera();
 	CameraComponent* GetCameraComponent();
 
 	//Field

@@ -12,7 +12,6 @@
 #include "CameraComponent.h"
 
 //オブジェクト
-#include "Camera.h"
 #include "FieldComponent.h"
 
 
@@ -77,7 +76,7 @@ CObject* ObjectManager::GetCameraObject()
 		{
 			if (obj && !obj->GetIsDestroyed())
 			{
-				if (obj->GetComponent<CameraComponent>() || dynamic_cast<Camera*>(obj.get()))
+				if (obj->GetComponent<CameraComponent>() )
 				{
 					return obj.get();
 				}
@@ -89,7 +88,7 @@ CObject* ObjectManager::GetCameraObject()
 	{
 		if (pair.second && !pair.second->GetIsDestroyed())
 		{
-			if (pair.first == ObjectTag::CAMERA || pair.second->GetComponent<CameraComponent>() || dynamic_cast<Camera*>(pair.second.get()))
+			if (pair.first == ObjectTag::CAMERA || pair.second->GetComponent<CameraComponent>() )
 			{
 				return pair.second.get();
 			}
@@ -99,12 +98,12 @@ CObject* ObjectManager::GetCameraObject()
 	return nullptr;
 }
 
-Camera* ObjectManager::GetCamera()
+CameraComponent* ObjectManager::GetCamera()
 {
 	CObject* camObj = GetCameraObject();
 	if (camObj)
 	{
-		return dynamic_cast<Camera*>(camObj);
+		return camObj->GetComponent<CameraComponent>();
 	}
 	return nullptr;
 }

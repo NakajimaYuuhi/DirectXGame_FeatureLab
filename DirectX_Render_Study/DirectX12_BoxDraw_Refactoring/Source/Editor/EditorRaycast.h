@@ -4,7 +4,8 @@
 #include <memory>
 
 class CObject;
-class Camera;
+class CameraComponent;
+#include "CameraComponent.h"
 
 struct Ray
 {
@@ -32,7 +33,7 @@ public:
     static CObject* PickObject(
         float screenX, float screenY,
         float screenWidth, float screenHeight,
-        Camera* camera,
+        CameraComponent* camera,
         const std::vector<std::vector<std::unique_ptr<CObject>>>& objectList,
         int& outTagIndex,
         int& outObjectIndex
