@@ -980,5 +980,16 @@ var namespaces_dup =
       ] ]
     ] ],
     [ "std", "namespacestd.html", "namespacestd" ],
-    [ "tinygltf", "namespacetinygltf.html", "namespacetinygltf" ]
+    [ "tinygltf", "namespacetinygltf.html", "namespacetinygltf" ],
+    [ "Tween", "namespaceTween.html", [
+      [ "Kill", "namespaceTween.html#a627b2c7b5146e336e24bbc36b5713346", null ],
+      [ "KillAll", "namespaceTween.html#adc532f960fa826b0f1b9d446eb7d0f67", null ],
+      [ "To", "namespaceTween.html#a5ca923f88d12c72d82c0ff40a060720d", null ]
+    ] ],
+    [ "TweenMath", "namespaceTweenMath.html", [
+      [ "Lerp", "namespaceTweenMath.html#a38e8be92966d09947a6f26e85f487847", null ],
+      [ "Lerp", "namespaceTweenMath.html#af323c6715bc5ee553aea91ac72c5e5ad", null ],
+      [ "Lerp", "namespaceTweenMath.html#ac1b8d6dc9dd7a5b1c162b3bb324c5ff2", null ],
+      [ "Lerp", "namespaceTweenMath.html#a315d3bf5e5b746afa015463e41456990", null ]
+    ] ]
 ];

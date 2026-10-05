@@ -17,6 +17,8 @@ var classCObject =
     [ "GetIsDestroyed", "classCObject.html#a4b1bab560d2e131770959488dce32736", null ],
     [ "GetIsValid", "classCObject.html#a981fafe6348bc06c5a95270157b2a45e", null ],
     [ "GetIsVisible", "classCObject.html#ada8361a736050d32558b61b99fe9e1c1", null ],
+    [ "GetName", "classCObject.html#a518101fbc2554bd74274b487cc3431ff", null ],
+    [ "GetRectTransform", "classCObject.html#aa60cdb97150ad9c7c62744f995ca5b1b", null ],
     [ "GetTransform", "classCObject.html#a120877e506ef5b9fb9ebf5940280f330", null ],
     [ "Init", "classCObject.html#acdc9ca6fa3fc2e3d915596a5ec07c5e8", null ],
     [ "LateUpdate", "classCObject.html#aeeba4dd011edc512ba03b9281bd189d3", null ],

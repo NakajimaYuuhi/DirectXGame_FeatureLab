@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['scale_0',['scale',['../InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817a85a7cd587d6142dbfc1a4de05af7b75d',1,'Scale:&#160;InspectorUI.h'],['../ModelData_8h.html#a7dca5cb9d4d9db5af72040c09db4ea20a127ea1d20becc4dba06d9d152db0c2e5',1,'SCALE:&#160;ModelData.h']]],
+  ['scale_0',['scale',['../ModelData_8h.html#a7dca5cb9d4d9db5af72040c09db4ea20a127ea1d20becc4dba06d9d152db0c2e5',1,'SCALE:&#160;ModelData.h'],['../InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817a85a7cd587d6142dbfc1a4de05af7b75d',1,'Scale:&#160;InspectorUI.h']]],
   ['stbi_5fdefault_1',['STBI_default',['../stb__image_8h.html#a6b7b47dd702d9e331586d485013fd1eaa0177ac2c5002f4f251bb766d41752029',1,'stb_image.h']]],
   ['stbi_5fgrey_2',['STBI_grey',['../stb__image_8h.html#a6b7b47dd702d9e331586d485013fd1eaad1eb95ca1fa7706bf732bf35a0ed40aa',1,'stb_image.h']]],
   ['stbi_5fgrey_5falpha_3',['STBI_grey_alpha',['../stb__image_8h.html#a6b7b47dd702d9e331586d485013fd1eaaf5829d16d4cca6077465c5abd346e2f8',1,'stb_image.h']]],
@@ -62,8 +62,11 @@ var searchData=
   ['stbtt_5fvmove_59',['STBTT_vmove',['../imstb__truetype_8h.html#ab04a0655cd1e3bcac5e8f48c18df1a57ab335ba97e1798b621313de85a9a6e69d',1,'imstb_truetype.h']]],
   ['step_60',['STEP',['../ModelData_8h.html#a8472f01c511d77bbfb981a46618ea1eaa522f694f92e679d874a1cc2b2616c3d7',1,'ModelData.h']]],
   ['store_61',['store',['../namespacenlohmann_1_1detail.html#a58bb1ef1a9ad287a9cfaf1855784d9aca8cd892b7b97ef9489ae4479d3f4ef0fc',1,'nlohmann::detail']]],
-  ['strict_62',['strict',['../namespacenlohmann_1_1detail.html#a5a76b60b26dc8c47256a996d18d967dfa2133fd717402a7966ee88d06f9e0b792',1,'nlohmann::detail::strict'],['../namespacetinygltf.html#a6cec4aed000632cebb63348120bb946fa516e1ea1b0f87e33423972607a704dc4',1,'tinygltf::Strict']]],
-  ['string_63',['string',['../classtinygltf__json.html#a11a49cb2effb4db8b215352d36d33b04ab45cffe084dd3d20d928bee85e7b0f21',1,'tinygltf_json::string'],['../namespacenlohmann_1_1detail.html#a1ed8fc6239da25abcaf681d30ace4985ab45cffe084dd3d20d928bee85e7b0f21',1,'nlohmann::detail::string']]],
-  ['string_5ftype_64',['STRING_TYPE',['../namespacetinygltf.html#a2c1d6e5499b1e1b6618815042fe3bde7a709e1de707fec63fa99b0d03d70839f6',1,'tinygltf']]],
-  ['swapscene_65',['SwapScene',['../SceneManager_8h.html#a8b7171c7ec1f644ad010a7486791d762ad9eb87bb5b6d83f7142c1663673185af',1,'SceneManager.h']]]
+  ['stretchall_62',['StretchAll',['../RectTransform_8h.html#a56cc714aebadda3b54e9250d0d35716ea8502011fd0115a7de85a3681a9859751',1,'RectTransform.h']]],
+  ['stretchhorizontal_63',['StretchHorizontal',['../RectTransform_8h.html#a56cc714aebadda3b54e9250d0d35716ea9a2050f7d7f58215bc823dce5e0d985f',1,'RectTransform.h']]],
+  ['stretchvertical_64',['StretchVertical',['../RectTransform_8h.html#a56cc714aebadda3b54e9250d0d35716ea7e63ef52357ab4377721e617da3bd63c',1,'RectTransform.h']]],
+  ['strict_65',['strict',['../namespacenlohmann_1_1detail.html#a5a76b60b26dc8c47256a996d18d967dfa2133fd717402a7966ee88d06f9e0b792',1,'nlohmann::detail::strict'],['../namespacetinygltf.html#a6cec4aed000632cebb63348120bb946fa516e1ea1b0f87e33423972607a704dc4',1,'tinygltf::Strict']]],
+  ['string_66',['string',['../classtinygltf__json.html#a11a49cb2effb4db8b215352d36d33b04ab45cffe084dd3d20d928bee85e7b0f21',1,'tinygltf_json::string'],['../namespacenlohmann_1_1detail.html#a1ed8fc6239da25abcaf681d30ace4985ab45cffe084dd3d20d928bee85e7b0f21',1,'nlohmann::detail::string']]],
+  ['string_5ftype_67',['STRING_TYPE',['../namespacetinygltf.html#a2c1d6e5499b1e1b6618815042fe3bde7a709e1de707fec63fa99b0d03d70839f6',1,'tinygltf']]],
+  ['swapscene_68',['SwapScene',['../SceneManager_8h.html#a8b7171c7ec1f644ad010a7486791d762ad9eb87bb5b6d83f7142c1663673185af',1,'SceneManager.h']]]
 ];

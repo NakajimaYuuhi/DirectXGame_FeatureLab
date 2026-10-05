@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Util/Ease.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('Ease_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Ease.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Ease_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;numbers&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899e">    5</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899e">Ease</a></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea32a843da6ea40ab3b17a3421ccdf671b">Linear</a>,</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea3be40e21a1ae00f3a93200e3c596cbc8">InSine</a>,</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea344bb00a356995bedf325549cd2121da">OutSine</a>,</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea72ed6cb31c123f569649220af818ed66">InOutSine</a>,</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eaff1e3c60f1cbe1e3f5c368f34ec59be5">InQuad</a>,</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eabc9c9a695ebe74b36ac1f5267af396ba">OutQuad</a>,</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea869f34f357c234ef6199d605971ea75c">InOutQuad</a>,</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea8fa76da54d32ce2466a7dccdf2a9321e">InCubic</a>,</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eaedc965d37685ff8169a45b9ac24449b3">OutCubic</a>,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea131ea6e4dfca4298a29327837b2ab5c6">InOutCubic</a>,</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea1add3e412da6e8005f6e8ab971efdd64">InQuart</a>,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eaca738578a8a91cdfd713806ca8bb8223">OutQuart</a>,</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea5207537ca2a73758a31810e952591b42">InOutQuart</a>,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eae63c97f77b76d7e89628c91514e94699">InQuint</a>,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea54bb26e85b07c01cf1c7f4906849e88d">OutQuint</a>,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eac6e65c9f3d3e549d77ef00f705fc7759">InOutQuint</a>,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eab3edf28366bb104a3371991df583c95b">InExpo</a>,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea2f5673f9598abd9c9554a47592aa5f4f">OutExpo</a>,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea0111c47f4e5faf4d72c40f6c8d7a9364">InOutExpo</a>,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eafb33f957e95f1a884ef4725344a00664">InBack</a>,</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ead2ec95eb1bcde214ddd9a7ce4ca82a99">OutBack</a>,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea4a7964719e38cb868d0f361e9d5c06be">InOutBack</a>,</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea2a5ef16cee43782b5453edd97168f650">InBounce</a>,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea1c46f922a5f4a357df4ba7fda2dc5662">OutBounce</a>,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea3687849a33d239ba18281b5fa65d9a20">InOutBounce</a>,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea3d34ccccef75f03c9e36283e8ce0e1a5">InElastic</a>,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eabd4598a8a36a637db5a640e6b22ac023">OutElastic</a>,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea241d71adf8e4029ad44c1a34914d8340">InOutElastic</a></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>};</div>
+</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classEaseUtility.html">   37</a></span><span class="keyword">class </span><a class="code hl_class" href="classEaseUtility.html">EaseUtility</a></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classEaseUtility.html#a250d6fecf825d470deb878df2e8b401a">   40</a></span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="classEaseUtility.html#a250d6fecf825d470deb878df2e8b401a">Evaluate</a>(<a class="code hl_enumeration" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899e">Ease</a> ease, <span class="keywordtype">float</span> t)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="comment">// Clamp t to [0, 1]</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordflow">if</span> (t &lt;= 0.0f) <span class="keywordflow">return</span> 0.0f;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">if</span> (t &gt;= 1.0f) <span class="keywordflow">return</span> 1.0f;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">constexpr</span> <span class="keywordtype">float</span> PI = 3.14159265358979323846f;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">constexpr</span> <span class="keywordtype">float</span> c1 = 1.70158f;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keyword">constexpr</span> <span class="keywordtype">float</span> c2 = c1 * 1.525f;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keyword">constexpr</span> <span class="keywordtype">float</span> c3 = c1 + 1.0f;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keyword">constexpr</span> <span class="keywordtype">float</span> c4 = (2.0f * PI) / 3.0f;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keyword">constexpr</span> <span class="keywordtype">float</span> c5 = (2.0f * PI) / 4.5f;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordflow">switch</span> (ease)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea32a843da6ea40ab3b17a3421ccdf671b">Ease::Linear</a>:</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            <span class="keywordflow">return</span> t;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="comment">// Sine</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea3be40e21a1ae00f3a93200e3c596cbc8">Ease::InSine</a>:</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            <span class="keywordflow">return</span> 1.0f - std::cos((t * PI) * 0.5f);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea344bb00a356995bedf325549cd2121da">Ease::OutSine</a>:</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            <span class="keywordflow">return</span> std::sin((t * PI) * 0.5f);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea72ed6cb31c123f569649220af818ed66">Ease::InOutSine</a>:</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="keywordflow">return</span> -(std::cos(PI * t) - 1.0f) * 0.5f;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="comment">// Quad</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eaff1e3c60f1cbe1e3f5c368f34ec59be5">Ease::InQuad</a>:</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            <span class="keywordflow">return</span> t * t;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eabc9c9a695ebe74b36ac1f5267af396ba">Ease::OutQuad</a>:</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <span class="keywordflow">return</span> 1.0f - (1.0f - t) * (1.0f - t);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea869f34f357c234ef6199d605971ea75c">Ease::InOutQuad</a>:</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="keywordflow">return</span> (t &lt; 0.5f) ? (2.0f * t * t) : (1.0f - std::pow(-2.0f * t + 2.0f, 2.0f) * 0.5f);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="comment">// Cubic</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea8fa76da54d32ce2466a7dccdf2a9321e">Ease::InCubic</a>:</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="keywordflow">return</span> t * t * t;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eaedc965d37685ff8169a45b9ac24449b3">Ease::OutCubic</a>:</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="keywordflow">return</span> 1.0f - std::pow(1.0f - t, 3.0f);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea131ea6e4dfca4298a29327837b2ab5c6">Ease::InOutCubic</a>:</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <span class="keywordflow">return</span> (t &lt; 0.5f) ? (4.0f * t * t * t) : (1.0f - std::pow(-2.0f * t + 2.0f, 3.0f) * 0.5f);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="comment">// Quart</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea1add3e412da6e8005f6e8ab971efdd64">Ease::InQuart</a>:</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <span class="keywordflow">return</span> t * t * t * t;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eaca738578a8a91cdfd713806ca8bb8223">Ease::OutQuart</a>:</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            <span class="keywordflow">return</span> 1.0f - std::pow(1.0f - t, 4.0f);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea5207537ca2a73758a31810e952591b42">Ease::InOutQuart</a>:</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            <span class="keywordflow">return</span> (t &lt; 0.5f) ? (8.0f * t * t * t * t) : (1.0f - std::pow(-2.0f * t + 2.0f, 4.0f) * 0.5f);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="comment">// Quint</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eae63c97f77b76d7e89628c91514e94699">Ease::InQuint</a>:</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            <span class="keywordflow">return</span> t * t * t * t * t;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea54bb26e85b07c01cf1c7f4906849e88d">Ease::OutQuint</a>:</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            <span class="keywordflow">return</span> 1.0f - std::pow(1.0f - t, 5.0f);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eac6e65c9f3d3e549d77ef00f705fc7759">Ease::InOutQuint</a>:</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            <span class="keywordflow">return</span> (t &lt; 0.5f) ? (16.0f * t * t * t * t * t) : (1.0f - std::pow(-2.0f * t + 2.0f, 5.0f) * 0.5f);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="comment">// Expo</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eab3edf28366bb104a3371991df583c95b">Ease::InExpo</a>:</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            <span class="keywordflow">return</span> std::pow(2.0f, 10.0f * t - 10.0f);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea2f5673f9598abd9c9554a47592aa5f4f">Ease::OutExpo</a>:</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            <span class="keywordflow">return</span> 1.0f - std::pow(2.0f, -10.0f * t);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea0111c47f4e5faf4d72c40f6c8d7a9364">Ease::InOutExpo</a>:</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            <span class="keywordflow">return</span> (t &lt; 0.5f)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                ? (std::pow(2.0f, 20.0f * t - 10.0f) * 0.5f)</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                : ((2.0f - std::pow(2.0f, -20.0f * t + 10.0f)) * 0.5f);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="comment">// Back</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eafb33f957e95f1a884ef4725344a00664">Ease::InBack</a>:</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            <span class="keywordflow">return</span> c3 * t * t * t - c1 * t * t;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ead2ec95eb1bcde214ddd9a7ce4ca82a99">Ease::OutBack</a>:</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            <span class="keywordflow">return</span> 1.0f + c3 * std::pow(t - 1.0f, 3.0f) + c1 * std::pow(t - 1.0f, 2.0f);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea4a7964719e38cb868d0f361e9d5c06be">Ease::InOutBack</a>:</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            <span class="keywordflow">return</span> (t &lt; 0.5f)</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                ? (std::pow(2.0f * t, 2.0f) * ((c2 + 1.0f) * 2.0f * t - c2)) * 0.5f</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                : (std::pow(2.0f * t - 2.0f, 2.0f) * ((c2 + 1.0f) * (t * 2.0f - 2.0f) + c2) + 2.0f) * 0.5f;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="comment">// Bounce</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea1c46f922a5f4a357df4ba7fda2dc5662">Ease::OutBounce</a>:</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="classEaseUtility.html#a8cd49ff819e1f9526c9536f4fe3b9c60">OutBounceInternal</a>(t);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea2a5ef16cee43782b5453edd97168f650">Ease::InBounce</a>:</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            <span class="keywordflow">return</span> 1.0f - <a class="code hl_function" href="classEaseUtility.html#a8cd49ff819e1f9526c9536f4fe3b9c60">OutBounceInternal</a>(1.0f - t);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea3687849a33d239ba18281b5fa65d9a20">Ease::InOutBounce</a>:</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            <span class="keywordflow">return</span> (t &lt; 0.5f)</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>                ? (1.0f - <a class="code hl_function" href="classEaseUtility.html#a8cd49ff819e1f9526c9536f4fe3b9c60">OutBounceInternal</a>(1.0f - 2.0f * t)) * 0.5f</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                : (1.0f + <a class="code hl_function" href="classEaseUtility.html#a8cd49ff819e1f9526c9536f4fe3b9c60">OutBounceInternal</a>(2.0f * t - 1.0f)) * 0.5f;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="comment">// Elastic</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea3d34ccccef75f03c9e36283e8ce0e1a5">Ease::InElastic</a>:</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            <span class="keywordflow">return</span> -std::pow(2.0f, 10.0f * t - 10.0f) * std::sin((t * 10.0f - 10.75f) * c4);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eabd4598a8a36a637db5a640e6b22ac023">Ease::OutElastic</a>:</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            <span class="keywordflow">return</span> std::pow(2.0f, -10.0f * t) * std::sin((t * 10.0f - 0.75f) * c4) + 1.0f;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea241d71adf8e4029ad44c1a34914d8340">Ease::InOutElastic</a>:</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            <span class="keywordflow">return</span> (t &lt; 0.5f)</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>                ? -(std::pow(2.0f, 20.0f * t - 10.0f) * std::sin((20.0f * t - 11.125f) * c5)) * 0.5f</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                : (std::pow(2.0f, -20.0f * t + 10.0f) * std::sin((20.0f * t - 11.125f) * c5)) * 0.5f + 1.0f;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            <span class="keywordflow">return</span> t;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        }</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    }</div>
+</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="keyword">private</span>:</div>
+<div class="foldopen" id="foldopen00144" data-start="{" data-end="}">
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="classEaseUtility.html#a8cd49ff819e1f9526c9536f4fe3b9c60">  144</a></span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="classEaseUtility.html#a8cd49ff819e1f9526c9536f4fe3b9c60">OutBounceInternal</a>(<span class="keywordtype">float</span> x)</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    {</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <span class="keyword">constexpr</span> <span class="keywordtype">float</span> n1 = 7.5625f;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <span class="keyword">constexpr</span> <span class="keywordtype">float</span> d1 = 2.75f;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <span class="keywordflow">if</span> (x &lt; 1.0f / d1)</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        {</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>            <span class="keywordflow">return</span> n1 * x * x;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        }</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (x &lt; 2.0f / d1)</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        {</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>            x -= 1.5f / d1;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>            <span class="keywordflow">return</span> n1 * x * x + 0.75f;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        }</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (x &lt; 2.5f / d1)</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        {</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            x -= 2.25f / d1;</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            <span class="keywordflow">return</span> n1 * x * x + 0.9375f;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        }</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        {</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>            x -= 2.625f / d1;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            <span class="keywordflow">return</span> n1 * x * x + 0.984375f;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        }</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    }</div>
+</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>};</div>
+</div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899e"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899e">Ease</a></div><div class="ttdeci">Ease</div><div class="ttdef"><b>Definition</b> Ease.h:6</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899ea0111c47f4e5faf4d72c40f6c8d7a9364"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea0111c47f4e5faf4d72c40f6c8d7a9364">Ease::InOutExpo</a></div><div class="ttdeci">@ InOutExpo</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899ea131ea6e4dfca4298a29327837b2ab5c6"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea131ea6e4dfca4298a29327837b2ab5c6">Ease::InOutCubic</a></div><div class="ttdeci">@ InOutCubic</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899ea1add3e412da6e8005f6e8ab971efdd64"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea1add3e412da6e8005f6e8ab971efdd64">Ease::InQuart</a></div><div class="ttdeci">@ InQuart</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899ea1c46f922a5f4a357df4ba7fda2dc5662"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea1c46f922a5f4a357df4ba7fda2dc5662">Ease::OutBounce</a></div><div class="ttdeci">@ OutBounce</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899ea241d71adf8e4029ad44c1a34914d8340"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea241d71adf8e4029ad44c1a34914d8340">Ease::InOutElastic</a></div><div class="ttdeci">@ InOutElastic</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899ea2a5ef16cee43782b5453edd97168f650"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea2a5ef16cee43782b5453edd97168f650">Ease::InBounce</a></div><div class="ttdeci">@ InBounce</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899ea2f5673f9598abd9c9554a47592aa5f4f"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea2f5673f9598abd9c9554a47592aa5f4f">Ease::OutExpo</a></div><div class="ttdeci">@ OutExpo</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899ea32a843da6ea40ab3b17a3421ccdf671b"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea32a843da6ea40ab3b17a3421ccdf671b">Ease::Linear</a></div><div class="ttdeci">@ Linear</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899ea344bb00a356995bedf325549cd2121da"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea344bb00a356995bedf325549cd2121da">Ease::OutSine</a></div><div class="ttdeci">@ OutSine</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899ea3687849a33d239ba18281b5fa65d9a20"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea3687849a33d239ba18281b5fa65d9a20">Ease::InOutBounce</a></div><div class="ttdeci">@ InOutBounce</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899ea3be40e21a1ae00f3a93200e3c596cbc8"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea3be40e21a1ae00f3a93200e3c596cbc8">Ease::InSine</a></div><div class="ttdeci">@ InSine</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899ea3d34ccccef75f03c9e36283e8ce0e1a5"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea3d34ccccef75f03c9e36283e8ce0e1a5">Ease::InElastic</a></div><div class="ttdeci">@ InElastic</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899ea4a7964719e38cb868d0f361e9d5c06be"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea4a7964719e38cb868d0f361e9d5c06be">Ease::InOutBack</a></div><div class="ttdeci">@ InOutBack</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899ea5207537ca2a73758a31810e952591b42"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea5207537ca2a73758a31810e952591b42">Ease::InOutQuart</a></div><div class="ttdeci">@ InOutQuart</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899ea54bb26e85b07c01cf1c7f4906849e88d"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea54bb26e85b07c01cf1c7f4906849e88d">Ease::OutQuint</a></div><div class="ttdeci">@ OutQuint</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899ea72ed6cb31c123f569649220af818ed66"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea72ed6cb31c123f569649220af818ed66">Ease::InOutSine</a></div><div class="ttdeci">@ InOutSine</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899ea869f34f357c234ef6199d605971ea75c"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea869f34f357c234ef6199d605971ea75c">Ease::InOutQuad</a></div><div class="ttdeci">@ InOutQuad</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899ea8fa76da54d32ce2466a7dccdf2a9321e"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ea8fa76da54d32ce2466a7dccdf2a9321e">Ease::InCubic</a></div><div class="ttdeci">@ InCubic</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899eab3edf28366bb104a3371991df583c95b"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eab3edf28366bb104a3371991df583c95b">Ease::InExpo</a></div><div class="ttdeci">@ InExpo</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899eabc9c9a695ebe74b36ac1f5267af396ba"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eabc9c9a695ebe74b36ac1f5267af396ba">Ease::OutQuad</a></div><div class="ttdeci">@ OutQuad</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899eabd4598a8a36a637db5a640e6b22ac023"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eabd4598a8a36a637db5a640e6b22ac023">Ease::OutElastic</a></div><div class="ttdeci">@ OutElastic</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899eac6e65c9f3d3e549d77ef00f705fc7759"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eac6e65c9f3d3e549d77ef00f705fc7759">Ease::InOutQuint</a></div><div class="ttdeci">@ InOutQuint</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899eaca738578a8a91cdfd713806ca8bb8223"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eaca738578a8a91cdfd713806ca8bb8223">Ease::OutQuart</a></div><div class="ttdeci">@ OutQuart</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899ead2ec95eb1bcde214ddd9a7ce4ca82a99"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899ead2ec95eb1bcde214ddd9a7ce4ca82a99">Ease::OutBack</a></div><div class="ttdeci">@ OutBack</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899eae63c97f77b76d7e89628c91514e94699"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eae63c97f77b76d7e89628c91514e94699">Ease::InQuint</a></div><div class="ttdeci">@ InQuint</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899eaedc965d37685ff8169a45b9ac24449b3"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eaedc965d37685ff8169a45b9ac24449b3">Ease::OutCubic</a></div><div class="ttdeci">@ OutCubic</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899eafb33f957e95f1a884ef4725344a00664"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eafb33f957e95f1a884ef4725344a00664">Ease::InBack</a></div><div class="ttdeci">@ InBack</div></div>
+<div class="ttc" id="aEase_8h_html_a4a8c547dedf4f513a3b5c5b6e417899eaff1e3c60f1cbe1e3f5c368f34ec59be5"><div class="ttname"><a href="Ease_8h.html#a4a8c547dedf4f513a3b5c5b6e417899eaff1e3c60f1cbe1e3f5c368f34ec59be5">Ease::InQuad</a></div><div class="ttdeci">@ InQuad</div></div>
+<div class="ttc" id="aclassEaseUtility_html"><div class="ttname"><a href="classEaseUtility.html">EaseUtility</a></div><div class="ttdef"><b>Definition</b> Ease.h:38</div></div>
+<div class="ttc" id="aclassEaseUtility_html_a250d6fecf825d470deb878df2e8b401a"><div class="ttname"><a href="classEaseUtility.html#a250d6fecf825d470deb878df2e8b401a">EaseUtility::Evaluate</a></div><div class="ttdeci">static float Evaluate(Ease ease, float t)</div><div class="ttdef"><b>Definition</b> Ease.h:40</div></div>
+<div class="ttc" id="aclassEaseUtility_html_a8cd49ff819e1f9526c9536f4fe3b9c60"><div class="ttname"><a href="classEaseUtility.html#a8cd49ff819e1f9526c9536f4fe3b9c60">EaseUtility::OutBounceInternal</a></div><div class="ttdeci">static float OutBounceInternal(float x)</div><div class="ttdef"><b>Definition</b> Ease.h:144</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_7db6fad920da64edfd558eb6dbc0c610.html">Util</a></li><li class="navelem"><a class="el" href="Ease_8h.html">Ease.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -2,8 +2,8 @@ var classCObjectInfo =
 [
     [ "CObjectInfo", "classCObjectInfo.html#a9579e9aeab4e0d1a0a8cffbbd46a70d8", null ],
     [ "CObjectInfo", "classCObjectInfo.html#a894b4342280f9d07eb4e639fe7f92841", null ],
-    [ "GetObjectName", "classCObjectInfo.html#a7422f4c9737c339abe994917133da9ff", null ],
-    [ "GetObjectTag", "classCObjectInfo.html#a4b5d7039d4bf5e2be36adcb2bfcc9561", null ],
+    [ "GetObjectName", "classCObjectInfo.html#a90acc61f88880f563f78589219b7abab", null ],
+    [ "GetObjectTag", "classCObjectInfo.html#a73c77b86c512f20de50c914fb823e93d", null ],
     [ "GetPrefabName", "classCObjectInfo.html#a131e1effb66bc59be582da776b751146", null ],
     [ "IsPrefab", "classCObjectInfo.html#a11edd2169a4b73aab2a73a66edb69752", null ],
     [ "SetIsValid", "classCObjectInfo.html#a59680d1b72c03348b807270fd902605e", null ],
