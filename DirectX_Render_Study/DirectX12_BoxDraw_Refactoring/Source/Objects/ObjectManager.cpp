@@ -1,3 +1,4 @@
+﻿#include "TimeManager.h"
 #include "ObjectManager.h"
 #include "Collision.h"
 #include "InspectorUI.h"
@@ -34,9 +35,12 @@ void ObjectManager::Update(Scenes::ID _SceneID)
 		return;
 	}
 
-	// Update�O�ɑҋ@���̃I�u�W�F�N�g��ǉ�
+	float dt = TimeManager::GetInstance().GetDeltaTime();
+
+	// 1. フレーム開始時の保留オブジェクト反映
 	FlushPendingAddObjects();
 
+	// 2. 未実行オブジェクト・コンポーネントの初期化（Awake / Start）を一括確定
 	for (size_t tagIdx = 0; tagIdx < vecObject.size(); ++tagIdx)
 	{
 		auto& vec = vecObject[tagIdx];
@@ -47,19 +51,32 @@ void ObjectManager::Update(Scenes::ID _SceneID)
 			{
 				if (!object->GetHasAwoken()) object->Awake();
 				if (!object->GetHasStarted()) object->Start();
-				object->Update();
 			}
 		}
 	}
 
-	// Update���ɐ������ꂽ�I�u�W�F�N�g�𔽉f
-	FlushPendingAddObjects();
+	// 3. Phase 0: Input (全オブジェクトの入力受付・操作)
+	UpdatePhaseAll(UpdatePhase::Input, dt);
 
+	// 4. Phase 1: AI (全エネミーの思考・状態遷移)
+	UpdatePhaseAll(UpdatePhase::AI, dt);
+
+	// 5. Phase 2: Movement (全キャラの移動・速度計算)
+	UpdatePhaseAll(UpdatePhase::Movement, dt);
+
+	// 6. Phase 3: Physics (重力適用、外力計算など)
+	UpdatePhaseAll(UpdatePhase::Physics, dt);
+
+	// 7. 衝突判定・押し戻し解決（全オブジェクトの位置が物理的に確定）
 	CollisionUpdate(_SceneID);
 
-	// �Փ˔��蒆�ɐ������ꂽ�I�u�W�F�N�g�𔽉f
-	FlushPendingAddObjects();
+	// 8. Phase 4: Animation (確定した移動・姿勢に基づくボーン更新・UVアニメ)
+	UpdatePhaseAll(UpdatePhase::Animation, dt);
 
+	// 9. Phase 5: PostPhysics (押し戻し確定後のプレイヤー位置をカメラが追従・ビルボード)
+	UpdatePhaseAll(UpdatePhase::PostPhysics, dt);
+
+	// 10. LateUpdate (全オブジェクトの最終補正)
 	for (size_t tagIdx = 0; tagIdx < vecObject.size(); ++tagIdx)
 	{
 		auto& vec = vecObject[tagIdx];
@@ -73,8 +90,25 @@ void ObjectManager::Update(Scenes::ID _SceneID)
 		}
 	}
 
-	// LateUpdate���ɐ������ꂽ�I�u�W�F�N�g�𔽉f
+	// 11. フレーム終了時の保留オブジェクト反映 & 破棄オブジェクトの安全な回収
 	FlushPendingAddObjects();
+	FlushDestroyedObjects();
+}
+
+void ObjectManager::UpdatePhaseAll(UpdatePhase phase, float deltaTime)
+{
+	for (size_t tagIdx = 0; tagIdx < vecObject.size(); ++tagIdx)
+	{
+		auto& vec = vecObject[tagIdx];
+		for (size_t i = 0; i < vec.size(); ++i)
+		{
+			auto& object = vec[i];
+			if (object && !object->GetIsDestroyed())
+			{
+				object->UpdateComponentsByPhase(phase, deltaTime);
+			}
+		}
+	}
 }
 
 void ObjectManager::FlushDestroyedObjects()

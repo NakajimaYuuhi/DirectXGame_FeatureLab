@@ -35,6 +35,7 @@ public:
 	void AwakeComponents();
 	void StartComponents();
 	void UpdateComponents(float deltaTime);
+	void UpdateComponentsByPhase(UpdatePhase phase, float deltaTime);
 	void LateUpdateComponents(float deltaTime);
 	void CollisionComponents(CObject* _Other);
 

@@ -97,12 +97,18 @@ void CObject::UpdateComponents(float deltaTime)
 	// Execute components phase by phase (Input -> AI -> Movement -> Physics -> Animation -> PostPhysics)
 	for (int phase = 0; phase < static_cast<int>(UpdatePhase::COUNT); ++phase)
 	{
-		for (auto& c : components)
+		UpdateComponentsByPhase(static_cast<UpdatePhase>(phase), deltaTime);
+	}
+}
+
+void CObject::UpdateComponentsByPhase(UpdatePhase phase, float deltaTime)
+{
+	if (!isValid || IsDestroyed) return;
+	for (auto& c : components)
+	{
+		if (c && c->IsEnabled() && c->GetUpdatePhase() == phase)
 		{
-			if (c && c->IsEnabled() && static_cast<int>(c->GetUpdatePhase()) == phase)
-			{
-				c->Update(deltaTime);
-			}
+			c->Update(deltaTime);
 		}
 	}
 }
