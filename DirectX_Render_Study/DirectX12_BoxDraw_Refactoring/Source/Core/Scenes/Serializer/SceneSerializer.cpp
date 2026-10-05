@@ -10,6 +10,7 @@
 #include "CameraComponent.h"
 #include "ButtonComponent.h"
 #include "PrefabManager.h"
+#include "Source/UI/RectTransform.h"
 #include "Source/External/json.hpp"
 #include <fstream>
 #include <iostream>
@@ -123,6 +124,27 @@ bool SceneSerializer::SaveScene(const std::string& filepath, Scenes::ID sceneID)
 				objJson["button"]["navigation"]["down"] = btnComp->GetDownName();
 				objJson["button"]["navigation"]["left"] = btnComp->GetLeftName();
 				objJson["button"]["navigation"]["right"] = btnComp->GetRightName();
+			}
+
+			// CRectTransform
+			CRectTransform* rectComp = obj->GetComponent<CRectTransform>();
+			if (rectComp)
+			{
+				DirectX::XMFLOAT2 pos = rectComp->GetAnchoredPosition();
+				DirectX::XMFLOAT2 size = rectComp->GetSizeDelta();
+				DirectX::XMFLOAT2 piv = rectComp->GetPivot();
+				DirectX::XMFLOAT2 aMin = rectComp->GetAnchorMin();
+				DirectX::XMFLOAT2 aMax = rectComp->GetAnchorMax();
+				DirectX::XMFLOAT2 scl = rectComp->GetScale();
+				float rot = rectComp->GetRotationZ();
+
+				objJson["rectTransform"]["anchoredPosition"] = { pos.x, pos.y };
+				objJson["rectTransform"]["sizeDelta"] = { size.x, size.y };
+				objJson["rectTransform"]["pivot"] = { piv.x, piv.y };
+				objJson["rectTransform"]["anchorMin"] = { aMin.x, aMin.y };
+				objJson["rectTransform"]["anchorMax"] = { aMax.x, aMax.y };
+				objJson["rectTransform"]["scale"] = { scl.x, scl.y };
+				objJson["rectTransform"]["rotationZ"] = rot;
 			}
 
 			rootJson["objects"].push_back(objJson);
@@ -369,6 +391,43 @@ bool SceneSerializer::LoadScene(const std::string& filepath, Scenes::ID sceneID)
 					pnav.left = navJson.value("left", "");
 					pnav.right = navJson.value("right", "");
 					pendingNavs.push_back(pnav);
+				}
+			}
+
+			// CRectTransform
+			if (objJson.contains("rectTransform"))
+			{
+				CRectTransform* rect = newObj->GetComponent<CRectTransform>();
+				if (!rect) rect = newObj->AddComponent<CRectTransform>();
+
+				const auto& rJson = objJson["rectTransform"];
+				if (rJson.contains("anchorMin") && rJson["anchorMin"].is_array() && rJson["anchorMin"].size() == 2)
+				{
+					rect->SetAnchorMin({ rJson["anchorMin"][0], rJson["anchorMin"][1] });
+				}
+				if (rJson.contains("anchorMax") && rJson["anchorMax"].is_array() && rJson["anchorMax"].size() == 2)
+				{
+					rect->SetAnchorMax({ rJson["anchorMax"][0], rJson["anchorMax"][1] });
+				}
+				if (rJson.contains("pivot") && rJson["pivot"].is_array() && rJson["pivot"].size() == 2)
+				{
+					rect->SetPivot({ rJson["pivot"][0], rJson["pivot"][1] });
+				}
+				if (rJson.contains("anchoredPosition") && rJson["anchoredPosition"].is_array() && rJson["anchoredPosition"].size() == 2)
+				{
+					rect->SetAnchoredPosition({ rJson["anchoredPosition"][0], rJson["anchoredPosition"][1] });
+				}
+				if (rJson.contains("sizeDelta") && rJson["sizeDelta"].is_array() && rJson["sizeDelta"].size() == 2)
+				{
+					rect->SetSizeDelta({ rJson["sizeDelta"][0], rJson["sizeDelta"][1] });
+				}
+				if (rJson.contains("scale") && rJson["scale"].is_array() && rJson["scale"].size() == 2)
+				{
+					rect->SetScale({ rJson["scale"][0], rJson["scale"][1] });
+				}
+				if (rJson.contains("rotationZ"))
+				{
+					rect->SetRotationZ(rJson["rotationZ"].get<float>());
 				}
 			}
 

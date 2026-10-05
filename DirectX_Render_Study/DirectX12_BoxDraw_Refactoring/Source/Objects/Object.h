@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <string>
 #include <vector>
 #include <memory>
@@ -147,4 +147,5 @@ public:
 	void SetIsDestroyed(bool _IsDestroyed) { IsDestroyed = _IsDestroyed; }
 
 	void SetName(String _ObjectName);
+	String GetName() const;
 };

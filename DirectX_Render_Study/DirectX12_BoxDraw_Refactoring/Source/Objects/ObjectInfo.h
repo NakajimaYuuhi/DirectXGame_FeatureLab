@@ -34,10 +34,10 @@ public:
 	}
 
 	void SetObjectName(String _ObjectName) { objectName = _ObjectName; }
-	String GetObjectName() { return objectName; }
+	String GetObjectName() const { return objectName; }
 
 	void SetObjectTag(ObjectTag _ObjectTag) { objectTag = _ObjectTag; }
-	ObjectTag GetObjectTag() { return objectTag; }
+	ObjectTag GetObjectTag() const { return objectTag; }
 
 	void SetPrefabName(const String& _PrefabName) { prefabName = _PrefabName; }
 	const String& GetPrefabName() const { return prefabName; }

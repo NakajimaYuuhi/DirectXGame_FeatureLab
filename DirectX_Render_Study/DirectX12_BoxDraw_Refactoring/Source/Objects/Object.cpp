@@ -1,4 +1,4 @@
-﻿#include "Object.h"
+#include "Object.h"
 #include "ObjectInfo.h"
 #include "Transform.h"
 #include "Component.h"
@@ -155,6 +155,12 @@ void CObject::SetName(String _ObjectName)
 	{
 		objectInfo->SetObjectName(_ObjectName);
 	}
+}
+
+String CObject::GetName() const
+{
+	const CObjectInfo* objectInfo = const_cast<CObject*>(this)->GetComponent<CObjectInfo>();
+	return objectInfo ? objectInfo->GetObjectName() : "";
 }
 
 CRectTransform* CObject::GetRectTransform()
