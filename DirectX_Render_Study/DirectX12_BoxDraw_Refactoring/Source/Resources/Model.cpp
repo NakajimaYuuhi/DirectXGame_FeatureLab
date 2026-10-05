@@ -1,4 +1,4 @@
-﻿#include "Model.h"
+#include "Model.h"
 #include "DX12Manager.h"
 #include "gltfLoader.h"
 #include "Transform.h"
@@ -345,7 +345,18 @@ void CModel::ModelLoad(std::string _Path)
 
 		if (node.meshIndex != -1)
 		{
+			if (node.meshIndex < 0 || node.meshIndex >= static_cast<int>(loadedModelData.meshes.size()))
+			{
+				OutputDebugStringA("[CModel::ModelLoad] Warning: meshIndex out of range, skipping.\n");
+				continue;
+			}
+
 			const auto& mesh = loadedModelData.meshes[node.meshIndex];
+			if (mesh.vertices.empty() || mesh.indices.empty())
+			{
+				OutputDebugStringA("[CModel::ModelLoad] Warning: mesh vertices or indices are empty, skipping.\n");
+				continue;
+			}
 
 			UINT matIdx = 0;
 			if (mesh.materialIndex < registeredMaterialIndices.size())
@@ -466,6 +477,12 @@ void CModel::RegisterMesh(UINT _MatIdx)
 
 void CModel::RegisterMesh(UINT _MatIdx, const MeshVertex* vertices, size_t vertexCount, const uint32_t* indices, size_t indexCount)
 {
+	if (!vertices || vertexCount == 0 || !indices || indexCount == 0)
+	{
+		OutputDebugStringA("[CModel::RegisterMesh] Warning: invalid vertex/index data, skipping.\n");
+		return;
+	}
+
 	Mesh mesh = std::make_shared<CMesh>();
 
 	mesh->RegisterOwner(m_Owner);

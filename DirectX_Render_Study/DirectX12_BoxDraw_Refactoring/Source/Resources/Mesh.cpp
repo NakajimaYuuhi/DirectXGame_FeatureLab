@@ -17,46 +17,46 @@
 
 
 
-//TODO:ìØÇ∂å`ÇÃÉvÉäÉ~ÉeÉBÉ`EEÅAE  ì_ÉoÉbÉtÉ@ÇﬂEEí Ç…ÇµÇΩÇüE
-//?íUí∏ì_?E  ÇäOÇ©ÇﬂEEÇÍÇÈÇÃÇÕÅAå„âÒÇµÇ≈
+//TODO:Âêå„ÅòÂΩ¢„ÅÆ„Éó„É™„Éü„ÉÜ„Ç£„ÉÅEE„ÄÅE  ÁÇπ„Éê„ÉÉ„Éï„Ç°„ÇÅEEÈÄö„Å´„Åó„Åü„ÅÅE
+//?Êó¶È†ÇÁÇπ?E  „ÇíÂ§ñ„Åã„ÇÅEE„Çå„Çã„ÅÆ„ÅØ„ÄÅÂæåÂõû„Åó„Åß
 
 
 
-//í∏ì_É`E EÉ^ÇÃ?EE
+//È†ÇÁÇπ„ÉÅE E„Çø„ÅÆ?EE
 MeshVertex mesh_vertices[] =
 {
-    //óßï˚?EÉCÉìÉ`E  ÉNÉX)
-    // ===== íöE(Y+) =====
+    //Á´ãÊñπ?E„Ç§„É≥„ÉÅE  „ÇØ„Çπ)
+    // ===== ‰∏ÅE(Y+) =====
     {{-0.5f,0.5f,-0.5f},{0,1,0},{0,1},{0,0,0,0},{1,0,0,0}},
     {{-0.5f,0.5f, 0.5f},{0,1,0},{0,0},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f,0.5f, 0.5f},{0,1,0},{1,0},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f,0.5f,-0.5f},{0,1,0},{1,1},{0,0,0,0},{1,0,0,0}},
     
-    // ===== íöE(Y-) =====
+    // ===== ‰∏ÅE(Y-) =====
     {{-0.5f,-0.5f, 0.5f},{0,-1,0},{1,0},{0,0,0,0},{1,0,0,0}},
     {{-0.5f,-0.5f,-0.5f},{0,-1,0},{1,1},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f,-0.5f,-0.5f},{0,-1,0},{0,1},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f,-0.5f, 0.5f},{0,-1,0},{0,0},{0,0,0,0},{1,0,0,0}},
 
-    // ===== ëOñ  (Z-) =====
+    // ===== ÂâçÈù¢ (Z-) =====
     {{-0.5f,-0.5f,-0.5f},{0,0,-1},{0,1},{0,0,0,0},{1,0,0,0}},
     {{-0.5f, 0.5f,-0.5f},{0,0,-1},{0,0},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f, 0.5f,-0.5f},{0,0,-1},{1,0},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f,-0.5f,-0.5f},{0,0,-1},{1,1},{0,0,0,0},{1,0,0,0}},
 
-    // ===== îwñ  (Z+) =====
+    // ===== ËÉåÈù¢ (Z+) =====
     {{-0.5f,-0.5f,0.5f},{0,0,1},{1,1},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f,-0.5f,0.5f},{0,0,1},{0,1},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f, 0.5f,0.5f},{0,0,1},{0,0},{0,0,0,0},{1,0,0,0}},
     {{-0.5f, 0.5f,0.5f},{0,0,1},{1,0},{0,0,0,0},{1,0,0,0}},
 
-    // ===== ç∂ (X-) =====
+    // ===== Â∑¶ (X-) =====
     {{-0.5f,-0.5f, 0.5f},{-1,0,0},{0,1},{0,0,0,0},{1,0,0,0}},
     {{-0.5f, 0.5f, 0.5f},{-1,0,0},{0,0},{0,0,0,0},{1,0,0,0}},
     {{-0.5f, 0.5f,-0.5f},{-1,0,0},{1,0},{0,0,0,0},{1,0,0,0}},
     {{-0.5f,-0.5f,-0.5f},{-1,0,0},{1,1},{0,0,0,0},{1,0,0,0}},
 
-    // ===== âE (X+) =====
+    // ===== Âè≥ (X+) =====
     {{0.5f,-0.5f,-0.5f},{1,0,0},{0,1},{0,0,0,0},{1,0,0,0}},
     {{0.5f, 0.5f,-0.5f},{1,0,0},{0,0},{0,0,0,0},{1,0,0,0}},
     {{0.5f, 0.5f, 0.5f},{1,0,0},{1,0},{0,0,0,0},{1,0,0,0}},
@@ -69,10 +69,10 @@ uint32_t mesh_indices[] =
 {
     0,1,2, 0,2,3,        // ?E
     4,5,6, 4,6,7,        // ?E
-    8,9,10, 8,10,11,     // ç∂
-    12,13,14, 12,14,15,  // âE
-    16,17,18, 16,18,19,  // íöE
-    20,21,22, 20,22,23   // íöE
+    8,9,10, 8,10,11,     // Â∑¶
+    12,13,14, 12,14,15,  // Âè≥
+    16,17,18, 16,18,19,  // ‰∏ÅE
+    20,21,22, 20,22,23   // ‰∏ÅE
 };
 
 //
@@ -80,12 +80,12 @@ uint32_t mesh_indices[] =
 
 
 
-//InitializeÇÇ«Ç±Ç©Ç≈åƒÇ‘?E  óLÇﬂE
-//InitializeÇÇ«Ç±Ç©Ç≈åƒÇ‘?E  óLÇﬂE
+//Initialize„Çí„Å©„Åì„Åã„ÅßÂëº„Å∂?E  Êúâ„ÇÅE
+//Initialize„Çí„Å©„Åì„Åã„ÅßÂëº„Å∂?E  Êúâ„ÇÅE
 CMesh::CMesh()
 {  
-    //Ç±Ç±Ç≈ÅAE  ì_?E  ÅAÉCÉìÉ`E  ÉNÉX?E  ÇÉfÉtÉHÉãÉgÇ≈ÉZÉ`E  (âºé¿çŸE
-    m_Vertices.assign(std::begin(mesh_vertices), std::end(mesh_vertices));//assignÇ≈ì¸ÇÍÇÍÇÈÇÁÇµÇ¢
+    //„Åì„Åì„Åß„ÄÅE  ÁÇπ?E  „ÄÅ„Ç§„É≥„ÉÅE  „ÇØ„Çπ?E  „Çí„Éá„Éï„Ç©„É´„Éà„Åß„Çª„ÉÅE  (‰ªÆÂÆüË£ÅE
+    m_Vertices.assign(std::begin(mesh_vertices), std::end(mesh_vertices));//assign„ÅßÂÖ•„Çå„Çå„Çã„Çâ„Åó„ÅÑ
     m_Indices.assign(std::begin(mesh_indices), std::end(mesh_indices));
 
 }
@@ -96,11 +96,11 @@ void CMesh::Init()
     // m_Transform is no longer used.
 
 
-    ////----- ÉCÉìÉ`E  ÉNÉXÉoÉbÉtÉ@ÇÃ?EE -----
-    ////ÉTÉCÉY?EE
+    ////----- „Ç§„É≥„ÉÅE  „ÇØ„Çπ„Éê„ÉÉ„Éï„Ç°„ÅÆ?EE -----
+    ////„Çµ„Ç§„Ç∫?EE
     //const UINT indexBufferSize = sizeof(uint16_t) * m_Indices.size();
 
-    ////ÉäÉ\Å[ÉX?EE E EploadHeap E E
+    ////„É™„ÇΩ„Éº„Çπ?EE E EploadHeap E E
     //D3D12_HEAP_PROPERTIES heapProps2 = {};
     //heapProps2.Type = D3D12_HEAP_TYPE_UPLOAD;
     //heapProps2.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
@@ -130,16 +130,16 @@ void CMesh::Init()
     //    IID_PPV_ARGS(&m_indexBuffer)
     //);
 
-    ////ÉCÉìÉ`E  ÉNÉXÉ`E EÉ^ÇÉoÉ`E  É@Ç…ÉRÉ`EE
+    ////„Ç§„É≥„ÉÅE  „ÇØ„Çπ„ÉÅE E„Çø„Çí„Éê„ÉÅE  „Ç°„Å´„Ç≥„ÉÅEE
     //uint8_t* mappedData2 = nullptr;
     //m_indexBuffer->Map(0, nullptr, reinterpret_cast<void**>(&mappedData2));
     //memcpy(mappedData2, m_Indices.data(), indexBufferSize);
     //m_indexBuffer->Unmap(0, nullptr);
 
-    ////ÉCÉìÉ`E  ÉNÉXÉoÉbÉtÉ@ÉrÉÖÅ[ÇÃê›?E
+    ////„Ç§„É≥„ÉÅE  „ÇØ„Çπ„Éê„ÉÉ„Éï„Ç°„Éì„É•„Éº„ÅÆË®≠?E
     //m_indexBufferView.BufferLocation = m_indexBuffer->GetGPUVirtualAddress();
     //m_indexBufferView.SizeInBytes = indexBufferSize;
-    //m_indexBufferView.Format = DXGI_FORMAT_R16_UINT; // uint16_tÇ»ÇÁÇ±ÇﬂE
+    //m_indexBufferView.Format = DXGI_FORMAT_R16_UINT; // uint16_t„Å™„Çâ„Åì„ÇÅE
 
 
 }
@@ -152,20 +152,20 @@ void CMesh::Update()
 
 void CMesh::Draw(CTransform* transform, CMaterial* material, BlendMode blendMode)
 {
-    // --ÉRÉ}ÉìÉhÉäÉXÉ`E
+    // --„Ç≥„Éû„É≥„Éâ„É™„Çπ„ÉÅE
     ID3D12GraphicsCommandList* commandList = DX12Manager::GetInstance().GetCommandList();
 
 
-    // --çs?EéÊê™E
+    // --Ë°å?EÂèñÂæÅE
     DirectX::XMMATRIX world = transform->GetWorld();
     DirectX::XMMATRIX view = DX12Manager::GetInstance().GetView();
     DirectX::XMMATRIX proj = DX12Manager::GetInstance().GetProj();
 
 
-    // --ä|ÇØ?E
+    // --Êéõ„Åë?E
     DirectX::XMMATRIX wvp = world * view * proj;
 
-    // --íËêîÉoÉbÉtÉ@ópÇÃÉ`E?EÉ^Ç…ÉZÉ`E??Ç∑ÇÈ
+    // --ÂÆöÊï∞„Éê„ÉÉ„Éï„Ç°Áî®„ÅÆ„ÉÅE?E„Çø„Å´„Çª„ÉÅE??„Åô„Çã
     
     ID3D12PipelineState* pso = PSOManager::GetInstance().GetPSO(material, PSOManager::GetInstance().GetMeshRootSignature());
     if (pso) 
@@ -174,13 +174,13 @@ void CMesh::Draw(CTransform* transform, CMaterial* material, BlendMode blendMode
     }
     else
     {
-        // ?èÔ?E?R???p?C??????s????????A???S?????f?t?H???g??PSO??g?p????
+        // ?Êìæ?E?R???p?C??????s????????A???S?????f?t?H???g??PSO??g?p????
         commandList->SetPipelineState(PSOManager::GetInstance().GetMeshPSO());
     }
     
     commandList->SetGraphicsRootSignature(PSOManager::GetInstance().GetMeshRootSignature());
 
-    //SRVÉ`EEÉ`EEÉZÉ`E  
+    //SRV„ÉÅEE„ÉÅEE„Çª„ÉÅE  
     //ID3D12DescriptorHeap* heaps[] = { CDX12Manager::GetInstance().GetSRVHeap() };
 
     //commandList->SetDescriptorHeaps(1, heaps);
@@ -215,7 +215,12 @@ void CMesh::Draw(CTransform* transform, CMaterial* material, BlendMode blendMode
 
     commandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-    //ÉCÉìÉ`E  ÉNÉXópÇ…ïœçX
+    //„Ç§„É≥„ÉÅE  „ÇØ„ÇπÁî®„Å´Â§âÊõ¥
+    if (!m_vertexBuffer || !m_indexBuffer || m_Indices.empty())
+    {
+        return;
+    }
+
     commandList->IASetVertexBuffers(0, 1, &m_vertexBufferView);
     commandList->IASetIndexBuffer(&m_indexBufferView);
     commandList->DrawIndexedInstanced(static_cast<UINT>(m_Indices.size()), 1, 0, 0, 0);
@@ -229,8 +234,24 @@ void CMesh::BindBoneSRV(D3D12_GPU_DESCRIPTOR_HANDLE handle)
 
 void CMesh::SetVertex(const MeshVertex* vertices, size_t vertexCount, const uint32_t* indices, size_t indexCount)
 {
-
     ID3D12Device* device = DX12Manager::GetInstance().GetDevice();
+    if (!device)
+    {
+        OutputDebugStringA("[CMesh::SetVertex] Error: DX12 Device is NULL!\n");
+        return;
+    }
+
+    if (!vertices || vertexCount == 0)
+    {
+        OutputDebugStringA("[CMesh::SetVertex] Warning: vertices is null or vertexCount is 0, skipping buffer creation.\n");
+        return;
+    }
+
+    if (!indices || indexCount == 0)
+    {
+        OutputDebugStringA("[CMesh::SetVertex] Warning: indices is null or indexCount is 0, skipping buffer creation.\n");
+        return;
+    }
 
     m_Vertices.clear();
     m_Indices.clear();
@@ -238,11 +259,9 @@ void CMesh::SetVertex(const MeshVertex* vertices, size_t vertexCount, const uint
     m_Vertices.assign(vertices, vertices + vertexCount);
     m_Indices.assign(indices, indices + indexCount);
 
-    //----- í∏ì_ÉoÉbÉtÉ@ÇÃ?EE -----
-    //ÉTÉCÉY?EE
-    UINT vertexBufferSize = sizeof(MeshVertex) * m_Vertices.size();//?EEÉTÉCÉYÇ…ä|ÇØ?E
+    //----- È†ÇÁÇπ„Éê„ÉÉ„Éï„Ç°ÁîüÊàê -----
+    UINT vertexBufferSize = static_cast<UINT>(sizeof(MeshVertex) * m_Vertices.size());
 
-    //ÉäÉ\Å[ÉX?EE E EploadHeap E E
     D3D12_HEAP_PROPERTIES heapProps = {};
     heapProps.Type = D3D12_HEAP_TYPE_UPLOAD;
 
@@ -255,7 +274,8 @@ void CMesh::SetVertex(const MeshVertex* vertices, size_t vertexCount, const uint
     resourceDesc.SampleDesc.Count = 1;
     resourceDesc.Layout = D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
 
-    device->CreateCommittedResource(
+    m_vertexBuffer.Reset();
+    HRESULT hr = device->CreateCommittedResource(
         &heapProps,
         D3D12_HEAP_FLAG_NONE,
         &resourceDesc,
@@ -264,23 +284,32 @@ void CMesh::SetVertex(const MeshVertex* vertices, size_t vertexCount, const uint
         IID_PPV_ARGS(&m_vertexBuffer)
     );
 
-    //í∏ì_É`E EÉ^ÇÉoÉ`E  É@Ç…ÉRÉ`EE
+    if (FAILED(hr) || !m_vertexBuffer)
+    {
+        OutputDebugStringA("[CMesh::SetVertex] Error: Failed to CreateCommittedResource for VertexBuffer!\n");
+        return;
+    }
+
+    // È†ÇÁÇπ„Éá„Éº„Çø„Çí„Éê„ÉÉ„Éï„Ç°„Å´„Ç≥„Éî„Éº
     void* mappedData = nullptr;
-    m_vertexBuffer->Map(0, nullptr, &mappedData);
-    memcpy(mappedData, m_Vertices.data(), vertexBufferSize);//Ç±ÇÍ
+    hr = m_vertexBuffer->Map(0, nullptr, &mappedData);
+    if (FAILED(hr) || !mappedData)
+    {
+        OutputDebugStringA("[CMesh::SetVertex] Error: Failed to Map VertexBuffer!\n");
+        m_vertexBuffer.Reset();
+        return;
+    }
+    memcpy(mappedData, m_Vertices.data(), vertexBufferSize);
     m_vertexBuffer->Unmap(0, nullptr);
 
-    //í∏ì_ÉoÉbÉtÉ@ÉrÉÖÅ[ÇÃê›?E
+    // È†ÇÁÇπ„Éê„ÉÉ„Éï„Ç°„Éì„É•„Éº„ÅÆË®≠ÂÆö
     m_vertexBufferView.BufferLocation = m_vertexBuffer->GetGPUVirtualAddress();
-    m_vertexBufferView.SizeInBytes = vertexBufferSize;//Ç±ÇÍ
-    m_vertexBufferView.StrideInBytes = sizeof(MeshVertex);//Ç±ÇÍ
+    m_vertexBufferView.SizeInBytes = vertexBufferSize;
+    m_vertexBufferView.StrideInBytes = sizeof(MeshVertex);
 
+    //----- „Ç§„É≥„Éá„ÉÉ„ÇØ„Çπ„Éê„ÉÉ„Éï„Ç°ÁîüÊàê -----
+    const UINT indexBufferSize = static_cast<UINT>(sizeof(uint32_t) * m_Indices.size());
 
-    //----- ÉCÉìÉ`E  ÉNÉXÉoÉbÉtÉ@ÇÃ?EE -----
-    //ÉTÉCÉY?EE
-    const UINT indexBufferSize = sizeof(uint32_t) * m_Indices.size();
-
-    //ÉäÉ\Å[ÉX?EE E EploadHeap E E
     D3D12_HEAP_PROPERTIES heapProps2 = {};
     heapProps2.Type = D3D12_HEAP_TYPE_UPLOAD;
     heapProps2.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
@@ -301,7 +330,8 @@ void CMesh::SetVertex(const MeshVertex* vertices, size_t vertexCount, const uint
     resourceDesc2.Layout = D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
     resourceDesc2.Flags = D3D12_RESOURCE_FLAG_NONE;
 
-    device->CreateCommittedResource(
+    m_indexBuffer.Reset();
+    hr = device->CreateCommittedResource(
         &heapProps2,
         D3D12_HEAP_FLAG_NONE,
         &resourceDesc2,
@@ -310,18 +340,29 @@ void CMesh::SetVertex(const MeshVertex* vertices, size_t vertexCount, const uint
         IID_PPV_ARGS(&m_indexBuffer)
     );
 
-    //ÉCÉìÉ`E  ÉNÉXÉ`E EÉ^ÇÉoÉ`E  É@Ç…ÉRÉ`EE
+    if (FAILED(hr) || !m_indexBuffer)
+    {
+        OutputDebugStringA("[CMesh::SetVertex] Error: Failed to CreateCommittedResource for IndexBuffer!\n");
+        return;
+    }
+
+    // „Ç§„É≥„Éá„ÉÉ„ÇØ„Çπ„Éá„Éº„Çø„Çí„Éê„ÉÉ„Éï„Ç°„Å´„Ç≥„Éî„Éº
     uint8_t* mappedData2 = nullptr;
-    m_indexBuffer->Map(0, nullptr, reinterpret_cast<void**>(&mappedData2));
+    hr = m_indexBuffer->Map(0, nullptr, reinterpret_cast<void**>(&mappedData2));
+    if (FAILED(hr) || !mappedData2)
+    {
+        OutputDebugStringA("[CMesh::SetVertex] Error: Failed to Map IndexBuffer!\n");
+        m_indexBuffer.Reset();
+        return;
+    }
     memcpy(mappedData2, m_Indices.data(), indexBufferSize);
     m_indexBuffer->Unmap(0, nullptr);
 
-    //ÉCÉìÉ`E  ÉNÉXÉoÉbÉtÉ@ÉrÉÖÅ[ÇÃê›?E
+    // „Ç§„É≥„Éá„ÉÉ„ÇØ„Çπ„Éê„ÉÉ„Éï„Ç°„Éì„É•„Éº„ÅÆË®≠ÂÆö
     m_indexBufferView.BufferLocation = m_indexBuffer->GetGPUVirtualAddress();
     m_indexBufferView.SizeInBytes = indexBufferSize;
-    m_indexBufferView.Format = DXGI_FORMAT_R32_UINT; // uint16_tÇ»ÇÁÇ±ÇﬂE
+    m_indexBufferView.Format = DXGI_FORMAT_R32_UINT;
 }
-
 
 void CMesh::RegisterOwner(CObject* _Owner)
 {
