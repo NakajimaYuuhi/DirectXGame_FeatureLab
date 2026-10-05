@@ -1,4 +1,4 @@
-ï»¿#define TINYGLTF_IMPLEMENTATION
+#define TINYGLTF_IMPLEMENTATION
 #define STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #define TINYGLTF_NOEXCEPTION
@@ -17,10 +17,10 @@
 #include "AssetHeader.h"
 #include "XorDecryptor.h"
 
-// tinygltf::Model ã‹ã‚‰ LoadedModelData ã¸ã®å¤‰æ›
+// tinygltf::Model ‚©‚ç LoadedModelData ‚Ö‚Ì•ÏŠ·
 static bool ParseTinyGltfModel(const tinygltf::Model& model, const std::string& assetPathOrName, LoadedModelData& loadedModelData)
 {
-    //----- ãƒ¡ãƒƒã‚·ãƒ¥ãƒ‡ãƒ¼ã‚¿ã®å–å¾— -----
+    //----- ƒƒbƒVƒ…ƒf[ƒ^‚Ìæ“¾ -----
     for (const auto& mesh : model.meshes)
     {
         std::string meshName = mesh.name;
@@ -43,7 +43,7 @@ static bool ParseTinyGltfModel(const tinygltf::Model& model, const std::string& 
 
             vertices.resize(VertexCount);
 
-            // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆåˆæœŸåŒ–
+            // ƒfƒtƒHƒ‹ƒg‰Šú‰»
             for (size_t i = 0; i < VertexCount; i++)
             {
                 vertices[i].boneIndices[0] = 0;
@@ -238,7 +238,7 @@ static bool ParseTinyGltfModel(const tinygltf::Model& model, const std::string& 
         }
     }
 
-    //----- ãƒãƒ†ãƒªã‚¢ãƒ«ãƒ‡ãƒ¼ã‚¿å–å¾— -----
+    //----- ƒ}ƒeƒŠƒAƒ‹ƒf[ƒ^æ“¾ -----
     for (const auto& material : model.materials)
     {
         MaterialData materialData;
@@ -308,7 +308,7 @@ static bool ParseTinyGltfModel(const tinygltf::Model& model, const std::string& 
         loadedModelData.materials.push_back(materialData);
     }
 
-    //----- ãƒãƒ¼ãƒ‰ãƒ‡ãƒ¼ã‚¿å–å¾— -----
+    //----- ƒm[ƒhƒf[ƒ^æ“¾ -----
     for (const auto& node : model.nodes)
     {
         NodeData nodeData;
@@ -346,7 +346,7 @@ static bool ParseTinyGltfModel(const tinygltf::Model& model, const std::string& 
         loadedModelData.nodes.push_back(nodeData);
     }
 
-    //----- ã‚¹ã‚­ãƒ³ãƒ‡ãƒ¼ã‚¿å–å¾— -----
+    //----- ƒXƒLƒ“ƒf[ƒ^æ“¾ -----
     for (const auto& skin : model.skins)
     {
         SkinData skinData;
@@ -372,7 +372,7 @@ static bool ParseTinyGltfModel(const tinygltf::Model& model, const std::string& 
         loadedModelData.skins.push_back(skinData);
     }
 
-    //----- ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³å–å¾— -----
+    //----- ƒAƒjƒ[ƒVƒ‡ƒ“æ“¾ -----
     for (const auto& anim : model.animations)
     {
         AnimationData animData;
@@ -449,7 +449,7 @@ static bool ParseTinyGltfModel(const tinygltf::Model& model, const std::string& 
     return true;
 }
 
-// GltfModelLoader::LoadFromMemory ã®å®Ÿè£…
+// GltfModelLoader::LoadFromMemory ‚ÌÀ‘•
 bool GltfModelLoader::LoadFromMemory(const uint8_t* data, size_t size, const std::string& assetPathOrName, LoadedModelData& outData)
 {
     if (!data || size == 0) return false;
@@ -466,7 +466,7 @@ bool GltfModelLoader::LoadFromMemory(const uint8_t* data, size_t size, const std
     }
 
     bool loadResult = false;
-    // ãƒã‚¤ãƒŠãƒªGLBã‹ãƒ†ã‚­ã‚¹ãƒˆGLTFã‹ã‚’åˆ¤å®š
+    // ƒoƒCƒiƒŠGLB‚©ƒeƒLƒXƒgGLTF‚©‚ğ”»’è
     if (size >= 4 && data[0] == 'g' && data[1] == 'l' && data[2] == 'T' && data[3] == 'F') {
         loadResult = loader.LoadBinaryFromMemory(&model, &err, &warn, data, static_cast<unsigned int>(size), baseDir);
     } else {
@@ -487,12 +487,12 @@ bool GltfModelLoader::LoadFromMemory(const uint8_t* data, size_t size, const std
     return ParseTinyGltfModel(model, assetPathOrName, outData);
 }
 
-// ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿ ï¼† æš—å·åŒ–è‡ªå‹•æ¤œçŸ¥ï¼†å¾©å·
+// ƒtƒ@ƒCƒ‹“Ç‚İ‚İ • ˆÃ†‰»©“®ŒŸ’m••œ†
 LoadedModelData LoadModelDataFromFile(const std::string& filePath)
 {
     LoadedModelData loadedModelData;
 
-    // ãƒ‘ã‚¹è§£æ±ºï¼šã‚‚ã—è¦æ±‚ã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„å ´åˆã®ãƒ•ã‚©ãƒ¼ãƒ«ãƒãƒƒã‚¯
+    // ƒpƒX‰ğŒˆF‚à‚µ—v‹‚³‚ê‚½ƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢ê‡‚ÌƒtƒH[ƒ‹ƒoƒbƒN
     std::string resolvedPath = filePath;
     if (!std::filesystem::exists(resolvedPath))
     {
@@ -533,7 +533,7 @@ LoadedModelData LoadModelDataFromFile(const std::string& filePath)
         return loadedModelData;
     }
 
-    // æš—å·åŒ–ãƒ˜ãƒƒãƒ€ãƒ¼ã®è‡ªå‹•åˆ¤å®š
+    // ˆÃ†‰»ƒwƒbƒ_[‚Ì©“®”»’è
     std::vector<uint8_t> decryptedBuffer;
     const uint8_t* parseData = buffer.data();
     size_t parseSize = buffer.size();
@@ -558,7 +558,7 @@ LoadedModelData LoadModelDataFromFile(const std::string& filePath)
 
             if (decryptor->Decrypt(encryptedData, encryptedSize, decryptedBuffer))
             {
-                // ãƒã‚§ãƒƒã‚¯ã‚µãƒ æ¤œè¨¼
+                // ƒ`ƒFƒbƒNƒTƒ€ŒŸØ
                 if (header->checksum != 0)
                 {
                     uint32_t calcCrc = AssetSecurity::ComputeChecksum(decryptedBuffer.data(), decryptedBuffer.size());
@@ -585,7 +585,7 @@ LoadedModelData LoadModelDataFromFile(const std::string& filePath)
     return loadedModelData;
 }
 
-// äº’æ›æ€§ç¶­æŒã®ãŸã‚ã®é–¢æ•°
+// ŒİŠ·«ˆÛ‚Ì‚½‚ß‚ÌŠÖ”
 LoadedModelData TestLoadGLTF(std::string _fileName)
 {
     return LoadModelDataFromFile(_fileName);

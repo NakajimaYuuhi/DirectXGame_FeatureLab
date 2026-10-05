@@ -1,4 +1,4 @@
-﻿#include "TextureManager.h"
+#include "TextureManager.h"
 #include <iostream>
 
 std::shared_ptr<CTexture> TextureManager::GetTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdList, const wchar_t* filePath)

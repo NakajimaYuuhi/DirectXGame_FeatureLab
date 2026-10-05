@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include "Component.h"
 #include "RenderLayer.h"
@@ -74,6 +74,7 @@ public:
 
 	void CopyFrom(const std::shared_ptr<CModel>& other)
 	{
+		if (!other) return;
 		m_Meshes = other->m_Meshes;
 
 		m_Materials.clear();

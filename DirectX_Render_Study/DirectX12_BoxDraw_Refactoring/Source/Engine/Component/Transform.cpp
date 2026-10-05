@@ -1,4 +1,4 @@
-ï»¿#include "Transform.h"
+#include "Transform.h"
 #include <cmath>
 
 using namespace DirectX;
@@ -13,21 +13,21 @@ CTransform::CTransform(
     , m_localScale(_Scale)
     , m_isDirty(true)
 {
-    // ã‚ªã‚¤ãƒ©ãƒ¼è§’ï¼ˆãƒ©ã‚¸ã‚¢ãƒ³ï¼‰ã‹ã‚‰åˆæœŸã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã‚’ç”Ÿæˆ
+    // ƒIƒCƒ‰[Špiƒ‰ƒWƒAƒ“j‚©‚ç‰ŠúƒNƒH[ƒ^ƒjƒIƒ“‚ğ¶¬
     XMVECTOR q = XMQuaternionRotationRollPitchYaw(m_localEulerAngles.x, m_localEulerAngles.y, m_localEulerAngles.z);
     XMStoreFloat4(&m_localRotation, q);
 }
 
 CTransform::~CTransform()
 {
-    // æ—¢å­˜ã®è¦ªã‹ã‚‰è‡ªèº«ã‚’åˆ‡ã‚Šé›¢ã™
+    // Šù‘¶‚Ìe‚©‚ç©g‚ğØ‚è—£‚·
     if (m_parent)
     {
         m_parent->RemoveChild(this);
         m_parent = nullptr;
     }
 
-    // å­ãƒãƒ¼ãƒ‰ã®è¦ªå‚ç…§ã‚’ã‚¯ãƒªã‚¢ã—ã€å­å´ã‚‚Dirtyã«ã™ã‚‹
+    // qƒm[ƒh‚ÌeQÆ‚ğƒNƒŠƒA‚µAq‘¤‚àDirty‚É‚·‚é
     for (auto* child : m_children)
     {
         if (child)
@@ -43,13 +43,13 @@ void CTransform::SetParent(CTransform* newParent, bool keepWorldTransform)
 {
     if (m_parent == newParent) return;
 
-    // å¾ªç’°å‚ç…§ã®ã‚¬ãƒ¼ãƒ‰ï¼ˆè‡ªåˆ†è‡ªèº«ã€ã¾ãŸã¯è‡ªåˆ†ã®å­å­«ã‚’è¦ªã«ã—ã‚ˆã†ã¨ã—ãŸå ´åˆã¯ç„¡è¦–ï¼‰
+    // zŠÂQÆ‚ÌƒK[ƒhi©•ª©gA‚Ü‚½‚Í©•ª‚Ìq‘·‚ğe‚É‚µ‚æ‚¤‚Æ‚µ‚½ê‡‚Í–³‹j
     if (newParent == this || (newParent && newParent->IsChildOf(this)))
     {
         return;
     }
 
-    // ãƒ¯ãƒ¼ãƒ«ãƒ‰å§¿å‹¢ã‚’ç¶­æŒã™ã‚‹å ´åˆã®ãƒ­ãƒ¼ã‚«ãƒ«åº§æ¨™é€†ç®—
+    // ƒ[ƒ‹ƒhp¨‚ğˆÛ‚·‚éê‡‚Ìƒ[ƒJƒ‹À•W‹tZ
     if (keepWorldTransform)
     {
         XMMATRIX currentWorld = GetWorldMatrix();
@@ -72,7 +72,7 @@ void CTransform::SetParent(CTransform* newParent, bool keepWorldTransform)
         }
         else
         {
-            // è¦ªã‚’è§£é™¤ã—ã¦ãƒ«ãƒ¼ãƒˆã«æˆ»ã‚‹å ´åˆ: ä»Šã®ãƒ¯ãƒ¼ãƒ«ãƒ‰å§¿å‹¢ãŒãã®ã¾ã¾ãƒ­ãƒ¼ã‚«ãƒ«å§¿å‹¢ã«ãªã‚‹
+            // e‚ğ‰ğœ‚µ‚Äƒ‹[ƒg‚É–ß‚éê‡: ¡‚Ìƒ[ƒ‹ƒhp¨‚ª‚»‚Ì‚Ü‚Üƒ[ƒJƒ‹p¨‚É‚È‚é
             XMVECTOR scale, rotQuat, trans;
             if (XMMatrixDecompose(&scale, &rotQuat, &trans, currentWorld))
             {
@@ -84,13 +84,13 @@ void CTransform::SetParent(CTransform* newParent, bool keepWorldTransform)
         }
     }
 
-    // å¤ã„è¦ªã®ãƒªã‚¹ãƒˆã‹ã‚‰è‡ªèº«ã‚’é™¤å¤–
+    // ŒÃ‚¢e‚ÌƒŠƒXƒg‚©‚ç©g‚ğœŠO
     if (m_parent)
     {
         m_parent->RemoveChild(this);
     }
 
-    // æ–°ã—ã„è¦ªã®ç™»éŒ²
+    // V‚µ‚¢e‚Ì“o˜^
     m_parent = newParent;
     if (m_parent)
     {
@@ -167,7 +167,7 @@ void CTransform::SetLocalScale(const XMFLOAT3& scale)
 
 void CTransform::SetDirty() const
 {
-    if (m_isDirty) return; // æ—¢ã«Dirtyãªã‚‰å­å­«ã¸ã®å†å¸°ã¯ä¸è¦
+    if (m_isDirty) return; // Šù‚ÉDirty‚È‚çq‘·‚Ö‚ÌÄ‹A‚Í•s—v
     m_isDirty = true;
     for (auto* child : m_children)
     {
@@ -182,7 +182,7 @@ void CTransform::UpdateWorldMatrix() const
 {
     if (!m_isDirty) return;
 
-    // SRTé †: S * R * T
+    // SRT‡: S * R * T
     XMMATRIX S = XMMatrixScaling(m_localScale.x, m_localScale.y, m_localScale.z);
     XMVECTOR rotQuat = XMLoadFloat4(&m_localRotation);
     XMMATRIX R = XMMatrixRotationQuaternion(rotQuat);
@@ -192,7 +192,7 @@ void CTransform::UpdateWorldMatrix() const
 
     if (m_parent)
     {
-        // å­ã®ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ› * è¦ªã®ãƒ¯ãƒ¼ãƒ«ãƒ‰å¤‰æ›
+        // q‚Ìƒ[ƒJƒ‹•ÏŠ· * e‚Ìƒ[ƒ‹ƒh•ÏŠ·
         m_worldMatrix = localMatrix * m_parent->GetWorldMatrix();
     }
     else
@@ -275,13 +275,13 @@ DirectX::XMFLOAT3 CTransform::GetRight() const
 
 void CTransform::SetRotationFromUpFront(DirectX::XMFLOAT3 _Up, DirectX::XMFLOAT3 _Front)
 {
-    // Right ã®å¤–ç©è¨ˆç®—
+    // Right ‚ÌŠOÏŒvZ
     DirectX::XMFLOAT3 right;
     right.x = _Up.y * _Front.z - _Up.z * _Front.y;
     right.y = _Up.z * _Front.x - _Up.x * _Front.z;
     right.z = _Up.x * _Front.y - _Up.y * _Front.x;
 
-    // æ­£è¦åŒ–
+    // ³‹K‰»
     XMVECTOR r = XMVector3Normalize(XMLoadFloat3(&right));
     XMVECTOR u = XMVector3Normalize(XMLoadFloat3(&_Up));
     XMVECTOR f = XMVector3Normalize(XMLoadFloat3(&_Front));
@@ -302,7 +302,7 @@ void CTransform::UpdateEulerFromQuaternion()
     XMVECTOR q = XMLoadFloat4(&m_localRotation);
     XMMATRIX rotMat = XMMatrixRotationQuaternion(q);
 
-    // RollPitchYaw ã«å¯¾å¿œã™ã‚‹ã‚ªã‚¤ãƒ©ãƒ¼è§’ã®æŠ½å‡º
+    // RollPitchYaw ‚É‘Î‰‚·‚éƒIƒCƒ‰[Šp‚Ì’Šo
     float pitch = asinf(-rotMat.r[2].m128_f32[1]);
     float yaw = 0.0f;
     float roll = 0.0f;

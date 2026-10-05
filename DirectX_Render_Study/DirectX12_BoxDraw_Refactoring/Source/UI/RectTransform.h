@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include "Source/Engine/Component/Component.h"
 #include <DirectXMath.h>
 #include <string>

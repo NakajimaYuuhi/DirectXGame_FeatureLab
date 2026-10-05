@@ -1,4 +1,4 @@
-ï»¿#pragma once
+#pragma once
 #include <d3d12.h>
 #include "imgui.h"
 
@@ -54,7 +54,7 @@ public:
 
     void Free(D3D12_CPU_DESCRIPTOR_HANDLE out_cpu_desc_handle, D3D12_GPU_DESCRIPTOR_HANDLE out_gpu_desc_handle)
     {
-        // ç„¡åŠ¹ãªãƒãƒ³ãƒ‰ãƒ«ã‚„ãƒ’ãƒ¼ãƒ—æœªåˆæœŸåŒ–ã®å ´åˆã¯å®‰å…¨ã«ç„¡è¦–
+        // –³Œø‚Èƒnƒ“ƒhƒ‹‚âƒq[ƒv–¢‰Šú‰»‚Ìê‡‚ÍˆÀ‘S‚É–³‹
         if (Heap == nullptr || out_cpu_desc_handle.ptr == 0 || out_gpu_desc_handle.ptr == 0) return;
         if (HeapHandleIncrement == 0) return;
         if (out_cpu_desc_handle.ptr < HeapStartCpu.ptr || out_gpu_desc_handle.ptr < HeapStartGpu.ptr) return;
@@ -62,7 +62,7 @@ public:
         int cpu_idx = (int)((out_cpu_desc_handle.ptr - HeapStartCpu.ptr) / HeapHandleIncrement);
         int gpu_idx = (int)((out_gpu_desc_handle.ptr - HeapStartGpu.ptr) / HeapHandleIncrement);
 
-        // ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ä¸ä¸€è‡´ã¾ãŸã¯ç¯„å›²å¤–ã®å ´åˆã¯ç ´æ£„ã›ãšç„¡è¦–
+        // ƒCƒ“ƒfƒbƒNƒX•sˆê’v‚Ü‚½‚Í”ÍˆÍŠO‚Ìê‡‚Í”jŠü‚¹‚¸–³‹
         if (cpu_idx != gpu_idx || cpu_idx < 0 || (NumDescriptors > 0 && cpu_idx >= (int)NumDescriptors))
         {
             return;

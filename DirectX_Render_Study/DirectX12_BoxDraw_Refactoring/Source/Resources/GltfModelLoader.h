@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include "IModelLoader.h"
 #include <memory>

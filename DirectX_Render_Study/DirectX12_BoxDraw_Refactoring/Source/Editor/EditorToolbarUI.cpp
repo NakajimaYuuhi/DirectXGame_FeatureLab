@@ -11,7 +11,7 @@
 #include "Source/Core/Scenes/Serializer/SceneSerializer.h"
 
 // -----------------------------------------------------------------
-// 繝・・繝ｫ繝舌・UI縺ｮ謠冗判譖ｴ譁ｰ蜃ｦ逅・ｼ医ョ繝舌ャ繧ｰ繝薙Ν繝画凾縺ｮ縺ｿ譛牙柑
+// チE�Eルバ�EUIの描画更新処琁E��デバッグビルド時のみ有効
 // -----------------------------------------------------------------
 void CEditorToolbarUI::Draw()
 {
@@ -25,12 +25,12 @@ void CEditorToolbarUI::Draw()
     if (ImGui::Begin("Editor Toolbar", &m_isVisible, ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_AlwaysAutoResize))
     {
         // ---------------------------------------------------------
-        // 1. 繝励Ξ繧､繝｢繝ｼ繝・/ 邱ｨ髮・Δ繝ｼ繝・/ 繝励Ξ繝上ヶ邱ｨ髮・Δ繝ｼ繝峨・蛻ｶ蠕｡繝懊ち繝ｳ
+        // 1. プレイモーチE/ 編雁E��ーチE/ プレハブ編雁E��ード�E制御ボタン
         // ---------------------------------------------------------
         bool isPrefabMode = CInspectorUI::GetInstance().IsPrefabEditMode();
         if (isPrefabMode)
         {
-            // 繝励Ξ繝上ヶ邱ｨ髮・せ繝・・繧ｸ荳ｭ縺ｮ謫堺ｽ懊・繧ｿ繝ｳ
+            // プレハブ編雁E��チE�Eジ中の操作�Eタン
             std::string path = CInspectorUI::GetInstance().GetEditingPrefabPath();
             ImGui::TextColored(ImVec4(1.0f, 0.8f, 0.2f, 1.0f), "[PREFAB STAGE MODE] %s", path.c_str());
             ImGui::SameLine();
@@ -46,7 +46,7 @@ void CEditorToolbarUI::Draw()
         }
         else
         {
-            // 騾壼ｸｸ繧ｷ繝ｼ繝ｳ縺ｧ縺ｮ邱ｨ髮・・蜀咲函繝ｻ荳譎ょ●豁｢蛻・崛
+            // 通常シーンでの編雁E�E再生・一時停止刁E��
             bool isEditMode = CInspectorUI::GetInstance().IsEditMode();
             bool isPaused = CInspectorUI::GetInstance().IsPaused();
 
@@ -81,7 +81,7 @@ void CEditorToolbarUI::Draw()
         ImGui::SameLine();
 
         // ---------------------------------------------------------
-        // 2. 繧ｮ繧ｺ繝｢謫堺ｽ懊Δ繝ｼ繝牙・繧頑崛縺茨ｼ育ｧｻ蜍・ W / 蝗櫁ｻ｢: E / 諡｡螟ｧ邵ｮ蟆・ R
+        // 2. ギズモ操作モード�Eり替え（移勁E W / 回転: E / 拡大縮封E R
         // ---------------------------------------------------------
         GizmoMode currentGizmoMode = CInspectorUI::GetInstance().GetGizmoMode();
         if (currentGizmoMode == GizmoMode::Translate) ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.2f, 0.6f, 0.9f, 1.0f));
@@ -136,9 +136,9 @@ void CEditorToolbarUI::Draw()
         // 4. Save / Reload Scene
 
         // ---------------------------------------------------------
-        // 3. 繧ｷ繝ｼ繝ｳ縺ｮ繧ｷ繝ｪ繧｢繝ｩ繧､繧ｺ謫堺ｽ懶ｼ井ｿ晏ｭ・/ 蜀崎ｪｭ縺ｿ霎ｼ縺ｿ・・        // ---------------------------------------------------------
+        // 3. シーンのシリアライズ操作（保孁E/ 再読み込み�E�E        // ---------------------------------------------------------
         // ---------------------------------------------------------
-        // 3. シーンのシリアライズ操作（保存 / 再読み込み）
+        // 3. �V�[���̃V���A���C�Y����i�ۑ� / �ēǂݍ��݁j
         // ---------------------------------------------------------
         static char scenePathBuf[256] = "Assets/Scene/SceneTest.json";
         ImGui::SetNextItemWidth(160.0f);
@@ -179,7 +179,7 @@ void CEditorToolbarUI::Draw()
         ImGui::SameLine();
 
         // ---------------------------------------------------------
-        // 4. UI繧ｵ繝悶え繧｣繝ｳ繝峨え縺ｮ髢矩哩繝医げ繝ｫ・医さ繝ｳ繝・Φ繝・ラ繝ｭ繝ｯ繝ｼ・・        // ---------------------------------------------------------
+        // 4. UIサブウィンドウの開閉トグル�E�コンチE��チE��ロワー�E�E        // ---------------------------------------------------------
         if (ImGui::Button("Content Drawer (Ctrl+Space)"))
         {
             CContentDrawerUI::GetInstance().ToggleVisible();

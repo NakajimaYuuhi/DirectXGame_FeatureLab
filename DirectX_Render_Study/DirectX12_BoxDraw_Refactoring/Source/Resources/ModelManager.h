@@ -1,4 +1,4 @@
-ï»¿#pragma once
+#pragma once
 #include <string>
 #include <unordered_map>
 #include <memory>
@@ -16,7 +16,7 @@ public:
     // Get or load a model (with automatic fallback resolution)
     std::shared_ptr<CModel> GetModel(const std::string& filePath);
 
-    // ãƒ‘ã‚¹è§£æ±º (Debug: GLBå„ªå…ˆ, Release: æš—å·åŒ–.datå„ªå…ˆ)
+    // ƒpƒX‰ğŒˆ (Debug: GLB—Dæ, Release: ˆÃ†‰».dat—Dæ)
     std::string ResolveModelPath(const std::string& inputPath) const;
 
     void Clear() { m_modelCache.clear(); }

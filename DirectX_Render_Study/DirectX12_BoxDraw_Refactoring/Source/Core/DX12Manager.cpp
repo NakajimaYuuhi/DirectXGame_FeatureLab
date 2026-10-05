@@ -1,4 +1,4 @@
-ï»¿#include "CameraComponent.h"
+#include "CameraComponent.h"
 //===== ?C???N???[?h =====
 #include "DX12Manager.h"
 
@@ -17,7 +17,7 @@
 #include "ObjectManager.h"
 
 
-// ?O???{??h???C?o?iNVIDIA / AMD?j??????A????A?v???N??????O??GPU??????g?p???????`???ï¿½x?@
+// ?O???{??h???C?o?iNVIDIA / AMD?j??????A????A?v???N??????O??GPU??????g?p???????`????x?@
 extern "C" {
 	_declspec(dllexport) DWORD NvOptimusEnablement = 0x00000001;
 	_declspec(dllexport) int AmdPowerXpressRequestHighPerformance = 1;
@@ -28,7 +28,7 @@ const UINT DX12Manager::m_FrameBufferCount = FRAME_BUFFER_COUNT;   //?t???[???o?
 
 //===== ???\?b?h??` =====
 
-//?C???X?^???X?ï¿½ï¿½
+//?C???X?^???X???
 DX12Manager& DX12Manager::GetInstance()
 {
 	static DX12Manager instance;
@@ -56,7 +56,7 @@ bool DX12Manager::Initialize(HWND hwnd)
 	//if (FAILED(hr))
 	//	return false;
 
-	////?A?_?v?^?ï¿½ï¿½
+	////?A?_?v?^???
 	//ComPtr<IDXGIAdapter1> adapter;
 
 	//for (UINT i = 0;
@@ -79,14 +79,14 @@ bool DX12Manager::Initialize(HWND hwnd)
 	if (FAILED(hr))
 		return false;
 
-	// ?A?_?v?^?ï¿½ï¿½
+	// ?A?_?v?^???
 	ComPtr<IDXGIAdapter1> adapter;
 	ComPtr<IDXGIFactory6> factory6;
 
 	// Factory??IDXGIFactory6??L???X?g????AEnumAdapterByGpuPreference??g??????????
 	if (SUCCEEDED(m_factory.As(&factory6)))
 	{
-		// DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE ??w???ï¿½???A
+		// DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE ??w???????A
 		// ?????\???????iVRAM???????O??GPU???j????O???{???????????
 		for (UINT i = 0;
 			factory6->EnumAdapterByGpuPreference(i, DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE, IID_PPV_ARGS(&adapter)) != DXGI_ERROR_NOT_FOUND;
@@ -191,20 +191,20 @@ bool DX12Manager::Initialize(HWND hwnd)
 	if (FAILED(hr))
 		return false;
 
-	//?f?B?X?N???v?^?T?C?Y?ï¿½ï¿½
+	//?f?B?X?N???v?^?T?C?Y???
 	m_rtvDescriptorSize =
 		m_device->GetDescriptorHandleIncrementSize(
 			D3D12_DESCRIPTOR_HEAP_TYPE_RTV
 		);
 
-	//?o?b?N?o?b?t?@?ï¿½ï¿½??RTV??
-	//?q?[?v????n???h???ï¿½ï¿½
+	//?o?b?N?o?b?t?@?????RTV??
+	//?q?[?v????n???h?????
 	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle =
 		m_rtvHeap->GetCPUDescriptorHandleForHeapStart();
 
 	for (UINT i = 0; i < m_FrameBufferCount; ++i)
 	{
-		//?o?b?N?o?b?t?@?ï¿½ï¿½
+		//?o?b?N?o?b?t?@???
 		hr = m_swapChain->GetBuffer(
 			i,
 			IID_PPV_ARGS(&m_renderTargets[i])
@@ -329,7 +329,7 @@ bool DX12Manager::Initialize(HWND hwnd)
 //Todo : Model??`??e?X?g?????????A???????????
 
 
-	//?????ï¿½ï¿½??p
+	//?????????p
 	//m_view = DirectX::XMMatrixLookAtLH(
 	//	DirectX::XMVectorSet(40, 0, 0, 1),
 	//	DirectX::XMVectorSet(0, 0, 0, 1),
@@ -446,7 +446,7 @@ void DX12Manager::BeginDraw()
 
 	m_commandList->ResourceBarrier(1, &barrier);
 
-	// 4. RTV?n???h???ï¿½ï¿½
+	// 4. RTV?n???h?????
 	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle =
 		m_rtvHeap->GetCPUDescriptorHandleForHeapStart();
 
@@ -472,7 +472,7 @@ void DX12Manager::BeginDraw()
 	m_commandList->RSSetViewports(1, &viewport);
 	m_commandList->RSSetScissorRects(1, &scissorRect);
 
-	// 5. DSV?n???h???ï¿½ï¿½
+	// 5. DSV?n???h?????
 	D3D12_CPU_DESCRIPTOR_HANDLE dsvHandle =
 		m_dsvHeap->GetCPUDescriptorHandleForHeapStart();
 
@@ -507,23 +507,23 @@ void DX12Manager::BeginDraw()
 
 void DX12Manager::EndSceneDraw()
 {
-	// 1. ã‚·ãƒ¼ãƒ³æç”»ã‚³ãƒžãƒ³ãƒ‰ãƒªã‚¹ãƒˆã‚’ã‚¯ãƒ­ãƒ¼ã‚ºã—ã¦å®Ÿè¡Œ
+	// 1. ƒV[ƒ“•`‰æƒRƒ}ƒ“ƒhƒŠƒXƒg‚ðƒNƒ[ƒY‚µ‚ÄŽÀs
 	m_commandList->Close();
 	ID3D12CommandList* commandLists[] = { m_commandList.Get() };
 	m_commandQueue->ExecuteCommandLists(1, commandLists);
 
-	// 2. Direct2D ãƒ†ã‚­ã‚¹ãƒˆã‚’ãƒãƒƒã‚¯ãƒãƒƒãƒ•ã‚¡ã«ç„¼ãä»˜ã‘ï¼ˆã‚²ãƒ¼ãƒ å†…UIãƒ†ã‚­ã‚¹ãƒˆæç”»ï¼‰
+	// 2. Direct2D ƒeƒLƒXƒg‚ðƒoƒbƒNƒoƒbƒtƒ@‚ÉÄ‚«•t‚¯iƒQ[ƒ€“àUIƒeƒLƒXƒg•`‰æj
 	{
 		PROFILE_SCOPE("Render::D2DText");
 		D2DTextRenderer::GetInstance().Render(m_frameIndex);
 	}
 
-	// 3. ImGui æç”»ç”¨ã«ã‚³ãƒžãƒ³ãƒ‰ã‚¢ãƒ­ã‚±ãƒ¼ã‚¿ãƒ»ãƒªã‚¹ãƒˆã‚’å†é–‹
+	// 3. ImGui •`‰æ—p‚ÉƒRƒ}ƒ“ƒhƒAƒƒP[ƒ^EƒŠƒXƒg‚ðÄŠJ
 	m_commandAllocator->Reset();
 	m_commandList->Reset(m_commandAllocator.Get(), nullptr);
 
-	// D2DTextRenderer::Render ã¯å†…éƒ¨ã§ ReleaseWrappedResources æ™‚ã« PRESENT çŠ¶æ…‹ã«é·ç§»ã•ã›ã¦ã„ã‚‹ãŸã‚ã€
-	// ImGui æç”»ã®ãŸã‚ã« RENDER_TARGET çŠ¶æ…‹ã¸æˆ»ã™
+	// D2DTextRenderer::Render ‚Í“à•”‚Å ReleaseWrappedResources Žž‚É PRESENT ó‘Ô‚É‘JˆÚ‚³‚¹‚Ä‚¢‚é‚½‚ßA
+	// ImGui •`‰æ‚Ì‚½‚ß‚É RENDER_TARGET ó‘Ô‚Ö–ß‚·
 	D3D12_RESOURCE_BARRIER barrier{};
 	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
 	barrier.Transition.pResource = m_renderTargets[m_frameIndex].Get();
@@ -532,12 +532,12 @@ void DX12Manager::EndSceneDraw()
 	barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
 	m_commandList->ResourceBarrier(1, &barrier);
 
-	// ãƒ¬ãƒ³ãƒ€ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚’ã‚»ãƒƒãƒˆ
+	// ƒŒƒ“ƒ_[ƒ^[ƒQƒbƒg‚ðƒZƒbƒg
 	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle = m_rtvHeap->GetCPUDescriptorHandleForHeapStart();
 	rtvHandle.ptr += m_frameIndex * m_rtvDescriptorSize;
 	m_commandList->OMSetRenderTargets(1, &rtvHandle, FALSE, nullptr);
 
-	// ãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆã¨ã‚·ã‚¶ãƒ¼çŸ©å½¢ã‚’è¨­å®š
+	// ƒrƒ…[ƒ|[ƒg‚ÆƒVƒU[‹éŒ`‚ðÝ’è
 	D3D12_VIEWPORT viewport{};
 	viewport.Width = (float)m_Width;
 	viewport.Height = (float)m_Height;
@@ -556,7 +556,7 @@ void DX12Manager::EndSceneDraw()
 
 void DX12Manager::EndDraw()
 {
-	// ImGui æç”»å¾Œã®ãƒãƒƒã‚¯ãƒãƒƒãƒ•ã‚¡ã‚’ PRESENT çŠ¶æ…‹ã¸é·ç§»
+	// ImGui •`‰æŒã‚ÌƒoƒbƒNƒoƒbƒtƒ@‚ð PRESENT ó‘Ô‚Ö‘JˆÚ
 	D3D12_RESOURCE_BARRIER barrier{};
 	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
 	barrier.Transition.pResource = m_renderTargets[m_frameIndex].Get();
@@ -573,7 +573,7 @@ void DX12Manager::EndDraw()
 	HRESULT hr = m_swapChain->Present(1, 0);
 	m_SwapChainOccluded = (hr == DXGI_STATUS_OCCLUDED);
 
-	// ãƒ•ã‚§ãƒ³ã‚¹ã‚·ã‚°ãƒŠãƒ«
+	// ƒtƒFƒ“ƒXƒVƒOƒiƒ‹
 	const UINT64 fenceToWaitFor = m_fenceValue;
 	m_commandQueue->Signal(m_fence.Get(), fenceToWaitFor);
 	m_fenceValue++;
@@ -731,7 +731,7 @@ void DX12Manager::CreateRenderTarget()
 
 	for (UINT i = 0; i < m_FrameBufferCount; ++i)
 	{
-		//?o?b?N?o?b?t?@?ï¿½ï¿½
+		//?o?b?N?o?b?t?@???
 		HRESULT hr = m_swapChain->GetBuffer(
 			i,
 			IID_PPV_ARGS(&m_renderTargets[i])

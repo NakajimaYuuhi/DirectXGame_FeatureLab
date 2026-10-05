@@ -1,4 +1,4 @@
-ï»¿#include "AssetSecurityUI.h"
+#include "AssetSecurityUI.h"
 #include "Source/Resources/AssetEncryptor.h"
 #include "Source/Resources/AssetHeader.h"
 #include "imgui.h"
@@ -25,7 +25,7 @@ void CAssetSecurityUI::RefreshModelList()
         info.fullPath = entry.path().string();
         info.fileSize = entry.file_size();
 
-        // ãƒã‚¸ãƒƒã‚¯ãƒŠãƒ³ãƒãƒ¼ã‚’èª­ã‚“ã§æš—å·åŒ–æ¸ˆã¿ã‹åˆ¤å®š
+        // ƒ}ƒWƒbƒNƒiƒ“ƒo[‚ğ“Ç‚ñ‚ÅˆÃ†‰»Ï‚İ‚©”»’è
         std::ifstream file(info.fullPath, std::ios::binary);
         if (file.is_open())
         {
@@ -58,7 +58,7 @@ void CAssetSecurityUI::Draw()
         ImGui::Text("Model Assets Encryption Tool (XOR Cipher)");
         ImGui::Separator();
 
-        // ãƒ„ãƒ¼ãƒ«ãƒœã‚¿ãƒ³ç¾¤
+        // ƒc[ƒ‹ƒ{ƒ^ƒ“ŒQ
         if (ImGui::Button("Refresh List"))
         {
             RefreshModelList();
@@ -93,7 +93,7 @@ void CAssetSecurityUI::Draw()
         ImGui::Separator();
         ImGui::Spacing();
 
-        // ãƒ†ãƒ¼ãƒ–ãƒ«è¡¨ç¤º
+        // ƒe[ƒuƒ‹•\¦
         if (ImGui::BeginTable("ModelTable", 4, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY))
         {
             ImGui::TableSetupColumn("File Name", ImGuiTableColumnFlags_WidthStretch);

@@ -1,4 +1,4 @@
-﻿#include "ProfilerUI.h"
+#include "ProfilerUI.h"
 #include "Source/Util/Profiler.h"
 #include "imgui.h"
 #include <vector>

@@ -1,12 +1,12 @@
-ï»¿#pragma once
+#pragma once
 
 #include <string>
 
 namespace AssetSecurity
 {
-    // ãƒ¢ãƒ‡ãƒ«ãƒ•ã‚¡ã‚¤ãƒ«ã‚’XORæš—å·åŒ–ã—ã¦ãƒ˜ãƒƒãƒ€ãƒ¼ä»˜ãã§å‡ºåŠ›
+    // ƒ‚ƒfƒ‹ƒtƒ@ƒCƒ‹‚ğXORˆÃ†‰»‚µ‚Äƒwƒbƒ_[•t‚«‚Åo—Í
     bool EncryptModelFile(const std::string& inputPath, const std::string& outputPath);
 
-    // æš—å·åŒ–ã•ã‚ŒãŸãƒ¢ãƒ‡ãƒ«ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å¾©å·ã—ã¦å¹³æ–‡ãƒ•ã‚¡ã‚¤ãƒ«ã¨ã—ã¦å‡ºåŠ›
+    // ˆÃ†‰»‚³‚ê‚½ƒ‚ƒfƒ‹ƒtƒ@ƒCƒ‹‚ğ•œ†‚µ‚Ä•½•¶ƒtƒ@ƒCƒ‹‚Æ‚µ‚Äo—Í
     bool DecryptModelFile(const std::string& inputPath, const std::string& outputPath);
 }

@@ -1,4 +1,4 @@
-﻿#include "XorDecryptor.h"
+#include "XorDecryptor.h"
 #include <cstdint>
 #include <cstring>
 #include <vector>

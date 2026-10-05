@@ -1,11 +1,11 @@
-ï»¿#pragma once
+#pragma once
 
 #include "IAssetDecryptor.h"
 #include <cstdint>
 #include <vector>
 #include <string>
 
-// ãƒ‘ã‚¹ã‚¹ãƒ«ãƒ¼ (å¹³æ–‡)
+// ƒpƒXƒXƒ‹[ (•½•¶)
 class RawDecryptor : public IAssetDecryptor
 {
 public:
@@ -17,7 +17,7 @@ public:
     AssetSecurity::AssetCipherType GetCipherType() const override { return AssetSecurity::AssetCipherType::None; }
 };
 
-// XOR æš—å·åŒ– / å¾©å·å™¨
+// XOR ˆÃ†‰» / •œ†Ší
 class XorDecryptor : public IAssetDecryptor
 {
 public:

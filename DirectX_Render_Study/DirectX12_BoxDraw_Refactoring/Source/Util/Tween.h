@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include "Ease.h"
 #include <functional>
 #include <memory>

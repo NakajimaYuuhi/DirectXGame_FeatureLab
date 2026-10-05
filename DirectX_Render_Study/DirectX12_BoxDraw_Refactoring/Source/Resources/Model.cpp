@@ -110,6 +110,9 @@ void CModel::CreateBoneBuffer()
 	m_BoneBuffer.Reset();
 
 	ID3D12Device* device = DX12Manager::GetInstance().GetDevice();
+	if (!device) return;
+	auto srvAllocCheck = DX12Manager::GetInstance().GetSRVAllocator();
+	if (!srvAllocCheck) return;
 	ID3D12DescriptorHeap* srvHeap = DX12Manager::GetInstance().GetSRVHeap();
 
 	UINT boneCount = m_SkinJoints.empty() ? static_cast<UINT>(m_Bones.size()) : static_cast<UINT>(m_SkinJoints.size());
@@ -229,7 +232,10 @@ void CModel::ModelLoad(std::string _Path)
 	{
 		for (int childIdx : m_Bones[i]->children)
 		{
-			m_Bones[childIdx]->parentIndex = i;
+			if (childIdx >= 0 && childIdx < static_cast<int>(m_Bones.size()))
+			{
+				m_Bones[childIdx]->parentIndex = i;
+			}
 		}
 	}
 
@@ -246,7 +252,10 @@ void CModel::ModelLoad(std::string _Path)
 		// ?q?m?[?h??`?d
 		for (int childIdx : bone->children) 
 		{
-			self(self, childIdx, bone->globalBindPose);
+			if (childIdx >= 0 && childIdx < static_cast<int>(m_Bones.size()))
+			{
+				self(self, childIdx, bone->globalBindPose);
+			}
 		}
 	};
 
@@ -275,13 +284,13 @@ void CModel::ModelLoad(std::string _Path)
 		const auto& skin = loadedModelData.skins[0]; // ?L?????N?^?[?p??P ?skin
 		m_SkinJoints = skin.joints;
 
-		for (size_t i = 0; i < skin.joints.size(); ++i)
+		for (size_t i = 0; i < skin.joints.size() && i < skin.inverseBindMatrices.size(); ++i)
 		{
-			int nodeIdx = skin.joints[i]; // skin   i ???{ [     w   A S m [ h(m_Bones) ?  ?C   f b N X
-
-			// GLTF ?s  ? D  (column-major) ???AXMLoadFloat4x4 ????    I ?s D  (row-major) ??      B
-			//    ?  ?A     ? Transpose    ??    ?  I
-			m_Bones[nodeIdx]->inverseBindPose = DirectX::XMLoadFloat4x4(&skin.inverseBindMatrices[i]);
+			int nodeIdx = skin.joints[i];
+			if (nodeIdx >= 0 && nodeIdx < static_cast<int>(m_Bones.size()))
+			{
+				m_Bones[nodeIdx]->inverseBindPose = DirectX::XMLoadFloat4x4(&skin.inverseBindMatrices[i]);
+			}
 		}
 	}
 
@@ -447,9 +456,11 @@ void CModel::Draw()
 	};
 	commandList->SetDescriptorHeaps(1, heaps);
 
+	if (!m_Owner) return;
 	CTransform* transform = m_Owner->GetComponent<CTransform>();
+	if (!transform) return;
 
-	//Mesh??`??
+	// Mesh‚Ì•`‰æ
 	for (size_t i = 0; i < m_Meshes.size(); ++i)
 	{
 		m_Meshes[i]->SetBoneSRV(m_BoneSrvGpuHandle);

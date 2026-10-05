@@ -1,4 +1,4 @@
-﻿#include "Material.h"
+#include "Material.h"
 
 #include "DX12Manager.h"
 #include "TextureManager.h"

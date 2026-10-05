@@ -1,4 +1,4 @@
-﻿#include "SceneTitle.h"
+#include "SceneTitle.h"
 #include "Object.h"
 #include "SpriteRenderer.h"
 #include "ButtonComponent.h"

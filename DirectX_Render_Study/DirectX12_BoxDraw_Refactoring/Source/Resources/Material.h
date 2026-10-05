@@ -1,5 +1,5 @@
-﻿//UTexture,Color
-//_ƂɐF
+//UTexture,Color
+//_??F
 
 //Material
 #pragma once
@@ -34,7 +34,7 @@ public:
 		return nullHandle;
 	}
 
-	//ŒuĂ
+	//?u?
 	void LoadTexture(wstring _FilePath);
 
 private:

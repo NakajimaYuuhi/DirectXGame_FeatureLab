@@ -1,15 +1,15 @@
-ï»¿#pragma once
+#pragma once
 
 #include <cstdint>
 #include <cstring>
 
 namespace AssetSecurity
 {
-    // ãƒã‚¸ãƒƒã‚¯ãƒŠãƒ³ãƒãƒ¼: 'A', 'G', 'Y', 'E' (AntiGravity Encrypted)
+    // ƒ}ƒWƒbƒNƒiƒ“ƒo[: 'A', 'G', 'Y', 'E' (AntiGravity Encrypted)
     constexpr uint32_t ASSET_MAGIC_ENCRYPTED = 0x45594741;
-    // glTF Binary ãƒã‚¸ãƒƒã‚¯ãƒŠãƒ³ãƒãƒ¼: 'g', 'l', 'T', 'F' (0x46546C67)
+    // glTF Binary ƒ}ƒWƒbƒNƒiƒ“ƒo[: 'g', 'l', 'T', 'F' (0x46546C67)
     constexpr uint32_t GLTF_BINARY_MAGIC    = 0x46546C67;
-    // ç‹¬è‡ªãƒ¢ãƒ‡ãƒ«ãƒã‚¤ãƒŠãƒª ãƒã‚¸ãƒƒã‚¯ãƒŠãƒ³ãƒãƒ¼: 'M', 'B', 'X', '1'
+    // “Æ©ƒ‚ƒfƒ‹ƒoƒCƒiƒŠ ƒ}ƒWƒbƒNƒiƒ“ƒo[: 'M', 'B', 'X', '1'
     constexpr uint32_t MBX_BINARY_MAGIC     = 0x3158424D;
 
     enum class AssetCipherType : uint16_t
@@ -23,12 +23,12 @@ namespace AssetSecurity
     struct AssetFileHeader
     {
         uint32_t magic;          // ASSET_MAGIC_ENCRYPTED
-        uint16_t version;        // ãƒãƒ¼ã‚¸ãƒ§ãƒ³ (åˆæœŸå€¤: 1)
+        uint16_t version;        // ƒo[ƒWƒ‡ƒ“ (‰Šú’l: 1)
         uint16_t cipherType;     // AssetCipherType
-        uint64_t originalSize;   // å¾©å·å¾Œã®å…ƒãƒ‡ãƒ¼ã‚¿ãƒã‚¤ãƒˆã‚µã‚¤ã‚º
-        uint64_t encryptedSize;  // æš—å·åŒ–ãƒ‡ãƒ¼ã‚¿ã®ãƒã‚¤ãƒˆã‚µã‚¤ã‚º
-        uint32_t checksum;       // ãƒã‚§ãƒƒã‚¯ã‚µãƒ 
-        uint8_t  reserved[8];    // äºˆç´„é ˜åŸŸ (ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°)
+        uint64_t originalSize;   // •œ†Œã‚ÌŒ³ƒf[ƒ^ƒoƒCƒgƒTƒCƒY
+        uint64_t encryptedSize;  // ˆÃ†‰»ƒf[ƒ^‚ÌƒoƒCƒgƒTƒCƒY
+        uint32_t checksum;       // ƒ`ƒFƒbƒNƒTƒ€
+        uint8_t  reserved[8];    // —\–ñ—Ìˆæ (ƒpƒfƒBƒ“ƒO)
 
         bool IsValid() const
         {
@@ -37,7 +37,7 @@ namespace AssetSecurity
     };
 #pragma pack(pop)
 
-    // ç°¡æ˜“ãƒã‚§ãƒƒã‚¯ã‚µãƒ è¨ˆç®— (CRC32)
+    // ŠÈˆÕƒ`ƒFƒbƒNƒTƒ€ŒvZ (CRC32)
     inline uint32_t ComputeChecksum(const uint8_t* data, size_t size)
     {
         uint32_t crc = 0xFFFFFFFF;

@@ -686,7 +686,7 @@ void CInspectorUI::Draw()
                 {
                     if (ImGui::CollapsingHeader("Transform", ImGuiTreeNodeFlags_DefaultOpen))
                     {
-                        // 髫主ｱ､諠�蝣ｱ
+                        // 階層情報
                         CTransform* parentTrans = transform->GetParent();
                         if (parentTrans)
                         {
@@ -714,7 +714,7 @@ void CInspectorUI::Draw()
 
                         ImGui::Separator();
 
-                        // 繝ｭ繝ｼ繧ｫ繝ｫ蟋ｿ蜍｢
+                        // ローカル姿勢
                         DirectX::XMFLOAT3 pos = transform->GetPos();
                         if (ImGui::DragFloat3("Position", &pos.x, 0.1f))
                         {
@@ -733,7 +733,7 @@ void CInspectorUI::Draw()
                             transform->SetScale(scale);
                         }
 
-                        // 繝ｯ繝ｼ繝ｫ繝牙ｧｿ蜍｢縺ｮ繝�繝舌ャ繧ｰ陦ｨ遉ｺ
+                        // ワールド姿勢のデバッグ表示
                         if (ImGui::TreeNode("World Transform (Read Only)"))
                         {
                             DirectX::XMFLOAT3 wPos = transform->GetWorldPosition();

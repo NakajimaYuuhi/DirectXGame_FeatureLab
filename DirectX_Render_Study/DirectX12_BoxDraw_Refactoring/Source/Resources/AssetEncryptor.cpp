@@ -1,4 +1,4 @@
-﻿#include "AssetEncryptor.h"
+#include "AssetEncryptor.h"
 #include "AssetHeader.h"
 #include "XorDecryptor.h"
 #include <fstream>

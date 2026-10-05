@@ -1,4 +1,4 @@
-ï»¿#include "ModelManager.h"
+#include "ModelManager.h"
 #include <filesystem>
 #include <iostream>
 
@@ -15,7 +15,7 @@ std::string ModelManager::ResolveModelPath(const std::string& inputPath) const
     }
 
 #ifdef NDEBUG
-    // ãƒªãƒªãƒ¼ã‚¹ãƒ“ãƒ«ãƒ‰: æš—å·åŒ–ãƒ•ã‚¡ã‚¤ãƒ«å„ªå…ˆ
+    // ƒŠƒŠ[ƒXƒrƒ‹ƒh: ˆÃ†‰»ƒtƒ@ƒCƒ‹—Dæ
     std::string datPath = base + ".dat";
     if (std::filesystem::exists(datPath))
     {
@@ -26,7 +26,7 @@ std::string ModelManager::ResolveModelPath(const std::string& inputPath) const
         return inputPath;
     }
 #else
-    // ãƒ‡ãƒãƒƒã‚°ãƒ»ã‚¨ãƒ‡ã‚£ã‚¿ãƒ“ãƒ«ãƒ‰: ç”Ÿã®GLBãŒã‚ã‚Œã°é–‹ç™ºå„ªå…ˆã€ãªã‘ã‚Œã°æš—å·åŒ–.dat
+    // ƒfƒoƒbƒOEƒGƒfƒBƒ^ƒrƒ‹ƒh: ¶‚ÌGLB‚ª‚ ‚ê‚ÎŠJ”­—DæA‚È‚¯‚ê‚ÎˆÃ†‰».dat
     std::string glbPath = base + ".glb";
     if (std::filesystem::exists(glbPath))
     {
@@ -50,7 +50,7 @@ std::shared_ptr<CModel> ModelManager::GetModel(const std::string& filePath)
 {
     std::string resolvedPath = ResolveModelPath(filePath);
 
-    // ã‚­ãƒ£ãƒƒã‚·ãƒ¥ç¢ºèª (è§£æ±ºå‰ã¾ãŸã¯è§£æ±ºå¾Œã®ã‚­ãƒ¼)
+    // ƒLƒƒƒbƒVƒ…Šm”F (‰ğŒˆ‘O‚Ü‚½‚Í‰ğŒˆŒã‚ÌƒL[)
     auto it = m_modelCache.find(resolvedPath);
     if (it != m_modelCache.end())
     {

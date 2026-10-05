@@ -1,4 +1,4 @@
-﻿#include "Texture.h"
+#include "Texture.h"
 #include "DX12Manager.h"
 
 CTexture::~CTexture()
@@ -26,7 +26,7 @@ bool CTexture::LoadTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdL
 
     const DirectX::Image* img = scratch.GetImage(0, 0, 0);
 
-    // --- GPUp̃eNX`
+    // --- GPUp?eNX`
     D3D12_RESOURCE_DESC texDesc = {};
     texDesc.Dimension = D3D12_RESOURCE_DIMENSION_TEXTURE2D;
     texDesc.Width = metadata.width;
@@ -67,7 +67,7 @@ bool CTexture::LoadTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdL
     );
     if (FAILED(hr)) return false;
 
-    // --- Tu\[X̃Rs[
+    // --- Tu\[X?Rs[
     D3D12_SUBRESOURCE_DATA textureData = {};
     textureData.pData = img->pixels;
     textureData.RowPitch = img->rowPitch;
@@ -75,7 +75,7 @@ bool CTexture::LoadTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdL
 
     UpdateSubresources(cmdList, texture.Get(), uploadHeap.Get(), 0, 0, metadata.mipLevels, &textureData);
 
-    // ŌɃVF[_[œǂ߂悤
+    // ??VF[_[????
     CD3DX12_RESOURCE_BARRIER barrier =
         CD3DX12_RESOURCE_BARRIER::Transition(
             texture.Get(),
@@ -90,9 +90,9 @@ bool CTexture::LoadTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdL
 void CTexture::CreateSRV(ID3D12Device* device)
 {
 
-    // 邾ŁAƂ肠NbV͖h͂
+    // ??A??NbV?h?
     if (!texture) {
-        OutputDebugStringA("x: eNX`[hĂ܂I\n");
+        OutputDebugStringA("x: eNX`[h??I\n");
         return;
     }
 
