@@ -67,6 +67,19 @@ public:
     bool IsShadowEnabled() const { return m_shadowEnabled; }
     void SetShadowEnabled(bool enabled) { m_shadowEnabled = enabled; }
 
+    // Bloom Settings & Accessors
+    bool IsBloomEnabled() const { return m_bloomEnabled; }
+    void SetBloomEnabled(bool enabled) { m_bloomEnabled = enabled; }
+
+    float GetBloomThreshold() const { return m_bloomThreshold; }
+    void SetBloomThreshold(float threshold) { m_bloomThreshold = threshold; }
+
+    float GetBloomIntensity() const { return m_bloomIntensity; }
+    void SetBloomIntensity(float intensity) { m_bloomIntensity = intensity; }
+
+    float GetBloomSpread() const { return m_bloomSpread; }
+    void SetBloomSpread(float spread) { m_bloomSpread = spread; }
+
 private:
     LightManager();
     ~LightManager() = default;
@@ -87,6 +100,12 @@ private:
     float m_shadowBias      = 0.0015f;
     float m_shadowDarkness  = 0.5f;  // Factor in shadow (0: pitch black, 1: no shadow)
     bool  m_shadowEnabled   = true;
+
+    // Bloom parameters
+    bool  m_bloomEnabled    = true;
+    float m_bloomThreshold  = 0.8f;
+    float m_bloomIntensity  = 1.0f;
+    float m_bloomSpread     = 1.0f;
 
     DirectX::XMMATRIX m_lightViewProj = DirectX::XMMatrixIdentity();
     bool m_isInitialized = false;

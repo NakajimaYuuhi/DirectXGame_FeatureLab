@@ -10,6 +10,7 @@
 #include "Source/Core/Scenes/Serializer/SceneSerializer.h"
 #include "ShadowMapPass.h"
 #include "ForwardRenderPass.h"
+#include "PostProcessPass.h"
 #include "TimeManager.h"
 #include "BasicSettings.h"
 
@@ -55,10 +56,13 @@ void CSceneTest::Init()
         SceneSerializer::SaveScene("Assets/Scene/SceneTest.json", Scenes::ID::TEST);
     }
 
-    m_renderPipeline = std::make_unique<RenderPipeline>();
     ID3D12Device* pDevice = DX12Manager::GetInstance().GetDevice();
+    m_pSceneTexture = std::make_unique<RenderTexture>(pDevice, SCREEN_WIDTH, SCREEN_HEIGHT, DXGI_FORMAT_R8G8B8A8_UNORM);
+
+    m_renderPipeline = std::make_unique<RenderPipeline>();
     m_renderPipeline->AddPass(std::make_unique<ShadowMapPass>());
-    m_renderPipeline->AddPass(std::make_unique<ForwardRenderPass>(nullptr));
+    m_renderPipeline->AddPass(std::make_unique<ForwardRenderPass>(m_pSceneTexture.get()));
+    m_renderPipeline->AddPass(std::make_unique<PostProcessPass>(m_pSceneTexture.get()));
     m_renderPipeline->Init(pDevice);
 }
 

@@ -491,6 +491,37 @@ void CInspectorUI::Draw()
                 lightMgr.SetShadowDarkness(shadowDarkness);
             }
         }
+
+        // Post-Process (Bloom) Settings
+        ImGui::Spacing();
+        ImGui::Text("Post-Process (Bloom)");
+        bool bloomEnabled = lightMgr.IsBloomEnabled();
+        if (ImGui::Checkbox("Enable Bloom", &bloomEnabled))
+        {
+            lightMgr.SetBloomEnabled(bloomEnabled);
+        }
+
+        if (bloomEnabled)
+        {
+            float threshold = lightMgr.GetBloomThreshold();
+            if (ImGui::SliderFloat("Bloom Threshold", &threshold, 0.0f, 2.0f, "%.2f"))
+            {
+                lightMgr.SetBloomThreshold(threshold);
+            }
+
+            float bloomIntensity = lightMgr.GetBloomIntensity();
+            if (ImGui::SliderFloat("Bloom Intensity", &bloomIntensity, 0.0f, 5.0f, "%.2f"))
+            {
+                lightMgr.SetBloomIntensity(bloomIntensity);
+            }
+
+            float bloomSpread = lightMgr.GetBloomSpread();
+            if (ImGui::SliderFloat("Bloom Blur Spread", &bloomSpread, 0.2f, 3.0f, "%.2f"))
+            {
+                lightMgr.SetBloomSpread(bloomSpread);
+            }
+        }
+
         ImGui::Separator();
     }
 
@@ -766,7 +797,7 @@ void CInspectorUI::Draw()
                 {
                     if (ImGui::CollapsingHeader("Transform", ImGuiTreeNodeFlags_DefaultOpen))
                     {
-                        // 階層情報
+                        // 髫主ｱ､諠・ｱ
                         CTransform* parentTrans = transform->GetParent();
                         if (parentTrans)
                         {
@@ -794,7 +825,7 @@ void CInspectorUI::Draw()
 
                         ImGui::Separator();
 
-                        // ローカル姿勢
+                        // 繝ｭ繝ｼ繧ｫ繝ｫ蟋ｿ蜍｢
                         DirectX::XMFLOAT3 pos = transform->GetPos();
                         if (ImGui::DragFloat3("Position", &pos.x, 0.1f))
                         {
@@ -813,7 +844,7 @@ void CInspectorUI::Draw()
                             transform->SetScale(scale);
                         }
 
-                        // ワールド姿勢のデバッグ表示
+                        // 繝ｯ繝ｼ繝ｫ繝牙ｧｿ蜍｢縺ｮ繝・ヰ繝・げ陦ｨ遉ｺ
                         if (ImGui::TreeNode("World Transform (Read Only)"))
                         {
                             DirectX::XMFLOAT3 wPos = transform->GetWorldPosition();

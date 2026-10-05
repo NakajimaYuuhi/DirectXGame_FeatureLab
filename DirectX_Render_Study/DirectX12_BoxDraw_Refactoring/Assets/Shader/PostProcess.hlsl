@@ -1,39 +1,98 @@
 // ==========================================
 // PostProcess.hlsl
-// ‰æ–Ê‘S‘Ì‚ğ•¢‚¤ƒ|ƒŠƒSƒ“‚ğ•`‰æ‚µAƒeƒNƒXƒ`ƒƒ‚ğƒ‚ƒmƒNƒ‚É‚µ‚Äo—Í‚·‚é
+// ãƒã‚¹ãƒˆãƒ—ãƒ­ã‚»ã‚¹ (ãƒ–ãƒ«ãƒ¼ãƒ é«˜è¼åº¦æŠ½å‡ºãƒ»ãƒ–ãƒ©ãƒ¼ãƒ»åˆæˆ)
 // ==========================================
-
 
 struct VSOutput {
     float4 pos : SV_POSITION;
-    float2 uv  : TEXCOORD;
+    float2 uv  : TEXCOORD0;
 };
 
-// --- ’¸“_ƒVƒF[ƒ_[ ---
-// ’¸“_ƒoƒbƒtƒ@‚ğˆêØg‚í‚¸A3‚Â‚Ì’¸“_ID(0,1,2)‚¾‚¯‚Å‰æ–Ê‘S‘Ì‚ğ•¢‚¤‹‘å‚ÈOŠpŒ`‚ğì‚è‚Ü‚·
+// --- ãƒ•ãƒ«ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ä¸‰è§’å½¢é ‚ç‚¹ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ ---
 VSOutput VSMain(uint vertexID : SV_VertexID) {
     VSOutput output;
-    
-    // vertexID ‚©‚ç UVÀ•W‚ğ¶¬ (0,0), (2,0), (0,2)
     output.uv = float2((vertexID << 1) & 2, vertexID & 2);
-    
-    // UVÀ•W‚©‚çƒNƒŠƒbƒv‹óŠÔ‚ÌÀ•W‚ğ¶¬ (-1~1)
     output.pos = float4(output.uv * float2(2.0f, -2.0f) + float2(-1.0f, 1.0f), 0.0f, 1.0f);
-    
     return output;
 }
 
-// --- ƒsƒNƒZƒ‹ƒVƒF[ƒ_[ ---
-Texture2D    g_texture : register(t0); // ƒIƒtƒXƒNƒŠ[ƒ“ƒeƒNƒXƒ`ƒƒ
-SamplerState g_sampler : register(s0); // ƒTƒ“ƒvƒ‰[
+// --- ãƒ«ãƒ¼ãƒˆå®šæ•° (8 DWORD / 32 bytes) ---
+cbuffer PostProcessCB : register(b0)
+{
+    float g_threshold;    // ãƒ–ãƒ«ãƒ¼ãƒ æŠ½å‡ºé–¾å€¤ (ä¾‹: 0.8)
+    float g_knee;         // ã‚½ãƒ•ãƒˆãƒ‹ãƒ¼å¹… (ä¾‹: 0.2)
+    float g_intensity;    // ãƒ–ãƒ«ãƒ¼ãƒ åˆæˆå¼·åº¦ (ä¾‹: 1.2)
+    float g_spread;       // ãƒ–ãƒ©ãƒ¼æ‹¡æ•£ä¿‚æ•° (ä¾‹: 1.0)
+    float2 g_direction;   // ãƒ–ãƒ©ãƒ¼æ–¹å‘ (æ°´å¹³: 1/w, 0 / å‚ç›´: 0, 1/h)
+    float g_bloomEnabled; // 1.0: æœ‰åŠ¹, 0.0: ç„¡åŠ¹
+    float g_padding;
+};
 
+Texture2D    g_texture0 : register(t0); // ãƒ¡ã‚¤ãƒ³/å…¥åŠ›ãƒ†ã‚¯ã‚¹ãƒãƒ£
+Texture2D    g_texture1 : register(t1); // ãƒ–ãƒ«ãƒ¼ãƒ ãƒ–ãƒ©ãƒ¼ãƒ†ã‚¯ã‚¹ãƒãƒ£ (Compositeç”¨)
+SamplerState g_sampler  : register(s0); // ãƒªãƒ‹ã‚¢ã‚¯ãƒ©ãƒ³ãƒ—ã‚µãƒ³ãƒ—ãƒ©ãƒ¼
+
+// --- ãƒ‘ã‚¹ã‚¹ãƒ«ãƒ¼ (å˜ãªã‚‹ç”»é¢è»¢é€) ---
+float4 PSPassThrough(VSOutput input) : SV_TARGET {
+    return g_texture0.Sample(g_sampler, input.uv);
+}
+
+// vcxproj ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ“ãƒ«ãƒ‰ç”¨ã‚¨ãƒ³ãƒˆãƒªãƒ¼ãƒã‚¤ãƒ³ãƒˆ
 float4 PSMain(VSOutput input) : SV_TARGET {
-    // 1. ƒeƒNƒXƒ`ƒƒ‚ÌƒTƒ“ƒvƒŠƒ“ƒO
-    float4 color = g_texture.Sample(g_sampler, input.uv);
+    return PSPassThrough(input);
+}
+
+// --- é«˜è¼åº¦æŠ½å‡º (Bright Pass) ---
+float4 PSBrightPass(VSOutput input) : SV_TARGET {
+    float4 color = g_texture0.Sample(g_sampler, input.uv);
     
-    // 2. ƒ‚ƒmƒNƒ‰» (RGB‚Ì‹P“x(Luminance)‚ğŒvZ)
-    float luminance = dot(color.rgb, float3(0.299f, 0.587f, 0.114f));
+    // RGBã®è¼åº¦ (Luminance) ã‚’è¨ˆç®—
+    float lum = dot(color.rgb, float3(0.2126f, 0.7152f, 0.0722f));
     
-    // 3. ƒ‚ƒmƒNƒƒJƒ‰[‚ğo—Í (ƒAƒ‹ƒtƒ@‚Í‚»‚Ì‚Ü‚Ü)
-    return float4(luminance, luminance, luminance, color.a);
+    // ã‚½ãƒ•ãƒˆãƒ‹ãƒ¼ã«ã‚ˆã‚‹æ»‘ã‚‰ã‹ãªé–¾å€¤æŠ½å‡º
+    float knee = max(1e-4f, g_threshold * g_knee);
+    float soft = lum - g_threshold + knee;
+    soft = clamp(soft, 0.0f, 2.0f * knee);
+    soft = (soft * soft) / (4.0f * knee + 1e-4f);
+    
+    float contribution = max(soft, lum - g_threshold);
+    contribution /= max(lum, 1e-4f);
+    
+    float3 bright = color.rgb * max(0.0f, contribution);
+    return float4(bright, 1.0f);
+}
+
+// --- ã‚¬ã‚¦ã‚¹ãƒ–ãƒ©ãƒ¼ (ãƒã‚¤ãƒªãƒ‹ã‚¢5ã‚¿ãƒƒãƒ—ã‚µãƒ³ãƒ—ãƒªãƒ³ã‚° / 9ãƒ†ã‚¯ã‚»ãƒ«ç›¸å½“) ---
+float4 PSBlurPass(VSOutput input) : SV_TARGET {
+    static const float c_weights[3] = { 0.2270270270f, 0.3162162162f, 0.0702702703f };
+    static const float c_offsets[3] = { 0.0f, 1.3846153846f, 3.2307692308f };
+    
+    float2 offset0 = g_direction * (c_offsets[0] * g_spread);
+    float3 result = g_texture0.Sample(g_sampler, input.uv).rgb * c_weights[0];
+    
+    [unroll]
+    for (int i = 1; i < 3; ++i)
+    {
+        float2 offset = g_direction * (c_offsets[i] * g_spread);
+        result += g_texture0.Sample(g_sampler, input.uv + offset).rgb * c_weights[i];
+        result += g_texture0.Sample(g_sampler, input.uv - offset).rgb * c_weights[i];
+    }
+    
+    return float4(result, 1.0f);
+}
+
+// --- æœ€çµ‚åˆæˆ (Composite Pass: Scene + Bloom -> BackBuffer) ---
+float4 PSComposite(VSOutput input) : SV_TARGET {
+    float4 sceneColor = g_texture0.Sample(g_sampler, input.uv);
+    
+    if (g_bloomEnabled > 0.5f)
+    {
+        float3 bloomColor = g_texture1.Sample(g_sampler, input.uv).rgb;
+        float3 finalColor = sceneColor.rgb + bloomColor * g_intensity;
+        
+        // ã‚ãšã‹ãªç™½é£›ã³é˜²æ­¢ã‚¯ãƒ©ãƒ³ãƒ—/ã‚µãƒãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
+        return float4(finalColor, sceneColor.a);
+    }
+    
+    return sceneColor;
 }

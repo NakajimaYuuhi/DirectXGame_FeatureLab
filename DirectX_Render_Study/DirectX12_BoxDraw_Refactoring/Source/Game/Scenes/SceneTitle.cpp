@@ -210,13 +210,13 @@ void SceneTitle::Init()
     // Save configured Title UI setup back to SceneTitle.json
     SceneSerializer::SaveScene("Assets/Scene/SceneTitle.json", Scenes::ID::TITLE);
 
-    m_renderPipeline = std::make_unique<RenderPipeline>();
     ID3D12Device* pDevice = DX12Manager::GetInstance().GetDevice(); 
     UINT width = SCREEN_WIDTH;
     UINT height = SCREEN_HEIGHT;
     m_pOffscreenTexture = std::make_unique<RenderTexture>(pDevice, width, height, DXGI_FORMAT_R8G8B8A8_UNORM);
     m_renderPipeline = std::make_unique<RenderPipeline>();
-    m_renderPipeline->AddPass(std::make_unique<ForwardRenderPass>(nullptr));
+    m_renderPipeline->AddPass(std::make_unique<ForwardRenderPass>(m_pOffscreenTexture.get()));
+    m_renderPipeline->AddPass(std::make_unique<PostProcessPass>(m_pOffscreenTexture.get()));
     m_renderPipeline->Init(pDevice);
 }
 

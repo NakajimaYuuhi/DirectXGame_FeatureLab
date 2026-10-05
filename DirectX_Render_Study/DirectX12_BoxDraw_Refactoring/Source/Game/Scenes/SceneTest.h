@@ -3,6 +3,7 @@
 #include "SmartPtrAlias.h"
 #include "ContainerAlias.h"
 #include "RenderPipeline.h"
+#include "RenderTexture.h"
 #include <memory>
 
 class CObject;
@@ -19,4 +20,5 @@ public:
 
 private:
 	std::unique_ptr<RenderPipeline> m_renderPipeline;
+	std::unique_ptr<RenderTexture>  m_pSceneTexture;
 };
