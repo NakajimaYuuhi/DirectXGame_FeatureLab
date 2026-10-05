@@ -462,6 +462,35 @@ void CInspectorUI::Draw()
         {
             dirLight.ambient.w = specPower;
         }
+
+        ImGui::Separator();
+        ImGui::Text("Real-time Shadows (PCF Soft Shadow)");
+        bool shadowEnabled = lightMgr.IsShadowEnabled();
+        if (ImGui::Checkbox("Enable Shadows", &shadowEnabled))
+        {
+            lightMgr.SetShadowEnabled(shadowEnabled);
+        }
+
+        if (shadowEnabled)
+        {
+            float orthoSize = lightMgr.GetOrthoSize();
+            if (ImGui::SliderFloat("Shadow Range (Ortho)", &orthoSize, 10.0f, 100.0f, "%.1f"))
+            {
+                lightMgr.SetOrthoSize(orthoSize);
+            }
+
+            float shadowBias = lightMgr.GetShadowBias();
+            if (ImGui::SliderFloat("Shadow Bias", &shadowBias, 0.0001f, 0.01f, "%.4f"))
+            {
+                lightMgr.SetShadowBias(shadowBias);
+            }
+
+            float shadowDarkness = lightMgr.GetShadowDarkness();
+            if (ImGui::SliderFloat("Shadow Darkness", &shadowDarkness, 0.0f, 1.0f, "%.2f (0: dark, 1: light)"))
+            {
+                lightMgr.SetShadowDarkness(shadowDarkness);
+            }
+        }
         ImGui::Separator();
     }
 

@@ -41,6 +41,7 @@ public:
 
 	void Draw(Scenes::ID _SceneID);
 	void DrawByLayer(RenderLayer layer);
+	void DrawShadow(const DirectX::XMMATRIX& lightViewProj);
 
 	void FlushDestroyedObjects();
 

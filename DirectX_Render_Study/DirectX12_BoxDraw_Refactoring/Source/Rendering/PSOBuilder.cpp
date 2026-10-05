@@ -1,4 +1,4 @@
-#include "PSOBuilder.h"
+﻿#include "PSOBuilder.h"
 
 // ========================================================
 // RootSignatureBuilder
@@ -35,6 +35,16 @@ void RootSignatureBuilder::AddDescriptorTable(D3D12_DESCRIPTOR_RANGE_TYPE rangeT
     param.DescriptorTable.NumDescriptorRanges = 1;
     param.ShaderVisibility = visibility;
 
+    m_parameters.push_back(param);
+}
+
+void RootSignatureBuilder::AddConstantBufferView(UINT shaderRegister, UINT registerSpace, D3D12_SHADER_VISIBILITY visibility)
+{
+    D3D12_ROOT_PARAMETER param = {};
+    param.ParameterType = D3D12_ROOT_PARAMETER_TYPE_CBV;
+    param.Descriptor.ShaderRegister = shaderRegister;
+    param.Descriptor.RegisterSpace = registerSpace;
+    param.ShaderVisibility = visibility;
     m_parameters.push_back(param);
 }
 

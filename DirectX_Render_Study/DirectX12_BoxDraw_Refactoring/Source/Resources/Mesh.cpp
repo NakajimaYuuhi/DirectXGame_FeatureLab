@@ -183,23 +183,11 @@ void CMesh::Draw(CTransform* transform, CMaterial* material, BlendMode blendMode
     
     commandList->SetGraphicsRootSignature(PSOManager::GetInstance().GetMeshRootSignature());
 
-    //SRVチEEチEEセチE  
-    //ID3D12DescriptorHeap* heaps[] = { CDX12Manager::GetInstance().GetSRVHeap() };
-
-    //commandList->SetDescriptorHeaps(1, heaps);
-
-    commandList->SetGraphicsRootDescriptorTable(2, m_BoneSrvGpuHandle);
-
-
     struct RootConstantsData {
-        DirectX::XMMATRIX wvp;          // 16 floats
-        DirectX::XMMATRIX world;        // 16 floats
-        DirectX::XMFLOAT2 uvOffset;     // 2 floats
-        DirectX::XMFLOAT2 uvScale;      // 2 floats
-        DirectX::XMFLOAT4 cameraPos;    // 4 floats
-        DirectX::XMFLOAT4 lightDir;     // 4 floats
-        DirectX::XMFLOAT4 lightColor;   // 4 floats
-        DirectX::XMFLOAT4 ambientColor; // 4 floats
+        DirectX::XMMATRIX wvp;      // 16 floats
+        DirectX::XMMATRIX world;    // 16 floats
+        DirectX::XMFLOAT2 uvOffset; // 2 floats
+        DirectX::XMFLOAT2 uvScale;  // 2 floats
     };
     
     RootConstantsData rcData;
@@ -208,41 +196,47 @@ void CMesh::Draw(CTransform* transform, CMaterial* material, BlendMode blendMode
     rcData.uvOffset = transform->GetUVOffset();
     rcData.uvScale = transform->GetUVScale();
 
-    // Camera Position for specular calculation
-    CameraComponent* camera = ObjectManager::GetInstance().GetCamera();
-    if (camera)
+    // 0: ObjectBuffer (b0) - 36 DWORD
+    commandList->SetGraphicsRoot32BitConstants(0, 36, &rcData, 0);
+
+    // 1: Material Texture (t0)
+    commandList->SetGraphicsRootDescriptorTable(1, material->GetGpuHandle());
+
+    // 2: Bone StructuredBuffer (t1)
+    commandList->SetGraphicsRootDescriptorTable(2, m_BoneSrvGpuHandle);
+
+    // 3: LightBuffer (b1) - Root CBV
+    commandList->SetGraphicsRootConstantBufferView(3, LightManager::GetInstance().GetConstantBufferGPUAddress());
+
+    // 4: ShadowMap (t2)
+    ShadowMap* shadowMap = LightManager::GetInstance().GetShadowMap();
+    if (shadowMap)
     {
-        DirectX::XMFLOAT3 cPos = camera->GetEyePosition();
-        rcData.cameraPos = { cPos.x, cPos.y, cPos.z, 1.0f };
+        commandList->SetGraphicsRootDescriptorTable(4, shadowMap->GetSRV());
     }
-    else
-    {
-        rcData.cameraPos = { 0.0f, 2.0f, -5.0f, 1.0f };
-    }
-
-    // Directional Light from LightManager
-    const auto& dirLight = LightManager::GetInstance().GetDirectionalLight();
-    rcData.lightDir = dirLight.direction;
-    rcData.lightColor = dirLight.color;
-    rcData.ambientColor = dirLight.ambient;
-
-    commandList->SetGraphicsRoot32BitConstants(
-        0,
-        52,
-        &rcData,
-        0
-    );
-
-    commandList->SetGraphicsRootDescriptorTable(
-        1,
-        material->GetGpuHandle()
-    );
-
-
 
     commandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+    commandList->IASetVertexBuffers(0, 1, &m_vertexBufferView);
+    commandList->IASetIndexBuffer(&m_indexBufferView);
+    commandList->DrawIndexedInstanced(static_cast<UINT>(m_Indices.size()), 1, 0, 0, 0);
+}
 
-    //インチE  クス用に変更
+void CMesh::DrawShadow(CTransform* transform, const DirectX::XMMATRIX& lightViewProj)
+{
+    if (!transform || m_Indices.empty()) return;
+    ID3D12GraphicsCommandList* commandList = DX12Manager::GetInstance().GetCommandList();
+
+    DirectX::XMMATRIX world = transform->GetWorld();
+    DirectX::XMMATRIX lightWVP = world * lightViewProj;
+    DirectX::XMMATRIX lightWVPTrans = XMMatrixTranspose(lightWVP);
+
+    // 0: LightWVP (16 floats = 16 DWORD)
+    commandList->SetGraphicsRoot32BitConstants(0, 16, &lightWVPTrans, 0);
+
+    // 1: Bone StructuredBuffer (t1)
+    commandList->SetGraphicsRootDescriptorTable(1, m_BoneSrvGpuHandle);
+
+    commandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
     commandList->IASetVertexBuffers(0, 1, &m_vertexBufferView);
     commandList->IASetIndexBuffer(&m_indexBufferView);
     commandList->DrawIndexedInstanced(static_cast<UINT>(m_Indices.size()), 1, 0, 0, 0);

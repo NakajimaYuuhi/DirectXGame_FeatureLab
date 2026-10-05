@@ -1,4 +1,4 @@
-#include "Model.h"
+ï»¿#include "Model.h"
 #include "DX12Manager.h"
 #include "gltfLoader.h"
 #include "Transform.h"
@@ -236,7 +236,7 @@ void CModel::ModelLoad(std::string _Path)
 		}
 	};
 
-	//?e???????E  ?[?h?IEarentIndex == -1 ?? Root?`EE?h?j??N?_????“_??E
+	//?e???????E  ?[?h?IEarentIndex == -1 ?? Root?`EE?h?j??N?_????ç‚¹??E
 	for (int i = 0; i < m_Bones.size(); ++i)
 	{
 		//-1???N?_
@@ -246,7 +246,7 @@ void CModel::ModelLoad(std::string _Path)
 		}
 	}
 
-	//-- 4.SkinData ???—Ô???? inverseBindPose E ??E   E E ????äí???E
+	//-- 4.SkinData ???ç³???? inverseBindPose E ??E   E E ????è“–???E
 	// ???EE?`EE?h??????A?X?`E  ?`E??globalBindPose???E   E???EE?p?????????
 	for (auto& bone : m_Bones)
 	{
@@ -560,3 +560,18 @@ void CModel::UpdateAnimation(float deltaTime)
     UpdateBones();
 }
 
+void CModel::DrawShadow(const DirectX::XMMATRIX& lightViewProj)
+{
+    if (!m_Owner) return;
+    CTransform* transform = m_Owner->GetComponent<CTransform>();
+    if (!transform) return;
+
+    UpdateBones();
+    UpdateBoneBuffer();
+
+    for (size_t i = 0; i < m_Meshes.size(); ++i)
+    {
+        m_Meshes[i]->SetBoneSRV(m_BoneSrvGpuHandle);
+        m_Meshes[i]->DrawShadow(transform, lightViewProj);
+    }
+}

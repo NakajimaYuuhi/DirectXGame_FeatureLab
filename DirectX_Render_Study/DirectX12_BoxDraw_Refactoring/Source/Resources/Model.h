@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "Component.h"
 #include "RenderLayer.h"
@@ -37,6 +37,7 @@ public:
 	void Update(float deltaTime) override;
 	void Update();
 	void Draw() override;
+	void DrawShadow(const DirectX::XMMATRIX& lightViewProj);
 
 	UpdatePhase GetUpdatePhase() const override { return UpdatePhase::Animation; }
 

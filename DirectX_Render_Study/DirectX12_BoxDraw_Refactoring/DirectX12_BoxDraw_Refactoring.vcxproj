@@ -174,6 +174,8 @@
     <ClCompile Include="Source\Rendering\RenderPipeline.cpp" />
     <ClCompile Include="Source\Rendering\RenderTexture.cpp" />
     <ClCompile Include="Source\Rendering\LightManager.cpp" />
+    <ClCompile Include="Source\Rendering\ShadowMap.cpp" />
+    <ClCompile Include="Source\Rendering\ShadowMapPass.cpp" />
         <ClCompile Include="Source\UI\TextRenderer.cpp" />
         <ClCompile Include="Source\Resources\Bone.cpp" />
     <ClCompile Include="Source\Engine\Component\BoxCollider3D.cpp" />
@@ -273,6 +275,8 @@
     <ClInclude Include="Source\Rendering\RenderPipeline.h" />
     <ClInclude Include="Source\Rendering\RenderTexture.h" />
     <ClInclude Include="Source\Rendering\LightManager.h" />
+    <ClInclude Include="Source\Rendering\ShadowMap.h" />
+    <ClInclude Include="Source\Rendering\ShadowMapPass.h" />
     <ClInclude Include="resource.h" />
         <ClInclude Include="Source\UI\TextRenderer.h" />
         <ClInclude Include="Source\Resources\Bone.h" />
@@ -373,6 +377,14 @@
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">VSMain</EntryPointName>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+    </FxCompile>
+    <FxCompile Include="Assets\Shader\ShadowMap.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">VSMain</EntryPointName>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">VSMain</EntryPointName>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </FxCompile>
     <FxCompile Include="Assets\Shader\Wireframe.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>

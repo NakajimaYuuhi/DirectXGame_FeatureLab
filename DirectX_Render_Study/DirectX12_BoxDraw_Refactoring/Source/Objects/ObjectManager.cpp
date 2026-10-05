@@ -199,6 +199,28 @@ void ObjectManager::DrawByLayer(RenderLayer layer)
 	}
 }
 
+void ObjectManager::DrawShadow(const DirectX::XMMATRIX& lightViewProj)
+{
+	for (size_t tagIdx = 0; tagIdx < vecObject.size(); ++tagIdx)
+	{
+		if (tagIdx == ObjectTag::UI || tagIdx == ObjectTag::CAMERA ||
+			tagIdx == ObjectTag::BACKGROUND || tagIdx == ObjectTag::EFFECT)
+		{
+			continue;
+		}
+
+		auto& vec = vecObject[tagIdx];
+		for (size_t i = 0; i < vec.size(); ++i)
+		{
+			auto& object = vec[i];
+			if (object && !object->GetIsDestroyed())
+			{
+				object->DrawShadow(lightViewProj);
+			}
+		}
+	}
+}
+
 ObjectManager::ObjectManager()
 {
 	vecObject.resize(ObjectTag::NUM);

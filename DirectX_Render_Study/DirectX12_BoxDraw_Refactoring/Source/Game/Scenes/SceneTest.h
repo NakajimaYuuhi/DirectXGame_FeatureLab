@@ -1,28 +1,22 @@
-//===== ?C???N???[?h =====
-#pragma once
+﻿#pragma once
 #include "Scene.h"
-
 #include "SmartPtrAlias.h"
 #include "ContainerAlias.h"
+#include "RenderPipeline.h"
+#include <memory>
 
-//===== ?O???? =====
 class CObject;
 
-//===== ?N???X??` =====
 class CSceneTest : public CScene
 {
 public:
 	CSceneTest();
-
 	~CSceneTest();
 
 	void Init();
-
 	void Update();
-
 	void Draw();
 
-
 private:
+	std::unique_ptr<RenderPipeline> m_renderPipeline;
 };
-

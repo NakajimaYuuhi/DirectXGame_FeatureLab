@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <string>
 #include <vector>
 #include <memory>
@@ -12,6 +12,7 @@ using Vector = std::vector<T>;
 
 using String = std::string;
 
+#include <DirectXMath.h>
 #include "Component.h"
 #include "Transform.h"
 #include "ObjectInfo.h"
@@ -31,6 +32,7 @@ public:
 	virtual void LateUpdate();
 	virtual void Draw();
 	void DrawByLayer(RenderLayer layer);
+	void DrawShadow(const DirectX::XMMATRIX& lightViewProj);
 
 	virtual void OnCollision(CObject* _Other);
 

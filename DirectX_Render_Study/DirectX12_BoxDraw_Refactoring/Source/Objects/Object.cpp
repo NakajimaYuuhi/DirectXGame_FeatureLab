@@ -1,8 +1,9 @@
-#include "Object.h"
+﻿#include "Object.h"
 #include "ObjectInfo.h"
 #include "Transform.h"
 #include "Component.h"
 #include "TimeManager.h"
+#include "Model.h"
 #include "Source/UI/RectTransform.h"
 
 CObject::CObject()
@@ -75,6 +76,16 @@ void CObject::DrawByLayer(RenderLayer layer)
 		{
 			c->Draw();
 		}
+	}
+}
+
+void CObject::DrawShadow(const DirectX::XMMATRIX& lightViewProj)
+{
+	if (!m_isVisible || !isValid || IsDestroyed) return;
+	auto model = GetComponent<CModel>();
+	if (model && model->IsEnabled())
+	{
+		model->DrawShadow(lightViewProj);
 	}
 }
 

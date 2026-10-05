@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Material.h"
 #include <string>
 #include <unordered_map>
@@ -19,11 +19,11 @@ public:
 
     void Init(ID3D12Device* device);
 
-	// “®“IPSO¶?E
+	// å‹•çš„PSOç”Ÿ?E
 	ID3D12PipelineState* GetPSO(CMaterial* material, ID3D12RootSignature* rootSig);
 
 private:
-	// PSOƒLƒƒƒ`E??ƒ…: ƒL[‚Í "ƒVƒF[ƒ_[ƒpƒX_ƒuƒŒƒ“ƒhƒ‚[ƒ`E ‚È‚Ç‚ÌˆêˆÓ?E?E???E
+	// PSOã‚­ãƒ£ãƒE??ãƒ¥: ã‚­ãƒ¼ã¯ "ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ãƒ‘ã‚¹_ãƒ–ãƒ¬ãƒ³ãƒ‰ãƒ¢ãƒ¼ãƒE ãªã©ã®ä¸€æ„?E?E???E
 	std::unordered_map<std::wstring, ComPtr<ID3D12PipelineState>> m_psoCache;
 
 
@@ -31,6 +31,9 @@ public:
     ID3D12RootSignature* GetMeshRootSignature() const { return m_meshRootSignature.Get(); }
     ID3D12PipelineState* GetMeshPSO() const { return m_meshPipelineState.Get(); }
     ID3D12PipelineState* GetAdditivePSO() const { return m_additivePipelineState.Get(); }
+
+    ID3D12RootSignature* GetShadowRootSignature() const { return m_shadowRootSignature.Get(); }
+    ID3D12PipelineState* GetShadowPSO() const { return m_shadowPipelineState.Get(); }
 
     ID3D12RootSignature* GetSpriteRootSignature() const { return m_spriteRootSignature.Get(); }
     ID3D12PipelineState* GetSpritePSO() const { return m_spritePipelineState.Get(); }
@@ -44,6 +47,9 @@ private:
     ComPtr<ID3D12RootSignature> m_meshRootSignature;
     ComPtr<ID3D12PipelineState> m_meshPipelineState;
     ComPtr<ID3D12PipelineState> m_additivePipelineState;
+
+    ComPtr<ID3D12RootSignature> m_shadowRootSignature;
+    ComPtr<ID3D12PipelineState> m_shadowPipelineState;
 
     ComPtr<ID3D12RootSignature> m_spriteRootSignature;
     ComPtr<ID3D12PipelineState> m_spritePipelineState;

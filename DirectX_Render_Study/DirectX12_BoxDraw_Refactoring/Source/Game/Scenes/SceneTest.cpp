@@ -1,4 +1,4 @@
-#include "SceneTest.h"
+﻿#include "SceneTest.h"
 #include "Object.h"
 #include "Model.h"
 #include "DX12Manager.h"
@@ -8,6 +8,10 @@
 #include "EventManager.h"
 #include "EventData_NextScene.h"
 #include "Source/Core/Scenes/Serializer/SceneSerializer.h"
+#include "ShadowMapPass.h"
+#include "ForwardRenderPass.h"
+#include "TimeManager.h"
+#include "BasicSettings.h"
 
 CSceneTest::CSceneTest()
     :CScene(Scenes::ID::TEST)
@@ -50,6 +54,12 @@ void CSceneTest::Init()
 
         SceneSerializer::SaveScene("Assets/Scene/SceneTest.json", Scenes::ID::TEST);
     }
+
+    m_renderPipeline = std::make_unique<RenderPipeline>();
+    ID3D12Device* pDevice = DX12Manager::GetInstance().GetDevice();
+    m_renderPipeline->AddPass(std::make_unique<ShadowMapPass>());
+    m_renderPipeline->AddPass(std::make_unique<ForwardRenderPass>(nullptr));
+    m_renderPipeline->Init(pDevice);
 }
 
 void CSceneTest::Update() 
@@ -68,5 +78,21 @@ void CSceneTest::Update()
 
 void CSceneTest::Draw() 
 {
-    ObjectManager::GetInstance().Draw(Scenes::ID::NONE);
+    if (m_renderPipeline)
+    {
+        RenderContext ctx;
+        ctx.cmdList       = DX12Manager::GetInstance().GetCommandList();
+        ctx.sceneID       = Scenes::ID::NONE;
+        ctx.deltaTime     = TimeManager::GetInstance().GetDeltaTime();
+        ctx.backBufferRTV = DX12Manager::GetInstance().GetCurrentBackBufferRTV();
+        ctx.mainDSV       = DX12Manager::GetInstance().GetMainDSV();
+        ctx.screenWidth   = SCREEN_WIDTH;
+        ctx.screenHeight  = SCREEN_HEIGHT;
+
+        m_renderPipeline->Execute(ctx);
+    }
+    else
+    {
+        ObjectManager::GetInstance().Draw(Scenes::ID::NONE);
+    }
 }

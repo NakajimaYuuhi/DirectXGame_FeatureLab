@@ -25,10 +25,13 @@ void PSOManager::Init(ID3D12Device* device)
     // ----- メッシュ用ルートシグネチャ -----
     {
         RootSignatureBuilder rsBuilder;
-        rsBuilder.AddConstants(52, 0, 0, D3D12_SHADER_VISIBILITY_ALL); // WVP + World + UV + CameraPos + LightDir + LightColor + Ambient
-        rsBuilder.AddDescriptorTable(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 0, 0, D3D12_SHADER_VISIBILITY_PIXEL); // Texture
-        rsBuilder.AddDescriptorTable(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 1, 0, D3D12_SHADER_VISIBILITY_VERTEX); // Bone
+        rsBuilder.AddConstants(36, 0, 0, D3D12_SHADER_VISIBILITY_ALL); // 0: WVP(16) + World(16) + UV(4) = 36 DWORD, register(b0)
+        rsBuilder.AddDescriptorTable(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 0, 0, D3D12_SHADER_VISIBILITY_PIXEL); // 1: Texture register(t0)
+        rsBuilder.AddDescriptorTable(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 1, 0, D3D12_SHADER_VISIBILITY_VERTEX); // 2: Bone register(t1)
+        rsBuilder.AddConstantBufferView(1, 0, D3D12_SHADER_VISIBILITY_ALL); // 3: LightBuffer register(b1) (Root CBV)
+        rsBuilder.AddDescriptorTable(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 2, 0, D3D12_SHADER_VISIBILITY_PIXEL); // 4: ShadowMap register(t2)
 
+        // Static Sampler 0: s0 (Material Linear Wrap)
         D3D12_STATIC_SAMPLER_DESC sampler{};
         sampler.Filter = D3D12_FILTER_MIN_MAG_MIP_LINEAR;
         sampler.AddressU = D3D12_TEXTURE_ADDRESS_MODE_WRAP;
@@ -38,7 +41,27 @@ void PSOManager::Init(ID3D12Device* device)
         sampler.ShaderVisibility = D3D12_SHADER_VISIBILITY_PIXEL;
         rsBuilder.AddStaticSampler(sampler);
 
+        // Static Sampler 1: s1 (Shadow Map Linear Border White)
+        D3D12_STATIC_SAMPLER_DESC shadowSampler{};
+        shadowSampler.Filter = D3D12_FILTER_MIN_MAG_LINEAR_MIP_POINT;
+        shadowSampler.AddressU = D3D12_TEXTURE_ADDRESS_MODE_BORDER;
+        shadowSampler.AddressV = D3D12_TEXTURE_ADDRESS_MODE_BORDER;
+        shadowSampler.AddressW = D3D12_TEXTURE_ADDRESS_MODE_BORDER;
+        shadowSampler.BorderColor = D3D12_STATIC_BORDER_COLOR_OPAQUE_WHITE;
+        shadowSampler.ShaderRegister = 1;
+        shadowSampler.ShaderVisibility = D3D12_SHADER_VISIBILITY_PIXEL;
+        rsBuilder.AddStaticSampler(shadowSampler);
+
         rsBuilder.Build(device, &m_meshRootSignature);
+    }
+
+    // ----- シャドウ用ルートシグネチャ -----
+    {
+        RootSignatureBuilder rsBuilder;
+        rsBuilder.AddConstants(16, 0, 0, D3D12_SHADER_VISIBILITY_VERTEX); // 0: LightWVP (16 DWORD), register(b0)
+        rsBuilder.AddDescriptorTable(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 1, 0, D3D12_SHADER_VISIBILITY_VERTEX); // 1: Bone register(t1)
+
+        rsBuilder.Build(device, &m_shadowRootSignature);
     }
 
     // ----- ?X?v???C?g?p???[?g?V?O?l?`?? -----
@@ -115,6 +138,36 @@ void PSOManager::Init(ID3D12Device* device)
                   .SetDepthStencilState(depthDesc);
         
         psoBuilder.Build(device, &m_additivePipelineState);
+    }
+
+    // ----- シャドウ用 PSO (深度のみ描画) -----
+    auto shadowVertexShader = ShaderManager::GetInstance().GetShader(L"Assets/Shader/ShadowMap.hlsl", "VSMain", "vs_5_0");
+    if (shadowVertexShader)
+    {
+        D3D12_RASTERIZER_DESC rasterDesc = {};
+        rasterDesc.FillMode = D3D12_FILL_MODE_SOLID;
+        rasterDesc.CullMode = D3D12_CULL_MODE_BACK;
+        rasterDesc.FrontCounterClockwise = FALSE;
+        rasterDesc.DepthBias = 500;
+        rasterDesc.DepthBiasClamp = 0.0f;
+        rasterDesc.SlopeScaledDepthBias = 1.5f;
+        rasterDesc.DepthClipEnable = TRUE;
+
+        D3D12_DEPTH_STENCIL_DESC depthDesc = {};
+        depthDesc.DepthEnable = TRUE;
+        depthDesc.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ALL;
+        depthDesc.DepthFunc = D3D12_COMPARISON_FUNC_LESS_EQUAL;
+
+        PSOBuilder psoBuilder;
+        psoBuilder.SetRootSignature(m_shadowRootSignature.Get())
+                  .SetInputLayout(inputLayout, _countof(inputLayout))
+                  .SetShaders(shadowVertexShader->GetBytecode(), { nullptr, 0 })
+                  .SetPrimitiveTopologyType(D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE)
+                  .SetRenderTargetFormats(0, nullptr, DXGI_FORMAT_D32_FLOAT)
+                  .SetRasterizerState(rasterDesc)
+                  .SetDepthStencilState(depthDesc);
+
+        psoBuilder.Build(device, &m_shadowPipelineState);
     }
 
     // ----- ?X?v???C?g?p InputLayout -----
