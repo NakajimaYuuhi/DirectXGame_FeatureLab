@@ -1,4 +1,4 @@
-Ôªø#include "Mesh.h"
+#include "Mesh.h"
 #include "DX12Manager.h"
 #include "PSOManager.h"
 #include <d3dcompiler.h>
@@ -20,46 +20,46 @@
 
 
 
-//TODO:Âêå„ÅòÂΩ¢„ÅÆ„Éó„É™„Éü„ÉÜ„Ç£„ÉÅEE„ÄÅE  ÁÇπ„Éê„ÉÉ„Éï„Ç°„ÇÅEEÈÄö„Å´„Åó„Åü„ÅÅE
-//?Êó¶È†ÇÁÇπ?E  „ÇíÂ§ñ„Åã„ÇÅEE„Çå„Çã„ÅÆ„ÅØ„ÄÅÂæåÂõû„Åó„Åß
+//TODO:ìØÇ∂å`ÇÃÉvÉäÉ~ÉeÉBÉ`EEÅAE  ì_ÉoÉbÉtÉ@ÇﬂEEí Ç…ÇµÇΩÇüE
+//?íUí∏ì_?E  ÇäOÇ©ÇﬂEEÇÍÇÈÇÃÇÕÅAå„âÒÇµÇ≈
 
 
 
-//È†ÇÁÇπ„ÉÅE E„Çø„ÅÆ?EE
+//í∏ì_É`E EÉ^ÇÃ?EE
 MeshVertex mesh_vertices[] =
 {
-    //Á´ãÊñπ?E„Ç§„É≥„ÉÅE  „ÇØ„Çπ)
-    // ===== ‰∏ÅE(Y+) =====
+    //óßï˚?EÉCÉìÉ`E  ÉNÉX)
+    // ===== íöE(Y+) =====
     {{-0.5f,0.5f,-0.5f},{0,1,0},{0,1},{0,0,0,0},{1,0,0,0}},
     {{-0.5f,0.5f, 0.5f},{0,1,0},{0,0},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f,0.5f, 0.5f},{0,1,0},{1,0},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f,0.5f,-0.5f},{0,1,0},{1,1},{0,0,0,0},{1,0,0,0}},
     
-    // ===== ‰∏ÅE(Y-) =====
+    // ===== íöE(Y-) =====
     {{-0.5f,-0.5f, 0.5f},{0,-1,0},{1,0},{0,0,0,0},{1,0,0,0}},
     {{-0.5f,-0.5f,-0.5f},{0,-1,0},{1,1},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f,-0.5f,-0.5f},{0,-1,0},{0,1},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f,-0.5f, 0.5f},{0,-1,0},{0,0},{0,0,0,0},{1,0,0,0}},
 
-    // ===== ÂâçÈù¢ (Z-) =====
+    // ===== ëOñ  (Z-) =====
     {{-0.5f,-0.5f,-0.5f},{0,0,-1},{0,1},{0,0,0,0},{1,0,0,0}},
     {{-0.5f, 0.5f,-0.5f},{0,0,-1},{0,0},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f, 0.5f,-0.5f},{0,0,-1},{1,0},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f,-0.5f,-0.5f},{0,0,-1},{1,1},{0,0,0,0},{1,0,0,0}},
 
-    // ===== ËÉåÈù¢ (Z+) =====
+    // ===== îwñ  (Z+) =====
     {{-0.5f,-0.5f,0.5f},{0,0,1},{1,1},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f,-0.5f,0.5f},{0,0,1},{0,1},{0,0,0,0},{1,0,0,0}},
     {{ 0.5f, 0.5f,0.5f},{0,0,1},{0,0},{0,0,0,0},{1,0,0,0}},
     {{-0.5f, 0.5f,0.5f},{0,0,1},{1,0},{0,0,0,0},{1,0,0,0}},
 
-    // ===== Â∑¶ (X-) =====
+    // ===== ç∂ (X-) =====
     {{-0.5f,-0.5f, 0.5f},{-1,0,0},{0,1},{0,0,0,0},{1,0,0,0}},
     {{-0.5f, 0.5f, 0.5f},{-1,0,0},{0,0},{0,0,0,0},{1,0,0,0}},
     {{-0.5f, 0.5f,-0.5f},{-1,0,0},{1,0},{0,0,0,0},{1,0,0,0}},
     {{-0.5f,-0.5f,-0.5f},{-1,0,0},{1,1},{0,0,0,0},{1,0,0,0}},
 
-    // ===== Âè≥ (X+) =====
+    // ===== âE (X+) =====
     {{0.5f,-0.5f,-0.5f},{1,0,0},{0,1},{0,0,0,0},{1,0,0,0}},
     {{0.5f, 0.5f,-0.5f},{1,0,0},{0,0},{0,0,0,0},{1,0,0,0}},
     {{0.5f, 0.5f, 0.5f},{1,0,0},{1,0},{0,0,0,0},{1,0,0,0}},
@@ -72,10 +72,10 @@ uint32_t mesh_indices[] =
 {
     0,1,2, 0,2,3,        // ?E
     4,5,6, 4,6,7,        // ?E
-    8,9,10, 8,10,11,     // Â∑¶
-    12,13,14, 12,14,15,  // Âè≥
-    16,17,18, 16,18,19,  // ‰∏ÅE
-    20,21,22, 20,22,23   // ‰∏ÅE
+    8,9,10, 8,10,11,     // ç∂
+    12,13,14, 12,14,15,  // âE
+    16,17,18, 16,18,19,  // íöE
+    20,21,22, 20,22,23   // íöE
 };
 
 //
@@ -83,12 +83,12 @@ uint32_t mesh_indices[] =
 
 
 
-//Initialize„Çí„Å©„Åì„Åã„ÅßÂëº„Å∂?E  Êúâ„ÇÅE
-//Initialize„Çí„Å©„Åì„Åã„ÅßÂëº„Å∂?E  Êúâ„ÇÅE
+//InitializeÇÇ«Ç±Ç©Ç≈åƒÇ‘?E  óLÇﬂE
+//InitializeÇÇ«Ç±Ç©Ç≈åƒÇ‘?E  óLÇﬂE
 CMesh::CMesh()
 {  
-    //„Åì„Åì„Åß„ÄÅE  ÁÇπ?E  „ÄÅ„Ç§„É≥„ÉÅE  „ÇØ„Çπ?E  „Çí„Éá„Éï„Ç©„É´„Éà„Åß„Çª„ÉÅE  (‰ªÆÂÆüË£ÅE
-    m_Vertices.assign(std::begin(mesh_vertices), std::end(mesh_vertices));//assign„ÅßÂÖ•„Çå„Çå„Çã„Çâ„Åó„ÅÑ
+    //Ç±Ç±Ç≈ÅAE  ì_?E  ÅAÉCÉìÉ`E  ÉNÉX?E  ÇÉfÉtÉHÉãÉgÇ≈ÉZÉ`E  (âºé¿çŸE
+    m_Vertices.assign(std::begin(mesh_vertices), std::end(mesh_vertices));//assignÇ≈ì¸ÇÍÇÍÇÈÇÁÇµÇ¢
     m_Indices.assign(std::begin(mesh_indices), std::end(mesh_indices));
 
 }
@@ -99,11 +99,11 @@ void CMesh::Init()
     // m_Transform is no longer used.
 
 
-    ////----- „Ç§„É≥„ÉÅE  „ÇØ„Çπ„Éê„ÉÉ„Éï„Ç°„ÅÆ?EE -----
-    ////„Çµ„Ç§„Ç∫?EE
+    ////----- ÉCÉìÉ`E  ÉNÉXÉoÉbÉtÉ@ÇÃ?EE -----
+    ////ÉTÉCÉY?EE
     //const UINT indexBufferSize = sizeof(uint16_t) * m_Indices.size();
 
-    ////„É™„ÇΩ„Éº„Çπ?EE E EploadHeap E E
+    ////ÉäÉ\Å[ÉX?EE E EploadHeap E E
     //D3D12_HEAP_PROPERTIES heapProps2 = {};
     //heapProps2.Type = D3D12_HEAP_TYPE_UPLOAD;
     //heapProps2.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
@@ -133,16 +133,16 @@ void CMesh::Init()
     //    IID_PPV_ARGS(&m_indexBuffer)
     //);
 
-    ////„Ç§„É≥„ÉÅE  „ÇØ„Çπ„ÉÅE E„Çø„Çí„Éê„ÉÅE  „Ç°„Å´„Ç≥„ÉÅEE
+    ////ÉCÉìÉ`E  ÉNÉXÉ`E EÉ^ÇÉoÉ`E  É@Ç…ÉRÉ`EE
     //uint8_t* mappedData2 = nullptr;
     //m_indexBuffer->Map(0, nullptr, reinterpret_cast<void**>(&mappedData2));
     //memcpy(mappedData2, m_Indices.data(), indexBufferSize);
     //m_indexBuffer->Unmap(0, nullptr);
 
-    ////„Ç§„É≥„ÉÅE  „ÇØ„Çπ„Éê„ÉÉ„Éï„Ç°„Éì„É•„Éº„ÅÆË®≠?E
+    ////ÉCÉìÉ`E  ÉNÉXÉoÉbÉtÉ@ÉrÉÖÅ[ÇÃê›?E
     //m_indexBufferView.BufferLocation = m_indexBuffer->GetGPUVirtualAddress();
     //m_indexBufferView.SizeInBytes = indexBufferSize;
-    //m_indexBufferView.Format = DXGI_FORMAT_R16_UINT; // uint16_t„Å™„Çâ„Åì„ÇÅE
+    //m_indexBufferView.Format = DXGI_FORMAT_R16_UINT; // uint16_tÇ»ÇÁÇ±ÇﬂE
 
 
 }
@@ -155,20 +155,20 @@ void CMesh::Update()
 
 void CMesh::Draw(CTransform* transform, CMaterial* material, BlendMode blendMode)
 {
-    // --„Ç≥„Éû„É≥„Éâ„É™„Çπ„ÉÅE
+    // --ÉRÉ}ÉìÉhÉäÉXÉ`E
     ID3D12GraphicsCommandList* commandList = DX12Manager::GetInstance().GetCommandList();
 
 
-    // --Ë°å?EÂèñÂæÅE
+    // --çs?EéÊê™E
     DirectX::XMMATRIX world = transform->GetWorld();
     DirectX::XMMATRIX view = DX12Manager::GetInstance().GetView();
     DirectX::XMMATRIX proj = DX12Manager::GetInstance().GetProj();
 
 
-    // --Êéõ„Åë?E
+    // --ä|ÇØ?E
     DirectX::XMMATRIX wvp = world * view * proj;
 
-    // --ÂÆöÊï∞„Éê„ÉÉ„Éï„Ç°Áî®„ÅÆ„ÉÅE?E„Çø„Å´„Çª„ÉÅE??„Åô„Çã
+    // --íËêîÉoÉbÉtÉ@ópÇÃÉ`E?EÉ^Ç…ÉZÉ`E??Ç∑ÇÈ
     
     ID3D12PipelineState* pso = PSOManager::GetInstance().GetPSO(material, PSOManager::GetInstance().GetMeshRootSignature());
     if (pso) 
@@ -177,7 +177,7 @@ void CMesh::Draw(CTransform* transform, CMaterial* material, BlendMode blendMode
     }
     else
     {
-        // ?Êìæ?E?R???p?C??????s????????A???S?????f?t?H???g??PSO??g?p????
+        // ?èÔ?E?R???p?C??????s????????A???S?????f?t?H???g??PSO??g?p????
         commandList->SetPipelineState(PSOManager::GetInstance().GetMeshPSO());
     }
     
@@ -279,11 +279,11 @@ void CMesh::SetVertex(const MeshVertex* vertices, size_t vertexCount, const uint
     m_Vertices.assign(vertices, vertices + vertexCount);
     m_Indices.assign(indices, indices + indexCount);
 
-    //----- È†ÇÁÇπ„Éê„ÉÉ„Éï„Ç°„ÅÆ?EE -----
-    //„Çµ„Ç§„Ç∫?EE
-    UINT vertexBufferSize = sizeof(MeshVertex) * m_Vertices.size();//?EE„Çµ„Ç§„Ç∫„Å´Êéõ„Åë?E
+    //----- í∏ì_ÉoÉbÉtÉ@ÇÃ?EE -----
+    //ÉTÉCÉY?EE
+    UINT vertexBufferSize = sizeof(MeshVertex) * m_Vertices.size();//?EEÉTÉCÉYÇ…ä|ÇØ?E
 
-    //„É™„ÇΩ„Éº„Çπ?EE E EploadHeap E E
+    //ÉäÉ\Å[ÉX?EE E EploadHeap E E
     D3D12_HEAP_PROPERTIES heapProps = {};
     heapProps.Type = D3D12_HEAP_TYPE_UPLOAD;
 
@@ -305,23 +305,23 @@ void CMesh::SetVertex(const MeshVertex* vertices, size_t vertexCount, const uint
         IID_PPV_ARGS(&m_vertexBuffer)
     );
 
-    //È†ÇÁÇπ„ÉÅE E„Çø„Çí„Éê„ÉÅE  „Ç°„Å´„Ç≥„ÉÅEE
+    //í∏ì_É`E EÉ^ÇÉoÉ`E  É@Ç…ÉRÉ`EE
     void* mappedData = nullptr;
     m_vertexBuffer->Map(0, nullptr, &mappedData);
-    memcpy(mappedData, m_Vertices.data(), vertexBufferSize);//„Åì„Çå
+    memcpy(mappedData, m_Vertices.data(), vertexBufferSize);//Ç±ÇÍ
     m_vertexBuffer->Unmap(0, nullptr);
 
-    //È†ÇÁÇπ„Éê„ÉÉ„Éï„Ç°„Éì„É•„Éº„ÅÆË®≠?E
+    //í∏ì_ÉoÉbÉtÉ@ÉrÉÖÅ[ÇÃê›?E
     m_vertexBufferView.BufferLocation = m_vertexBuffer->GetGPUVirtualAddress();
-    m_vertexBufferView.SizeInBytes = vertexBufferSize;//„Åì„Çå
-    m_vertexBufferView.StrideInBytes = sizeof(MeshVertex);//„Åì„Çå
+    m_vertexBufferView.SizeInBytes = vertexBufferSize;//Ç±ÇÍ
+    m_vertexBufferView.StrideInBytes = sizeof(MeshVertex);//Ç±ÇÍ
 
 
-    //----- „Ç§„É≥„ÉÅE  „ÇØ„Çπ„Éê„ÉÉ„Éï„Ç°„ÅÆ?EE -----
-    //„Çµ„Ç§„Ç∫?EE
+    //----- ÉCÉìÉ`E  ÉNÉXÉoÉbÉtÉ@ÇÃ?EE -----
+    //ÉTÉCÉY?EE
     const UINT indexBufferSize = sizeof(uint32_t) * m_Indices.size();
 
-    //„É™„ÇΩ„Éº„Çπ?EE E EploadHeap E E
+    //ÉäÉ\Å[ÉX?EE E EploadHeap E E
     D3D12_HEAP_PROPERTIES heapProps2 = {};
     heapProps2.Type = D3D12_HEAP_TYPE_UPLOAD;
     heapProps2.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
@@ -351,16 +351,16 @@ void CMesh::SetVertex(const MeshVertex* vertices, size_t vertexCount, const uint
         IID_PPV_ARGS(&m_indexBuffer)
     );
 
-    //„Ç§„É≥„ÉÅE  „ÇØ„Çπ„ÉÅE E„Çø„Çí„Éê„ÉÅE  „Ç°„Å´„Ç≥„ÉÅEE
+    //ÉCÉìÉ`E  ÉNÉXÉ`E EÉ^ÇÉoÉ`E  É@Ç…ÉRÉ`EE
     uint8_t* mappedData2 = nullptr;
     m_indexBuffer->Map(0, nullptr, reinterpret_cast<void**>(&mappedData2));
     memcpy(mappedData2, m_Indices.data(), indexBufferSize);
     m_indexBuffer->Unmap(0, nullptr);
 
-    //„Ç§„É≥„ÉÅE  „ÇØ„Çπ„Éê„ÉÉ„Éï„Ç°„Éì„É•„Éº„ÅÆË®≠?E
+    //ÉCÉìÉ`E  ÉNÉXÉoÉbÉtÉ@ÉrÉÖÅ[ÇÃê›?E
     m_indexBufferView.BufferLocation = m_indexBuffer->GetGPUVirtualAddress();
     m_indexBufferView.SizeInBytes = indexBufferSize;
-    m_indexBufferView.Format = DXGI_FORMAT_R32_UINT; // uint16_t„Å™„Çâ„Åì„ÇÅE
+    m_indexBufferView.Format = DXGI_FORMAT_R32_UINT; // uint16_tÇ»ÇÁÇ±ÇﬂE
 }
 
 

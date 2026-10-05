@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include "Tween.h"
 #include <vector>
 #include <memory>

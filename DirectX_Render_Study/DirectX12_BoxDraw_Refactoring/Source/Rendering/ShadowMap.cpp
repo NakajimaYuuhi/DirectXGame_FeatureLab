@@ -1,4 +1,4 @@
-﻿#include "ShadowMap.h"
+#include "ShadowMap.h"
 #include "DX12Manager.h"
 #include <stdexcept>
 

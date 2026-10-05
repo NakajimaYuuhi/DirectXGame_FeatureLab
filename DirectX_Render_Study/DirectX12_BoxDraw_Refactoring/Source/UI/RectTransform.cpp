@@ -1,4 +1,4 @@
-﻿#include "RectTransform.h"
+#include "RectTransform.h"
 #include "Source/Objects/Object.h"
 #include "Source/Engine/Component/Transform.h"
 #include "Source/Util/TweenManager.h"

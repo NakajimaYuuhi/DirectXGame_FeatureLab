@@ -1,4 +1,4 @@
-﻿#include "ButtonComponent.h"
+#include "ButtonComponent.h"
 #include "SpriteRenderer.h"
 #include "Object.h"
 #include "Source/UI/RectTransform.h"

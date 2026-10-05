@@ -1,4 +1,4 @@
-﻿#include "SceneTest.h"
+#include "SceneTest.h"
 #include "Object.h"
 #include "Model.h"
 #include "DX12Manager.h"

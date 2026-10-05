@@ -1,4 +1,4 @@
-﻿#include "PSOBuilder.h"
+#include "PSOBuilder.h"
 
 // ========================================================
 // RootSignatureBuilder

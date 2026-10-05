@@ -1,4 +1,4 @@
-ï»¿#include "PSOBuilder.h"
+#include "PSOBuilder.h"
 #include "ShaderManager.h"
 #include "PSOManager.h"
 #include "DX12Manager.h"
@@ -9,7 +9,7 @@ void PSOManager::Init(ID3D12Device* device)
 {
     // ===== ????? =====
 
-    // --ã‚¨ãƒ©ãƒ¼ãƒãƒ³ãƒ‰ãƒªãƒ³ã‚°ç”¨
+    // --ƒGƒ‰[ƒnƒ“ƒhƒŠƒ“ƒO—p
 
     // --?V?F?[?_??A
     // ???b?V???p
@@ -22,7 +22,7 @@ void PSOManager::Init(ID3D12Device* device)
     //  2. ???[?g?V?O?l?`????
     // =========================================================
 
-    // ----- ãƒ¡ãƒƒã‚·ãƒ¥ç”¨ãƒ«ãƒ¼ãƒˆã‚·ã‚°ãƒãƒãƒ£ -----
+    // ----- ƒƒbƒVƒ…—pƒ‹[ƒgƒVƒOƒlƒ`ƒƒ -----
     {
         RootSignatureBuilder rsBuilder;
         rsBuilder.AddConstants(36, 0, 0, D3D12_SHADER_VISIBILITY_ALL); // 0: WVP(16) + World(16) + UV(4) = 36 DWORD, register(b0)
@@ -55,7 +55,7 @@ void PSOManager::Init(ID3D12Device* device)
         rsBuilder.Build(device, &m_meshRootSignature);
     }
 
-    // ----- ã‚·ãƒ£ãƒ‰ã‚¦ç”¨ãƒ«ãƒ¼ãƒˆã‚·ã‚°ãƒãƒãƒ£ -----
+    // ----- ƒVƒƒƒhƒE—pƒ‹[ƒgƒVƒOƒlƒ`ƒƒ -----
     {
         RootSignatureBuilder rsBuilder;
         rsBuilder.AddConstants(16, 0, 0, D3D12_SHADER_VISIBILITY_VERTEX); // 0: LightWVP (16 DWORD), register(b0)
@@ -140,7 +140,7 @@ void PSOManager::Init(ID3D12Device* device)
         psoBuilder.Build(device, &m_additivePipelineState);
     }
 
-    // ----- ã‚·ãƒ£ãƒ‰ã‚¦ç”¨ PSO (æ·±åº¦ã®ã¿æç”») -----
+    // ----- ƒVƒƒƒhƒE—p PSO ([“x‚Ì‚İ•`‰æ) -----
     auto shadowVertexShader = ShaderManager::GetInstance().GetShader(L"Assets/Shader/ShadowMap.hlsl", "VSMain", "vs_5_0");
     if (shadowVertexShader)
     {
@@ -212,7 +212,7 @@ void PSOManager::Init(ID3D12Device* device)
         psoBuilder.Build(device, &m_spritePipelineState);
     }
 
-    // ----- ãƒ€ãƒŸãƒ¼ãƒœãƒ¼ãƒ³ãƒãƒƒãƒ•ã‚¡ï¼ˆãƒœãƒ¼ãƒ³ã‚’æŒãŸãªã„ãƒ¡ãƒƒã‚·ãƒ¥ã®å®‰å…¨å¯¾ç­–ï¼‰ -----
+    // ----- ƒ_ƒ~[ƒ{[ƒ“ƒoƒbƒtƒ@iƒ{[ƒ“‚ğ‚½‚È‚¢ƒƒbƒVƒ…‚ÌˆÀ‘S‘Îôj -----
     {
         D3D12_HEAP_PROPERTIES heapProp = {};
         heapProp.Type = D3D12_HEAP_TYPE_UPLOAD;

@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include "IRenderPass.h"
 
 class ShadowMapPass : public IRenderPass

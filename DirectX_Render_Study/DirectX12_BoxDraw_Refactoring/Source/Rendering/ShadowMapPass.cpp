@@ -1,4 +1,4 @@
-﻿#include "ShadowMapPass.h"
+#include "ShadowMapPass.h"
 #include "LightManager.h"
 #include "ObjectManager.h"
 #include "PSOManager.h"

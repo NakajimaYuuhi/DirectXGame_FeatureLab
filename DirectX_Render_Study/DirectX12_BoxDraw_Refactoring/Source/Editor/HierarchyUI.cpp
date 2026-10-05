@@ -1,4 +1,4 @@
-ï»¿#include "HierarchyUI.h"
+#include "HierarchyUI.h"
 #include "InspectorUI.h"
 #include "imgui.h"
 #include "ObjectManager.h"
@@ -30,7 +30,7 @@ void CHierarchyUI::Draw()
 
         ImGui::Separator();
 
-        // 2. é€†å¼•ããƒãƒƒãƒ—ï¼ˆCObject* -> { tagIdx, objIdx }ï¼‰ã®æ§‹ç¯‰
+        // 2. ‹tˆø‚«ƒ}ƒbƒviCObject* -> { tagIdx, objIdx }j‚Ì\’z
         const auto& objectList = ObjectManager::GetInstance().GetObjectList();
         std::unordered_map<CObject*, std::pair<int, int>> objIndexMap;
         for (size_t tagIdx = 0; tagIdx < objectList.size(); ++tagIdx)
@@ -45,7 +45,7 @@ void CHierarchyUI::Draw()
             }
         }
 
-        // 3. Scene Object Tree (ã‚¿ã‚°ã”ã¨ã«æç”»)
+        // 3. Scene Object Tree (ƒ^ƒO‚²‚Æ‚É•`‰æ)
         for (size_t tagIdx = 0; tagIdx < objectList.size(); ++tagIdx)
         {
             const auto& objVec = objectList[tagIdx];
@@ -59,14 +59,14 @@ void CHierarchyUI::Draw()
                     const auto& obj = objVec[objIdx];
                     if (!obj || obj->GetIsDestroyed()) continue;
 
-                    // è¦ªãŒå­˜åœ¨ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¯è¦ªãƒãƒ¼ãƒ‰å†…ã§å†å¸°çš„ã«æç”»ã•ã‚Œã‚‹ãŸã‚ã€ãƒˆãƒƒãƒ—ãƒ¬ãƒ™ãƒ«ã§ã¯ã‚¹ã‚­ãƒƒãƒ—
+                    // e‚ª‘¶İ‚·‚éƒIƒuƒWƒFƒNƒg‚Íeƒm[ƒh“à‚ÅÄ‹A“I‚É•`‰æ‚³‚ê‚é‚½‚ßAƒgƒbƒvƒŒƒxƒ‹‚Å‚ÍƒXƒLƒbƒv
                     CTransform* trans = obj->GetComponent<CTransform>();
                     if (trans && trans->GetParent() != nullptr)
                     {
                         continue;
                     }
 
-                    // ãƒ«ãƒ¼ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æç”»
+                    // ƒ‹[ƒgƒIƒuƒWƒFƒNƒg‚Ì•`‰æ
                     DrawObjectNode(obj.get(), static_cast<int>(tagIdx), static_cast<int>(objIdx), objIndexMap);
                 }
             }
@@ -74,7 +74,7 @@ void CHierarchyUI::Draw()
 
         ImGui::Separator();
 
-        // 4. ãƒ«ãƒ¼ãƒˆè§£é™¤ç”¨ãƒ‰ãƒ­ãƒƒãƒ—ã‚¾ãƒ¼ãƒ³
+        // 4. ƒ‹[ƒg‰ğœ—pƒhƒƒbƒvƒ][ƒ“
         ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.2f, 0.2f, 0.2f, 0.4f));
         ImGui::Button("[ Drop Here to Detach to Root ]", ImVec2(-1.0f, 26.0f));
         ImGui::PopStyleColor();
@@ -89,7 +89,7 @@ void CHierarchyUI::Draw()
                     CTransform* droppedTrans = droppedObj->GetComponent<CTransform>();
                     if (droppedTrans)
                     {
-                        droppedTrans->SetParent(nullptr, true); // ãƒ¯ãƒ¼ãƒ«ãƒ‰å§¿å‹¢ã‚’ç¶­æŒã—ã¦ãƒ«ãƒ¼ãƒˆã«æˆ»ã™
+                        droppedTrans->SetParent(nullptr, true); // ƒ[ƒ‹ƒhp¨‚ğˆÛ‚µ‚Äƒ‹[ƒg‚É–ß‚·
                     }
                 }
             }
@@ -116,11 +116,11 @@ void CHierarchyUI::DrawObjectNode(
     int curSelObj = CInspectorUI::GetInstance().GetSelectedObjectIndex();
     bool isSelected = (curSelTag == tagIdx && curSelObj == objIdx);
 
-    // å­ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒªã‚¹ãƒˆã‚’ç¢ºèª
+    // qƒIƒuƒWƒFƒNƒg‚ÌƒŠƒXƒg‚ğŠm”F
     const std::vector<CTransform*>* children = trans ? &trans->GetChildren() : nullptr;
     bool hasChildren = children && !children->empty();
 
-    // TreeNode ãƒ•ãƒ©ã‚°
+    // TreeNode ƒtƒ‰ƒO
     ImGuiTreeNodeFlags nodeFlags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_SpanAvailWidth;
     if (isSelected)
     {
@@ -131,25 +131,25 @@ void CHierarchyUI::DrawObjectNode(
         nodeFlags |= ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen;
     }
 
-    // è¡¨ç¤ºå
+    // •\¦–¼
     std::string labelText = objName;
     if (!pName.empty())
     {
         labelText += " [P]";
     }
 
-    // ãƒãƒ¼ãƒ‰IDï¼ˆãƒã‚¤ãƒ³ã‚¿ã‚¢ãƒ‰ãƒ¬ã‚¹ã§ä¸€æ„åŒ–ï¼‰
+    // ƒm[ƒhIDiƒ|ƒCƒ“ƒ^ƒAƒhƒŒƒX‚ÅˆêˆÓ‰»j
     std::string nodeID = labelText + "###Node_" + std::to_string(reinterpret_cast<uintptr_t>(obj));
 
     bool nodeOpen = ImGui::TreeNodeEx(nodeID.c_str(), nodeFlags);
 
-    // ã‚¯ãƒªãƒƒã‚¯ã§ã‚¤ãƒ³ã‚¹ãƒšã‚¯ã‚¿ãƒ¼é¸æŠ
+    // ƒNƒŠƒbƒN‚ÅƒCƒ“ƒXƒyƒNƒ^[‘I‘ğ
     if (ImGui::IsItemClicked() && !ImGui::IsItemToggledOpen())
     {
         CInspectorUI::GetInstance().SetSelectedObject(tagIdx, objIdx);
     }
 
-    // --- ãƒ‰ãƒ©ãƒƒã‚°å…ƒï¼ˆDrag Sourceï¼‰ ---
+    // --- ƒhƒ‰ƒbƒOŒ³iDrag Sourcej ---
     if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_SourceAllowNullID))
     {
         ImGui::SetDragDropPayload("HIERARCHY_OBJECT_PTR", &obj, sizeof(CObject*));
@@ -157,7 +157,7 @@ void CHierarchyUI::DrawObjectNode(
         ImGui::EndDragDropSource();
     }
 
-    // --- ãƒ‰ãƒ­ãƒƒãƒ—å…ˆï¼ˆDrop Target: ã“ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å­ã«ã™ã‚‹ï¼‰ ---
+    // --- ƒhƒƒbƒvæiDrop Target: ‚±‚ÌƒIƒuƒWƒFƒNƒg‚Ìq‚É‚·‚éj ---
     if (ImGui::BeginDragDropTarget())
     {
         if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("HIERARCHY_OBJECT_PTR"))
@@ -168,7 +168,7 @@ void CHierarchyUI::DrawObjectNode(
                 CTransform* droppedTrans = droppedObj->GetComponent<CTransform>();
                 if (droppedTrans)
                 {
-                    // ãƒ¯ãƒ¼ãƒ«ãƒ‰å§¿å‹¢ã‚’ç¶­æŒã—ã¦è¦ªå­ä»˜ã‘ï¼ˆå¾ªç’°å‚ç…§ã¯å†…éƒ¨ã§å®‰å…¨ã«ç„¡è¦–ã•ã‚Œã‚‹ï¼‰
+                    // ƒ[ƒ‹ƒhp¨‚ğˆÛ‚µ‚Äeq•t‚¯izŠÂQÆ‚Í“à•”‚ÅˆÀ‘S‚É–³‹‚³‚ê‚éj
                     droppedTrans->SetParent(trans, true);
                 }
             }
@@ -176,7 +176,7 @@ void CHierarchyUI::DrawObjectNode(
         ImGui::EndDragDropTarget();
     }
 
-    // --- å³ã‚¯ãƒªãƒƒã‚¯ ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼ ---
+    // --- ‰EƒNƒŠƒbƒN ƒRƒ“ƒeƒLƒXƒgƒƒjƒ…[ ---
     if (ImGui::BeginPopupContextItem())
     {
         CInspectorUI::GetInstance().SetSelectedObject(tagIdx, objIdx);
@@ -196,7 +196,7 @@ void CHierarchyUI::DrawObjectNode(
         ImGui::EndPopup();
     }
 
-    // --- å­ãƒãƒ¼ãƒ‰ã®å†å¸°å±•é–‹ ---
+    // --- qƒm[ƒh‚ÌÄ‹A“WŠJ ---
     if (hasChildren && nodeOpen)
     {
         for (auto* childTrans : *children)

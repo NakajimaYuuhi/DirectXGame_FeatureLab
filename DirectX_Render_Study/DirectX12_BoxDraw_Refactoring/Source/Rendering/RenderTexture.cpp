@@ -1,4 +1,4 @@
-﻿#include "RenderTexture.h"
+#include "RenderTexture.h"
 #include <stdexcept>
 #include <cstring>
 #include "DX12Manager.h"

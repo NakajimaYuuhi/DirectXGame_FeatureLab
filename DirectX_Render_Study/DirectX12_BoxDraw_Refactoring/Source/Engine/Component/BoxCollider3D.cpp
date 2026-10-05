@@ -1,4 +1,4 @@
-ï»¿#include "BoxCollider3D.h"
+#include "BoxCollider3D.h"
 #include "imgui.h"
 
 void BoxCollider3D::DrawDebug(CameraComponent* camera)
@@ -56,7 +56,7 @@ void BoxCollider3D::DrawDebug(CameraComponent* camera)
 		}
 	}
 
-	// ImGuiã®å…¨ã‚¨ãƒ‡ã‚£ã‚¿ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®èƒŒå¾Œï¼ˆã‚²ãƒ¼ãƒ ç”»é¢ä¸Šï¼‰ã«æç”»
+	// ImGui‚Ì‘SƒGƒfƒBƒ^ƒEƒBƒ“ƒhƒE‚Ì”wŒãiƒQ[ƒ€‰æ–Êãj‚É•`‰æ
 	ImDrawList* drawList = ImGui::GetBackgroundDrawList();
 	if (!drawList) return;
 

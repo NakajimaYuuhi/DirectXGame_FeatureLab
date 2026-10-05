@@ -1,4 +1,4 @@
-﻿#include "SpriteRenderer.h"
+#include "SpriteRenderer.h"
 #include "Object.h"
 #include "Transform.h"
 #include "DX12Manager.h"

@@ -1,4 +1,4 @@
-﻿#include "PostProcessPass.h"
+#include "PostProcessPass.h"
 #include <d3dcompiler.h>
 #include <stdexcept>
 #include "d3dx12.h"
@@ -16,7 +16,7 @@ PostProcessPass::PostProcessPass(RenderTexture* pSourceTex)
 void PostProcessPass::Init(ID3D12Device* pDevice)
 {
     // --------------------------------------------------------
-    // 1. 繝ｫ繝ｼ繝医す繧ｰ繝阪メ繝｣菴懈・
+    // 1. ルートシグネチャ作�E
     // Param 0: 32-bit Constants (8 DWORD = 32 bytes, register b0)
     // Param 1: Descriptor Table (1 SRV, register t0) - Input / Main
     // Param 2: Descriptor Table (1 SRV, register t1) - Bloom blur
@@ -69,7 +69,7 @@ void PostProcessPass::Init(ID3D12Device* pDevice)
     }
 
     // --------------------------------------------------------
-    // 2. 繧ｷ繧ｧ繝ｼ繝繝ｼ縺ｮ繧ｳ繝ｳ繝代う繝ｫ
+    // 2. シェーダーのコンパイル
     // --------------------------------------------------------
     UINT compileFlags = 0;
 #if defined(_DEBUG)
@@ -103,7 +103,7 @@ void PostProcessPass::Init(ID3D12Device* pDevice)
     CompileShader("PSComposite",   "ps_5_0", psCompositeBlob);
 
     // --------------------------------------------------------
-    // 3. 蜷・ｨｮ PSO (Pipeline State Object) 縺ｮ讒狗ｯ・
+    // 3. 吁E�� PSO (Pipeline State Object) の構篁E
     // --------------------------------------------------------
     auto BuildPSO = [&](ID3DBlob* psBytecode, Microsoft::WRL::ComPtr<ID3D12PipelineState>& pso)
     {
@@ -136,7 +136,7 @@ void PostProcessPass::Init(ID3D12Device* pDevice)
     BuildPSO(psCompositeBlob.Get(),   m_pCompositePSO);
 
     // --------------------------------------------------------
-    // 4. 繝悶Ν繝ｼ繝菴懈･ｭ逕ｨ 1/2 隗｣蜒丞ｺｦ繝・け繧ｹ繝√Ε縺ｮ菴懈・
+    // 4. ブルーム作業用 1/2 解像度チE��スチャの作�E
     // --------------------------------------------------------
     UINT bloomWidth  = SCREEN_WIDTH / 2;
     UINT bloomHeight = SCREEN_HEIGHT / 2;
@@ -149,7 +149,7 @@ void PostProcessPass::Execute(const RenderContext& ctx)
 {
     if (!m_pSourceTex || !m_pCompositePSO) return;
 
-    // 0. SRV繝・ぅ繧ｹ繧ｯ繝ｪ繝励ち繝偵・繝励ｒ繝舌う繝ｳ繝・
+    // 0. SRVチE��スクリプタヒ�EプをバインチE
     ID3D12DescriptorHeap* heaps[] = { DX12Manager::GetInstance().GetSRVHeap() };
     ctx.cmdList->SetDescriptorHeaps(1, heaps);
 
@@ -184,7 +184,7 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         D3D12_RECT scHalf = { 0, 0, static_cast<LONG>(bloomW), static_cast<LONG>(bloomH) };
 
         // --------------------------------------------------------
-        // Step 1: 鬮倩ｼ晏ｺｦ謚ｽ蜃ｺ (Bright Pass: SceneTex -> BrightTex)
+        // Step 1: 高輝度抽出 (Bright Pass: SceneTex -> BrightTex)
         // --------------------------------------------------------
         m_pSourceTex->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE);
         m_pBrightTex->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_RENDER_TARGET);
@@ -210,7 +210,7 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         ctx.cmdList->DrawInstanced(3, 1, 0, 0);
 
         // --------------------------------------------------------
-        // Step 2: 豌ｴ蟷ｳ繧ｬ繧ｦ繧ｹ繝悶Λ繝ｼ (Horizontal Blur: BrightTex -> BlurTexTemp)
+        // Step 2: 水平ガウスブラー (Horizontal Blur: BrightTex -> BlurTexTemp)
         // --------------------------------------------------------
         m_pBrightTex->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE);
         m_pBlurTexTemp->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_RENDER_TARGET);
@@ -228,7 +228,7 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         ctx.cmdList->DrawInstanced(3, 1, 0, 0);
 
         // --------------------------------------------------------
-        // Step 3: 蝙ら峩繧ｬ繧ｦ繧ｹ繝悶Λ繝ｼ (Vertical Blur: BlurTexTemp -> BrightTex)
+        // Step 3: 垂直ガウスブラー (Vertical Blur: BlurTexTemp -> BrightTex)
         // --------------------------------------------------------
         m_pBlurTexTemp->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE);
         m_pBrightTex->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_RENDER_TARGET);
@@ -243,7 +243,7 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         ctx.cmdList->DrawInstanced(3, 1, 0, 0);
 
         // --------------------------------------------------------
-        // Step 4: 譛邨ょ粋謌・(Composite: SceneTex + BrightTex -> BackBuffer)
+        // Step 4: 最終合戁E(Composite: SceneTex + BrightTex -> BackBuffer)
         // --------------------------------------------------------
         m_pBrightTex->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE);
 
@@ -265,7 +265,7 @@ void PostProcessPass::Execute(const RenderContext& ctx)
     else
     {
         // --------------------------------------------------------
-        // 繝悶Ν繝ｼ繝辟｡蜉ｹ譎・ 繝代せ繧ｹ繝ｫ繝ｼ (SceneTex -> BackBuffer)
+        // ブルーム無効晁E パススルー (SceneTex -> BackBuffer)
         // --------------------------------------------------------
         m_pSourceTex->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE);
 

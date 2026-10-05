@@ -1,44 +1,44 @@
-ï»¿#pragma once
+#pragma once
 #include <DirectXMath.h>
 #include <vector>
 #include <algorithm>
 #include "Component.h"
 
-//===== CTransform ã‚¯ãƒ©ã‚¹å®šç¾© =====
+//===== CTransform ƒNƒ‰ƒX’è‹` =====
 class CTransform : public CComponent
 {
 private:
-    // ----- ãƒ­ãƒ¼ã‚«ãƒ«å§¿å‹¢ï¼ˆæ“ä½œå¯¾è±¡ï¼‰ -----
+    // ----- ƒ[ƒJƒ‹p¨i‘€ì‘ÎÛj -----
     DirectX::XMFLOAT3 m_localPosition    = { 0.0f, 0.0f, 0.0f };
-    DirectX::XMFLOAT3 m_localEulerAngles = { 0.0f, 0.0f, 0.0f }; // ãƒ©ã‚¸ã‚¢ãƒ³ (Pitch, Yaw, Roll)
-    DirectX::XMFLOAT4 m_localRotation    = { 0.0f, 0.0f, 0.0f, 1.0f }; // ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ (x, y, z, w)
+    DirectX::XMFLOAT3 m_localEulerAngles = { 0.0f, 0.0f, 0.0f }; // ƒ‰ƒWƒAƒ“ (Pitch, Yaw, Roll)
+    DirectX::XMFLOAT4 m_localRotation    = { 0.0f, 0.0f, 0.0f, 1.0f }; // ƒNƒH[ƒ^ƒjƒIƒ“ (x, y, z, w)
     DirectX::XMFLOAT3 m_localScale       = { 1.0f, 1.0f, 1.0f };
 
-    // UVè¨­å®šï¼ˆæ—¢å­˜æ©Ÿèƒ½ã¨ã®äº’æ›ä¿æŒï¼‰
+    // UVİ’èiŠù‘¶‹@”\‚Æ‚ÌŒİŠ·•Ûj
     DirectX::XMFLOAT2 m_UVOffset         = { 0.0f, 0.0f };
     DirectX::XMFLOAT2 m_UVScale          = { 1.0f, 1.0f };
 
-    // ----- ã‚­ãƒ£ãƒƒã‚·ãƒ¥ & é…å»¶è©•ä¾¡ -----
+    // ----- ƒLƒƒƒbƒVƒ… & ’x‰„•]‰¿ -----
     mutable DirectX::XMMATRIX m_worldMatrix = DirectX::XMMatrixIdentity();
     mutable bool m_isDirty = true;
 
-    // ----- ã‚·ãƒ¼ãƒ³ã‚°ãƒ©ãƒ•ï¼ˆéšå±¤æ§‹é€ ï¼‰ -----
+    // ----- ƒV[ƒ“ƒOƒ‰ƒtiŠK‘w\‘¢j -----
     CTransform* m_parent = nullptr;
     std::vector<CTransform*> m_children;
 
 public:
-    // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+    // ƒRƒ“ƒXƒgƒ‰ƒNƒ^
     CTransform(
         DirectX::XMFLOAT3 _Position = { 0.0f, 0.0f, 0.0f },
         DirectX::XMFLOAT3 _Rotation = { 0.0f, 0.0f, 0.0f },
         DirectX::XMFLOAT3 _Scale    = { 1.0f, 1.0f, 1.0f }
     );
 
-    // ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+    // ƒfƒXƒgƒ‰ƒNƒ^
     virtual ~CTransform();
 
     // -------------------------------------------------------------
-    // è¦ªå­é–¢ä¿‚ç®¡ç†
+    // eqŠÖŒWŠÇ—
     // -------------------------------------------------------------
     void SetParent(CTransform* newParent, bool keepWorldTransform = false);
     CTransform* GetParent() const { return m_parent; }
@@ -46,7 +46,7 @@ public:
     bool IsChildOf(const CTransform* potentialParent) const;
 
     // -------------------------------------------------------------
-    // ãƒ­ãƒ¼ã‚«ãƒ«ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£è¨­å®š / å–å¾—ï¼ˆæ–°è¦APIï¼‰
+    // ƒ[ƒJƒ‹ƒvƒƒpƒeƒBİ’è / æ“¾iV‹KAPIj
     // -------------------------------------------------------------
     void SetLocalPosition(const DirectX::XMFLOAT3& pos);
     void SetLocalEulerAngles(const DirectX::XMFLOAT3& eulerRadians);
@@ -61,7 +61,7 @@ public:
     const DirectX::XMFLOAT3& GetLocalScale() const { return m_localScale; }
 
     // -------------------------------------------------------------
-    // ãƒ¯ãƒ¼ãƒ«ãƒ‰è¡Œåˆ—ãƒ»åº§æ¨™å–å¾—ï¼ˆé…å»¶è©•ä¾¡ï¼‰
+    // ƒ[ƒ‹ƒhs—ñEÀ•Wæ“¾i’x‰„•]‰¿j
     // -------------------------------------------------------------
     DirectX::XMMATRIX GetWorldMatrix() const;
     DirectX::XMFLOAT3 GetWorldPosition() const;
@@ -70,17 +70,17 @@ public:
     void UpdateWorldMatrix() const;
 
     // -------------------------------------------------------------
-    // æ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«ï¼ˆè¦ªã®å§¿å‹¢ã‚‚åæ˜ ã—ãŸãƒ¯ãƒ¼ãƒ«ãƒ‰å‘ãï¼‰
+    // •ûŒüƒxƒNƒgƒ‹ie‚Ìp¨‚à”½‰f‚µ‚½ƒ[ƒ‹ƒhŒü‚«j
     // -------------------------------------------------------------
     DirectX::XMFLOAT3 GetFront() const;
     DirectX::XMFLOAT3 GetUp() const;
     DirectX::XMFLOAT3 GetRight() const;
 
-    // ä¸Šæ–¹å‘ã¨å‰æ–¹å‘ã‹ã‚‰å›è»¢ã‚’è¨­å®šï¼ˆãƒ“ãƒ«ãƒœãƒ¼ãƒ‰ç­‰ã§ä½¿ç”¨ï¼‰
+    // ã•ûŒü‚Æ‘O•ûŒü‚©‚ç‰ñ“]‚ğİ’èiƒrƒ‹ƒ{[ƒh“™‚Åg—pj
     void SetRotationFromUpFront(DirectX::XMFLOAT3 _Up, DirectX::XMFLOAT3 _Front);
 
     // -------------------------------------------------------------
-    // æ—¢å­˜ã‚³ãƒ¼ãƒ‰äº’æ›ç”¨ãƒ¡ã‚½ãƒƒãƒ‰ï¼ˆä¸‹ä½äº’æ›ãƒ¬ã‚¤ãƒ¤ãƒ¼ï¼‰
+    // Šù‘¶ƒR[ƒhŒİŠ·—pƒƒ\ƒbƒhi‰ºˆÊŒİŠ·ƒŒƒCƒ„[j
     // -------------------------------------------------------------
     DirectX::XMMATRIX GetWorld() { return GetWorldMatrix(); }
     DirectX::XMFLOAT3 GetPos() const { return m_localPosition; }
@@ -111,5 +111,5 @@ private:
     void UpdateEulerFromQuaternion();
 };
 
-// ã‚¨ã‚¤ãƒªã‚¢ã‚¹å®šç¾©
+// ƒGƒCƒŠƒAƒX’è‹`
 using TransformComponent = CTransform;

@@ -1,4 +1,4 @@
-﻿#include "Object.h"
+#include "Object.h"
 #include "ObjectInfo.h"
 #include "Transform.h"
 #include "Component.h"

@@ -1,4 +1,4 @@
-ï»¿#pragma once
+#pragma once
 #include "IRenderPass.h"
 #include "RenderTexture.h"
 #include <wrl/client.h>
@@ -19,14 +19,14 @@ public:
 private:
     RenderTexture* m_pSourceTex = nullptr;
 
-    // ãƒ–ãƒ«ãƒ¼ãƒ ç”¨ç¸®å°ãƒ»ä½œæ¥­ãƒãƒƒãƒ•ã‚¡ (1/2 è§£åƒåº¦)
+    // ƒuƒ‹[ƒ€—pk¬Eì‹Æƒoƒbƒtƒ@ (1/2 ‰ğ‘œ“x)
     std::unique_ptr<RenderTexture> m_pBrightTex;
     std::unique_ptr<RenderTexture> m_pBlurTexTemp;
 
-    // ãƒ«ãƒ¼ãƒˆã‚·ã‚°ãƒãƒãƒ£
+    // ƒ‹[ƒgƒVƒOƒlƒ`ƒƒ
     Microsoft::WRL::ComPtr<ID3D12RootSignature> m_pRootSignature;
 
-    // ãƒ‘ã‚¤ãƒ—ãƒ©ã‚¤ãƒ³ã‚¹ãƒ†ãƒ¼ãƒˆ (PSO)
+    // ƒpƒCƒvƒ‰ƒCƒ“ƒXƒe[ƒg (PSO)
     Microsoft::WRL::ComPtr<ID3D12PipelineState> m_pPassThroughPSO;
     Microsoft::WRL::ComPtr<ID3D12PipelineState> m_pBrightPSO;
     Microsoft::WRL::ComPtr<ID3D12PipelineState> m_pBlurPSO;

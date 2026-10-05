@@ -1,4 +1,4 @@
-﻿#include "InspectorUI.h"
+#include "InspectorUI.h"
 #include "EditorRaycast.h"
 #include "UndoManager.h"
 #include <d3d12.h>
@@ -797,7 +797,7 @@ void CInspectorUI::Draw()
                 {
                     if (ImGui::CollapsingHeader("Transform", ImGuiTreeNodeFlags_DefaultOpen))
                     {
-                        // 髫主ｱ､諠・ｱ
+                        // 階層惁E��
                         CTransform* parentTrans = transform->GetParent();
                         if (parentTrans)
                         {
@@ -825,7 +825,7 @@ void CInspectorUI::Draw()
 
                         ImGui::Separator();
 
-                        // 繝ｭ繝ｼ繧ｫ繝ｫ蟋ｿ蜍｢
+                        // ローカル姿勢
                         DirectX::XMFLOAT3 pos = transform->GetPos();
                         if (ImGui::DragFloat3("Position", &pos.x, 0.1f))
                         {
@@ -844,7 +844,7 @@ void CInspectorUI::Draw()
                             transform->SetScale(scale);
                         }
 
-                        // 繝ｯ繝ｼ繝ｫ繝牙ｧｿ蜍｢縺ｮ繝・ヰ繝・げ陦ｨ遉ｺ
+                        // ワールド姿勢のチE��チE��表示
                         if (ImGui::TreeNode("World Transform (Read Only)"))
                         {
                             DirectX::XMFLOAT3 wPos = transform->GetWorldPosition();

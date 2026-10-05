@@ -1,4 +1,4 @@
-﻿#include "ForwardRenderPass.h"
+#include "ForwardRenderPass.h"
 #include "ObjectManager.h"
 #include "DX12Manager.h"
 
