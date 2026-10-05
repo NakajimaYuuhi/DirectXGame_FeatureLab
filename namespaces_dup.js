@@ -1,5 +1,6 @@
 var namespaces_dup =
 [
+    [ "AssetSecurity", "namespaceAssetSecurity.html", "namespaceAssetSecurity" ],
     [ "CollisionLayer", "namespaceCollisionLayer.html", [
       [ "GetLayerName", "namespaceCollisionLayer.html#a6b18cd2a3767666ce02b0b3b9720e3cc", null ],
       [ "All", "namespaceCollisionLayer.html#a5e2eac87db74ae28c174d6ac129a1ad0", null ],

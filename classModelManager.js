@@ -7,5 +7,6 @@ var classModelManager =
     [ "GetInstance", "classModelManager.html#a4ec5862782eb68f703cf7276956d9e23", null ],
     [ "GetModel", "classModelManager.html#ab694d5e6dda48453858405eaab780aa5", null ],
     [ "operator=", "classModelManager.html#ad05aa9bf51865442a79ab4f5b145f25c", null ],
+    [ "ResolveModelPath", "classModelManager.html#af14d999b48cb43668efff7a8f95916ac", null ],
     [ "m_modelCache", "classModelManager.html#a91d4d0dd178446ed946a1a27196320eb", null ]
 ];

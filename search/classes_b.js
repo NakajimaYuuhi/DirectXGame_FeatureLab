@@ -9,6 +9,7 @@ var searchData=
   ['meshdata_6',['MeshData',['../structMeshData.html',1,'']]],
   ['meshvertex_7',['MeshVertex',['../structMeshVertex.html',1,'']]],
   ['model_8',['Model',['../classtinygltf_1_1Model.html',1,'tinygltf']]],
-  ['modelmanager_9',['ModelManager',['../classModelManager.html',1,'']]],
-  ['mydocument_10',['MyDocument',['../structMyDocument.html',1,'']]]
+  ['modelassetinfo_9',['ModelAssetInfo',['../structCAssetSecurityUI_1_1ModelAssetInfo.html',1,'CAssetSecurityUI']]],
+  ['modelmanager_10',['ModelManager',['../classModelManager.html',1,'']]],
+  ['mydocument_11',['MyDocument',['../structMyDocument.html',1,'']]]
 ];

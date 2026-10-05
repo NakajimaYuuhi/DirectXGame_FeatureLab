@@ -9,6 +9,7 @@ var hierarchy =
     [ "tinygltf::AnimationSampler", "structtinygltf_1_1AnimationSampler.html", null ],
     [ "AnimationSamplerData", "structAnimationSamplerData.html", null ],
     [ "tinygltf::Asset", "structtinygltf_1_1Asset.html", null ],
+    [ "AssetSecurity::AssetFileHeader", "structAssetSecurity_1_1AssetFileHeader.html", null ],
     [ "tinygltf::AudioEmitter", "structtinygltf_1_1AudioEmitter.html", null ],
     [ "tinygltf::AudioSource", "structtinygltf_1_1AudioSource.html", null ],
     [ "B1", null, [
@@ -26,6 +27,7 @@ var hierarchy =
     [ "ButtonEventManager", "classButtonEventManager.html", null ],
     [ "nlohmann::detail::dtoa_impl::cached_power", "structnlohmann_1_1detail_1_1dtoa__impl_1_1cached__power.html", null ],
     [ "tinygltf::Camera", "structtinygltf_1_1Camera.html", null ],
+    [ "CAssetSecurityUI", "classCAssetSecurityUI.html", null ],
     [ "CBone", "classCBone.html", null ],
     [ "CComponent", "classCComponent.html", [
       [ "Audio", "classAudio.html", null ],
@@ -170,6 +172,10 @@ var hierarchy =
     [ "nlohmann::detail::has_non_default_from_json< BasicJsonType, T, enable_if_t< !is_basic_json< T >::value > >", "structnlohmann_1_1detail_1_1has__non__default__from__json_3_01BasicJsonType_00_01T_00_01enable__b7a8cd863889b54d1139b207b4233111.html", null ],
     [ "nlohmann::detail::has_to_json< BasicJsonType, T, enable_if_t< !is_basic_json< T >::value > >", "structnlohmann_1_1detail_1_1has__to__json_3_01BasicJsonType_00_01T_00_01enable__if__t_3_01_9is__4a8838c1c30336126696a126041e661c.html", null ],
     [ "std::hash< nlohmann::json >", "structstd_1_1hash_3_01nlohmann_1_1json_01_4.html", null ],
+    [ "IAssetDecryptor", "classIAssetDecryptor.html", [
+      [ "RawDecryptor", "classRawDecryptor.html", null ],
+      [ "XorDecryptor", "classXorDecryptor.html", null ]
+    ] ],
     [ "nlohmann::detail::identity_tag< T >", "structnlohmann_1_1detail_1_1identity__tag.html", null ],
     [ "tinygltf::Image", "structtinygltf_1_1Image.html", null ],
     [ "ImBitArray< BITCOUNT, OFFSET >", "structImBitArray.html", null ],
@@ -305,6 +311,9 @@ var hierarchy =
     [ "ImGuiWindowStackData", "structImGuiWindowStackData.html", null ],
     [ "ImGuiWindowTempData", "structImGuiWindowTempData.html", null ],
     [ "ImNewWrapper", "structImNewWrapper.html", null ],
+    [ "IModelLoader", "classIModelLoader.html", [
+      [ "GltfModelLoader", "classGltfModelLoader.html", null ]
+    ] ],
     [ "ImPool< T >", "structImPool.html", null ],
     [ "ImPool< ImGuiMultiSelectState >", "structImPool.html", null ],
     [ "ImPool< ImGuiTabBar >", "structImPool.html", null ],
@@ -478,6 +487,7 @@ var hierarchy =
     [ "MeshData", "structMeshData.html", null ],
     [ "MeshVertex", "structMeshVertex.html", null ],
     [ "tinygltf::Model", "classtinygltf_1_1Model.html", null ],
+    [ "CAssetSecurityUI::ModelAssetInfo", "structCAssetSecurityUI_1_1ModelAssetInfo.html", null ],
     [ "ModelManager", "classModelManager.html", null ],
     [ "MyDocument", "structMyDocument.html", null ],
     [ "tinygltf::Node", "classtinygltf_1_1Node.html", null ],

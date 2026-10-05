@@ -98,13 +98,19 @@ $(document).ready(function(){initNavTree('gltfLoader_8cpp.html',''); initResizab
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="tiny__gltf_8h_source.html">tiny_gltf.h</a>&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;filesystem&gt;</code><br />
 <code>#include &quot;<a class="el" href="gltfLoader_8h_source.html">gltfLoader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="GltfModelLoader_8h_source.html">GltfModelLoader.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ModelData_8h_source.html">ModelData.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="AssetHeader_8h_source.html">AssetHeader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="XorDecryptor_8h_source.html">XorDecryptor.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 gltfLoader.cpp の依存先関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="gltfLoader_8cpp__incl.svg" width="100%" height="492"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="gltfLoader_8cpp__incl.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
@@ -122,6 +128,10 @@ gltfLoader.cpp の依存先関係図:</div>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 関数</h2></td></tr>
+<tr class="memitem:aa39930ce0b1c99169045a9beb71b4a34" id="r_aa39930ce0b1c99169045a9beb71b4a34"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gltfLoader_8cpp.html#aa39930ce0b1c99169045a9beb71b4a34">ParseTinyGltfModel</a> (const <a class="el" href="classtinygltf_1_1Model.html">tinygltf::Model</a> &amp;model, const <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;assetPathOrName, <a class="el" href="structLoadedModelData.html">LoadedModelData</a> &amp;loadedModelData)</td></tr>
+<tr class="separator:aa39930ce0b1c99169045a9beb71b4a34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaa8f32e9909e084cd174be6669117fb" id="r_adaa8f32e9909e084cd174be6669117fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLoadedModelData.html">LoadedModelData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gltfLoader_8cpp.html#adaa8f32e9909e084cd174be6669117fb">LoadModelDataFromFile</a> (const <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;filePath)</td></tr>
+<tr class="separator:adaa8f32e9909e084cd174be6669117fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a159d6e1d89d6eb6fed0f22f9985389c6" id="r_a159d6e1d89d6eb6fed0f22f9985389c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLoadedModelData.html">LoadedModelData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gltfLoader_8cpp.html#a159d6e1d89d6eb6fed0f22f9985389c6">TestLoadGLTF</a> (<a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> _fileName)</td></tr>
 <tr class="separator:a159d6e1d89d6eb6fed0f22f9985389c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -197,6 +207,86 @@ gltfLoader.cpp の依存先関係図:</div>
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
+<a id="adaa8f32e9909e084cd174be6669117fb" name="adaa8f32e9909e084cd174be6669117fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaa8f32e9909e084cd174be6669117fb">&#9670;&#160;</a></span>LoadModelDataFromFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structLoadedModelData.html">LoadedModelData</a> LoadModelDataFromFile </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>filePath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="gltfLoader_8cpp_adaa8f32e9909e084cd174be6669117fb_cgraph.svg" width="100%" height="462"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="gltfLoader_8cpp_adaa8f32e9909e084cd174be6669117fb_icgraph.svg" width="548" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa39930ce0b1c99169045a9beb71b4a34" name="aa39930ce0b1c99169045a9beb71b4a34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa39930ce0b1c99169045a9beb71b4a34">&#9670;&#160;</a></span>ParseTinyGltfModel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool ParseTinyGltfModel </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtinygltf_1_1Model.html">tinygltf::Model</a> &amp;&#160;</td>
+          <td class="paramname"><em>model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>assetPathOrName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structLoadedModelData.html">LoadedModelData</a> &amp;&#160;</td>
+          <td class="paramname"><em>loadedModelData</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="gltfLoader_8cpp_aa39930ce0b1c99169045a9beb71b4a34_cgraph.svg" width="603" height="159"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="gltfLoader_8cpp_aa39930ce0b1c99169045a9beb71b4a34_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
 <a id="a159d6e1d89d6eb6fed0f22f9985389c6" name="a159d6e1d89d6eb6fed0f22f9985389c6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a159d6e1d89d6eb6fed0f22f9985389c6">&#9670;&#160;</a></span>TestLoadGLTF()</h2>
 
@@ -215,7 +305,7 @@ gltfLoader.cpp の依存先関係図:</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="gltfLoader_8cpp_a159d6e1d89d6eb6fed0f22f9985389c6_cgraph.svg" width="588" height="287"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="gltfLoader_8cpp_a159d6e1d89d6eb6fed0f22f9985389c6_cgraph.svg" width="100%" height="462"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>

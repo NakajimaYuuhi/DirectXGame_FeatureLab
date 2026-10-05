@@ -1,5 +1,7 @@
 var dir_b26507eead720464ba2ac6bbc6dcec5f =
 [
+    [ "AssetSecurityUI.cpp", "AssetSecurityUI_8cpp.html", null ],
+    [ "AssetSecurityUI.h", "AssetSecurityUI_8h.html", "AssetSecurityUI_8h" ],
     [ "ContentDrawerUI.cpp", "ContentDrawerUI_8cpp.html", null ],
     [ "ContentDrawerUI.h", "ContentDrawerUI_8h.html", "ContentDrawerUI_8h" ],
     [ "EditorRaycast.cpp", "EditorRaycast_8cpp.html", null ],

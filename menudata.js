@@ -172,6 +172,7 @@ var menudata={children:[
 {text:"u",url:"functions_func_u.html#index_u"},
 {text:"v",url:"functions_func_v.html#index_v"},
 {text:"w",url:"functions_func_w.html#index_w"},
+{text:"x",url:"functions_func_x.html#index_x"},
 {text:"~",url:"functions_func_~.html#index__7E"}]},
 {text:"変数",url:"functions_vars.html",children:[
 {text:"_",url:"functions_vars.html#index__5F"},
@@ -244,6 +245,7 @@ var menudata={children:[
 {text:"h",url:"globals_h.html#index_h"},
 {text:"i",url:"globals_i.html#index_i"},
 {text:"j",url:"globals_j.html#index_j"},
+{text:"k",url:"globals_k.html#index_k"},
 {text:"l",url:"globals_l.html#index_l"},
 {text:"m",url:"globals_m.html#index_m"},
 {text:"n",url:"globals_n.html#index_n"},
@@ -284,6 +286,7 @@ var menudata={children:[
 {text:"f",url:"globals_vars.html#index_f"},
 {text:"g",url:"globals_vars.html#index_g"},
 {text:"i",url:"globals_vars.html#index_i"},
+{text:"k",url:"globals_vars.html#index_k"},
 {text:"m",url:"globals_vars.html#index_m"},
 {text:"n",url:"globals_vars.html#index_n"},
 {text:"p",url:"globals_vars.html#index_p"},

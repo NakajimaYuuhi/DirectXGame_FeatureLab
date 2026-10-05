@@ -9,7 +9,8 @@ var searchData=
   ['animationsampler_6',['AnimationSampler',['../structtinygltf_1_1AnimationSampler.html',1,'tinygltf']]],
   ['animationsamplerdata_7',['AnimationSamplerData',['../structAnimationSamplerData.html',1,'']]],
   ['asset_8',['Asset',['../structtinygltf_1_1Asset.html',1,'tinygltf']]],
-  ['audio_9',['Audio',['../classAudio.html',1,'']]],
-  ['audioemitter_10',['AudioEmitter',['../structtinygltf_1_1AudioEmitter.html',1,'tinygltf']]],
-  ['audiosource_11',['AudioSource',['../structtinygltf_1_1AudioSource.html',1,'tinygltf']]]
+  ['assetfileheader_9',['AssetFileHeader',['../structAssetSecurity_1_1AssetFileHeader.html',1,'AssetSecurity']]],
+  ['audio_10',['Audio',['../classAudio.html',1,'']]],
+  ['audioemitter_11',['AudioEmitter',['../structtinygltf_1_1AudioEmitter.html',1,'tinygltf']]],
+  ['audiosource_12',['AudioSource',['../structtinygltf_1_1AudioSource.html',1,'tinygltf']]]
 ];

@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Resources/AssetHeader.h ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- æ§‹ç¯‰: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','æ¤œç´¢');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('AssetHeader_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">èª­ã¿å–ã‚Šä¸­â€¦</div>
+<div class="SRStatus" id="Searching">æ¤œç´¢ä¸­â€¦</div>
+<div class="SRStatus" id="NoMatches">ä¸€è‡´ã™ã‚‹æ–‡å­—åˆ—ã‚’è¦‹ã¤ã‘ã‚‰ã‚Œã¾ã›ã‚“</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">AssetHeader.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="AssetHeader_8h.html">[è©³è§£]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;cstring&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceAssetSecurity.html">AssetSecurity</a></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="comment">// ƒ}ƒWƒbƒNƒiƒ“ƒo[: &#39;A&#39;, &#39;G&#39;, &#39;Y&#39;, &#39;E&#39; (AntiGravity Encrypted)</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="namespaceAssetSecurity.html#a9c67591670709b6193348f96bf8dfcd2">    9</a></span>    <span class="keyword">constexpr</span> uint32_t <a class="code hl_variable" href="namespaceAssetSecurity.html#a9c67591670709b6193348f96bf8dfcd2">ASSET_MAGIC_ENCRYPTED</a> = 0x45594741;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="comment">// glTF Binary ƒ}ƒWƒbƒNƒiƒ“ƒo[: &#39;g&#39;, &#39;l&#39;, &#39;T&#39;, &#39;F&#39; (0x46546C67)</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="namespaceAssetSecurity.html#ab3f34276f9e361c25fb2b0a5e163b354">   11</a></span>    <span class="keyword">constexpr</span> uint32_t <a class="code hl_variable" href="namespaceAssetSecurity.html#ab3f34276f9e361c25fb2b0a5e163b354">GLTF_BINARY_MAGIC</a>    = 0x46546C67;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="comment">// “Æ©ƒ‚ƒfƒ‹ƒoƒCƒiƒŠ ƒ}ƒWƒbƒNƒiƒ“ƒo[: &#39;M&#39;, &#39;B&#39;, &#39;X&#39;, &#39;1&#39;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespaceAssetSecurity.html#a333d3dce913d63b38bf626d7bae36564">   13</a></span>    <span class="keyword">constexpr</span> uint32_t <a class="code hl_variable" href="namespaceAssetSecurity.html#a333d3dce913d63b38bf626d7bae36564">MBX_BINARY_MAGIC</a>     = 0x3158424D;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="namespaceAssetSecurity.html#ac519f0587a35e72b0b70075a982c3ef2">   15</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceAssetSecurity.html#ac519f0587a35e72b0b70075a982c3ef2">AssetCipherType</a> : uint16_t</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <a class="code hl_enumvalue" href="namespaceAssetSecurity.html#ac519f0587a35e72b0b70075a982c3ef2a6adf97f83acf6453d4a6a4b1070f3754">None</a> = 0,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <a class="code hl_enumvalue" href="namespaceAssetSecurity.html#ac519f0587a35e72b0b70075a982c3ef2a76feb79109026728a20736a8c6504548">Xor</a>  = 1,</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <a class="code hl_enumvalue" href="namespaceAssetSecurity.html#ac519f0587a35e72b0b70075a982c3ef2a35bf1ca462f3b760510ffa1dfc2e173c">Aes</a>  = 2</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    };</div>
+</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#pragma pack(push, 1)</span></div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="structAssetSecurity_1_1AssetFileHeader.html">   23</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structAssetSecurity_1_1AssetFileHeader.html">AssetFileHeader</a></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structAssetSecurity_1_1AssetFileHeader.html#ac6b2bec1196d7bb5dddcfd9fa6301f7a">   25</a></span>        uint32_t <a class="code hl_variable" href="structAssetSecurity_1_1AssetFileHeader.html#ac6b2bec1196d7bb5dddcfd9fa6301f7a">magic</a>;          <span class="comment">// ASSET_MAGIC_ENCRYPTED</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="structAssetSecurity_1_1AssetFileHeader.html#a86a4ba9ecabab1403088fb130c5c6fd6">   26</a></span>        uint16_t <a class="code hl_variable" href="structAssetSecurity_1_1AssetFileHeader.html#a86a4ba9ecabab1403088fb130c5c6fd6">version</a>;        <span class="comment">// ƒo[ƒWƒ‡ƒ“ (‰Šú’l: 1)</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structAssetSecurity_1_1AssetFileHeader.html#ab67787bd8bee271be67119623f51e77d">   27</a></span>        uint16_t <a class="code hl_variable" href="structAssetSecurity_1_1AssetFileHeader.html#ab67787bd8bee271be67119623f51e77d">cipherType</a>;     <span class="comment">// AssetCipherType</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="structAssetSecurity_1_1AssetFileHeader.html#a329c213cc21db53344be6750b7423509">   28</a></span>        uint64_t <a class="code hl_variable" href="structAssetSecurity_1_1AssetFileHeader.html#a329c213cc21db53344be6750b7423509">originalSize</a>;   <span class="comment">// •œ†Œã‚ÌŒ³ƒf[ƒ^ƒoƒCƒgƒTƒCƒY</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="structAssetSecurity_1_1AssetFileHeader.html#a00ede5fd171621d1537442e70587a72d">   29</a></span>        uint64_t <a class="code hl_variable" href="structAssetSecurity_1_1AssetFileHeader.html#a00ede5fd171621d1537442e70587a72d">encryptedSize</a>;  <span class="comment">// ˆÃ†‰»ƒf[ƒ^‚ÌƒoƒCƒgƒTƒCƒY</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structAssetSecurity_1_1AssetFileHeader.html#a6a9b94a73441a41396007415b53b542f">   30</a></span>        uint32_t <a class="code hl_variable" href="structAssetSecurity_1_1AssetFileHeader.html#a6a9b94a73441a41396007415b53b542f">checksum</a>;       <span class="comment">// ƒ`ƒFƒbƒNƒTƒ€</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structAssetSecurity_1_1AssetFileHeader.html#a2d08f72caa45a86bca74db86290c2359">   31</a></span>        uint8_t  <a class="code hl_variable" href="structAssetSecurity_1_1AssetFileHeader.html#a2d08f72caa45a86bca74db86290c2359">reserved</a>[8];    <span class="comment">// —\–ñ—Ìˆæ (ƒpƒfƒBƒ“ƒO)</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="}">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="structAssetSecurity_1_1AssetFileHeader.html#a1345dff9b1c080881aac5c7c982b7f1a">   33</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="structAssetSecurity_1_1AssetFileHeader.html#a1345dff9b1c080881aac5c7c982b7f1a">IsValid</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="structAssetSecurity_1_1AssetFileHeader.html#ac6b2bec1196d7bb5dddcfd9fa6301f7a">magic</a> == <a class="code hl_variable" href="namespaceAssetSecurity.html#a9c67591670709b6193348f96bf8dfcd2">ASSET_MAGIC_ENCRYPTED</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        }</div>
+</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    };</div>
+</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#pragma pack(pop)</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="comment">// ŠÈˆÕƒ`ƒFƒbƒNƒTƒ€ŒvZ (CRC32)</span></div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="}">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="namespaceAssetSecurity.html#abb77062d694585a86e11b23409e9a96b">   41</a></span>    <span class="keyword">inline</span> uint32_t <a class="code hl_function" href="namespaceAssetSecurity.html#abb77062d694585a86e11b23409e9a96b">ComputeChecksum</a>(<span class="keyword">const</span> uint8_t* data, <span class="keywordtype">size_t</span> size)</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        uint32_t crc = 0xFFFFFFFF;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; size; ++i)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            crc ^= data[i];</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; 8; ++k)</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                crc = (crc &gt;&gt; 1) ^ (0xEDB88320 &amp; (-(int32_t)(crc &amp; 1)));</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordflow">return</span> ~crc;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
+</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>}</div>
+<div class="ttc" id="anamespaceAssetSecurity_html"><div class="ttname"><a href="namespaceAssetSecurity.html">AssetSecurity</a></div><div class="ttdef"><b>Definition</b> AssetEncryptor.cpp:9</div></div>
+<div class="ttc" id="anamespaceAssetSecurity_html_a333d3dce913d63b38bf626d7bae36564"><div class="ttname"><a href="namespaceAssetSecurity.html#a333d3dce913d63b38bf626d7bae36564">AssetSecurity::MBX_BINARY_MAGIC</a></div><div class="ttdeci">constexpr uint32_t MBX_BINARY_MAGIC</div><div class="ttdef"><b>Definition</b> AssetHeader.h:13</div></div>
+<div class="ttc" id="anamespaceAssetSecurity_html_a9c67591670709b6193348f96bf8dfcd2"><div class="ttname"><a href="namespaceAssetSecurity.html#a9c67591670709b6193348f96bf8dfcd2">AssetSecurity::ASSET_MAGIC_ENCRYPTED</a></div><div class="ttdeci">constexpr uint32_t ASSET_MAGIC_ENCRYPTED</div><div class="ttdef"><b>Definition</b> AssetHeader.h:9</div></div>
+<div class="ttc" id="anamespaceAssetSecurity_html_ab3f34276f9e361c25fb2b0a5e163b354"><div class="ttname"><a href="namespaceAssetSecurity.html#ab3f34276f9e361c25fb2b0a5e163b354">AssetSecurity::GLTF_BINARY_MAGIC</a></div><div class="ttdeci">constexpr uint32_t GLTF_BINARY_MAGIC</div><div class="ttdef"><b>Definition</b> AssetHeader.h:11</div></div>
+<div class="ttc" id="anamespaceAssetSecurity_html_abb77062d694585a86e11b23409e9a96b"><div class="ttname"><a href="namespaceAssetSecurity.html#abb77062d694585a86e11b23409e9a96b">AssetSecurity::ComputeChecksum</a></div><div class="ttdeci">uint32_t ComputeChecksum(const uint8_t *data, size_t size)</div><div class="ttdef"><b>Definition</b> AssetHeader.h:41</div></div>
+<div class="ttc" id="anamespaceAssetSecurity_html_ac519f0587a35e72b0b70075a982c3ef2"><div class="ttname"><a href="namespaceAssetSecurity.html#ac519f0587a35e72b0b70075a982c3ef2">AssetSecurity::AssetCipherType</a></div><div class="ttdeci">AssetCipherType</div><div class="ttdef"><b>Definition</b> AssetHeader.h:16</div></div>
+<div class="ttc" id="anamespaceAssetSecurity_html_ac519f0587a35e72b0b70075a982c3ef2a35bf1ca462f3b760510ffa1dfc2e173c"><div class="ttname"><a href="namespaceAssetSecurity.html#ac519f0587a35e72b0b70075a982c3ef2a35bf1ca462f3b760510ffa1dfc2e173c">AssetSecurity::AssetCipherType::Aes</a></div><div class="ttdeci">@ Aes</div></div>
+<div class="ttc" id="anamespaceAssetSecurity_html_ac519f0587a35e72b0b70075a982c3ef2a6adf97f83acf6453d4a6a4b1070f3754"><div class="ttname"><a href="namespaceAssetSecurity.html#ac519f0587a35e72b0b70075a982c3ef2a6adf97f83acf6453d4a6a4b1070f3754">AssetSecurity::AssetCipherType::None</a></div><div class="ttdeci">@ None</div></div>
+<div class="ttc" id="anamespaceAssetSecurity_html_ac519f0587a35e72b0b70075a982c3ef2a76feb79109026728a20736a8c6504548"><div class="ttname"><a href="namespaceAssetSecurity.html#ac519f0587a35e72b0b70075a982c3ef2a76feb79109026728a20736a8c6504548">AssetSecurity::AssetCipherType::Xor</a></div><div class="ttdeci">@ Xor</div></div>
+<div class="ttc" id="astructAssetSecurity_1_1AssetFileHeader_html"><div class="ttname"><a href="structAssetSecurity_1_1AssetFileHeader.html">AssetSecurity::AssetFileHeader</a></div><div class="ttdef"><b>Definition</b> AssetHeader.h:24</div></div>
+<div class="ttc" id="astructAssetSecurity_1_1AssetFileHeader_html_a00ede5fd171621d1537442e70587a72d"><div class="ttname"><a href="structAssetSecurity_1_1AssetFileHeader.html#a00ede5fd171621d1537442e70587a72d">AssetSecurity::AssetFileHeader::encryptedSize</a></div><div class="ttdeci">uint64_t encryptedSize</div><div class="ttdef"><b>Definition</b> AssetHeader.h:29</div></div>
+<div class="ttc" id="astructAssetSecurity_1_1AssetFileHeader_html_a1345dff9b1c080881aac5c7c982b7f1a"><div class="ttname"><a href="structAssetSecurity_1_1AssetFileHeader.html#a1345dff9b1c080881aac5c7c982b7f1a">AssetSecurity::AssetFileHeader::IsValid</a></div><div class="ttdeci">bool IsValid() const</div><div class="ttdef"><b>Definition</b> AssetHeader.h:33</div></div>
+<div class="ttc" id="astructAssetSecurity_1_1AssetFileHeader_html_a2d08f72caa45a86bca74db86290c2359"><div class="ttname"><a href="structAssetSecurity_1_1AssetFileHeader.html#a2d08f72caa45a86bca74db86290c2359">AssetSecurity::AssetFileHeader::reserved</a></div><div class="ttdeci">uint8_t reserved[8]</div><div class="ttdef"><b>Definition</b> AssetHeader.h:31</div></div>
+<div class="ttc" id="astructAssetSecurity_1_1AssetFileHeader_html_a329c213cc21db53344be6750b7423509"><div class="ttname"><a href="structAssetSecurity_1_1AssetFileHeader.html#a329c213cc21db53344be6750b7423509">AssetSecurity::AssetFileHeader::originalSize</a></div><div class="ttdeci">uint64_t originalSize</div><div class="ttdef"><b>Definition</b> AssetHeader.h:28</div></div>
+<div class="ttc" id="astructAssetSecurity_1_1AssetFileHeader_html_a6a9b94a73441a41396007415b53b542f"><div class="ttname"><a href="structAssetSecurity_1_1AssetFileHeader.html#a6a9b94a73441a41396007415b53b542f">AssetSecurity::AssetFileHeader::checksum</a></div><div class="ttdeci">uint32_t checksum</div><div class="ttdef"><b>Definition</b> AssetHeader.h:30</div></div>
+<div class="ttc" id="astructAssetSecurity_1_1AssetFileHeader_html_a86a4ba9ecabab1403088fb130c5c6fd6"><div class="ttname"><a href="structAssetSecurity_1_1AssetFileHeader.html#a86a4ba9ecabab1403088fb130c5c6fd6">AssetSecurity::AssetFileHeader::version</a></div><div class="ttdeci">uint16_t version</div><div class="ttdef"><b>Definition</b> AssetHeader.h:26</div></div>
+<div class="ttc" id="astructAssetSecurity_1_1AssetFileHeader_html_ab67787bd8bee271be67119623f51e77d"><div class="ttname"><a href="structAssetSecurity_1_1AssetFileHeader.html#ab67787bd8bee271be67119623f51e77d">AssetSecurity::AssetFileHeader::cipherType</a></div><div class="ttdeci">uint16_t cipherType</div><div class="ttdef"><b>Definition</b> AssetHeader.h:27</div></div>
+<div class="ttc" id="astructAssetSecurity_1_1AssetFileHeader_html_ac6b2bec1196d7bb5dddcfd9fa6301f7a"><div class="ttname"><a href="structAssetSecurity_1_1AssetFileHeader.html#ac6b2bec1196d7bb5dddcfd9fa6301f7a">AssetSecurity::AssetFileHeader::magic</a></div><div class="ttdeci">uint32_t magic</div><div class="ttdef"><b>Definition</b> AssetHeader.h:25</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_33653ba12167a1fe8548138e0d08f67a.html">Resources</a></li><li class="navelem"><a class="el" href="AssetHeader_8h.html">AssetHeader.h</a></li>
+    <li class="footer">æ§‹ç¯‰: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

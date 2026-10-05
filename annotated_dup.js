@@ -1,5 +1,8 @@
 var annotated_dup =
 [
+    [ "AssetSecurity", "namespaceAssetSecurity.html", [
+      [ "AssetFileHeader", "structAssetSecurity_1_1AssetFileHeader.html", "structAssetSecurity_1_1AssetFileHeader" ]
+    ] ],
     [ "nlohmann", "namespacenlohmann.html", [
       [ "detail", "namespacenlohmann_1_1detail.html", [
         [ "container_input_adapter_factory_impl", "namespacenlohmann_1_1detail_1_1container__input__adapter__factory__impl.html", [
@@ -202,6 +205,7 @@ var annotated_dup =
     [ "ButtonComponent", "classButtonComponent.html", "classButtonComponent" ],
     [ "ButtonEventManager", "classButtonEventManager.html", "classButtonEventManager" ],
     [ "CameraComponent", "classCameraComponent.html", "classCameraComponent" ],
+    [ "CAssetSecurityUI", "classCAssetSecurityUI.html", "classCAssetSecurityUI" ],
     [ "CBone", "classCBone.html", "classCBone" ],
     [ "CComponent", "classCComponent.html", "classCComponent" ],
     [ "CContentDrawerUI", "classCContentDrawerUI.html", "classCContentDrawerUI" ],
@@ -260,8 +264,10 @@ var annotated_dup =
     [ "ExampleTreeNode", "structExampleTreeNode.html", "structExampleTreeNode" ],
     [ "FieldComponent", "classFieldComponent.html", "classFieldComponent" ],
     [ "ForwardRenderPass", "classForwardRenderPass.html", "classForwardRenderPass" ],
+    [ "GltfModelLoader", "classGltfModelLoader.html", "classGltfModelLoader" ],
     [ "GravityComponent", "classGravityComponent.html", "classGravityComponent" ],
     [ "HealthComponent", "classHealthComponent.html", "classHealthComponent" ],
+    [ "IAssetDecryptor", "classIAssetDecryptor.html", "classIAssetDecryptor" ],
     [ "ImBitArray", "structImBitArray.html", "structImBitArray" ],
     [ "ImBitVector", "structImBitVector.html", "structImBitVector" ],
     [ "ImChunkStream", "structImChunkStream.html", "structImChunkStream" ],
@@ -388,6 +394,7 @@ var annotated_dup =
     [ "ImGuiWindowStackData", "structImGuiWindowStackData.html", "structImGuiWindowStackData" ],
     [ "ImGuiWindowTempData", "structImGuiWindowTempData.html", "structImGuiWindowTempData" ],
     [ "ImNewWrapper", "structImNewWrapper.html", null ],
+    [ "IModelLoader", "classIModelLoader.html", "classIModelLoader" ],
     [ "ImPool", "structImPool.html", "structImPool" ],
     [ "ImRect", "structImRect.html", "structImRect" ],
     [ "ImSpan", "structImSpan.html", "structImSpan" ],
@@ -431,6 +438,7 @@ var annotated_dup =
     [ "ProfileScope", "classProfileScope.html", "classProfileScope" ],
     [ "PSOBuilder", "classPSOBuilder.html", "classPSOBuilder" ],
     [ "PSOManager", "classPSOManager.html", "classPSOManager" ],
+    [ "RawDecryptor", "classRawDecryptor.html", "classRawDecryptor" ],
     [ "Ray", "structRay.html", "structRay" ],
     [ "RenderContext", "structRenderContext.html", "structRenderContext" ],
     [ "RenderPipeline", "classRenderPipeline.html", "classRenderPipeline" ],
@@ -477,5 +485,6 @@ var annotated_dup =
     [ "TweenManager", "classTweenManager.html", "classTweenManager" ],
     [ "UndoManager", "classUndoManager.html", "classUndoManager" ],
     [ "UVAnimationComponent", "classUVAnimationComponent.html", "classUVAnimationComponent" ],
-    [ "VERTEX_CONSTANT_BUFFER_DX12", "structVERTEX__CONSTANT__BUFFER__DX12.html", "structVERTEX__CONSTANT__BUFFER__DX12" ]
+    [ "VERTEX_CONSTANT_BUFFER_DX12", "structVERTEX__CONSTANT__BUFFER__DX12.html", "structVERTEX__CONSTANT__BUFFER__DX12" ],
+    [ "XorDecryptor", "classXorDecryptor.html", "classXorDecryptor" ]
 ];
