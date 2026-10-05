@@ -29,7 +29,7 @@ var searchData=
   ['_7ecspriterenderer_26',['~CSpriteRenderer',['../classCSpriteRenderer.html#ae73fe4f681ccbf416a89b1731c683198',1,'CSpriteRenderer']]],
   ['_7ectextrenderer_27',['~CTextRenderer',['../classCTextRenderer.html#a80453a9177f117136a44591d36c02bf4',1,'CTextRenderer']]],
   ['_7ectexture_28',['~CTexture',['../classCTexture.html#af240c8e09cc7cd641e2463e4e1c76e00',1,'CTexture']]],
-  ['_7ectransform_29',['~CTransform',['../classCTransform.html#a33fc62cfa0c6e4b395a5cea72e88c4ab',1,'CTransform']]],
+  ['_7ectransform_29',['~CTransform',['../classCTransform.html#a90d72f6ed0c3b0e5401365ba6fe2bdc5',1,'CTransform']]],
   ['_7ed2dtextrenderer_30',['~D2DTextRenderer',['../classD2DTextRenderer.html#adc604585e125573aac2e21b31d255613',1,'D2DTextRenderer']]],
   ['_7edx12manager_31',['~DX12Manager',['../classDX12Manager.html#a679221c7da04cdae9da17b22297008b7',1,'DX12Manager']]],
   ['_7eenemyaicomponent_32',['~EnemyAIComponent',['../classEnemyAIComponent.html#abf2803dbd16a205faa9b1b28ac935180',1,'EnemyAIComponent']]],
