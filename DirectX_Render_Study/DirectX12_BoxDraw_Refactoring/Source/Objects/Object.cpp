@@ -3,6 +3,7 @@
 #include "Transform.h"
 #include "Component.h"
 #include "TimeManager.h"
+#include "Source/UI/RectTransform.h"
 
 CObject::CObject()
 	: isValid(true)
@@ -154,4 +155,15 @@ void CObject::SetName(String _ObjectName)
 	{
 		objectInfo->SetObjectName(_ObjectName);
 	}
+}
+
+String CObject::GetName() const
+{
+	const CObjectInfo* objectInfo = const_cast<CObject*>(this)->GetComponent<CObjectInfo>();
+	return objectInfo ? objectInfo->GetObjectName() : "";
+}
+
+CRectTransform* CObject::GetRectTransform()
+{
+	return GetComponent<CRectTransform>();
 }

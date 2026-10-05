@@ -1,9 +1,11 @@
-#include "SpriteRenderer.h"
+﻿#include "SpriteRenderer.h"
 #include "Object.h"
 #include "Transform.h"
 #include "DX12Manager.h"
 #include "PSOManager.h"
 #include "TextureManager.h"
+#include "RectTransform.h"
+#include "Source/Util/TweenManager.h"
 
 CSpriteRenderer::CSpriteRenderer() : CComponent("SpriteRenderer")
 {
@@ -13,6 +15,7 @@ CSpriteRenderer::CSpriteRenderer() : CComponent("SpriteRenderer")
 
 CSpriteRenderer::~CSpriteRenderer()
 {
+    KillTweens();
 }
 
 void CSpriteRenderer::Init()
@@ -127,9 +130,16 @@ void CSpriteRenderer::Draw()
     // Origin is Top-Left (0,0), Screen Size (1920, 1080)
     DirectX::XMMATRIX proj = DirectX::XMMatrixOrthographicOffCenterLH(0.0f, 1920.0f, 1080.0f, 0.0f, 0.0f, 1.0f);
     
-    DirectX::XMFLOAT3 pos = transform->GetPos();
-    // Since UI usually ignores rotation/scale from 3D transform, we just translate and scale by m_size
-    DirectX::XMMATRIX world = DirectX::XMMatrixScaling(m_size.x, m_size.y, 1.0f) * DirectX::XMMatrixTranslation(pos.x, pos.y, 0.0f);
+    DirectX::XMMATRIX world = DirectX::XMMatrixIdentity();
+    if (CRectTransform* rectTransform = m_Owner->GetComponent<CRectTransform>())
+    {
+        world = rectTransform->GetWorldMatrix();
+    }
+    else
+    {
+        DirectX::XMFLOAT3 pos = transform->GetPos();
+        world = DirectX::XMMatrixScaling(m_size.x, m_size.y, 1.0f) * DirectX::XMMatrixTranslation(pos.x, pos.y, 0.0f);
+    }
     
     DirectX::XMMATRIX wvp = world * proj;
     DirectX::XMMATRIX wvpTranspose = DirectX::XMMatrixTranspose(wvp); // HLSL expects transposed or use column_major
@@ -153,3 +163,29 @@ void CSpriteRenderer::Draw()
 
 
 
+
+// -------------------------------------------------------------
+// Tween Animation Shortcuts
+// -------------------------------------------------------------
+CTween* CSpriteRenderer::DOFade(float targetAlpha, float duration)
+{
+    return Tween::To<float>(
+        [this]() { return m_color.w; },
+        [this](float val) { m_color.w = val; },
+        targetAlpha, duration, this
+    );
+}
+
+CTween* CSpriteRenderer::DOColor(const DirectX::XMFLOAT4& targetColor, float duration)
+{
+    return Tween::To<DirectX::XMFLOAT4>(
+        [this]() { return m_color; },
+        [this](const DirectX::XMFLOAT4& val) { m_color = val; },
+        targetColor, duration, this
+    );
+}
+
+void CSpriteRenderer::KillTweens()
+{
+    Tween::Kill(this);
+}

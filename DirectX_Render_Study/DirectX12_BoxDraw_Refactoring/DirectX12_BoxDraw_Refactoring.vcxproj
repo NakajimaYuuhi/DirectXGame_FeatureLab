@@ -218,6 +218,7 @@
     <ClCompile Include="Source\Resources\Texture.cpp" />
     <ClCompile Include="Source\Rendering\TextureManager.cpp" />
     <ClCompile Include="Source\UI\SpriteRenderer.cpp" />
+    <ClCompile Include="Source\UI\RectTransform.cpp" />
     <ClCompile Include="Source\Editor\InspectorUI.cpp" />
     <ClCompile Include="Source\Editor\EditorToolbarUI.cpp" />
     <ClCompile Include="Source\Editor\HierarchyUI.cpp" />
@@ -225,6 +226,7 @@
     <ClCompile Include="Source\Editor\AssetSecurityUI.cpp" />
     <ClCompile Include="Source\Editor\ProfilerUI.cpp" />
     <ClCompile Include="Source\Util\Profiler.cpp" />
+    <ClCompile Include="Source\Util\TweenManager.cpp" />
     <ClCompile Include="Source\Core\PrefabSerializer.cpp" />
     <ClCompile Include="Source\Editor\EditorRaycast.cpp" />
     <ClCompile Include="Source\Editor\UndoManager.cpp" />
@@ -342,6 +344,7 @@
     <ClInclude Include="Source\External\tinygltf_json.h" />
     <ClInclude Include="Source\External\tiny_gltf.h" />
     <ClInclude Include="Source\UI\SpriteRenderer.h" />
+    <ClInclude Include="Source\UI\RectTransform.h" />
     <ClInclude Include="Source\Editor\InspectorUI.h" />
     <ClInclude Include="Source\Editor\EditorToolbarUI.h" />
     <ClInclude Include="Source\Editor\HierarchyUI.h" />
@@ -349,6 +352,9 @@
     <ClInclude Include="Source\Editor\AssetSecurityUI.h" />
     <ClInclude Include="Source\Editor\ProfilerUI.h" />
     <ClInclude Include="Source\Util\Profiler.h" />
+    <ClInclude Include="Source\Util\Ease.h" />
+    <ClInclude Include="Source\Util\Tween.h" />
+    <ClInclude Include="Source\Util\TweenManager.h" />
     <ClInclude Include="Source\Core\PrefabSerializer.h" />
     <ClInclude Include="Source\Core\Scenes\Serializer\SceneSerializer.h" />
         <ClInclude Include="Source\Engine\Component\Transform.h" />

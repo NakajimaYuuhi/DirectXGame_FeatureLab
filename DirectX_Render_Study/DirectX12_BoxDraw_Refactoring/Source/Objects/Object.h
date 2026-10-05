@@ -15,6 +15,7 @@ using String = std::string;
 #include "Component.h"
 #include "Transform.h"
 #include "ObjectInfo.h"
+class CRectTransform;
 
 class CObject
 {
@@ -64,6 +65,7 @@ public:
 	}
 
 	CTransform* GetTransform() { return GetComponent<CTransform>(); }
+	CRectTransform* GetRectTransform();
 
 	template<class T>
 	Vector<T*> GetComponentsOfType()
@@ -145,4 +147,5 @@ public:
 	void SetIsDestroyed(bool _IsDestroyed) { IsDestroyed = _IsDestroyed; }
 
 	void SetName(String _ObjectName);
+	String GetName() const;
 };
