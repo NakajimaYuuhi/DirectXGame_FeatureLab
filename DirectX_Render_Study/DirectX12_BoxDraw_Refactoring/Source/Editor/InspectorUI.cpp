@@ -1,4 +1,4 @@
-﻿#include "InspectorUI.h"
+#include "InspectorUI.h"
 #include "EditorRaycast.h"
 #include "UndoManager.h"
 #include <d3d12.h>
@@ -562,7 +562,7 @@ void CInspectorUI::Draw()
                     ImGui::OpenPopup("Save Object as Prefab");
                 }
 
-                if (ImGui::BeginPopupModal("Save Object as Prefab", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+                if (ImGui::BeginPopup("Save Object as Prefab", ImGuiWindowFlags_AlwaysAutoResize))
                 {
                     static char prefabPathBuf[256] = "";
                     if (prefabPathBuf[0] == '\0')
