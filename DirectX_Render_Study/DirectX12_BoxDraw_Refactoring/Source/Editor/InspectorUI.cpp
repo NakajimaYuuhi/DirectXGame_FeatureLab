@@ -39,6 +39,7 @@
 #include "FieldComponent.h"
 #include "CollisionLayers.h"
 #include "RenderLayer.h"
+#include "LightManager.h"
 #include <typeinfo>
 #include <windows.h>
 #include <vector>
@@ -412,6 +413,56 @@ void CInspectorUI::Draw()
             ImGui::ProgressBar(hpFraction, ImVec2(-1.0f, 0.0f));
             ImGui::Separator();
         }
+    }
+
+    // 4.5 Lighting & Environment (Directional Light / Ambient)
+    if (ImGui::CollapsingHeader("Lighting & Environment", ImGuiTreeNodeFlags_DefaultOpen))
+    {
+        auto& lightMgr = LightManager::GetInstance();
+        auto& dirLight = lightMgr.GetDirectionalLight();
+
+        float pitch = lightMgr.GetPitch();
+        float yaw = lightMgr.GetYaw();
+        bool angleChanged = false;
+
+        ImGui::Text("Directional Light (Sun)");
+        if (ImGui::SliderFloat("Sun Pitch", &pitch, -90.0f, 90.0f, "%.1f deg")) angleChanged = true;
+        if (ImGui::SliderFloat("Sun Yaw", &yaw, -180.0f, 180.0f, "%.1f deg")) angleChanged = true;
+        if (angleChanged)
+        {
+            lightMgr.SetAngles(pitch, yaw);
+        }
+
+        ImGui::TextDisabled("Light Dir: (%.2f, %.2f, %.2f)", dirLight.direction.x, dirLight.direction.y, dirLight.direction.z);
+
+        float lightColor[3] = { dirLight.color.x, dirLight.color.y, dirLight.color.z };
+        if (ImGui::ColorEdit3("Light Color", lightColor))
+        {
+            dirLight.color.x = lightColor[0];
+            dirLight.color.y = lightColor[1];
+            dirLight.color.z = lightColor[2];
+        }
+
+        float intensity = dirLight.direction.w;
+        if (ImGui::SliderFloat("Light Intensity", &intensity, 0.0f, 4.0f, "%.2f"))
+        {
+            dirLight.direction.w = intensity;
+        }
+
+        float ambientColor[3] = { dirLight.ambient.x, dirLight.ambient.y, dirLight.ambient.z };
+        if (ImGui::ColorEdit3("Ambient Color", ambientColor))
+        {
+            dirLight.ambient.x = ambientColor[0];
+            dirLight.ambient.y = ambientColor[1];
+            dirLight.ambient.z = ambientColor[2];
+        }
+
+        float specPower = dirLight.ambient.w;
+        if (ImGui::SliderFloat("Specular Power", &specPower, 1.0f, 128.0f, "%.1f"))
+        {
+            dirLight.ambient.w = specPower;
+        }
+        ImGui::Separator();
     }
 
     // 5. Hierarchy (Object List)

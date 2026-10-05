@@ -1,4 +1,4 @@
-#include "PSOBuilder.h"
+﻿#include "PSOBuilder.h"
 #include "ShaderManager.h"
 #include "PSOManager.h"
 #include "DX12Manager.h"
@@ -9,8 +9,7 @@ void PSOManager::Init(ID3D12Device* device)
 {
     // ===== ????? =====
 
-	// --?G???[?n???h?????O?p
-    HRESULT hr;                 // DirectX??A
+    // --エラーハンドリング用
 
     // --?V?F?[?_??A
     // ???b?V???p
@@ -23,10 +22,10 @@ void PSOManager::Init(ID3D12Device* device)
     //  2. ???[?g?V?O?l?`????
     // =========================================================
 
-    // ----- ???b?V???p???[?g?V?O?l?`?? -----
+    // ----- メッシュ用ルートシグネチャ -----
     {
         RootSignatureBuilder rsBuilder;
-        rsBuilder.AddConstants(20, 0, 0, D3D12_SHADER_VISIBILITY_VERTEX); // WVP + uvOffset + uvScale
+        rsBuilder.AddConstants(52, 0, 0, D3D12_SHADER_VISIBILITY_ALL); // WVP + World + UV + CameraPos + LightDir + LightColor + Ambient
         rsBuilder.AddDescriptorTable(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 0, 0, D3D12_SHADER_VISIBILITY_PIXEL); // Texture
         rsBuilder.AddDescriptorTable(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 1, 0, D3D12_SHADER_VISIBILITY_VERTEX); // Bone
 

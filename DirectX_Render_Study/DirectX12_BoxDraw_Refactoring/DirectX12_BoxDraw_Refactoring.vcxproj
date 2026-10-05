@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -173,6 +173,7 @@
     <ClCompile Include="Source\Rendering\PostProcessPass.cpp" />
     <ClCompile Include="Source\Rendering\RenderPipeline.cpp" />
     <ClCompile Include="Source\Rendering\RenderTexture.cpp" />
+    <ClCompile Include="Source\Rendering\LightManager.cpp" />
         <ClCompile Include="Source\UI\TextRenderer.cpp" />
         <ClCompile Include="Source\Resources\Bone.cpp" />
     <ClCompile Include="Source\Engine\Component\BoxCollider3D.cpp" />
@@ -271,6 +272,7 @@
     <ClInclude Include="Source\Rendering\RenderContext.h" />
     <ClInclude Include="Source\Rendering\RenderPipeline.h" />
     <ClInclude Include="Source\Rendering\RenderTexture.h" />
+    <ClInclude Include="Source\Rendering\LightManager.h" />
     <ClInclude Include="resource.h" />
         <ClInclude Include="Source\UI\TextRenderer.h" />
         <ClInclude Include="Source\Resources\Bone.h" />
