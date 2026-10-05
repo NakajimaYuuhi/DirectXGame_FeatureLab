@@ -30,7 +30,7 @@ SceneTitle::~SceneTitle() = default;
 
 void SceneTitle::Init()
 {
-    CInspectorUI::GetInstance().SetEditMode(false);
+    CInspectorUI::GetInstance().SetEditMode(true);
     ButtonEventManager::GetInstance();
 
     if (!SceneSerializer::LoadSceneOrDefault("Assets/Scene/SceneTitle.json", Scenes::ID::TITLE))

@@ -53,7 +53,7 @@ bool CImGuiManager::Initialize(HWND hwnd)
     ImGui::CreateContext();         //?R???e?L?X?g(?O???[?o??????)??
     ImGuiIO& io = ImGui::GetIO();   //???o?????????iImGuiIO?j??G??????ï
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+    // io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad; // Disabled to prevent controller input hijack      // Enable Gamepad Controls
     //io.Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\msgothic.ttc", 20.0f, nullptr, io.Fonts->GetGlyphRangesJapanese());
     //io.Fonts->Build();
 

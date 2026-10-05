@@ -353,6 +353,8 @@ void DX12Manager::Finalize()
 {
 	m_srvAllocator.Destroy();
 	D2DTextRenderer::GetInstance().Finalize();
+	m_commandAllocator.Reset();
+	m_uiCommandAllocator.Reset();
 	m_commandQueue.Reset();
 	m_device.Reset();
 	m_factory.Reset();
@@ -422,8 +424,8 @@ void DX12Manager::BeginDraw()
 
 
 	// ???????U?A????R?}???h???X?g?????????I??N???A?????
-	//m_commandAllocator->Reset();
-	//m_commandList->Reset(m_commandAllocator.Get(), nullptr);
+	m_uiCommandAllocator->Reset();
+	m_commandList->Reset(m_uiCommandAllocator.Get(), nullptr);
 
 	//???????Z?b?g
 	ResetIsOccluded();
@@ -432,8 +434,8 @@ void DX12Manager::BeginDraw()
 	m_frameIndex = m_swapChain->GetCurrentBackBufferIndex();
 
 	// 2. ???Z?b?g
-	m_commandAllocator->Reset();
-	m_commandList->Reset(m_commandAllocator.Get(), nullptr);
+	m_uiCommandAllocator->Reset();
+	m_commandList->Reset(m_uiCommandAllocator.Get(), nullptr);
 
 
 	// 3. PRESENT ?? RENDER_TARGET ??J??
@@ -519,8 +521,8 @@ void DX12Manager::EndSceneDraw()
 	}
 
 	// 3. ImGui 描画用にコマンドアロケータ・リストを再開
-	m_commandAllocator->Reset();
-	m_commandList->Reset(m_commandAllocator.Get(), nullptr);
+	m_uiCommandAllocator->Reset();
+	m_commandList->Reset(m_uiCommandAllocator.Get(), nullptr);
 
 	// D2DTextRenderer::Render は内部で ReleaseWrappedResources 時に PRESENT 状態に遷移させているため、
 	// ImGui 描画のために RENDER_TARGET 状態へ戻す
@@ -582,10 +584,16 @@ void DX12Manager::EndDraw()
 void DX12Manager::CreateCommandObjects()
 {
 
-	//?R?}???h?A???P?[?^?[??
+	// ?V?[???`??p?R?}???h?A???P?[?^?[??
 	m_device->CreateCommandAllocator(
 		D3D12_COMMAND_LIST_TYPE_DIRECT,
 		IID_PPV_ARGS(&m_commandAllocator)
+	);
+
+	// UI / ImGui??`??p?R?}???h?A???P?[?^?[??
+	m_device->CreateCommandAllocator(
+		D3D12_COMMAND_LIST_TYPE_DIRECT,
+		IID_PPV_ARGS(&m_uiCommandAllocator)
 	);
 
 	//?R?}???h???X?g??
@@ -624,8 +632,8 @@ void DX12Manager::ResizeRenderTarget(LPARAM lParam)
 	HRESULT result = m_swapChain->ResizeBuffers(0, (UINT)LOWORD(lParam), (UINT)HIWORD(lParam), desc.Format, desc.Flags);   //?o?b?t?@?[????T?C?Y
 	IM_ASSERT(SUCCEEDED(result) && "Failed to resize swapchain.");
 
-	//m_commandAllocator->Reset();
-	//m_commandList->Reset(m_commandAllocator.Get(), nullptr);
+	m_uiCommandAllocator->Reset();
+	m_commandList->Reset(m_uiCommandAllocator.Get(), nullptr);
 
 	CreateRenderTarget();
 

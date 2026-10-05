@@ -194,6 +194,13 @@ void CEditorToolbarUI::Draw()
         {
             CAssetSecurityUI::GetInstance().ToggleVisible();
         }
+
+        // デバッグ入力モニター（マウス座標・クリック・キャプチャ判定）
+        ImGui::SameLine();
+        ImGui::Text("|");
+        ImGui::SameLine();
+        ImGuiIO& io = ImGui::GetIO();
+        ImGui::TextColored(ImVec4(0.4f, 0.8f, 1.0f, 1.0f), "Mouse:(%.0f,%.0f) Down:%d WantCap:%d", io.MousePos.x, io.MousePos.y, io.MouseDown[0] ? 1 : 0, io.WantCaptureMouse ? 1 : 0);
     }
     ImGui::End();
 }

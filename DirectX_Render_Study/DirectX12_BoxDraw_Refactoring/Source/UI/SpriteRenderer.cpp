@@ -74,13 +74,25 @@ void CSpriteRenderer::CreateBuffers()
     resDesc.Layout = D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
     resDesc.Flags = D3D12_RESOURCE_FLAG_NONE;
 
-    device->CreateCommittedResource(
+    HRESULT hr = device->CreateCommittedResource(
         &heapProp, D3D12_HEAP_FLAG_NONE, &resDesc,
         D3D12_RESOURCE_STATE_GENERIC_READ, nullptr,
         IID_PPV_ARGS(&m_vertexBuffer));
 
+    if (FAILED(hr) || !m_vertexBuffer)
+    {
+        OutputDebugStringA("[CSpriteRenderer] Error: Failed to CreateCommittedResource for VertexBuffer!\n");
+        return;
+    }
+
     void* mappedData = nullptr;
-    m_vertexBuffer->Map(0, nullptr, &mappedData);
+    hr = m_vertexBuffer->Map(0, nullptr, &mappedData);
+    if (FAILED(hr) || !mappedData)
+    {
+        OutputDebugStringA("[CSpriteRenderer] Error: Failed to Map VertexBuffer!\n");
+        m_vertexBuffer.Reset();
+        return;
+    }
     memcpy(mappedData, vertices, vertexBufferSize);
     m_vertexBuffer->Unmap(0, nullptr);
 
@@ -92,12 +104,24 @@ void CSpriteRenderer::CreateBuffers()
     UINT indexBufferSize = sizeof(indices);
     resDesc.Width = indexBufferSize;
 
-    device->CreateCommittedResource(
+    hr = device->CreateCommittedResource(
         &heapProp, D3D12_HEAP_FLAG_NONE, &resDesc,
         D3D12_RESOURCE_STATE_GENERIC_READ, nullptr,
         IID_PPV_ARGS(&m_indexBuffer));
 
-    m_indexBuffer->Map(0, nullptr, &mappedData);
+    if (FAILED(hr) || !m_indexBuffer)
+    {
+        OutputDebugStringA("[CSpriteRenderer] Error: Failed to CreateCommittedResource for IndexBuffer!\n");
+        return;
+    }
+
+    hr = m_indexBuffer->Map(0, nullptr, &mappedData);
+    if (FAILED(hr) || !mappedData)
+    {
+        OutputDebugStringA("[CSpriteRenderer] Error: Failed to Map IndexBuffer!\n");
+        m_indexBuffer.Reset();
+        return;
+    }
     memcpy(mappedData, indices, indexBufferSize);
     m_indexBuffer->Unmap(0, nullptr);
 

@@ -152,21 +152,33 @@ void CMesh::Update()
 
 void CMesh::Draw(CTransform* transform, CMaterial* material, BlendMode blendMode)
 {
-    // --コマンドリスチE
+    if (!transform || !material)
+    {
+        return;
+    }
+
+    if (!m_vertexBuffer || !m_indexBuffer || m_Indices.empty())
+    {
+        return;
+    }
+
     ID3D12GraphicsCommandList* commandList = DX12Manager::GetInstance().GetCommandList();
+    if (!commandList) return;
 
+    // SRVディスクリプタヒープを確実にセット
+    ID3D12DescriptorHeap* srvHeap = DX12Manager::GetInstance().GetSRVHeap();
+    if (srvHeap)
+    {
+        ID3D12DescriptorHeap* heaps[] = { srvHeap };
+        commandList->SetDescriptorHeaps(1, heaps);
+    }
 
-    // --行?E取征E
+    // 行列計算
     DirectX::XMMATRIX world = transform->GetWorld();
     DirectX::XMMATRIX view = DX12Manager::GetInstance().GetView();
     DirectX::XMMATRIX proj = DX12Manager::GetInstance().GetProj();
-
-
-    // --掛け?E
     DirectX::XMMATRIX wvp = world * view * proj;
 
-    // --定数バッファ用のチE?EタにセチE??する
-    
     ID3D12PipelineState* pso = PSOManager::GetInstance().GetPSO(material, PSOManager::GetInstance().GetMeshRootSignature());
     if (pso) 
     { 
@@ -174,53 +186,38 @@ void CMesh::Draw(CTransform* transform, CMaterial* material, BlendMode blendMode
     }
     else
     {
-        // ?擾?E?R???p?C??????s????????A???S?????f?t?H???g??PSO??g?p????
         commandList->SetPipelineState(PSOManager::GetInstance().GetMeshPSO());
     }
     
     commandList->SetGraphicsRootSignature(PSOManager::GetInstance().GetMeshRootSignature());
 
-    //SRVチEEチEEセチE  
-    //ID3D12DescriptorHeap* heaps[] = { CDX12Manager::GetInstance().GetSRVHeap() };
-
-    //commandList->SetDescriptorHeaps(1, heaps);
-
-    commandList->SetGraphicsRootDescriptorTable(2, m_BoneSrvGpuHandle);
-
-
+    // Root Parameter 0: 32bit Constants (WVP + uvOffset + uvScale)
     struct RootConstantsData {
         DirectX::XMMATRIX wvp;
         DirectX::XMFLOAT2 uvOffset;
         DirectX::XMFLOAT2 uvScale;
     };
-    
     RootConstantsData rcData;
     rcData.wvp = XMMatrixTranspose(wvp);
     rcData.uvOffset = transform->GetUVOffset();
     rcData.uvScale = transform->GetUVScale();
 
-    commandList->SetGraphicsRoot32BitConstants(
-        0,
-        20,
-        &rcData,
-        0
-    );
+    commandList->SetGraphicsRoot32BitConstants(0, 20, &rcData, 0);
 
-    commandList->SetGraphicsRootDescriptorTable(
-        1,
-        material->GetGpuHandle()
-    );
-
-
-
-    commandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-
-    //インチE  クス用に変更
-    if (!m_vertexBuffer || !m_indexBuffer || m_Indices.empty())
+    // Root Parameter 1: Material Texture Descriptor Table
+    D3D12_GPU_DESCRIPTOR_HANDLE matHandle = material->GetGpuHandle();
+    if (matHandle.ptr != 0)
     {
-        return;
+        commandList->SetGraphicsRootDescriptorTable(1, matHandle);
     }
 
+    // Root Parameter 2: Bone SRV Descriptor Table
+    if (m_BoneSrvGpuHandle.ptr != 0)
+    {
+        commandList->SetGraphicsRootDescriptorTable(2, m_BoneSrvGpuHandle);
+    }
+
+    commandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
     commandList->IASetVertexBuffers(0, 1, &m_vertexBufferView);
     commandList->IASetIndexBuffer(&m_indexBufferView);
     commandList->DrawIndexedInstanced(static_cast<UINT>(m_Indices.size()), 1, 0, 0, 0);
