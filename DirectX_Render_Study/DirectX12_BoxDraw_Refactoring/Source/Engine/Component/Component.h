@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "RenderLayer.h"
 
 using String = std::string;
 
@@ -37,6 +38,9 @@ public:
 
     // Execution phase priority (default is Movement)
     virtual UpdatePhase GetUpdatePhase() const { return UpdatePhase::Movement; }
+
+    // Render layer category (default is Opaque)
+    virtual RenderLayer GetRenderLayer() const { return RenderLayer::Opaque; }
 
     // Enable / Disable management
     bool IsEnabled() const { return m_enabled && m_ComponentIsValid; }

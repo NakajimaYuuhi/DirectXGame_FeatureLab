@@ -29,6 +29,7 @@ public:
 	virtual void Update();
 	virtual void LateUpdate();
 	virtual void Draw();
+	void DrawByLayer(RenderLayer layer);
 
 	virtual void OnCollision(CObject* _Other);
 

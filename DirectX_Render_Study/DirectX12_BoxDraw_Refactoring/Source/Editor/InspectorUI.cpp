@@ -779,7 +779,7 @@ void CInspectorUI::Draw()
                             sprite->SetColor({ colorArr[0], colorArr[1], colorArr[2], colorArr[3] });
                         }
 
-                        static const char* rLayerNames[] = { "Opaque", "Transparent", "UI" };
+                        static const char* rLayerNames[] = { "Opaque", "Transparent", "Debug", "UI" };
                         int curLayer = (int)sprite->GetRenderLayer();
                         if (ImGui::Combo("Render Layer", &curLayer, rLayerNames, IM_ARRAYSIZE(rLayerNames)))
                         {
@@ -801,7 +801,7 @@ void CInspectorUI::Draw()
                             textComp->SetText(StringToWString(std::string(textBuf)));
                         }
 
-                        static const char* rLayerNames[] = { "Opaque", "Transparent", "UI" };
+                        static const char* rLayerNames[] = { "Opaque", "Transparent", "Debug", "UI" };
                         int curTextLayer = (int)textComp->GetRenderLayer();
                         if (ImGui::Combo("Render Layer", &curTextLayer, rLayerNames, IM_ARRAYSIZE(rLayerNames)))
                         {

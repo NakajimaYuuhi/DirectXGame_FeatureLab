@@ -16,7 +16,7 @@ public:
     void Draw();
 
     // Render layer
-    RenderLayer GetRenderLayer() const { return m_renderLayer; }
+    RenderLayer GetRenderLayer() const override { return m_renderLayer; }
     void SetRenderLayer(RenderLayer layer) { m_renderLayer = layer; }
 
     // Getters and setters

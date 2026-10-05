@@ -1,4 +1,4 @@
-#include "CameraComponent.h"
+﻿#include "CameraComponent.h"
 //===== ?C???N???[?h =====
 #include "DX12Manager.h"
 
@@ -16,7 +16,7 @@
 #include "ObjectManager.h"
 
 
-// ?O???{??h???C?o?iNVIDIA / AMD?j??????A????A?v???N??????O??GPU??????g?p???????`???�x?@
+// ?O???{??h???C?o?iNVIDIA / AMD?j??????A????A?v???N??????O??GPU??????g?p???????`???�x?@
 extern "C" {
 	_declspec(dllexport) DWORD NvOptimusEnablement = 0x00000001;
 	_declspec(dllexport) int AmdPowerXpressRequestHighPerformance = 1;
@@ -27,7 +27,7 @@ const UINT DX12Manager::m_FrameBufferCount = FRAME_BUFFER_COUNT;   //?t???[???o?
 
 //===== ???\?b?h??` =====
 
-//?C???X?^???X?��
+//?C???X?^???X?��
 DX12Manager& DX12Manager::GetInstance()
 {
 	static DX12Manager instance;
@@ -55,7 +55,7 @@ bool DX12Manager::Initialize(HWND hwnd)
 	//if (FAILED(hr))
 	//	return false;
 
-	////?A?_?v?^?��
+	////?A?_?v?^?��
 	//ComPtr<IDXGIAdapter1> adapter;
 
 	//for (UINT i = 0;
@@ -78,14 +78,14 @@ bool DX12Manager::Initialize(HWND hwnd)
 	if (FAILED(hr))
 		return false;
 
-	// ?A?_?v?^?��
+	// ?A?_?v?^?��
 	ComPtr<IDXGIAdapter1> adapter;
 	ComPtr<IDXGIFactory6> factory6;
 
 	// Factory??IDXGIFactory6??L???X?g????AEnumAdapterByGpuPreference??g??????????
 	if (SUCCEEDED(m_factory.As(&factory6)))
 	{
-		// DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE ??w???�???A
+		// DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE ??w???�???A
 		// ?????\???????iVRAM???????O??GPU???j????O???{???????????
 		for (UINT i = 0;
 			factory6->EnumAdapterByGpuPreference(i, DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE, IID_PPV_ARGS(&adapter)) != DXGI_ERROR_NOT_FOUND;
@@ -190,20 +190,20 @@ bool DX12Manager::Initialize(HWND hwnd)
 	if (FAILED(hr))
 		return false;
 
-	//?f?B?X?N???v?^?T?C?Y?��
+	//?f?B?X?N???v?^?T?C?Y?��
 	m_rtvDescriptorSize =
 		m_device->GetDescriptorHandleIncrementSize(
 			D3D12_DESCRIPTOR_HEAP_TYPE_RTV
 		);
 
-	//?o?b?N?o?b?t?@?��??RTV??
-	//?q?[?v????n???h???��
+	//?o?b?N?o?b?t?@?��??RTV??
+	//?q?[?v????n???h???��
 	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle =
 		m_rtvHeap->GetCPUDescriptorHandleForHeapStart();
 
 	for (UINT i = 0; i < m_FrameBufferCount; ++i)
 	{
-		//?o?b?N?o?b?t?@?��
+		//?o?b?N?o?b?t?@?��
 		hr = m_swapChain->GetBuffer(
 			i,
 			IID_PPV_ARGS(&m_renderTargets[i])
@@ -328,7 +328,7 @@ bool DX12Manager::Initialize(HWND hwnd)
 //Todo : Model??`??e?X?g?????????A???????????
 
 
-	//?????��??p
+	//?????��??p
 	//m_view = DirectX::XMMatrixLookAtLH(
 	//	DirectX::XMVectorSet(40, 0, 0, 1),
 	//	DirectX::XMVectorSet(0, 0, 0, 1),
@@ -445,7 +445,7 @@ void DX12Manager::BeginDraw()
 
 	m_commandList->ResourceBarrier(1, &barrier);
 
-	// 4. RTV?n???h???��
+	// 4. RTV?n???h???��
 	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle =
 		m_rtvHeap->GetCPUDescriptorHandleForHeapStart();
 
@@ -471,7 +471,7 @@ void DX12Manager::BeginDraw()
 	m_commandList->RSSetViewports(1, &viewport);
 	m_commandList->RSSetScissorRects(1, &scissorRect);
 
-	// 5. DSV?n???h???��
+	// 5. DSV?n???h???��
 	D3D12_CPU_DESCRIPTOR_HANDLE dsvHandle =
 		m_dsvHeap->GetCPUDescriptorHandleForHeapStart();
 
@@ -504,27 +504,77 @@ void DX12Manager::BeginDraw()
 
 }
 
+void DX12Manager::EndSceneDraw()
+{
+	// 1. シーン描画コマンドリストをクローズして実行
+	m_commandList->Close();
+	ID3D12CommandList* commandLists[] = { m_commandList.Get() };
+	m_commandQueue->ExecuteCommandLists(1, commandLists);
+
+	// 2. Direct2D テキストをバックバッファに焼き付け（ゲーム内UIテキスト描画）
+	D2DTextRenderer::GetInstance().Render(m_frameIndex);
+
+	// 3. ImGui 描画用にコマンドアロケータ・リストを再開
+	m_commandAllocator->Reset();
+	m_commandList->Reset(m_commandAllocator.Get(), nullptr);
+
+	// D2DTextRenderer::Render は内部で ReleaseWrappedResources 時に PRESENT 状態に遷移させているため、
+	// ImGui 描画のために RENDER_TARGET 状態へ戻す
+	D3D12_RESOURCE_BARRIER barrier{};
+	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+	barrier.Transition.pResource = m_renderTargets[m_frameIndex].Get();
+	barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_PRESENT;
+	barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_RENDER_TARGET;
+	barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
+	m_commandList->ResourceBarrier(1, &barrier);
+
+	// レンダーターゲットをセット
+	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle = m_rtvHeap->GetCPUDescriptorHandleForHeapStart();
+	rtvHandle.ptr += m_frameIndex * m_rtvDescriptorSize;
+	m_commandList->OMSetRenderTargets(1, &rtvHandle, FALSE, nullptr);
+
+	// ビューポートとシザー矩形を設定
+	D3D12_VIEWPORT viewport{};
+	viewport.Width = (float)m_Width;
+	viewport.Height = (float)m_Height;
+	viewport.MinDepth = 0.0f;
+	viewport.MaxDepth = 1.0f;
+
+	D3D12_RECT scissorRect{};
+	scissorRect.left = 0;
+	scissorRect.top = 0;
+	scissorRect.right = m_Width;
+	scissorRect.bottom = m_Height;
+
+	m_commandList->RSSetViewports(1, &viewport);
+	m_commandList->RSSetScissorRects(1, &scissorRect);
+}
+
 void DX12Manager::EndDraw()
 {
+	// ImGui 描画後のバックバッファを PRESENT 状態へ遷移
+	D3D12_RESOURCE_BARRIER barrier{};
+	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+	barrier.Transition.pResource = m_renderTargets[m_frameIndex].Get();
+	barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_RENDER_TARGET;
+	barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_PRESENT;
+	barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
+	m_commandList->ResourceBarrier(1, &barrier);
+
 	m_commandList->Close();
 
 	ID3D12CommandList* commandLists[] = { m_commandList.Get() };
 	m_commandQueue->ExecuteCommandLists(1, commandLists);
 
-	D2DTextRenderer::GetInstance().Render(m_frameIndex);
-
 	HRESULT hr = m_swapChain->Present(1, 0);
-	//HRESULT hr = g_pSwapChain->Present(0, g_SwapChainTearingSupport ? DXGI_PRESENT_ALLOW_TEARING : 0); // Present without vsync
 	m_SwapChainOccluded = (hr == DXGI_STATUS_OCCLUDED);
 
-	// 5. ?t?F???X??L???[??}??
+	// フェンスシグナル
 	const UINT64 fenceToWaitFor = m_fenceValue;
 	m_commandQueue->Signal(m_fence.Get(), fenceToWaitFor);
 	m_fenceValue++;
 }
 
-
-//???????p?????B
 void DX12Manager::CreateCommandObjects()
 {
 
@@ -677,7 +727,7 @@ void DX12Manager::CreateRenderTarget()
 
 	for (UINT i = 0; i < m_FrameBufferCount; ++i)
 	{
-		//?o?b?N?o?b?t?@?��
+		//?o?b?N?o?b?t?@?��
 		HRESULT hr = m_swapChain->GetBuffer(
 			i,
 			IID_PPV_ARGS(&m_renderTargets[i])

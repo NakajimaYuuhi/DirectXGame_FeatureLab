@@ -41,7 +41,7 @@ public:
 	UpdatePhase GetUpdatePhase() const override { return UpdatePhase::Animation; }
 
 	// Render layer
-	RenderLayer GetRenderLayer() const { return m_renderLayer; }
+	RenderLayer GetRenderLayer() const override { return m_renderLayer; }
 	void SetRenderLayer(RenderLayer layer) { m_renderLayer = layer; }
 
 	void SetBlendMode(BlendMode mode) { m_BlendMode = mode; }

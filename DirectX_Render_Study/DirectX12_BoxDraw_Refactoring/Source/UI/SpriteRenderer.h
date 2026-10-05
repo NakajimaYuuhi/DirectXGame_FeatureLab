@@ -21,7 +21,7 @@ public:
     virtual void Init() override;
 
     // Render layer
-    RenderLayer GetRenderLayer() const { return m_renderLayer; }
+    RenderLayer GetRenderLayer() const override { return m_renderLayer; }
     void SetRenderLayer(RenderLayer layer) { m_renderLayer = layer; }
 
     void SetTexture(const std::wstring& filePath);

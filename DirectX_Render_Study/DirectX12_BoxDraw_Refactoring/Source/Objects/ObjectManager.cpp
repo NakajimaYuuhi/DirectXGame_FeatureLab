@@ -133,18 +133,12 @@ void ObjectManager::CollisionUpdate(Scenes::ID _SceneID)
 void ObjectManager::Draw(Scenes::ID _SceneID)
 {
 	FlushPendingAddObjects();
-	for (size_t tagIdx = 0; tagIdx < vecObject.size(); ++tagIdx)
-	{
-		auto& vec = vecObject[tagIdx];
-		for (size_t i = 0; i < vec.size(); ++i)
-		{
-			auto& object = vec[i];
-			if (object && !object->GetIsDestroyed())
-			{
-				object->Draw();
-			}
-		}
-	}
+
+	// レイヤー順に整列描画（不透明 -> 透過 -> デバッグ -> UI）
+	DrawByLayer(RenderLayer::Opaque);
+	DrawByLayer(RenderLayer::Transparent);
+	DrawByLayer(RenderLayer::Debug);
+	DrawByLayer(RenderLayer::UI);
 }
 
 void ObjectManager::DrawByLayer(RenderLayer layer)
@@ -155,27 +149,9 @@ void ObjectManager::DrawByLayer(RenderLayer layer)
 		for (size_t i = 0; i < vec.size(); ++i)
 		{
 			auto& object = vec[i];
-			if (!object || object->GetIsDestroyed() || !object->GetIsVisible()) continue;
-
-			CModel* model = object->GetComponent<CModel>();
-			if (model && model->GetRenderLayer() == layer)
+			if (object && !object->GetIsDestroyed())
 			{
-				object->Draw();
-				continue;
-			}
-
-			CSpriteRenderer* sprite = object->GetComponent<CSpriteRenderer>();
-			if (sprite && sprite->GetRenderLayer() == layer)
-			{
-				object->Draw();
-				continue;
-			}
-
-			CTextRenderer* text = object->GetComponent<CTextRenderer>();
-			if (text && text->GetRenderLayer() == layer)
-			{
-				object->Draw();
-				continue;
+				object->DrawByLayer(layer);
 			}
 		}
 	}

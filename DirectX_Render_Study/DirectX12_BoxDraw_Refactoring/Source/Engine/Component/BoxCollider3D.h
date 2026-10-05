@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Collider3D.h"
 #include <DirectXMath.h>
 #include "Object.h"
@@ -10,17 +10,17 @@ class CameraComponent;
 class BoxCollider3D : public Collider3D
 {
 public:
-	//ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	//ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	BoxCollider3D()
 	{
 		SetName("BoxCollider3D");
 		ColliderType = Collider::BOX_3D;
 	}
 
-	//ƒfƒXƒgƒ‰ƒNƒ^
+	//ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	virtual ~BoxCollider3D(){}
 
-	//WorldPos‚Ìæ“¾
+	//WorldPosã®å–å¾—
 	virtual DirectX::XMFLOAT3 GetWorldPos() override
 	{
 		DirectX::XMFLOAT3 pos = { 0.0f,0.0f,0.0f };
@@ -131,9 +131,11 @@ public:
 		return true;
 	}
 
-	// ƒfƒoƒbƒO‰Â‹‰»—p
+	// ãƒ‡ãƒãƒƒã‚°å¯è¦–åŒ–ç”¨
 	void DrawDebug(CameraComponent* camera);
 
+	RenderLayer GetRenderLayer() const override { return RenderLayer::Debug; }
+
 protected:
-	DirectX::XMFLOAT3 Size = { 1.0f, 1.0f, 1.0f };	//‘å‚«‚³
+	DirectX::XMFLOAT3 Size = { 1.0f, 1.0f, 1.0f };	//å¤§ãã•
 };

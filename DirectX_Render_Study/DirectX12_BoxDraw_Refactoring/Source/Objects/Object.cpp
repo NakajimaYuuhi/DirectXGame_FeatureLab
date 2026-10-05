@@ -55,10 +55,22 @@ void CObject::LateUpdate()
 
 void CObject::Draw()
 {
-	if (!m_isVisible) return;
+	if (!m_isVisible || !isValid || IsDestroyed) return;
 	for (auto& c : components)
 	{
 		if (c && c->IsEnabled())
+		{
+			c->Draw();
+		}
+	}
+}
+
+void CObject::DrawByLayer(RenderLayer layer)
+{
+	if (!m_isVisible || !isValid || IsDestroyed) return;
+	for (auto& c : components)
+	{
+		if (c && c->IsEnabled() && c->GetRenderLayer() == layer)
 		{
 			c->Draw();
 		}

@@ -1,4 +1,4 @@
-#include "BoxCollider3D.h"
+﻿#include "BoxCollider3D.h"
 #include "imgui.h"
 
 void BoxCollider3D::DrawDebug(CameraComponent* camera)
@@ -56,7 +56,8 @@ void BoxCollider3D::DrawDebug(CameraComponent* camera)
 		}
 	}
 
-	ImDrawList* drawList = ImGui::GetForegroundDrawList();
+	// ImGuiの全エディタウィンドウの背後（ゲーム画面上）に描画
+	ImDrawList* drawList = ImGui::GetBackgroundDrawList();
 	if (!drawList) return;
 
 	static const int edges[12][2] = {
