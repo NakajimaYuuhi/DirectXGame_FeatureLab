@@ -5,7 +5,7 @@ var classCSpriteRenderer =
     [ "CreateBuffers", "classCSpriteRenderer.html#a7d2cd0d320b4d038f9709957496704bd", null ],
     [ "Draw", "classCSpriteRenderer.html#a3d5be9cbf966750032c2f4b19eabd793", null ],
     [ "GetColor", "classCSpriteRenderer.html#a08f8823ba0d26b84510013bddc0e9bf9", null ],
-    [ "GetRenderLayer", "classCSpriteRenderer.html#a5c21c7b3f7c116f9b57ae0548e2860b8", null ],
+    [ "GetRenderLayer", "classCSpriteRenderer.html#a5d100f43f32cf17d1a14630ea163c5d9", null ],
     [ "GetSize", "classCSpriteRenderer.html#a4c31ad42a1a64081994e552e017522f9", null ],
     [ "GetTexturePath", "classCSpriteRenderer.html#a0e1677f453faa3d4280f173e30cbdd2e", null ],
     [ "Init", "classCSpriteRenderer.html#a4f4123344b82a22517fbd54f14f0c2c2", null ],

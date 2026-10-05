@@ -10,6 +10,7 @@ var classCComponent =
     [ "GetIsVarid", "classCComponent.html#abf4188a21189f533eed52041962cafd4", null ],
     [ "GetName", "classCComponent.html#a281a46452f6f59625e5488936cd70aa7", null ],
     [ "GetOwner", "classCComponent.html#aa05b48a46eeaff9527c00de7547edd32", null ],
+    [ "GetRenderLayer", "classCComponent.html#a800d2a962717b13577b17b7264a91da8", null ],
     [ "GetUpdatePhase", "classCComponent.html#a8cb4ec11d3210b5f3278d8e55b7308bd", null ],
     [ "Init", "classCComponent.html#ac9bf36b35de54f49a3d604da091228a4", null ],
     [ "IsEnabled", "classCComponent.html#a9de9cd78a132d68bdb0977b7d9272df8", null ],

@@ -125,6 +125,8 @@ CObject の継承関係図</div>
 <tr class="separator:aeeba4dd011edc512ba03b9281bd189d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae060ffb1aa3bf6148614cf6506074e42" id="r_ae060ffb1aa3bf6148614cf6506074e42"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#ae060ffb1aa3bf6148614cf6506074e42">Draw</a> ()</td></tr>
 <tr class="separator:ae060ffb1aa3bf6148614cf6506074e42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee3d5c5e9c5a83b26cd147a35140de63" id="r_aee3d5c5e9c5a83b26cd147a35140de63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#aee3d5c5e9c5a83b26cd147a35140de63">DrawByLayer</a> (<a class="el" href="RenderLayer_8h.html#ad16d91520dd8dbd7a2178564fce5a168">RenderLayer</a> layer)</td></tr>
+<tr class="separator:aee3d5c5e9c5a83b26cd147a35140de63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae54ae5c1bc8d9d62235ba4ce2936b3c1" id="r_ae54ae5c1bc8d9d62235ba4ce2936b3c1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#ae54ae5c1bc8d9d62235ba4ce2936b3c1">OnCollision</a> (<a class="el" href="classCObject.html">CObject</a> *_Other)</td></tr>
 <tr class="separator:ae54ae5c1bc8d9d62235ba4ce2936b3c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bf230e89ac532ee67217d5b8b514734" id="r_a0bf230e89ac532ee67217d5b8b514734"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#a0bf230e89ac532ee67217d5b8b514734">AwakeComponents</a> ()</td></tr>
@@ -133,6 +135,8 @@ CObject の継承関係図</div>
 <tr class="separator:aa56d6804e77e28f6bc91080acb63d0f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2c17e45a124c979fb8bc138173f5469" id="r_af2c17e45a124c979fb8bc138173f5469"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#af2c17e45a124c979fb8bc138173f5469">UpdateComponents</a> (float deltaTime)</td></tr>
 <tr class="separator:af2c17e45a124c979fb8bc138173f5469"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f60fb7168fd117b483946e81b023895" id="r_a7f60fb7168fd117b483946e81b023895"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#a7f60fb7168fd117b483946e81b023895">UpdateComponentsByPhase</a> (<a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a> phase, float deltaTime)</td></tr>
+<tr class="separator:a7f60fb7168fd117b483946e81b023895"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7e0a57ecb45a28878afc1d307c5b45b" id="r_aa7e0a57ecb45a28878afc1d307c5b45b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#aa7e0a57ecb45a28878afc1d307c5b45b">LateUpdateComponents</a> (float deltaTime)</td></tr>
 <tr class="separator:aa7e0a57ecb45a28878afc1d307c5b45b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8855f1f09b337e2c41dad8405098a68" id="r_ac8855f1f09b337e2c41dad8405098a68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCObject.html#ac8855f1f09b337e2c41dad8405098a68">CollisionComponents</a> (<a class="el" href="classCObject.html">CObject</a> *_Other)</td></tr>
@@ -402,6 +406,24 @@ template&lt;class T , class... Args&gt; </div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classCObject_ae060ffb1aa3bf6148614cf6506074e42_icgraph.svg" width="252" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="aee3d5c5e9c5a83b26cd147a35140de63" name="aee3d5c5e9c5a83b26cd147a35140de63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee3d5c5e9c5a83b26cd147a35140de63">&#9670;&#160;</a></span>DrawByLayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CObject::DrawByLayer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="RenderLayer_8h.html#ad16d91520dd8dbd7a2178564fce5a168">RenderLayer</a>&#160;</td>
+          <td class="paramname"><em>layer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -1075,7 +1097,7 @@ template&lt;class T &gt; </div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCObject_a2fa861568d9cfbce2b09ce86b7934b61_cgraph.svg" width="398" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCObject_a2fa861568d9cfbce2b09ce86b7934b61_cgraph.svg" width="656" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
@@ -1101,9 +1123,47 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCObject_af2c17e45a124c979fb8bc138173f5469_cgraph.svg" width="480" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classCObject_af2c17e45a124c979fb8bc138173f5469_icgraph.svg" width="524" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7f60fb7168fd117b483946e81b023895" name="a7f60fb7168fd117b483946e81b023895"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f60fb7168fd117b483946e81b023895">&#9670;&#160;</a></span>UpdateComponentsByPhase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CObject::UpdateComponentsByPhase </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a>&#160;</td>
+          <td class="paramname"><em>phase</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCObject_a7f60fb7168fd117b483946e81b023895_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

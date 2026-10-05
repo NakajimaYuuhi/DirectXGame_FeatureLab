@@ -23,6 +23,7 @@ var classObjectManager =
     [ "operator=", "classObjectManager.html#a9fe0f04863126942c396ffe712bb346b", null ],
     [ "Uninit", "classObjectManager.html#ab14b919449101fdecbbafe794d907cc9", null ],
     [ "Update", "classObjectManager.html#a3358b9b3a459e6594b97d098b33020e4", null ],
+    [ "UpdatePhaseAll", "classObjectManager.html#a0662827d487bd64a30fb41a35bbe5d36", null ],
     [ "m_pendingAddObjects", "classObjectManager.html#a2d2f39b2f9da4094a84b50aaec211120", null ],
     [ "vecObject", "classObjectManager.html#ae085e527fae047616712ca5c94f56656", null ]
 ];

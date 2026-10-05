@@ -12,6 +12,8 @@ var dir_b26507eead720464ba2ac6bbc6dcec5f =
     [ "ImGuiManager.h", "ImGuiManager_8h.html", "ImGuiManager_8h" ],
     [ "InspectorUI.cpp", "InspectorUI_8cpp.html", "InspectorUI_8cpp" ],
     [ "InspectorUI.h", "InspectorUI_8h.html", "InspectorUI_8h" ],
+    [ "ProfilerUI.cpp", "ProfilerUI_8cpp.html", null ],
+    [ "ProfilerUI.h", "ProfilerUI_8h.html", "ProfilerUI_8h" ],
     [ "UndoManager.cpp", "UndoManager_8cpp.html", null ],
     [ "UndoManager.h", "UndoManager_8h.html", "UndoManager_8h" ]
 ];

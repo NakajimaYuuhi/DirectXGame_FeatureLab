@@ -18,6 +18,9 @@ var searchData=
   ['primitive_5fiterator_5ft_15',['primitive_iterator_t',['../classnlohmann_1_1detail_1_1primitive__iterator__t.html',1,'nlohmann::detail']]],
   ['priority_5ftag_16',['priority_tag',['../structnlohmann_1_1detail_1_1priority__tag.html',1,'nlohmann::detail']]],
   ['priority_5ftag_3c_200_20_3e_17',['priority_tag&lt; 0 &gt;',['../structnlohmann_1_1detail_1_1priority__tag_3_010_01_4.html',1,'nlohmann::detail']]],
-  ['psobuilder_18',['PSOBuilder',['../classPSOBuilder.html',1,'']]],
-  ['psomanager_19',['PSOManager',['../classPSOManager.html',1,'']]]
+  ['profiler_18',['Profiler',['../classProfiler.html',1,'']]],
+  ['profilesample_19',['ProfileSample',['../structProfileSample.html',1,'']]],
+  ['profilescope_20',['ProfileScope',['../classProfileScope.html',1,'']]],
+  ['psobuilder_21',['PSOBuilder',['../classPSOBuilder.html',1,'']]],
+  ['psomanager_22',['PSOManager',['../classPSOManager.html',1,'']]]
 ];

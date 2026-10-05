@@ -9,7 +9,7 @@ var classCModel =
     [ "Draw", "classCModel.html#a05ed148aaef251c3d326c7f57efeb634", null ],
     [ "GetAnimationTime", "classCModel.html#ad4e94257011862b6840e51104de4d741", null ],
     [ "GetModelPath", "classCModel.html#a8d6a7ebb8943c774cd7fdc5d3fc05cd2", null ],
-    [ "GetRenderLayer", "classCModel.html#a283d3ec415091cbf726a038a23a54bef", null ],
+    [ "GetRenderLayer", "classCModel.html#ab7728d7e79371865a52a3dd64f5902da", null ],
     [ "GetUpdatePhase", "classCModel.html#afa61483b7284de03fd0b4d1a903da734", null ],
     [ "Init", "classCModel.html#a6f449354d7781ee751d84f332c646d01", null ],
     [ "IsAnimationFinished", "classCModel.html#af915abbff73abe5ff16da728f15a0596", null ],

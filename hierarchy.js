@@ -76,6 +76,7 @@ var hierarchy =
     [ "ComponentManager", "classComponentManager.html", null ],
     [ "nlohmann::detail::container_input_adapter_factory_impl::container_input_adapter_factory< ContainerType, Enable >", "structnlohmann_1_1detail_1_1container__input__adapter__factory__impl_1_1container__input__adapter__factory.html", null ],
     [ "nlohmann::detail::container_input_adapter_factory_impl::container_input_adapter_factory< ContainerType, void_t< decltype(begin(std::declval< ContainerType >()), end(std::declval< ContainerType >()))> >", "structnlohmann_1_1detail_1_1container__input__adapter__factory__impl_1_1container__input__adapte602516bdb0b70b8ee5c6d4ff825368be.html", null ],
+    [ "CProfilerUI", "classCProfilerUI.html", null ],
     [ "CScene", "classCScene.html", [
       [ "CSceneTest", "classCSceneTest.html", null ],
       [ "SceneClear", "classSceneClear.html", null ],
@@ -496,6 +497,9 @@ var hierarchy =
     [ "nlohmann::detail::primitive_iterator_t", "classnlohmann_1_1detail_1_1primitive__iterator__t.html", null ],
     [ "nlohmann::detail::priority_tag< N >", "structnlohmann_1_1detail_1_1priority__tag.html", null ],
     [ "nlohmann::detail::priority_tag< 0 >", "structnlohmann_1_1detail_1_1priority__tag_3_010_01_4.html", null ],
+    [ "Profiler", "classProfiler.html", null ],
+    [ "ProfileSample", "structProfileSample.html", null ],
+    [ "ProfileScope", "classProfileScope.html", null ],
     [ "PSOBuilder", "classPSOBuilder.html", null ],
     [ "PSOManager", "classPSOManager.html", null ],
     [ "Ray", "structRay.html", null ],

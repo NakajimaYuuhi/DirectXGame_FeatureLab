@@ -6,7 +6,7 @@ var classCTextRenderer =
     [ "GetColor", "classCTextRenderer.html#a3264b0fc64da0433f9a643e1ee19e979", null ],
     [ "GetFontFamily", "classCTextRenderer.html#a0ee5e5d70c99f4060987494fdc9fcc3e", null ],
     [ "GetFontSize", "classCTextRenderer.html#ac1a8c410eb93032d2a9c4b4993966d3e", null ],
-    [ "GetRenderLayer", "classCTextRenderer.html#a665d6dc77a81821bd1b936e49458a73d", null ],
+    [ "GetRenderLayer", "classCTextRenderer.html#ae3c76c1178c4f7dcaf88e4eec368ba90", null ],
     [ "GetText", "classCTextRenderer.html#a84490a52cbb91f004ceb0840562a8384", null ],
     [ "GetX", "classCTextRenderer.html#a1bc5aaa040293e66c3d6f9acde5ce94f", null ],
     [ "GetY", "classCTextRenderer.html#afb42de376fce2635a247d89327a4f247", null ],

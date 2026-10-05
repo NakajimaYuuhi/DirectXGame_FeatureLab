@@ -58,7 +58,7 @@ var searchData=
   ['defaultscene_55',['defaultScene',['../classtinygltf_1_1Model.html#a473ddd845ed4879296532bac803fe001',1,'tinygltf::Model']]],
   ['delete_5flength_56',['delete_length',['../structStbUndoRecord.html#a1292428eb1ed3c0f4a515feb62546307',1,'StbUndoRecord']]],
   ['delivery_57',['Delivery',['../structImGuiPayload.html#a4c0900e12c8d0bf6869c0ac6f8a66e31',1,'ImGuiPayload']]],
-  ['deltatime_58',['deltatime',['../structRenderContext.html#a2077e0523174f7d57033c9d17a3fd6ab',1,'RenderContext::deltaTime'],['../structImGuiIO.html#a5068d5414a19c2a1bf58029bd732a7c7',1,'ImGuiIO::DeltaTime']]],
+  ['deltatime_58',['deltatime',['../structImGuiIO.html#a5068d5414a19c2a1bf58029bd732a7c7',1,'ImGuiIO::DeltaTime'],['../structRenderContext.html#a2077e0523174f7d57033c9d17a3fd6ab',1,'RenderContext::deltaTime']]],
   ['demomarkercallback_59',['DemoMarkerCallback',['../structImGuiContext.html#a76fb8ba5284ced7bceb0c565e8e130b2',1,'ImGuiContext']]],
   ['demotree_60',['DemoTree',['../structImGuiDemoWindowData.html#a9fedd02505df5772fc67bc83c97a0c84',1,'ImGuiDemoWindowData']]],
   ['descent_61',['Descent',['../structImFontBaked.html#abbb5072bae93cb08364ed22284604cb5',1,'ImFontBaked']]],
@@ -143,5 +143,6 @@ var searchData=
   ['drawsplitter_140',['drawsplitter',['../structImGuiTable.html#afeda8864273e89f4094a763398652d2a',1,'ImGuiTable::DrawSplitter'],['../structImGuiTableTempData.html#a58750d8c40edf42a42388c8de5561d78',1,'ImGuiTableTempData::DrawSplitter']]],
   ['dstfont_141',['DstFont',['../structImFontConfig.html#a561773c311f6cf6de00642c2801e7b92',1,'ImFontConfig']]],
   ['dsvformat_142',['dsvformat',['../structImGui__ImplDX12__Data.html#aa745c784b64c5dd64f5fa2017f4fa7ee',1,'ImGui_ImplDX12_Data::DSVFormat'],['../structImGui__ImplDX12__InitInfo.html#a60bf5e4049af126f2317350484fc8065',1,'ImGui_ImplDX12_InitInfo::DSVFormat']]],
-  ['dummydrawchannel_143',['DummyDrawChannel',['../structImGuiTable.html#a1daad01c8bb3bc4194401c658b61a667',1,'ImGuiTable']]]
+  ['dummydrawchannel_143',['DummyDrawChannel',['../structImGuiTable.html#a1daad01c8bb3bc4194401c658b61a667',1,'ImGuiTable']]],
+  ['durationms_144',['durationMs',['../structProfileSample.html#af3130c6190d9392840abadef2a35af6c',1,'ProfileSample']]]
 ];

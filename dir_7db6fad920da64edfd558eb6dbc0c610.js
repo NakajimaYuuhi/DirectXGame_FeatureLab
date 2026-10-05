@@ -8,6 +8,8 @@ var dir_7db6fad920da64edfd558eb6dbc0c610 =
     [ "D2DTextRenderer.cpp", "D2DTextRenderer_8cpp.html", null ],
     [ "D2DTextRenderer.h", "D2DTextRenderer_8h.html", "D2DTextRenderer_8h" ],
     [ "DirectXPtrAlias.h", "DirectXPtrAlias_8h.html", null ],
+    [ "Profiler.cpp", "Profiler_8cpp.html", null ],
+    [ "Profiler.h", "Profiler_8h.html", "Profiler_8h" ],
     [ "SmartPtrAlias.h", "SmartPtrAlias_8h.html", "SmartPtrAlias_8h" ],
     [ "StringAlias.h", "StringAlias_8h.html", "StringAlias_8h" ]
 ];

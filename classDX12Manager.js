@@ -9,6 +9,7 @@ var classDX12Manager =
     [ "CreateFence", "classDX12Manager.html#aa8f6a3b40a0e390f5a4e7c9df4cb26fa", null ],
     [ "CreateRenderTarget", "classDX12Manager.html#aaaaee259eec2e0cb685810f9d71a00a1", null ],
     [ "EndDraw", "classDX12Manager.html#a6fb15c091d36938e8685b4ee122205f9", null ],
+    [ "EndSceneDraw", "classDX12Manager.html#ac9646aa18e94170aa9f30913012d3a7d", null ],
     [ "Finalize", "classDX12Manager.html#aeedbd2b39a8b94df72c6f50ad8af35eb", null ],
     [ "ForceWait", "classDX12Manager.html#a354d5c691efb3f7f9905073851cc0e69", null ],
     [ "GetCommandAllocator", "classDX12Manager.html#ac591300d42250dd5593b7b8142c4593f", null ],

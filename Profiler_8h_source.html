@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Util/Profiler.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('Profiler_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Profiler.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Profiler_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="structProfileSample.html">    7</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structProfileSample.html">ProfileSample</a></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="structProfileSample.html#a8b9848aed33c92f9209a18cf237a9cab">    9</a></span>    std::string <a class="code hl_variable" href="structProfileSample.html#a8b9848aed33c92f9209a18cf237a9cab">name</a>;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="structProfileSample.html#af3130c6190d9392840abadef2a35af6c">   10</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structProfileSample.html#af3130c6190d9392840abadef2a35af6c">durationMs</a> = 0.0;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="structProfileSample.html#a5483cdbc1eb9678f0d0332b5edc55481">   11</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structProfileSample.html#a5483cdbc1eb9678f0d0332b5edc55481">smoothedMs</a> = 0.0;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="structProfileSample.html#a44c225ff5e3c03d1cc89e179b78f71f4">   12</a></span>    std::chrono::high_resolution_clock::time_point <a class="code hl_variable" href="structProfileSample.html#a44c225ff5e3c03d1cc89e179b78f71f4">startTime</a>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>};</div>
+</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classProfiler.html">   15</a></span><span class="keyword">class </span><a class="code hl_class" href="classProfiler.html">Profiler</a></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classProfiler.html#a27e2143b539c267c35ca90c0134892d1">   18</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classProfiler.html">Profiler</a>&amp; <a class="code hl_function" href="classProfiler.html#a27e2143b539c267c35ca90c0134892d1">GetInstance</a>()</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keyword">static</span> <a class="code hl_class" href="classProfiler.html">Profiler</a> instance;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordflow">return</span> instance;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    }</div>
+</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classProfiler.html#ab6a0f724ebd5568b5feb9cd428b02d48">BeginFrame</a>();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classProfiler.html#ac87c642d4f5f76bcc7e07f40ab69872e">EndFrame</a>();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classProfiler.html#acbb010106291fa599f5a29a79c85c355">BeginSample</a>(<span class="keyword">const</span> std::string&amp; name);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classProfiler.html#aef28432fff70be0d99eb1a404d9e2e46">EndSample</a>(<span class="keyword">const</span> std::string&amp; name);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment">// Get profiling results</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classProfiler.html#a0bc4e21d79b3ff36d6663eb85e4e4b28">   31</a></span>    <span class="keyword">const</span> std::vector&lt;ProfileSample&gt;&amp; <a class="code hl_function" href="classProfiler.html#a0bc4e21d79b3ff36d6663eb85e4e4b28">GetSamples</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classProfiler.html#a0a158d5bac2e57a2e74c969d2caf480b">m_samples</a>; }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classProfiler.html#a12061e5b1d6b6d85dba5880b612eb4ea">   32</a></span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classProfiler.html#a12061e5b1d6b6d85dba5880b612eb4ea">GetTotalFrameTimeMs</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classProfiler.html#a151b0327822ff89ca4c67e0449ea594a">m_totalFrameTimeMs</a>; }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classProfiler.html#a1999dc558dc88855ebdeb2dc17c2594e">   33</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classProfiler.html#a1999dc558dc88855ebdeb2dc17c2594e">GetCurrentFPS</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classProfiler.html#a7f5101a83f2e8534c973488b54cf18de">m_currentFPS</a>; }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classProfiler.html#ac9c041641869d06ea1197ab6e10e029e">   34</a></span>    <span class="keyword">const</span> std::vector&lt;float&gt;&amp; <a class="code hl_function" href="classProfiler.html#ac9c041641869d06ea1197ab6e10e029e">GetFrameTimeHistory</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classProfiler.html#a815dad42af2a1320e87a004f1e5d6939">m_frameTimeHistory</a>; }</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classProfiler.html#ac27878f3cb6bfa14e65fda8b976ee80d">   37</a></span>    <a class="code hl_function" href="classProfiler.html#ac27878f3cb6bfa14e65fda8b976ee80d">Profiler</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classProfiler.html#a0a158d5bac2e57a2e74c969d2caf480b">   39</a></span>    std::vector&lt;ProfileSample&gt; <a class="code hl_variable" href="classProfiler.html#a0a158d5bac2e57a2e74c969d2caf480b">m_samples</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classProfiler.html#ae2e0f5c7f821d2a3417b535dda34ee00">   40</a></span>    std::unordered_map&lt;std::string, size_t&gt; <a class="code hl_variable" href="classProfiler.html#ae2e0f5c7f821d2a3417b535dda34ee00">m_sampleIndexMap</a>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classProfiler.html#a478a6a1b440412cce3f19cafc184e2b5">   42</a></span>    std::chrono::high_resolution_clock::time_point <a class="code hl_variable" href="classProfiler.html#a478a6a1b440412cce3f19cafc184e2b5">m_frameStartTime</a>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classProfiler.html#a151b0327822ff89ca4c67e0449ea594a">   43</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="classProfiler.html#a151b0327822ff89ca4c67e0449ea594a">m_totalFrameTimeMs</a> = 0.0;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classProfiler.html#a7f5101a83f2e8534c973488b54cf18de">   44</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classProfiler.html#a7f5101a83f2e8534c973488b54cf18de">m_currentFPS</a> = 0.0f;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classProfiler.html#a815dad42af2a1320e87a004f1e5d6939">   46</a></span>    std::vector&lt;float&gt; <a class="code hl_variable" href="classProfiler.html#a815dad42af2a1320e87a004f1e5d6939">m_frameTimeHistory</a>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classProfiler.html#aca2fbe1b4e5327272a5cbf44d1d729c3">   47</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> <a class="code hl_variable" href="classProfiler.html#aca2fbe1b4e5327272a5cbf44d1d729c3">MAX_HISTORY</a> = 120;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>};</div>
+</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">// RAII Scope Profiler Helper</span></div>
+<div class="foldopen" id="foldopen00051" data-start="{" data-end="};">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classProfileScope.html">   51</a></span><span class="keyword">class </span><a class="code hl_class" href="classProfileScope.html">ProfileScope</a></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>{</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classProfileScope.html#af9a96ee3694f957e3c6b0a19b06625c7">   54</a></span>    <a class="code hl_function" href="classProfileScope.html#af9a96ee3694f957e3c6b0a19b06625c7">ProfileScope</a>(<span class="keyword">const</span> std::string&amp; name) : <a class="code hl_variable" href="classProfileScope.html#a11af1170806d5e8e0aee47a48832f1e5">m_name</a>(name)</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <a class="code hl_function" href="classProfiler.html#a27e2143b539c267c35ca90c0134892d1">Profiler::GetInstance</a>().<a class="code hl_function" href="classProfiler.html#acbb010106291fa599f5a29a79c85c355">BeginSample</a>(<a class="code hl_variable" href="classProfileScope.html#a11af1170806d5e8e0aee47a48832f1e5">m_name</a>);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00058" data-start="{" data-end="}">
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classProfileScope.html#a87fed1d298079eb2b422f95d7a563367">   58</a></span>    <a class="code hl_function" href="classProfileScope.html#a87fed1d298079eb2b422f95d7a563367">~ProfileScope</a>()</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    {</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <a class="code hl_function" href="classProfiler.html#a27e2143b539c267c35ca90c0134892d1">Profiler::GetInstance</a>().<a class="code hl_function" href="classProfiler.html#aef28432fff70be0d99eb1a404d9e2e46">EndSample</a>(<a class="code hl_variable" href="classProfileScope.html#a11af1170806d5e8e0aee47a48832f1e5">m_name</a>);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    }</div>
+</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classProfileScope.html#a11af1170806d5e8e0aee47a48832f1e5">   64</a></span>    std::string <a class="code hl_variable" href="classProfileScope.html#a11af1170806d5e8e0aee47a48832f1e5">m_name</a>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>};</div>
+</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="Profiler_8h.html#aac1c1303c628961f4a2eefc0a1083766">   67</a></span><span class="preprocessor">#define PROFILE_SCOPE(name) ProfileScope profileScope##__LINE__(name)</span></div>
+<div class="ttc" id="aclassProfileScope_html"><div class="ttname"><a href="classProfileScope.html">ProfileScope</a></div><div class="ttdef"><b>Definition</b> Profiler.h:52</div></div>
+<div class="ttc" id="aclassProfileScope_html_a11af1170806d5e8e0aee47a48832f1e5"><div class="ttname"><a href="classProfileScope.html#a11af1170806d5e8e0aee47a48832f1e5">ProfileScope::m_name</a></div><div class="ttdeci">std::string m_name</div><div class="ttdef"><b>Definition</b> Profiler.h:64</div></div>
+<div class="ttc" id="aclassProfileScope_html_a87fed1d298079eb2b422f95d7a563367"><div class="ttname"><a href="classProfileScope.html#a87fed1d298079eb2b422f95d7a563367">ProfileScope::~ProfileScope</a></div><div class="ttdeci">~ProfileScope()</div><div class="ttdef"><b>Definition</b> Profiler.h:58</div></div>
+<div class="ttc" id="aclassProfileScope_html_af9a96ee3694f957e3c6b0a19b06625c7"><div class="ttname"><a href="classProfileScope.html#af9a96ee3694f957e3c6b0a19b06625c7">ProfileScope::ProfileScope</a></div><div class="ttdeci">ProfileScope(const std::string &amp;name)</div><div class="ttdef"><b>Definition</b> Profiler.h:54</div></div>
+<div class="ttc" id="aclassProfiler_html"><div class="ttname"><a href="classProfiler.html">Profiler</a></div><div class="ttdef"><b>Definition</b> Profiler.h:16</div></div>
+<div class="ttc" id="aclassProfiler_html_a0a158d5bac2e57a2e74c969d2caf480b"><div class="ttname"><a href="classProfiler.html#a0a158d5bac2e57a2e74c969d2caf480b">Profiler::m_samples</a></div><div class="ttdeci">std::vector&lt; ProfileSample &gt; m_samples</div><div class="ttdef"><b>Definition</b> Profiler.h:39</div></div>
+<div class="ttc" id="aclassProfiler_html_a0bc4e21d79b3ff36d6663eb85e4e4b28"><div class="ttname"><a href="classProfiler.html#a0bc4e21d79b3ff36d6663eb85e4e4b28">Profiler::GetSamples</a></div><div class="ttdeci">const std::vector&lt; ProfileSample &gt; &amp; GetSamples() const</div><div class="ttdef"><b>Definition</b> Profiler.h:31</div></div>
+<div class="ttc" id="aclassProfiler_html_a12061e5b1d6b6d85dba5880b612eb4ea"><div class="ttname"><a href="classProfiler.html#a12061e5b1d6b6d85dba5880b612eb4ea">Profiler::GetTotalFrameTimeMs</a></div><div class="ttdeci">double GetTotalFrameTimeMs() const</div><div class="ttdef"><b>Definition</b> Profiler.h:32</div></div>
+<div class="ttc" id="aclassProfiler_html_a151b0327822ff89ca4c67e0449ea594a"><div class="ttname"><a href="classProfiler.html#a151b0327822ff89ca4c67e0449ea594a">Profiler::m_totalFrameTimeMs</a></div><div class="ttdeci">double m_totalFrameTimeMs</div><div class="ttdef"><b>Definition</b> Profiler.h:43</div></div>
+<div class="ttc" id="aclassProfiler_html_a1999dc558dc88855ebdeb2dc17c2594e"><div class="ttname"><a href="classProfiler.html#a1999dc558dc88855ebdeb2dc17c2594e">Profiler::GetCurrentFPS</a></div><div class="ttdeci">float GetCurrentFPS() const</div><div class="ttdef"><b>Definition</b> Profiler.h:33</div></div>
+<div class="ttc" id="aclassProfiler_html_a27e2143b539c267c35ca90c0134892d1"><div class="ttname"><a href="classProfiler.html#a27e2143b539c267c35ca90c0134892d1">Profiler::GetInstance</a></div><div class="ttdeci">static Profiler &amp; GetInstance()</div><div class="ttdef"><b>Definition</b> Profiler.h:18</div></div>
+<div class="ttc" id="aclassProfiler_html_a478a6a1b440412cce3f19cafc184e2b5"><div class="ttname"><a href="classProfiler.html#a478a6a1b440412cce3f19cafc184e2b5">Profiler::m_frameStartTime</a></div><div class="ttdeci">std::chrono::high_resolution_clock::time_point m_frameStartTime</div><div class="ttdef"><b>Definition</b> Profiler.h:42</div></div>
+<div class="ttc" id="aclassProfiler_html_a7f5101a83f2e8534c973488b54cf18de"><div class="ttname"><a href="classProfiler.html#a7f5101a83f2e8534c973488b54cf18de">Profiler::m_currentFPS</a></div><div class="ttdeci">float m_currentFPS</div><div class="ttdef"><b>Definition</b> Profiler.h:44</div></div>
+<div class="ttc" id="aclassProfiler_html_a815dad42af2a1320e87a004f1e5d6939"><div class="ttname"><a href="classProfiler.html#a815dad42af2a1320e87a004f1e5d6939">Profiler::m_frameTimeHistory</a></div><div class="ttdeci">std::vector&lt; float &gt; m_frameTimeHistory</div><div class="ttdef"><b>Definition</b> Profiler.h:46</div></div>
+<div class="ttc" id="aclassProfiler_html_ab6a0f724ebd5568b5feb9cd428b02d48"><div class="ttname"><a href="classProfiler.html#ab6a0f724ebd5568b5feb9cd428b02d48">Profiler::BeginFrame</a></div><div class="ttdeci">void BeginFrame()</div><div class="ttdef"><b>Definition</b> Profiler.cpp:4</div></div>
+<div class="ttc" id="aclassProfiler_html_ac27878f3cb6bfa14e65fda8b976ee80d"><div class="ttname"><a href="classProfiler.html#ac27878f3cb6bfa14e65fda8b976ee80d">Profiler::Profiler</a></div><div class="ttdeci">Profiler()=default</div></div>
+<div class="ttc" id="aclassProfiler_html_ac87c642d4f5f76bcc7e07f40ab69872e"><div class="ttname"><a href="classProfiler.html#ac87c642d4f5f76bcc7e07f40ab69872e">Profiler::EndFrame</a></div><div class="ttdeci">void EndFrame()</div><div class="ttdef"><b>Definition</b> Profiler.cpp:9</div></div>
+<div class="ttc" id="aclassProfiler_html_ac9c041641869d06ea1197ab6e10e029e"><div class="ttname"><a href="classProfiler.html#ac9c041641869d06ea1197ab6e10e029e">Profiler::GetFrameTimeHistory</a></div><div class="ttdeci">const std::vector&lt; float &gt; &amp; GetFrameTimeHistory() const</div><div class="ttdef"><b>Definition</b> Profiler.h:34</div></div>
+<div class="ttc" id="aclassProfiler_html_aca2fbe1b4e5327272a5cbf44d1d729c3"><div class="ttname"><a href="classProfiler.html#aca2fbe1b4e5327272a5cbf44d1d729c3">Profiler::MAX_HISTORY</a></div><div class="ttdeci">static constexpr size_t MAX_HISTORY</div><div class="ttdef"><b>Definition</b> Profiler.h:47</div></div>
+<div class="ttc" id="aclassProfiler_html_acbb010106291fa599f5a29a79c85c355"><div class="ttname"><a href="classProfiler.html#acbb010106291fa599f5a29a79c85c355">Profiler::BeginSample</a></div><div class="ttdeci">void BeginSample(const std::string &amp;name)</div><div class="ttdef"><b>Definition</b> Profiler.cpp:28</div></div>
+<div class="ttc" id="aclassProfiler_html_ae2e0f5c7f821d2a3417b535dda34ee00"><div class="ttname"><a href="classProfiler.html#ae2e0f5c7f821d2a3417b535dda34ee00">Profiler::m_sampleIndexMap</a></div><div class="ttdeci">std::unordered_map&lt; std::string, size_t &gt; m_sampleIndexMap</div><div class="ttdef"><b>Definition</b> Profiler.h:40</div></div>
+<div class="ttc" id="aclassProfiler_html_aef28432fff70be0d99eb1a404d9e2e46"><div class="ttname"><a href="classProfiler.html#aef28432fff70be0d99eb1a404d9e2e46">Profiler::EndSample</a></div><div class="ttdeci">void EndSample(const std::string &amp;name)</div><div class="ttdef"><b>Definition</b> Profiler.cpp:50</div></div>
+<div class="ttc" id="astructProfileSample_html"><div class="ttname"><a href="structProfileSample.html">ProfileSample</a></div><div class="ttdef"><b>Definition</b> Profiler.h:8</div></div>
+<div class="ttc" id="astructProfileSample_html_a44c225ff5e3c03d1cc89e179b78f71f4"><div class="ttname"><a href="structProfileSample.html#a44c225ff5e3c03d1cc89e179b78f71f4">ProfileSample::startTime</a></div><div class="ttdeci">std::chrono::high_resolution_clock::time_point startTime</div><div class="ttdef"><b>Definition</b> Profiler.h:12</div></div>
+<div class="ttc" id="astructProfileSample_html_a5483cdbc1eb9678f0d0332b5edc55481"><div class="ttname"><a href="structProfileSample.html#a5483cdbc1eb9678f0d0332b5edc55481">ProfileSample::smoothedMs</a></div><div class="ttdeci">double smoothedMs</div><div class="ttdef"><b>Definition</b> Profiler.h:11</div></div>
+<div class="ttc" id="astructProfileSample_html_a8b9848aed33c92f9209a18cf237a9cab"><div class="ttname"><a href="structProfileSample.html#a8b9848aed33c92f9209a18cf237a9cab">ProfileSample::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition</b> Profiler.h:9</div></div>
+<div class="ttc" id="astructProfileSample_html_af3130c6190d9392840abadef2a35af6c"><div class="ttname"><a href="structProfileSample.html#af3130c6190d9392840abadef2a35af6c">ProfileSample::durationMs</a></div><div class="ttdeci">double durationMs</div><div class="ttdef"><b>Definition</b> Profiler.h:10</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_7db6fad920da64edfd558eb6dbc0c610.html">Util</a></li><li class="navelem"><a class="el" href="Profiler_8h.html">Profiler.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,591 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Profiler クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classProfiler.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
+<a href="#pri-methods">非公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="#pri-static-attribs">静的非公開変数類</a> &#124;
+<a href="classProfiler-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">Profiler クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="Profiler_8h_source.html">Profiler.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:ab6a0f724ebd5568b5feb9cd428b02d48" id="r_ab6a0f724ebd5568b5feb9cd428b02d48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProfiler.html#ab6a0f724ebd5568b5feb9cd428b02d48">BeginFrame</a> ()</td></tr>
+<tr class="separator:ab6a0f724ebd5568b5feb9cd428b02d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac87c642d4f5f76bcc7e07f40ab69872e" id="r_ac87c642d4f5f76bcc7e07f40ab69872e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProfiler.html#ac87c642d4f5f76bcc7e07f40ab69872e">EndFrame</a> ()</td></tr>
+<tr class="separator:ac87c642d4f5f76bcc7e07f40ab69872e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbb010106291fa599f5a29a79c85c355" id="r_acbb010106291fa599f5a29a79c85c355"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProfiler.html#acbb010106291fa599f5a29a79c85c355">BeginSample</a> (const std::string &amp;name)</td></tr>
+<tr class="separator:acbb010106291fa599f5a29a79c85c355"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef28432fff70be0d99eb1a404d9e2e46" id="r_aef28432fff70be0d99eb1a404d9e2e46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProfiler.html#aef28432fff70be0d99eb1a404d9e2e46">EndSample</a> (const std::string &amp;name)</td></tr>
+<tr class="separator:aef28432fff70be0d99eb1a404d9e2e46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bc4e21d79b3ff36d6663eb85e4e4b28" id="r_a0bc4e21d79b3ff36d6663eb85e4e4b28"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="structProfileSample.html">ProfileSample</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProfiler.html#a0bc4e21d79b3ff36d6663eb85e4e4b28">GetSamples</a> () const</td></tr>
+<tr class="separator:a0bc4e21d79b3ff36d6663eb85e4e4b28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12061e5b1d6b6d85dba5880b612eb4ea" id="r_a12061e5b1d6b6d85dba5880b612eb4ea"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProfiler.html#a12061e5b1d6b6d85dba5880b612eb4ea">GetTotalFrameTimeMs</a> () const</td></tr>
+<tr class="separator:a12061e5b1d6b6d85dba5880b612eb4ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1999dc558dc88855ebdeb2dc17c2594e" id="r_a1999dc558dc88855ebdeb2dc17c2594e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProfiler.html#a1999dc558dc88855ebdeb2dc17c2594e">GetCurrentFPS</a> () const</td></tr>
+<tr class="separator:a1999dc558dc88855ebdeb2dc17c2594e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9c041641869d06ea1197ab6e10e029e" id="r_ac9c041641869d06ea1197ab6e10e029e"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; float &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProfiler.html#ac9c041641869d06ea1197ab6e10e029e">GetFrameTimeHistory</a> () const</td></tr>
+<tr class="separator:ac9c041641869d06ea1197ab6e10e029e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静的公開メンバ関数</h2></td></tr>
+<tr class="memitem:a27e2143b539c267c35ca90c0134892d1" id="r_a27e2143b539c267c35ca90c0134892d1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classProfiler.html">Profiler</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProfiler.html#a27e2143b539c267c35ca90c0134892d1">GetInstance</a> ()</td></tr>
+<tr class="separator:a27e2143b539c267c35ca90c0134892d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+非公開メンバ関数</h2></td></tr>
+<tr class="memitem:ac27878f3cb6bfa14e65fda8b976ee80d" id="r_ac27878f3cb6bfa14e65fda8b976ee80d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProfiler.html#ac27878f3cb6bfa14e65fda8b976ee80d">Profiler</a> ()=default</td></tr>
+<tr class="separator:ac27878f3cb6bfa14e65fda8b976ee80d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:a0a158d5bac2e57a2e74c969d2caf480b" id="r_a0a158d5bac2e57a2e74c969d2caf480b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structProfileSample.html">ProfileSample</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProfiler.html#a0a158d5bac2e57a2e74c969d2caf480b">m_samples</a></td></tr>
+<tr class="separator:a0a158d5bac2e57a2e74c969d2caf480b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2e0f5c7f821d2a3417b535dda34ee00" id="r_ae2e0f5c7f821d2a3417b535dda34ee00"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProfiler.html#ae2e0f5c7f821d2a3417b535dda34ee00">m_sampleIndexMap</a></td></tr>
+<tr class="separator:ae2e0f5c7f821d2a3417b535dda34ee00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a478a6a1b440412cce3f19cafc184e2b5" id="r_a478a6a1b440412cce3f19cafc184e2b5"><td class="memItemLeft" align="right" valign="top">std::chrono::high_resolution_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProfiler.html#a478a6a1b440412cce3f19cafc184e2b5">m_frameStartTime</a></td></tr>
+<tr class="separator:a478a6a1b440412cce3f19cafc184e2b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a151b0327822ff89ca4c67e0449ea594a" id="r_a151b0327822ff89ca4c67e0449ea594a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProfiler.html#a151b0327822ff89ca4c67e0449ea594a">m_totalFrameTimeMs</a> = 0.0</td></tr>
+<tr class="separator:a151b0327822ff89ca4c67e0449ea594a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f5101a83f2e8534c973488b54cf18de" id="r_a7f5101a83f2e8534c973488b54cf18de"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProfiler.html#a7f5101a83f2e8534c973488b54cf18de">m_currentFPS</a> = 0.0f</td></tr>
+<tr class="separator:a7f5101a83f2e8534c973488b54cf18de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a815dad42af2a1320e87a004f1e5d6939" id="r_a815dad42af2a1320e87a004f1e5d6939"><td class="memItemLeft" align="right" valign="top">std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProfiler.html#a815dad42af2a1320e87a004f1e5d6939">m_frameTimeHistory</a></td></tr>
+<tr class="separator:a815dad42af2a1320e87a004f1e5d6939"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
+静的非公開変数類</h2></td></tr>
+<tr class="memitem:aca2fbe1b4e5327272a5cbf44d1d729c3" id="r_aca2fbe1b4e5327272a5cbf44d1d729c3"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProfiler.html#aca2fbe1b4e5327272a5cbf44d1d729c3">MAX_HISTORY</a> = 120</td></tr>
+<tr class="separator:aca2fbe1b4e5327272a5cbf44d1d729c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="ac27878f3cb6bfa14e65fda8b976ee80d" name="ac27878f3cb6bfa14e65fda8b976ee80d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac27878f3cb6bfa14e65fda8b976ee80d">&#9670;&#160;</a></span>Profiler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Profiler::Profiler </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="ab6a0f724ebd5568b5feb9cd428b02d48" name="ab6a0f724ebd5568b5feb9cd428b02d48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6a0f724ebd5568b5feb9cd428b02d48">&#9670;&#160;</a></span>BeginFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Profiler::BeginFrame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProfiler_ab6a0f724ebd5568b5feb9cd428b02d48_icgraph.svg" width="292" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="acbb010106291fa599f5a29a79c85c355" name="acbb010106291fa599f5a29a79c85c355"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbb010106291fa599f5a29a79c85c355">&#9670;&#160;</a></span>BeginSample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Profiler::BeginSample </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProfiler_acbb010106291fa599f5a29a79c85c355_icgraph.svg" width="412" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac87c642d4f5f76bcc7e07f40ab69872e" name="ac87c642d4f5f76bcc7e07f40ab69872e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac87c642d4f5f76bcc7e07f40ab69872e">&#9670;&#160;</a></span>EndFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Profiler::EndFrame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProfiler_ac87c642d4f5f76bcc7e07f40ab69872e_icgraph.svg" width="279" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aef28432fff70be0d99eb1a404d9e2e46" name="aef28432fff70be0d99eb1a404d9e2e46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef28432fff70be0d99eb1a404d9e2e46">&#9670;&#160;</a></span>EndSample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Profiler::EndSample </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProfiler_aef28432fff70be0d99eb1a404d9e2e46_icgraph.svg" width="410" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a1999dc558dc88855ebdeb2dc17c2594e" name="a1999dc558dc88855ebdeb2dc17c2594e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1999dc558dc88855ebdeb2dc17c2594e">&#9670;&#160;</a></span>GetCurrentFPS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Profiler::GetCurrentFPS </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProfiler_a1999dc558dc88855ebdeb2dc17c2594e_icgraph.svg" width="490" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac9c041641869d06ea1197ab6e10e029e" name="ac9c041641869d06ea1197ab6e10e029e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9c041641869d06ea1197ab6e10e029e">&#9670;&#160;</a></span>GetFrameTimeHistory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; float &gt; &amp; Profiler::GetFrameTimeHistory </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProfiler_ac9c041641869d06ea1197ab6e10e029e_icgraph.svg" width="539" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a27e2143b539c267c35ca90c0134892d1" name="a27e2143b539c267c35ca90c0134892d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27e2143b539c267c35ca90c0134892d1">&#9670;&#160;</a></span>GetInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classProfiler.html">Profiler</a> &amp; Profiler::GetInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProfiler_a27e2143b539c267c35ca90c0134892d1_icgraph.svg" width="542" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0bc4e21d79b3ff36d6663eb85e4e4b28" name="a0bc4e21d79b3ff36d6663eb85e4e4b28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bc4e21d79b3ff36d6663eb85e4e4b28">&#9670;&#160;</a></span>GetSamples()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; <a class="el" href="structProfileSample.html">ProfileSample</a> &gt; &amp; Profiler::GetSamples </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProfiler_a0bc4e21d79b3ff36d6663eb85e4e4b28_icgraph.svg" width="474" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a12061e5b1d6b6d85dba5880b612eb4ea" name="a12061e5b1d6b6d85dba5880b612eb4ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12061e5b1d6b6d85dba5880b612eb4ea">&#9670;&#160;</a></span>GetTotalFrameTimeMs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Profiler::GetTotalFrameTimeMs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classProfiler_a12061e5b1d6b6d85dba5880b612eb4ea_icgraph.svg" width="542" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a7f5101a83f2e8534c973488b54cf18de" name="a7f5101a83f2e8534c973488b54cf18de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f5101a83f2e8534c973488b54cf18de">&#9670;&#160;</a></span>m_currentFPS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Profiler::m_currentFPS = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a478a6a1b440412cce3f19cafc184e2b5" name="a478a6a1b440412cce3f19cafc184e2b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a478a6a1b440412cce3f19cafc184e2b5">&#9670;&#160;</a></span>m_frameStartTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::chrono::high_resolution_clock::time_point Profiler::m_frameStartTime</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a815dad42af2a1320e87a004f1e5d6939" name="a815dad42af2a1320e87a004f1e5d6939"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a815dad42af2a1320e87a004f1e5d6939">&#9670;&#160;</a></span>m_frameTimeHistory</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;float&gt; Profiler::m_frameTimeHistory</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae2e0f5c7f821d2a3417b535dda34ee00" name="ae2e0f5c7f821d2a3417b535dda34ee00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2e0f5c7f821d2a3417b535dda34ee00">&#9670;&#160;</a></span>m_sampleIndexMap</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::string, size_t&gt; Profiler::m_sampleIndexMap</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a158d5bac2e57a2e74c969d2caf480b" name="a0a158d5bac2e57a2e74c969d2caf480b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a158d5bac2e57a2e74c969d2caf480b">&#9670;&#160;</a></span>m_samples</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structProfileSample.html">ProfileSample</a>&gt; Profiler::m_samples</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a151b0327822ff89ca4c67e0449ea594a" name="a151b0327822ff89ca4c67e0449ea594a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a151b0327822ff89ca4c67e0449ea594a">&#9670;&#160;</a></span>m_totalFrameTimeMs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Profiler::m_totalFrameTimeMs = 0.0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aca2fbe1b4e5327272a5cbf44d1d729c3" name="aca2fbe1b4e5327272a5cbf44d1d729c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca2fbe1b4e5327272a5cbf44d1d729c3">&#9670;&#160;</a></span>MAX_HISTORY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr size_t Profiler::MAX_HISTORY = 120</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/Util/<a class="el" href="Profiler_8h_source.html">Profiler.h</a></li>
+<li>Source/Util/<a class="el" href="Profiler_8cpp.html">Profiler.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classProfiler.html">Profiler</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

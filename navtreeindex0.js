@@ -95,7 +95,8 @@ var NAVTREEINDEX0 =
 "D2DTextRenderer_8h.html":[3,0,0,9,6],
 "D2DTextRenderer_8h_source.html":[3,0,0,9,6],
 "DX12Manager_8cpp.html":[3,0,0,0,2],
-"DX12Manager_8cpp.html#a88aa4a356a929dffaf267976d79bb237":[3,0,0,0,2,0],
+"DX12Manager_8cpp.html#a88aa4a356a929dffaf267976d79bb237":[3,0,0,0,2,1],
+"DX12Manager_8cpp.html#aac1c1303c628961f4a2eefc0a1083766":[3,0,0,0,2,0],
 "DX12Manager_8h.html":[3,0,0,0,3],
 "DX12Manager_8h_source.html":[3,0,0,0,3],
 "DescriptorHeapAllocator_8cpp.html":[3,0,0,6,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "Object_8h.html":[3,0,0,5,11],
 "Object_8h.html#a5573b97b9e5129f61d289e037d7e806c":[3,0,0,5,11,1],
 "Object_8h.html#a74b90b47b1100dfbcfdf6892a7b2e479":[3,0,0,5,11,2],
-"Object_8h.html#a81fe4d2f62958ae48f36d6a3beb16bb1":[3,0,0,5,11,3],
-"Object_8h_source.html":[3,0,0,5,11]
+"Object_8h.html#a81fe4d2f62958ae48f36d6a3beb16bb1":[3,0,0,5,11,3]
 };
