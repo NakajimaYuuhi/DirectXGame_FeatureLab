@@ -102,8 +102,8 @@ $(document).ready(function(){initNavTree('classRenderTexture.html',''); initResi
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a381aa65068dae17a5917d8e6bad92051" id="r_a381aa65068dae17a5917d8e6bad92051"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#a381aa65068dae17a5917d8e6bad92051">RenderTexture</a> (ID3D12Device *pDevice, UINT width, UINT height, DXGI_FORMAT format)</td></tr>
-<tr class="separator:a381aa65068dae17a5917d8e6bad92051"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70c9280445bacab9cf17ca7678be8ae5" id="r_a70c9280445bacab9cf17ca7678be8ae5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#a70c9280445bacab9cf17ca7678be8ae5">RenderTexture</a> (ID3D12Device *pDevice, UINT width, UINT height, DXGI_FORMAT format, const float clearColor[4]=nullptr)</td></tr>
+<tr class="separator:a70c9280445bacab9cf17ca7678be8ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09968448696504585c6dd61203f2c5b9" id="r_a09968448696504585c6dd61203f2c5b9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#a09968448696504585c6dd61203f2c5b9">~RenderTexture</a> ()</td></tr>
 <tr class="separator:a09968448696504585c6dd61203f2c5b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61195eb544cf9de97ec0aa45787e84c9" id="r_a61195eb544cf9de97ec0aa45787e84c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#a61195eb544cf9de97ec0aa45787e84c9">RenderTexture</a> (const <a class="el" href="classRenderTexture.html">RenderTexture</a> &amp;)=delete</td></tr>
@@ -112,8 +112,8 @@ $(document).ready(function(){initNavTree('classRenderTexture.html',''); initResi
 <tr class="separator:a01c37d603eff3f1676fd0c54efb644eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa490e51502e484466a31c41912878b34" id="r_aa490e51502e484466a31c41912878b34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#aa490e51502e484466a31c41912878b34">Transition</a> (ID3D12GraphicsCommandList *cmdList, D3D12_RESOURCE_STATES nextState)</td></tr>
 <tr class="separator:aa490e51502e484466a31c41912878b34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a326fb9acb1cdc06ffc43f4c21fdb3cd3" id="r_a326fb9acb1cdc06ffc43f4c21fdb3cd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#a326fb9acb1cdc06ffc43f4c21fdb3cd3">Clear</a> (ID3D12GraphicsCommandList *cmdList, const float clearColor[4])</td></tr>
-<tr class="separator:a326fb9acb1cdc06ffc43f4c21fdb3cd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadc9a7820889e43adc2cae5731a307b3" id="r_aadc9a7820889e43adc2cae5731a307b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#aadc9a7820889e43adc2cae5731a307b3">Clear</a> (ID3D12GraphicsCommandList *cmdList, const float clearColor[4]=nullptr)</td></tr>
+<tr class="separator:aadc9a7820889e43adc2cae5731a307b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a768f48620db5be27665fc9a7113cba" id="r_a3a768f48620db5be27665fc9a7113cba"><td class="memItemLeft" align="right" valign="top">ID3D12Resource *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#a3a768f48620db5be27665fc9a7113cba">GetResource</a> () const</td></tr>
 <tr class="separator:a3a768f48620db5be27665fc9a7113cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbb24327ad25b881b51f43119385c424" id="r_afbb24327ad25b881b51f43119385c424"><td class="memItemLeft" align="right" valign="top">D3D12_CPU_DESCRIPTOR_HANDLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#afbb24327ad25b881b51f43119385c424">GetRTV</a> () const</td></tr>
@@ -126,6 +126,8 @@ $(document).ready(function(){initNavTree('classRenderTexture.html',''); initResi
 <tr class="separator:a293f6b642602069185741d706041554e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1272e8a17a172deea87236d4962f6a68" id="r_a1272e8a17a172deea87236d4962f6a68"><td class="memItemLeft" align="right" valign="top">DXGI_FORMAT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#a1272e8a17a172deea87236d4962f6a68">GetFormat</a> () const</td></tr>
 <tr class="separator:a1272e8a17a172deea87236d4962f6a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0ce6219a8d29e5e51e2a9a42570cab0" id="r_aa0ce6219a8d29e5e51e2a9a42570cab0"><td class="memItemLeft" align="right" valign="top">const float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#aa0ce6219a8d29e5e51e2a9a42570cab0">GetClearColor</a> () const</td></tr>
+<tr class="separator:aa0ce6219a8d29e5e51e2a9a42570cab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 非公開変数類</h2></td></tr>
@@ -139,6 +141,8 @@ $(document).ready(function(){initNavTree('classRenderTexture.html',''); initResi
 <tr class="separator:a032269da2b34e5815241da4f677bf4c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4579ad8fc5b82259d4b7956f2036e8b" id="r_ad4579ad8fc5b82259d4b7956f2036e8b"><td class="memItemLeft" align="right" valign="top">DXGI_FORMAT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#ad4579ad8fc5b82259d4b7956f2036e8b">m_format</a> = DXGI_FORMAT_UNKNOWN</td></tr>
 <tr class="separator:ad4579ad8fc5b82259d4b7956f2036e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a874269fa202e9bf05de69b6baa8b917a" id="r_a874269fa202e9bf05de69b6baa8b917a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#a874269fa202e9bf05de69b6baa8b917a">m_clearColor</a> [4] = { 0.0f, 0.0f, 0.0f, 1.0f }</td></tr>
+<tr class="separator:a874269fa202e9bf05de69b6baa8b917a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47fa3b15ebb50128764652470c987786" id="r_a47fa3b15ebb50128764652470c987786"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12DescriptorHeap &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#a47fa3b15ebb50128764652470c987786">m_pRtvHeap</a></td></tr>
 <tr class="separator:a47fa3b15ebb50128764652470c987786"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a601434089072038f77ad2324dcc4a1" id="r_a9a601434089072038f77ad2324dcc4a1"><td class="memItemLeft" align="right" valign="top">D3D12_CPU_DESCRIPTOR_HANDLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#a9a601434089072038f77ad2324dcc4a1">m_rtvHandleCPU</a> {}</td></tr>
@@ -151,8 +155,8 @@ $(document).ready(function(){initNavTree('classRenderTexture.html',''); initResi
 <tr class="separator:a755f1466191c1c61523ed2f82bf613fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">構築子と解体子</h2>
-<a id="a381aa65068dae17a5917d8e6bad92051" name="a381aa65068dae17a5917d8e6bad92051"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a381aa65068dae17a5917d8e6bad92051">&#9670;&#160;</a></span>RenderTexture() <span class="overload">[1/2]</span></h2>
+<a id="a70c9280445bacab9cf17ca7678be8ae5" name="a70c9280445bacab9cf17ca7678be8ae5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70c9280445bacab9cf17ca7678be8ae5">&#9670;&#160;</a></span>RenderTexture() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -179,7 +183,13 @@ $(document).ready(function(){initNavTree('classRenderTexture.html',''); initResi
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">DXGI_FORMAT&#160;</td>
-          <td class="paramname"><em>format</em>&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>clearColor</em>[4] = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -191,7 +201,7 @@ $(document).ready(function(){initNavTree('classRenderTexture.html',''); initResi
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classRenderTexture_a381aa65068dae17a5917d8e6bad92051_cgraph.svg" width="100%" height="425"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classRenderTexture_a70c9280445bacab9cf17ca7678be8ae5_cgraph.svg" width="100%" height="425"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -245,8 +255,8 @@ $(document).ready(function(){initNavTree('classRenderTexture.html',''); initResi
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
-<a id="a326fb9acb1cdc06ffc43f4c21fdb3cd3" name="a326fb9acb1cdc06ffc43f4c21fdb3cd3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a326fb9acb1cdc06ffc43f4c21fdb3cd3">&#9670;&#160;</a></span>Clear()</h2>
+<a id="aadc9a7820889e43adc2cae5731a307b3" name="aadc9a7820889e43adc2cae5731a307b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadc9a7820889e43adc2cae5731a307b3">&#9670;&#160;</a></span>Clear()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -261,7 +271,7 @@ $(document).ready(function(){initNavTree('classRenderTexture.html',''); initResi
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const float&#160;</td>
-          <td class="paramname"><em>clearColor</em>[4]&#160;</td>
+          <td class="paramname"><em>clearColor</em>[4] = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -270,6 +280,36 @@ $(document).ready(function(){initNavTree('classRenderTexture.html',''); initResi
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa0ce6219a8d29e5e51e2a9a42570cab0" name="aa0ce6219a8d29e5e51e2a9a42570cab0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0ce6219a8d29e5e51e2a9a42570cab0">&#9670;&#160;</a></span>GetClearColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float * RenderTexture::GetClearColor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classRenderTexture_aa0ce6219a8d29e5e51e2a9a42570cab0_icgraph.svg" width="431" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -493,6 +533,28 @@ $(document).ready(function(){initNavTree('classRenderTexture.html',''); initResi
 </div>
 </div>
 <h2 class="groupheader">メンバ詳解</h2>
+<a id="a874269fa202e9bf05de69b6baa8b917a" name="a874269fa202e9bf05de69b6baa8b917a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a874269fa202e9bf05de69b6baa8b917a">&#9670;&#160;</a></span>m_clearColor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float RenderTexture::m_clearColor[4] = { 0.0f, 0.0f, 0.0f, 1.0f }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aec40bd383f308624d534571369aeb202" name="aec40bd383f308624d534571369aeb202"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aec40bd383f308624d534571369aeb202">&#9670;&#160;</a></span>m_currentState</h2>
 

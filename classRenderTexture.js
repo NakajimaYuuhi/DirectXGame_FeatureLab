@@ -1,9 +1,10 @@
 var classRenderTexture =
 [
-    [ "RenderTexture", "classRenderTexture.html#a381aa65068dae17a5917d8e6bad92051", null ],
+    [ "RenderTexture", "classRenderTexture.html#a70c9280445bacab9cf17ca7678be8ae5", null ],
     [ "~RenderTexture", "classRenderTexture.html#a09968448696504585c6dd61203f2c5b9", null ],
     [ "RenderTexture", "classRenderTexture.html#a61195eb544cf9de97ec0aa45787e84c9", null ],
-    [ "Clear", "classRenderTexture.html#a326fb9acb1cdc06ffc43f4c21fdb3cd3", null ],
+    [ "Clear", "classRenderTexture.html#aadc9a7820889e43adc2cae5731a307b3", null ],
+    [ "GetClearColor", "classRenderTexture.html#aa0ce6219a8d29e5e51e2a9a42570cab0", null ],
     [ "GetFormat", "classRenderTexture.html#a1272e8a17a172deea87236d4962f6a68", null ],
     [ "GetHeight", "classRenderTexture.html#a293f6b642602069185741d706041554e", null ],
     [ "GetResource", "classRenderTexture.html#a3a768f48620db5be27665fc9a7113cba", null ],
@@ -12,6 +13,7 @@ var classRenderTexture =
     [ "GetWidth", "classRenderTexture.html#ae70489a9e0c45dcef7091b6338e2f7c7", null ],
     [ "operator=", "classRenderTexture.html#a01c37d603eff3f1676fd0c54efb644eb", null ],
     [ "Transition", "classRenderTexture.html#aa490e51502e484466a31c41912878b34", null ],
+    [ "m_clearColor", "classRenderTexture.html#a874269fa202e9bf05de69b6baa8b917a", null ],
     [ "m_currentState", "classRenderTexture.html#aec40bd383f308624d534571369aeb202", null ],
     [ "m_format", "classRenderTexture.html#ad4579ad8fc5b82259d4b7956f2036e8b", null ],
     [ "m_height", "classRenderTexture.html#a032269da2b34e5815241da4f677bf4c0", null ],

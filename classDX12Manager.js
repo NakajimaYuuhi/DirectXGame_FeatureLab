@@ -47,6 +47,7 @@ var classDX12Manager =
     [ "m_FrameBufferCount", "classDX12Manager.html#a97407cbb06424646d1ce776082db6981", null ],
     [ "m_frameIndex", "classDX12Manager.html#ab3e6c4c894808fe5317dd6cac42432b6", null ],
     [ "m_Height", "classDX12Manager.html#a94615120b1fb66e04f2978a90a51ca76", null ],
+    [ "m_imguiCommandAllocator", "classDX12Manager.html#ab1156d85a1fd836f6ded569bbf1bbd20", null ],
     [ "m_proj", "classDX12Manager.html#ab4a80da0e62466d9e63051371e14e2de", null ],
     [ "m_renderTargets", "classDX12Manager.html#ac952b96a9722b56de70f579f50571ef3", null ],
     [ "m_rtvDescriptorSize", "classDX12Manager.html#a3a549e9164c4a14ecc1f7d160063a52c", null ],

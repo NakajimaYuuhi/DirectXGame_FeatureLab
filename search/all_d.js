@@ -54,7 +54,7 @@ var searchData=
   ['lexer_51',['lexer',['../classnlohmann_1_1detail_1_1lexer.html#ae95416c7ae8b36f0dd0ab349eaa754a2',1,'nlohmann::detail::lexer::lexer()'],['../classnlohmann_1_1detail_1_1lexer.html',1,'nlohmann::detail::lexer&lt; BasicJsonType, InputAdapterType &gt;'],['../classnlohmann_1_1detail_1_1lexer.html#ab75d61c4de687717648c7698850ddb9b',1,'nlohmann::detail::lexer::lexer(const lexer &amp;)=delete'],['../classnlohmann_1_1detail_1_1lexer.html#a89bbc051da2514a469441a3a30ad63e4',1,'nlohmann::detail::lexer::lexer(InputAdapterType &amp;&amp;adapter, bool ignore_comments_=false) noexcept']]],
   ['lexer_5fbase_52',['lexer_base',['../classnlohmann_1_1detail_1_1lexer__base.html',1,'nlohmann::detail']]],
   ['lexer_5ft_53',['lexer_t',['../classnlohmann_1_1detail_1_1parser.html#a5fbd320c5b713fda15d467e8455e4298',1,'nlohmann::detail::parser']]],
-  ['light_54',['light',['../structtinygltf_1_1Light.html',1,'tinygltf::Light'],['../structtinygltf_1_1Light.html#ac3a65deefdf9d5e2d8772322dcc12200',1,'tinygltf::Light::Light()'],['../classtinygltf_1_1Node.html#ad8c5a0344d3dc028ef190df61888be29',1,'tinygltf::Node::light']]],
+  ['light_54',['light',['../structtinygltf_1_1Light.html',1,'tinygltf::Light'],['../classtinygltf_1_1Node.html#ad8c5a0344d3dc028ef190df61888be29',1,'tinygltf::Node::light'],['../structtinygltf_1_1Light.html#ac3a65deefdf9d5e2d8772322dcc12200',1,'tinygltf::Light::Light()']]],
   ['lightbufferdata_55',['LightBufferData',['../structLightBufferData.html',1,'']]],
   ['lightcolor_56',['lightColor',['../structLightBufferData.html#a2d73a3c1d99a1f5c16281420b70b5667',1,'LightBufferData']]],
   ['lightdir_57',['lightDir',['../structLightBufferData.html#a86b8abd899c0bb2638211fa0e50df4c4',1,'LightBufferData']]],

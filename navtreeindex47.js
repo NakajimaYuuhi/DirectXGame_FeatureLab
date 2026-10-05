@@ -1,5 +1,8 @@
 var NAVTREEINDEX47 =
 {
+"structImTextureRef.html#aceeb8010a4fc0b3f7460cf4f764703d6":[2,0,206,3],
+"structImTextureRef.html#aedb3e07848abdbc8c3c6a02423e3615b":[2,0,206,4],
+"structImTextureRef.html#af538f18a4aca961a57d82878d7eaee06":[2,0,206,5],
 "structImTriangulator.html":[2,0,207],
 "structImTriangulator.html#a017362849997e8a99b4b48c9f9d850bb":[2,0,207,12],
 "structImTriangulator.html#a05c05caa6fc9d87c0b6036d223a5b998":[2,0,207,11],
@@ -246,8 +249,5 @@ var NAVTREEINDEX47 =
 "structnlohmann_1_1detail_1_1conjunction_3_01B1_01_4.html":[2,0,0,0,6],
 "structnlohmann_1_1detail_1_1conjunction_3_01B1_01_4.html":[1,0,4,0,6],
 "structnlohmann_1_1detail_1_1container__input__adapter__factory__impl_1_1container__input__adapte602516bdb0b70b8ee5c6d4ff825368be.html":[2,0,0,0,0,1],
-"structnlohmann_1_1detail_1_1container__input__adapter__factory__impl_1_1container__input__adapte602516bdb0b70b8ee5c6d4ff825368be.html":[1,0,4,0,0,1],
-"structnlohmann_1_1detail_1_1container__input__adapter__factory__impl_1_1container__input__adapte602516bdb0b70b8ee5c6d4ff825368be.html#a282eae71ce3b7a4249c6bc06da8b2670":[2,0,0,0,0,1,1],
-"structnlohmann_1_1detail_1_1container__input__adapter__factory__impl_1_1container__input__adapte602516bdb0b70b8ee5c6d4ff825368be.html#a282eae71ce3b7a4249c6bc06da8b2670":[1,0,4,0,0,1,1],
-"structnlohmann_1_1detail_1_1container__input__adapter__factory__impl_1_1container__input__adapte602516bdb0b70b8ee5c6d4ff825368be.html#aa801458464e2dc726530463d35310abf":[2,0,0,0,0,1,0]
+"structnlohmann_1_1detail_1_1container__input__adapter__factory__impl_1_1container__input__adapte602516bdb0b70b8ee5c6d4ff825368be.html":[1,0,4,0,0,1]
 };

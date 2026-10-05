@@ -1,5 +1,8 @@
 var NAVTREEINDEX41 =
 {
+"structImGuiDebugAllocInfo.html#af30e2855aabf5afffeb2743af1827455":[2,0,114,0],
+"structImGuiDebugAllocInfo.html#af482f6e6e3a9cf3e8309809d25bc7ada":[2,0,114,4],
+"structImGuiDebugItemPathQuery.html":[2,0,115],
 "structImGuiDebugItemPathQuery.html#a1f9463a7d603b3f128602a6066d6a555":[2,0,115,4],
 "structImGuiDebugItemPathQuery.html#a2457a04d4ce9297b438ff5d7116a9979":[2,0,115,6],
 "structImGuiDebugItemPathQuery.html#aaa20d7b2806d7de1f3fb9f7318d0addd":[2,0,115,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX41 =
 "structImGuiInputTextDeactivatedState.html#a19db36bc26be137f8b9c7a55f09dd1a3":[2,0,129,3],
 "structImGuiInputTextDeactivatedState.html#a43332a0e530aff3f308605119fb36b5b":[2,0,129,2],
 "structImGuiInputTextDeactivatedState.html#ab25f0ed83856bf370fa78e9a6aaaa895":[2,0,129,1],
-"structImGuiInputTextDeactivatedState.html#abefa99fe24b6becb8a463e66120219a1":[2,0,129,0],
-"structImGuiInputTextState.html":[2,0,130],
-"structImGuiInputTextState.html#a061d099bd9dad94fe86a435f48c7fe1e":[2,0,130,7],
-"structImGuiInputTextState.html#a0924f1eead76c7d58090aa603cea4301":[2,0,130,6]
+"structImGuiInputTextDeactivatedState.html#abefa99fe24b6becb8a463e66120219a1":[2,0,129,0]
 };
