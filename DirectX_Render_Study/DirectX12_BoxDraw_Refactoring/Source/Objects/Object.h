@@ -61,6 +61,8 @@ public:
 		return nullptr;
 	}
 
+	CTransform* GetTransform() { return GetComponent<CTransform>(); }
+
 	template<class T>
 	Vector<T*> GetComponentsOfType()
 	{

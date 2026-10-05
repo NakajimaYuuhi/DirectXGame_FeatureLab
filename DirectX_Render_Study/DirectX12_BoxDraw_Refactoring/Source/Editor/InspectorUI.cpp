@@ -1,4 +1,4 @@
-#include "InspectorUI.h"
+﻿#include "InspectorUI.h"
 #include "EditorRaycast.h"
 #include "UndoManager.h"
 #include <d3d12.h>
@@ -685,6 +685,35 @@ void CInspectorUI::Draw()
                 {
                     if (ImGui::CollapsingHeader("Transform", ImGuiTreeNodeFlags_DefaultOpen))
                     {
+                        // 階層情報
+                        CTransform* parentTrans = transform->GetParent();
+                        if (parentTrans)
+                        {
+                            CObject* parentObj = parentTrans->GetOwner();
+                            CObjectInfo* pInfo = parentObj ? parentObj->GetComponent<CObjectInfo>() : nullptr;
+                            std::string pName = pInfo ? pInfo->GetObjectName() : "CObject";
+                            ImGui::Text("Parent: %s", pName.c_str());
+                            ImGui::SameLine();
+                            if (ImGui::SmallButton("Detach##Parent"))
+                            {
+                                transform->SetParent(nullptr, true);
+                            }
+                        }
+                        else
+                        {
+                            ImGui::TextDisabled("Parent: None (Root)");
+                        }
+
+                        const auto& children = transform->GetChildren();
+                        if (!children.empty())
+                        {
+                            ImGui::SameLine();
+                            ImGui::TextDisabled(" | Children: %d", static_cast<int>(children.size()));
+                        }
+
+                        ImGui::Separator();
+
+                        // ローカル姿勢
                         DirectX::XMFLOAT3 pos = transform->GetPos();
                         if (ImGui::DragFloat3("Position", &pos.x, 0.1f))
                         {
@@ -701,6 +730,24 @@ void CInspectorUI::Draw()
                         if (ImGui::DragFloat3("Scale", &scale.x, 0.1f))
                         {
                             transform->SetScale(scale);
+                        }
+
+                        // ワールド姿勢のデバッグ表示
+                        if (ImGui::TreeNode("World Transform (Read Only)"))
+                        {
+                            DirectX::XMFLOAT3 wPos = transform->GetWorldPosition();
+                            ImGui::Text("Position : (%.2f, %.2f, %.2f)", wPos.x, wPos.y, wPos.z);
+
+                            DirectX::XMFLOAT4 wRot = transform->GetWorldRotation();
+                            ImGui::Text("Rotation : (%.2f, %.2f, %.2f, %.2f)", wRot.x, wRot.y, wRot.z, wRot.w);
+
+                            DirectX::XMFLOAT3 wScale = transform->GetWorldScale();
+                            ImGui::Text("Scale    : (%.2f, %.2f, %.2f)", wScale.x, wScale.y, wScale.z);
+
+                            DirectX::XMFLOAT3 front = transform->GetFront();
+                            ImGui::Text("Front    : (%.2f, %.2f, %.2f)", front.x, front.y, front.z);
+
+                            ImGui::TreePop();
                         }
                     }
                 }
