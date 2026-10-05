@@ -2,6 +2,7 @@
 #include "InspectorUI.h"
 #include "UndoManager.h"
 #include "ContentDrawerUI.h"
+#include "ProfilerUI.h"
 #include "imgui.h"
 #include "ObjectManager.h"
 #include "TimeManager.h"
@@ -181,6 +182,11 @@ void CEditorToolbarUI::Draw()
         if (ImGui::Button("Content Drawer (Ctrl+Space)"))
         {
             CContentDrawerUI::GetInstance().ToggleVisible();
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Profiler"))
+        {
+            CProfilerUI::GetInstance().ToggleVisible();
         }
     }
     ImGui::End();

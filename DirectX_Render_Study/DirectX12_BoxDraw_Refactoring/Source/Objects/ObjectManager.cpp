@@ -5,6 +5,7 @@
 #include "Model.h"
 #include "SpriteRenderer.h"
 #include "TextRenderer.h"
+#include "Source/Util/Profiler.h"
 
 void ObjectManager::Init(Scenes::ID _SceneID)
 {
@@ -56,25 +57,46 @@ void ObjectManager::Update(Scenes::ID _SceneID)
 	}
 
 	// 3. Phase 0: Input (全オブジェクトの入力受付・操作)
-	UpdatePhaseAll(UpdatePhase::Input, dt);
+	{
+		PROFILE_SCOPE("Update::Input");
+		UpdatePhaseAll(UpdatePhase::Input, dt);
+	}
 
 	// 4. Phase 1: AI (全エネミーの思考・状態遷移)
-	UpdatePhaseAll(UpdatePhase::AI, dt);
+	{
+		PROFILE_SCOPE("Update::AI");
+		UpdatePhaseAll(UpdatePhase::AI, dt);
+	}
 
 	// 5. Phase 2: Movement (全キャラの移動・速度計算)
-	UpdatePhaseAll(UpdatePhase::Movement, dt);
+	{
+		PROFILE_SCOPE("Update::Movement");
+		UpdatePhaseAll(UpdatePhase::Movement, dt);
+	}
 
 	// 6. Phase 3: Physics (重力適用、外力計算など)
-	UpdatePhaseAll(UpdatePhase::Physics, dt);
+	{
+		PROFILE_SCOPE("Update::Physics");
+		UpdatePhaseAll(UpdatePhase::Physics, dt);
+	}
 
 	// 7. 衝突判定・押し戻し解決（全オブジェクトの位置が物理的に確定）
-	CollisionUpdate(_SceneID);
+	{
+		PROFILE_SCOPE("Update::Collision");
+		CollisionUpdate(_SceneID);
+	}
 
 	// 8. Phase 4: Animation (確定した移動・姿勢に基づくボーン更新・UVアニメ)
-	UpdatePhaseAll(UpdatePhase::Animation, dt);
+	{
+		PROFILE_SCOPE("Update::Animation");
+		UpdatePhaseAll(UpdatePhase::Animation, dt);
+	}
 
 	// 9. Phase 5: PostPhysics (押し戻し確定後のプレイヤー位置をカメラが追従・ビルボード)
-	UpdatePhaseAll(UpdatePhase::PostPhysics, dt);
+	{
+		PROFILE_SCOPE("Update::PostPhysics");
+		UpdatePhaseAll(UpdatePhase::PostPhysics, dt);
+	}
 
 	// 10. LateUpdate (全オブジェクトの最終補正)
 	for (size_t tagIdx = 0; tagIdx < vecObject.size(); ++tagIdx)
@@ -135,10 +157,22 @@ void ObjectManager::Draw(Scenes::ID _SceneID)
 	FlushPendingAddObjects();
 
 	// レイヤー順に整列描画（不透明 -> 透過 -> デバッグ -> UI）
-	DrawByLayer(RenderLayer::Opaque);
-	DrawByLayer(RenderLayer::Transparent);
-	DrawByLayer(RenderLayer::Debug);
-	DrawByLayer(RenderLayer::UI);
+	{
+		PROFILE_SCOPE("Render::Opaque");
+		DrawByLayer(RenderLayer::Opaque);
+	}
+	{
+		PROFILE_SCOPE("Render::Transparent");
+		DrawByLayer(RenderLayer::Transparent);
+	}
+	{
+		PROFILE_SCOPE("Render::Debug");
+		DrawByLayer(RenderLayer::Debug);
+	}
+	{
+		PROFILE_SCOPE("Render::UI");
+		DrawByLayer(RenderLayer::UI);
+	}
 }
 
 void ObjectManager::DrawByLayer(RenderLayer layer)

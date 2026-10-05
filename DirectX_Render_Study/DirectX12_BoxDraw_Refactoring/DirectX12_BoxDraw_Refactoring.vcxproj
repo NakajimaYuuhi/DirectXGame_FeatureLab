@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -219,7 +219,9 @@
     <ClCompile Include="Source\Editor\InspectorUI.cpp" />
     <ClCompile Include="Source\Editor\EditorToolbarUI.cpp" />
     <ClCompile Include="Source\Editor\HierarchyUI.cpp" />
-    <ClCompile Include="Source\Editor\ContentDrawerUI.cpp" />
+        <ClCompile Include="Source\Editor\ContentDrawerUI.cpp" />
+    <ClCompile Include="Source\Editor\ProfilerUI.cpp" />
+    <ClCompile Include="Source\Util\Profiler.cpp" />
     <ClCompile Include="Source\Core\PrefabSerializer.cpp" />
     <ClCompile Include="Source\Editor\EditorRaycast.cpp" />
     <ClCompile Include="Source\Editor\UndoManager.cpp" />
@@ -334,7 +336,9 @@
     <ClInclude Include="Source\Editor\InspectorUI.h" />
     <ClInclude Include="Source\Editor\EditorToolbarUI.h" />
     <ClInclude Include="Source\Editor\HierarchyUI.h" />
-    <ClInclude Include="Source\Editor\ContentDrawerUI.h" />
+        <ClInclude Include="Source\Editor\ContentDrawerUI.h" />
+    <ClInclude Include="Source\Editor\ProfilerUI.h" />
+    <ClInclude Include="Source\Util\Profiler.h" />
     <ClInclude Include="Source\Core\PrefabSerializer.h" />
     <ClInclude Include="Source\Core\Scenes\Serializer\SceneSerializer.h" />
         <ClInclude Include="Source\Engine\Component\Transform.h" />

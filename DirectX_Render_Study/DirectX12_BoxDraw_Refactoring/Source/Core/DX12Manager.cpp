@@ -12,6 +12,7 @@
 
 #include "imgui_impl_dx12.h"
 #include "D2DTextRenderer.h"
+#include "Source/Util/Profiler.h"
 
 #include "ObjectManager.h"
 
@@ -512,7 +513,10 @@ void DX12Manager::EndSceneDraw()
 	m_commandQueue->ExecuteCommandLists(1, commandLists);
 
 	// 2. Direct2D テキストをバックバッファに焼き付け（ゲーム内UIテキスト描画）
-	D2DTextRenderer::GetInstance().Render(m_frameIndex);
+	{
+		PROFILE_SCOPE("Render::D2DText");
+		D2DTextRenderer::GetInstance().Render(m_frameIndex);
+	}
 
 	// 3. ImGui 描画用にコマンドアロケータ・リストを再開
 	m_commandAllocator->Reset();

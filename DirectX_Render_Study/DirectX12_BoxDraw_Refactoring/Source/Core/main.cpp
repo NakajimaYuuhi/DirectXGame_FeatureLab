@@ -2,6 +2,8 @@
 #include "EditorToolbarUI.h"
 #include "HierarchyUI.h"
 #include "ContentDrawerUI.h"
+#include "ProfilerUI.h"
+#include "Source/Util/Profiler.h"
 ///////////////////////////////////////////
 //main.cpp                               
 //                                       
@@ -182,6 +184,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 
 		// FPS固定とDeltaTimeの更新
 		TimeManager::GetInstance().Update();
+		Profiler::GetInstance().BeginFrame();
 
 		//---入力の更新---
 		CInputManager::GetInstance().Update();
@@ -194,9 +197,12 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 			CHierarchyUI::GetInstance().Draw();
 			CInspectorUI::GetInstance().Draw();
 			CContentDrawerUI::GetInstance().Draw();
+			CProfilerUI::GetInstance().Draw();
 		}
 
 		// Update
+		{
+			PROFILE_SCOPE("Update::SceneTotal");
 		if (CInspectorUI::GetInstance().IsPrefabEditMode())
 		{
 			CObject* target = CInspectorUI::GetInstance().GetPrefabEditTarget();
@@ -209,6 +215,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 		{
 			SceneManager::GetInstance().Update();
 		}
+		}
 
 		// End check
 		if (SceneManager::GetInstance().GetIsGameEnd() == true)break;;
@@ -216,6 +223,8 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 		//--- Draw ---
 		DX12Manager::GetInstance().BeginDraw();
 
+		{
+			PROFILE_SCOPE("Render::SceneTotal");
 		SceneManager::GetInstance().Draw();
 
 		if (CInspectorUI::GetInstance().IsPrefabEditMode())
@@ -228,13 +237,18 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 		}
 
 		//ImGuiの描画
+		}
 		DX12Manager::GetInstance().EndSceneDraw();
 
 		// ImGui描画
+		{
+			PROFILE_SCOPE("UI::ImGui");
 		CImGuiManager::GetInstance().End(DX12Manager::GetInstance().GetCommandList());
+		}
 
 		//DirectX12の描画終了
 		DX12Manager::GetInstance().EndDraw();
+		Profiler::GetInstance().EndFrame();
 	}
 
 	SceneManager::GetInstance().Uninit();
