@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Rendering/ShadowMap.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('ShadowMap_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ShadowMap.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="ShadowMap_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;d3d12.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;wrl/client.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="classShadowMap.html">    5</a></span><span class="keyword">class </span><a class="code hl_class" href="classShadowMap.html">ShadowMap</a></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <a class="code hl_class" href="classShadowMap.html">ShadowMap</a>(ID3D12Device* device, UINT width = 2048, UINT height = 2048);</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_function" href="classShadowMap.html#aade01d2dc3620a7015016ecd3aa3cab3">~ShadowMap</a>();</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classShadowMap.html#a466d4943f9bac05451a6edcb70e8f2dc">TransitionToDepthWrite</a>(ID3D12GraphicsCommandList* cmdList);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classShadowMap.html#a0e324e48ca48eb0aa59edcfecc42ad58">TransitionToPixelShaderResource</a>(ID3D12GraphicsCommandList* cmdList);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classShadowMap.html#a994b268fc619f727e3dda979ae579d72">Clear</a>(ID3D12GraphicsCommandList* cmdList);</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classShadowMap.html#a50de021ef49c9e6bff0deb2adee23ddd">   15</a></span>    D3D12_CPU_DESCRIPTOR_HANDLE <a class="code hl_function" href="classShadowMap.html#a50de021ef49c9e6bff0deb2adee23ddd">GetDSV</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classShadowMap.html#aff1978e3c368577fcaff10050b998a17">m_dsvHandle</a>; }</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classShadowMap.html#a87caa5e356549e5908a6d1725e0b49e5">   16</a></span>    D3D12_GPU_DESCRIPTOR_HANDLE <a class="code hl_function" href="classShadowMap.html#a87caa5e356549e5908a6d1725e0b49e5">GetSRV</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classShadowMap.html#aa738f0ad9978b37ed80c5ba41d74b2f6">m_srvGpuHandle</a>; }</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classShadowMap.html#af5247873d1a437b7d061567d6840e6db">   17</a></span>    D3D12_CPU_DESCRIPTOR_HANDLE <a class="code hl_function" href="classShadowMap.html#af5247873d1a437b7d061567d6840e6db">GetSRVCpu</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classShadowMap.html#a77e909c20a58789b0bee154fdcb57e62">m_srvCpuHandle</a>; }</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classShadowMap.html#a4db7196a00e8319fe99db09d42f05519">   19</a></span>    UINT <a class="code hl_function" href="classShadowMap.html#a4db7196a00e8319fe99db09d42f05519">GetWidth</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classShadowMap.html#a01620aefff51f92f9e4ec1d19b4dbb0d">m_width</a>; }</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classShadowMap.html#a2e6f1e32179ef0f7f230f0cbd8531d0b">   20</a></span>    UINT <a class="code hl_function" href="classShadowMap.html#a2e6f1e32179ef0f7f230f0cbd8531d0b">GetHeight</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classShadowMap.html#a087cf027bd9ae8358597ee37eecf73f0">m_height</a>; }</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classShadowMap.html#a5bceae723437dd42f7c42732acbbf2e8">   21</a></span>    D3D12_VIEWPORT <a class="code hl_function" href="classShadowMap.html#a5bceae723437dd42f7c42732acbbf2e8">GetViewport</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classShadowMap.html#a5e9ef0e4451ca0cd0cb8a4a0100ad062">m_viewport</a>; }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classShadowMap.html#a5ed475afe6f3a18092e4b164de4787d9">   22</a></span>    D3D12_RECT <a class="code hl_function" href="classShadowMap.html#a5ed475afe6f3a18092e4b164de4787d9">GetScissorRect</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classShadowMap.html#a9d3a4c078654783c913672e1dc0ff63e">m_scissorRect</a>; }</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classShadowMap.html#a7e65065c1a61f958158b7affc1117ed6">   25</a></span>    Microsoft::WRL::ComPtr&lt;ID3D12Resource&gt; <a class="code hl_variable" href="classShadowMap.html#a7e65065c1a61f958158b7affc1117ed6">m_resource</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classShadowMap.html#ac132d1c8e559dad522de9bc10ba135cb">   26</a></span>    Microsoft::WRL::ComPtr&lt;ID3D12DescriptorHeap&gt; <a class="code hl_variable" href="classShadowMap.html#ac132d1c8e559dad522de9bc10ba135cb">m_dsvHeap</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classShadowMap.html#aff1978e3c368577fcaff10050b998a17">   27</a></span>    D3D12_CPU_DESCRIPTOR_HANDLE <a class="code hl_variable" href="classShadowMap.html#aff1978e3c368577fcaff10050b998a17">m_dsvHandle</a>{};</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classShadowMap.html#a77e909c20a58789b0bee154fdcb57e62">   29</a></span>    D3D12_CPU_DESCRIPTOR_HANDLE <a class="code hl_variable" href="classShadowMap.html#a77e909c20a58789b0bee154fdcb57e62">m_srvCpuHandle</a>{};</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classShadowMap.html#aa738f0ad9978b37ed80c5ba41d74b2f6">   30</a></span>    D3D12_GPU_DESCRIPTOR_HANDLE <a class="code hl_variable" href="classShadowMap.html#aa738f0ad9978b37ed80c5ba41d74b2f6">m_srvGpuHandle</a>{};</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classShadowMap.html#ad950d29a1843153d680fa9f91204180e">   31</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classShadowMap.html#ad950d29a1843153d680fa9f91204180e">m_srvAllocated</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classShadowMap.html#a2b23d3bc29a27d02634db370d5678977">   33</a></span>    D3D12_RESOURCE_STATES <a class="code hl_variable" href="classShadowMap.html#a2b23d3bc29a27d02634db370d5678977">m_currentState</a> = D3D12_RESOURCE_STATE_DEPTH_WRITE;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classShadowMap.html#a01620aefff51f92f9e4ec1d19b4dbb0d">   35</a></span>    UINT <a class="code hl_variable" href="classShadowMap.html#a01620aefff51f92f9e4ec1d19b4dbb0d">m_width</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classShadowMap.html#a087cf027bd9ae8358597ee37eecf73f0">   36</a></span>    UINT <a class="code hl_variable" href="classShadowMap.html#a087cf027bd9ae8358597ee37eecf73f0">m_height</a>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classShadowMap.html#a5e9ef0e4451ca0cd0cb8a4a0100ad062">   37</a></span>    D3D12_VIEWPORT <a class="code hl_variable" href="classShadowMap.html#a5e9ef0e4451ca0cd0cb8a4a0100ad062">m_viewport</a>{};</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classShadowMap.html#a9d3a4c078654783c913672e1dc0ff63e">   38</a></span>    D3D12_RECT <a class="code hl_variable" href="classShadowMap.html#a9d3a4c078654783c913672e1dc0ff63e">m_scissorRect</a>{};</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>};</div>
+</div>
+<div class="ttc" id="aclassShadowMap_html"><div class="ttname"><a href="classShadowMap.html">ShadowMap</a></div><div class="ttdef"><b>Definition</b> ShadowMap.h:6</div></div>
+<div class="ttc" id="aclassShadowMap_html_a01620aefff51f92f9e4ec1d19b4dbb0d"><div class="ttname"><a href="classShadowMap.html#a01620aefff51f92f9e4ec1d19b4dbb0d">ShadowMap::m_width</a></div><div class="ttdeci">UINT m_width</div><div class="ttdef"><b>Definition</b> ShadowMap.h:35</div></div>
+<div class="ttc" id="aclassShadowMap_html_a087cf027bd9ae8358597ee37eecf73f0"><div class="ttname"><a href="classShadowMap.html#a087cf027bd9ae8358597ee37eecf73f0">ShadowMap::m_height</a></div><div class="ttdeci">UINT m_height</div><div class="ttdef"><b>Definition</b> ShadowMap.h:36</div></div>
+<div class="ttc" id="aclassShadowMap_html_a0e324e48ca48eb0aa59edcfecc42ad58"><div class="ttname"><a href="classShadowMap.html#a0e324e48ca48eb0aa59edcfecc42ad58">ShadowMap::TransitionToPixelShaderResource</a></div><div class="ttdeci">void TransitionToPixelShaderResource(ID3D12GraphicsCommandList *cmdList)</div><div class="ttdef"><b>Definition</b> ShadowMap.cpp:103</div></div>
+<div class="ttc" id="aclassShadowMap_html_a2b23d3bc29a27d02634db370d5678977"><div class="ttname"><a href="classShadowMap.html#a2b23d3bc29a27d02634db370d5678977">ShadowMap::m_currentState</a></div><div class="ttdeci">D3D12_RESOURCE_STATES m_currentState</div><div class="ttdef"><b>Definition</b> ShadowMap.h:33</div></div>
+<div class="ttc" id="aclassShadowMap_html_a2e6f1e32179ef0f7f230f0cbd8531d0b"><div class="ttname"><a href="classShadowMap.html#a2e6f1e32179ef0f7f230f0cbd8531d0b">ShadowMap::GetHeight</a></div><div class="ttdeci">UINT GetHeight() const</div><div class="ttdef"><b>Definition</b> ShadowMap.h:20</div></div>
+<div class="ttc" id="aclassShadowMap_html_a466d4943f9bac05451a6edcb70e8f2dc"><div class="ttname"><a href="classShadowMap.html#a466d4943f9bac05451a6edcb70e8f2dc">ShadowMap::TransitionToDepthWrite</a></div><div class="ttdeci">void TransitionToDepthWrite(ID3D12GraphicsCommandList *cmdList)</div><div class="ttdef"><b>Definition</b> ShadowMap.cpp:88</div></div>
+<div class="ttc" id="aclassShadowMap_html_a4db7196a00e8319fe99db09d42f05519"><div class="ttname"><a href="classShadowMap.html#a4db7196a00e8319fe99db09d42f05519">ShadowMap::GetWidth</a></div><div class="ttdeci">UINT GetWidth() const</div><div class="ttdef"><b>Definition</b> ShadowMap.h:19</div></div>
+<div class="ttc" id="aclassShadowMap_html_a50de021ef49c9e6bff0deb2adee23ddd"><div class="ttname"><a href="classShadowMap.html#a50de021ef49c9e6bff0deb2adee23ddd">ShadowMap::GetDSV</a></div><div class="ttdeci">D3D12_CPU_DESCRIPTOR_HANDLE GetDSV() const</div><div class="ttdef"><b>Definition</b> ShadowMap.h:15</div></div>
+<div class="ttc" id="aclassShadowMap_html_a5bceae723437dd42f7c42732acbbf2e8"><div class="ttname"><a href="classShadowMap.html#a5bceae723437dd42f7c42732acbbf2e8">ShadowMap::GetViewport</a></div><div class="ttdeci">D3D12_VIEWPORT GetViewport() const</div><div class="ttdef"><b>Definition</b> ShadowMap.h:21</div></div>
+<div class="ttc" id="aclassShadowMap_html_a5e9ef0e4451ca0cd0cb8a4a0100ad062"><div class="ttname"><a href="classShadowMap.html#a5e9ef0e4451ca0cd0cb8a4a0100ad062">ShadowMap::m_viewport</a></div><div class="ttdeci">D3D12_VIEWPORT m_viewport</div><div class="ttdef"><b>Definition</b> ShadowMap.h:37</div></div>
+<div class="ttc" id="aclassShadowMap_html_a5ed475afe6f3a18092e4b164de4787d9"><div class="ttname"><a href="classShadowMap.html#a5ed475afe6f3a18092e4b164de4787d9">ShadowMap::GetScissorRect</a></div><div class="ttdeci">D3D12_RECT GetScissorRect() const</div><div class="ttdef"><b>Definition</b> ShadowMap.h:22</div></div>
+<div class="ttc" id="aclassShadowMap_html_a77e909c20a58789b0bee154fdcb57e62"><div class="ttname"><a href="classShadowMap.html#a77e909c20a58789b0bee154fdcb57e62">ShadowMap::m_srvCpuHandle</a></div><div class="ttdeci">D3D12_CPU_DESCRIPTOR_HANDLE m_srvCpuHandle</div><div class="ttdef"><b>Definition</b> ShadowMap.h:29</div></div>
+<div class="ttc" id="aclassShadowMap_html_a7e65065c1a61f958158b7affc1117ed6"><div class="ttname"><a href="classShadowMap.html#a7e65065c1a61f958158b7affc1117ed6">ShadowMap::m_resource</a></div><div class="ttdeci">Microsoft::WRL::ComPtr&lt; ID3D12Resource &gt; m_resource</div><div class="ttdef"><b>Definition</b> ShadowMap.h:25</div></div>
+<div class="ttc" id="aclassShadowMap_html_a87caa5e356549e5908a6d1725e0b49e5"><div class="ttname"><a href="classShadowMap.html#a87caa5e356549e5908a6d1725e0b49e5">ShadowMap::GetSRV</a></div><div class="ttdeci">D3D12_GPU_DESCRIPTOR_HANDLE GetSRV() const</div><div class="ttdef"><b>Definition</b> ShadowMap.h:16</div></div>
+<div class="ttc" id="aclassShadowMap_html_a994b268fc619f727e3dda979ae579d72"><div class="ttname"><a href="classShadowMap.html#a994b268fc619f727e3dda979ae579d72">ShadowMap::Clear</a></div><div class="ttdeci">void Clear(ID3D12GraphicsCommandList *cmdList)</div><div class="ttdef"><b>Definition</b> ShadowMap.cpp:118</div></div>
+<div class="ttc" id="aclassShadowMap_html_a9d3a4c078654783c913672e1dc0ff63e"><div class="ttname"><a href="classShadowMap.html#a9d3a4c078654783c913672e1dc0ff63e">ShadowMap::m_scissorRect</a></div><div class="ttdeci">D3D12_RECT m_scissorRect</div><div class="ttdef"><b>Definition</b> ShadowMap.h:38</div></div>
+<div class="ttc" id="aclassShadowMap_html_aa738f0ad9978b37ed80c5ba41d74b2f6"><div class="ttname"><a href="classShadowMap.html#aa738f0ad9978b37ed80c5ba41d74b2f6">ShadowMap::m_srvGpuHandle</a></div><div class="ttdeci">D3D12_GPU_DESCRIPTOR_HANDLE m_srvGpuHandle</div><div class="ttdef"><b>Definition</b> ShadowMap.h:30</div></div>
+<div class="ttc" id="aclassShadowMap_html_aade01d2dc3620a7015016ecd3aa3cab3"><div class="ttname"><a href="classShadowMap.html#aade01d2dc3620a7015016ecd3aa3cab3">ShadowMap::~ShadowMap</a></div><div class="ttdeci">~ShadowMap()</div><div class="ttdef"><b>Definition</b> ShadowMap.cpp:79</div></div>
+<div class="ttc" id="aclassShadowMap_html_ac132d1c8e559dad522de9bc10ba135cb"><div class="ttname"><a href="classShadowMap.html#ac132d1c8e559dad522de9bc10ba135cb">ShadowMap::m_dsvHeap</a></div><div class="ttdeci">Microsoft::WRL::ComPtr&lt; ID3D12DescriptorHeap &gt; m_dsvHeap</div><div class="ttdef"><b>Definition</b> ShadowMap.h:26</div></div>
+<div class="ttc" id="aclassShadowMap_html_ad950d29a1843153d680fa9f91204180e"><div class="ttname"><a href="classShadowMap.html#ad950d29a1843153d680fa9f91204180e">ShadowMap::m_srvAllocated</a></div><div class="ttdeci">bool m_srvAllocated</div><div class="ttdef"><b>Definition</b> ShadowMap.h:31</div></div>
+<div class="ttc" id="aclassShadowMap_html_af5247873d1a437b7d061567d6840e6db"><div class="ttname"><a href="classShadowMap.html#af5247873d1a437b7d061567d6840e6db">ShadowMap::GetSRVCpu</a></div><div class="ttdeci">D3D12_CPU_DESCRIPTOR_HANDLE GetSRVCpu() const</div><div class="ttdef"><b>Definition</b> ShadowMap.h:17</div></div>
+<div class="ttc" id="aclassShadowMap_html_aff1978e3c368577fcaff10050b998a17"><div class="ttname"><a href="classShadowMap.html#aff1978e3c368577fcaff10050b998a17">ShadowMap::m_dsvHandle</a></div><div class="ttdeci">D3D12_CPU_DESCRIPTOR_HANDLE m_dsvHandle</div><div class="ttdef"><b>Definition</b> ShadowMap.h:27</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_e350ea9347b5bfd16d4777c6b135cca8.html">Rendering</a></li><li class="navelem"><a class="el" href="ShadowMap_8h.html">ShadowMap.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

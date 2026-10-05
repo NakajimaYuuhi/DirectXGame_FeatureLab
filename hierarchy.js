@@ -92,6 +92,7 @@ var hierarchy =
     [ "D2DTextRenderer", "classD2DTextRenderer.html", null ],
     [ "nlohmann::detail::detector< Default, AlwaysVoid, Op, Args >", "structnlohmann_1_1detail_1_1detector.html", null ],
     [ "nlohmann::detail::detector< Default, void_t< Op< Args... > >, Op, Args... >", "structnlohmann_1_1detail_1_1detector_3_01Default_00_01void__t_3_01Op_3_01Args_8_8_8_01_4_01_4_00_01Op_00_01Args_8_8_8_01_4.html", null ],
+    [ "DirectionalLight", "structDirectionalLight.html", null ],
     [ "nlohmann::detail::dtoa_impl::diyfp", "structnlohmann_1_1detail_1_1dtoa__impl_1_1diyfp.html", null ],
     [ "DX12Manager", "classDX12Manager.html", null ],
     [ "EaseUtility", "classEaseUtility.html", null ],
@@ -407,7 +408,8 @@ var hierarchy =
     [ "nlohmann::detail::internal_iterator< typename std::remove_const< BasicJsonType >::type >", "structnlohmann_1_1detail_1_1internal__iterator.html", null ],
     [ "IRenderPass", "classIRenderPass.html", [
       [ "ForwardRenderPass", "classForwardRenderPass.html", null ],
-      [ "PostProcessPass", "classPostProcessPass.html", null ]
+      [ "PostProcessPass", "classPostProcessPass.html", null ],
+      [ "ShadowMapPass", "classShadowMapPass.html", null ]
     ] ],
     [ "nlohmann::detail::is_compatible_array_type_impl< BasicJsonType, CompatibleArrayType, enable_if_t< is_detected< iterator_t, CompatibleArrayType >::value &&is_iterator_traits< iterator_traits< detected_t< iterator_t, CompatibleArrayType > > >::value &&!std::is_same< CompatibleArrayType, detected_t< range_value_t, CompatibleArrayType > >::value > >", "structnlohmann_1_1detail_1_1is__compatible__array__type__impl_3_01BasicJsonType_00_01CompatibleAfaa3c0bd038fd031f5ee109e19639e03.html", null ],
     [ "nlohmann::detail::is_compatible_integer_type_impl< RealIntegerType, CompatibleNumberIntegerType, enable_if_t< std::is_integral< RealIntegerType >::value &&std::is_integral< CompatibleNumberIntegerType >::value &&!std::is_same< bool, CompatibleNumberIntegerType >::value > >", "structnlohmann_1_1detail_1_1is__compatible__integer__type__impl_3_01RealIntegerType_00_01Compatie5920c849e839ebb9f8c57349c900796.html", null ],
@@ -465,6 +467,8 @@ var hierarchy =
       [ "nlohmann::detail::lexer< BasicJsonType, InputAdapterType >", "classnlohmann_1_1detail_1_1lexer.html", null ]
     ] ],
     [ "tinygltf::Light", "structtinygltf_1_1Light.html", null ],
+    [ "LightBufferData", "structLightBufferData.html", null ],
+    [ "LightManager", "classLightManager.html", null ],
     [ "LoadedModelData", "structLoadedModelData.html", null ],
     [ "nlohmann::detail::make_void< Ts >", "structnlohmann_1_1detail_1_1make__void.html", null ],
     [ "tinygltf::Material", "structtinygltf_1_1Material.html", null ],
@@ -522,6 +526,7 @@ var hierarchy =
     [ "nlohmann::detail::serializer< BasicJsonType >", "classnlohmann_1_1detail_1_1serializer.html", null ],
     [ "Shader", "classShader.html", null ],
     [ "ShaderManager", "classShaderManager.html", null ],
+    [ "ShadowMap", "classShadowMap.html", null ],
     [ "tinygltf::Skin", "structtinygltf_1_1Skin.html", null ],
     [ "SkinData", "structSkinData.html", null ],
     [ "nlohmann::detail::span_input_adapter", "classnlohmann_1_1detail_1_1span__input__adapter.html", null ],

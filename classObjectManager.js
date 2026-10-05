@@ -7,6 +7,7 @@ var classObjectManager =
     [ "CollisionUpdate", "classObjectManager.html#a179ee90458deb80834ccbd7432df76a9", null ],
     [ "Draw", "classObjectManager.html#a852d554df9444454176abeb96d2524b2", null ],
     [ "DrawByLayer", "classObjectManager.html#ae70e58ca78e40f6d3cf1a7b04a83d18c", null ],
+    [ "DrawShadow", "classObjectManager.html#aaf5f2dc33793a8077550bc1aa7add553", null ],
     [ "FlushDestroyedObjects", "classObjectManager.html#ab16bd9ac9432145857d4e09f1fd9920b", null ],
     [ "FlushPendingAddObjects", "classObjectManager.html#ae0b8e12bcb155a7072b7b9d9f251f22d", null ],
     [ "GetCamera", "classObjectManager.html#ac1c765d06de833c246eb2e9771e4d5ca", null ],

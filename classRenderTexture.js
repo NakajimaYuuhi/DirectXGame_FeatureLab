@@ -2,14 +2,24 @@ var classRenderTexture =
 [
     [ "RenderTexture", "classRenderTexture.html#a381aa65068dae17a5917d8e6bad92051", null ],
     [ "~RenderTexture", "classRenderTexture.html#a09968448696504585c6dd61203f2c5b9", null ],
+    [ "RenderTexture", "classRenderTexture.html#a61195eb544cf9de97ec0aa45787e84c9", null ],
+    [ "Clear", "classRenderTexture.html#a326fb9acb1cdc06ffc43f4c21fdb3cd3", null ],
+    [ "GetFormat", "classRenderTexture.html#a1272e8a17a172deea87236d4962f6a68", null ],
+    [ "GetHeight", "classRenderTexture.html#a293f6b642602069185741d706041554e", null ],
     [ "GetResource", "classRenderTexture.html#a3a768f48620db5be27665fc9a7113cba", null ],
     [ "GetRTV", "classRenderTexture.html#afbb24327ad25b881b51f43119385c424", null ],
     [ "GetSRV", "classRenderTexture.html#a40ecbf9999b9b8bc306f19281ec0405e", null ],
+    [ "GetWidth", "classRenderTexture.html#ae70489a9e0c45dcef7091b6338e2f7c7", null ],
+    [ "operator=", "classRenderTexture.html#a01c37d603eff3f1676fd0c54efb644eb", null ],
     [ "Transition", "classRenderTexture.html#aa490e51502e484466a31c41912878b34", null ],
     [ "m_currentState", "classRenderTexture.html#aec40bd383f308624d534571369aeb202", null ],
-    [ "m_pResource", "classRenderTexture.html#ac32c082aa1a4f7f7f6e39faaba0d7f1b", null ],
-    [ "m_pRtvHeap", "classRenderTexture.html#ae4f2a2cbc4f048d457f992ad0687ea81", null ],
+    [ "m_format", "classRenderTexture.html#ad4579ad8fc5b82259d4b7956f2036e8b", null ],
+    [ "m_height", "classRenderTexture.html#a032269da2b34e5815241da4f677bf4c0", null ],
+    [ "m_pResource", "classRenderTexture.html#a6c59db6cb90fa051988e152537eda276", null ],
+    [ "m_pRtvHeap", "classRenderTexture.html#a47fa3b15ebb50128764652470c987786", null ],
     [ "m_rtvHandleCPU", "classRenderTexture.html#a9a601434089072038f77ad2324dcc4a1", null ],
+    [ "m_srvAllocated", "classRenderTexture.html#a755f1466191c1c61523ed2f82bf613fd", null ],
     [ "m_srvHandleCPU", "classRenderTexture.html#a64988c063d0a46d18f1e8614d65b19e9", null ],
-    [ "m_srvHandleGPU", "classRenderTexture.html#a499e9e8ee4003a719078543464acfe3a", null ]
+    [ "m_srvHandleGPU", "classRenderTexture.html#a499e9e8ee4003a719078543464acfe3a", null ],
+    [ "m_width", "classRenderTexture.html#a2e5859ee4ee47143426ee959ad9639b3", null ]
 ];

@@ -104,7 +104,7 @@ $(document).ready(function(){initNavTree('classPSOManager.html',''); initResizab
 <div class="dynheader">
 PSOManager 連携図</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classPSOManager__coll__graph.svg" width="550" height="154"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPSOManager__coll__graph.svg" width="568" height="210"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -119,10 +119,16 @@ PSOManager 連携図</div>
 <tr class="separator:a961a07373aae5e0200a2543f22cf004c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6a5d8da89d123e456ab3726257fea91" id="r_af6a5d8da89d123e456ab3726257fea91"><td class="memItemLeft" align="right" valign="top">ID3D12PipelineState *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#af6a5d8da89d123e456ab3726257fea91">GetAdditivePSO</a> () const</td></tr>
 <tr class="separator:af6a5d8da89d123e456ab3726257fea91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8091cf0cd33a38a8e9306fc8455d5a1f" id="r_a8091cf0cd33a38a8e9306fc8455d5a1f"><td class="memItemLeft" align="right" valign="top">ID3D12RootSignature *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#a8091cf0cd33a38a8e9306fc8455d5a1f">GetShadowRootSignature</a> () const</td></tr>
+<tr class="separator:a8091cf0cd33a38a8e9306fc8455d5a1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9053b06cba4d6a50fbd1953695eec5d" id="r_af9053b06cba4d6a50fbd1953695eec5d"><td class="memItemLeft" align="right" valign="top">ID3D12PipelineState *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#af9053b06cba4d6a50fbd1953695eec5d">GetShadowPSO</a> () const</td></tr>
+<tr class="separator:af9053b06cba4d6a50fbd1953695eec5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea733853ff234be971701040a908c73e" id="r_aea733853ff234be971701040a908c73e"><td class="memItemLeft" align="right" valign="top">ID3D12RootSignature *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#aea733853ff234be971701040a908c73e">GetSpriteRootSignature</a> () const</td></tr>
 <tr class="separator:aea733853ff234be971701040a908c73e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a186d20412bd5cdce798f1410247d7230" id="r_a186d20412bd5cdce798f1410247d7230"><td class="memItemLeft" align="right" valign="top">ID3D12PipelineState *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#a186d20412bd5cdce798f1410247d7230">GetSpritePSO</a> () const</td></tr>
 <tr class="separator:a186d20412bd5cdce798f1410247d7230"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a893ddc1fa215c135815342f8ce90b986" id="r_a893ddc1fa215c135815342f8ce90b986"><td class="memItemLeft" align="right" valign="top">D3D12_GPU_DESCRIPTOR_HANDLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#a893ddc1fa215c135815342f8ce90b986">GetDummyBoneSRV</a> () const</td></tr>
+<tr class="separator:a893ddc1fa215c135815342f8ce90b986"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
@@ -150,10 +156,20 @@ PSOManager 連携図</div>
 <tr class="separator:a834e073c8cc13d78a1edd057a858e46a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1da1a173aadbdf693f26370266f5d600" id="r_a1da1a173aadbdf693f26370266f5d600"><td class="memItemLeft" align="right" valign="top">ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#a1da1a173aadbdf693f26370266f5d600">m_additivePipelineState</a></td></tr>
 <tr class="separator:a1da1a173aadbdf693f26370266f5d600"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a403efe3fe2b4ab78546d180277c4837f" id="r_a403efe3fe2b4ab78546d180277c4837f"><td class="memItemLeft" align="right" valign="top">ComPtr&lt; ID3D12RootSignature &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#a403efe3fe2b4ab78546d180277c4837f">m_shadowRootSignature</a></td></tr>
+<tr class="separator:a403efe3fe2b4ab78546d180277c4837f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad6452811a522051c526c5f86ee8c323" id="r_aad6452811a522051c526c5f86ee8c323"><td class="memItemLeft" align="right" valign="top">ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#aad6452811a522051c526c5f86ee8c323">m_shadowPipelineState</a></td></tr>
+<tr class="separator:aad6452811a522051c526c5f86ee8c323"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abab2a25f504b6215a001dd362c905fc6" id="r_abab2a25f504b6215a001dd362c905fc6"><td class="memItemLeft" align="right" valign="top">ComPtr&lt; ID3D12RootSignature &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#abab2a25f504b6215a001dd362c905fc6">m_spriteRootSignature</a></td></tr>
 <tr class="separator:abab2a25f504b6215a001dd362c905fc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae7f5c086a2c5adc1d6607c32d997f2b" id="r_aae7f5c086a2c5adc1d6607c32d997f2b"><td class="memItemLeft" align="right" valign="top">ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#aae7f5c086a2c5adc1d6607c32d997f2b">m_spritePipelineState</a></td></tr>
 <tr class="separator:aae7f5c086a2c5adc1d6607c32d997f2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9192d3e2fd28b5516e628330a753545" id="r_aa9192d3e2fd28b5516e628330a753545"><td class="memItemLeft" align="right" valign="top">ComPtr&lt; ID3D12Resource &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#aa9192d3e2fd28b5516e628330a753545">m_dummyBoneBuffer</a></td></tr>
+<tr class="separator:aa9192d3e2fd28b5516e628330a753545"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab2fdb5b5382fe2dd4339d6c4af22a6a" id="r_aab2fdb5b5382fe2dd4339d6c4af22a6a"><td class="memItemLeft" align="right" valign="top">D3D12_CPU_DESCRIPTOR_HANDLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#aab2fdb5b5382fe2dd4339d6c4af22a6a">m_dummyBoneSrvCpuHandle</a> {}</td></tr>
+<tr class="separator:aab2fdb5b5382fe2dd4339d6c4af22a6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba4696f17ca52389fac71a120b6ca7c5" id="r_aba4696f17ca52389fac71a120b6ca7c5"><td class="memItemLeft" align="right" valign="top">D3D12_GPU_DESCRIPTOR_HANDLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPSOManager.html#aba4696f17ca52389fac71a120b6ca7c5">m_dummyBoneSrvGpuHandle</a> {}</td></tr>
+<tr class="separator:aba4696f17ca52389fac71a120b6ca7c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">構築子と解体子</h2>
 <a id="a8ac97176fa368941647bd8d178e608ce" name="a8ac97176fa368941647bd8d178e608ce"></a>
@@ -258,6 +274,36 @@ PSOManager 連携図</div>
 
 </div>
 </div>
+<a id="a893ddc1fa215c135815342f8ce90b986" name="a893ddc1fa215c135815342f8ce90b986"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a893ddc1fa215c135815342f8ce90b986">&#9670;&#160;</a></span>GetDummyBoneSRV()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_GPU_DESCRIPTOR_HANDLE PSOManager::GetDummyBoneSRV </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPSOManager_a893ddc1fa215c135815342f8ce90b986_icgraph.svg" width="464" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="a359f046382fe2e8c49f8d0e6407765c1" name="a359f046382fe2e8c49f8d0e6407765c1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a359f046382fe2e8c49f8d0e6407765c1">&#9670;&#160;</a></span>GetInstance()</h2>
 
@@ -283,7 +329,7 @@ PSOManager 連携図</div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classPSOManager_a359f046382fe2e8c49f8d0e6407765c1_icgraph.svg" width="420" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPSOManager_a359f046382fe2e8c49f8d0e6407765c1_icgraph.svg" width="439" height="234"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -372,6 +418,66 @@ PSOManager 連携図</div>
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classPSOManager_a565aee5f527d1e601b5ea763cffa1c86_icgraph.svg" width="330" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af9053b06cba4d6a50fbd1953695eec5d" name="af9053b06cba4d6a50fbd1953695eec5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9053b06cba4d6a50fbd1953695eec5d">&#9670;&#160;</a></span>GetShadowPSO()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D12PipelineState * PSOManager::GetShadowPSO </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPSOManager_af9053b06cba4d6a50fbd1953695eec5d_icgraph.svg" width="462" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8091cf0cd33a38a8e9306fc8455d5a1f" name="a8091cf0cd33a38a8e9306fc8455d5a1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8091cf0cd33a38a8e9306fc8455d5a1f">&#9670;&#160;</a></span>GetShadowRootSignature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ID3D12RootSignature * PSOManager::GetShadowRootSignature </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPSOManager_a8091cf0cd33a38a8e9306fc8455d5a1f_icgraph.svg" width="466" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -503,6 +609,72 @@ PSOManager 連携図</div>
 
 </div>
 </div>
+<a id="aa9192d3e2fd28b5516e628330a753545" name="aa9192d3e2fd28b5516e628330a753545"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9192d3e2fd28b5516e628330a753545">&#9670;&#160;</a></span>m_dummyBoneBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComPtr&lt;ID3D12Resource&gt; PSOManager::m_dummyBoneBuffer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aab2fdb5b5382fe2dd4339d6c4af22a6a" name="aab2fdb5b5382fe2dd4339d6c4af22a6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab2fdb5b5382fe2dd4339d6c4af22a6a">&#9670;&#160;</a></span>m_dummyBoneSrvCpuHandle</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_CPU_DESCRIPTOR_HANDLE PSOManager::m_dummyBoneSrvCpuHandle {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aba4696f17ca52389fac71a120b6ca7c5" name="aba4696f17ca52389fac71a120b6ca7c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba4696f17ca52389fac71a120b6ca7c5">&#9670;&#160;</a></span>m_dummyBoneSrvGpuHandle</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_GPU_DESCRIPTOR_HANDLE PSOManager::m_dummyBoneSrvGpuHandle {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a834e073c8cc13d78a1edd057a858e46a" name="a834e073c8cc13d78a1edd057a858e46a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a834e073c8cc13d78a1edd057a858e46a">&#9670;&#160;</a></span>m_meshPipelineState</h2>
 
@@ -558,6 +730,50 @@ PSOManager 連携図</div>
       <table class="memname">
         <tr>
           <td class="memname">std::unordered_map&lt;std::wstring, ComPtr&lt;ID3D12PipelineState&gt; &gt; PSOManager::m_psoCache</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aad6452811a522051c526c5f86ee8c323" name="aad6452811a522051c526c5f86ee8c323"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad6452811a522051c526c5f86ee8c323">&#9670;&#160;</a></span>m_shadowPipelineState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComPtr&lt;ID3D12PipelineState&gt; PSOManager::m_shadowPipelineState</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a403efe3fe2b4ab78546d180277c4837f" name="a403efe3fe2b4ab78546d180277c4837f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a403efe3fe2b4ab78546d180277c4837f">&#9670;&#160;</a></span>m_shadowRootSignature</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComPtr&lt;ID3D12RootSignature&gt; PSOManager::m_shadowRootSignature</td>
         </tr>
       </table>
   </td>

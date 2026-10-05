@@ -5,6 +5,8 @@ var dir_e350ea9347b5bfd16d4777c6b135cca8 =
     [ "ForwardRenderPass.cpp", "ForwardRenderPass_8cpp.html", null ],
     [ "ForwardRenderPass.h", "ForwardRenderPass_8h.html", "ForwardRenderPass_8h" ],
     [ "IRenderPass.h", "IRenderPass_8h.html", "IRenderPass_8h" ],
+    [ "LightManager.cpp", "LightManager_8cpp.html", null ],
+    [ "LightManager.h", "LightManager_8h.html", "LightManager_8h" ],
     [ "PostProcessPass.cpp", "PostProcessPass_8cpp.html", null ],
     [ "PostProcessPass.h", "PostProcessPass_8h.html", "PostProcessPass_8h" ],
     [ "PSOBuilder.cpp", "PSOBuilder_8cpp.html", null ],
@@ -21,6 +23,10 @@ var dir_e350ea9347b5bfd16d4777c6b135cca8 =
     [ "Shader.h", "Shader_8h.html", "Shader_8h" ],
     [ "ShaderManager.cpp", "ShaderManager_8cpp.html", null ],
     [ "ShaderManager.h", "ShaderManager_8h.html", "ShaderManager_8h" ],
+    [ "ShadowMap.cpp", "ShadowMap_8cpp.html", null ],
+    [ "ShadowMap.h", "ShadowMap_8h.html", "ShadowMap_8h" ],
+    [ "ShadowMapPass.cpp", "ShadowMapPass_8cpp.html", null ],
+    [ "ShadowMapPass.h", "ShadowMapPass_8h.html", "ShadowMapPass_8h" ],
     [ "TextureManager.cpp", "TextureManager_8cpp.html", null ],
     [ "TextureManager.h", "TextureManager_8h.html", "TextureManager_8h" ]
 ];

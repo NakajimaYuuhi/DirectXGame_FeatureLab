@@ -120,6 +120,7 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 <li>Camera()&#160;:&#160;<a class="el" href="structtinygltf_1_1Camera.html#a70fc29fce87f260475b4b8556486f57e">tinygltf::Camera</a></li>
 <li>camera&#160;:&#160;<a class="el" href="classtinygltf_1_1Node.html#a0042bdc3f36e2e38e8c37b8afbb1b54b">tinygltf::Node</a></li>
 <li>CameraComponent()&#160;:&#160;<a class="el" href="classCameraComponent.html#a6f14fb3dfa5ca8cfbaae2936413837d8">CameraComponent</a></li>
+<li>cameraPos&#160;:&#160;<a class="el" href="structLightBufferData.html#a674f2c4683ac5e78c466bba29d945588">LightBufferData</a></li>
 <li>cameras&#160;:&#160;<a class="el" href="classtinygltf_1_1Model.html#a3e882ea46bdefc1ed76a5d485c7991ae">tinygltf::Model</a></li>
 <li>CanCollideWith()&#160;:&#160;<a class="el" href="classCollider.html#a5a4dcc6ca9020bd4d393895f32dfe5a6">Collider</a></li>
 <li>CannotSkipItemsQueue&#160;:&#160;<a class="el" href="structImGuiTableColumn.html#abaa9d8ca04ae6e3fa8ee18724ef134ee">ImGuiTableColumn</a></li>
@@ -190,7 +191,7 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 <li>clear()&#160;:&#160;<a class="el" href="structImStableVector.html#aa68da962e9031195916f793e1ea14290">ImStableVector&lt; T, BLOCKSIZE &gt;</a>, <a class="el" href="structImVector.html#ae2d401b4ec5f1113cdb8edb5a61a38f7">ImVector&lt; T &gt;</a></li>
 <li>Clear()&#160;:&#160;<a class="el" href="classModelManager.html#a1cc959a45e2f83b00d9bad505e5cee10">ModelManager</a></li>
 <li>clear()&#160;:&#160;<a class="el" href="classnlohmann_1_1basic__json.html#a946cc8f30d8b1d6609b57387b647fe53">nlohmann::basic_json&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType, JSONSerializer, BinaryType &gt;</a></li>
-<li>Clear()&#160;:&#160;<a class="el" href="classShaderManager.html#a9322a8fcfc59c214e5bb4ebe10b65be0">ShaderManager</a>, <a class="el" href="classTextureManager.html#a658edb31081fab7ae09bf6d602696c7f">TextureManager</a>, <a class="el" href="classUndoManager.html#add392bda00eb77487c1bded0f555a7ab">UndoManager</a></li>
+<li>Clear()&#160;:&#160;<a class="el" href="classRenderTexture.html#a326fb9acb1cdc06ffc43f4c21fdb3cd3">RenderTexture</a>, <a class="el" href="classShaderManager.html#a9322a8fcfc59c214e5bb4ebe10b65be0">ShaderManager</a>, <a class="el" href="classShadowMap.html#a994b268fc619f727e3dda979ae579d72">ShadowMap</a>, <a class="el" href="classTextureManager.html#a658edb31081fab7ae09bf6d602696c7f">TextureManager</a>, <a class="el" href="classUndoManager.html#add392bda00eb77487c1bded0f555a7ab">UndoManager</a></li>
 <li>clear_delete()&#160;:&#160;<a class="el" href="structImVector.html#aed9c986ef3cd59fabbd89355d0023122">ImVector&lt; T &gt;</a></li>
 <li>clear_destruct()&#160;:&#160;<a class="el" href="structImVector.html#ac1ed34eac753156e87e8a92f78dbbe3f">ImVector&lt; T &gt;</a></li>
 <li>clear_subtype()&#160;:&#160;<a class="el" href="classnlohmann_1_1byte__container__with__subtype.html#a7b122b28ff2b8680557ca44ac9748e49">nlohmann::byte_container_with_subtype&lt; BinaryType &gt;</a></li>
@@ -250,7 +251,7 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 <li>CollisionOrder&#160;:&#160;<a class="el" href="classCollision.html#abfbbbce6868c0c0a8792807940b5caaf">Collision</a></li>
 <li>CollisionUpdate()&#160;:&#160;<a class="el" href="classObjectManager.html#a179ee90458deb80834ccbd7432df76a9">ObjectManager</a></li>
 <li>CololiderType&#160;:&#160;<a class="el" href="classCollider.html#a9a45786155a7a5dd34e53985485b2aa3">Collider</a></li>
-<li>color&#160;:&#160;<a class="el" href="structD2DTextRenderer_1_1TextInfo.html#a300825d711317350feffda12e2d44459">D2DTextRenderer::TextInfo</a></li>
+<li>color&#160;:&#160;<a class="el" href="structD2DTextRenderer_1_1TextInfo.html#a300825d711317350feffda12e2d44459">D2DTextRenderer::TextInfo</a>, <a class="el" href="structDirectionalLight.html#ac4b98fcf1224b29a2210203b6d16be96">DirectionalLight</a></li>
 <li>Color&#160;:&#160;<a class="el" href="structMyDocument.html#a38d0b4dc1d4cd036ab39031fbd6d57cc">MyDocument</a></li>
 <li>color&#160;:&#160;<a class="el" href="structtinygltf_1_1Light.html#a24eb9ca5abaa89a1e9da969b677ff8cf">tinygltf::Light</a></li>
 <li>ColorButtonPosition&#160;:&#160;<a class="el" href="structImGuiStyle.html#a64b5fdd495573fa07a80dc0071e99802">ImGuiStyle</a></li>
@@ -342,8 +343,8 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 <li>container&#160;:&#160;<a class="el" href="structcj__frame.html#a7ebdd21814e874f5bde46e2ae443bf75">cj_frame</a>, <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy.html#a88c0532ba4a5de1d527b18053b24fd19">nlohmann::detail::iteration_proxy&lt; IteratorType &gt;</a></li>
 <li>Container&#160;:&#160;<a class="el" href="structnlohmann_1_1ordered__map.html#a0cabe346c38a4f1ab1b8a396fbd2bbe2">nlohmann::ordered_map&lt; Key, T, IgnoredLess, Allocator &gt;</a></li>
 <li>container_type&#160;:&#160;<a class="el" href="classnlohmann_1_1byte__container__with__subtype.html#a4d27e8633c5a5e3b49dd4ccb06515713">nlohmann::byte_container_with_subtype&lt; BinaryType &gt;</a></li>
-<li>Contains()&#160;:&#160;<a class="el" href="structImGuiSelectionBasicStorage.html#ab55dc39b0ce40405957af6ff0086f4af">ImGuiSelectionBasicStorage</a>, <a class="el" href="structImPool.html#a2434a4efa2eab4aeca8e15ac208c18d8">ImPool&lt; T &gt;</a>, <a class="el" href="structImRect.html#ad6043344d8ac30d5f342c71641cfe24b">ImRect</a></li>
-<li>contains()&#160;:&#160;<a class="el" href="structImVector.html#a2e7860fbde1c721f168b6262d8f14aec">ImVector&lt; T &gt;</a>, <a class="el" href="classnlohmann_1_1basic__json.html#adb82c1f34c73486e013da71ae369e597">nlohmann::basic_json&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType, JSONSerializer, BinaryType &gt;</a>, <a class="el" href="classnlohmann_1_1json__pointer.html#a90d38e45e2d3add52d824bc55da8f772">nlohmann::json_pointer&lt; BasicJsonType &gt;</a></li>
+<li>Contains()&#160;:&#160;<a class="el" href="structImGuiSelectionBasicStorage.html#ab55dc39b0ce40405957af6ff0086f4af">ImGuiSelectionBasicStorage</a>, <a class="el" href="structImPool.html#a2434a4efa2eab4aeca8e15ac208c18d8">ImPool&lt; T &gt;</a>, <a class="el" href="structImRect.html#ac583156fd0e9306181fff5d120b262ea">ImRect</a></li>
+<li>contains()&#160;:&#160;<a class="el" href="structImVector.html#a2e7860fbde1c721f168b6262d8f14aec">ImVector&lt; T &gt;</a>, <a class="el" href="classnlohmann_1_1basic__json.html#a02c9bc4d0f33b7dec20b2798301d6971">nlohmann::basic_json&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType, JSONSerializer, BinaryType &gt;</a>, <a class="el" href="classnlohmann_1_1json__pointer.html#a90d38e45e2d3add52d824bc55da8f772">nlohmann::json_pointer&lt; BasicJsonType &gt;</a></li>
 <li>ContainsWithPad()&#160;:&#160;<a class="el" href="structImRect.html#a8dbab244f4e5b786faa9684eb85110fc">ImRect</a></li>
 <li>ContentMaxXFrozen&#160;:&#160;<a class="el" href="structImGuiTableColumn.html#a2f3464e809b6952d1a429a7bc27b922d">ImGuiTableColumn</a></li>
 <li>ContentMaxXHeadersIdeal&#160;:&#160;<a class="el" href="structImGuiTableColumn.html#a05dbc5998ea7271a51d4acb15c6c4a84">ImGuiTableColumn</a></li>

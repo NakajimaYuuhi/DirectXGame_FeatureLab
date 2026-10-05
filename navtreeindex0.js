@@ -209,6 +209,9 @@ var NAVTREEINDEX0 =
 "InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817a8d2de5368588552fbae54044ac5c7b3d":[3,0,0,1,11,1,1],
 "InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817adeccbe4e9083c3b5f7cd2632722765bb":[3,0,0,1,11,1,0],
 "InspectorUI_8h_source.html":[3,0,0,1,11],
+"LightManager_8cpp.html":[3,0,0,6,5],
+"LightManager_8h.html":[3,0,0,6,6],
+"LightManager_8h_source.html":[3,0,0,6,6],
 "Manager_8cpp.html":[3,0,0,0,8],
 "Manager_8h.html":[3,0,0,0,9],
 "Manager_8h_source.html":[3,0,0,0,9],
@@ -246,8 +249,5 @@ var NAVTREEINDEX0 =
 "Model_8h.html#aa585993c24951efb117bc9bbdbcfa048":[3,0,0,7,9,4],
 "Model_8h.html#ac982a9c76dc9391b9ff44758f78c5e72":[3,0,0,7,9,8],
 "Model_8h.html#af087d1caf118f67f826a3530d18bfcd3":[3,0,0,7,9,3],
-"Model_8h.html#af5c30149ce66fdbc91e91d76a017256f":[3,0,0,7,9,1],
-"Model_8h_source.html":[3,0,0,7,9],
-"ObjectInfo_8cpp.html":[3,0,0,5,12],
-"ObjectInfo_8h.html":[3,0,0,5,13]
+"Model_8h.html#af5c30149ce66fdbc91e91d76a017256f":[3,0,0,7,9,1]
 };

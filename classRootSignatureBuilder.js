@@ -1,6 +1,7 @@
 var classRootSignatureBuilder =
 [
     [ "RootSignatureBuilder", "classRootSignatureBuilder.html#a4e549f0f8c54186839cecfb2bc0bb77d", null ],
+    [ "AddConstantBufferView", "classRootSignatureBuilder.html#a1ce5b03327e0f9040c654746630c837f", null ],
     [ "AddConstants", "classRootSignatureBuilder.html#a5d17eeff6c6b3df05a99c17d632c16a7", null ],
     [ "AddDescriptorTable", "classRootSignatureBuilder.html#a1d694876446e39f483fe7c6a3102eb98", null ],
     [ "AddStaticSampler", "classRootSignatureBuilder.html#aa9e24dba3fa95b1897c18e0961e0a547", null ],

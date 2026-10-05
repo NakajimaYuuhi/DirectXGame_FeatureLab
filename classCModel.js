@@ -7,6 +7,7 @@ var classCModel =
     [ "CreateBoneBuffer", "classCModel.html#a1a03aa5ad4a1bc91cf85c2820262e97e", null ],
     [ "CreateTmpBoneData", "classCModel.html#a4a012839b9a3ce5420115a434c748875", null ],
     [ "Draw", "classCModel.html#a05ed148aaef251c3d326c7f57efeb634", null ],
+    [ "DrawShadow", "classCModel.html#a749dbf7ff6ca236c1d763753d2fbfee8", null ],
     [ "GetAnimationTime", "classCModel.html#ad4e94257011862b6840e51104de4d741", null ],
     [ "GetModelPath", "classCModel.html#a8d6a7ebb8943c774cd7fdc5d3fc05cd2", null ],
     [ "GetRenderLayer", "classCModel.html#ab7728d7e79371865a52a3dd64f5902da", null ],

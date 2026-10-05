@@ -9,6 +9,7 @@ var classCObject =
     [ "CollisionComponents", "classCObject.html#ac8855f1f09b337e2c41dad8405098a68", null ],
     [ "Draw", "classCObject.html#ae060ffb1aa3bf6148614cf6506074e42", null ],
     [ "DrawByLayer", "classCObject.html#aee3d5c5e9c5a83b26cd147a35140de63", null ],
+    [ "DrawShadow", "classCObject.html#aa1e2af8d8d4bada943378ec93178688c", null ],
     [ "GetComponent", "classCObject.html#a71540f70991d2a909cf7a7fcbf683dc7", null ],
     [ "GetComponents", "classCObject.html#a9b1dfba8aa221e5e2e5e8047637daf68", null ],
     [ "GetComponentsOfType", "classCObject.html#a17409836eb8fd60b31ea223c9aa04ba3", null ],
