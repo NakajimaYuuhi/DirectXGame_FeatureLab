@@ -18,6 +18,7 @@
 #include "Source/Core/Scenes/Manager/SceneManager.h"
 #include "Source/Core/Scenes/Serializer/SceneSerializer.h"
 #include "SceneEnums.h"
+#include "Source/UI/RectTransform.h"
 #include "SpriteRenderer.h"
 #include "TextRenderer.h"
 #include "ButtonEventManager.h"
@@ -752,6 +753,100 @@ void CInspectorUI::Draw()
                     }
                 }
 
+                CRectTransform* rectTransform = selectedObj->GetComponent<CRectTransform>();
+                if (rectTransform)
+                {
+                    if (ImGui::CollapsingHeader("RectTransform", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        ImGui::Text("Anchor Preset:");
+                        AnchorPreset currentPreset = rectTransform->GetCurrentAnchorPreset();
+
+                        auto AnchorBtn = [&](const char* label, AnchorPreset p, bool sameLine = true) {
+                            if (currentPreset == p)
+                            {
+                                ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.2f, 0.6f, 0.9f, 1.0f));
+                            }
+                            if (ImGui::Button(label, ImVec2(40, 25)))
+                            {
+                                rectTransform->SetAnchorPreset(p, true);
+                            }
+                            if (currentPreset == p)
+                            {
+                                ImGui::PopStyleColor();
+                            }
+                            if (sameLine) ImGui::SameLine();
+                        };
+
+                        AnchorBtn("TL", AnchorPreset::TopLeft);
+                        AnchorBtn("TC", AnchorPreset::TopCenter);
+                        AnchorBtn("TR", AnchorPreset::TopRight, false);
+
+                        AnchorBtn("ML", AnchorPreset::MiddleLeft);
+                        AnchorBtn("MC", AnchorPreset::MiddleCenter);
+                        AnchorBtn("MR", AnchorPreset::MiddleRight, false);
+
+                        AnchorBtn("BL", AnchorPreset::BottomLeft);
+                        AnchorBtn("BC", AnchorPreset::BottomCenter);
+                        AnchorBtn("BR", AnchorPreset::BottomRight, false);
+
+                        if (ImGui::Button("Stretch H", ImVec2(75, 22))) rectTransform->SetAnchorPreset(AnchorPreset::StretchHorizontal);
+                        ImGui::SameLine();
+                        if (ImGui::Button("Stretch V", ImVec2(75, 22))) rectTransform->SetAnchorPreset(AnchorPreset::StretchVertical);
+                        ImGui::SameLine();
+                        if (ImGui::Button("Stretch All", ImVec2(80, 22))) rectTransform->SetAnchorPreset(AnchorPreset::StretchAll);
+
+                        ImGui::Separator();
+
+                        DirectX::XMFLOAT2 pos = rectTransform->GetAnchoredPosition();
+                        float posArr[2] = { pos.x, pos.y };
+                        if (ImGui::DragFloat2("Pos (X, Y)", posArr, 1.0f))
+                        {
+                            rectTransform->SetAnchoredPosition(posArr[0], posArr[1]);
+                        }
+
+                        DirectX::XMFLOAT2 size = rectTransform->GetSizeDelta();
+                        float sizeArr[2] = { size.x, size.y };
+                        if (ImGui::DragFloat2("Size (W, H)", sizeArr, 1.0f, 0.0f, 4000.0f))
+                        {
+                            rectTransform->SetSizeDelta(sizeArr[0], sizeArr[1]);
+                        }
+
+                        DirectX::XMFLOAT2 pivot = rectTransform->GetPivot();
+                        float pivotArr[2] = { pivot.x, pivot.y };
+                        if (ImGui::SliderFloat2("Pivot (X, Y)", pivotArr, 0.0f, 1.0f, "%.2f"))
+                        {
+                            rectTransform->SetPivot(pivotArr[0], pivotArr[1]);
+                        }
+
+                        if (ImGui::Button("Center Pivot (0.5, 0.5)")) rectTransform->SetPivot(0.5f, 0.5f);
+                        ImGui::SameLine();
+                        if (ImGui::Button("TopLeft Pivot (0, 0)")) rectTransform->SetPivot(0.0f, 0.0f);
+
+                        float rotZ = rectTransform->GetRotationZ();
+                        if (ImGui::DragFloat("Rotation Z", &rotZ, 1.0f, -360.0f, 360.0f, "%.1f deg"))
+                        {
+                            rectTransform->SetRotationZ(rotZ);
+                        }
+
+                        DirectX::XMFLOAT2 scale = rectTransform->GetScale();
+                        float scaleArr[2] = { scale.x, scale.y };
+                        if (ImGui::DragFloat2("Scale (X, Y)", scaleArr, 0.01f, 0.0f, 10.0f))
+                        {
+                            rectTransform->SetScale(scaleArr[0], scaleArr[1]);
+                        }
+
+                        if (ImGui::TreeNode("Computed Screen Rect (Read Only)"))
+                        {
+                            DirectX::XMFLOAT4 sRect = rectTransform->GetScreenRect();
+                            ImGui::Text("Screen Left-Top : (%.1f, %.1f)", sRect.x, sRect.y);
+                            ImGui::Text("Screen Size     : %.1f x %.1f", sRect.z, sRect.w);
+                            DirectX::XMFLOAT2 cPos = rectTransform->GetCenterPosition();
+                            ImGui::Text("Pivot Position  : (%.1f, %.1f)", cPos.x, cPos.y);
+                            ImGui::TreePop();
+                        }
+                    }
+                }
+
                 CSpriteRenderer* sprite = selectedObj->GetComponent<CSpriteRenderer>();
                 if (sprite)
                 {
@@ -1041,6 +1136,13 @@ void CInspectorUI::Draw()
                                     newModel->PlayAnimation("Idle");
                                 }
                             }
+                        }
+                    }
+                    if (MatchesFilter("Rect Transform Component (CRectTransform)") && !selectedObj->GetComponent<CRectTransform>())
+                    {
+                        if (ImGui::Selectable("Rect Transform Component (CRectTransform)"))
+                        {
+                            selectedObj->AddComponent<CRectTransform>();
                         }
                     }
                     if (MatchesFilter("Sprite Renderer Component (CSpriteRenderer)") && !selectedObj->GetComponent<CSpriteRenderer>())

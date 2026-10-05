@@ -1,8 +1,9 @@
-#include "Object.h"
+﻿#include "Object.h"
 #include "ObjectInfo.h"
 #include "Transform.h"
 #include "Component.h"
 #include "TimeManager.h"
+#include "Source/UI/RectTransform.h"
 
 CObject::CObject()
 	: isValid(true)
@@ -154,4 +155,9 @@ void CObject::SetName(String _ObjectName)
 	{
 		objectInfo->SetObjectName(_ObjectName);
 	}
+}
+
+CRectTransform* CObject::GetRectTransform()
+{
+	return GetComponent<CRectTransform>();
 }
