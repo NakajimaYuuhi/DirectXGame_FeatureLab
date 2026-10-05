@@ -211,6 +211,48 @@ void PSOManager::Init(ID3D12Device* device)
 
         psoBuilder.Build(device, &m_spritePipelineState);
     }
+
+    // ----- ダミーボーンバッファ（ボーンを持たないメッシュの安全対策） -----
+    {
+        D3D12_HEAP_PROPERTIES heapProp = {};
+        heapProp.Type = D3D12_HEAP_TYPE_UPLOAD;
+
+        D3D12_RESOURCE_DESC resDesc = {};
+        resDesc.Dimension = D3D12_RESOURCE_DIMENSION_BUFFER;
+        resDesc.Width = sizeof(DirectX::XMMATRIX);
+        resDesc.Height = 1;
+        resDesc.DepthOrArraySize = 1;
+        resDesc.MipLevels = 1;
+        resDesc.Format = DXGI_FORMAT_UNKNOWN;
+        resDesc.SampleDesc.Count = 1;
+        resDesc.Layout = D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
+        resDesc.Flags = D3D12_RESOURCE_FLAG_NONE;
+
+        device->CreateCommittedResource(
+            &heapProp, D3D12_HEAP_FLAG_NONE, &resDesc,
+            D3D12_RESOURCE_STATE_GENERIC_READ, nullptr,
+            IID_PPV_ARGS(&m_dummyBoneBuffer)
+        );
+
+        DirectX::XMMATRIX identityMat = DirectX::XMMatrixIdentity();
+        void* mapped = nullptr;
+        m_dummyBoneBuffer->Map(0, nullptr, &mapped);
+        memcpy(mapped, &identityMat, sizeof(DirectX::XMMATRIX));
+        m_dummyBoneBuffer->Unmap(0, nullptr);
+
+        DX12Manager::GetInstance().GetSRVAllocator()->Alloc(&m_dummyBoneSrvCpuHandle, &m_dummyBoneSrvGpuHandle);
+
+        D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
+        srvDesc.Format = DXGI_FORMAT_UNKNOWN;
+        srvDesc.ViewDimension = D3D12_SRV_DIMENSION_BUFFER;
+        srvDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
+        srvDesc.Buffer.FirstElement = 0;
+        srvDesc.Buffer.NumElements = 1;
+        srvDesc.Buffer.StructureByteStride = sizeof(DirectX::XMMATRIX);
+        srvDesc.Buffer.Flags = D3D12_BUFFER_SRV_FLAG_NONE;
+
+        device->CreateShaderResourceView(m_dummyBoneBuffer.Get(), &srvDesc, m_dummyBoneSrvCpuHandle);
+    }
 }
 
 ID3D12PipelineState* PSOManager::GetPSO(CMaterial* material, ID3D12RootSignature* rootSig)

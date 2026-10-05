@@ -1,5 +1,7 @@
-#include "ForwardRenderPass.h"
-#include "ObjectManager.h" // ObjectManager??g????
+﻿#include "ForwardRenderPass.h"
+#include "ObjectManager.h"
+#include "DX12Manager.h"
+
 ForwardRenderPass::ForwardRenderPass(RenderTexture* pDestTex)
     : m_pDestTex(pDestTex)
 {
@@ -11,7 +13,11 @@ void ForwardRenderPass::Init(ID3D12Device* pDevice)
 
 void ForwardRenderPass::Execute(const RenderContext& ctx)
 {
-    // 1. ?`?????????
+    // 0. Bind main SRV descriptor heap
+    ID3D12DescriptorHeap* heaps[] = { DX12Manager::GetInstance().GetSRVHeap() };
+    ctx.cmdList->SetDescriptorHeaps(1, heaps);
+
+    // 1. Render target
     D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle = ctx.backBufferRTV; // ?f?t?H???g????o??
 
     // ?I?t?X?N???[???p?e?N?X?`?????w???????????????o?????

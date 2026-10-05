@@ -38,6 +38,8 @@ public:
     ID3D12RootSignature* GetSpriteRootSignature() const { return m_spriteRootSignature.Get(); }
     ID3D12PipelineState* GetSpritePSO() const { return m_spritePipelineState.Get(); }
 
+    D3D12_GPU_DESCRIPTOR_HANDLE GetDummyBoneSRV() const { return m_dummyBoneSrvGpuHandle; }
+
 private:
     PSOManager() = default;
     ~PSOManager() = default;
@@ -53,4 +55,8 @@ private:
 
     ComPtr<ID3D12RootSignature> m_spriteRootSignature;
     ComPtr<ID3D12PipelineState> m_spritePipelineState;
+
+    ComPtr<ID3D12Resource> m_dummyBoneBuffer;
+    D3D12_CPU_DESCRIPTOR_HANDLE m_dummyBoneSrvCpuHandle{};
+    D3D12_GPU_DESCRIPTOR_HANDLE m_dummyBoneSrvGpuHandle{};
 };

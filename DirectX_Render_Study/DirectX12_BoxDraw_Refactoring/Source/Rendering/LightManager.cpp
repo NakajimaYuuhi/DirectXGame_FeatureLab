@@ -9,7 +9,7 @@ LightManager::LightManager()
 
 void LightManager::Init(ID3D12Device* device)
 {
-    if (!device) return;
+    if (!device || m_isInitialized) return;
 
     // 1. Create Shadow Map Depth Resource (2048 x 2048)
     m_shadowMap = std::make_unique<ShadowMap>(device, 2048, 2048);
@@ -47,6 +47,8 @@ void LightManager::Init(ID3D12Device* device)
     {
         throw std::runtime_error("Failed to map LightManager Constant Buffer.");
     }
+
+    m_isInitialized = true;
 }
 
 void LightManager::UpdateBuffer(const DirectX::XMFLOAT3& targetPos, const DirectX::XMFLOAT3& cameraPos)

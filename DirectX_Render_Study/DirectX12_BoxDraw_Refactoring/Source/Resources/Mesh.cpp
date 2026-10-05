@@ -202,15 +202,27 @@ void CMesh::Draw(CTransform* transform, CMaterial* material, BlendMode blendMode
     // 1: Material Texture (t0)
     commandList->SetGraphicsRootDescriptorTable(1, material->GetGpuHandle());
 
-    // 2: Bone StructuredBuffer (t1)
-    commandList->SetGraphicsRootDescriptorTable(2, m_BoneSrvGpuHandle);
+    // 2: Bone StructuredBuffer (t1) - fallback to dummy bone if unassigned
+    D3D12_GPU_DESCRIPTOR_HANDLE boneHandle = m_BoneSrvGpuHandle;
+    if (boneHandle.ptr == 0)
+    {
+        boneHandle = PSOManager::GetInstance().GetDummyBoneSRV();
+    }
+    if (boneHandle.ptr != 0)
+    {
+        commandList->SetGraphicsRootDescriptorTable(2, boneHandle);
+    }
 
     // 3: LightBuffer (b1) - Root CBV
-    commandList->SetGraphicsRootConstantBufferView(3, LightManager::GetInstance().GetConstantBufferGPUAddress());
+    D3D12_GPU_VIRTUAL_ADDRESS lightCbGpu = LightManager::GetInstance().GetConstantBufferGPUAddress();
+    if (lightCbGpu != 0)
+    {
+        commandList->SetGraphicsRootConstantBufferView(3, lightCbGpu);
+    }
 
     // 4: ShadowMap (t2)
     ShadowMap* shadowMap = LightManager::GetInstance().GetShadowMap();
-    if (shadowMap)
+    if (shadowMap && shadowMap->GetSRV().ptr != 0)
     {
         commandList->SetGraphicsRootDescriptorTable(4, shadowMap->GetSRV());
     }
@@ -223,7 +235,7 @@ void CMesh::Draw(CTransform* transform, CMaterial* material, BlendMode blendMode
 
 void CMesh::DrawShadow(CTransform* transform, const DirectX::XMMATRIX& lightViewProj)
 {
-    if (!transform || m_Indices.empty()) return;
+    if (!transform || m_Indices.empty() || !m_vertexBuffer || !m_indexBuffer) return;
     ID3D12GraphicsCommandList* commandList = DX12Manager::GetInstance().GetCommandList();
 
     DirectX::XMMATRIX world = transform->GetWorld();
@@ -233,8 +245,16 @@ void CMesh::DrawShadow(CTransform* transform, const DirectX::XMMATRIX& lightView
     // 0: LightWVP (16 floats = 16 DWORD)
     commandList->SetGraphicsRoot32BitConstants(0, 16, &lightWVPTrans, 0);
 
-    // 1: Bone StructuredBuffer (t1)
-    commandList->SetGraphicsRootDescriptorTable(1, m_BoneSrvGpuHandle);
+    // 1: Bone StructuredBuffer (t1) - fallback to dummy bone if unassigned
+    D3D12_GPU_DESCRIPTOR_HANDLE boneHandle = m_BoneSrvGpuHandle;
+    if (boneHandle.ptr == 0)
+    {
+        boneHandle = PSOManager::GetInstance().GetDummyBoneSRV();
+    }
+    if (boneHandle.ptr != 0)
+    {
+        commandList->SetGraphicsRootDescriptorTable(1, boneHandle);
+    }
 
     commandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
     commandList->IASetVertexBuffers(0, 1, &m_vertexBufferView);

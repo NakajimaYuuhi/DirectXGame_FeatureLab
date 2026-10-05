@@ -4,6 +4,7 @@
 #include "PSOManager.h"
 #include "CameraComponent.h"
 #include "Transform.h"
+#include "DX12Manager.h"
 
 void ShadowMapPass::Init(ID3D12Device* pDevice)
 {
@@ -17,6 +18,10 @@ void ShadowMapPass::Execute(const RenderContext& ctx)
 
     ShadowMap* shadowMap = lightMgr.GetShadowMap();
     if (!shadowMap) return;
+
+    // 0. Bind main SRV descriptor heap to command list
+    ID3D12DescriptorHeap* heaps[] = { DX12Manager::GetInstance().GetSRVHeap() };
+    ctx.cmdList->SetDescriptorHeaps(1, heaps);
 
     // 1. Determine target focus center (Player position or origin) and camera position
     DirectX::XMFLOAT3 targetPos = { 0.0f, 0.0f, 0.0f };

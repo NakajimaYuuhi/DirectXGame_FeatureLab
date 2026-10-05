@@ -89,6 +89,7 @@ private:
     bool  m_shadowEnabled   = true;
 
     DirectX::XMMATRIX m_lightViewProj = DirectX::XMMatrixIdentity();
+    bool m_isInitialized = false;
 
     // GPU Resources
     std::unique_ptr<ShadowMap> m_shadowMap;
