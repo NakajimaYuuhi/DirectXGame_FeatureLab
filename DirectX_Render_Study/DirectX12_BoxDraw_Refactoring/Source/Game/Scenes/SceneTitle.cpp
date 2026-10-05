@@ -213,7 +213,8 @@ void SceneTitle::Init()
     ID3D12Device* pDevice = DX12Manager::GetInstance().GetDevice(); 
     UINT width = SCREEN_WIDTH;
     UINT height = SCREEN_HEIGHT;
-    m_pOffscreenTexture = std::make_unique<RenderTexture>(pDevice, width, height, DXGI_FORMAT_R8G8B8A8_UNORM);
+    const float sceneClearColor[4] = { 0.1f, 0.2f, 0.4f, 1.0f };
+    m_pOffscreenTexture = std::make_unique<RenderTexture>(pDevice, width, height, DXGI_FORMAT_R8G8B8A8_UNORM, sceneClearColor);
     m_renderPipeline = std::make_unique<RenderPipeline>();
     m_renderPipeline->AddPass(std::make_unique<ForwardRenderPass>(m_pOffscreenTexture.get()));
     m_renderPipeline->AddPass(std::make_unique<PostProcessPass>(m_pOffscreenTexture.get()));

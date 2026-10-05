@@ -57,7 +57,8 @@ void CSceneTest::Init()
     }
 
     ID3D12Device* pDevice = DX12Manager::GetInstance().GetDevice();
-    m_pSceneTexture = std::make_unique<RenderTexture>(pDevice, SCREEN_WIDTH, SCREEN_HEIGHT, DXGI_FORMAT_R8G8B8A8_UNORM);
+    const float sceneClearColor[4] = { 0.1f, 0.2f, 0.4f, 1.0f };
+    m_pSceneTexture = std::make_unique<RenderTexture>(pDevice, SCREEN_WIDTH, SCREEN_HEIGHT, DXGI_FORMAT_R8G8B8A8_UNORM, sceneClearColor);
 
     m_renderPipeline = std::make_unique<RenderPipeline>();
     m_renderPipeline->AddPass(std::make_unique<ShadowMapPass>());

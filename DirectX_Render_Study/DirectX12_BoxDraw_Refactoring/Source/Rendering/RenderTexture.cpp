@@ -1,13 +1,26 @@
 ﻿#include "RenderTexture.h"
 #include <stdexcept>
+#include <cstring>
 #include "DX12Manager.h"
 
-RenderTexture::RenderTexture(ID3D12Device* pDevice, UINT width, UINT height, DXGI_FORMAT format)
+RenderTexture::RenderTexture(ID3D12Device* pDevice, UINT width, UINT height, DXGI_FORMAT format, const float clearColor[4])
     : m_width(width)
     , m_height(height)
     , m_format(format)
     , m_currentState(D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE)
 {
+    if (clearColor)
+    {
+        std::memcpy(m_clearColor, clearColor, sizeof(float) * 4);
+    }
+    else
+    {
+        m_clearColor[0] = 0.0f;
+        m_clearColor[1] = 0.0f;
+        m_clearColor[2] = 0.0f;
+        m_clearColor[3] = 1.0f;
+    }
+
     // 1. Create Texture Resource
     D3D12_HEAP_PROPERTIES heapProp = {};
     heapProp.Type = D3D12_HEAP_TYPE_DEFAULT;
@@ -24,16 +37,13 @@ RenderTexture::RenderTexture(ID3D12Device* pDevice, UINT width, UINT height, DXG
     resDesc.Layout = D3D12_TEXTURE_LAYOUT_UNKNOWN;
     resDesc.Flags = D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET;
 
-    D3D12_CLEAR_VALUE clearValue = {};
-    clearValue.Format = format;
-    clearValue.Color[0] = 0.0f;
-    clearValue.Color[1] = 0.0f;
-    clearValue.Color[2] = 0.0f;
-    clearValue.Color[3] = 1.0f;
+    D3D12_CLEAR_VALUE d3dClearValue = {};
+    d3dClearValue.Format = format;
+    std::memcpy(d3dClearValue.Color, m_clearColor, sizeof(float) * 4);
 
     HRESULT hr = pDevice->CreateCommittedResource(
         &heapProp, D3D12_HEAP_FLAG_NONE, &resDesc,
-        m_currentState, &clearValue, IID_PPV_ARGS(&m_pResource)
+        m_currentState, &d3dClearValue, IID_PPV_ARGS(&m_pResource)
     );
     if (FAILED(hr))
     {
@@ -98,5 +108,6 @@ void RenderTexture::Transition(ID3D12GraphicsCommandList* cmdList, D3D12_RESOURC
 
 void RenderTexture::Clear(ID3D12GraphicsCommandList* cmdList, const float clearColor[4])
 {
-    cmdList->ClearRenderTargetView(m_rtvHandleCPU, clearColor, 0, nullptr);
+    const float* colorToUse = clearColor ? clearColor : m_clearColor;
+    cmdList->ClearRenderTargetView(m_rtvHandleCPU, colorToUse, 0, nullptr);
 }
