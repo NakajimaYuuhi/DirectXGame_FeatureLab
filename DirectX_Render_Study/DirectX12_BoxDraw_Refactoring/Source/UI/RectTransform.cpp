@@ -279,8 +279,10 @@ void CRectTransform::UpdateRect() const
     float aHeight = aMaxY - aMinY;
 
     // Final dimension including size delta and local scale
-    float finalWidth  = aWidth  + m_sizeDelta.x * m_scale.x;
-    float finalHeight = aHeight + m_sizeDelta.y * m_scale.y;
+    float baseWidth   = aWidth  + m_sizeDelta.x;
+    float baseHeight  = aHeight + m_sizeDelta.y;
+    float finalWidth  = baseWidth  * m_scale.x;
+    float finalHeight = baseHeight * m_scale.y;
 
     // Anchor center reference
     float anchorCenterX = (aMinX + aMaxX) * 0.5f;

@@ -33,17 +33,23 @@ void ObjectManager::Uninit()
 
 void ObjectManager::Update(Scenes::ID _SceneID)
 {
+	float dt = TimeManager::GetInstance().GetDeltaTime();
+
+	// 1. フレーム開始時の保留オブジェクト反映（常に実行）
+	FlushPendingAddObjects();
+
+	// 2. Tween アニメーションの更新（UI演出・エディタ操作等を含むため常に実行）
+	{
+		PROFILE_SCOPE("Update::Tween");
+		TweenManager::GetInstance().Update(dt);
+	}
+
 	if (!CInspectorUI::GetInstance().ShouldUpdateGame())
 	{
 		return;
 	}
 
-	float dt = TimeManager::GetInstance().GetDeltaTime();
-
-	// 1. フレーム開始時の保留オブジェクト反映
-	FlushPendingAddObjects();
-
-	// 2. 未実行オブジェクト・コンポーネントの初期化（Awake / Start）を一括確定
+	// 3. 未実行オブジェクト・コンポーネントの初期化（Awake / Start）を一括確定
 	for (size_t tagIdx = 0; tagIdx < vecObject.size(); ++tagIdx)
 	{
 		auto& vec = vecObject[tagIdx];
@@ -56,12 +62,6 @@ void ObjectManager::Update(Scenes::ID _SceneID)
 				if (!object->GetHasStarted()) object->Start();
 			}
 		}
-	}
-
-	// Tween Animation System
-	{
-		PROFILE_SCOPE("Update::Tween");
-		TweenManager::GetInstance().Update(dt);
 	}
 
 	// 3. Phase 0: Input (全オブジェクトの入力受付・操作)

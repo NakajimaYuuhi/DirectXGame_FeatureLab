@@ -18,6 +18,7 @@
 #include "BasicSettings.h"
 #include "Source/UI/RectTransform.h"
 #include "Source/Util/Tween.h"
+#include "InspectorUI.h"
 #include <memory>
 
 SceneTitle::SceneTitle()
@@ -29,6 +30,7 @@ SceneTitle::~SceneTitle() = default;
 
 void SceneTitle::Init()
 {
+    CInspectorUI::GetInstance().SetEditMode(false);
     ButtonEventManager::GetInstance();
 
     if (!SceneSerializer::LoadSceneOrDefault("Assets/Scene/SceneTitle.json", Scenes::ID::TITLE))
@@ -128,12 +130,17 @@ void SceneTitle::Init()
         if (!rect) rect = bgObj->AddComponent<CRectTransform>();
         rect->SetAnchorPreset(AnchorPreset::StretchAll, true);
         rect->SetSizeDelta(0.0f, 0.0f);
+        rect->SetScale(1.0f, 1.0f);
 
         if (auto sprite = bgObj->GetComponent<CSpriteRenderer>())
         {
             sprite->SetColor({ 1.0f, 1.0f, 1.0f, 0.0f });
             sprite->DOFade(1.0f, 0.8f)->SetEase(Ease::OutCubic);
         }
+    }
+    else
+    {
+        OutputDebugStringA("[SceneTitle] Warning: TitleBG object not found!\n");
     }
 
     // 2. Start Button: Center Anchored, Slide Up & Pop-up Scale
@@ -159,6 +166,10 @@ void SceneTitle::Init()
             sprite->DOFade(1.0f, 0.4f)->SetDelay(0.2f);
         }
     }
+    else
+    {
+        OutputDebugStringA("[SceneTitle] Warning: StartButton object not found!\n");
+    }
 
     // 3. Exit Button: Center Anchored, Slide Up & Pop-up Scale (Sequential)
     CObject* exitBtn = FindUIObject("ExitButton");
@@ -183,6 +194,22 @@ void SceneTitle::Init()
             sprite->DOFade(0.4f, 0.4f)->SetDelay(0.35f);
         }
     }
+    else
+    {
+        OutputDebugStringA("[SceneTitle] Warning: ExitButton object not found!\n");
+    }
+
+    // Ensure FirstSelected button is highlighted
+    if (startBtn)
+    {
+        if (auto btn = startBtn->GetComponent<ButtonComponent>())
+        {
+            ButtonEventManager::GetInstance().SetSelectedGameObject(btn);
+        }
+    }
+
+    // Save configured Title UI setup back to SceneTitle.json
+    SceneSerializer::SaveScene("Assets/Scene/SceneTitle.json", Scenes::ID::TITLE);
 
     m_renderPipeline = std::make_unique<RenderPipeline>();
     ID3D12Device* pDevice = DX12Manager::GetInstance().GetDevice(); 

@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <string>
 #include <memory>
 #include <DirectXMath.h>
@@ -66,7 +66,7 @@ private:
     bool m_showColliders = true;
     GizmoMode m_gizmoMode = GizmoMode::Translate;
 
-    bool m_isEditMode = true;
+    bool m_isEditMode = false;
     bool m_isPaused = false;
     bool m_stepNextFrame = false;
     float m_timeScale = 1.0f;
