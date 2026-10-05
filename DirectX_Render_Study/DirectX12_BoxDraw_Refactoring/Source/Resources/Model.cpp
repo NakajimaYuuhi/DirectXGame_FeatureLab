@@ -1,4 +1,4 @@
-#include "Model.h"
+ï»¿#include "Model.h"
 #include "DX12Manager.h"
 #include "gltfLoader.h"
 #include "Transform.h"
@@ -18,7 +18,10 @@ CModel::CModel()
 CModel::~CModel()
 {
 	if (m_BoneSrvCpuHandle.ptr != 0 && m_BoneSrvGpuHandle.ptr != 0) {
-		DX12Manager::GetInstance().GetSRVAllocator()->Free(m_BoneSrvCpuHandle, m_BoneSrvGpuHandle);
+		auto srvAlloc = DX12Manager::GetInstance().GetSRVAllocator();
+		if (srvAlloc) {
+			srvAlloc->Free(m_BoneSrvCpuHandle, m_BoneSrvGpuHandle);
+		}
 		m_BoneSrvCpuHandle.ptr = 0;
 		m_BoneSrvGpuHandle.ptr = 0;
 	}
@@ -95,6 +98,17 @@ void CModel::CreateTmpBoneData()
 
 void CModel::CreateBoneBuffer()
 {
+	if (m_BoneSrvCpuHandle.ptr != 0 && m_BoneSrvGpuHandle.ptr != 0)
+	{
+		auto srvAlloc = DX12Manager::GetInstance().GetSRVAllocator();
+		if (srvAlloc) {
+			srvAlloc->Free(m_BoneSrvCpuHandle, m_BoneSrvGpuHandle);
+		}
+		m_BoneSrvCpuHandle.ptr = 0;
+		m_BoneSrvGpuHandle.ptr = 0;
+	}
+	m_BoneBuffer.Reset();
+
 	ID3D12Device* device = DX12Manager::GetInstance().GetDevice();
 	ID3D12DescriptorHeap* srvHeap = DX12Manager::GetInstance().GetSRVHeap();
 
@@ -236,7 +250,7 @@ void CModel::ModelLoad(std::string _Path)
 		}
 	};
 
-	//?e???????E  ?[?h?IEarentIndex == -1 ?? Root?`EE?h?j??N?_????“_??E
+	//?e???????E  ?[?h?IEarentIndex == -1 ?? Root?`EE?h?j??N?_????_??E
 	for (int i = 0; i < m_Bones.size(); ++i)
 	{
 		//-1???N?_
@@ -246,7 +260,7 @@ void CModel::ModelLoad(std::string _Path)
 		}
 	}
 
-	//-- 4.SkinData ???—Ô???? inverseBindPose E ??E   E E ????äí???E
+	//-- 4.SkinData ??????? inverseBindPose E ??E   E E ???????E
 	// ???EE?`EE?h??????A?X?`E  ?`E??globalBindPose???E   E???EE?p?????????
 	for (auto& bone : m_Bones)
 	{

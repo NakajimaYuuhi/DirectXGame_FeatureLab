@@ -1,7 +1,10 @@
-#include "TextureManager.h"
+﻿#include "TextureManager.h"
+#include <iostream>
 
 std::shared_ptr<CTexture> TextureManager::GetTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdList, const wchar_t* filePath)
 {
+    if (!filePath || filePath[0] == L'\0') return nullptr;
+
     std::wstring pathStr(filePath);
 
     auto it = m_textures.find(pathStr);
@@ -19,5 +22,6 @@ std::shared_ptr<CTexture> TextureManager::GetTexture(ID3D12Device* device, ID3D1
         return newTexture;
     }
 
+    std::wcerr << L"[TextureManager] Failed to load texture: " << filePath << std::endl;
     return nullptr;
 }

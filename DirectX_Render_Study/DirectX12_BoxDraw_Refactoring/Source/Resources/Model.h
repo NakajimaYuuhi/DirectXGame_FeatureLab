@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "Component.h"
 #include "RenderLayer.h"
@@ -32,6 +32,9 @@ class CModel : public CComponent
 public:
 	CModel();
 	~CModel();
+
+	CModel(const CModel&) = delete;
+	CModel& operator=(const CModel&) = delete;
 
 	void Init() override;
 	void Update(float deltaTime) override;

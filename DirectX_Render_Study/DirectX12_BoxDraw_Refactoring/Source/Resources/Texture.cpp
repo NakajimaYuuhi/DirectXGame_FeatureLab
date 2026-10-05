@@ -1,10 +1,13 @@
-#include "Texture.h"
+ï»¿#include "Texture.h"
 #include "DX12Manager.h"
 
 CTexture::~CTexture()
 {
     if (m_cpuHandle.ptr != 0 && m_gpuHandle.ptr != 0) {
-        DX12Manager::GetInstance().GetSRVAllocator()->Free(m_cpuHandle, m_gpuHandle);
+        auto alloc = DX12Manager::GetInstance().GetSRVAllocator();
+        if (alloc) {
+            alloc->Free(m_cpuHandle, m_gpuHandle);
+        }
         m_cpuHandle.ptr = 0;
         m_gpuHandle.ptr = 0;
     }
@@ -12,7 +15,7 @@ CTexture::~CTexture()
 
 bool CTexture::LoadTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdList, const wchar_t* filePath)
 {
-    // WICŒn (PNG/JPG/BMP)
+    // WICn (PNG/JPG/BMP)
     HRESULT hr = DirectX::LoadFromWICFile(
         filePath,
         DirectX::WIC_FLAGS_NONE,
@@ -23,7 +26,7 @@ bool CTexture::LoadTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdL
 
     const DirectX::Image* img = scratch.GetImage(0, 0, 0);
 
-    // --- GPU—p‚ÌƒeƒNƒXƒ`ƒƒ
+    // --- GPUpÌƒeNX`
     D3D12_RESOURCE_DESC texDesc = {};
     texDesc.Dimension = D3D12_RESOURCE_DIMENSION_TEXTURE2D;
     texDesc.Width = metadata.width;
@@ -64,7 +67,7 @@ bool CTexture::LoadTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdL
     );
     if (FAILED(hr)) return false;
 
-    // --- ƒTƒuƒŠƒ\[ƒX‚ÌƒRƒs[
+    // --- Tu\[XÌƒRs[
     D3D12_SUBRESOURCE_DATA textureData = {};
     textureData.pData = img->pixels;
     textureData.RowPitch = img->rowPitch;
@@ -72,7 +75,7 @@ bool CTexture::LoadTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdL
 
     UpdateSubresources(cmdList, texture.Get(), uploadHeap.Get(), 0, 0, metadata.mipLevels, &textureData);
 
-    // ÅŒã‚ÉƒVƒF[ƒ_[‚Å“Ç‚ß‚é‚æ‚¤‚É
+    // ÅŒÉƒVF[_[Å“Ç‚ß‚æ‚¤
     CD3DX12_RESOURCE_BARRIER barrier =
         CD3DX12_RESOURCE_BARRIER::Transition(
             texture.Get(),
@@ -87,9 +90,9 @@ bool CTexture::LoadTexture(ID3D12Device* device, ID3D12GraphicsCommandList* cmdL
 void CTexture::CreateSRV(ID3D12Device* device)
 {
 
-    // ‚±‚ê‚ğ“ü‚ê‚é‚¾‚¯‚ÅA‚Æ‚è‚ ‚¦‚¸ƒNƒ‰ƒbƒVƒ…‚Í–h‚°‚é‚Í‚¸
+    // é‚¾ÅAÆ‚è‚ NbVÍ–hÍ‚
     if (!texture) {
-        OutputDebugStringA("Œx: ƒeƒNƒXƒ`ƒƒ‚ªƒ[ƒh‚³‚ê‚Ä‚¢‚Ü‚¹‚ñI\n");
+        OutputDebugStringA("x: eNX`[hÄ‚Ü‚I\n");
         return;
     }
 

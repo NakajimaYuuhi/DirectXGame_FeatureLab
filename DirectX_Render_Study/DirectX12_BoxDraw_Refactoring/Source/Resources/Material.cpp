@@ -1,4 +1,4 @@
-#include "Material.h"
+Ôªø#include "Material.h"
 
 #include "DX12Manager.h"
 #include "TextureManager.h"
@@ -13,7 +13,7 @@ CMaterial::CMaterial(wstring _FilePath, XMFLOAT4 _Color, wstring shaderFile, str
 
 void CMaterial::LoadTexture(wstring _FilePath)
 {
-    //?f?o?C?X?A?R?}???h???X?g??èÔ
+    //?f?o?C?X?A?R?}???h???X?g??
     ID3D12Device* device = DX12Manager::GetInstance().GetDevice();
     ID3D12GraphicsCommandList* cmdList = DX12Manager::GetInstance().GetCommandList();
 
@@ -28,6 +28,9 @@ void CMaterial::LoadTexture(wstring _FilePath)
 
     //?e?N?X?`??????[?h?ASRV???
     m_Texture = TextureManager::GetInstance().GetTexture(device, cmdList, _FilePath.c_str());
+    if (!m_Texture) {
+        m_Texture = TextureManager::GetInstance().GetTexture(device, cmdList, L"Assets/Texture/Sample1.jpg");
+    }
 
 
     // 2.?R?}???h???s
