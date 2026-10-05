@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Assets">
@@ -183,6 +183,12 @@
     <ClCompile Include="Source\Resources\gltfLoader.cpp">
       <Filter>Source\Resources</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Resources\XorDecryptor.cpp">
+      <Filter>Source\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Resources\AssetEncryptor.cpp">
+      <Filter>Source\Resources</Filter>
+    </ClCompile>
     <ClCompile Include="Source\External\imgui.cpp">
       <Filter>Source\External</Filter>
     </ClCompile>
@@ -301,6 +307,9 @@
       <Filter>Source\Game\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="Source\Editor\ContentDrawerUI.cpp">
+      <Filter>Source\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Editor\AssetSecurityUI.cpp">
       <Filter>Source\Editor</Filter>
     </ClCompile>
     <ClCompile Include="Source\Editor\ProfilerUI.cpp">
@@ -444,6 +453,24 @@
     <ClInclude Include="Source\Resources\gltfLoader.h">
       <Filter>Source\Resources</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Resources\AssetHeader.h">
+      <Filter>Source\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Resources\IAssetDecryptor.h">
+      <Filter>Source\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Resources\XorDecryptor.h">
+      <Filter>Source\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Resources\AssetEncryptor.h">
+      <Filter>Source\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Resources\IModelLoader.h">
+      <Filter>Source\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Resources\GltfModelLoader.h">
+      <Filter>Source\Resources</Filter>
+    </ClInclude>
     <ClInclude Include="Source\External\imconfig.h">
       <Filter>Source\External</Filter>
     </ClInclude>
@@ -583,6 +610,9 @@
       <Filter>Source\Util\Logic\StateMachine</Filter>
     </ClInclude>
     <ClInclude Include="Source\Editor\ContentDrawerUI.h">
+      <Filter>Source\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Editor\AssetSecurityUI.h">
       <Filter>Source\Editor</Filter>
     </ClInclude>
     <ClInclude Include="Source\Editor\ProfilerUI.h">

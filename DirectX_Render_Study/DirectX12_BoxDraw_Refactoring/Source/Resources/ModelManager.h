@@ -13,9 +13,13 @@ public:
         return instance;
     }
 
-    // Get or load a model
+    // Get or load a model (with automatic fallback resolution)
     std::shared_ptr<CModel> GetModel(const std::string& filePath);
-	void Clear() { m_modelCache.clear(); }
+
+    // ƒpƒX‰ğŒˆ (Debug: GLB—Dæ, Release: ˆÃ†‰».dat—Dæ)
+    std::string ResolveModelPath(const std::string& inputPath) const;
+
+    void Clear() { m_modelCache.clear(); }
 
 private:
     ModelManager() = default;

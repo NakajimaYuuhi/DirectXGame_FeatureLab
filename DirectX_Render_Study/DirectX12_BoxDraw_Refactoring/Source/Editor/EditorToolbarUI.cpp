@@ -3,6 +3,7 @@
 #include "UndoManager.h"
 #include "ContentDrawerUI.h"
 #include "ProfilerUI.h"
+#include "AssetSecurityUI.h"
 #include "imgui.h"
 #include "ObjectManager.h"
 #include "TimeManager.h"
@@ -187,6 +188,11 @@ void CEditorToolbarUI::Draw()
         if (ImGui::Button("Profiler"))
         {
             CProfilerUI::GetInstance().ToggleVisible();
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Asset Encryptor"))
+        {
+            CAssetSecurityUI::GetInstance().ToggleVisible();
         }
     }
     ImGui::End();

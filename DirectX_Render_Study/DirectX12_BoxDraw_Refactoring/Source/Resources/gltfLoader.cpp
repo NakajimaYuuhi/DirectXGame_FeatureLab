@@ -1,4 +1,3 @@
-
 #define TINYGLTF_IMPLEMENTATION
 #define STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_WRITE_IMPLEMENTATION
@@ -7,138 +6,61 @@
 #include "tiny_gltf.h"
 
 #include <iostream>
-
+#include <fstream>
 #include <vector>
+#include <algorithm>
+#include <filesystem>
 
 #include "gltfLoader.h"
-
-//?\??????
+#include "GltfModelLoader.h"
 #include "ModelData.h"
+#include "AssetHeader.h"
+#include "XorDecryptor.h"
 
-
-
-//??????????????????
-LoadedModelData TestLoadGLTF(std::string _fileName)
+// tinygltf::Model から LoadedModelData への変換
+static bool ParseTinyGltfModel(const tinygltf::Model& model, const std::string& assetPathOrName, LoadedModelData& loadedModelData)
 {
-
-    //----- ????? -----
-    // GLTF??A
-    //< ???[?h??K?v???? >
-    tinygltf::TinyGLTF loader;  //?R???e?L?X?g
-    tinygltf::Model model;      //???????f?[?^??i?[
-
-    //< ?G???[?`?F?b?N?p >
-    bool loadResult;
-    std::string warn;
-    std::string err;
-
-    //< ?t?@?C???? >
-    //?????? glb/gltf ?t?@?C????
-    std::string filename = _fileName;
-    //std::string filename = "Assets/Model/OffensiveIdle.glb";
-    //std::string filename = "Assets/Model/cube.glb";
-
-
-
-    //???f??????
-	LoadedModelData loadedModelData;
-
-
-    //----- ?????????? -----
-    loadResult = false;
-
-
-	//----- ?????? -----
-    if (filename.ends_with(".glb")) {
-        loadResult = loader.LoadBinaryFromFile(&model, &err, &warn, filename);
-    }
-    else {
-        loadResult = loader.LoadASCIIFromFile(&model, &err, &warn, filename);
-    }
-
-	//----- ????????s -----
-    if (!warn.empty()) {
-        std::cout << "Warn: " << warn << std::endl;
-    }
-
-    if (!err.empty()) {
-        std::cout << "Err: " << err << std::endl;
-    }
-
-    if (!loadResult) {
-        std::cout << "Failed to load: " << filename << std::endl;
-        //return ;
-    }
-
-	//----- ????????? -----
-    std::cout << "Success! Loaded: " << filename << std::endl;
-
-    //----- ?f?o?b?O?e?X?g -----
-    std::cout << "Meshes:   " << model.meshes.size() << std::endl;
-    std::cout << "Nodes:    " << model.nodes.size() << std::endl;
-    std::cout << "Buffers:  " << model.buffers.size() << std::endl;
-    std::cout << "Skins:    " << model.skins.size() << std::endl;
-    std::cout << "Anims:    " << model.animations.size() << std::endl;
-
-
-	//----- ???b?V???f?[?^??擾???? -----
-	for (const auto& mesh : model.meshes) // ???b?V?????????[?v
+    //----- メッシュデータの取得 -----
+    for (const auto& mesh : model.meshes)
     {
-    
-		//== ????? ==
-        //GLTF??Mesh -> Primitive??\??
-        //Primitive????b?V?????????????A?x?[?X???????????????
-        std::string meshName;   //???b?V??????O
-        int PrimitiveNum;       //?v???~?e?B?u??C???f?b?N?X
+        std::string meshName = mesh.name;
+        int PrimitiveNum = 0;
 
-        //== ?????????? ==
-        meshName = mesh.name;   //???O??擾
-        PrimitiveNum = 0;       
-
-
-		//== ???_?f?[?^??擾 ==
-		// ???b?V????v???~?e?B?u???????[?v
-        for (const auto& primitive : mesh.primitives) 
+        for (const auto& primitive : mesh.primitives)
         {
-            //== ????? ==
             std::string primitiveName;
-            MeshData meshData;                  //???b?V??????
-            std::vector<MeshVertex> vertices;   //???_?f?[?^??Vector
+            MeshData meshData;
+            std::vector<MeshVertex> vertices;
 
-            // ???_??????擾
-            const auto& attributes = primitive.attributes;        
+            const auto& attributes = primitive.attributes;
+            if (attributes.find("POSITION") == attributes.end())
+            {
+                continue;
+            }
 
-            //???_????擾
             const tinygltf::Accessor& posAccessor = model.accessors[attributes.at("POSITION")];
             size_t VertexCount = posAccessor.count;
 
+            vertices.resize(VertexCount);
 
-			//----- Vector????? -----
-            //Vector??T?C?Y????
-            vertices.resize(VertexCount);       //Resize????????
-
-            // ?S?~?f?[?^????????h??????A?{?[??????E?F?C?g???????
+            // デフォルト初期化
             for (size_t i = 0; i < VertexCount; i++)
             {
                 vertices[i].boneIndices[0] = 0;
                 vertices[i].boneIndices[1] = 0;
                 vertices[i].boneIndices[2] = 0;
                 vertices[i].boneIndices[3] = 0;
-                vertices[i].boneWeights[0] = 1.0f; // ?????{?[????E?F?C?g100%
+                vertices[i].boneWeights[0] = 1.0f;
                 vertices[i].boneWeights[1] = 0.0f;
                 vertices[i].boneWeights[2] = 0.0f;
                 vertices[i].boneWeights[3] = 0.0f;
             }
 
-            //== vertices??f?[?^?????? ==
-            
-            //----- POSITION -----
-            if (attributes.find("POSITION") != attributes.end()) 
+            // POSITION
             {
                 const tinygltf::Accessor& accessor = model.accessors[attributes.at("POSITION")];
                 const tinygltf::BufferView& bufferView = model.bufferViews[accessor.bufferView];
                 const tinygltf::Buffer& buffer = model.buffers[bufferView.buffer];
-
                 const unsigned char* dataPtr = &buffer.data[bufferView.byteOffset + accessor.byteOffset];
                 size_t stride = accessor.ByteStride(bufferView);
 
@@ -151,13 +73,12 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
                 }
             }
 
-			//----- NORMAL -----
+            // NORMAL
             if (attributes.find("NORMAL") != attributes.end())
             {
                 const tinygltf::Accessor& accessor = model.accessors[attributes.at("NORMAL")];
                 const tinygltf::BufferView& bufferView = model.bufferViews[accessor.bufferView];
                 const tinygltf::Buffer& buffer = model.buffers[bufferView.buffer];
-
                 const unsigned char* dataPtr = &buffer.data[bufferView.byteOffset + accessor.byteOffset];
                 size_t stride = accessor.ByteStride(bufferView);
 
@@ -170,13 +91,12 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
                 }
             }
 
-			//----- TEXCOORD_0 -----
+            // TEXCOORD_0
             if (attributes.find("TEXCOORD_0") != attributes.end())
             {
                 const tinygltf::Accessor& accessor = model.accessors[attributes.at("TEXCOORD_0")];
                 const tinygltf::BufferView& bufferView = model.bufferViews[accessor.bufferView];
                 const tinygltf::Buffer& buffer = model.buffers[bufferView.buffer];
-
                 const unsigned char* dataPtr = &buffer.data[bufferView.byteOffset + accessor.byteOffset];
                 size_t stride = accessor.ByteStride(bufferView);
 
@@ -188,17 +108,16 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
                 }
             }
 
-            //----- JOINTS_0 -----
+            // JOINTS_0
             if (attributes.find("JOINTS_0") != attributes.end())
             {
                 const tinygltf::Accessor& accessor = model.accessors[attributes.at("JOINTS_0")];
                 const tinygltf::BufferView& bufferView = model.bufferViews[accessor.bufferView];
                 const tinygltf::Buffer& buffer = model.buffers[bufferView.buffer];
-
                 const unsigned char* dataPtr = &buffer.data[bufferView.byteOffset + accessor.byteOffset];
                 size_t stride = accessor.ByteStride(bufferView);
 
-                if (accessor.componentType == TINYGLTF_COMPONENT_TYPE_UNSIGNED_SHORT) // 5123
+                if (accessor.componentType == TINYGLTF_COMPONENT_TYPE_UNSIGNED_SHORT)
                 {
                     for (size_t i = 0; i < VertexCount; i++)
                     {
@@ -209,7 +128,7 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
                         vertices[i].boneIndices[3] = static_cast<uint32_t>(joints[3]);
                     }
                 }
-                else if (accessor.componentType == TINYGLTF_COMPONENT_TYPE_UNSIGNED_BYTE) // 5121
+                else if (accessor.componentType == TINYGLTF_COMPONENT_TYPE_UNSIGNED_BYTE)
                 {
                     for (size_t i = 0; i < VertexCount; i++)
                     {
@@ -222,17 +141,16 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
                 }
             }
 
-            //----- WEIGHTS_0 -----
+            // WEIGHTS_0
             if (attributes.find("WEIGHTS_0") != attributes.end())
             {
                 const tinygltf::Accessor& accessor = model.accessors[attributes.at("WEIGHTS_0")];
                 const tinygltf::BufferView& bufferView = model.bufferViews[accessor.bufferView];
                 const tinygltf::Buffer& buffer = model.buffers[bufferView.buffer];
-
                 const unsigned char* dataPtr = &buffer.data[bufferView.byteOffset + accessor.byteOffset];
                 size_t stride = accessor.ByteStride(bufferView);
 
-                if (accessor.componentType == TINYGLTF_COMPONENT_TYPE_FLOAT) // 5126
+                if (accessor.componentType == TINYGLTF_COMPONENT_TYPE_FLOAT)
                 {
                     for (size_t i = 0; i < VertexCount; i++)
                     {
@@ -243,7 +161,7 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
                         vertices[i].boneWeights[3] = weights[3];
                     }
                 }
-                else if (accessor.componentType == TINYGLTF_COMPONENT_TYPE_UNSIGNED_SHORT) // 5123
+                else if (accessor.componentType == TINYGLTF_COMPONENT_TYPE_UNSIGNED_SHORT)
                 {
                     for (size_t i = 0; i < VertexCount; i++)
                     {
@@ -254,7 +172,7 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
                         vertices[i].boneWeights[3] = static_cast<float>(weights[3]) / 65535.0f;
                     }
                 }
-                else if (accessor.componentType == TINYGLTF_COMPONENT_TYPE_UNSIGNED_BYTE) // 5121
+                else if (accessor.componentType == TINYGLTF_COMPONENT_TYPE_UNSIGNED_BYTE)
                 {
                     for (size_t i = 0; i < VertexCount; i++)
                     {
@@ -265,119 +183,84 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
                         vertices[i].boneWeights[3] = static_cast<float>(weights[3]) / 255.0f;
                     }
                 }
-                else
-                {
-                    std::cerr << "Unsupported WEIGHTS component type!\n";
-                }
             }
 
-            //----- ?}?e???A?????? -----
             int materialIndex = primitive.material;
             meshData.materialIndex = materialIndex;
 
-
-            //???O??????
-            primitiveName = meshName;
-            primitiveName += "_Primitive";
-            primitiveName += std::to_string(PrimitiveNum);
-
+            primitiveName = meshName + "_Primitive" + std::to_string(PrimitiveNum);
             meshData.name = primitiveName;
-
-            //vertices??vector??i?[????
             meshData.vertices = vertices;
 
-
-
-
-            //== Index?????????
+            // Indices
             std::vector<uint32_t> indices;
-
-            if (primitive.indices < 0) {
-                continue;
-            }
-
-            const tinygltf::Accessor& accessor = model.accessors[primitive.indices];
-            const tinygltf::BufferView& bufferView = model.bufferViews[accessor.bufferView];
-            const tinygltf::Buffer& buffer = model.buffers[bufferView.buffer];
-
-            const unsigned char* dataPtr = buffer.data.data() + bufferView.byteOffset + accessor.byteOffset;
-
-            // componentType ???????????????
-            switch (accessor.componentType)
+            if (primitive.indices >= 0)
             {
-            case TINYGLTF_COMPONENT_TYPE_UNSIGNED_SHORT:
-            {
-                const uint16_t* buf = reinterpret_cast<const uint16_t*>(dataPtr);
-                for (size_t i = 0; i < accessor.count; i++) {
-                    indices.push_back(static_cast<uint32_t>(buf[i]));
+                const tinygltf::Accessor& accessor = model.accessors[primitive.indices];
+                const tinygltf::BufferView& bufferView = model.bufferViews[accessor.bufferView];
+                const tinygltf::Buffer& buffer = model.buffers[bufferView.buffer];
+                const unsigned char* dataPtr = buffer.data.data() + bufferView.byteOffset + accessor.byteOffset;
+
+                switch (accessor.componentType)
+                {
+                case TINYGLTF_COMPONENT_TYPE_UNSIGNED_SHORT:
+                {
+                    const uint16_t* buf = reinterpret_cast<const uint16_t*>(dataPtr);
+                    for (size_t i = 0; i < accessor.count; i++) {
+                        indices.push_back(static_cast<uint32_t>(buf[i]));
+                    }
+                    break;
                 }
-                break;
-            }
-            case TINYGLTF_COMPONENT_TYPE_UNSIGNED_INT:
-            {
-                const uint32_t* buf = reinterpret_cast<const uint32_t*>(dataPtr);
-                for (size_t i = 0; i < accessor.count; i++) {
-                    indices.push_back(buf[i]);
+                case TINYGLTF_COMPONENT_TYPE_UNSIGNED_INT:
+                {
+                    const uint32_t* buf = reinterpret_cast<const uint32_t*>(dataPtr);
+                    for (size_t i = 0; i < accessor.count; i++) {
+                        indices.push_back(buf[i]);
+                    }
+                    break;
                 }
-                break;
-            }
-            case TINYGLTF_COMPONENT_TYPE_UNSIGNED_BYTE:
-            {
-                const uint8_t* buf = reinterpret_cast<const uint8_t*>(dataPtr);
-                for (size_t i = 0; i < accessor.count; i++) {
-                    indices.push_back(static_cast<uint32_t>(buf[i]));
+                case TINYGLTF_COMPONENT_TYPE_UNSIGNED_BYTE:
+                {
+                    const uint8_t* buf = reinterpret_cast<const uint8_t*>(dataPtr);
+                    for (size_t i = 0; i < accessor.count; i++) {
+                        indices.push_back(static_cast<uint32_t>(buf[i]));
+                    }
+                    break;
                 }
-                break;
-            }
-            default:
-                std::cerr << "Unsupported index component type\n";
-                break;
+                default:
+                    break;
+                }
             }
 
-            // ?????? indices ??i?[
             meshData.indices.assign(std::begin(indices), std::end(indices));
-
-
-            //loadModelData??i?[
             loadedModelData.meshes.push_back(meshData);
-    
-
-
-            //Primitive??C???f?b?N?X??J?E???g
             PrimitiveNum++;
         }
-	}
+    }
 
-    //----- ?}?e???A????f?[?^??擾 -----
-    for (const auto& material : model.materials)//?}?e???A?????????s
+    //----- マテリアルデータ取得 -----
+    for (const auto& material : model.materials)
     {
         MaterialData materialData;
-
-        // ???O
         materialData.name = material.name;
 
-        // PBR ???C?????
         const auto& pbr = material.pbrMetallicRoughness;
 
-        // BaseColorFactor
         if (!pbr.baseColorFactor.empty())
         {
-            materialData.baseColorFactor[0] = pbr.baseColorFactor[0];
-            materialData.baseColorFactor[1] = pbr.baseColorFactor[1];
-            materialData.baseColorFactor[2] = pbr.baseColorFactor[2];
-            materialData.baseColorFactor[3] = pbr.baseColorFactor[3];
+            materialData.baseColorFactor[0] = static_cast<float>(pbr.baseColorFactor[0]);
+            materialData.baseColorFactor[1] = static_cast<float>(pbr.baseColorFactor[1]);
+            materialData.baseColorFactor[2] = static_cast<float>(pbr.baseColorFactor[2]);
+            materialData.baseColorFactor[3] = static_cast<float>(pbr.baseColorFactor[3]);
         }
 
-        // Metallic / Roughness
-        materialData.metallicFactor = pbr.metallicFactor;
-        materialData.roughnessFactor = pbr.roughnessFactor;
+        materialData.metallicFactor = static_cast<float>(pbr.metallicFactor);
+        materialData.roughnessFactor = static_cast<float>(pbr.roughnessFactor);
 
-
-        //---------- BaseColorTexture --------------
+        // BaseColorTexture
         if (pbr.baseColorTexture.index >= 0)
         {
             int texIndex = pbr.baseColorTexture.index;
-
             const tinygltf::Texture& tex = model.textures[texIndex];
 
             if (tex.source >= 0)
@@ -390,10 +273,10 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
                 else if (!image.image.empty())
                 {
                     std::string baseName = "embedded";
-                    size_t lastSlash = _fileName.find_last_of("/\\");
+                    size_t lastSlash = assetPathOrName.find_last_of("/\\");
                     if (lastSlash != std::string::npos)
                     {
-                        baseName = _fileName.substr(lastSlash + 1);
+                        baseName = assetPathOrName.substr(lastSlash + 1);
                         size_t lastDot = baseName.find_last_of(".");
                         if (lastDot != std::string::npos)
                         {
@@ -409,11 +292,10 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
             }
         }
 
-        //---------- MetallicRoughnessTexture --------------
+        // MetallicRoughnessTexture
         if (pbr.metallicRoughnessTexture.index >= 0)
         {
             int texIndex = pbr.metallicRoughnessTexture.index;
-
             const tinygltf::Texture& tex = model.textures[texIndex];
 
             if (tex.source >= 0)
@@ -423,83 +305,57 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
             }
         }
 
-        // LoadedModelData ????
         loadedModelData.materials.push_back(materialData);
     }
 
-    //----- ?m?[?h??f?[?^??擾 -----
+    //----- ノードデータ取得 -----
     for (const auto& node : model.nodes)
     {
         NodeData nodeData;
-
-        //--- ???O ---
         nodeData.name = node.name;
-
-        //--- ???b?V???Q?? ---
-        nodeData.meshIndex = node.mesh;  // -1 ????? mesh ???
-
-        //--- ?q?m?[?h ---
+        nodeData.meshIndex = node.mesh;
         nodeData.children = node.children;
 
-        //--- TRS or Matrix ---
-
-        // Translation
         if (!node.translation.empty()) {
-            nodeData.translation[0] = node.translation[0];
-            nodeData.translation[1] = node.translation[1];
-            nodeData.translation[2] = node.translation[2];
+            nodeData.translation[0] = static_cast<float>(node.translation[0]);
+            nodeData.translation[1] = static_cast<float>(node.translation[1]);
+            nodeData.translation[2] = static_cast<float>(node.translation[2]);
         }
 
-        // Rotation (Quaternion)
         if (!node.rotation.empty()) {
-            nodeData.rotation[0] = node.rotation[0];
-            nodeData.rotation[1] = node.rotation[1];
-            nodeData.rotation[2] = node.rotation[2];
-            nodeData.rotation[3] = node.rotation[3];
+            nodeData.rotation[0] = static_cast<float>(node.rotation[0]);
+            nodeData.rotation[1] = static_cast<float>(node.rotation[1]);
+            nodeData.rotation[2] = static_cast<float>(node.rotation[2]);
+            nodeData.rotation[3] = static_cast<float>(node.rotation[3]);
         }
 
-        // Scale
         if (!node.scale.empty()) {
-            nodeData.scale[0] = node.scale[0];
-            nodeData.scale[1] = node.scale[1];
-            nodeData.scale[2] = node.scale[2];
+            nodeData.scale[0] = static_cast<float>(node.scale[0]);
+            nodeData.scale[1] = static_cast<float>(node.scale[1]);
+            nodeData.scale[2] = static_cast<float>(node.scale[2]);
         }
 
-        // Matrix?i4x4?s??j
-        if (!node.matrix.empty()) 
+        if (!node.matrix.empty())
         {
             for (int i = 0; i < 16; i++) {
-                nodeData.matrix[i] = node.matrix[i];
+                nodeData.matrix[i] = static_cast<float>(node.matrix[i]);
             }
         }
-        else 
-        {
-            // TRS ?? ?s???????K?v??????????
-            // ????????
-        }
 
-        //--- Skin index?i?X?P???g???j ---
         nodeData.skinIndex = node.skin;
-
-        //?? LoadedModelData ????
         loadedModelData.nodes.push_back(nodeData);
     }
 
-    // Skin Data Parse
+    //----- スキンデータ取得 -----
     for (const auto& skin : model.skins)
     {
         SkinData skinData;
-
-        //joints??????
         skinData.joints = skin.joints;
 
-        //
         if (skin.inverseBindMatrices >= 0) {
-            // bufferView ???? inverseBindMatrices ????
             const tinygltf::Accessor& accessor = model.accessors[skin.inverseBindMatrices];
             const tinygltf::BufferView& bufferView = model.bufferViews[accessor.bufferView];
             const tinygltf::Buffer& buffer = model.buffers[bufferView.buffer];
-
             const unsigned char* dataPtr = &buffer.data[bufferView.byteOffset + accessor.byteOffset];
 
             size_t count = accessor.count;
@@ -507,49 +363,46 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
 
             for (size_t i = 0; i < count; ++i) {
                 const float* m = reinterpret_cast<const float*>(dataPtr + accessor.ByteStride(bufferView) * i);
-
-                // glTF ???D??(column-major)
                 DirectX::XMFLOAT4X4 mat;
                 memcpy(&mat, m, sizeof(float) * 16);
-
                 skinData.inverseBindMatrices[i] = mat;
             }
         }
 
         loadedModelData.skins.push_back(skinData);
     }
-    
-    // ----- Animations -----
-    for (const auto& anim : model.animations) {
+
+    //----- アニメーション取得 -----
+    for (const auto& anim : model.animations)
+    {
         AnimationData animData;
         animData.name = anim.name;
 
-        // Parse samplers
-        for (const auto& sampler : anim.samplers) {
+        for (const auto& sampler : anim.samplers)
+        {
             AnimationSamplerData samplerData;
-            
-            // get input accessor (time)
+
             const tinygltf::Accessor& inputAccessor = model.accessors[sampler.input];
             const tinygltf::BufferView& inputView = model.bufferViews[inputAccessor.bufferView];
             const tinygltf::Buffer& inputBuffer = model.buffers[inputView.buffer];
             const float* times = reinterpret_cast<const float*>(&inputBuffer.data[inputView.byteOffset + inputAccessor.byteOffset]);
-            for(size_t i=0; i<inputAccessor.count; ++i) {
+            for (size_t i = 0; i < inputAccessor.count; ++i) {
                 samplerData.input.push_back(times[i]);
             }
 
-            // get output accessor (values)
             const tinygltf::Accessor& outputAccessor = model.accessors[sampler.output];
             const tinygltf::BufferView& outputView = model.bufferViews[outputAccessor.bufferView];
             const tinygltf::Buffer& outputBuffer = model.buffers[outputView.buffer];
             const unsigned char* outputDataPtr = &outputBuffer.data[outputView.byteOffset + outputAccessor.byteOffset];
             int numComponents = tinygltf::GetNumComponentsInType(outputAccessor.type);
             size_t stride = outputAccessor.ByteStride(outputView);
-            
-            for(size_t i=0; i<outputAccessor.count; ++i) {
+
+            for (size_t i = 0; i < outputAccessor.count; ++i)
+            {
                 std::vector<float> val(numComponents);
                 const unsigned char* currentData = outputDataPtr + i * stride;
-                
-                for(int j=0; j<numComponents; ++j) {
+
+                for (int j = 0; j < numComponents; ++j) {
                     if (outputAccessor.componentType == TINYGLTF_COMPONENT_TYPE_FLOAT) {
                         val[j] = reinterpret_cast<const float*>(currentData)[j];
                     }
@@ -568,7 +421,7 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
                 }
                 samplerData.output.push_back(val);
             }
-            
+
             if (sampler.interpolation == "LINEAR") samplerData.interpolation = InterpolationType::LINEAR;
             else if (sampler.interpolation == "STEP") samplerData.interpolation = InterpolationType::STEP;
             else samplerData.interpolation = InterpolationType::CUBICSPLINE;
@@ -576,12 +429,12 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
             animData.samplers.push_back(samplerData);
         }
 
-        // Parse channels
-        for (const auto& channel : anim.channels) {
+        for (const auto& channel : anim.channels)
+        {
             AnimationChannelData channelData;
             channelData.targetNodeIndex = channel.target_node;
             channelData.samplerIndex = channel.sampler;
-            
+
             if (channel.target_path == "translation") channelData.path = AnimationPath::TRANSLATION;
             else if (channel.target_path == "rotation") channelData.path = AnimationPath::ROTATION;
             else if (channel.target_path == "scale") channelData.path = AnimationPath::SCALE;
@@ -592,9 +445,148 @@ LoadedModelData TestLoadGLTF(std::string _fileName)
 
         loadedModelData.animations.push_back(animData);
     }
-    OutputDebugString("");
 
-    //?l????
+    return true;
+}
+
+// GltfModelLoader::LoadFromMemory の実装
+bool GltfModelLoader::LoadFromMemory(const uint8_t* data, size_t size, const std::string& assetPathOrName, LoadedModelData& outData)
+{
+    if (!data || size == 0) return false;
+
+    tinygltf::TinyGLTF loader;
+    tinygltf::Model model;
+    std::string err;
+    std::string warn;
+
+    std::string baseDir = "";
+    size_t lastSlash = assetPathOrName.find_last_of("/\\");
+    if (lastSlash != std::string::npos) {
+        baseDir = assetPathOrName.substr(0, lastSlash);
+    }
+
+    bool loadResult = false;
+    // バイナリGLBかテキストGLTFかを判定
+    if (size >= 4 && data[0] == 'g' && data[1] == 'l' && data[2] == 'T' && data[3] == 'F') {
+        loadResult = loader.LoadBinaryFromMemory(&model, &err, &warn, data, static_cast<unsigned int>(size), baseDir);
+    } else {
+        loadResult = loader.LoadASCIIFromString(&model, &err, &warn, reinterpret_cast<const char*>(data), static_cast<unsigned int>(size), baseDir);
+    }
+
+    if (!warn.empty()) {
+        std::cout << "[GltfModelLoader] Warn: " << warn << std::endl;
+    }
+    if (!err.empty()) {
+        std::cout << "[GltfModelLoader] Err: " << err << std::endl;
+    }
+    if (!loadResult) {
+        std::cout << "[GltfModelLoader] Failed to load model from memory: " << assetPathOrName << std::endl;
+        return false;
+    }
+
+    return ParseTinyGltfModel(model, assetPathOrName, outData);
+}
+
+// ファイル読み込み ＆ 暗号化自動検知＆復号
+LoadedModelData LoadModelDataFromFile(const std::string& filePath)
+{
+    LoadedModelData loadedModelData;
+
+    // パス解決：もし要求されたファイルが存在しない場合のフォールバック
+    std::string resolvedPath = filePath;
+    if (!std::filesystem::exists(resolvedPath))
+    {
+        // .glb -> .dat
+        if (resolvedPath.ends_with(".glb"))
+        {
+            std::string datPath = resolvedPath.substr(0, resolvedPath.length() - 4) + ".dat";
+            if (std::filesystem::exists(datPath))
+            {
+                resolvedPath = datPath;
+            }
+        }
+        // .dat -> .glb
+        else if (resolvedPath.ends_with(".dat"))
+        {
+            std::string glbPath = resolvedPath.substr(0, resolvedPath.length() - 4) + ".glb";
+            if (std::filesystem::exists(glbPath))
+            {
+                resolvedPath = glbPath;
+            }
+        }
+    }
+
+    std::ifstream file(resolvedPath, std::ios::binary | std::ios::ate);
+    if (!file.is_open())
+    {
+        std::cout << "[LoadModelDataFromFile] Failed to open: " << resolvedPath << std::endl;
+        return loadedModelData;
+    }
+
+    std::streamsize fileSize = file.tellg();
+    file.seekg(0, std::ios::beg);
+
+    std::vector<uint8_t> buffer(static_cast<size_t>(fileSize));
+    if (!file.read(reinterpret_cast<char*>(buffer.data()), fileSize))
+    {
+        std::cout << "[LoadModelDataFromFile] Failed to read: " << resolvedPath << std::endl;
+        return loadedModelData;
+    }
+
+    // 暗号化ヘッダーの自動判定
+    std::vector<uint8_t> decryptedBuffer;
+    const uint8_t* parseData = buffer.data();
+    size_t parseSize = buffer.size();
+
+    if (buffer.size() >= sizeof(AssetSecurity::AssetFileHeader))
+    {
+        const auto* header = reinterpret_cast<const AssetSecurity::AssetFileHeader*>(buffer.data());
+        if (header->IsValid())
+        {
+            const uint8_t* encryptedData = buffer.data() + sizeof(AssetSecurity::AssetFileHeader);
+            size_t encryptedSize = buffer.size() - sizeof(AssetSecurity::AssetFileHeader);
+
+            std::unique_ptr<IAssetDecryptor> decryptor;
+            if (header->cipherType == static_cast<uint16_t>(AssetSecurity::AssetCipherType::Xor))
+            {
+                decryptor = std::make_unique<XorDecryptor>();
+            }
+            else
+            {
+                decryptor = std::make_unique<RawDecryptor>();
+            }
+
+            if (decryptor->Decrypt(encryptedData, encryptedSize, decryptedBuffer))
+            {
+                // チェックサム検証
+                if (header->checksum != 0)
+                {
+                    uint32_t calcCrc = AssetSecurity::ComputeChecksum(decryptedBuffer.data(), decryptedBuffer.size());
+                    if (calcCrc != header->checksum)
+                    {
+                        std::cout << "[LoadModelDataFromFile] Checksum mismatch for " << resolvedPath << std::endl;
+                    }
+                }
+
+                parseData = decryptedBuffer.data();
+                parseSize = decryptedBuffer.size();
+                std::cout << "[LoadModelDataFromFile] Successfully decrypted encrypted asset: " << resolvedPath << std::endl;
+            }
+            else
+            {
+                std::cout << "[LoadModelDataFromFile] Failed to decrypt asset: " << resolvedPath << std::endl;
+                return loadedModelData;
+            }
+        }
+    }
+
+    GltfModelLoader loader;
+    loader.LoadFromMemory(parseData, parseSize, resolvedPath, loadedModelData);
     return loadedModelData;
 }
 
+// 互換性維持のための関数
+LoadedModelData TestLoadGLTF(std::string _fileName)
+{
+    return LoadModelDataFromFile(_fileName);
+}
