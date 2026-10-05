@@ -66,7 +66,11 @@ private:
     bool m_showColliders = true;
     GizmoMode m_gizmoMode = GizmoMode::Translate;
 
+#ifdef _DEBUG
+    bool m_isEditMode = true;
+#else
     bool m_isEditMode = false;
+#endif
     bool m_isPaused = false;
     bool m_stepNextFrame = false;
     float m_timeScale = 1.0f;
