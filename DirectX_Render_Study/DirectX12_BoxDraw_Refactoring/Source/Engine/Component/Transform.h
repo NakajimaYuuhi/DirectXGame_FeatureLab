@@ -1,125 +1,115 @@
-//Transform.h
-//  Position,Rotation,Scale‚ÌŠÇ—
-//  Up,Front‚àGet‚Å‚«‚é‚æ‚¤‚É‚·‚é
-//  TODO : Up,Front,Right‚©‚çAŠp“x‚ğÄİ’è‚Å‚«‚é‚ÆƒxƒXƒg
-//  TODO : ƒNƒH[ƒ^ƒjƒIƒ“‚É‘Î‰‚Å‚«‚é‚Æ—Ç‚¢
-
-//===== ƒCƒ“ƒNƒ‹[ƒh =====
-#pragma once
+ï»¿#pragma once
 #include <DirectXMath.h>
+#include <vector>
+#include <algorithm>
 #include "Component.h"
 
-//===== ƒNƒ‰ƒX‚Ì’è‹` =====
-class CTransform :public CComponent
+//===== CTransform ã‚¯ãƒ©ã‚¹å®šç¾© =====
+class CTransform : public CComponent
 {
+private:
+    // ----- ãƒ­ãƒ¼ã‚«ãƒ«å§¿å‹¢ï¼ˆæ“ä½œå¯¾è±¡ï¼‰ -----
+    DirectX::XMFLOAT3 m_localPosition    = { 0.0f, 0.0f, 0.0f };
+    DirectX::XMFLOAT3 m_localEulerAngles = { 0.0f, 0.0f, 0.0f }; // ãƒ©ã‚¸ã‚¢ãƒ³ (Pitch, Yaw, Roll)
+    DirectX::XMFLOAT4 m_localRotation    = { 0.0f, 0.0f, 0.0f, 1.0f }; // ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ (x, y, z, w)
+    DirectX::XMFLOAT3 m_localScale       = { 1.0f, 1.0f, 1.0f };
+
+    // UVè¨­å®šï¼ˆæ—¢å­˜æ©Ÿèƒ½ã¨ã®äº’æ›ä¿æŒï¼‰
+    DirectX::XMFLOAT2 m_UVOffset         = { 0.0f, 0.0f };
+    DirectX::XMFLOAT2 m_UVScale          = { 1.0f, 1.0f };
+
+    // ----- ã‚­ãƒ£ãƒƒã‚·ãƒ¥ & é…å»¶è©•ä¾¡ -----
+    mutable DirectX::XMMATRIX m_worldMatrix = DirectX::XMMatrixIdentity();
+    mutable bool m_isDirty = true;
+
+    // ----- ã‚·ãƒ¼ãƒ³ã‚°ãƒ©ãƒ•ï¼ˆéšå±¤æ§‹é€ ï¼‰ -----
+    CTransform* m_parent = nullptr;
+    std::vector<CTransform*> m_children;
+
 public:
-	//ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-	CTransform
-	(
-		DirectX::XMFLOAT3 _Position = { 0.0f, 0.0f, 0.0f },
-		DirectX::XMFLOAT3 _Rotation = { 0.0f, 0.0f, 0.0f },
-		DirectX::XMFLOAT3 _Scale	= { 1.0f, 1.0f, 1.0f }
-	)
-		: CComponent("Transform")//Šî–{‚ÍƒRƒ“ƒ|[ƒlƒ“ƒg‚Ìí—Ş
-		, m_Position(_Position)	//ˆÊ’u
-		, m_Rotation(_Rotation)	//‰ñ“]
-		, m_Scale	(_Scale)	//ƒXƒP[ƒ‹
-	{
-	}
+    // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+    CTransform(
+        DirectX::XMFLOAT3 _Position = { 0.0f, 0.0f, 0.0f },
+        DirectX::XMFLOAT3 _Rotation = { 0.0f, 0.0f, 0.0f },
+        DirectX::XMFLOAT3 _Scale    = { 1.0f, 1.0f, 1.0f }
+    );
 
-	//ƒfƒXƒgƒ‰ƒNƒ^
-	~CTransform() = default;
+    // ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+    virtual ~CTransform();
 
-	//----- •Ö—˜‚ÈGetter -----
-	//Front‚Ìæ“¾
-	DirectX::XMFLOAT3 GetFront()
-	{
-		//‰ñ“]s—ñ‚Ìì¬
-		DirectX::XMMATRIX rotMat = DirectX::XMMatrixRotationRollPitchYaw(m_Rotation.x, m_Rotation.y, m_Rotation.z);
+    // -------------------------------------------------------------
+    // è¦ªå­é–¢ä¿‚ç®¡ç†
+    // -------------------------------------------------------------
+    void SetParent(CTransform* newParent, bool keepWorldTransform = false);
+    CTransform* GetParent() const { return m_parent; }
+    const std::vector<CTransform*>& GetChildren() const { return m_children; }
+    bool IsChildOf(const CTransform* potentialParent) const;
 
-		//‰ñ“]s—ñ‚©‚çFront‚ğæ‚èo‚·
-		DirectX::XMFLOAT3 front;
-		front = { rotMat.r[2].m128_f32[0], rotMat.r[2].m128_f32[1], rotMat.r[2].m128_f32[2] };
+    // -------------------------------------------------------------
+    // ãƒ­ãƒ¼ã‚«ãƒ«ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£è¨­å®š / å–å¾—ï¼ˆæ–°è¦APIï¼‰
+    // -------------------------------------------------------------
+    void SetLocalPosition(const DirectX::XMFLOAT3& pos);
+    void SetLocalEulerAngles(const DirectX::XMFLOAT3& eulerRadians);
+    void SetLocalEulerAnglesDegrees(const DirectX::XMFLOAT3& eulerDegrees);
+    void SetLocalRotation(const DirectX::XMFLOAT4& quat);
+    void SetLocalScale(const DirectX::XMFLOAT3& scale);
 
-		return front;
-	}
+    const DirectX::XMFLOAT3& GetLocalPosition() const { return m_localPosition; }
+    const DirectX::XMFLOAT3& GetLocalEulerAngles() const { return m_localEulerAngles; }
+    DirectX::XMFLOAT3 GetLocalEulerAnglesDegrees() const;
+    const DirectX::XMFLOAT4& GetLocalRotation() const { return m_localRotation; }
+    const DirectX::XMFLOAT3& GetLocalScale() const { return m_localScale; }
 
-	//Up‚Ìæ“¾
-	DirectX::XMFLOAT3 GetUp()
-	{
-		//‰ñ“]s—ñ‚Ìì¬
-		DirectX::XMMATRIX rotMat = DirectX::XMMatrixRotationRollPitchYaw(m_Rotation.x, m_Rotation.y, m_Rotation.z);
+    // -------------------------------------------------------------
+    // ãƒ¯ãƒ¼ãƒ«ãƒ‰è¡Œåˆ—ãƒ»åº§æ¨™å–å¾—ï¼ˆé…å»¶è©•ä¾¡ï¼‰
+    // -------------------------------------------------------------
+    DirectX::XMMATRIX GetWorldMatrix() const;
+    DirectX::XMFLOAT3 GetWorldPosition() const;
+    DirectX::XMFLOAT4 GetWorldRotation() const;
+    DirectX::XMFLOAT3 GetWorldScale() const;
+    void UpdateWorldMatrix() const;
 
-		//‰ñ“]s—ñ‚©‚çFront‚ğæ‚èo‚·
-		DirectX::XMFLOAT3 up;
-		up = { rotMat.r[1].m128_f32[0], rotMat.r[1].m128_f32[1], rotMat.r[1].m128_f32[2] };
+    // -------------------------------------------------------------
+    // æ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«ï¼ˆè¦ªã®å§¿å‹¢ã‚‚åæ˜ ã—ãŸãƒ¯ãƒ¼ãƒ«ãƒ‰å‘ãï¼‰
+    // -------------------------------------------------------------
+    DirectX::XMFLOAT3 GetFront() const;
+    DirectX::XMFLOAT3 GetUp() const;
+    DirectX::XMFLOAT3 GetRight() const;
 
-		return up;
-	}
+    // ä¸Šæ–¹å‘ã¨å‰æ–¹å‘ã‹ã‚‰å›è»¢ã‚’è¨­å®šï¼ˆãƒ“ãƒ«ãƒœãƒ¼ãƒ‰ç­‰ã§ä½¿ç”¨ï¼‰
+    void SetRotationFromUpFront(DirectX::XMFLOAT3 _Up, DirectX::XMFLOAT3 _Front);
 
-	DirectX::XMFLOAT3 GetRight()
-	{
-		//‰ñ“]s—ñ‚Ìì¬
-		DirectX::XMMATRIX rotMat = DirectX::XMMatrixRotationRollPitchYaw(m_Rotation.x, m_Rotation.y, m_Rotation.z);
-		//‰ñ“]s—ñ‚©‚çFront‚ğæ‚èo‚·
-		DirectX::XMFLOAT3 right;
-		right = { rotMat.r[0].m128_f32[0], rotMat.r[0].m128_f32[1], rotMat.r[0].m128_f32[2] };
-		return right;
-	}
+    // -------------------------------------------------------------
+    // æ—¢å­˜ã‚³ãƒ¼ãƒ‰äº’æ›ç”¨ãƒ¡ã‚½ãƒƒãƒ‰ï¼ˆä¸‹ä½äº’æ›ãƒ¬ã‚¤ãƒ¤ãƒ¼ï¼‰
+    // -------------------------------------------------------------
+    DirectX::XMMATRIX GetWorld() { return GetWorldMatrix(); }
+    DirectX::XMFLOAT3 GetPos() const { return m_localPosition; }
+    void SetPos(const DirectX::XMFLOAT3& _Position) { SetLocalPosition(_Position); }
 
-	//Worlds—ñ‚Ìæ“¾
-	DirectX::XMMATRIX GetWorld();
+    DirectX::XMFLOAT3 GetRotation() const { return m_localEulerAngles; }
+    void SetRotation(const DirectX::XMFLOAT3& _Rotation) { SetLocalEulerAngles(_Rotation); }
 
-	//TODO:Up,Front,Right‚©‚çAŠp“x‚ğÄİ’è
-	void SetRotationFromUpFront(DirectX::XMFLOAT3 _Up, DirectX::XMFLOAT3 _Front)
-	{
-		//Right‚ÌŒvZ
-		DirectX::XMFLOAT3 right;
-		right.x = _Up.y * _Front.z - _Up.z * _Front.y;
-		right.y = _Up.z * _Front.x - _Up.x * _Front.z;
-		right.z = _Up.x * _Front.y - _Up.y * _Front.x;
-		//‰ñ“]s—ñ‚Ìì¬
-		DirectX::XMMATRIX rotMat = DirectX::XMMatrixIdentity();
-		rotMat.r[0] = DirectX::XMVectorSet(right.x, right.y, right.z, 0.0f);
-		rotMat.r[1] = DirectX::XMVectorSet(_Up.x, _Up.y, _Up.z, 0.0f);
-		rotMat.r[2] = DirectX::XMVectorSet(_Front.x, _Front.y, _Front.z, 0.0f);
-		//‰ñ“]s—ñ‚©‚çƒIƒCƒ‰[Šp‚ğæ‚èo‚·
-		m_Rotation.y = atan2f(rotMat.r[2].m128_f32[0], rotMat.r[2].m128_f32[2]);
-		m_Rotation.x = asinf(-rotMat.r[2].m128_f32[1]);
-		m_Rotation.z = atan2f(rotMat.r[1].m128_f32[1], rotMat.r[0].m128_f32[1]);
-	}
+    DirectX::XMFLOAT3 GetScale() const { return m_localScale; }
+    void SetScale(const DirectX::XMFLOAT3& _Scale) { SetLocalScale(_Scale); }
+
+    void SetTransform(DirectX::XMFLOAT3 _Position, DirectX::XMFLOAT3 _Scale, DirectX::XMFLOAT3 _Rotation)
+    {
+        SetLocalPosition(_Position);
+        SetLocalScale(_Scale);
+        SetLocalEulerAngles(_Rotation);
+    }
+
+    DirectX::XMFLOAT2 GetUVOffset() const { return m_UVOffset; }
+    void SetUVOffset(DirectX::XMFLOAT2 _UVOffset) { m_UVOffset = _UVOffset; }
+
+    DirectX::XMFLOAT2 GetUVScale() const { return m_UVScale; }
+    void SetUVScale(DirectX::XMFLOAT2 _UVScale) { m_UVScale = _UVScale; }
 
 private:
-    //ˆÊ’uA‰ñ“]AƒXƒP[ƒ‹
-    DirectX::XMFLOAT3 m_Position    = { 0.0f, 0.0f, 0.0f };    //ˆÊ’u
-    DirectX::XMFLOAT3 m_Rotation    = { 0.0f, 0.0f, 0.0f };    //‰ñ“]
-    DirectX::XMFLOAT3 m_Scale       = { 1.0f, 1.0f, 1.0f };    //ƒXƒP[ƒ‹
-    DirectX::XMFLOAT2 m_UVOffset    = { 0.0f, 0.0f };          //UVƒIƒtƒZƒbƒg
-    DirectX::XMFLOAT2 m_UVScale     = { 1.0f, 1.0f };          //UVƒXƒP[ƒ‹
-
-	//TODO: ƒNƒH[ƒ^ƒjƒIƒ“‚É‘Î‰
-
-	//----- •’Ê‚ÌGetter,Setter -----
-public:
-	DirectX::XMFLOAT3 GetPos() { return m_Position; }
-	void	SetPos(DirectX::XMFLOAT3 _Position) { m_Position = _Position; }
-
-	DirectX::XMFLOAT3	GetScale() { return m_Scale; }
-	void	SetScale(DirectX::XMFLOAT3 _Scale) { m_Scale = _Scale; }
-
-	DirectX::XMFLOAT3	GetRotation() { return m_Rotation; }
-	void	SetRotation(DirectX::XMFLOAT3 _Rotation) { m_Rotation = _Rotation; }
-
-	void SetTransform(DirectX::XMFLOAT3 _Position, DirectX::XMFLOAT3 _Scale, DirectX::XMFLOAT3 _Rotation)
-	{
-		m_Position = _Position;
-		m_Scale = _Scale;
-		m_Rotation = _Rotation;
-	}
-
-	DirectX::XMFLOAT2   GetUVOffset() { return m_UVOffset; }
-	void    SetUVOffset(DirectX::XMFLOAT2 _UVOffset) { m_UVOffset = _UVOffset; }
-
-	DirectX::XMFLOAT2   GetUVScale() { return m_UVScale; }
-	void    SetUVScale(DirectX::XMFLOAT2 _UVScale) { m_UVScale = _UVScale; }
+    void SetDirty() const;
+    void RemoveChild(CTransform* child);
+    void UpdateEulerFromQuaternion();
 };
+
+// ã‚¨ã‚¤ãƒªã‚¢ã‚¹å®šç¾©
+using TransformComponent = CTransform;
