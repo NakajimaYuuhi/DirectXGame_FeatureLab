@@ -189,6 +189,8 @@
     <ClCompile Include="Source\Engine\Component\Collision.cpp" />
     <ClCompile Include="Source\Rendering\DescriptorHeapAllocator.cpp" />
     <ClCompile Include="Source\Resources\gltfLoader.cpp" />
+    <ClCompile Include="Source\Resources\XorDecryptor.cpp" />
+    <ClCompile Include="Source\Resources\AssetEncryptor.cpp" />
     <ClCompile Include="Source\External\imgui.cpp" />
     <ClCompile Include="Source\Editor\ImGuiManager.cpp" />
     <ClCompile Include="Source\External\imgui_demo.cpp" />
@@ -220,6 +222,7 @@
     <ClCompile Include="Source\Editor\EditorToolbarUI.cpp" />
     <ClCompile Include="Source\Editor\HierarchyUI.cpp" />
         <ClCompile Include="Source\Editor\ContentDrawerUI.cpp" />
+    <ClCompile Include="Source\Editor\AssetSecurityUI.cpp" />
     <ClCompile Include="Source\Editor\ProfilerUI.cpp" />
     <ClCompile Include="Source\Util\Profiler.cpp" />
     <ClCompile Include="Source\Core\PrefabSerializer.cpp" />
@@ -292,6 +295,12 @@
     <ClInclude Include="Source\Rendering\DescriptorHeapAllocator.h" />
     <ClInclude Include="Source\Util\DirectXPtrAlias.h" />
     <ClInclude Include="Source\Resources\gltfLoader.h" />
+    <ClInclude Include="Source\Resources\AssetHeader.h" />
+    <ClInclude Include="Source\Resources\IAssetDecryptor.h" />
+    <ClInclude Include="Source\Resources\XorDecryptor.h" />
+    <ClInclude Include="Source\Resources\AssetEncryptor.h" />
+    <ClInclude Include="Source\Resources\IModelLoader.h" />
+    <ClInclude Include="Source\Resources\GltfModelLoader.h" />
     <ClInclude Include="Source\External\imconfig.h" />
     <ClInclude Include="Source\External\imgui.h" />
     <ClInclude Include="Source\Editor\ImGuiManager.h" />
@@ -337,6 +346,7 @@
     <ClInclude Include="Source\Editor\EditorToolbarUI.h" />
     <ClInclude Include="Source\Editor\HierarchyUI.h" />
         <ClInclude Include="Source\Editor\ContentDrawerUI.h" />
+    <ClInclude Include="Source\Editor\AssetSecurityUI.h" />
     <ClInclude Include="Source\Editor\ProfilerUI.h" />
     <ClInclude Include="Source\Util\Profiler.h" />
     <ClInclude Include="Source\Core\PrefabSerializer.h" />

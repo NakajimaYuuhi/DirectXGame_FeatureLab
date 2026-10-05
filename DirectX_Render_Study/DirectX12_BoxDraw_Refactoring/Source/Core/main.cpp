@@ -3,6 +3,7 @@
 #include "HierarchyUI.h"
 #include "ContentDrawerUI.h"
 #include "ProfilerUI.h"
+#include "AssetSecurityUI.h"
 #include "Source/Util/Profiler.h"
 ///////////////////////////////////////////
 //main.cpp                               
@@ -198,6 +199,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 			CInspectorUI::GetInstance().Draw();
 			CContentDrawerUI::GetInstance().Draw();
 			CProfilerUI::GetInstance().Draw();
+			CAssetSecurityUI::GetInstance().Draw();
 		}
 
 		// Update
