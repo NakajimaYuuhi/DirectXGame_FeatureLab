@@ -1,10 +1,11 @@
-#pragma once
+﻿#pragma once
 #include "Component.h"
 #include "Texture.h"
 #include "RenderLayer.h"
 #include <DirectXMath.h>
 #include <memory>
 #include <string>
+class CTween;
 
 struct SpriteVertex
 {
@@ -32,6 +33,11 @@ public:
     const DirectX::XMFLOAT4& GetColor() const { return m_color; }
 
     void Draw();
+
+    // Tween Animation Shortcuts
+    CTween* DOFade(float targetAlpha, float duration);
+    CTween* DOColor(const DirectX::XMFLOAT4& targetColor, float duration);
+    void KillTweens();
 
 private:
     void CreateBuffers();

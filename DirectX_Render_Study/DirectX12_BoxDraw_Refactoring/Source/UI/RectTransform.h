@@ -2,6 +2,7 @@
 #include "Source/Engine/Component/Component.h"
 #include <DirectXMath.h>
 #include <string>
+class CTween;
 
 // Anchor preset enum for intuitive UE-like setting
 enum class AnchorPreset
@@ -40,7 +41,7 @@ class CRectTransform : public CComponent
 {
 public:
     CRectTransform();
-    virtual ~CRectTransform() = default;
+    virtual ~CRectTransform();
 
     // Anchor Settings
     void SetAnchorMin(const DirectX::XMFLOAT2& min);
@@ -93,6 +94,16 @@ public:
     // Global Reference Resolution (Default: 1920 x 1080)
     static void SetReferenceResolution(float width, float height);
     static DirectX::XMFLOAT2 GetReferenceResolution();
+
+    // Tween Animation Shortcuts
+    CTween* DOAnchorPos(const DirectX::XMFLOAT2& targetPos, float duration);
+    CTween* DOAnchorPos(float targetX, float targetY, float duration);
+    CTween* DOSize(const DirectX::XMFLOAT2& targetSize, float duration);
+    CTween* DOSize(float targetWidth, float targetHeight, float duration);
+    CTween* DOScale(const DirectX::XMFLOAT2& targetScale, float duration);
+    CTween* DOScale(float targetScaleX, float targetScaleY, float duration);
+    CTween* DORotation(float targetDegrees, float duration);
+    void KillTweens();
 
 private:
     DirectX::XMFLOAT4 GetParentRect() const;

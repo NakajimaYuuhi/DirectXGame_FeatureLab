@@ -5,6 +5,7 @@
 #include "PSOManager.h"
 #include "TextureManager.h"
 #include "RectTransform.h"
+#include "Source/Util/TweenManager.h"
 
 CSpriteRenderer::CSpriteRenderer() : CComponent("SpriteRenderer")
 {
@@ -14,6 +15,7 @@ CSpriteRenderer::CSpriteRenderer() : CComponent("SpriteRenderer")
 
 CSpriteRenderer::~CSpriteRenderer()
 {
+    KillTweens();
 }
 
 void CSpriteRenderer::Init()
@@ -161,3 +163,29 @@ void CSpriteRenderer::Draw()
 
 
 
+
+// -------------------------------------------------------------
+// Tween Animation Shortcuts
+// -------------------------------------------------------------
+CTween* CSpriteRenderer::DOFade(float targetAlpha, float duration)
+{
+    return Tween::To<float>(
+        [this]() { return m_color.w; },
+        [this](float val) { m_color.w = val; },
+        targetAlpha, duration, this
+    );
+}
+
+CTween* CSpriteRenderer::DOColor(const DirectX::XMFLOAT4& targetColor, float duration)
+{
+    return Tween::To<DirectX::XMFLOAT4>(
+        [this]() { return m_color; },
+        [this](const DirectX::XMFLOAT4& val) { m_color = val; },
+        targetColor, duration, this
+    );
+}
+
+void CSpriteRenderer::KillTweens()
+{
+    Tween::Kill(this);
+}

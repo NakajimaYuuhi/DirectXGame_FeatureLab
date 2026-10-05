@@ -6,6 +6,7 @@
 #include "SpriteRenderer.h"
 #include "TextRenderer.h"
 #include "Source/Util/Profiler.h"
+#include "Source/Util/TweenManager.h"
 
 void ObjectManager::Init(Scenes::ID _SceneID)
 {
@@ -24,6 +25,7 @@ void ObjectManager::Init(Scenes::ID _SceneID)
 
 void ObjectManager::Uninit()
 {
+	TweenManager::GetInstance().KillAll();
 	m_pendingAddObjects.clear();
 	vecObject.clear();
 	vecObject.resize(ObjectTag::NUM);
@@ -54,6 +56,12 @@ void ObjectManager::Update(Scenes::ID _SceneID)
 				if (!object->GetHasStarted()) object->Start();
 			}
 		}
+	}
+
+	// Tween Animation System
+	{
+		PROFILE_SCOPE("Update::Tween");
+		TweenManager::GetInstance().Update(dt);
 	}
 
 	// 3. Phase 0: Input (全オブジェクトの入力受付・操作)

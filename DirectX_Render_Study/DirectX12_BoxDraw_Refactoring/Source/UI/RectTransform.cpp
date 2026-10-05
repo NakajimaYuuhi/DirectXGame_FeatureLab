@@ -1,6 +1,7 @@
 ﻿#include "RectTransform.h"
 #include "Source/Objects/Object.h"
 #include "Source/Engine/Component/Transform.h"
+#include "Source/Util/TweenManager.h"
 #include <cmath>
 
 using namespace DirectX;
@@ -17,6 +18,11 @@ CRectTransform::CRectTransform()
     m_scale = { 1.0f, 1.0f };
     m_isDirty = true;
 }
+CRectTransform::~CRectTransform()
+{
+    KillTweens();
+}
+
 
 void CRectTransform::SetAnchorMin(const XMFLOAT2& min)
 {
@@ -328,4 +334,63 @@ void CRectTransform::SetReferenceResolution(float width, float height)
 DirectX::XMFLOAT2 CRectTransform::GetReferenceResolution()
 {
     return s_referenceResolution;
+}
+
+// -------------------------------------------------------------
+// Tween Animation Shortcuts
+// -------------------------------------------------------------
+CTween* CRectTransform::DOAnchorPos(const XMFLOAT2& targetPos, float duration)
+{
+    return Tween::To<XMFLOAT2>(
+        [this]() { return GetAnchoredPosition(); },
+        [this](const XMFLOAT2& val) { SetAnchoredPosition(val); },
+        targetPos, duration, this
+    );
+}
+
+CTween* CRectTransform::DOAnchorPos(float targetX, float targetY, float duration)
+{
+    return DOAnchorPos(XMFLOAT2(targetX, targetY), duration);
+}
+
+CTween* CRectTransform::DOSize(const XMFLOAT2& targetSize, float duration)
+{
+    return Tween::To<XMFLOAT2>(
+        [this]() { return GetSizeDelta(); },
+        [this](const XMFLOAT2& val) { SetSizeDelta(val); },
+        targetSize, duration, this
+    );
+}
+
+CTween* CRectTransform::DOSize(float targetWidth, float targetHeight, float duration)
+{
+    return DOSize(XMFLOAT2(targetWidth, targetHeight), duration);
+}
+
+CTween* CRectTransform::DOScale(const XMFLOAT2& targetScale, float duration)
+{
+    return Tween::To<XMFLOAT2>(
+        [this]() { return GetScale(); },
+        [this](const XMFLOAT2& val) { SetScale(val); },
+        targetScale, duration, this
+    );
+}
+
+CTween* CRectTransform::DOScale(float targetScaleX, float targetScaleY, float duration)
+{
+    return DOScale(XMFLOAT2(targetScaleX, targetScaleY), duration);
+}
+
+CTween* CRectTransform::DORotation(float targetDegrees, float duration)
+{
+    return Tween::To<float>(
+        [this]() { return GetRotationZ(); },
+        [this](float val) { SetRotationZ(val); },
+        targetDegrees, duration, this
+    );
+}
+
+void CRectTransform::KillTweens()
+{
+    Tween::Kill(this);
 }
