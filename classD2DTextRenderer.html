@@ -127,8 +127,10 @@ D2DTextRenderer 連携図</div>
 <tr class="separator:acab4d487d5f24e27dc5775ea3a6806f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f734623307b2c5ad1f6d49d346358e0" id="r_a6f734623307b2c5ad1f6d49d346358e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#a6f734623307b2c5ad1f6d49d346358e0">DrawTextStr</a> (const std::wstring &amp;text, float x, float y, float fontSize=24.0f, D2D1::ColorF color=D2D1::ColorF::White, const std::wstring &amp;fontFamily=L&quot;Meiryo&quot;)</td></tr>
 <tr class="separator:a6f734623307b2c5ad1f6d49d346358e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0456ecf42ec83b4e7f7f585646b929a" id="r_ab0456ecf42ec83b4e7f7f585646b929a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#ab0456ecf42ec83b4e7f7f585646b929a">Render</a> (UINT frameIndex)</td></tr>
-<tr class="separator:ab0456ecf42ec83b4e7f7f585646b929a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab77cc25cd56eb34784e0497e41eb8231" id="r_ab77cc25cd56eb34784e0497e41eb8231"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#ab77cc25cd56eb34784e0497e41eb8231">Render</a> (UINT frameIndex)</td></tr>
+<tr class="separator:ab77cc25cd56eb34784e0497e41eb8231"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a651d15524c560a077bf905511befad29" id="r_a651d15524c560a077bf905511befad29"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="structD2DTextRenderer_1_1TextInfo.html">TextInfo</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#a651d15524c560a077bf905511befad29">GetTextQueue</a> () const</td></tr>
+<tr class="separator:a651d15524c560a077bf905511befad29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
@@ -176,6 +178,8 @@ D2DTextRenderer 連携図</div>
 <tr class="separator:a5947f62511d7ba78a2e2519df6ff1787"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10ffcc53a28a861c66f9aabc23a85e69" id="r_a10ffcc53a28a861c66f9aabc23a85e69"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structD2DTextRenderer_1_1TextInfo.html">TextInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#a10ffcc53a28a861c66f9aabc23a85e69">m_textQueue</a></td></tr>
 <tr class="separator:a10ffcc53a28a861c66f9aabc23a85e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac41a9c5d8d1c0dbbaf48f081bda412c0" id="r_ac41a9c5d8d1c0dbbaf48f081bda412c0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structD2DTextRenderer_1_1TextInfo.html">TextInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classD2DTextRenderer.html#ac41a9c5d8d1c0dbbaf48f081bda412c0">m_prevTextQueue</a></td></tr>
+<tr class="separator:ac41a9c5d8d1c0dbbaf48f081bda412c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">構築子と解体子</h2>
 <a id="a75f89eb9db4da02c58bfa2a724ab0d31" name="a75f89eb9db4da02c58bfa2a724ab0d31"></a>
@@ -411,7 +415,37 @@ D2DTextRenderer 連携図</div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classD2DTextRenderer_ad5c23ccc47fc7e51b3be942651841e1e_icgraph.svg" width="100%" height="508"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classD2DTextRenderer_ad5c23ccc47fc7e51b3be942651841e1e_icgraph.svg" width="100%" height="532"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a651d15524c560a077bf905511befad29" name="a651d15524c560a077bf905511befad29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a651d15524c560a077bf905511befad29">&#9670;&#160;</a></span>GetTextQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; <a class="el" href="structD2DTextRenderer_1_1TextInfo.html">TextInfo</a> &gt; &amp; D2DTextRenderer::GetTextQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classD2DTextRenderer_a651d15524c560a077bf905511befad29_icgraph.svg" width="526" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -526,14 +560,14 @@ D2DTextRenderer 連携図</div>
 
 </div>
 </div>
-<a id="ab0456ecf42ec83b4e7f7f585646b929a" name="ab0456ecf42ec83b4e7f7f585646b929a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0456ecf42ec83b4e7f7f585646b929a">&#9670;&#160;</a></span>Render()</h2>
+<a id="ab77cc25cd56eb34784e0497e41eb8231" name="ab77cc25cd56eb34784e0497e41eb8231"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab77cc25cd56eb34784e0497e41eb8231">&#9670;&#160;</a></span>Render()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void D2DTextRenderer::Render </td>
+          <td class="memname">bool D2DTextRenderer::Render </td>
           <td>(</td>
           <td class="paramtype">UINT&#160;</td>
           <td class="paramname"><em>frameIndex</em></td><td>)</td>
@@ -544,7 +578,7 @@ D2DTextRenderer 連携図</div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classD2DTextRenderer_ab0456ecf42ec83b4e7f7f585646b929a_icgraph.svg" width="595" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classD2DTextRenderer_ab77cc25cd56eb34784e0497e41eb8231_icgraph.svg" width="595" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -820,6 +854,28 @@ D2DTextRenderer 連携図</div>
       <table class="memname">
         <tr>
           <td class="memname">UINT D2DTextRenderer::m_height = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac41a9c5d8d1c0dbbaf48f081bda412c0" name="ac41a9c5d8d1c0dbbaf48f081bda412c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac41a9c5d8d1c0dbbaf48f081bda412c0">&#9670;&#160;</a></span>m_prevTextQueue</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structD2DTextRenderer_1_1TextInfo.html">TextInfo</a>&gt; D2DTextRenderer::m_prevTextQueue</td>
         </tr>
       </table>
   </td>

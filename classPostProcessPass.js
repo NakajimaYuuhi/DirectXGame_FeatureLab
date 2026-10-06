@@ -3,6 +3,8 @@ var classPostProcessPass =
     [ "PostProcessPass", "classPostProcessPass.html#ab26639951cadd4077f8126b7717137b4", null ],
     [ "~PostProcessPass", "classPostProcessPass.html#ad5d6b0dc29e44644bc54408a44b38381", null ],
     [ "Execute", "classPostProcessPass.html#ad5cb96984d04f6e2c38efa93b9db52d7", null ],
+    [ "GetFinalSRV", "classPostProcessPass.html#a36e74ad2666974591b6b8a03ca2cf067", null ],
+    [ "GetFinalTexture", "classPostProcessPass.html#a4dee09d99410d3f964b73cb038553fc4", null ],
     [ "GetName", "classPostProcessPass.html#a919fc34eb9871fdfdbcc2f5052c8b64c", null ],
     [ "GetSourceTexture", "classPostProcessPass.html#a9dd7cfb21d3b4da6c98a5fbcc06244c0", null ],
     [ "Init", "classPostProcessPass.html#a28abf6b07cb94aca17a662d90b10720b", null ],
@@ -12,6 +14,7 @@ var classPostProcessPass =
     [ "m_pBrightPSO", "classPostProcessPass.html#ab57e00fea57d0848f2f57e758e939ae9", null ],
     [ "m_pBrightTex", "classPostProcessPass.html#a8621038858733a6558d44c7de15279ca", null ],
     [ "m_pCompositePSO", "classPostProcessPass.html#ac90e0ef6de7ed2eb18681dd02908996b", null ],
+    [ "m_pFinalTex", "classPostProcessPass.html#a4f57906f9c9543d1741731c4d7b7c528", null ],
     [ "m_pPassThroughPSO", "classPostProcessPass.html#a5c31d6fc205004173a0a827dc0fe2912", null ],
     [ "m_pRootSignature", "classPostProcessPass.html#ae8fc56cadd3e2719c12d19b02d7c1cf6", null ],
     [ "m_pSourceTex", "classPostProcessPass.html#acd09dbac9b9d9e8f702afe630697fc01", null ]

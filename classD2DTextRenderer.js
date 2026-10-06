@@ -9,10 +9,11 @@ var classD2DTextRenderer =
     [ "DrawTextStr", "classD2DTextRenderer.html#a6f734623307b2c5ad1f6d49d346358e0", null ],
     [ "Finalize", "classD2DTextRenderer.html#a75deff89479eb6e710a33a3a48b1901e", null ],
     [ "GetInstance", "classD2DTextRenderer.html#ad5c23ccc47fc7e51b3be942651841e1e", null ],
+    [ "GetTextQueue", "classD2DTextRenderer.html#a651d15524c560a077bf905511befad29", null ],
     [ "Initialize", "classD2DTextRenderer.html#a52ac405f137d53997b3b13a845d450d8", null ],
     [ "operator=", "classD2DTextRenderer.html#af2de617a7f40f04b6c5c264b112f4cd5", null ],
     [ "ReleaseSizeDependentResources", "classD2DTextRenderer.html#acab4d487d5f24e27dc5775ea3a6806f0", null ],
-    [ "Render", "classD2DTextRenderer.html#ab0456ecf42ec83b4e7f7f585646b929a", null ],
+    [ "Render", "classD2DTextRenderer.html#ab77cc25cd56eb34784e0497e41eb8231", null ],
     [ "Resize", "classD2DTextRenderer.html#af495f36dddda70ff4abd49775498f5b9", null ],
     [ "m_d2dContext", "classD2DTextRenderer.html#a6c3c773034aa5922f4923d98a66bf069", null ],
     [ "m_d2dDevice", "classD2DTextRenderer.html#aeec078de037dab6f948ae8e6f19d9878", null ],
@@ -25,6 +26,7 @@ var classD2DTextRenderer =
     [ "m_frameBufferCount", "classD2DTextRenderer.html#a365cf446424eeb1872656088a99ea396", null ],
     [ "m_frameResources", "classD2DTextRenderer.html#a1cf480367cbf84e0dd84fc64589a789b", null ],
     [ "m_height", "classD2DTextRenderer.html#a5947f62511d7ba78a2e2519df6ff1787", null ],
+    [ "m_prevTextQueue", "classD2DTextRenderer.html#ac41a9c5d8d1c0dbbaf48f081bda412c0", null ],
     [ "m_textQueue", "classD2DTextRenderer.html#a10ffcc53a28a861c66f9aabc23a85e69", null ],
     [ "m_width", "classD2DTextRenderer.html#af4587bca318f82f3655e10b295dc97d0", null ]
 ];

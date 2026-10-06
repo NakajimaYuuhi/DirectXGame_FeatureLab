@@ -17,5 +17,7 @@ var dir_b26507eead720464ba2ac6bbc6dcec5f =
     [ "ProfilerUI.cpp", "ProfilerUI_8cpp.html", null ],
     [ "ProfilerUI.h", "ProfilerUI_8h.html", "ProfilerUI_8h" ],
     [ "UndoManager.cpp", "UndoManager_8cpp.html", null ],
-    [ "UndoManager.h", "UndoManager_8h.html", "UndoManager_8h" ]
+    [ "UndoManager.h", "UndoManager_8h.html", "UndoManager_8h" ],
+    [ "ViewportUI.cpp", "ViewportUI_8cpp.html", null ],
+    [ "ViewportUI.h", "ViewportUI_8h.html", "ViewportUI_8h" ]
 ];

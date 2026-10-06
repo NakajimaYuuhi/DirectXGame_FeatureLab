@@ -91,6 +91,7 @@ var hierarchy =
     [ "CTween", "classCTween.html", [
       [ "CTweenProperty< T >", "classCTweenProperty.html", null ]
     ] ],
+    [ "CViewportUI", "classCViewportUI.html", null ],
     [ "D2DTextRenderer", "classD2DTextRenderer.html", null ],
     [ "nlohmann::detail::detector< Default, AlwaysVoid, Op, Args >", "structnlohmann_1_1detail_1_1detector.html", null ],
     [ "nlohmann::detail::detector< Default, void_t< Op< Args... > >, Op, Args... >", "structnlohmann_1_1detail_1_1detector_3_01Default_00_01void__t_3_01Op_3_01Args_8_8_8_01_4_01_4_00_01Op_00_01Args_8_8_8_01_4.html", null ],

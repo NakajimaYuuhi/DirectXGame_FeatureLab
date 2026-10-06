@@ -240,6 +240,7 @@ var annotated_dup =
     [ "CTransform", "classCTransform.html", "classCTransform" ],
     [ "CTween", "classCTween.html", "classCTween" ],
     [ "CTweenProperty", "classCTweenProperty.html", "classCTweenProperty" ],
+    [ "CViewportUI", "classCViewportUI.html", "classCViewportUI" ],
     [ "D2DTextRenderer", "classD2DTextRenderer.html", "classD2DTextRenderer" ],
     [ "DeleteObjectUndoCommand", "classDeleteObjectUndoCommand.html", "classDeleteObjectUndoCommand" ],
     [ "DirectionalLight", "structDirectionalLight.html", "structDirectionalLight" ],

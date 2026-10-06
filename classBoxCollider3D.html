@@ -126,8 +126,8 @@ BoxCollider3D 連携図</div>
 <tr class="separator:a2157b963de23c07d3d6f463768f3a034"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affeb4d54374a3778682b916fb5c807d6" id="r_affeb4d54374a3778682b916fb5c807d6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoxCollider3D.html#affeb4d54374a3778682b916fb5c807d6">CalculateHorizontalPenetration</a> (const <a class="el" href="classBoxCollider3D.html">BoxCollider3D</a> *other, DirectX::XMFLOAT3 &amp;outPushVector) const</td></tr>
 <tr class="separator:affeb4d54374a3778682b916fb5c807d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67128fd64d881aa761afbf53a3b122e7" id="r_a67128fd64d881aa761afbf53a3b122e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoxCollider3D.html#a67128fd64d881aa761afbf53a3b122e7">DrawDebug</a> (<a class="el" href="classCameraComponent.html">CameraComponent</a> *camera)</td></tr>
-<tr class="separator:a67128fd64d881aa761afbf53a3b122e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62d1d79f99d9cb074525ec4a26de02b6" id="r_a62d1d79f99d9cb074525ec4a26de02b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoxCollider3D.html#a62d1d79f99d9cb074525ec4a26de02b6">DrawDebug</a> (<a class="el" href="classCameraComponent.html">CameraComponent</a> *camera, <a class="el" href="structImDrawList.html">ImDrawList</a> *drawList=nullptr, const <a class="el" href="structImVec2.html">ImVec2</a> &amp;vpPos=<a class="el" href="structImVec2.html">ImVec2</a>(0.0f, 0.0f), const <a class="el" href="structImVec2.html">ImVec2</a> &amp;vpSize=<a class="el" href="structImVec2.html">ImVec2</a>(0.0f, 0.0f))</td></tr>
+<tr class="separator:a62d1d79f99d9cb074525ec4a26de02b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38ab5531a1b248324dcf823bba3c87de" id="r_a38ab5531a1b248324dcf823bba3c87de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="RenderLayer_8h.html#ad16d91520dd8dbd7a2178564fce5a168">RenderLayer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoxCollider3D.html#a38ab5531a1b248324dcf823bba3c87de">GetRenderLayer</a> () const override</td></tr>
 <tr class="separator:a38ab5531a1b248324dcf823bba3c87de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCollider3D"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCollider3D')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCollider3D.html">Collider3D</a> に属する継承公開メンバ関数</td></tr>
@@ -393,8 +393,8 @@ BoxCollider3D 連携図</div>
 
 </div>
 </div>
-<a id="a67128fd64d881aa761afbf53a3b122e7" name="a67128fd64d881aa761afbf53a3b122e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67128fd64d881aa761afbf53a3b122e7">&#9670;&#160;</a></span>DrawDebug()</h2>
+<a id="a62d1d79f99d9cb074525ec4a26de02b6" name="a62d1d79f99d9cb074525ec4a26de02b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62d1d79f99d9cb074525ec4a26de02b6">&#9670;&#160;</a></span>DrawDebug()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -403,20 +403,42 @@ BoxCollider3D 連携図</div>
           <td class="memname">void BoxCollider3D::DrawDebug </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classCameraComponent.html">CameraComponent</a> *&#160;</td>
-          <td class="paramname"><em>camera</em></td><td>)</td>
+          <td class="paramname"><em>camera</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="structImDrawList.html">ImDrawList</a> *&#160;</td>
+          <td class="paramname"><em>drawList</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> &amp;&#160;</td>
+          <td class="paramname"><em>vpPos</em> = <code><a class="el" href="structImVec2.html">ImVec2</a>(0.0f,&#160;0.0f)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> &amp;&#160;</td>
+          <td class="paramname"><em>vpSize</em> = <code><a class="el" href="structImVec2.html">ImVec2</a>(0.0f,&#160;0.0f)</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classBoxCollider3D_a67128fd64d881aa761afbf53a3b122e7_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classBoxCollider3D_a62d1d79f99d9cb074525ec4a26de02b6_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classBoxCollider3D_a67128fd64d881aa761afbf53a3b122e7_icgraph.svg" width="531" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classBoxCollider3D_a62d1d79f99d9cb074525ec4a26de02b6_icgraph.svg" width="100%" height="364"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -473,7 +495,7 @@ BoxCollider3D 連携図</div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classBoxCollider3D_af49ce1d04ef24c80bc015fee062d7882_icgraph.svg" width="100%" height="585"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classBoxCollider3D_af49ce1d04ef24c80bc015fee062d7882_icgraph.svg" width="100%" height="584"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -510,7 +532,7 @@ BoxCollider3D 連携図</div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classBoxCollider3D_ae16b4d180b0a674f3e9007bc5cc3cfde_icgraph.svg" width="100%" height="476"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classBoxCollider3D_ae16b4d180b0a674f3e9007bc5cc3cfde_icgraph.svg" width="100%" height="498"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

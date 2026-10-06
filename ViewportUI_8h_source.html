@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Editor/ViewportUI.h „ÇΩ„Éº„Çπ„Éï„Ç°„Ç§„É´</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- ÊßãÁØâ: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Ê§úÁ¥¢');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('ViewportUI_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Ë™≠„ÅøÂèñ„Çä‰∏≠‚Ä¶</div>
+<div class="SRStatus" id="Searching">Ê§úÁ¥¢‰∏≠‚Ä¶</div>
+<div class="SRStatus" id="NoMatches">‰∏ÄËá¥„Åô„ÇãÊñáÂ≠óÂàó„ÇíË¶ã„Å§„Åë„Çâ„Çå„Åæ„Åõ„Çì</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ViewportUI.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="ViewportUI_8h.html">[Ë©≥Ëß£]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;d3d12.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="imgui_8h.html">imgui.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="classCViewportUI.html">    5</a></span><span class="keyword">class </span><a class="code hl_class" href="classCViewportUI.html">CViewportUI</a></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="}">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="classCViewportUI.html#a0f15b1dd1a0cb1ec5dfd64f5a5072a7a">    8</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classCViewportUI.html">CViewportUI</a>&amp; <a class="code hl_function" href="classCViewportUI.html#a0f15b1dd1a0cb1ec5dfd64f5a5072a7a">GetInstance</a>()</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        <span class="keyword">static</span> <a class="code hl_class" href="classCViewportUI.html">CViewportUI</a> instance;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        <span class="keywordflow">return</span> instance;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    }</div>
+</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCViewportUI.html#ab43e1ee81a2f712e3f81f1342aa05632">Draw</a>();</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classCViewportUI.html#aa6ef241a9debc8180ffeff2084c2fe04">   16</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCViewportUI.html#aa6ef241a9debc8180ffeff2084c2fe04">SetTextureSRV</a>(D3D12_GPU_DESCRIPTOR_HANDLE srvHandle)</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <a class="code hl_variable" href="classCViewportUI.html#a7e5154a08c6b994eb944abc931f4fe67">m_textureSRV</a> = srvHandle;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <a class="code hl_variable" href="classCViewportUI.html#a66c6618e2e9a812adb2b556a9d6c206d">m_isTextureAvailable</a> = (srvHandle.ptr != 0);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    }</div>
+</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classCViewportUI.html#a5035a8d549ee501c9032ea85260f3501">   22</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCViewportUI.html#a5035a8d549ee501c9032ea85260f3501">SetTextureAvailable</a>(<span class="keywordtype">bool</span> available) { <a class="code hl_variable" href="classCViewportUI.html#a66c6618e2e9a812adb2b556a9d6c206d">m_isTextureAvailable</a> = available; }</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classCViewportUI.html#afa84d4b927aa294e9c72a8139f366fdb">   24</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classCViewportUI.html#afa84d4b927aa294e9c72a8139f366fdb">IsVisible</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCViewportUI.html#a5aeb5f25cc2e4f72be491feea10639b7">m_isVisible</a>; }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classCViewportUI.html#a01050a7c4c15718bbeb2fb61e8179862">   25</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCViewportUI.html#a01050a7c4c15718bbeb2fb61e8179862">SetVisible</a>(<span class="keywordtype">bool</span> visible) { <a class="code hl_variable" href="classCViewportUI.html#a5aeb5f25cc2e4f72be491feea10639b7">m_isVisible</a> = visible; }</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classCViewportUI.html#aee00c2a5fe9479036944b961bd985f26">   26</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCViewportUI.html#aee00c2a5fe9479036944b961bd985f26">ToggleVisible</a>() { <a class="code hl_variable" href="classCViewportUI.html#a5aeb5f25cc2e4f72be491feea10639b7">m_isVisible</a> = !<a class="code hl_variable" href="classCViewportUI.html#a5aeb5f25cc2e4f72be491feea10639b7">m_isVisible</a>; }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="comment">// ÉrÉÖÅ[É|Å[ÉgèÛë‘</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classCViewportUI.html#aa0e4dd6eea2028df2b88fe499c7734a9">   29</a></span>    <a class="code hl_struct" href="structImVec2.html">ImVec2</a> <a class="code hl_function" href="classCViewportUI.html#aa0e4dd6eea2028df2b88fe499c7734a9">GetViewportPos</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCViewportUI.html#a175d705024146a22f8baa16c15746c75">m_viewportPos</a>; }</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classCViewportUI.html#a3af5ec81d407f73f24fd1175bf234971">   30</a></span>    <a class="code hl_struct" href="structImVec2.html">ImVec2</a> <a class="code hl_function" href="classCViewportUI.html#a3af5ec81d407f73f24fd1175bf234971">GetViewportSize</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCViewportUI.html#a261e1e7aef8ea99856e0822f73f6d705">m_viewportSize</a>; }</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classCViewportUI.html#aae93ab9b35a4ceb5679a805304aa3217">   31</a></span>    <a class="code hl_struct" href="structImVec2.html">ImVec2</a> <a class="code hl_function" href="classCViewportUI.html#aae93ab9b35a4ceb5679a805304aa3217">GetImagePos</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCViewportUI.html#aab25ba5b459f8aec2ea1ec42994fecbe">m_imagePos</a>; }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classCViewportUI.html#a8052811220fbe0e745629b0783c63a03">   32</a></span>    <a class="code hl_struct" href="structImVec2.html">ImVec2</a> <a class="code hl_function" href="classCViewportUI.html#a8052811220fbe0e745629b0783c63a03">GetImageSize</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCViewportUI.html#a87914a9786d7a490040f2f4f7aadb6ef">m_imageSize</a>; }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classCViewportUI.html#a059e569d8dbeec4ce730c3b3d3df79aa">   33</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classCViewportUI.html#a059e569d8dbeec4ce730c3b3d3df79aa">IsHovered</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCViewportUI.html#ac10d95b4ad1440f9e931ac359e0ddfcb">m_isHovered</a>; }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classCViewportUI.html#a222f07ea275f55ba31f3f7703b7ccf07">   34</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classCViewportUI.html#a222f07ea275f55ba31f3f7703b7ccf07">IsFocused</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCViewportUI.html#a11be8545a657b178556fbf79daf652b8">m_isFocused</a>; }</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="comment">// ÉrÉÖÅ[É|Å[ÉgâÊëúì‡ÇÃê≥ãKâªÉ}ÉEÉXç¿ïW (0.0f ~ 1.0f) ÇéÊìæÅBâÊëúäOÇ»ÇÁ false</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classCViewportUI.html#a1e55c6677d457435737c280482740dfd">GetNormalizedMousePos</a>(<span class="keywordtype">float</span>&amp; outX, <span class="keywordtype">float</span>&amp; outY) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classCViewportUI.html#aa08c11282e750f70db75041b68e3cb32">   40</a></span>    <a class="code hl_function" href="classCViewportUI.html#aa08c11282e750f70db75041b68e3cb32">CViewportUI</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classCViewportUI.html#aaba3468bb5f732deea1ce20d816b1159">   41</a></span>    <a class="code hl_function" href="classCViewportUI.html#aaba3468bb5f732deea1ce20d816b1159">~CViewportUI</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classCViewportUI.html#a00354c2c38932c3eb5fd43936d19cdd7">   42</a></span>    <a class="code hl_function" href="classCViewportUI.html#a00354c2c38932c3eb5fd43936d19cdd7">CViewportUI</a>(<span class="keyword">const</span> <a class="code hl_class" href="classCViewportUI.html">CViewportUI</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classCViewportUI.html#accdd17fed1650525d58bc72b36c7a5cd">   43</a></span>    <a class="code hl_class" href="classCViewportUI.html">CViewportUI</a>&amp; <a class="code hl_function" href="classCViewportUI.html#accdd17fed1650525d58bc72b36c7a5cd">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classCViewportUI.html">CViewportUI</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classCViewportUI.html#a5aeb5f25cc2e4f72be491feea10639b7">   45</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classCViewportUI.html#a5aeb5f25cc2e4f72be491feea10639b7">m_isVisible</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classCViewportUI.html#a66c6618e2e9a812adb2b556a9d6c206d">   46</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classCViewportUI.html#a66c6618e2e9a812adb2b556a9d6c206d">m_isTextureAvailable</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classCViewportUI.html#a7e5154a08c6b994eb944abc931f4fe67">   47</a></span>    D3D12_GPU_DESCRIPTOR_HANDLE <a class="code hl_variable" href="classCViewportUI.html#a7e5154a08c6b994eb944abc931f4fe67">m_textureSRV</a> = {};</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classCViewportUI.html#a175d705024146a22f8baa16c15746c75">   49</a></span>    <a class="code hl_struct" href="structImVec2.html">ImVec2</a> <a class="code hl_variable" href="classCViewportUI.html#a175d705024146a22f8baa16c15746c75">m_viewportPos</a> = { 0.0f, 0.0f };</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classCViewportUI.html#a261e1e7aef8ea99856e0822f73f6d705">   50</a></span>    <a class="code hl_struct" href="structImVec2.html">ImVec2</a> <a class="code hl_variable" href="classCViewportUI.html#a261e1e7aef8ea99856e0822f73f6d705">m_viewportSize</a> = { 0.0f, 0.0f };</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classCViewportUI.html#aab25ba5b459f8aec2ea1ec42994fecbe">   51</a></span>    <a class="code hl_struct" href="structImVec2.html">ImVec2</a> <a class="code hl_variable" href="classCViewportUI.html#aab25ba5b459f8aec2ea1ec42994fecbe">m_imagePos</a> = { 0.0f, 0.0f };</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classCViewportUI.html#a87914a9786d7a490040f2f4f7aadb6ef">   52</a></span>    <a class="code hl_struct" href="structImVec2.html">ImVec2</a> <a class="code hl_variable" href="classCViewportUI.html#a87914a9786d7a490040f2f4f7aadb6ef">m_imageSize</a> = { 0.0f, 0.0f };</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classCViewportUI.html#ac10d95b4ad1440f9e931ac359e0ddfcb">   53</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classCViewportUI.html#ac10d95b4ad1440f9e931ac359e0ddfcb">m_isHovered</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classCViewportUI.html#a11be8545a657b178556fbf79daf652b8">   54</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classCViewportUI.html#a11be8545a657b178556fbf79daf652b8">m_isFocused</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>};</div>
+</div>
+<div class="ttc" id="aclassCViewportUI_html"><div class="ttname"><a href="classCViewportUI.html">CViewportUI</a></div><div class="ttdef"><b>Definition</b> ViewportUI.h:6</div></div>
+<div class="ttc" id="aclassCViewportUI_html_a00354c2c38932c3eb5fd43936d19cdd7"><div class="ttname"><a href="classCViewportUI.html#a00354c2c38932c3eb5fd43936d19cdd7">CViewportUI::CViewportUI</a></div><div class="ttdeci">CViewportUI(const CViewportUI &amp;)=delete</div></div>
+<div class="ttc" id="aclassCViewportUI_html_a01050a7c4c15718bbeb2fb61e8179862"><div class="ttname"><a href="classCViewportUI.html#a01050a7c4c15718bbeb2fb61e8179862">CViewportUI::SetVisible</a></div><div class="ttdeci">void SetVisible(bool visible)</div><div class="ttdef"><b>Definition</b> ViewportUI.h:25</div></div>
+<div class="ttc" id="aclassCViewportUI_html_a059e569d8dbeec4ce730c3b3d3df79aa"><div class="ttname"><a href="classCViewportUI.html#a059e569d8dbeec4ce730c3b3d3df79aa">CViewportUI::IsHovered</a></div><div class="ttdeci">bool IsHovered() const</div><div class="ttdef"><b>Definition</b> ViewportUI.h:33</div></div>
+<div class="ttc" id="aclassCViewportUI_html_a0f15b1dd1a0cb1ec5dfd64f5a5072a7a"><div class="ttname"><a href="classCViewportUI.html#a0f15b1dd1a0cb1ec5dfd64f5a5072a7a">CViewportUI::GetInstance</a></div><div class="ttdeci">static CViewportUI &amp; GetInstance()</div><div class="ttdef"><b>Definition</b> ViewportUI.h:8</div></div>
+<div class="ttc" id="aclassCViewportUI_html_a11be8545a657b178556fbf79daf652b8"><div class="ttname"><a href="classCViewportUI.html#a11be8545a657b178556fbf79daf652b8">CViewportUI::m_isFocused</a></div><div class="ttdeci">bool m_isFocused</div><div class="ttdef"><b>Definition</b> ViewportUI.h:54</div></div>
+<div class="ttc" id="aclassCViewportUI_html_a175d705024146a22f8baa16c15746c75"><div class="ttname"><a href="classCViewportUI.html#a175d705024146a22f8baa16c15746c75">CViewportUI::m_viewportPos</a></div><div class="ttdeci">ImVec2 m_viewportPos</div><div class="ttdef"><b>Definition</b> ViewportUI.h:49</div></div>
+<div class="ttc" id="aclassCViewportUI_html_a1e55c6677d457435737c280482740dfd"><div class="ttname"><a href="classCViewportUI.html#a1e55c6677d457435737c280482740dfd">CViewportUI::GetNormalizedMousePos</a></div><div class="ttdeci">bool GetNormalizedMousePos(float &amp;outX, float &amp;outY) const</div><div class="ttdef"><b>Definition</b> ViewportUI.cpp:133</div></div>
+<div class="ttc" id="aclassCViewportUI_html_a222f07ea275f55ba31f3f7703b7ccf07"><div class="ttname"><a href="classCViewportUI.html#a222f07ea275f55ba31f3f7703b7ccf07">CViewportUI::IsFocused</a></div><div class="ttdeci">bool IsFocused() const</div><div class="ttdef"><b>Definition</b> ViewportUI.h:34</div></div>
+<div class="ttc" id="aclassCViewportUI_html_a261e1e7aef8ea99856e0822f73f6d705"><div class="ttname"><a href="classCViewportUI.html#a261e1e7aef8ea99856e0822f73f6d705">CViewportUI::m_viewportSize</a></div><div class="ttdeci">ImVec2 m_viewportSize</div><div class="ttdef"><b>Definition</b> ViewportUI.h:50</div></div>
+<div class="ttc" id="aclassCViewportUI_html_a3af5ec81d407f73f24fd1175bf234971"><div class="ttname"><a href="classCViewportUI.html#a3af5ec81d407f73f24fd1175bf234971">CViewportUI::GetViewportSize</a></div><div class="ttdeci">ImVec2 GetViewportSize() const</div><div class="ttdef"><b>Definition</b> ViewportUI.h:30</div></div>
+<div class="ttc" id="aclassCViewportUI_html_a5035a8d549ee501c9032ea85260f3501"><div class="ttname"><a href="classCViewportUI.html#a5035a8d549ee501c9032ea85260f3501">CViewportUI::SetTextureAvailable</a></div><div class="ttdeci">void SetTextureAvailable(bool available)</div><div class="ttdef"><b>Definition</b> ViewportUI.h:22</div></div>
+<div class="ttc" id="aclassCViewportUI_html_a5aeb5f25cc2e4f72be491feea10639b7"><div class="ttname"><a href="classCViewportUI.html#a5aeb5f25cc2e4f72be491feea10639b7">CViewportUI::m_isVisible</a></div><div class="ttdeci">bool m_isVisible</div><div class="ttdef"><b>Definition</b> ViewportUI.h:45</div></div>
+<div class="ttc" id="aclassCViewportUI_html_a66c6618e2e9a812adb2b556a9d6c206d"><div class="ttname"><a href="classCViewportUI.html#a66c6618e2e9a812adb2b556a9d6c206d">CViewportUI::m_isTextureAvailable</a></div><div class="ttdeci">bool m_isTextureAvailable</div><div class="ttdef"><b>Definition</b> ViewportUI.h:46</div></div>
+<div class="ttc" id="aclassCViewportUI_html_a7e5154a08c6b994eb944abc931f4fe67"><div class="ttname"><a href="classCViewportUI.html#a7e5154a08c6b994eb944abc931f4fe67">CViewportUI::m_textureSRV</a></div><div class="ttdeci">D3D12_GPU_DESCRIPTOR_HANDLE m_textureSRV</div><div class="ttdef"><b>Definition</b> ViewportUI.h:47</div></div>
+<div class="ttc" id="aclassCViewportUI_html_a8052811220fbe0e745629b0783c63a03"><div class="ttname"><a href="classCViewportUI.html#a8052811220fbe0e745629b0783c63a03">CViewportUI::GetImageSize</a></div><div class="ttdeci">ImVec2 GetImageSize() const</div><div class="ttdef"><b>Definition</b> ViewportUI.h:32</div></div>
+<div class="ttc" id="aclassCViewportUI_html_a87914a9786d7a490040f2f4f7aadb6ef"><div class="ttname"><a href="classCViewportUI.html#a87914a9786d7a490040f2f4f7aadb6ef">CViewportUI::m_imageSize</a></div><div class="ttdeci">ImVec2 m_imageSize</div><div class="ttdef"><b>Definition</b> ViewportUI.h:52</div></div>
+<div class="ttc" id="aclassCViewportUI_html_aa08c11282e750f70db75041b68e3cb32"><div class="ttname"><a href="classCViewportUI.html#aa08c11282e750f70db75041b68e3cb32">CViewportUI::CViewportUI</a></div><div class="ttdeci">CViewportUI()=default</div></div>
+<div class="ttc" id="aclassCViewportUI_html_aa0e4dd6eea2028df2b88fe499c7734a9"><div class="ttname"><a href="classCViewportUI.html#aa0e4dd6eea2028df2b88fe499c7734a9">CViewportUI::GetViewportPos</a></div><div class="ttdeci">ImVec2 GetViewportPos() const</div><div class="ttdef"><b>Definition</b> ViewportUI.h:29</div></div>
+<div class="ttc" id="aclassCViewportUI_html_aa6ef241a9debc8180ffeff2084c2fe04"><div class="ttname"><a href="classCViewportUI.html#aa6ef241a9debc8180ffeff2084c2fe04">CViewportUI::SetTextureSRV</a></div><div class="ttdeci">void SetTextureSRV(D3D12_GPU_DESCRIPTOR_HANDLE srvHandle)</div><div class="ttdef"><b>Definition</b> ViewportUI.h:16</div></div>
+<div class="ttc" id="aclassCViewportUI_html_aab25ba5b459f8aec2ea1ec42994fecbe"><div class="ttname"><a href="classCViewportUI.html#aab25ba5b459f8aec2ea1ec42994fecbe">CViewportUI::m_imagePos</a></div><div class="ttdeci">ImVec2 m_imagePos</div><div class="ttdef"><b>Definition</b> ViewportUI.h:51</div></div>
+<div class="ttc" id="aclassCViewportUI_html_aaba3468bb5f732deea1ce20d816b1159"><div class="ttname"><a href="classCViewportUI.html#aaba3468bb5f732deea1ce20d816b1159">CViewportUI::~CViewportUI</a></div><div class="ttdeci">~CViewportUI()=default</div></div>
+<div class="ttc" id="aclassCViewportUI_html_aae93ab9b35a4ceb5679a805304aa3217"><div class="ttname"><a href="classCViewportUI.html#aae93ab9b35a4ceb5679a805304aa3217">CViewportUI::GetImagePos</a></div><div class="ttdeci">ImVec2 GetImagePos() const</div><div class="ttdef"><b>Definition</b> ViewportUI.h:31</div></div>
+<div class="ttc" id="aclassCViewportUI_html_ab43e1ee81a2f712e3f81f1342aa05632"><div class="ttname"><a href="classCViewportUI.html#ab43e1ee81a2f712e3f81f1342aa05632">CViewportUI::Draw</a></div><div class="ttdeci">void Draw()</div><div class="ttdef"><b>Definition</b> ViewportUI.cpp:9</div></div>
+<div class="ttc" id="aclassCViewportUI_html_ac10d95b4ad1440f9e931ac359e0ddfcb"><div class="ttname"><a href="classCViewportUI.html#ac10d95b4ad1440f9e931ac359e0ddfcb">CViewportUI::m_isHovered</a></div><div class="ttdeci">bool m_isHovered</div><div class="ttdef"><b>Definition</b> ViewportUI.h:53</div></div>
+<div class="ttc" id="aclassCViewportUI_html_accdd17fed1650525d58bc72b36c7a5cd"><div class="ttname"><a href="classCViewportUI.html#accdd17fed1650525d58bc72b36c7a5cd">CViewportUI::operator=</a></div><div class="ttdeci">CViewportUI &amp; operator=(const CViewportUI &amp;)=delete</div></div>
+<div class="ttc" id="aclassCViewportUI_html_aee00c2a5fe9479036944b961bd985f26"><div class="ttname"><a href="classCViewportUI.html#aee00c2a5fe9479036944b961bd985f26">CViewportUI::ToggleVisible</a></div><div class="ttdeci">void ToggleVisible()</div><div class="ttdef"><b>Definition</b> ViewportUI.h:26</div></div>
+<div class="ttc" id="aclassCViewportUI_html_afa84d4b927aa294e9c72a8139f366fdb"><div class="ttname"><a href="classCViewportUI.html#afa84d4b927aa294e9c72a8139f366fdb">CViewportUI::IsVisible</a></div><div class="ttdeci">bool IsVisible() const</div><div class="ttdef"><b>Definition</b> ViewportUI.h:24</div></div>
+<div class="ttc" id="aimgui_8h_html"><div class="ttname"><a href="imgui_8h.html">imgui.h</a></div></div>
+<div class="ttc" id="astructImVec2_html"><div class="ttname"><a href="structImVec2.html">ImVec2</a></div><div class="ttdef"><b>Definition</b> imgui.h:296</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_b26507eead720464ba2ac6bbc6dcec5f.html">Editor</a></li><li class="navelem"><a class="el" href="ViewportUI_8h.html">ViewportUI.h</a></li>
+    <li class="footer">ÊßãÁØâ: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>
