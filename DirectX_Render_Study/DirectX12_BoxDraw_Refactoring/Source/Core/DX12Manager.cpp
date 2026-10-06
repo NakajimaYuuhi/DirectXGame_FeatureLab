@@ -517,25 +517,28 @@ void DX12Manager::EndSceneDraw()
 	ID3D12CommandList* commandLists[] = { m_commandList.Get() };
 	m_commandQueue->ExecuteCommandLists(1, commandLists);
 
+	bool d2dRendered = false;
 	// 2. Direct2D 繝・く繧ｹ繝医ｒ繝舌ャ繧ｯ繝舌ャ繝輔ぃ縺ｫ辟ｼ縺堺ｻ倥￠・医ご繝ｼ繝蜀・I繝・く繧ｹ繝域緒逕ｻ・・
 	{
 		PROFILE_SCOPE("Render::D2DText");
-		D2DTextRenderer::GetInstance().Render(m_frameIndex);
+		d2dRendered = D2DTextRenderer::GetInstance().Render(m_frameIndex);
 	}
 
-	// 3. ImGui 謠冗判逕ｨ縺ｫ ImGui 逕ｨ繧ｳ繝槭Φ繝峨い繝ｭ繧ｱ繝ｼ繧ｿ縺ｧ繧ｳ繝槭Φ繝峨Μ繧ｹ繝医ｒ蜀埼幕
-	// ・遺ｻ m_commandAllocator 縺ｯ GPU 螳溯｡御ｸｭ縺ｮ縺溘ａ繝ｪ繧ｻ繝・ヨ縺帙★縲∫峡遶九＠縺・m_imguiCommandAllocator 繧剃ｽｿ逕ｨ・・
+	// 3. ImGui 描画用に ImGui 用コマンドアロケータでコマンドリストを再開
 	m_commandList->Reset(m_imguiCommandAllocator.Get(), nullptr);
 
-	// D2DTextRenderer::Render 縺ｯ蜀・Κ縺ｧ ReleaseWrappedResources 譎ゅ↓ PRESENT 迥ｶ諷九↓驕ｷ遘ｻ縺輔○縺ｦ縺・ｋ縺溘ａ縲・
-	// ImGui 謠冗判縺ｮ縺溘ａ縺ｫ RENDER_TARGET 迥ｶ諷九∈謌ｻ縺・
-	D3D12_RESOURCE_BARRIER barrier{};
-	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
-	barrier.Transition.pResource = m_renderTargets[m_frameIndex].Get();
-	barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_PRESENT;
-	barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_RENDER_TARGET;
-	barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
-	m_commandList->ResourceBarrier(1, &barrier);
+	// D2DTextRenderer::Render が実際に実行されて PRESENT 状態に遷移した場合のみ、
+	// ImGui 描画のために RENDER_TARGET 状態へ戻す
+	if (d2dRendered)
+	{
+		D3D12_RESOURCE_BARRIER barrier{};
+		barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+		barrier.Transition.pResource = m_renderTargets[m_frameIndex].Get();
+		barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_PRESENT;
+		barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_RENDER_TARGET;
+		barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
+		m_commandList->ResourceBarrier(1, &barrier);
+	}
 
 	// 繝ｬ繝ｳ繝繝ｼ繧ｿ繝ｼ繧ｲ繝・ヨ繧偵そ繝・ヨ
 	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle = m_rtvHeap->GetCPUDescriptorHandleForHeapStart();

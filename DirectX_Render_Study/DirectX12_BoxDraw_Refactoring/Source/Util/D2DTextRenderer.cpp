@@ -189,7 +189,7 @@ void D2DTextRenderer::DrawTextStr(const std::wstring& text, float x, float y, fl
     m_textQueue.push_back({ text, x, y, fontSize, color, fontFamily });
 }
 
-void D2DTextRenderer::Render(UINT frameIndex)
+bool D2DTextRenderer::Render(UINT frameIndex)
 {
     // 直前フレームの確定キューを保存
     m_prevTextQueue = m_textQueue;
@@ -198,13 +198,13 @@ void D2DTextRenderer::Render(UINT frameIndex)
     // Debugビルド時はViewportUI側でImGuiテキストとして描画するため、
     // バックバッファへの直接D2D描画はスキップ
     m_textQueue.clear();
-    return;
+    return false;
 #endif
 
     if (frameIndex >= m_frameResources.size())
     {
         m_textQueue.clear();
-        return;
+        return false;
     }
 
     ID3D11Resource* wrappedResource = m_frameResources[frameIndex].wrappedResource.Get();
@@ -274,4 +274,5 @@ void D2DTextRenderer::Render(UINT frameIndex)
     // キューをクリア
     m_prevTextQueue = m_textQueue;
     m_textQueue.clear();
+    return true;
 }

@@ -35,7 +35,7 @@ public:
     void DrawTextStr(const std::wstring& text, float x, float y, float fontSize = 24.0f, D2D1::ColorF color = D2D1::ColorF::White, const std::wstring& fontFamily = L"Meiryo");
 
     // 描画実行（DX12のレンダーターゲットに対して）
-    void Render(UINT frameIndex);
+    bool Render(UINT frameIndex);
 
     // ビューポート表示用テキストキューの参照取得（直前フレームの確定テキスト）
     const std::vector<TextInfo>& GetTextQueue() const { return m_prevTextQueue; }
