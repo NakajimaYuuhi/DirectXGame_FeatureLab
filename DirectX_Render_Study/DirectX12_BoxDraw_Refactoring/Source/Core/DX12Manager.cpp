@@ -302,7 +302,7 @@ bool DX12Manager::Initialize(HWND hwnd)
 
 	//SRV
 	D3D12_DESCRIPTOR_HEAP_DESC desc = {};
-	desc.NumDescriptors = 128;
+	desc.NumDescriptors = 512;
 	desc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
 	desc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
 

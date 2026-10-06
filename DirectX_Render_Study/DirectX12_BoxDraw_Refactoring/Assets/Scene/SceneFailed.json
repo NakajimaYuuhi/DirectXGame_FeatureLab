@@ -1,157 +1,238 @@
 {
-  "eventSystem": {
-    "firstSelected": "RetryButton"
-  },
-  "objects": [
-    {
-      "name": "FaildBG",
-      "prefab": "FaildBG",
-      "sprite": {
-        "color": [
-          1.0,
-          1.0,
-          1.0,
-          1.0
-        ],
-        "size": [
-          1920.0,
-          1080.0
-        ],
-        "texturePath": "Assets/Texture/T_Failed.png"
-      },
-      "tag": 9,
-      "transform": {
-        "position": [
-          0.0,
-          0.0,
-          0.0
-        ],
-        "rotation": [
-          0.0,
-          0.0,
-          0.0
-        ],
-        "scale": [
-          1.0,
-          1.0,
-          1.0
-        ]
-      },
-      "type": "CObject"
+    "eventSystem": {
+        "firstSelected": "RetryButton"
     },
-    {
-      "button": {
-        "action": "ChangeScene_Test",
-        "navigation": {
-          "down": "ToTitleButton",
-          "left": "",
-          "right": "",
-          "up": "ToTitleButton"
+    "objects": [
+        {
+            "name": "FaildBG",
+            "prefab": "FaildBG",
+            "rectTransform": {
+                "anchorMax": [
+                    1.0,
+                    1.0
+                ],
+                "anchorMin": [
+                    0.0,
+                    0.0
+                ],
+                "anchoredPosition": [
+                    0.0,
+                    0.0
+                ],
+                "pivot": [
+                    0.5,
+                    0.5
+                ],
+                "rotationZ": 0.0,
+                "scale": [
+                    1.0,
+                    1.0
+                ],
+                "sizeDelta": [
+                    0.0,
+                    0.0
+                ]
+            },
+            "sprite": {
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "size": [
+                    1920.0,
+                    1080.0
+                ],
+                "texturePath": "Assets/Texture/T_Failed.png"
+            },
+            "tag": 9,
+            "transform": {
+                "position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "type": "CObject"
+        },
+        {
+            "button": {
+                "action": "ChangeScene_Test",
+                "navigation": {
+                    "down": "ToTitleButton",
+                    "left": "",
+                    "right": "",
+                    "up": "ToTitleButton"
+                }
+            },
+            "name": "RetryButton",
+            "prefab": "RetryButton",
+            "rectTransform": {
+                "anchorMax": [
+                    0.5,
+                    0.5
+                ],
+                "anchorMin": [
+                    0.5,
+                    0.5
+                ],
+                "anchoredPosition": [
+                    0.0,
+                    150.0
+                ],
+                "pivot": [
+                    0.5,
+                    0.5
+                ],
+                "rotationZ": 0.0,
+                "scale": [
+                    1.0,
+                    1.0
+                ],
+                "sizeDelta": [
+                    400.0,
+                    100.0
+                ]
+            },
+            "sprite": {
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "size": [
+                    400.0,
+                    100.0
+                ],
+                "texturePath": "Assets/Texture/T_Retry.png"
+            },
+            "tag": 9,
+            "transform": {
+                "position": [
+                    740.0,
+                    650.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "type": "CObject"
+        },
+        {
+            "button": {
+                "action": "ChangeScene_Title",
+                "navigation": {
+                    "down": "RetryButton",
+                    "left": "",
+                    "right": "",
+                    "up": "RetryButton"
+                }
+            },
+            "name": "ToTitleButton",
+            "prefab": "ToTitleButton",
+            "rectTransform": {
+                "anchorMax": [
+                    0.5,
+                    0.5
+                ],
+                "anchorMin": [
+                    0.5,
+                    0.5
+                ],
+                "anchoredPosition": [
+                    0.0,
+                    290.0
+                ],
+                "pivot": [
+                    0.5,
+                    0.5
+                ],
+                "rotationZ": 0.0,
+                "scale": [
+                    1.0,
+                    1.0
+                ],
+                "sizeDelta": [
+                    400.0,
+                    100.0
+                ]
+            },
+            "sprite": {
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    0.30000001192092896
+                ],
+                "size": [
+                    400.0,
+                    100.0
+                ],
+                "texturePath": "Assets/Texture/T_ToTitle.png"
+            },
+            "tag": 9,
+            "transform": {
+                "position": [
+                    735.0,
+                    800.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "type": "CObject"
+        },
+        {
+            "name": "Camera",
+            "prefab": "Camera",
+            "tag": 11,
+            "transform": {
+                "position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "type": "Camera"
         }
-      },
-      "name": "RetryButton",
-      "prefab": "RetryButton",
-      "sprite": {
-        "color": [
-          1.0,
-          1.0,
-          1.0,
-          1.0
-        ],
-        "size": [
-          400.0,
-          100.0
-        ],
-        "texturePath": "Assets/Texture/T_Retry.png"
-      },
-      "tag": 9,
-      "transform": {
-        "position": [
-          740.0,
-          650.0,
-          0.0
-        ],
-        "rotation": [
-          0.0,
-          0.0,
-          0.0
-        ],
-        "scale": [
-          1.0,
-          1.0,
-          1.0
-        ]
-      },
-      "type": "CObject"
-    },
-    {
-      "button": {
-        "action": "ChangeScene_Title",
-        "navigation": {
-          "down": "RetryButton",
-          "left": "",
-          "right": "",
-          "up": "RetryButton"
-        }
-      },
-      "name": "ToTitleButton",
-      "prefab": "ToTitleButton",
-      "sprite": {
-        "color": [
-          1.0,
-          1.0,
-          1.0,
-          0.30000001192092896
-        ],
-        "size": [
-          400.0,
-          100.0
-        ],
-        "texturePath": "Assets/Texture/T_ToTitle.png"
-      },
-      "tag": 9,
-      "transform": {
-        "position": [
-          735.0,
-          800.0,
-          0.0
-        ],
-        "rotation": [
-          0.0,
-          0.0,
-          0.0
-        ],
-        "scale": [
-          1.0,
-          1.0,
-          1.0
-        ]
-      },
-      "type": "CObject"
-    },
-    {
-      "name": "Camera",
-      "prefab": "Camera",
-      "tag": 11,
-      "transform": {
-        "position": [
-          0.0,
-          0.0,
-          0.0
-        ],
-        "rotation": [
-          0.0,
-          0.0,
-          0.0
-        ],
-        "scale": [
-          1.0,
-          1.0,
-          1.0
-        ]
-      },
-      "type": "Camera"
-    }
-  ],
-  "sceneID": 4
+    ],
+    "sceneID": 4
 }

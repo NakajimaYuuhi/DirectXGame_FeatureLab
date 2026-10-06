@@ -61,17 +61,7 @@ bool CImGuiManager::Initialize(HWND hwnd)
     ImGui::StyleColorsDark();
 
     // 2. ImGui?p??SRV?f?B?X?N???v?^?q?[?v??
-    D3D12_DESCRIPTOR_HEAP_DESC desc = {};
-    desc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
-    desc.NumDescriptors = 3;
-    desc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
-
-    if (FAILED(device->CreateDescriptorHeap(&desc, IID_PPV_ARGS(&m_srvHeap)))) {
-        return false;
-    }
-
-    //?f?B?X?N???v?^?q?[?v??A???P?[?^?????????
-    m_DescriptorHeapAllocator.Create(device, m_srvHeap.Get());
+    // メインSRVヒープをゲーム本体と共有
 
     ImGuiStyle& style = ImGui::GetStyle();
     style.ScaleAllSizes(main_scale);        // Bake a fixed style scale. (until we have a solution for dynamic style scaling, changing this requires resetting Style + calling this again)
@@ -100,9 +90,9 @@ bool CImGuiManager::Initialize(HWND hwnd)
     init_info.NumFramesInFlight = FRAME_BUFFER_COUNT;//?t???[???o?b?t?@??? ?X???b?v?`?F?[????o?b?N?o?b?t?@??????????(???2??3)
     init_info.RTVFormat = DXGI_FORMAT_R8G8B8A8_UNORM;//RTVFormat
     init_info.DSVFormat = DXGI_FORMAT_UNKNOWN;  //?[?x?X?e???V????t?H?[?}?b?g?i?g??????? UNKNOWN ??OK)
-    init_info.SrvDescriptorHeap = m_srvHeap.Get();
-    init_info.SrvDescriptorAllocFn = [](ImGui_ImplDX12_InitInfo*, D3D12_CPU_DESCRIPTOR_HANDLE* out_cpu_handle, D3D12_GPU_DESCRIPTOR_HANDLE* out_gpu_handle) { return CImGuiManager::GetInstance().GetDescriptorHeapAllocator().Alloc(out_cpu_handle, out_gpu_handle); };
-    init_info.SrvDescriptorFreeFn = [](ImGui_ImplDX12_InitInfo*, D3D12_CPU_DESCRIPTOR_HANDLE cpu_handle, D3D12_GPU_DESCRIPTOR_HANDLE gpu_handle) { return CImGuiManager::GetInstance().GetDescriptorHeapAllocator().Free(cpu_handle, gpu_handle); };
+    init_info.SrvDescriptorHeap = dx12.GetSRVHeap();
+    init_info.SrvDescriptorAllocFn = [](ImGui_ImplDX12_InitInfo*, D3D12_CPU_DESCRIPTOR_HANDLE* out_cpu_handle, D3D12_GPU_DESCRIPTOR_HANDLE* out_gpu_handle) { return DX12Manager::GetInstance().GetSRVAllocator()->Alloc(out_cpu_handle, out_gpu_handle); };
+    init_info.SrvDescriptorFreeFn = [](ImGui_ImplDX12_InitInfo*, D3D12_CPU_DESCRIPTOR_HANDLE cpu_handle, D3D12_GPU_DESCRIPTOR_HANDLE gpu_handle) { return DX12Manager::GetInstance().GetSRVAllocator()->Free(cpu_handle, gpu_handle); };
     
 
     //ImGui_ImplDX12_Init(
@@ -156,7 +146,8 @@ void CImGuiManager::End(ID3D12GraphicsCommandList* commandList)
     ImGui::Render();
 
     // ?`???q?[?v??ImGui?p???????
-    ID3D12DescriptorHeap* heaps[] = { m_srvHeap.Get() };
+    // メインSRVヒープをセット（ImGuiフォントとゲーム・ビューポートテクスチャの共有ヒープ）
+    ID3D12DescriptorHeap* heaps[] = { DX12Manager::GetInstance().GetSRVHeap() };
     commandList->SetDescriptorHeaps(_countof(heaps), heaps);
 
     // ?R?}???h???X?g??ImGui??`??R?}???h????(GPU?????)
