@@ -14,6 +14,7 @@
 #include "TextureManager.h"
 #include "ModelManager.h"
 #include "DX12Manager.h"
+#include "InspectorUI.h"
 #include <algorithm>
 
 SceneManager::SceneManager(void)
@@ -160,6 +161,7 @@ void SceneManager::UninitAndPop(void)
 	TextureManager::GetInstance().Clear();
 	ModelManager::GetInstance().Clear();
 	ButtonEventManager::GetInstance().ClearSelectedGameObject();
+	CInspectorUI::GetInstance().ClearSelection();
 }
 
 void SceneManager::ProcessTransition()

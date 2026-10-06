@@ -1,11 +1,15 @@
 #include "ViewportUI.h"
+#include "Object.h"
+#include "InspectorUI.h"
+#include "D2DTextRenderer.h"
 #include <algorithm>
+#include <Windows.h>
 
 void CViewportUI::Draw()
 {
     if (!m_isVisible) return;
 
-    // パディングをゼロにして画面端までぴったり合わせる
+    // パディングゼロにして画面端までぴったり合わせる
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
     if (ImGui::Begin("Viewport", &m_isVisible))
     {
@@ -27,13 +31,13 @@ void CViewportUI::Draw()
 
             if (currentAspect > targetAspect)
             {
-                // 横長すぎる場合（ピラーボックス: 左右に余白）
+                // 横長の場合（ピラーボックス: 左右に余白）
                 renderW = contentSize.y * targetAspect;
                 renderH = contentSize.y;
             }
             else
             {
-                // 縦長すぎる場合（レターボックス: 上下に余白）
+                // 縦長の場合（レターボックス: 上下に余白）
                 renderW = contentSize.x;
                 renderH = contentSize.x / targetAspect;
             }
@@ -51,6 +55,42 @@ void CViewportUI::Draw()
             // ImTextureID に変換して描画
             ImTextureID texID = static_cast<ImTextureID>(m_textureSRV.ptr);
             ImGui::Image(texID, ImVec2(renderW, renderH));
+
+            // 1. 3Dトランスフォームギズモ描画（Viewportウィンドウ内DrawList）
+            CInspectorUI::GetInstance().DrawGizmo(ImGui::GetWindowDrawList(), m_imagePos, m_imageSize);
+
+            // 2. 2Dテキストのオーバーレイ描画
+            const auto& textQueue = D2DTextRenderer::GetInstance().GetTextQueue();
+            if (!textQueue.empty())
+            {
+                ImDrawList* drawList = ImGui::GetWindowDrawList();
+                drawList->PushClipRect(m_imagePos, ImVec2(m_imagePos.x + m_imageSize.x, m_imagePos.y + m_imageSize.y), true);
+
+                const float scaleX = renderW / 1920.0f;
+                const float scaleY = renderH / 1080.0f;
+
+                for (const auto& info : textQueue)
+                {
+                    if (info.text.empty()) continue;
+
+                    // UTF-16 -> UTF-8 変換
+                    int sizeNeeded = WideCharToMultiByte(CP_UTF8, 0, info.text.c_str(), (int)info.text.length(), nullptr, 0, nullptr, nullptr);
+                    if (sizeNeeded <= 0) continue;
+
+                    std::string utf8Text(sizeNeeded, '\0');
+                    WideCharToMultiByte(CP_UTF8, 0, info.text.c_str(), (int)info.text.length(), &utf8Text[0], sizeNeeded, nullptr, nullptr);
+
+                    ImVec2 textPos(m_imagePos.x + info.x * scaleX, m_imagePos.y + info.y * scaleY);
+                    ImU32 textColor = ImColor(info.color.r, info.color.g, info.color.b, info.color.a);
+
+                    float scaledFontSize = info.fontSize * scaleY;
+                    if (scaledFontSize < 1.0f) scaledFontSize = 1.0f;
+
+                    drawList->AddText(ImGui::GetFont(), scaledFontSize, textPos, textColor, utf8Text.c_str());
+                }
+
+                drawList->PopClipRect();
+            }
         }
         else
         {

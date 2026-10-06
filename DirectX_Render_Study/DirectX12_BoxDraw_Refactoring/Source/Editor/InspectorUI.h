@@ -2,6 +2,7 @@
 #include <string>
 #include <memory>
 #include <DirectXMath.h>
+#include "imgui.h"
 
 class CObject;
 
@@ -37,6 +38,15 @@ public:
     int GetSelectedTagIndex() const { return m_selectedTagIndex; }
     int GetSelectedObjectIndex() const { return m_selectedObjectIndex; }
     void SetSelectedObject(int tagIdx, int objIdx) { m_selectedTagIndex = tagIdx; m_selectedObjectIndex = objIdx; }
+    void ClearSelection()
+    {
+        m_selectedTagIndex = -1;
+        m_selectedObjectIndex = -1;
+        m_isDraggingGizmo = false;
+        m_draggedAxis = -1;
+    }
+
+    void DrawGizmo(ImDrawList* drawList, const ImVec2& vpPos, const ImVec2& vpSize);
 
     // Prefab Edit Mode (Prefab Stage)
     bool IsPrefabEditMode() const { return m_isPrefabEditMode; }

@@ -14,6 +14,15 @@ using Microsoft::WRL::ComPtr;
 class D2DTextRenderer
 {
 public:
+    struct TextInfo
+    {
+        std::wstring text;
+        float x, y;
+        float fontSize;
+        D2D1::ColorF color;
+        std::wstring fontFamily;
+    };
+
     static D2DTextRenderer& GetInstance();
 
     bool Initialize(ID3D12Device* d3d12Device, ID3D12CommandQueue* commandQueue, IDXGISwapChain4* swapChain, UINT width, UINT height, UINT frameBufferCount);
@@ -22,11 +31,14 @@ public:
     void Resize(UINT width, UINT height, IDXGISwapChain4* swapChain);
     void ReleaseSizeDependentResources();
 
-    // テキスト描画のリクエストを登録
+    // テキスト描画のリクエスト登録
     void DrawTextStr(const std::wstring& text, float x, float y, float fontSize = 24.0f, D2D1::ColorF color = D2D1::ColorF::White, const std::wstring& fontFamily = L"Meiryo");
 
     // 描画実行（DX12のレンダーターゲットに対して）
     void Render(UINT frameIndex);
+
+    // ビューポート表示用テキストキューの参照取得（直前フレームの確定テキスト）
+    const std::vector<TextInfo>& GetTextQueue() const { return m_prevTextQueue; }
 
 private:
     D2DTextRenderer() = default;
@@ -38,7 +50,7 @@ private:
     bool CreateSizeDependentResources(UINT width, UINT height, IDXGISwapChain4* swapChain);
 
 private:
-    // D3D11オン12 関連
+    // D3D11On12 関連
     ComPtr<ID3D11Device> m_d3d11Device;
     ComPtr<ID3D11DeviceContext> m_d3d11DeviceContext;
     ComPtr<ID3D11On12Device> m_d3d11On12Device;
@@ -63,14 +75,7 @@ private:
     UINT m_width = 0;
     UINT m_height = 0;
 
-    // 描画テキスト情報
-    struct TextInfo
-    {
-        std::wstring text;
-        float x, y;
-        float fontSize;
-        D2D1::ColorF color;
-        std::wstring fontFamily;
-    };
+    // 描画テキスト情報キュー
     std::vector<TextInfo> m_textQueue;
+    std::vector<TextInfo> m_prevTextQueue;
 };

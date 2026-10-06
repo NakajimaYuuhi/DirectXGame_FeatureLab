@@ -1,4 +1,5 @@
 #include "InspectorUI.h"
+#include "ViewportUI.h"
 #include "EditorRaycast.h"
 #include "UndoManager.h"
 #include <d3d12.h>
@@ -1394,225 +1395,11 @@ void CInspectorUI::Draw()
 
     ImGui::End();
 
-    // 3D Transform Gizmo Rendering & Direct Mouse Manipulation
-    if (camera)
+    // 3D Transform Gizmo: If Viewport is hidden, draw on BackgroundDrawList
+    if (!CViewportUI::GetInstance().IsVisible())
     {
-        CObject* targetObj = nullptr;
-        if (m_isPrefabEditMode && m_prefabEditTarget)
-        {
-            targetObj = m_prefabEditTarget.get();
-        }
-        else
-        {
-            const auto& currentObjList = ObjectManager::GetInstance().GetObjectList();
-            if (m_selectedTagIndex >= 0 && m_selectedTagIndex < static_cast<int>(currentObjList.size()))
-            {
-                const auto& vec = currentObjList[m_selectedTagIndex];
-                if (m_selectedObjectIndex >= 0 && m_selectedObjectIndex < static_cast<int>(vec.size()))
-                {
-                    if (vec[m_selectedObjectIndex] && !vec[m_selectedObjectIndex]->GetIsDestroyed())
-                    {
-                        targetObj = vec[m_selectedObjectIndex].get();
-                    }
-                }
-            }
-        }
-
-        if (targetObj)
-        {
-            CTransform* transform = targetObj->GetComponent<CTransform>();
-            if (transform)
-            {
-                DirectX::XMFLOAT3 pos = transform->GetPos();
-                DirectX::XMMATRIX view = camera->GetViewMatrix();
-                DirectX::XMMATRIX proj = camera->GetProjectionMatrix();
-
-                DirectX::XMVECTOR vOrigin = DirectX::XMVectorSet(pos.x, pos.y, pos.z, 1.0f);
-                DirectX::XMVECTOR vAxisX = DirectX::XMVectorSet(pos.x + 1.5f, pos.y, pos.z, 1.0f);
-                DirectX::XMVECTOR vAxisY = DirectX::XMVectorSet(pos.x, pos.y + 1.5f, pos.z, 1.0f);
-                DirectX::XMVECTOR vAxisZ = DirectX::XMVectorSet(pos.x, pos.y, pos.z + 1.5f, 1.0f);
-
-                D3D12_VIEWPORT viewport{};
-                viewport.Width = io.DisplaySize.x;
-                viewport.Height = io.DisplaySize.y;
-                viewport.MinDepth = 0.0f;
-                viewport.MaxDepth = 1.0f;
-                viewport.TopLeftX = 0;
-                viewport.TopLeftY = 0;
-
-                DirectX::XMVECTOR pOrigin = DirectX::XMVector3Project(vOrigin, viewport.TopLeftX, viewport.TopLeftY, viewport.Width, viewport.Height, viewport.MinDepth, viewport.MaxDepth, proj, view, DirectX::XMMatrixIdentity());
-                DirectX::XMVECTOR pAxisX  = DirectX::XMVector3Project(vAxisX,  viewport.TopLeftX, viewport.TopLeftY, viewport.Width, viewport.Height, viewport.MinDepth, viewport.MaxDepth, proj, view, DirectX::XMMatrixIdentity());
-                DirectX::XMVECTOR pAxisY  = DirectX::XMVector3Project(vAxisY,  viewport.TopLeftX, viewport.TopLeftY, viewport.Width, viewport.Height, viewport.MinDepth, viewport.MaxDepth, proj, view, DirectX::XMMatrixIdentity());
-                DirectX::XMVECTOR pAxisZ  = DirectX::XMVector3Project(vAxisZ,  viewport.TopLeftX, viewport.TopLeftY, viewport.Width, viewport.Height, viewport.MinDepth, viewport.MaxDepth, proj, view, DirectX::XMMatrixIdentity());
-
-                DirectX::XMFLOAT3 fOrigin, fAxisX, fAxisY, fAxisZ;
-                DirectX::XMStoreFloat3(&fOrigin, pOrigin);
-                DirectX::XMStoreFloat3(&fAxisX, pAxisX);
-                DirectX::XMStoreFloat3(&fAxisY, pAxisY);
-                DirectX::XMStoreFloat3(&fAxisZ, pAxisZ);
-
-                bool axisValid[3] = { fOrigin.z > 0.0f && fAxisX.z > 0.0f, fOrigin.z > 0.0f && fAxisY.z > 0.0f, fOrigin.z > 0.0f && fAxisZ.z > 0.0f };
-                if (axisValid[0] || axisValid[1] || axisValid[2])
-                {
-                    ImDrawList* drawList = ImGui::GetForegroundDrawList();
-                    ImVec2 originScreen = ImVec2(fOrigin.x, fOrigin.y);
-                    ImVec2 axisEndScreen[3] = {
-                        ImVec2(fAxisX.x, fAxisX.y),
-                        ImVec2(fAxisY.x, fAxisY.y),
-                        ImVec2(fAxisZ.x, fAxisZ.y)
-                    };
-
-                    ImVec2 mousePos = io.MousePos;
-                    int hoverAxis = -1;
-                    float minHoverDist = 16.0f; // Threshold in pixels
-
-                    if (!m_isDraggingGizmo)
-                    {
-                        for (int a = 0; a < 3; ++a)
-                        {
-                            if (!axisValid[a]) continue;
-                            ImVec2 p1 = originScreen;
-                            ImVec2 p2 = axisEndScreen[a];
-
-                            float l2 = (p2.x - p1.x) * (p2.x - p1.x) + (p2.y - p1.y) * (p2.y - p1.y);
-                            if (l2 < 1e-4f) continue;
-
-                            float t = ((mousePos.x - p1.x) * (p2.x - p1.x) + (mousePos.y - p1.y) * (p2.y - p1.y)) / l2;
-                            t = (std::max)(0.0f, (std::min)(1.0f, t));
-                            ImVec2 projPt = ImVec2(p1.x + t * (p2.x - p1.x), p1.y + t * (p2.y - p1.y));
-                            float dist = sqrtf((mousePos.x - projPt.x) * (mousePos.x - projPt.x) + (mousePos.y - projPt.y) * (mousePos.y - projPt.y));
-
-                            if (dist < minHoverDist)
-                            {
-                                minHoverDist = dist;
-                                hoverAxis = a;
-                            }
-                        }
-                    }
-
-                    // Mouse Dragging Logic
-                    if (m_isDraggingGizmo)
-                    {
-                        if (ImGui::IsMouseDown(ImGuiMouseButton_Left))
-                        {
-                            ImVec2 mouseDelta = ImVec2(mousePos.x - m_dragStartMouseX, mousePos.y - m_dragStartMouseY);
-                            int a = m_draggedAxis;
-                            if (a >= 0 && a < 3 && axisValid[a])
-                            {
-                                ImVec2 axisDir2D = ImVec2(axisEndScreen[a].x - originScreen.x, axisEndScreen[a].y - originScreen.y);
-                                float len2D = sqrtf(axisDir2D.x * axisDir2D.x + axisDir2D.y * axisDir2D.y);
-                                if (len2D > 1e-4f)
-                                {
-                                    axisDir2D.x /= len2D;
-                                    axisDir2D.y /= len2D;
-                                    float projAmount = mouseDelta.x * axisDir2D.x + mouseDelta.y * axisDir2D.y;
-
-                                    if (m_gizmoMode == GizmoMode::Translate)
-                                    {
-                                        DirectX::XMFLOAT3 newPos = m_dragStartVal;
-                                        float factor = 0.02f;
-                                        if (a == 0) newPos.x += projAmount * factor;
-                                        if (a == 1) newPos.y += projAmount * factor; // Fixed Y axis direction
-                                        if (a == 2) newPos.z += projAmount * factor;
-                                        transform->SetPos(newPos);
-                                    }
-                                    else if (m_gizmoMode == GizmoMode::Rotate)
-                                    {
-                                        DirectX::XMFLOAT3 newRot = m_dragStartVal;
-                                        float factor = 0.01f;
-                                        if (a == 0) newRot.x += projAmount * factor;
-                                        if (a == 1) newRot.y += projAmount * factor;
-                                        if (a == 2) newRot.z += projAmount * factor;
-                                        transform->SetRotation(newRot);
-                                    }
-                                    else if (m_gizmoMode == GizmoMode::Scale)
-                                    {
-                                        DirectX::XMFLOAT3 newScale = m_dragStartVal;
-                                        float factor = 0.02f;
-                                        if (a == 0) newScale.x = (std::max)(0.01f, m_dragStartVal.x + projAmount * factor);
-                                        if (a == 1) newScale.y = (std::max)(0.01f, m_dragStartVal.y + projAmount * factor); // Fixed Y axis direction
-                                        if (a == 2) newScale.z = (std::max)(0.01f, m_dragStartVal.z + projAmount * factor);
-                                        transform->SetScale(newScale);
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            m_isDraggingGizmo = false;
-                            m_draggedAxis = -1;
-
-                            DirectX::XMFLOAT3 curPos = transform->GetPos();
-                            DirectX::XMFLOAT3 curRot = transform->GetRotation();
-                            DirectX::XMFLOAT3 curScale = transform->GetScale();
-
-                            if (curPos.x != m_dragStartPos.x || curPos.y != m_dragStartPos.y || curPos.z != m_dragStartPos.z ||
-                                curRot.x != m_dragStartRot.x || curRot.y != m_dragStartRot.y || curRot.z != m_dragStartRot.z ||
-                                curScale.x != m_dragStartScale.x || curScale.y != m_dragStartScale.y || curScale.z != m_dragStartScale.z)
-                            {
-                                UndoManager::GetInstance().RecordCommand(
-                                    std::make_unique<TransformUndoCommand>(
-                                        targetObj,
-                                        m_dragStartPos, curPos,
-                                        m_dragStartRot, curRot,
-                                        m_dragStartScale, curScale
-                                    )
-                                );
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (hoverAxis >= 0 && ImGui::IsMouseClicked(ImGuiMouseButton_Left))
-                        {
-                            m_isDraggingGizmo = true;
-                            m_draggedAxis = hoverAxis;
-                            m_dragStartMouseX = mousePos.x;
-                            m_dragStartMouseY = mousePos.y;
-                            m_dragStartPos = transform->GetPos();
-                            m_dragStartRot = transform->GetRotation();
-                            m_dragStartScale = transform->GetScale();
-                            if (m_gizmoMode == GizmoMode::Translate) m_dragStartVal = m_dragStartPos;
-                            else if (m_gizmoMode == GizmoMode::Rotate) m_dragStartVal = m_dragStartRot;
-                            else if (m_gizmoMode == GizmoMode::Scale) m_dragStartVal = m_dragStartScale;
-                        }
-                    }
-
-                    // Render Thicker Axes with Dark Contrast Outline
-                    ImU32 colors[3] = {
-                        (m_isDraggingGizmo && m_draggedAxis == 0) ? IM_COL32(255, 255, 0, 255) : (hoverAxis == 0 ? IM_COL32(255, 220, 0, 255) : IM_COL32(255, 60, 60, 255)),
-                        (m_isDraggingGizmo && m_draggedAxis == 1) ? IM_COL32(255, 255, 0, 255) : (hoverAxis == 1 ? IM_COL32(255, 220, 0, 255) : IM_COL32(40, 255, 40, 255)),
-                        (m_isDraggingGizmo && m_draggedAxis == 2) ? IM_COL32(255, 255, 0, 255) : (hoverAxis == 2 ? IM_COL32(255, 220, 0, 255) : IM_COL32(40, 160, 255, 255))
-                    };
-
-                    const char* labels[3] = { "X", "Y", "Z" };
-
-                    for (int a = 0; a < 3; ++a)
-                    {
-                        if (axisValid[a])
-                        {
-                            bool isCurrent = (hoverAxis == a || (m_isDraggingGizmo && m_draggedAxis == a));
-                            float thickness = isCurrent ? 10.0f : 6.0f;
-                            
-                            // Black outline for background contrast
-                            drawList->AddLine(originScreen, axisEndScreen[a], IM_COL32(0, 0, 0, 220), thickness + 4.0f);
-                            // Main colored axis line
-                            drawList->AddLine(originScreen, axisEndScreen[a], colors[a], thickness);
-                            
-                            // Label with dark background text shadow
-                            ImVec2 labelPos = ImVec2(axisEndScreen[a].x + 4.0f, axisEndScreen[a].y - 6.0f);
-                            drawList->AddText(ImVec2(labelPos.x + 1.0f, labelPos.y + 1.0f), IM_COL32(0, 0, 0, 255), labels[a]);
-                            drawList->AddText(labelPos, colors[a], labels[a]);
-                        }
-                    }
-
-                    // Selection Indicator Ring & Center Dot with Dark Outline
-                    drawList->AddCircleFilled(originScreen, 9.0f, IM_COL32(0, 0, 0, 200));
-                    drawList->AddCircleFilled(originScreen, 6.0f, IM_COL32(255, 255, 255, 255));
-                    drawList->AddCircle(originScreen, 12.0f, IM_COL32(255, 200, 0, 255), 0, 3.0f);
-                }
-            }
-        }
+        ImGuiIO& io = ImGui::GetIO();
+        DrawGizmo(ImGui::GetBackgroundDrawList(), ImVec2(0.0f, 0.0f), io.DisplaySize);
     }
 
     if (m_showColliders)
@@ -1635,6 +1422,247 @@ void CInspectorUI::Draw()
             }
         }
     }
+}
+
+
+void CInspectorUI::DrawGizmo(ImDrawList* drawList, const ImVec2& vpPos, const ImVec2& vpSize)
+{
+    if (!drawList || vpSize.x <= 0.0f || vpSize.y <= 0.0f) return;
+
+    // EditMode または PrefabEditMode のときのみギズモを描画・操作する
+    if (!m_isEditMode && !m_isPrefabEditMode)
+    {
+        m_isDraggingGizmo = false;
+        m_draggedAxis = -1;
+        return;
+    }
+
+    CameraComponent* camera = ObjectManager::GetInstance().GetCamera();
+    if (!camera) return;
+
+    CObject* targetObj = nullptr;
+    if (m_isPrefabEditMode && m_prefabEditTarget)
+    {
+        targetObj = m_prefabEditTarget.get();
+    }
+    else
+    {
+        const auto& currentObjList = ObjectManager::GetInstance().GetObjectList();
+        if (m_selectedTagIndex >= 0 && m_selectedTagIndex < static_cast<int>(currentObjList.size()))
+        {
+            const auto& vec = currentObjList[m_selectedTagIndex];
+            if (m_selectedObjectIndex >= 0 && m_selectedObjectIndex < static_cast<int>(vec.size()))
+            {
+                if (vec[m_selectedObjectIndex] && !vec[m_selectedObjectIndex]->GetIsDestroyed())
+                {
+                    targetObj = vec[m_selectedObjectIndex].get();
+                }
+            }
+        }
+    }
+
+    if (!targetObj) return;
+
+    CTransform* transform = targetObj->GetComponent<CTransform>();
+    if (!transform) return;
+
+    DirectX::XMFLOAT3 pos = transform->GetPos();
+    DirectX::XMMATRIX view = camera->GetViewMatrix();
+    DirectX::XMMATRIX proj = camera->GetProjectionMatrix();
+
+    DirectX::XMVECTOR vOrigin = DirectX::XMVectorSet(pos.x, pos.y, pos.z, 1.0f);
+    DirectX::XMVECTOR vAxisX = DirectX::XMVectorSet(pos.x + 1.5f, pos.y, pos.z, 1.0f);
+    DirectX::XMVECTOR vAxisY = DirectX::XMVectorSet(pos.x, pos.y + 1.5f, pos.z, 1.0f);
+    DirectX::XMVECTOR vAxisZ = DirectX::XMVectorSet(pos.x, pos.y, pos.z + 1.5f, 1.0f);
+
+    D3D12_VIEWPORT viewport{};
+    viewport.Width = vpSize.x;
+    viewport.Height = vpSize.y;
+    viewport.MinDepth = 0.0f;
+    viewport.MaxDepth = 1.0f;
+    viewport.TopLeftX = vpPos.x;
+    viewport.TopLeftY = vpPos.y;
+
+    DirectX::XMVECTOR pOrigin = DirectX::XMVector3Project(vOrigin, viewport.TopLeftX, viewport.TopLeftY, viewport.Width, viewport.Height, viewport.MinDepth, viewport.MaxDepth, proj, view, DirectX::XMMatrixIdentity());
+    DirectX::XMVECTOR pAxisX = DirectX::XMVector3Project(vAxisX, viewport.TopLeftX, viewport.TopLeftY, viewport.Width, viewport.Height, viewport.MinDepth, viewport.MaxDepth, proj, view, DirectX::XMMatrixIdentity());
+    DirectX::XMVECTOR pAxisY = DirectX::XMVector3Project(vAxisY, viewport.TopLeftX, viewport.TopLeftY, viewport.Width, viewport.Height, viewport.MinDepth, viewport.MaxDepth, proj, view, DirectX::XMMatrixIdentity());
+    DirectX::XMVECTOR pAxisZ = DirectX::XMVector3Project(vAxisZ, viewport.TopLeftX, viewport.TopLeftY, viewport.Width, viewport.Height, viewport.MinDepth, viewport.MaxDepth, proj, view, DirectX::XMMatrixIdentity());
+
+    DirectX::XMFLOAT3 fOrigin, fAxisX, fAxisY, fAxisZ;
+    DirectX::XMStoreFloat3(&fOrigin, pOrigin);
+    DirectX::XMStoreFloat3(&fAxisX, pAxisX);
+    DirectX::XMStoreFloat3(&fAxisY, pAxisY);
+    DirectX::XMStoreFloat3(&fAxisZ, pAxisZ);
+
+    bool axisValid[3] = { fOrigin.z > 0.0f && fAxisX.z > 0.0f, fOrigin.z > 0.0f && fAxisY.z > 0.0f, fOrigin.z > 0.0f && fAxisZ.z > 0.0f };
+    if (!axisValid[0] && !axisValid[1] && !axisValid[2]) return;
+
+    ImGuiIO& io = ImGui::GetIO();
+    ImVec2 mousePos = io.MousePos;
+
+    // Viewportの画像範囲内にクリッピングをかける
+    drawList->PushClipRect(vpPos, ImVec2(vpPos.x + vpSize.x, vpPos.y + vpSize.y), true);
+
+    ImVec2 originScreen = ImVec2(fOrigin.x, fOrigin.y);
+    ImVec2 axisEndScreen[3] = {
+        ImVec2(fAxisX.x, fAxisX.y),
+        ImVec2(fAxisY.x, fAxisY.y),
+        ImVec2(fAxisZ.x, fAxisZ.y)
+    };
+
+    int hoverAxis = -1;
+    float minHoverDist = 16.0f; // Threshold in pixels
+
+    // マウスがビューポート画像矩形内にあるか、またはすでにドラッグ中である場合のみホバー/ドラッグ判定
+    bool mouseInVp = (mousePos.x >= vpPos.x && mousePos.x <= vpPos.x + vpSize.x &&
+                      mousePos.y >= vpPos.y && mousePos.y <= vpPos.y + vpSize.y);
+
+    if (!m_isDraggingGizmo && mouseInVp)
+    {
+        for (int a = 0; a < 3; ++a)
+        {
+            if (!axisValid[a]) continue;
+            ImVec2 p1 = originScreen;
+            ImVec2 p2 = axisEndScreen[a];
+
+            float l2 = (p2.x - p1.x) * (p2.x - p1.x) + (p2.y - p1.y) * (p2.y - p1.y);
+            if (l2 < 1e-4f) continue;
+
+            float t = ((mousePos.x - p1.x) * (p2.x - p1.x) + (mousePos.y - p1.y) * (p2.y - p1.y)) / l2;
+            t = (std::max)(0.0f, (std::min)(1.0f, t));
+            ImVec2 projPt = ImVec2(p1.x + t * (p2.x - p1.x), p1.y + t * (p2.y - p1.y));
+            float dist = sqrtf((mousePos.x - projPt.x) * (mousePos.x - projPt.x) + (mousePos.y - projPt.y) * (mousePos.y - projPt.y));
+
+            if (dist < minHoverDist)
+            {
+                minHoverDist = dist;
+                hoverAxis = a;
+            }
+        }
+    }
+
+    // Mouse Dragging Logic
+    if (m_isDraggingGizmo)
+    {
+        if (ImGui::IsMouseDown(ImGuiMouseButton_Left))
+        {
+            ImVec2 mouseDelta = ImVec2(mousePos.x - m_dragStartMouseX, mousePos.y - m_dragStartMouseY);
+            int a = m_draggedAxis;
+            if (a >= 0 && a < 3 && axisValid[a])
+            {
+                ImVec2 axisDir2D = ImVec2(axisEndScreen[a].x - originScreen.x, axisEndScreen[a].y - originScreen.y);
+                float len2D = sqrtf(axisDir2D.x * axisDir2D.x + axisDir2D.y * axisDir2D.y);
+                if (len2D > 1e-4f)
+                {
+                    axisDir2D.x /= len2D;
+                    axisDir2D.y /= len2D;
+                    float projAmount = mouseDelta.x * axisDir2D.x + mouseDelta.y * axisDir2D.y;
+
+                    if (m_gizmoMode == GizmoMode::Translate)
+                    {
+                        DirectX::XMFLOAT3 newPos = m_dragStartVal;
+                        float factor = 0.02f;
+                        if (a == 0) newPos.x += projAmount * factor;
+                        if (a == 1) newPos.y += projAmount * factor;
+                        if (a == 2) newPos.z += projAmount * factor;
+                        transform->SetPos(newPos);
+                    }
+                    else if (m_gizmoMode == GizmoMode::Rotate)
+                    {
+                        DirectX::XMFLOAT3 newRot = m_dragStartVal;
+                        float factor = 0.01f;
+                        if (a == 0) newRot.x += projAmount * factor;
+                        if (a == 1) newRot.y += projAmount * factor;
+                        if (a == 2) newRot.z += projAmount * factor;
+                        transform->SetRotation(newRot);
+                    }
+                    else if (m_gizmoMode == GizmoMode::Scale)
+                    {
+                        DirectX::XMFLOAT3 newScale = m_dragStartVal;
+                        float factor = 0.02f;
+                        if (a == 0) newScale.x = (std::max)(0.01f, m_dragStartVal.x + projAmount * factor);
+                        if (a == 1) newScale.y = (std::max)(0.01f, m_dragStartVal.y + projAmount * factor);
+                        if (a == 2) newScale.z = (std::max)(0.01f, m_dragStartVal.z + projAmount * factor);
+                        transform->SetScale(newScale);
+                    }
+                }
+            }
+        }
+        else
+        {
+            m_isDraggingGizmo = false;
+            m_draggedAxis = -1;
+
+            DirectX::XMFLOAT3 curPos = transform->GetPos();
+            DirectX::XMFLOAT3 curRot = transform->GetRotation();
+            DirectX::XMFLOAT3 curScale = transform->GetScale();
+
+            if (curPos.x != m_dragStartPos.x || curPos.y != m_dragStartPos.y || curPos.z != m_dragStartPos.z ||
+                curRot.x != m_dragStartRot.x || curRot.y != m_dragStartRot.y || curRot.z != m_dragStartRot.z ||
+                curScale.x != m_dragStartScale.x || curScale.y != m_dragStartScale.y || curScale.z != m_dragStartScale.z)
+            {
+                UndoManager::GetInstance().RecordCommand(
+                    std::make_unique<TransformUndoCommand>(
+                        targetObj,
+                        m_dragStartPos, curPos,
+                        m_dragStartRot, curRot,
+                        m_dragStartScale, curScale
+                    )
+                );
+            }
+        }
+    }
+    else
+    {
+        if (hoverAxis >= 0 && ImGui::IsMouseClicked(ImGuiMouseButton_Left))
+        {
+            m_isDraggingGizmo = true;
+            m_draggedAxis = hoverAxis;
+            m_dragStartMouseX = mousePos.x;
+            m_dragStartMouseY = mousePos.y;
+            m_dragStartPos = transform->GetPos();
+            m_dragStartRot = transform->GetRotation();
+            m_dragStartScale = transform->GetScale();
+            if (m_gizmoMode == GizmoMode::Translate) m_dragStartVal = m_dragStartPos;
+            else if (m_gizmoMode == GizmoMode::Rotate) m_dragStartVal = m_dragStartRot;
+            else if (m_gizmoMode == GizmoMode::Scale) m_dragStartVal = m_dragStartScale;
+        }
+    }
+
+    // Render Thicker Axes with Dark Contrast Outline
+    ImU32 colors[3] = {
+        (m_isDraggingGizmo && m_draggedAxis == 0) ? IM_COL32(255, 255, 0, 255) : (hoverAxis == 0 ? IM_COL32(255, 220, 0, 255) : IM_COL32(255, 60, 60, 255)),
+        (m_isDraggingGizmo && m_draggedAxis == 1) ? IM_COL32(255, 255, 0, 255) : (hoverAxis == 1 ? IM_COL32(255, 220, 0, 255) : IM_COL32(40, 255, 40, 255)),
+        (m_isDraggingGizmo && m_draggedAxis == 2) ? IM_COL32(255, 255, 0, 255) : (hoverAxis == 2 ? IM_COL32(255, 220, 0, 255) : IM_COL32(40, 160, 255, 255))
+    };
+
+    const char* labels[3] = { "X", "Y", "Z" };
+
+    for (int a = 0; a < 3; ++a)
+    {
+        if (axisValid[a])
+        {
+            bool isCurrent = (hoverAxis == a || (m_isDraggingGizmo && m_draggedAxis == a));
+            float thickness = isCurrent ? 10.0f : 6.0f;
+            
+            // Black outline for background contrast
+            drawList->AddLine(originScreen, axisEndScreen[a], IM_COL32(0, 0, 0, 220), thickness + 4.0f);
+            // Main colored axis line
+            drawList->AddLine(originScreen, axisEndScreen[a], colors[a], thickness);
+            
+            // Label with dark background text shadow
+            ImVec2 labelPos = ImVec2(axisEndScreen[a].x + 4.0f, axisEndScreen[a].y - 6.0f);
+            drawList->AddText(ImVec2(labelPos.x + 1.0f, labelPos.y + 1.0f), IM_COL32(0, 0, 0, 255), labels[a]);
+            drawList->AddText(labelPos, colors[a], labels[a]);
+        }
+    }
+
+    // Selection Indicator Ring & Center Dot with Dark Outline
+    drawList->AddCircleFilled(originScreen, 9.0f, IM_COL32(0, 0, 0, 200));
+    drawList->AddCircleFilled(originScreen, 6.0f, IM_COL32(255, 255, 255, 255));
+    drawList->AddCircle(originScreen, 12.0f, IM_COL32(255, 200, 0, 255), 0, 3.0f);
+
+    drawList->PopClipRect();
 }
 
 namespace fs = std::filesystem;

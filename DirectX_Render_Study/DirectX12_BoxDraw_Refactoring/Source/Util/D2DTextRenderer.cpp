@@ -258,5 +258,6 @@ void D2DTextRenderer::Render(UINT frameIndex)
     m_d3d11DeviceContext->Flush();
 
     // キューをクリア
+    m_prevTextQueue = m_textQueue;
     m_textQueue.clear();
 }
