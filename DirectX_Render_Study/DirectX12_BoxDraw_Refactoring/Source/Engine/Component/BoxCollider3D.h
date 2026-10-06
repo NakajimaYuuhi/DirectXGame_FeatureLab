@@ -1,5 +1,6 @@
 #pragma once
 #include "Collider3D.h"
+#include "imgui.h"
 #include <DirectXMath.h>
 #include "Object.h"
 #include "Transform.h"
@@ -132,7 +133,7 @@ public:
 	}
 
 	// デバッグ可視化用
-	void DrawDebug(CameraComponent* camera);
+	void DrawDebug(CameraComponent* camera, ImDrawList* drawList = nullptr, const ImVec2& vpPos = ImVec2(0.0f, 0.0f), const ImVec2& vpSize = ImVec2(0.0f, 0.0f));
 
 	RenderLayer GetRenderLayer() const override { return RenderLayer::Debug; }
 

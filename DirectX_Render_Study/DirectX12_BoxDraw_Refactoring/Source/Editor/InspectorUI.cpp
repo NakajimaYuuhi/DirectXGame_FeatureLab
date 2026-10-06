@@ -1400,28 +1400,9 @@ void CInspectorUI::Draw()
     {
         ImGuiIO& io = ImGui::GetIO();
         DrawGizmo(ImGui::GetBackgroundDrawList(), ImVec2(0.0f, 0.0f), io.DisplaySize);
+        DrawColliders(ImGui::GetBackgroundDrawList(), ImVec2(0.0f, 0.0f), io.DisplaySize);
     }
 
-    if (m_showColliders)
-    {
-        CameraComponent* camera = ObjectManager::GetInstance().GetCamera();
-        if (camera)
-        {
-            const auto& objectList = ObjectManager::GetInstance().GetObjectList();
-            for (size_t tagIdx = 0; tagIdx < objectList.size(); ++tagIdx)
-            {
-                for (const auto& obj : objectList[tagIdx])
-                {
-                    if (!obj || obj->GetIsDestroyed()) continue;
-                    BoxCollider3D* collider = obj->GetComponent<BoxCollider3D>();
-                    if (collider)
-                    {
-                        collider->DrawDebug(camera);
-                    }
-                }
-            }
-        }
-    }
 }
 
 
@@ -1663,6 +1644,29 @@ void CInspectorUI::DrawGizmo(ImDrawList* drawList, const ImVec2& vpPos, const Im
     drawList->AddCircle(originScreen, 12.0f, IM_COL32(255, 200, 0, 255), 0, 3.0f);
 
     drawList->PopClipRect();
+}
+
+
+void CInspectorUI::DrawColliders(ImDrawList* drawList, const ImVec2& vpPos, const ImVec2& vpSize)
+{
+    if (!m_showColliders) return;
+
+    CameraComponent* camera = ObjectManager::GetInstance().GetCamera();
+    if (!camera) return;
+
+    const auto& objectList = ObjectManager::GetInstance().GetObjectList();
+    for (size_t tagIdx = 0; tagIdx < objectList.size(); ++tagIdx)
+    {
+        for (const auto& obj : objectList[tagIdx])
+        {
+            if (!obj || obj->GetIsDestroyed()) continue;
+            BoxCollider3D* collider = obj->GetComponent<BoxCollider3D>();
+            if (collider)
+            {
+                collider->DrawDebug(camera, drawList, vpPos, vpSize);
+            }
+        }
+    }
 }
 
 namespace fs = std::filesystem;

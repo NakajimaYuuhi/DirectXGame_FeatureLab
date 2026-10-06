@@ -1,7 +1,7 @@
 #include "BoxCollider3D.h"
 #include "imgui.h"
 
-void BoxCollider3D::DrawDebug(CameraComponent* camera)
+void BoxCollider3D::DrawDebug(CameraComponent* camera, ImDrawList* customDrawList, const ImVec2& vpPos, const ImVec2& vpSize)
 {
 #ifndef _DEBUG
 	return;
@@ -29,8 +29,12 @@ void BoxCollider3D::DrawDebug(CameraComponent* camera)
 
 	DirectX::XMMATRIX viewProj = camera->GetViewMatrix() * camera->GetProjectionMatrix();
 	ImGuiIO& io = ImGui::GetIO();
-	float screenW = io.DisplaySize.x;
-	float screenH = io.DisplaySize.y;
+
+	bool useViewport = (vpSize.x > 0.0f && vpSize.y > 0.0f);
+	float screenW = useViewport ? vpSize.x : io.DisplaySize.x;
+	float screenH = useViewport ? vpSize.y : io.DisplaySize.y;
+	float offsetX = useViewport ? vpPos.x : 0.0f;
+	float offsetY = useViewport ? vpPos.y : 0.0f;
 
 	ImVec2 screenCorners[8];
 	bool valid[8];
@@ -46,8 +50,8 @@ void BoxCollider3D::DrawDebug(CameraComponent* camera)
 			float x = DirectX::XMVectorGetX(clip) / w;
 			float y = DirectX::XMVectorGetY(clip) / w;
 
-			screenCorners[i].x = (x + 1.0f) * 0.5f * screenW;
-			screenCorners[i].y = (1.0f - y) * 0.5f * screenH;
+			screenCorners[i].x = offsetX + (x + 1.0f) * 0.5f * screenW;
+			screenCorners[i].y = offsetY + (1.0f - y) * 0.5f * screenH;
 			valid[i] = true;
 		}
 		else
@@ -56,9 +60,13 @@ void BoxCollider3D::DrawDebug(CameraComponent* camera)
 		}
 	}
 
-	// ImGuiの全エディタウィンドウの背後（ゲーム画面上）に描画
-	ImDrawList* drawList = ImGui::GetBackgroundDrawList();
+	ImDrawList* drawList = customDrawList ? customDrawList : ImGui::GetBackgroundDrawList();
 	if (!drawList) return;
+
+	if (useViewport)
+	{
+		drawList->PushClipRect(vpPos, ImVec2(vpPos.x + vpSize.x, vpPos.y + vpSize.y), true);
+	}
 
 	static const int edges[12][2] = {
 		{0,1}, {1,2}, {2,3}, {3,0},
@@ -76,5 +84,10 @@ void BoxCollider3D::DrawDebug(CameraComponent* camera)
 		{
 			drawList->AddLine(screenCorners[idxA], screenCorners[idxB], debugColor, 2.0f);
 		}
+	}
+
+	if (useViewport)
+	{
+		drawList->PopClipRect();
 	}
 }

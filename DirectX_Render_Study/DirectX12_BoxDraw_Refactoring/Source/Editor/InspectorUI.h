@@ -47,6 +47,7 @@ public:
     }
 
     void DrawGizmo(ImDrawList* drawList, const ImVec2& vpPos, const ImVec2& vpSize);
+    void DrawColliders(ImDrawList* drawList, const ImVec2& vpPos, const ImVec2& vpSize);
 
     // Prefab Edit Mode (Prefab Stage)
     bool IsPrefabEditMode() const { return m_isPrefabEditMode; }

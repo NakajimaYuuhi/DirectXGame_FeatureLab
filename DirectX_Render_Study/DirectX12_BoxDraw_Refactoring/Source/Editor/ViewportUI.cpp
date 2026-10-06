@@ -57,6 +57,7 @@ void CViewportUI::Draw()
             ImGui::Image(texID, ImVec2(renderW, renderH));
 
             // 1. 3Dトランスフォームギズモ描画（Viewportウィンドウ内DrawList）
+            CInspectorUI::GetInstance().DrawColliders(ImGui::GetWindowDrawList(), m_imagePos, m_imageSize);
             CInspectorUI::GetInstance().DrawGizmo(ImGui::GetWindowDrawList(), m_imagePos, m_imageSize);
 
             // 2. 2Dテキストのオーバーレイ描画

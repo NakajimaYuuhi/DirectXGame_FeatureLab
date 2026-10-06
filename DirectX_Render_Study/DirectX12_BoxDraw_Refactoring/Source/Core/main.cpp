@@ -192,7 +192,9 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 		CInputManager::GetInstance().Update();
 
 		// --- 更新 ---
-		//ImGuiのフレーム開始
+#ifdef _DEBUG
+		// --- 更新 ---
+		//ImGuiのフレーム開始（Debugエディタ環境のみ）
 		CImGuiManager::GetInstance().Begin();
 		{
 			CEditorToolbarUI::GetInstance().Draw();
@@ -203,6 +205,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 			CProfilerUI::GetInstance().Draw();
 			CAssetSecurityUI::GetInstance().Draw();
 		}
+#endif
 
 		// Update
 		{
@@ -245,10 +248,13 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 		DX12Manager::GetInstance().EndSceneDraw();
 
 		// ImGui描画
+#ifdef _DEBUG
+		// ImGui描画（Debugエディタ環境のみ）
 		{
 			PROFILE_SCOPE("UI::ImGui");
-		CImGuiManager::GetInstance().End(DX12Manager::GetInstance().GetCommandList());
+			CImGuiManager::GetInstance().End(DX12Manager::GetInstance().GetCommandList());
 		}
+#endif
 
 		//DirectX12の描画終了
 		DX12Manager::GetInstance().EndDraw();
