@@ -1,6 +1,7 @@
 #include "ViewportUI.h"
 #include "Object.h"
 #include "InspectorUI.h"
+#include "ContentDrawerUI.h"
 #include "D2DTextRenderer.h"
 #include <algorithm>
 #include <Windows.h>
@@ -9,9 +10,23 @@ void CViewportUI::Draw()
 {
     if (!m_isVisible) return;
 
+    ImGuiIO& io = ImGui::GetIO();
+    float screenW = io.DisplaySize.x;
+    float screenH = io.DisplaySize.y;
+    float toolbarH = 48.0f;
+    float hierarchyW = 320.0f;
+    float inspectorW = 460.0f;
+    float centerW = screenW - hierarchyW - inspectorW;
+    float drawerH = CContentDrawerUI::GetInstance().IsVisible() ? 280.0f : 0.0f;
+    float viewportH = screenH - toolbarH - drawerH;
+
+    ImGui::SetNextWindowPos(ImVec2(hierarchyW, toolbarH), ImGuiCond_Always);
+    ImGui::SetNextWindowSize(ImVec2(centerW, viewportH), ImGuiCond_Always);
+    ImGuiWindowFlags flags = ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize;
+
     // パディングゼロにして画面端までぴったり合わせる
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
-    if (ImGui::Begin("Viewport", &m_isVisible))
+    if (ImGui::Begin("Viewport", &m_isVisible, flags))
     {
         m_isHovered = ImGui::IsWindowHovered();
         m_isFocused = ImGui::IsWindowFocused();

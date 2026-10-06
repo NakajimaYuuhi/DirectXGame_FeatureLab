@@ -125,9 +125,16 @@ void CInspectorUI::Draw()
     return;
 #endif // !_DEBUG
 
-    ImGui::Begin("Level Editor & Inspector");
-
     ImGuiIO& io = ImGui::GetIO();
+    float screenW = io.DisplaySize.x;
+    float screenH = io.DisplaySize.y;
+    float toolbarH = 48.0f;
+    float inspectorW = 460.0f;
+
+    ImGui::SetNextWindowPos(ImVec2(screenW - inspectorW, toolbarH), ImGuiCond_Always);
+    ImGui::SetNextWindowSize(ImVec2(inspectorW, screenH - toolbarH), ImGuiCond_Always);
+    ImGuiWindowFlags flags = ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize;
+    ImGui::Begin("Level Editor & Inspector", nullptr, flags);
     CameraComponent* camera = ObjectManager::GetInstance().GetCamera();
 
     // Keyboard Shortcuts (Undo: Ctrl+Z, Redo: Ctrl+Y / Ctrl+Shift+Z, Gizmo Mode: W/E/R)

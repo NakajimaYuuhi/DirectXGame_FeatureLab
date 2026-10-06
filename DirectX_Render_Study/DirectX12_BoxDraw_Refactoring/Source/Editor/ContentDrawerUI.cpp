@@ -79,8 +79,18 @@ void CContentDrawerUI::Draw()
         RefreshPrefabList();
     }
 
-    ImGui::SetNextWindowSize(ImVec2(650, 260), ImGuiCond_FirstUseEver);
-    if (ImGui::Begin("Content Drawer (Prefabs)", &m_isVisible, ImGuiWindowFlags_NoCollapse))
+    ImGuiIO& io = ImGui::GetIO();
+    float screenW = io.DisplaySize.x;
+    float screenH = io.DisplaySize.y;
+    float hierarchyW = 320.0f;
+    float inspectorW = 460.0f;
+    float centerW = screenW - hierarchyW - inspectorW;
+    float drawerH = 280.0f;
+
+    ImGui::SetNextWindowPos(ImVec2(hierarchyW, screenH - drawerH), ImGuiCond_Always);
+    ImGui::SetNextWindowSize(ImVec2(centerW, drawerH), ImGuiCond_Always);
+    ImGuiWindowFlags flags = ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize;
+    if (ImGui::Begin("Content Drawer (Prefabs)", &m_isVisible, flags))
     {
         // 手動更新ボタン
         if (ImGui::Button("Refresh"))

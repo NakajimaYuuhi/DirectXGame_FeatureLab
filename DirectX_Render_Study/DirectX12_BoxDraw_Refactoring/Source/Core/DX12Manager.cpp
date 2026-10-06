@@ -480,7 +480,11 @@ void DX12Manager::BeginDraw()
 
 	// 6. ?N???A
 	//????F
-	FLOAT clearColor[] = { 0.1f, 0.2f, 0.4f, 1.0f };
+#ifdef _DEBUG
+	FLOAT clearColor[] = { 0.10f, 0.10f, 0.10f, 1.0f }; // エディタ用ダークグレー
+#else
+	FLOAT clearColor[] = { 0.0f, 0.0f, 0.0f, 1.0f };
+#endif
 
 	//?????_?[?^?[?Q?b?g??Z?b?g
 	m_commandList->OMSetRenderTargets(

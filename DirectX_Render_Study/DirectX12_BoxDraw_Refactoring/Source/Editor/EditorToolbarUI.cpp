@@ -22,8 +22,14 @@ void CEditorToolbarUI::Draw()
 
     if (!m_isVisible) return;
 
-    ImGui::SetNextWindowSize(ImVec2(800, 55), ImGuiCond_FirstUseEver);
-    if (ImGui::Begin("Editor Toolbar", &m_isVisible, ImGuiWindowFlags_NoScrollbar))
+    ImGuiIO& io = ImGui::GetIO();
+    float screenW = io.DisplaySize.x;
+    float toolbarH = 48.0f;
+
+    ImGui::SetNextWindowPos(ImVec2(0.0f, 0.0f), ImGuiCond_Always);
+    ImGui::SetNextWindowSize(ImVec2(screenW, toolbarH), ImGuiCond_Always);
+    ImGuiWindowFlags flags = ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoTitleBar;
+    if (ImGui::Begin("Editor Toolbar", &m_isVisible, flags))
     {
         // ---------------------------------------------------------
         // 1. 繝励Ξ繧､繝｢繝ｼ繝・/ 邱ｨ髮・Δ繝ｼ繝・/ 繝励Ξ繝上ヶ邱ｨ髮・Δ繝ｼ繝峨・蛻ｶ蠕｡繝懊ち繝ｳ

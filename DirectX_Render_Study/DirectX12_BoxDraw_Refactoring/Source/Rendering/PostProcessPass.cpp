@@ -272,16 +272,27 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         m_pFinalTex->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE);
         CViewportUI::GetInstance().SetTextureSRV(m_pFinalTex->GetSRV());
 
-        // --------------------------------------------------------
-        // Step 5: バックバッファへも出力 (m_pFinalTex -> BackBuffer)
-        // --------------------------------------------------------
-        ctx.cmdList->OMSetRenderTargets(1, &ctx.backBufferRTV, FALSE, nullptr);
-        ctx.cmdList->RSSetViewports(1, &vpFull);
-        ctx.cmdList->RSSetScissorRects(1, &scFull);
+                // --------------------------------------------------------
+        // Step 5: バックバッファへの出力 (m_pFinalTex -> BackBuffer)
+        // ※DebugビルドかつViewportUI表示時はViewport内のみ出力し、バックバッファへは描画しない
+                // バックバッファへ出力（DebugビルドかつViewport表示時はスキップ）
+        bool outputToBackBuffer = true;
+#ifdef _DEBUG
+        if (CViewportUI::GetInstance().IsVisible())
+        {
+            outputToBackBuffer = false;
+        }
+#endif
+        if (outputToBackBuffer)
+        {
+            ctx.cmdList->OMSetRenderTargets(1, &ctx.backBufferRTV, FALSE, nullptr);
+            ctx.cmdList->RSSetViewports(1, &vpFull);
+            ctx.cmdList->RSSetScissorRects(1, &scFull);
 
-        ctx.cmdList->SetPipelineState(m_pPassThroughPSO.Get());
-        ctx.cmdList->SetGraphicsRootDescriptorTable(1, m_pFinalTex->GetSRV());
-        ctx.cmdList->DrawInstanced(3, 1, 0, 0);
+            ctx.cmdList->SetPipelineState(m_pPassThroughPSO.Get());
+            ctx.cmdList->SetGraphicsRootDescriptorTable(1, m_pFinalTex->GetSRV());
+            ctx.cmdList->DrawInstanced(3, 1, 0, 0);
+        }
     }
     else
     {

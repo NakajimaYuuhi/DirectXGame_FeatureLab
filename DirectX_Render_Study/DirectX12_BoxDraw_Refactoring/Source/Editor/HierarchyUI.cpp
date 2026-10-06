@@ -13,8 +13,15 @@ void CHierarchyUI::Draw()
 
     if (!m_isVisible) return;
 
-    ImGui::SetNextWindowSize(ImVec2(320, 500), ImGuiCond_FirstUseEver);
-    if (ImGui::Begin("Hierarchy", &m_isVisible))
+    ImGuiIO& io = ImGui::GetIO();
+    float screenH = io.DisplaySize.y;
+    float toolbarH = 48.0f;
+    float hierarchyW = 320.0f;
+
+    ImGui::SetNextWindowPos(ImVec2(0.0f, toolbarH), ImGuiCond_Always);
+    ImGui::SetNextWindowSize(ImVec2(hierarchyW, screenH - toolbarH), ImGuiCond_Always);
+    ImGuiWindowFlags flags = ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize;
+    if (ImGui::Begin("Hierarchy", &m_isVisible, flags))
     {
         // 1. Create Empty Object Action
         if (ImGui::Button("+ Create Empty CObject"))
