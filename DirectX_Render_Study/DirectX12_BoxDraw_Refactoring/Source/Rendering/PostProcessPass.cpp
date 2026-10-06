@@ -95,11 +95,11 @@ void PostProcessPass::Init(ID3D12Device* pDevice)
         }
     };
 
-    CompileShader("VSMain",            "vs_5_0", vsBlob);
-    CompileShader("PS_PassThrough",    "ps_5_0", psPassThroughBlob);
-    CompileShader("PS_BrightPass",     "ps_5_0", psBrightBlob);
-    CompileShader("PS_GaussianBlur",   "ps_5_0", psBlurBlob);
-    CompileShader("PS_Composite",      "ps_5_0", psCompositeBlob);
+    CompileShader("VSMain",        "vs_5_0", vsBlob);
+    CompileShader("PSPassThrough", "ps_5_0", psPassThroughBlob);
+    CompileShader("PSBrightPass",  "ps_5_0", psBrightBlob);
+    CompileShader("PSBlurPass",    "ps_5_0", psBlurBlob);
+    CompileShader("PSComposite",   "ps_5_0", psCompositeBlob);
 
     // --------------------------------------------------------
     // 3. 各PSO作成用ヘルパー
