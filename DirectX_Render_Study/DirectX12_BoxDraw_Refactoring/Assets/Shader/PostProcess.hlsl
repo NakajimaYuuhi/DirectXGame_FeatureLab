@@ -1,6 +1,6 @@
 // ==========================================
 // PostProcess.hlsl
-// ãƒã‚¹ãƒˆãƒ—ãƒ­ã‚»ã‚¹ (ãƒ–ãƒ«ãƒ¼ãƒ é«˜è¼åº¦æŠ½å‡ºãƒ»ãƒ–ãƒ©ãƒ¼ãƒ»åˆæˆ)
+// ƒ|ƒXƒgƒvƒƒZƒX (ƒuƒ‹[ƒ€‚‹P“x’ŠoEƒuƒ‰[E‡¬)
 // ==========================================
 
 struct VSOutput {
@@ -8,7 +8,7 @@ struct VSOutput {
     float2 uv  : TEXCOORD0;
 };
 
-// --- ãƒ•ãƒ«ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ä¸‰è§’å½¢é ‚ç‚¹ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ ---
+// --- ƒtƒ‹ƒXƒNƒŠ[ƒ“OŠpŒ`’¸“_ƒVƒF[ƒ_[ ---
 VSOutput VSMain(uint vertexID : SV_VertexID) {
     VSOutput output;
     output.uv = float2((vertexID << 1) & 2, vertexID & 2);
@@ -16,40 +16,40 @@ VSOutput VSMain(uint vertexID : SV_VertexID) {
     return output;
 }
 
-// --- ãƒ«ãƒ¼ãƒˆå®šæ•° (8 DWORD / 32 bytes) ---
+// --- ƒ‹[ƒg’è” (8 DWORD / 32 bytes) ---
 cbuffer PostProcessCB : register(b0)
 {
-    float g_threshold;    // ãƒ–ãƒ«ãƒ¼ãƒ æŠ½å‡ºé–¾å€¤ (ä¾‹: 0.8)
-    float g_knee;         // ã‚½ãƒ•ãƒˆãƒ‹ãƒ¼å¹… (ä¾‹: 0.2)
-    float g_intensity;    // ãƒ–ãƒ«ãƒ¼ãƒ åˆæˆå¼·åº¦ (ä¾‹: 1.2)
-    float g_spread;       // ãƒ–ãƒ©ãƒ¼æ‹¡æ•£ä¿‚æ•° (ä¾‹: 1.0)
-    float2 g_direction;   // ãƒ–ãƒ©ãƒ¼æ–¹å‘ (æ°´å¹³: 1/w, 0 / å‚ç›´: 0, 1/h)
-    float g_bloomEnabled; // 1.0: æœ‰åŠ¹, 0.0: ç„¡åŠ¹
+    float g_threshold;    // ƒuƒ‹[ƒ€’Šoè‡’l (—á: 0.8)
+    float g_knee;         // ƒ\ƒtƒgƒj[• (—á: 0.2)
+    float g_intensity;    // ƒuƒ‹[ƒ€‡¬‹­“x (—á: 1.2)
+    float g_spread;       // ƒuƒ‰[ŠgUŒW” (—á: 1.0)
+    float2 g_direction;   // ƒuƒ‰[•ûŒü (…•½: 1/w, 0 / ‚’¼: 0, 1/h)
+    float g_bloomEnabled; // 1.0: —LŒø, 0.0: –³Œø
     float g_padding;
 };
 
-Texture2D    g_texture0 : register(t0); // ãƒ¡ã‚¤ãƒ³/å…¥åŠ›ãƒ†ã‚¯ã‚¹ãƒãƒ£
-Texture2D    g_texture1 : register(t1); // ãƒ–ãƒ«ãƒ¼ãƒ ãƒ–ãƒ©ãƒ¼ãƒ†ã‚¯ã‚¹ãƒãƒ£ (Compositeç”¨)
-SamplerState g_sampler  : register(s0); // ãƒªãƒ‹ã‚¢ã‚¯ãƒ©ãƒ³ãƒ—ã‚µãƒ³ãƒ—ãƒ©ãƒ¼
+Texture2D    g_texture0 : register(t0); // ƒƒCƒ“/“ü—ÍƒeƒNƒXƒ`ƒƒ
+Texture2D    g_texture1 : register(t1); // ƒuƒ‹[ƒ€ƒuƒ‰[ƒeƒNƒXƒ`ƒƒ (Composite—p)
+SamplerState g_sampler  : register(s0); // ƒŠƒjƒAƒNƒ‰ƒ“ƒvƒTƒ“ƒvƒ‰[
 
-// --- ãƒ‘ã‚¹ã‚¹ãƒ«ãƒ¼ (å˜ãªã‚‹ç”»é¢è»¢é€) ---
+// --- ƒpƒXƒXƒ‹[ (’P‚È‚é‰æ–Ê“]‘—) ---
 float4 PSPassThrough(VSOutput input) : SV_TARGET {
-    return g_texture0.Sample(g_sampler, input.uv);
+    return float4(g_texture0.Sample(g_sampler, input.uv).rgb, 1.0f);
 }
 
-// vcxproj ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ“ãƒ«ãƒ‰ç”¨ã‚¨ãƒ³ãƒˆãƒªãƒ¼ãƒã‚¤ãƒ³ãƒˆ
+// vcxproj ‚ÌƒfƒtƒHƒ‹ƒgƒrƒ‹ƒh—pƒGƒ“ƒgƒŠ[ƒ|ƒCƒ“ƒg
 float4 PSMain(VSOutput input) : SV_TARGET {
     return PSPassThrough(input);
 }
 
-// --- é«˜è¼åº¦æŠ½å‡º (Bright Pass) ---
+// --- ‚‹P“x’Šo (Bright Pass) ---
 float4 PSBrightPass(VSOutput input) : SV_TARGET {
     float4 color = g_texture0.Sample(g_sampler, input.uv);
     
-    // RGBã®è¼åº¦ (Luminance) ã‚’è¨ˆç®—
+    // RGB‚Ì‹P“x (Luminance) ‚ğŒvZ
     float lum = dot(color.rgb, float3(0.2126f, 0.7152f, 0.0722f));
     
-    // ã‚½ãƒ•ãƒˆãƒ‹ãƒ¼ã«ã‚ˆã‚‹æ»‘ã‚‰ã‹ãªé–¾å€¤æŠ½å‡º
+    // ƒ\ƒtƒgƒj[‚É‚æ‚éŠŠ‚ç‚©‚Èè‡’l’Šo
     float knee = max(1e-4f, g_threshold * g_knee);
     float soft = lum - g_threshold + knee;
     soft = clamp(soft, 0.0f, 2.0f * knee);
@@ -62,7 +62,7 @@ float4 PSBrightPass(VSOutput input) : SV_TARGET {
     return float4(bright, 1.0f);
 }
 
-// --- ã‚¬ã‚¦ã‚¹ãƒ–ãƒ©ãƒ¼ (ãƒã‚¤ãƒªãƒ‹ã‚¢5ã‚¿ãƒƒãƒ—ã‚µãƒ³ãƒ—ãƒªãƒ³ã‚° / 9ãƒ†ã‚¯ã‚»ãƒ«ç›¸å½“) ---
+// --- ƒKƒEƒXƒuƒ‰[ (ƒoƒCƒŠƒjƒA5ƒ^ƒbƒvƒTƒ“ƒvƒŠƒ“ƒO / 9ƒeƒNƒZƒ‹‘Š“–) ---
 float4 PSBlurPass(VSOutput input) : SV_TARGET {
     static const float c_weights[3] = { 0.2270270270f, 0.3162162162f, 0.0702702703f };
     static const float c_offsets[3] = { 0.0f, 1.3846153846f, 3.2307692308f };
@@ -81,7 +81,7 @@ float4 PSBlurPass(VSOutput input) : SV_TARGET {
     return float4(result, 1.0f);
 }
 
-// --- æœ€çµ‚åˆæˆ (Composite Pass: Scene + Bloom -> BackBuffer) ---
+// --- ÅI‡¬ (Composite Pass: Scene + Bloom -> BackBuffer) ---
 float4 PSComposite(VSOutput input) : SV_TARGET {
     float4 sceneColor = g_texture0.Sample(g_sampler, input.uv);
     
@@ -90,9 +90,9 @@ float4 PSComposite(VSOutput input) : SV_TARGET {
         float3 bloomColor = g_texture1.Sample(g_sampler, input.uv).rgb;
         float3 finalColor = sceneColor.rgb + bloomColor * g_intensity;
         
-        // ã‚ãšã‹ãªç™½é£›ã³é˜²æ­¢ã‚¯ãƒ©ãƒ³ãƒ—/ã‚µãƒãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
-        return float4(finalColor, sceneColor.a);
+        // ‚í‚¸‚©‚È”’”ò‚Ñ–h~ƒNƒ‰ƒ“ƒv/ƒTƒ`ƒ…ƒŒ[ƒVƒ‡ƒ“
+        return float4(finalColor, 1.0f);
     }
     
-    return sceneColor;
+    return float4(sceneColor.rgb, 1.0f);
 }
