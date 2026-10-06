@@ -16,12 +16,18 @@ public:
     void SetSourceTexture(RenderTexture* pSourceTex) { m_pSourceTex = pSourceTex; }
     RenderTexture* GetSourceTexture() const { return m_pSourceTex; }
 
+    RenderTexture* GetFinalTexture() const { return m_pFinalTex.get(); }
+    D3D12_GPU_DESCRIPTOR_HANDLE GetFinalSRV() const { return m_pFinalTex ? m_pFinalTex->GetSRV() : D3D12_GPU_DESCRIPTOR_HANDLE{}; }
+
 private:
     RenderTexture* m_pSourceTex = nullptr;
 
-    // ブルーム用縮小・作業バッファ (1/2 解像度)
+    // ブルーム作業用バッファ (1/2 解像度)
     std::unique_ptr<RenderTexture> m_pBrightTex;
     std::unique_ptr<RenderTexture> m_pBlurTexTemp;
+
+    // 最終合成結果出力用バッファ (フル解像度 / Viewport表示用)
+    std::unique_ptr<RenderTexture> m_pFinalTex;
 
     // ルートシグネチャ
     Microsoft::WRL::ComPtr<ID3D12RootSignature> m_pRootSignature;

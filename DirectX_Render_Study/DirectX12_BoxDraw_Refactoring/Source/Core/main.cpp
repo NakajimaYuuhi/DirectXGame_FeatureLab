@@ -4,6 +4,7 @@
 #include "ContentDrawerUI.h"
 #include "ProfilerUI.h"
 #include "AssetSecurityUI.h"
+#include "ViewportUI.h"
 #include "Source/Util/Profiler.h"
 ///////////////////////////////////////////
 //main.cpp                               
@@ -197,6 +198,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 			CEditorToolbarUI::GetInstance().Draw();
 			CHierarchyUI::GetInstance().Draw();
 			CInspectorUI::GetInstance().Draw();
+			CViewportUI::GetInstance().Draw();
 			CContentDrawerUI::GetInstance().Draw();
 			CProfilerUI::GetInstance().Draw();
 			CAssetSecurityUI::GetInstance().Draw();

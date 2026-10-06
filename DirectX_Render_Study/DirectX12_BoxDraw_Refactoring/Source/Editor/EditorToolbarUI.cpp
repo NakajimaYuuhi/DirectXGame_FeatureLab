@@ -4,6 +4,7 @@
 #include "ContentDrawerUI.h"
 #include "ProfilerUI.h"
 #include "AssetSecurityUI.h"
+#include "ViewportUI.h"
 #include "imgui.h"
 #include "ObjectManager.h"
 #include "TimeManager.h"
@@ -180,6 +181,11 @@ void CEditorToolbarUI::Draw()
 
         // ---------------------------------------------------------
         // 4. UI繧ｵ繝悶え繧｣繝ｳ繝峨え縺ｮ髢矩哩繝医げ繝ｫ・医さ繝ｳ繝・Φ繝・ラ繝ｭ繝ｯ繝ｼ・・        // ---------------------------------------------------------
+        if (ImGui::Button("Viewport"))
+        {
+            CViewportUI::GetInstance().ToggleVisible();
+        }
+        ImGui::SameLine();
         if (ImGui::Button("Content Drawer (Ctrl+Space)"))
         {
             CContentDrawerUI::GetInstance().ToggleVisible();
