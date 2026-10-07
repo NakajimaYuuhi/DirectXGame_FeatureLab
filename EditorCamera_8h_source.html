@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Editor/EditorCamera.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('EditorCamera_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">EditorCamera.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="EditorCamera_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;DirectXMath.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;Windows.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="classEditorCamera.html">    5</a></span><span class="keyword">class </span><a class="code hl_class" href="classEditorCamera.html">EditorCamera</a></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="keyword">static</span> <a class="code hl_class" href="classEditorCamera.html">EditorCamera</a>&amp; <a class="code hl_function" href="classEditorCamera.html#a09704cd7014dfd8fa3a5fc6e5f68730a">GetInstance</a>();</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classEditorCamera.html#a1a006cdc71334a3b8b819ab3d28259b4">Init</a>();</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classEditorCamera.html#af7c186878e3b627d87a2620a4e792c7b">Update</a>(<span class="keywordtype">float</span> deltaTime);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classEditorCamera.html#abaa0aec694a83167e850da9260f0626b">   13</a></span>    DirectX::XMMATRIX <a class="code hl_function" href="classEditorCamera.html#abaa0aec694a83167e850da9260f0626b">GetViewMatrix</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classEditorCamera.html#a48a8243fa56dea74e38d1707cb83d0e7">m_viewMatrix</a>; }</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classEditorCamera.html#afea2ee78ddb401ce12f9560c1dbd7a1f">   14</a></span>    DirectX::XMMATRIX <a class="code hl_function" href="classEditorCamera.html#afea2ee78ddb401ce12f9560c1dbd7a1f">GetProjectionMatrix</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classEditorCamera.html#a42b2f31c4d75ae401884e95ed7accd57">m_projMatrix</a>; }</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classEditorCamera.html#a7065a19f069fb9946e0422065582b1ee">   15</a></span>    DirectX::XMFLOAT3 <a class="code hl_function" href="classEditorCamera.html#a7065a19f069fb9946e0422065582b1ee">GetPosition</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classEditorCamera.html#ae48590f6b802b49a89f02620970f0b9d">m_position</a>; }</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classEditorCamera.html#ad7ceec642b0f1b6b394021daa2fc9f36">   16</a></span>    DirectX::XMFLOAT3 <a class="code hl_function" href="classEditorCamera.html#ad7ceec642b0f1b6b394021daa2fc9f36">GetFocalPoint</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classEditorCamera.html#a6e9aa2a5e3b785c571dc15a42ad60512">m_focalPoint</a>; }</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    DirectX::XMFLOAT3 <a class="code hl_function" href="classEditorCamera.html#a16da60d164f30d75bd3434c45c2f0b5b">GetForward</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    DirectX::XMFLOAT3 <a class="code hl_function" href="classEditorCamera.html#aa094a84489728edc0fc196c28258eb35">GetRight</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    DirectX::XMFLOAT3 <a class="code hl_function" href="classEditorCamera.html#afbb5ee89c784057d578e8e41d2806f58">GetUp</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classEditorCamera.html#a4efb9a2a104585761c0c7e6dbfb3b4b0">   22</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classEditorCamera.html#a4efb9a2a104585761c0c7e6dbfb3b4b0">GetYaw</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classEditorCamera.html#aa60b8eebb38033a953d691a73745bb11">m_yaw</a>; }</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classEditorCamera.html#af3c1e5cb026801b0bd597e0f6598f710">   23</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classEditorCamera.html#af3c1e5cb026801b0bd597e0f6598f710">GetPitch</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classEditorCamera.html#ae02679f4cea0769d82e5bd725e0c25a7">m_pitch</a>; }</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="comment">// フォーカス（選択オブジェクト等のワールド座標を中心にする）</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classEditorCamera.html#a003229ae2bf53f9aa315b3f7b91aa8a4">FocusOn</a>(<span class="keyword">const</span> DirectX::XMFLOAT3&amp; targetPos, <span class="keywordtype">float</span> distance = 5.0f);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classEditorCamera.html#ad9e896b52d5f982d409b3bd88f2f539d">   28</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classEditorCamera.html#ad9e896b52d5f982d409b3bd88f2f539d">SetFov</a>(<span class="keywordtype">float</span> fov) { <a class="code hl_variable" href="classEditorCamera.html#abb3358c17715c6be541af90613c3d4da">m_fov</a> = fov; <a class="code hl_function" href="classEditorCamera.html#a6be6bd089f5ca8bd435aa482c9e1e7da">UpdateProjection</a>(); }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classEditorCamera.html#a126177d43fa3eac7ca972af195333753">   29</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classEditorCamera.html#a126177d43fa3eac7ca972af195333753">GetFov</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classEditorCamera.html#abb3358c17715c6be541af90613c3d4da">m_fov</a>; }</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classEditorCamera.html#ae50dfc30c27c0bd1ffb75ba60ab97c73">   31</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classEditorCamera.html#ae50dfc30c27c0bd1ffb75ba60ab97c73">SetAspectRatio</a>(<span class="keywordtype">float</span> aspect) { <a class="code hl_variable" href="classEditorCamera.html#a7bf5aa15f09ea1e637633f97e48e5b78">m_aspectRatio</a> = aspect; <a class="code hl_function" href="classEditorCamera.html#a6be6bd089f5ca8bd435aa482c9e1e7da">UpdateProjection</a>(); }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classEditorCamera.html#a6be6bd089f5ca8bd435aa482c9e1e7da">UpdateProjection</a>();</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classEditorCamera.html#af1614a3ad8f07d774a5d8812f07028cd">   34</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classEditorCamera.html#af1614a3ad8f07d774a5d8812f07028cd">IsNavigating</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classEditorCamera.html#ab703f55fe335e12a3d3f69bbc20fb956">m_isNavigating</a>; }</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_function" href="classEditorCamera.html#a90048bc85eea5cb00dee608255952834">EditorCamera</a>();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classEditorCamera.html#a3ecfd59c5b456115cd248197d88dd290">   38</a></span>    <a class="code hl_function" href="classEditorCamera.html#a3ecfd59c5b456115cd248197d88dd290">~EditorCamera</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classEditorCamera.html#a195ac302b965aeae01df27d34ae75608">   39</a></span>    <a class="code hl_function" href="classEditorCamera.html#a195ac302b965aeae01df27d34ae75608">EditorCamera</a>(<span class="keyword">const</span> <a class="code hl_class" href="classEditorCamera.html">EditorCamera</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classEditorCamera.html#a4cabb935132a6fec42cd9688c73d0129">   40</a></span>    <a class="code hl_class" href="classEditorCamera.html">EditorCamera</a>&amp; <a class="code hl_function" href="classEditorCamera.html#a4cabb935132a6fec42cd9688c73d0129">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classEditorCamera.html">EditorCamera</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classEditorCamera.html#a5c2fb5946e899b61544ec1f943ff59b7">UpdateViewMatrix</a>();</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classEditorCamera.html#ae48590f6b802b49a89f02620970f0b9d">   44</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="classEditorCamera.html#ae48590f6b802b49a89f02620970f0b9d">m_position</a> = { 0.0f, 4.0f, -8.0f };</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classEditorCamera.html#a6e9aa2a5e3b785c571dc15a42ad60512">   45</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="classEditorCamera.html#a6e9aa2a5e3b785c571dc15a42ad60512">m_focalPoint</a> = { 0.0f, 1.0f, 0.0f };</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classEditorCamera.html#a8da9edc1b23c0c2da036beedf88db6bc">   46</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classEditorCamera.html#a8da9edc1b23c0c2da036beedf88db6bc">m_distance</a> = 8.0f;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classEditorCamera.html#ae02679f4cea0769d82e5bd725e0c25a7">   48</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classEditorCamera.html#ae02679f4cea0769d82e5bd725e0c25a7">m_pitch</a> = 0.35f; <span class="comment">// 約20度見下ろし</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classEditorCamera.html#aa60b8eebb38033a953d691a73745bb11">   49</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classEditorCamera.html#aa60b8eebb38033a953d691a73745bb11">m_yaw</a> = 0.0f;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classEditorCamera.html#a4ceb407b2bbd515aaa9eeefb8ccc8985">   51</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classEditorCamera.html#a4ceb407b2bbd515aaa9eeefb8ccc8985">m_flySpeed</a> = 10.0f;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classEditorCamera.html#a3e5dfcc2214ec54f11315fff95838060">   52</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classEditorCamera.html#a3e5dfcc2214ec54f11315fff95838060">m_fastFlyMultiplier</a> = 2.5f;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classEditorCamera.html#a23d74ea19305f33d8b7b9a27eb64aeee">   53</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classEditorCamera.html#a23d74ea19305f33d8b7b9a27eb64aeee">m_panSpeed</a> = 0.008f;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classEditorCamera.html#aadad7b143e34d2e61544591b00b181d1">   54</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classEditorCamera.html#aadad7b143e34d2e61544591b00b181d1">m_orbitSensitivity</a> = 0.005f;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classEditorCamera.html#a12c1a61a31fb0d91715e14263cf00fa0">   55</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classEditorCamera.html#a12c1a61a31fb0d91715e14263cf00fa0">m_mouseSensitivity</a> = 0.003f;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classEditorCamera.html#a6de43dd8628291a6c3007ea93edbad46">   56</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classEditorCamera.html#a6de43dd8628291a6c3007ea93edbad46">m_zoomSensitivity</a> = 1.0f;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classEditorCamera.html#abb3358c17715c6be541af90613c3d4da">   58</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classEditorCamera.html#abb3358c17715c6be541af90613c3d4da">m_fov</a> = DirectX::XM_PIDIV4; <span class="comment">// 45度</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classEditorCamera.html#a7bf5aa15f09ea1e637633f97e48e5b78">   59</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classEditorCamera.html#a7bf5aa15f09ea1e637633f97e48e5b78">m_aspectRatio</a> = 16.0f / 9.0f;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classEditorCamera.html#abaac2108773ae75211661dbdd76c1d8c">   60</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classEditorCamera.html#abaac2108773ae75211661dbdd76c1d8c">m_nearZ</a> = 0.1f;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classEditorCamera.html#aa0b6930fdcbed7407a64382491ea1ebb">   61</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classEditorCamera.html#aa0b6930fdcbed7407a64382491ea1ebb">m_farZ</a> = 1000.0f;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classEditorCamera.html#a48a8243fa56dea74e38d1707cb83d0e7">   63</a></span>    DirectX::XMMATRIX <a class="code hl_variable" href="classEditorCamera.html#a48a8243fa56dea74e38d1707cb83d0e7">m_viewMatrix</a> = DirectX::XMMatrixIdentity();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classEditorCamera.html#a42b2f31c4d75ae401884e95ed7accd57">   64</a></span>    DirectX::XMMATRIX <a class="code hl_variable" href="classEditorCamera.html#a42b2f31c4d75ae401884e95ed7accd57">m_projMatrix</a> = DirectX::XMMatrixIdentity();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classEditorCamera.html#ab703f55fe335e12a3d3f69bbc20fb956">   66</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classEditorCamera.html#ab703f55fe335e12a3d3f69bbc20fb956">m_isNavigating</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>};</div>
+</div>
+<div class="ttc" id="aclassEditorCamera_html"><div class="ttname"><a href="classEditorCamera.html">EditorCamera</a></div><div class="ttdef"><b>Definition</b> EditorCamera.h:6</div></div>
+<div class="ttc" id="aclassEditorCamera_html_a003229ae2bf53f9aa315b3f7b91aa8a4"><div class="ttname"><a href="classEditorCamera.html#a003229ae2bf53f9aa315b3f7b91aa8a4">EditorCamera::FocusOn</a></div><div class="ttdeci">void FocusOn(const DirectX::XMFLOAT3 &amp;targetPos, float distance=5.0f)</div><div class="ttdef"><b>Definition</b> EditorCamera.cpp:68</div></div>
+<div class="ttc" id="aclassEditorCamera_html_a09704cd7014dfd8fa3a5fc6e5f68730a"><div class="ttname"><a href="classEditorCamera.html#a09704cd7014dfd8fa3a5fc6e5f68730a">EditorCamera::GetInstance</a></div><div class="ttdeci">static EditorCamera &amp; GetInstance()</div><div class="ttdef"><b>Definition</b> EditorCamera.cpp:12</div></div>
+<div class="ttc" id="aclassEditorCamera_html_a126177d43fa3eac7ca972af195333753"><div class="ttname"><a href="classEditorCamera.html#a126177d43fa3eac7ca972af195333753">EditorCamera::GetFov</a></div><div class="ttdeci">float GetFov() const</div><div class="ttdef"><b>Definition</b> EditorCamera.h:29</div></div>
+<div class="ttc" id="aclassEditorCamera_html_a12c1a61a31fb0d91715e14263cf00fa0"><div class="ttname"><a href="classEditorCamera.html#a12c1a61a31fb0d91715e14263cf00fa0">EditorCamera::m_mouseSensitivity</a></div><div class="ttdeci">float m_mouseSensitivity</div><div class="ttdef"><b>Definition</b> EditorCamera.h:55</div></div>
+<div class="ttc" id="aclassEditorCamera_html_a16da60d164f30d75bd3434c45c2f0b5b"><div class="ttname"><a href="classEditorCamera.html#a16da60d164f30d75bd3434c45c2f0b5b">EditorCamera::GetForward</a></div><div class="ttdeci">DirectX::XMFLOAT3 GetForward() const</div><div class="ttdef"><b>Definition</b> EditorCamera.cpp:40</div></div>
+<div class="ttc" id="aclassEditorCamera_html_a195ac302b965aeae01df27d34ae75608"><div class="ttname"><a href="classEditorCamera.html#a195ac302b965aeae01df27d34ae75608">EditorCamera::EditorCamera</a></div><div class="ttdeci">EditorCamera(const EditorCamera &amp;)=delete</div></div>
+<div class="ttc" id="aclassEditorCamera_html_a1a006cdc71334a3b8b819ab3d28259b4"><div class="ttname"><a href="classEditorCamera.html#a1a006cdc71334a3b8b819ab3d28259b4">EditorCamera::Init</a></div><div class="ttdeci">void Init()</div><div class="ttdef"><b>Definition</b> EditorCamera.cpp:24</div></div>
+<div class="ttc" id="aclassEditorCamera_html_a23d74ea19305f33d8b7b9a27eb64aeee"><div class="ttname"><a href="classEditorCamera.html#a23d74ea19305f33d8b7b9a27eb64aeee">EditorCamera::m_panSpeed</a></div><div class="ttdeci">float m_panSpeed</div><div class="ttdef"><b>Definition</b> EditorCamera.h:53</div></div>
+<div class="ttc" id="aclassEditorCamera_html_a3e5dfcc2214ec54f11315fff95838060"><div class="ttname"><a href="classEditorCamera.html#a3e5dfcc2214ec54f11315fff95838060">EditorCamera::m_fastFlyMultiplier</a></div><div class="ttdeci">float m_fastFlyMultiplier</div><div class="ttdef"><b>Definition</b> EditorCamera.h:52</div></div>
+<div class="ttc" id="aclassEditorCamera_html_a3ecfd59c5b456115cd248197d88dd290"><div class="ttname"><a href="classEditorCamera.html#a3ecfd59c5b456115cd248197d88dd290">EditorCamera::~EditorCamera</a></div><div class="ttdeci">~EditorCamera()=default</div></div>
+<div class="ttc" id="aclassEditorCamera_html_a42b2f31c4d75ae401884e95ed7accd57"><div class="ttname"><a href="classEditorCamera.html#a42b2f31c4d75ae401884e95ed7accd57">EditorCamera::m_projMatrix</a></div><div class="ttdeci">DirectX::XMMATRIX m_projMatrix</div><div class="ttdef"><b>Definition</b> EditorCamera.h:64</div></div>
+<div class="ttc" id="aclassEditorCamera_html_a48a8243fa56dea74e38d1707cb83d0e7"><div class="ttname"><a href="classEditorCamera.html#a48a8243fa56dea74e38d1707cb83d0e7">EditorCamera::m_viewMatrix</a></div><div class="ttdeci">DirectX::XMMATRIX m_viewMatrix</div><div class="ttdef"><b>Definition</b> EditorCamera.h:63</div></div>
+<div class="ttc" id="aclassEditorCamera_html_a4cabb935132a6fec42cd9688c73d0129"><div class="ttname"><a href="classEditorCamera.html#a4cabb935132a6fec42cd9688c73d0129">EditorCamera::operator=</a></div><div class="ttdeci">EditorCamera &amp; operator=(const EditorCamera &amp;)=delete</div></div>
+<div class="ttc" id="aclassEditorCamera_html_a4ceb407b2bbd515aaa9eeefb8ccc8985"><div class="ttname"><a href="classEditorCamera.html#a4ceb407b2bbd515aaa9eeefb8ccc8985">EditorCamera::m_flySpeed</a></div><div class="ttdeci">float m_flySpeed</div><div class="ttdef"><b>Definition</b> EditorCamera.h:51</div></div>
+<div class="ttc" id="aclassEditorCamera_html_a4efb9a2a104585761c0c7e6dbfb3b4b0"><div class="ttname"><a href="classEditorCamera.html#a4efb9a2a104585761c0c7e6dbfb3b4b0">EditorCamera::GetYaw</a></div><div class="ttdeci">float GetYaw() const</div><div class="ttdef"><b>Definition</b> EditorCamera.h:22</div></div>
+<div class="ttc" id="aclassEditorCamera_html_a5c2fb5946e899b61544ec1f943ff59b7"><div class="ttname"><a href="classEditorCamera.html#a5c2fb5946e899b61544ec1f943ff59b7">EditorCamera::UpdateViewMatrix</a></div><div class="ttdeci">void UpdateViewMatrix()</div><div class="ttdef"><b>Definition</b> EditorCamera.cpp:292</div></div>
+<div class="ttc" id="aclassEditorCamera_html_a6be6bd089f5ca8bd435aa482c9e1e7da"><div class="ttname"><a href="classEditorCamera.html#a6be6bd089f5ca8bd435aa482c9e1e7da">EditorCamera::UpdateProjection</a></div><div class="ttdeci">void UpdateProjection()</div><div class="ttdef"><b>Definition</b> EditorCamera.cpp:30</div></div>
+<div class="ttc" id="aclassEditorCamera_html_a6de43dd8628291a6c3007ea93edbad46"><div class="ttname"><a href="classEditorCamera.html#a6de43dd8628291a6c3007ea93edbad46">EditorCamera::m_zoomSensitivity</a></div><div class="ttdeci">float m_zoomSensitivity</div><div class="ttdef"><b>Definition</b> EditorCamera.h:56</div></div>
+<div class="ttc" id="aclassEditorCamera_html_a6e9aa2a5e3b785c571dc15a42ad60512"><div class="ttname"><a href="classEditorCamera.html#a6e9aa2a5e3b785c571dc15a42ad60512">EditorCamera::m_focalPoint</a></div><div class="ttdeci">DirectX::XMFLOAT3 m_focalPoint</div><div class="ttdef"><b>Definition</b> EditorCamera.h:45</div></div>
+<div class="ttc" id="aclassEditorCamera_html_a7065a19f069fb9946e0422065582b1ee"><div class="ttname"><a href="classEditorCamera.html#a7065a19f069fb9946e0422065582b1ee">EditorCamera::GetPosition</a></div><div class="ttdeci">DirectX::XMFLOAT3 GetPosition() const</div><div class="ttdef"><b>Definition</b> EditorCamera.h:15</div></div>
+<div class="ttc" id="aclassEditorCamera_html_a7bf5aa15f09ea1e637633f97e48e5b78"><div class="ttname"><a href="classEditorCamera.html#a7bf5aa15f09ea1e637633f97e48e5b78">EditorCamera::m_aspectRatio</a></div><div class="ttdeci">float m_aspectRatio</div><div class="ttdef"><b>Definition</b> EditorCamera.h:59</div></div>
+<div class="ttc" id="aclassEditorCamera_html_a8da9edc1b23c0c2da036beedf88db6bc"><div class="ttname"><a href="classEditorCamera.html#a8da9edc1b23c0c2da036beedf88db6bc">EditorCamera::m_distance</a></div><div class="ttdeci">float m_distance</div><div class="ttdef"><b>Definition</b> EditorCamera.h:46</div></div>
+<div class="ttc" id="aclassEditorCamera_html_a90048bc85eea5cb00dee608255952834"><div class="ttname"><a href="classEditorCamera.html#a90048bc85eea5cb00dee608255952834">EditorCamera::EditorCamera</a></div><div class="ttdeci">EditorCamera()</div><div class="ttdef"><b>Definition</b> EditorCamera.cpp:18</div></div>
+<div class="ttc" id="aclassEditorCamera_html_aa094a84489728edc0fc196c28258eb35"><div class="ttname"><a href="classEditorCamera.html#aa094a84489728edc0fc196c28258eb35">EditorCamera::GetRight</a></div><div class="ttdeci">DirectX::XMFLOAT3 GetRight() const</div><div class="ttdef"><b>Definition</b> EditorCamera.cpp:49</div></div>
+<div class="ttc" id="aclassEditorCamera_html_aa0b6930fdcbed7407a64382491ea1ebb"><div class="ttname"><a href="classEditorCamera.html#aa0b6930fdcbed7407a64382491ea1ebb">EditorCamera::m_farZ</a></div><div class="ttdeci">float m_farZ</div><div class="ttdef"><b>Definition</b> EditorCamera.h:61</div></div>
+<div class="ttc" id="aclassEditorCamera_html_aa60b8eebb38033a953d691a73745bb11"><div class="ttname"><a href="classEditorCamera.html#aa60b8eebb38033a953d691a73745bb11">EditorCamera::m_yaw</a></div><div class="ttdeci">float m_yaw</div><div class="ttdef"><b>Definition</b> EditorCamera.h:49</div></div>
+<div class="ttc" id="aclassEditorCamera_html_aadad7b143e34d2e61544591b00b181d1"><div class="ttname"><a href="classEditorCamera.html#aadad7b143e34d2e61544591b00b181d1">EditorCamera::m_orbitSensitivity</a></div><div class="ttdeci">float m_orbitSensitivity</div><div class="ttdef"><b>Definition</b> EditorCamera.h:54</div></div>
+<div class="ttc" id="aclassEditorCamera_html_ab703f55fe335e12a3d3f69bbc20fb956"><div class="ttname"><a href="classEditorCamera.html#ab703f55fe335e12a3d3f69bbc20fb956">EditorCamera::m_isNavigating</a></div><div class="ttdeci">bool m_isNavigating</div><div class="ttdef"><b>Definition</b> EditorCamera.h:66</div></div>
+<div class="ttc" id="aclassEditorCamera_html_abaa0aec694a83167e850da9260f0626b"><div class="ttname"><a href="classEditorCamera.html#abaa0aec694a83167e850da9260f0626b">EditorCamera::GetViewMatrix</a></div><div class="ttdeci">DirectX::XMMATRIX GetViewMatrix() const</div><div class="ttdef"><b>Definition</b> EditorCamera.h:13</div></div>
+<div class="ttc" id="aclassEditorCamera_html_abaac2108773ae75211661dbdd76c1d8c"><div class="ttname"><a href="classEditorCamera.html#abaac2108773ae75211661dbdd76c1d8c">EditorCamera::m_nearZ</a></div><div class="ttdeci">float m_nearZ</div><div class="ttdef"><b>Definition</b> EditorCamera.h:60</div></div>
+<div class="ttc" id="aclassEditorCamera_html_abb3358c17715c6be541af90613c3d4da"><div class="ttname"><a href="classEditorCamera.html#abb3358c17715c6be541af90613c3d4da">EditorCamera::m_fov</a></div><div class="ttdeci">float m_fov</div><div class="ttdef"><b>Definition</b> EditorCamera.h:58</div></div>
+<div class="ttc" id="aclassEditorCamera_html_ad7ceec642b0f1b6b394021daa2fc9f36"><div class="ttname"><a href="classEditorCamera.html#ad7ceec642b0f1b6b394021daa2fc9f36">EditorCamera::GetFocalPoint</a></div><div class="ttdeci">DirectX::XMFLOAT3 GetFocalPoint() const</div><div class="ttdef"><b>Definition</b> EditorCamera.h:16</div></div>
+<div class="ttc" id="aclassEditorCamera_html_ad9e896b52d5f982d409b3bd88f2f539d"><div class="ttname"><a href="classEditorCamera.html#ad9e896b52d5f982d409b3bd88f2f539d">EditorCamera::SetFov</a></div><div class="ttdeci">void SetFov(float fov)</div><div class="ttdef"><b>Definition</b> EditorCamera.h:28</div></div>
+<div class="ttc" id="aclassEditorCamera_html_ae02679f4cea0769d82e5bd725e0c25a7"><div class="ttname"><a href="classEditorCamera.html#ae02679f4cea0769d82e5bd725e0c25a7">EditorCamera::m_pitch</a></div><div class="ttdeci">float m_pitch</div><div class="ttdef"><b>Definition</b> EditorCamera.h:48</div></div>
+<div class="ttc" id="aclassEditorCamera_html_ae48590f6b802b49a89f02620970f0b9d"><div class="ttname"><a href="classEditorCamera.html#ae48590f6b802b49a89f02620970f0b9d">EditorCamera::m_position</a></div><div class="ttdeci">DirectX::XMFLOAT3 m_position</div><div class="ttdef"><b>Definition</b> EditorCamera.h:44</div></div>
+<div class="ttc" id="aclassEditorCamera_html_ae50dfc30c27c0bd1ffb75ba60ab97c73"><div class="ttname"><a href="classEditorCamera.html#ae50dfc30c27c0bd1ffb75ba60ab97c73">EditorCamera::SetAspectRatio</a></div><div class="ttdeci">void SetAspectRatio(float aspect)</div><div class="ttdef"><b>Definition</b> EditorCamera.h:31</div></div>
+<div class="ttc" id="aclassEditorCamera_html_af1614a3ad8f07d774a5d8812f07028cd"><div class="ttname"><a href="classEditorCamera.html#af1614a3ad8f07d774a5d8812f07028cd">EditorCamera::IsNavigating</a></div><div class="ttdeci">bool IsNavigating() const</div><div class="ttdef"><b>Definition</b> EditorCamera.h:34</div></div>
+<div class="ttc" id="aclassEditorCamera_html_af3c1e5cb026801b0bd597e0f6598f710"><div class="ttname"><a href="classEditorCamera.html#af3c1e5cb026801b0bd597e0f6598f710">EditorCamera::GetPitch</a></div><div class="ttdeci">float GetPitch() const</div><div class="ttdef"><b>Definition</b> EditorCamera.h:23</div></div>
+<div class="ttc" id="aclassEditorCamera_html_af7c186878e3b627d87a2620a4e792c7b"><div class="ttname"><a href="classEditorCamera.html#af7c186878e3b627d87a2620a4e792c7b">EditorCamera::Update</a></div><div class="ttdeci">void Update(float deltaTime)</div><div class="ttdef"><b>Definition</b> EditorCamera.cpp:83</div></div>
+<div class="ttc" id="aclassEditorCamera_html_afbb5ee89c784057d578e8e41d2806f58"><div class="ttname"><a href="classEditorCamera.html#afbb5ee89c784057d578e8e41d2806f58">EditorCamera::GetUp</a></div><div class="ttdeci">DirectX::XMFLOAT3 GetUp() const</div><div class="ttdef"><b>Definition</b> EditorCamera.cpp:56</div></div>
+<div class="ttc" id="aclassEditorCamera_html_afea2ee78ddb401ce12f9560c1dbd7a1f"><div class="ttname"><a href="classEditorCamera.html#afea2ee78ddb401ce12f9560c1dbd7a1f">EditorCamera::GetProjectionMatrix</a></div><div class="ttdeci">DirectX::XMMATRIX GetProjectionMatrix() const</div><div class="ttdef"><b>Definition</b> EditorCamera.h:14</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_b26507eead720464ba2ac6bbc6dcec5f.html">Editor</a></li><li class="navelem"><a class="el" href="EditorCamera_8h.html">EditorCamera.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

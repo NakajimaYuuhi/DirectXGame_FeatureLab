@@ -6,6 +6,7 @@ var classPlayerControllerComponent =
     [ "ChangeState", "classPlayerControllerComponent.html#a53068cb7e8bbed0de68d86cf8a0224c4", null ],
     [ "GetCurrentState", "classPlayerControllerComponent.html#a83719e4322c7a209be7d10b332334c9b", null ],
     [ "GetUpdatePhase", "classPlayerControllerComponent.html#aa2782a5959f4bf035498060c1bde8950", null ],
+    [ "HasAttackInput", "classPlayerControllerComponent.html#a84b0cf8d55172bd9c424ce425d2b8ad8", null ],
     [ "HasMoveInput", "classPlayerControllerComponent.html#a5088a431877482b62415edbcf2ac5dea", null ],
     [ "OnDamaged", "classPlayerControllerComponent.html#ab985164374b51825611c78a1d4521c42", null ],
     [ "OnDie", "classPlayerControllerComponent.html#a6f38b2d769c4733a37a499a2c0cbfed7", null ],

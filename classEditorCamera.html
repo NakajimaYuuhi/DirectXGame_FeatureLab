@@ -1,0 +1,1242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: EditorCamera クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classEditorCamera.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
+<a href="#pri-methods">非公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classEditorCamera-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">EditorCamera クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="EditorCamera_8h_source.html">EditorCamera.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a1a006cdc71334a3b8b819ab3d28259b4" id="r_a1a006cdc71334a3b8b819ab3d28259b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#a1a006cdc71334a3b8b819ab3d28259b4">Init</a> ()</td></tr>
+<tr class="separator:a1a006cdc71334a3b8b819ab3d28259b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7c186878e3b627d87a2620a4e792c7b" id="r_af7c186878e3b627d87a2620a4e792c7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#af7c186878e3b627d87a2620a4e792c7b">Update</a> (float deltaTime)</td></tr>
+<tr class="separator:af7c186878e3b627d87a2620a4e792c7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abaa0aec694a83167e850da9260f0626b" id="r_abaa0aec694a83167e850da9260f0626b"><td class="memItemLeft" align="right" valign="top">DirectX::XMMATRIX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#abaa0aec694a83167e850da9260f0626b">GetViewMatrix</a> () const</td></tr>
+<tr class="separator:abaa0aec694a83167e850da9260f0626b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afea2ee78ddb401ce12f9560c1dbd7a1f" id="r_afea2ee78ddb401ce12f9560c1dbd7a1f"><td class="memItemLeft" align="right" valign="top">DirectX::XMMATRIX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#afea2ee78ddb401ce12f9560c1dbd7a1f">GetProjectionMatrix</a> () const</td></tr>
+<tr class="separator:afea2ee78ddb401ce12f9560c1dbd7a1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7065a19f069fb9946e0422065582b1ee" id="r_a7065a19f069fb9946e0422065582b1ee"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#a7065a19f069fb9946e0422065582b1ee">GetPosition</a> () const</td></tr>
+<tr class="separator:a7065a19f069fb9946e0422065582b1ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7ceec642b0f1b6b394021daa2fc9f36" id="r_ad7ceec642b0f1b6b394021daa2fc9f36"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#ad7ceec642b0f1b6b394021daa2fc9f36">GetFocalPoint</a> () const</td></tr>
+<tr class="separator:ad7ceec642b0f1b6b394021daa2fc9f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16da60d164f30d75bd3434c45c2f0b5b" id="r_a16da60d164f30d75bd3434c45c2f0b5b"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#a16da60d164f30d75bd3434c45c2f0b5b">GetForward</a> () const</td></tr>
+<tr class="separator:a16da60d164f30d75bd3434c45c2f0b5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa094a84489728edc0fc196c28258eb35" id="r_aa094a84489728edc0fc196c28258eb35"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#aa094a84489728edc0fc196c28258eb35">GetRight</a> () const</td></tr>
+<tr class="separator:aa094a84489728edc0fc196c28258eb35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbb5ee89c784057d578e8e41d2806f58" id="r_afbb5ee89c784057d578e8e41d2806f58"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#afbb5ee89c784057d578e8e41d2806f58">GetUp</a> () const</td></tr>
+<tr class="separator:afbb5ee89c784057d578e8e41d2806f58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4efb9a2a104585761c0c7e6dbfb3b4b0" id="r_a4efb9a2a104585761c0c7e6dbfb3b4b0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#a4efb9a2a104585761c0c7e6dbfb3b4b0">GetYaw</a> () const</td></tr>
+<tr class="separator:a4efb9a2a104585761c0c7e6dbfb3b4b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3c1e5cb026801b0bd597e0f6598f710" id="r_af3c1e5cb026801b0bd597e0f6598f710"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#af3c1e5cb026801b0bd597e0f6598f710">GetPitch</a> () const</td></tr>
+<tr class="separator:af3c1e5cb026801b0bd597e0f6598f710"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a003229ae2bf53f9aa315b3f7b91aa8a4" id="r_a003229ae2bf53f9aa315b3f7b91aa8a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#a003229ae2bf53f9aa315b3f7b91aa8a4">FocusOn</a> (const DirectX::XMFLOAT3 &amp;targetPos, float distance=5.0f)</td></tr>
+<tr class="separator:a003229ae2bf53f9aa315b3f7b91aa8a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9e896b52d5f982d409b3bd88f2f539d" id="r_ad9e896b52d5f982d409b3bd88f2f539d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#ad9e896b52d5f982d409b3bd88f2f539d">SetFov</a> (float fov)</td></tr>
+<tr class="separator:ad9e896b52d5f982d409b3bd88f2f539d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a126177d43fa3eac7ca972af195333753" id="r_a126177d43fa3eac7ca972af195333753"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#a126177d43fa3eac7ca972af195333753">GetFov</a> () const</td></tr>
+<tr class="separator:a126177d43fa3eac7ca972af195333753"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae50dfc30c27c0bd1ffb75ba60ab97c73" id="r_ae50dfc30c27c0bd1ffb75ba60ab97c73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#ae50dfc30c27c0bd1ffb75ba60ab97c73">SetAspectRatio</a> (float aspect)</td></tr>
+<tr class="separator:ae50dfc30c27c0bd1ffb75ba60ab97c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6be6bd089f5ca8bd435aa482c9e1e7da" id="r_a6be6bd089f5ca8bd435aa482c9e1e7da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#a6be6bd089f5ca8bd435aa482c9e1e7da">UpdateProjection</a> ()</td></tr>
+<tr class="separator:a6be6bd089f5ca8bd435aa482c9e1e7da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1614a3ad8f07d774a5d8812f07028cd" id="r_af1614a3ad8f07d774a5d8812f07028cd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#af1614a3ad8f07d774a5d8812f07028cd">IsNavigating</a> () const</td></tr>
+<tr class="separator:af1614a3ad8f07d774a5d8812f07028cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静的公開メンバ関数</h2></td></tr>
+<tr class="memitem:a09704cd7014dfd8fa3a5fc6e5f68730a" id="r_a09704cd7014dfd8fa3a5fc6e5f68730a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classEditorCamera.html">EditorCamera</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#a09704cd7014dfd8fa3a5fc6e5f68730a">GetInstance</a> ()</td></tr>
+<tr class="separator:a09704cd7014dfd8fa3a5fc6e5f68730a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+非公開メンバ関数</h2></td></tr>
+<tr class="memitem:a90048bc85eea5cb00dee608255952834" id="r_a90048bc85eea5cb00dee608255952834"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#a90048bc85eea5cb00dee608255952834">EditorCamera</a> ()</td></tr>
+<tr class="separator:a90048bc85eea5cb00dee608255952834"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ecfd59c5b456115cd248197d88dd290" id="r_a3ecfd59c5b456115cd248197d88dd290"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#a3ecfd59c5b456115cd248197d88dd290">~EditorCamera</a> ()=default</td></tr>
+<tr class="separator:a3ecfd59c5b456115cd248197d88dd290"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a195ac302b965aeae01df27d34ae75608" id="r_a195ac302b965aeae01df27d34ae75608"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#a195ac302b965aeae01df27d34ae75608">EditorCamera</a> (const <a class="el" href="classEditorCamera.html">EditorCamera</a> &amp;)=delete</td></tr>
+<tr class="separator:a195ac302b965aeae01df27d34ae75608"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cabb935132a6fec42cd9688c73d0129" id="r_a4cabb935132a6fec42cd9688c73d0129"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEditorCamera.html">EditorCamera</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#a4cabb935132a6fec42cd9688c73d0129">operator=</a> (const <a class="el" href="classEditorCamera.html">EditorCamera</a> &amp;)=delete</td></tr>
+<tr class="separator:a4cabb935132a6fec42cd9688c73d0129"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c2fb5946e899b61544ec1f943ff59b7" id="r_a5c2fb5946e899b61544ec1f943ff59b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#a5c2fb5946e899b61544ec1f943ff59b7">UpdateViewMatrix</a> ()</td></tr>
+<tr class="separator:a5c2fb5946e899b61544ec1f943ff59b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:ae48590f6b802b49a89f02620970f0b9d" id="r_ae48590f6b802b49a89f02620970f0b9d"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#ae48590f6b802b49a89f02620970f0b9d">m_position</a> = { 0.0f, 4.0f, -8.0f }</td></tr>
+<tr class="separator:ae48590f6b802b49a89f02620970f0b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e9aa2a5e3b785c571dc15a42ad60512" id="r_a6e9aa2a5e3b785c571dc15a42ad60512"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#a6e9aa2a5e3b785c571dc15a42ad60512">m_focalPoint</a> = { 0.0f, 1.0f, 0.0f }</td></tr>
+<tr class="separator:a6e9aa2a5e3b785c571dc15a42ad60512"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8da9edc1b23c0c2da036beedf88db6bc" id="r_a8da9edc1b23c0c2da036beedf88db6bc"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#a8da9edc1b23c0c2da036beedf88db6bc">m_distance</a> = 8.0f</td></tr>
+<tr class="separator:a8da9edc1b23c0c2da036beedf88db6bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae02679f4cea0769d82e5bd725e0c25a7" id="r_ae02679f4cea0769d82e5bd725e0c25a7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#ae02679f4cea0769d82e5bd725e0c25a7">m_pitch</a> = 0.35f</td></tr>
+<tr class="separator:ae02679f4cea0769d82e5bd725e0c25a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa60b8eebb38033a953d691a73745bb11" id="r_aa60b8eebb38033a953d691a73745bb11"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#aa60b8eebb38033a953d691a73745bb11">m_yaw</a> = 0.0f</td></tr>
+<tr class="separator:aa60b8eebb38033a953d691a73745bb11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ceb407b2bbd515aaa9eeefb8ccc8985" id="r_a4ceb407b2bbd515aaa9eeefb8ccc8985"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#a4ceb407b2bbd515aaa9eeefb8ccc8985">m_flySpeed</a> = 10.0f</td></tr>
+<tr class="separator:a4ceb407b2bbd515aaa9eeefb8ccc8985"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e5dfcc2214ec54f11315fff95838060" id="r_a3e5dfcc2214ec54f11315fff95838060"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#a3e5dfcc2214ec54f11315fff95838060">m_fastFlyMultiplier</a> = 2.5f</td></tr>
+<tr class="separator:a3e5dfcc2214ec54f11315fff95838060"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23d74ea19305f33d8b7b9a27eb64aeee" id="r_a23d74ea19305f33d8b7b9a27eb64aeee"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#a23d74ea19305f33d8b7b9a27eb64aeee">m_panSpeed</a> = 0.008f</td></tr>
+<tr class="separator:a23d74ea19305f33d8b7b9a27eb64aeee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadad7b143e34d2e61544591b00b181d1" id="r_aadad7b143e34d2e61544591b00b181d1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#aadad7b143e34d2e61544591b00b181d1">m_orbitSensitivity</a> = 0.005f</td></tr>
+<tr class="separator:aadad7b143e34d2e61544591b00b181d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12c1a61a31fb0d91715e14263cf00fa0" id="r_a12c1a61a31fb0d91715e14263cf00fa0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#a12c1a61a31fb0d91715e14263cf00fa0">m_mouseSensitivity</a> = 0.003f</td></tr>
+<tr class="separator:a12c1a61a31fb0d91715e14263cf00fa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6de43dd8628291a6c3007ea93edbad46" id="r_a6de43dd8628291a6c3007ea93edbad46"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#a6de43dd8628291a6c3007ea93edbad46">m_zoomSensitivity</a> = 1.0f</td></tr>
+<tr class="separator:a6de43dd8628291a6c3007ea93edbad46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb3358c17715c6be541af90613c3d4da" id="r_abb3358c17715c6be541af90613c3d4da"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#abb3358c17715c6be541af90613c3d4da">m_fov</a> = DirectX::XM_PIDIV4</td></tr>
+<tr class="separator:abb3358c17715c6be541af90613c3d4da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bf5aa15f09ea1e637633f97e48e5b78" id="r_a7bf5aa15f09ea1e637633f97e48e5b78"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#a7bf5aa15f09ea1e637633f97e48e5b78">m_aspectRatio</a> = 16.0f / 9.0f</td></tr>
+<tr class="separator:a7bf5aa15f09ea1e637633f97e48e5b78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abaac2108773ae75211661dbdd76c1d8c" id="r_abaac2108773ae75211661dbdd76c1d8c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#abaac2108773ae75211661dbdd76c1d8c">m_nearZ</a> = 0.1f</td></tr>
+<tr class="separator:abaac2108773ae75211661dbdd76c1d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0b6930fdcbed7407a64382491ea1ebb" id="r_aa0b6930fdcbed7407a64382491ea1ebb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#aa0b6930fdcbed7407a64382491ea1ebb">m_farZ</a> = 1000.0f</td></tr>
+<tr class="separator:aa0b6930fdcbed7407a64382491ea1ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48a8243fa56dea74e38d1707cb83d0e7" id="r_a48a8243fa56dea74e38d1707cb83d0e7"><td class="memItemLeft" align="right" valign="top">DirectX::XMMATRIX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#a48a8243fa56dea74e38d1707cb83d0e7">m_viewMatrix</a> = DirectX::XMMatrixIdentity()</td></tr>
+<tr class="separator:a48a8243fa56dea74e38d1707cb83d0e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42b2f31c4d75ae401884e95ed7accd57" id="r_a42b2f31c4d75ae401884e95ed7accd57"><td class="memItemLeft" align="right" valign="top">DirectX::XMMATRIX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#a42b2f31c4d75ae401884e95ed7accd57">m_projMatrix</a> = DirectX::XMMatrixIdentity()</td></tr>
+<tr class="separator:a42b2f31c4d75ae401884e95ed7accd57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab703f55fe335e12a3d3f69bbc20fb956" id="r_ab703f55fe335e12a3d3f69bbc20fb956"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorCamera.html#ab703f55fe335e12a3d3f69bbc20fb956">m_isNavigating</a> = false</td></tr>
+<tr class="separator:ab703f55fe335e12a3d3f69bbc20fb956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="a90048bc85eea5cb00dee608255952834" name="a90048bc85eea5cb00dee608255952834"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90048bc85eea5cb00dee608255952834">&#9670;&#160;</a></span>EditorCamera() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EditorCamera::EditorCamera </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEditorCamera_a90048bc85eea5cb00dee608255952834_cgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a3ecfd59c5b456115cd248197d88dd290" name="a3ecfd59c5b456115cd248197d88dd290"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ecfd59c5b456115cd248197d88dd290">&#9670;&#160;</a></span>~EditorCamera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EditorCamera::~EditorCamera </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a195ac302b965aeae01df27d34ae75608" name="a195ac302b965aeae01df27d34ae75608"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a195ac302b965aeae01df27d34ae75608">&#9670;&#160;</a></span>EditorCamera() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EditorCamera::EditorCamera </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEditorCamera.html">EditorCamera</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a003229ae2bf53f9aa315b3f7b91aa8a4" name="a003229ae2bf53f9aa315b3f7b91aa8a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a003229ae2bf53f9aa315b3f7b91aa8a4">&#9670;&#160;</a></span>FocusOn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EditorCamera::FocusOn </td>
+          <td>(</td>
+          <td class="paramtype">const DirectX::XMFLOAT3 &amp;&#160;</td>
+          <td class="paramname"><em>targetPos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>distance</em> = <code>5.0f</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEditorCamera_a003229ae2bf53f9aa315b3f7b91aa8a4_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classEditorCamera_a003229ae2bf53f9aa315b3f7b91aa8a4_icgraph.svg" width="527" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad7ceec642b0f1b6b394021daa2fc9f36" name="ad7ceec642b0f1b6b394021daa2fc9f36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7ceec642b0f1b6b394021daa2fc9f36">&#9670;&#160;</a></span>GetFocalPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 EditorCamera::GetFocalPoint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a16da60d164f30d75bd3434c45c2f0b5b" name="a16da60d164f30d75bd3434c45c2f0b5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16da60d164f30d75bd3434c45c2f0b5b">&#9670;&#160;</a></span>GetForward()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 EditorCamera::GetForward </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEditorCamera_a16da60d164f30d75bd3434c45c2f0b5b_icgraph.svg" width="100%" height="459"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a126177d43fa3eac7ca972af195333753" name="a126177d43fa3eac7ca972af195333753"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a126177d43fa3eac7ca972af195333753">&#9670;&#160;</a></span>GetFov()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float EditorCamera::GetFov </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a09704cd7014dfd8fa3a5fc6e5f68730a" name="a09704cd7014dfd8fa3a5fc6e5f68730a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09704cd7014dfd8fa3a5fc6e5f68730a">&#9670;&#160;</a></span>GetInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEditorCamera.html">EditorCamera</a> &amp; EditorCamera::GetInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEditorCamera_a09704cd7014dfd8fa3a5fc6e5f68730a_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="af3c1e5cb026801b0bd597e0f6598f710" name="af3c1e5cb026801b0bd597e0f6598f710"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3c1e5cb026801b0bd597e0f6598f710">&#9670;&#160;</a></span>GetPitch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float EditorCamera::GetPitch </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7065a19f069fb9946e0422065582b1ee" name="a7065a19f069fb9946e0422065582b1ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7065a19f069fb9946e0422065582b1ee">&#9670;&#160;</a></span>GetPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 EditorCamera::GetPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afea2ee78ddb401ce12f9560c1dbd7a1f" name="afea2ee78ddb401ce12f9560c1dbd7a1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afea2ee78ddb401ce12f9560c1dbd7a1f">&#9670;&#160;</a></span>GetProjectionMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMMATRIX EditorCamera::GetProjectionMatrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEditorCamera_afea2ee78ddb401ce12f9560c1dbd7a1f_icgraph.svg" width="100%" height="509"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aa094a84489728edc0fc196c28258eb35" name="aa094a84489728edc0fc196c28258eb35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa094a84489728edc0fc196c28258eb35">&#9670;&#160;</a></span>GetRight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 EditorCamera::GetRight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEditorCamera_aa094a84489728edc0fc196c28258eb35_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="afbb5ee89c784057d578e8e41d2806f58" name="afbb5ee89c784057d578e8e41d2806f58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbb5ee89c784057d578e8e41d2806f58">&#9670;&#160;</a></span>GetUp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 EditorCamera::GetUp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classEditorCamera_afbb5ee89c784057d578e8e41d2806f58_cgraph.svg" width="414" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classEditorCamera_afbb5ee89c784057d578e8e41d2806f58_icgraph.svg" width="512" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="abaa0aec694a83167e850da9260f0626b" name="abaa0aec694a83167e850da9260f0626b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abaa0aec694a83167e850da9260f0626b">&#9670;&#160;</a></span>GetViewMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMMATRIX EditorCamera::GetViewMatrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEditorCamera_abaa0aec694a83167e850da9260f0626b_icgraph.svg" width="100%" height="534"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a4efb9a2a104585761c0c7e6dbfb3b4b0" name="a4efb9a2a104585761c0c7e6dbfb3b4b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4efb9a2a104585761c0c7e6dbfb3b4b0">&#9670;&#160;</a></span>GetYaw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float EditorCamera::GetYaw </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1a006cdc71334a3b8b819ab3d28259b4" name="a1a006cdc71334a3b8b819ab3d28259b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a006cdc71334a3b8b819ab3d28259b4">&#9670;&#160;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EditorCamera::Init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEditorCamera_a1a006cdc71334a3b8b819ab3d28259b4_cgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classEditorCamera_a1a006cdc71334a3b8b819ab3d28259b4_icgraph.svg" width="407" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af1614a3ad8f07d774a5d8812f07028cd" name="af1614a3ad8f07d774a5d8812f07028cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1614a3ad8f07d774a5d8812f07028cd">&#9670;&#160;</a></span>IsNavigating()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool EditorCamera::IsNavigating </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4cabb935132a6fec42cd9688c73d0129" name="a4cabb935132a6fec42cd9688c73d0129"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cabb935132a6fec42cd9688c73d0129">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEditorCamera.html">EditorCamera</a> &amp; EditorCamera::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEditorCamera.html">EditorCamera</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae50dfc30c27c0bd1ffb75ba60ab97c73" name="ae50dfc30c27c0bd1ffb75ba60ab97c73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae50dfc30c27c0bd1ffb75ba60ab97c73">&#9670;&#160;</a></span>SetAspectRatio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EditorCamera::SetAspectRatio </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>aspect</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classEditorCamera_ae50dfc30c27c0bd1ffb75ba60ab97c73_cgraph.svg" width="508" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad9e896b52d5f982d409b3bd88f2f539d" name="ad9e896b52d5f982d409b3bd88f2f539d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9e896b52d5f982d409b3bd88f2f539d">&#9670;&#160;</a></span>SetFov()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EditorCamera::SetFov </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>fov</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classEditorCamera_ad9e896b52d5f982d409b3bd88f2f539d_cgraph.svg" width="452" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af7c186878e3b627d87a2620a4e792c7b" name="af7c186878e3b627d87a2620a4e792c7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7c186878e3b627d87a2620a4e792c7b">&#9670;&#160;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EditorCamera::Update </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEditorCamera_af7c186878e3b627d87a2620a4e792c7b_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classEditorCamera_af7c186878e3b627d87a2620a4e792c7b_icgraph.svg" width="304" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a6be6bd089f5ca8bd435aa482c9e1e7da" name="a6be6bd089f5ca8bd435aa482c9e1e7da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6be6bd089f5ca8bd435aa482c9e1e7da">&#9670;&#160;</a></span>UpdateProjection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EditorCamera::UpdateProjection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEditorCamera_a6be6bd089f5ca8bd435aa482c9e1e7da_icgraph.svg" width="100%" height="401"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a5c2fb5946e899b61544ec1f943ff59b7" name="a5c2fb5946e899b61544ec1f943ff59b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c2fb5946e899b61544ec1f943ff59b7">&#9670;&#160;</a></span>UpdateViewMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EditorCamera::UpdateViewMatrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classEditorCamera_a5c2fb5946e899b61544ec1f943ff59b7_cgraph.svg" width="452" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEditorCamera_a5c2fb5946e899b61544ec1f943ff59b7_icgraph.svg" width="100%" height="403"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a7bf5aa15f09ea1e637633f97e48e5b78" name="a7bf5aa15f09ea1e637633f97e48e5b78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bf5aa15f09ea1e637633f97e48e5b78">&#9670;&#160;</a></span>m_aspectRatio</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float EditorCamera::m_aspectRatio = 16.0f / 9.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8da9edc1b23c0c2da036beedf88db6bc" name="a8da9edc1b23c0c2da036beedf88db6bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8da9edc1b23c0c2da036beedf88db6bc">&#9670;&#160;</a></span>m_distance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float EditorCamera::m_distance = 8.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa0b6930fdcbed7407a64382491ea1ebb" name="aa0b6930fdcbed7407a64382491ea1ebb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0b6930fdcbed7407a64382491ea1ebb">&#9670;&#160;</a></span>m_farZ</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float EditorCamera::m_farZ = 1000.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3e5dfcc2214ec54f11315fff95838060" name="a3e5dfcc2214ec54f11315fff95838060"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e5dfcc2214ec54f11315fff95838060">&#9670;&#160;</a></span>m_fastFlyMultiplier</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float EditorCamera::m_fastFlyMultiplier = 2.5f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ceb407b2bbd515aaa9eeefb8ccc8985" name="a4ceb407b2bbd515aaa9eeefb8ccc8985"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ceb407b2bbd515aaa9eeefb8ccc8985">&#9670;&#160;</a></span>m_flySpeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float EditorCamera::m_flySpeed = 10.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6e9aa2a5e3b785c571dc15a42ad60512" name="a6e9aa2a5e3b785c571dc15a42ad60512"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e9aa2a5e3b785c571dc15a42ad60512">&#9670;&#160;</a></span>m_focalPoint</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 EditorCamera::m_focalPoint = { 0.0f, 1.0f, 0.0f }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abb3358c17715c6be541af90613c3d4da" name="abb3358c17715c6be541af90613c3d4da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb3358c17715c6be541af90613c3d4da">&#9670;&#160;</a></span>m_fov</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float EditorCamera::m_fov = DirectX::XM_PIDIV4</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab703f55fe335e12a3d3f69bbc20fb956" name="ab703f55fe335e12a3d3f69bbc20fb956"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab703f55fe335e12a3d3f69bbc20fb956">&#9670;&#160;</a></span>m_isNavigating</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool EditorCamera::m_isNavigating = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a12c1a61a31fb0d91715e14263cf00fa0" name="a12c1a61a31fb0d91715e14263cf00fa0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12c1a61a31fb0d91715e14263cf00fa0">&#9670;&#160;</a></span>m_mouseSensitivity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float EditorCamera::m_mouseSensitivity = 0.003f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abaac2108773ae75211661dbdd76c1d8c" name="abaac2108773ae75211661dbdd76c1d8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abaac2108773ae75211661dbdd76c1d8c">&#9670;&#160;</a></span>m_nearZ</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float EditorCamera::m_nearZ = 0.1f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aadad7b143e34d2e61544591b00b181d1" name="aadad7b143e34d2e61544591b00b181d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadad7b143e34d2e61544591b00b181d1">&#9670;&#160;</a></span>m_orbitSensitivity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float EditorCamera::m_orbitSensitivity = 0.005f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a23d74ea19305f33d8b7b9a27eb64aeee" name="a23d74ea19305f33d8b7b9a27eb64aeee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23d74ea19305f33d8b7b9a27eb64aeee">&#9670;&#160;</a></span>m_panSpeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float EditorCamera::m_panSpeed = 0.008f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae02679f4cea0769d82e5bd725e0c25a7" name="ae02679f4cea0769d82e5bd725e0c25a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae02679f4cea0769d82e5bd725e0c25a7">&#9670;&#160;</a></span>m_pitch</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float EditorCamera::m_pitch = 0.35f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae48590f6b802b49a89f02620970f0b9d" name="ae48590f6b802b49a89f02620970f0b9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae48590f6b802b49a89f02620970f0b9d">&#9670;&#160;</a></span>m_position</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 EditorCamera::m_position = { 0.0f, 4.0f, -8.0f }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a42b2f31c4d75ae401884e95ed7accd57" name="a42b2f31c4d75ae401884e95ed7accd57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42b2f31c4d75ae401884e95ed7accd57">&#9670;&#160;</a></span>m_projMatrix</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMMATRIX EditorCamera::m_projMatrix = DirectX::XMMatrixIdentity()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a48a8243fa56dea74e38d1707cb83d0e7" name="a48a8243fa56dea74e38d1707cb83d0e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48a8243fa56dea74e38d1707cb83d0e7">&#9670;&#160;</a></span>m_viewMatrix</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMMATRIX EditorCamera::m_viewMatrix = DirectX::XMMatrixIdentity()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa60b8eebb38033a953d691a73745bb11" name="aa60b8eebb38033a953d691a73745bb11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa60b8eebb38033a953d691a73745bb11">&#9670;&#160;</a></span>m_yaw</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float EditorCamera::m_yaw = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6de43dd8628291a6c3007ea93edbad46" name="a6de43dd8628291a6c3007ea93edbad46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6de43dd8628291a6c3007ea93edbad46">&#9670;&#160;</a></span>m_zoomSensitivity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float EditorCamera::m_zoomSensitivity = 1.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/Editor/<a class="el" href="EditorCamera_8h_source.html">EditorCamera.h</a></li>
+<li>Source/Editor/<a class="el" href="EditorCamera_8cpp.html">EditorCamera.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classEditorCamera.html">EditorCamera</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

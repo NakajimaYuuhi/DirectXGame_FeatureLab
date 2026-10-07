@@ -1,5 +1,13 @@
 var NAVTREEINDEX1 =
 {
+"LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638a2a3cd5946cfd317eb99c3d32e35e2d4c":[3,0,0,2,0,30,1,1],
+"LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638a6c9d6b8aea6f3d16847bdebe05878a2d":[3,0,0,2,0,30,1,2],
+"LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638ab04a8341537fac392bfd17776491d03c":[3,0,0,2,0,30,1,0],
+"LightComponent_8h_source.html":[3,0,0,2,0,30],
+"LightManager_8cpp.html":[3,0,0,6,5],
+"LightManager_8h.html":[3,0,0,6,6],
+"LightManager_8h_source.html":[3,0,0,6,6],
+"Manager_8cpp.html":[3,0,0,0,8],
 "Manager_8h.html":[3,0,0,0,9],
 "Manager_8h_source.html":[3,0,0,0,9],
 "Material_8cpp.html":[3,0,0,7,10],
@@ -105,9 +113,9 @@ var NAVTREEINDEX1 =
 "PrefabSerializer_8cpp.html#ab701e3ac61a85b337ec5c1abaad6742d":[3,0,0,0,13,0],
 "PrefabSerializer_8h.html":[3,0,0,0,14],
 "PrefabSerializer_8h_source.html":[3,0,0,0,14],
-"ProfilerUI_8cpp.html":[3,0,0,1,14],
-"ProfilerUI_8h.html":[3,0,0,1,15],
-"ProfilerUI_8h_source.html":[3,0,0,1,15],
+"ProfilerUI_8cpp.html":[3,0,0,1,16],
+"ProfilerUI_8h.html":[3,0,0,1,17],
+"ProfilerUI_8h_source.html":[3,0,0,1,17],
 "Profiler_8cpp.html":[3,0,0,9,9],
 "Profiler_8h.html":[3,0,0,9,10],
 "Profiler_8h.html#aac1c1303c628961f4a2eefc0a1083766":[3,0,0,9,10,3],
@@ -241,13 +249,5 @@ var NAVTREEINDEX1 =
 "TextRenderer_8h_source.html":[3,0,0,8,7],
 "TextureManager_8cpp.html":[3,0,0,6,27],
 "TextureManager_8h.html":[3,0,0,6,28],
-"TextureManager_8h_source.html":[3,0,0,6,28],
-"Texture_8cpp.html":[3,0,0,7,19],
-"Texture_8h.html":[3,0,0,7,20],
-"Texture_8h_source.html":[3,0,0,7,20],
-"TimeManager_8cpp.html":[3,0,0,0,16],
-"TimeManager_8h.html":[3,0,0,0,17],
-"TimeManager_8h_source.html":[3,0,0,0,17],
-"Transform_8cpp.html":[3,0,0,2,0,35],
-"Transform_8h.html":[3,0,0,2,0,36]
+"TextureManager_8h_source.html":[3,0,0,6,28]
 };

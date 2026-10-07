@@ -101,6 +101,7 @@ var hierarchy =
     [ "nlohmann::detail::dtoa_impl::diyfp", "structnlohmann_1_1detail_1_1dtoa__impl_1_1diyfp.html", null ],
     [ "DX12Manager", "classDX12Manager.html", null ],
     [ "EaseUtility", "classEaseUtility.html", null ],
+    [ "EditorCamera", "classEditorCamera.html", null ],
     [ "EditorRaycast", "classEditorRaycast.html", null ],
     [ "Event", "classEvent.html", null ],
     [ "EventData", "classEventData.html", [

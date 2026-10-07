@@ -247,6 +247,7 @@ var annotated_dup =
     [ "DirectionalLight", "structDirectionalLight.html", "structDirectionalLight" ],
     [ "DX12Manager", "classDX12Manager.html", "classDX12Manager" ],
     [ "EaseUtility", "classEaseUtility.html", "classEaseUtility" ],
+    [ "EditorCamera", "classEditorCamera.html", "classEditorCamera" ],
     [ "EditorRaycast", "classEditorRaycast.html", "classEditorRaycast" ],
     [ "EnemyAIComponent", "classEnemyAIComponent.html", "classEnemyAIComponent" ],
     [ "EnemyCounterComponent", "classEnemyCounterComponent.html", "classEnemyCounterComponent" ],
