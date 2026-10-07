@@ -44,7 +44,8 @@ var hierarchy =
       [ "CharacterMovementComponent", "classCharacterMovementComponent.html", null ],
       [ "Collider", "classCollider.html", [
         [ "Collider3D", "classCollider3D.html", [
-          [ "BoxCollider3D", "classBoxCollider3D.html", null ]
+          [ "BoxCollider3D", "classBoxCollider3D.html", null ],
+          [ "CapsuleCollider3D", "classCapsuleCollider3D.html", null ]
         ] ]
       ] ],
       [ "EnemyAIComponent", "classEnemyAIComponent.html", null ],

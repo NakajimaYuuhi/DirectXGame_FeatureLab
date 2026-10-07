@@ -8,7 +8,9 @@ var classCollider =
       [ "BOX_2D", "classCollider.html#a9a45786155a7a5dd34e53985485b2aa3ac0cbb8f86e70f3963a518b07f34a73a2", null ],
       [ "BOX_2D_Trigger", "classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a0b0492908d0094fadbce9fba3a2fc413", null ],
       [ "BOX_3D", "classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a7ea623b1a41dba766ab1a6efd6763553", null ],
-      [ "BOX_3D_Trigger", "classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a4856b89d6628207c5f23f056b0878a57", null ]
+      [ "BOX_3D_Trigger", "classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a4856b89d6628207c5f23f056b0878a57", null ],
+      [ "CAPSULE_3D", "classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a6936bcf2ff2b18fdec344a90e87e9609", null ],
+      [ "CAPSULE_3D_Trigger", "classCollider.html#a9a45786155a7a5dd34e53985485b2aa3a599955c2230427d87edd732720eaa0c4", null ]
     ] ],
     [ "Collider", "classCollider.html#aa7186870221f868bbc74c3ae8609fa66", null ],
     [ "~Collider", "classCollider.html#a7b43c72a6424d8c11dec965d166953d3", null ],
