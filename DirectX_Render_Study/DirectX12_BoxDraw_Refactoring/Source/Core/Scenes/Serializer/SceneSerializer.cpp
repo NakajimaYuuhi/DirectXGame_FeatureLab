@@ -9,6 +9,7 @@
 #include "ButtonAction.h"
 #include "CameraComponent.h"
 #include "ButtonComponent.h"
+#include "LightComponent.h"
 #include "PrefabManager.h"
 #include "Source/UI/RectTransform.h"
 #include "Source/External/json.hpp"
@@ -145,6 +146,24 @@ bool SceneSerializer::SaveScene(const std::string& filepath, Scenes::ID sceneID)
 				objJson["rectTransform"]["anchorMax"] = { aMax.x, aMax.y };
 				objJson["rectTransform"]["scale"] = { scl.x, scl.y };
 				objJson["rectTransform"]["rotationZ"] = rot;
+			}
+
+			// LightComponent
+			LightComponent* lightComp = obj->GetComponent<LightComponent>();
+			if (lightComp)
+			{
+				objJson["light"]["type"] = static_cast<int>(lightComp->GetLightType());
+				DirectX::XMFLOAT3 col = lightComp->GetColor();
+				objJson["light"]["color"] = { col.x, col.y, col.z };
+				objJson["light"]["intensity"] = lightComp->GetIntensity();
+				DirectX::XMFLOAT3 amb = lightComp->GetAmbientColor();
+				objJson["light"]["ambientColor"] = { amb.x, amb.y, amb.z };
+				objJson["light"]["specularPower"] = lightComp->GetSpecularPower();
+				objJson["light"]["castShadow"] = lightComp->GetCastShadow();
+				objJson["light"]["shadowBias"] = lightComp->GetShadowBias();
+				objJson["light"]["shadowDarkness"] = lightComp->GetShadowDarkness();
+				objJson["light"]["range"] = lightComp->GetRange();
+				objJson["light"]["spotAngle"] = lightComp->GetSpotAngle();
 			}
 
 			rootJson["objects"].push_back(objJson);
@@ -428,6 +447,60 @@ bool SceneSerializer::LoadScene(const std::string& filepath, Scenes::ID sceneID)
 				if (rJson.contains("rotationZ"))
 				{
 					rect->SetRotationZ(rJson["rotationZ"].get<float>());
+				}
+			}
+
+			// LightComponent
+			if (objJson.contains("light") || objJson.contains("lightComponent"))
+			{
+				const auto& lJson = objJson.contains("light") ? objJson["light"] : objJson["lightComponent"];
+				LightComponent* lightComp = newObj->GetComponent<LightComponent>();
+				if (!lightComp) lightComp = newObj->AddComponent<LightComponent>();
+
+				if (lightComp)
+				{
+					if (lJson.contains("type"))
+					{
+						lightComp->SetLightType(static_cast<LightType>(lJson["type"].get<int>()));
+					}
+					if (lJson.contains("color") && lJson["color"].is_array() && lJson["color"].size() >= 3)
+					{
+						lightComp->SetColor(lJson["color"][0], lJson["color"][1], lJson["color"][2]);
+					}
+					if (lJson.contains("intensity"))
+					{
+						lightComp->SetIntensity(lJson["intensity"].get<float>());
+					}
+					if (lJson.contains("ambientColor") && lJson["ambientColor"].is_array() && lJson["ambientColor"].size() >= 3)
+					{
+						lightComp->SetAmbientColor(lJson["ambientColor"][0], lJson["ambientColor"][1], lJson["ambientColor"][2]);
+					}
+					if (lJson.contains("specularPower"))
+					{
+						lightComp->SetSpecularPower(lJson["specularPower"].get<float>());
+					}
+					if (lJson.contains("castShadow"))
+					{
+						lightComp->SetCastShadow(lJson["castShadow"].get<bool>());
+					}
+					if (lJson.contains("shadowBias"))
+					{
+						lightComp->SetShadowBias(lJson["shadowBias"].get<float>());
+					}
+					if (lJson.contains("shadowDarkness"))
+					{
+						lightComp->SetShadowDarkness(lJson["shadowDarkness"].get<float>());
+					}
+					if (lJson.contains("range"))
+					{
+						lightComp->SetRange(lJson["range"].get<float>());
+					}
+					if (lJson.contains("spotAngle"))
+					{
+						lightComp->SetSpotAngle(lJson["spotAngle"].get<float>());
+					}
+
+					lightComp->SyncToLightManager();
 				}
 			}
 

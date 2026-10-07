@@ -38,6 +38,7 @@
 #include "ButtonComponent.h"
 #include "EnemyCounterComponent.h"
 #include "FieldComponent.h"
+#include "LightComponent.h"
 #include "CollisionLayers.h"
 #include "RenderLayer.h"
 #include "LightManager.h"
@@ -805,7 +806,7 @@ void CInspectorUI::Draw()
                 {
                     if (ImGui::CollapsingHeader("Transform", ImGuiTreeNodeFlags_DefaultOpen))
                     {
-                        // éšŽå±¤æƒE ±
+                        // é««ä¸»ï½±ï½¤è« ãƒ»ï¿½ï½±
                         CTransform* parentTrans = transform->GetParent();
                         if (parentTrans)
                         {
@@ -833,7 +834,7 @@ void CInspectorUI::Draw()
 
                         ImGui::Separator();
 
-                        // ãƒ­ãƒ¼ã‚«ãƒ«å§¿å‹¢
+                        // ç¹ï½­ç¹ï½¼ç¹§ï½«ç¹ï½«èŸ‹ï½¿èœï½¢
                         DirectX::XMFLOAT3 pos = transform->GetPos();
                         if (ImGui::DragFloat3("Position", &pos.x, 0.1f))
                         {
@@ -852,7 +853,7 @@ void CInspectorUI::Draw()
                             transform->SetScale(scale);
                         }
 
-                        // ãƒ¯ãƒ¼ãƒ«ãƒ‰å§¿å‹¢ã®ãƒEƒãƒE‚°è¡¨ç¤º
+                        // ç¹ï½¯ç¹ï½¼ç¹ï½«ç¹ç‰™ï½§ï½¿èœï½¢ç¸ºï½®ç¹ãƒ»ãƒ°ç¹ãƒ»ã’é™¦ï½¨é‰ï½º
                         if (ImGui::TreeNode("World Transform (Read Only)"))
                         {
                             DirectX::XMFLOAT3 wPos = transform->GetWorldPosition();
@@ -1179,6 +1180,95 @@ void CInspectorUI::Draw()
                     }
                 }
 
+                // LightComponent
+                LightComponent* lightComp = selectedObj->GetComponent<LightComponent>();
+                if (lightComp)
+                {
+                    if (ImGui::CollapsingHeader("LightComponent Settings", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        // Light Type
+                        const char* lightTypes[] = { "Directional", "Point", "Spot" };
+                        int currentType = static_cast<int>(lightComp->GetLightType());
+                        if (ImGui::Combo("Light Type", &currentType, lightTypes, IM_ARRAYSIZE(lightTypes)))
+                        {
+                            lightComp->SetLightType(static_cast<LightType>(currentType));
+                        }
+
+                        // Light Color
+                        DirectX::XMFLOAT3 lColor = lightComp->GetColor();
+                        float colArr[3] = { lColor.x, lColor.y, lColor.z };
+                        if (ImGui::ColorEdit3("Light Color", colArr))
+                        {
+                            lightComp->SetColor(colArr[0], colArr[1], colArr[2]);
+                        }
+
+                        // Intensity
+                        float intensity = lightComp->GetIntensity();
+                        if (ImGui::SliderFloat("Intensity", &intensity, 0.0f, 10.0f, "%.2f"))
+                        {
+                            lightComp->SetIntensity(intensity);
+                        }
+
+                        // Ambient Color
+                        DirectX::XMFLOAT3 ambColor = lightComp->GetAmbientColor();
+                        float ambArr[3] = { ambColor.x, ambColor.y, ambColor.z };
+                        if (ImGui::ColorEdit3("Ambient Color", ambArr))
+                        {
+                            lightComp->SetAmbientColor(ambArr[0], ambArr[1], ambArr[2]);
+                        }
+
+                        // Specular Power
+                        float specPower = lightComp->GetSpecularPower();
+                        if (ImGui::SliderFloat("Specular Power", &specPower, 1.0f, 128.0f, "%.1f"))
+                        {
+                            lightComp->SetSpecularPower(specPower);
+                        }
+
+                        ImGui::Separator();
+                        ImGui::Text("Shadow Settings");
+                        bool castShadow = lightComp->GetCastShadow();
+                        if (ImGui::Checkbox("Cast Shadow", &castShadow))
+                        {
+                            lightComp->SetCastShadow(castShadow);
+                        }
+
+                        if (castShadow)
+                        {
+                            float bias = lightComp->GetShadowBias();
+                            if (ImGui::SliderFloat("Shadow Bias", &bias, 0.0001f, 0.01f, "%.5f"))
+                            {
+                                lightComp->SetShadowBias(bias);
+                            }
+
+                            float darkness = lightComp->GetShadowDarkness();
+                            if (ImGui::SliderFloat("Shadow Darkness", &darkness, 0.0f, 1.0f, "%.2f"))
+                            {
+                                lightComp->SetShadowDarkness(darkness);
+                            }
+                        }
+
+                        if (lightComp->GetLightType() != LightType::Directional)
+                        {
+                            ImGui::Separator();
+                            ImGui::Text("Attenuation & Shape");
+                            float range = lightComp->GetRange();
+                            if (ImGui::DragFloat("Range", &range, 0.5f, 0.1f, 500.0f, "%.1f"))
+                            {
+                                lightComp->SetRange(range);
+                            }
+
+                            if (lightComp->GetLightType() == LightType::Spot)
+                            {
+                                float spotAngle = lightComp->GetSpotAngle();
+                                if (ImGui::SliderFloat("Spot Angle", &spotAngle, 1.0f, 179.0f, "%.1f deg"))
+                                {
+                                    lightComp->SetSpotAngle(spotAngle);
+                                }
+                            }
+                        }
+                    }
+                }
+
                 // -------------------------------------------------------------
                 // Other Components (Components without custom inspector panels)
                 // -------------------------------------------------------------
@@ -1188,7 +1278,8 @@ void CInspectorUI::Draw()
                     if (!comp) continue;
                     CComponent* cPtr = comp.get();
                     if (cPtr != transform && cPtr != sprite && cPtr != textComp &&
-                        cPtr != btnComp && cPtr != ecComp && cPtr != objInfo)
+                        cPtr != btnComp && cPtr != ecComp && cPtr != objInfo &&
+                        cPtr != lightComp)
                     {
                         otherCompNames.push_back(GetCleanComponentName(cPtr));
                     }
@@ -1343,6 +1434,13 @@ void CInspectorUI::Draw()
                             selectedObj->AddComponent<CameraComponent>();
                         }
                     }
+                    if (MatchesFilter("Light Component") && !selectedObj->GetComponent<LightComponent>())
+                    {
+                        if (ImGui::Selectable("Light Component"))
+                        {
+                            selectedObj->AddComponent<LightComponent>();
+                        }
+                    }
 
                     // --- UI & Input ---
                     if (MatchesFilter("Button Component") && !selectedObj->GetComponent<ButtonComponent>())
@@ -1408,6 +1506,7 @@ void CInspectorUI::Draw()
         ImGuiIO& io = ImGui::GetIO();
         DrawGizmo(ImGui::GetBackgroundDrawList(), ImVec2(0.0f, 0.0f), io.DisplaySize);
         DrawColliders(ImGui::GetBackgroundDrawList(), ImVec2(0.0f, 0.0f), io.DisplaySize);
+        DrawLights(ImGui::GetBackgroundDrawList(), ImVec2(0.0f, 0.0f), io.DisplaySize);
     }
 
 }
@@ -1417,7 +1516,7 @@ void CInspectorUI::DrawGizmo(ImDrawList* drawList, const ImVec2& vpPos, const Im
 {
     if (!drawList || vpSize.x <= 0.0f || vpSize.y <= 0.0f) return;
 
-    // EditMode ‚Ü‚½‚Í PrefabEditMode ‚Ì‚Æ‚«‚Ì‚ÝƒMƒYƒ‚‚ð•`‰æE‘€ì‚·‚é
+    // EditMode ã¾ãŸã¯ PrefabEditMode ã®ã¨ãã®ã¿ã‚®ã‚ºãƒ¢ã‚’æç”»ãƒ»æ“ä½œã™ã‚‹
     if (!m_isEditMode && !m_isPrefabEditMode)
     {
         m_isDraggingGizmo = false;
@@ -1488,7 +1587,7 @@ void CInspectorUI::DrawGizmo(ImDrawList* drawList, const ImVec2& vpPos, const Im
     ImGuiIO& io = ImGui::GetIO();
     ImVec2 mousePos = io.MousePos;
 
-    // Viewport‚Ì‰æ‘œ”ÍˆÍ“à‚ÉƒNƒŠƒbƒsƒ“ƒO‚ð‚©‚¯‚é
+    // Viewportã®ç”»åƒç¯„å›²å†…ã«ã‚¯ãƒªãƒƒãƒ”ãƒ³ã‚°ã‚’ã‹ã‘ã‚‹
     drawList->PushClipRect(vpPos, ImVec2(vpPos.x + vpSize.x, vpPos.y + vpSize.y), true);
 
     ImVec2 originScreen = ImVec2(fOrigin.x, fOrigin.y);
@@ -1501,7 +1600,7 @@ void CInspectorUI::DrawGizmo(ImDrawList* drawList, const ImVec2& vpPos, const Im
     int hoverAxis = -1;
     float minHoverDist = 16.0f; // Threshold in pixels
 
-    // ƒ}ƒEƒX‚ªƒrƒ…[ƒ|[ƒg‰æ‘œ‹éŒ`“à‚É‚ ‚é‚©A‚Ü‚½‚Í‚·‚Å‚Éƒhƒ‰ƒbƒO’†‚Å‚ ‚éê‡‚Ì‚Ýƒzƒo[/ƒhƒ‰ƒbƒO”»’è
+    // ãƒžã‚¦ã‚¹ãŒãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆç”»åƒçŸ©å½¢å†…ã«ã‚ã‚‹ã‹ã€ã¾ãŸã¯ã™ã§ã«ãƒ‰ãƒ©ãƒƒã‚°ä¸­ã§ã‚ã‚‹å ´åˆã®ã¿ãƒ›ãƒãƒ¼/ãƒ‰ãƒ©ãƒƒã‚°åˆ¤å®š
     bool mouseInVp = (mousePos.x >= vpPos.x && mousePos.x <= vpPos.x + vpSize.x &&
                       mousePos.y >= vpPos.y && mousePos.y <= vpPos.y + vpSize.y);
 
@@ -1671,6 +1770,38 @@ void CInspectorUI::DrawColliders(ImDrawList* drawList, const ImVec2& vpPos, cons
             if (collider)
             {
                 collider->DrawDebug(camera, drawList, vpPos, vpSize);
+            }
+        }
+    }
+}
+
+void CInspectorUI::DrawLights(ImDrawList* drawList, const ImVec2& vpPos, const ImVec2& vpSize)
+{
+    if (!m_showLights) return;
+
+    CameraComponent* camera = ObjectManager::GetInstance().GetCamera();
+    if (!camera) return;
+
+    if (m_isPrefabEditMode && m_prefabEditTarget)
+    {
+        LightComponent* lightComp = m_prefabEditTarget->GetComponent<LightComponent>();
+        if (lightComp)
+        {
+            lightComp->DrawDebug(camera, drawList, vpPos, vpSize);
+        }
+        return;
+    }
+
+    const auto& objectList = ObjectManager::GetInstance().GetObjectList();
+    for (size_t tagIdx = 0; tagIdx < objectList.size(); ++tagIdx)
+    {
+        for (const auto& obj : objectList[tagIdx])
+        {
+            if (!obj || obj->GetIsDestroyed()) continue;
+            LightComponent* lightComp = obj->GetComponent<LightComponent>();
+            if (lightComp)
+            {
+                lightComp->DrawDebug(camera, drawList, vpPos, vpSize);
             }
         }
     }

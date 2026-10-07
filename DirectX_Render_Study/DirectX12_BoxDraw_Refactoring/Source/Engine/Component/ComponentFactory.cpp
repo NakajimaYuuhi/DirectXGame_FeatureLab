@@ -20,6 +20,7 @@
 #include "ButtonComponent.h"
 #include "EnemyCounterComponent.h"
 #include "FieldComponent.h"
+#include "LightComponent.h"
 #include <windows.h>
 
 ComponentFactory::ComponentFactory()
@@ -498,4 +499,47 @@ void ComponentFactory::InitDefaultComponents()
 	RegisterComponent("FieldComponent", fieldCreator);
 	RegisterComponent("Field", fieldCreator);
 	RegisterComponent("EnemyCounter", enemyCounterCreator);
+
+	// 20. LightComponent
+	auto lightCreator = [](CObject* owner, const nlohmann::json& p) -> CComponent* {
+		LightComponent* lComp = owner->GetComponent<LightComponent>();
+		if (!lComp) lComp = owner->AddComponent<LightComponent>();
+		if (lComp)
+		{
+			if (p.contains("Type"))
+			{
+				if (p["Type"].is_number())
+				{
+					lComp->SetLightType(static_cast<LightType>(p["Type"].get<int>()));
+				}
+				else if (p["Type"].is_string())
+				{
+					std::string tStr = p["Type"].get<std::string>();
+					if (tStr == "Point") lComp->SetLightType(LightType::Point);
+					else if (tStr == "Spot") lComp->SetLightType(LightType::Spot);
+					else lComp->SetLightType(LightType::Directional);
+				}
+			}
+			if (p.contains("Color") && p["Color"].is_array() && p["Color"].size() >= 3)
+			{
+				lComp->SetColor(p["Color"][0], p["Color"][1], p["Color"][2]);
+			}
+			if (p.contains("Intensity")) lComp->SetIntensity(p["Intensity"].get<float>());
+			if (p.contains("AmbientColor") && p["AmbientColor"].is_array() && p["AmbientColor"].size() >= 3)
+			{
+				lComp->SetAmbientColor(p["AmbientColor"][0], p["AmbientColor"][1], p["AmbientColor"][2]);
+			}
+			if (p.contains("SpecularPower")) lComp->SetSpecularPower(p["SpecularPower"].get<float>());
+			if (p.contains("CastShadow")) lComp->SetCastShadow(p["CastShadow"].get<bool>());
+			if (p.contains("ShadowBias")) lComp->SetShadowBias(p["ShadowBias"].get<float>());
+			if (p.contains("ShadowDarkness")) lComp->SetShadowDarkness(p["ShadowDarkness"].get<float>());
+			if (p.contains("Range")) lComp->SetRange(p["Range"].get<float>());
+			if (p.contains("SpotAngle")) lComp->SetSpotAngle(p["SpotAngle"].get<float>());
+
+			lComp->SyncToLightManager();
+		}
+		return lComp;
+	};
+	RegisterComponent("LightComponent", lightCreator);
+	RegisterComponent("Light", lightCreator);
 }

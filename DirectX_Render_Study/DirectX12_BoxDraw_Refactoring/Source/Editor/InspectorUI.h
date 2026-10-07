@@ -30,6 +30,8 @@ public:
     void SetEditMode(bool editMode) { m_isEditMode = editMode; }
     bool ShouldShowColliders() const { return m_showColliders; }
     void SetShowColliders(bool show) { m_showColliders = show; }
+    bool ShouldShowLights() const { return m_showLights; }
+    void SetShowLights(bool show) { m_showLights = show; }
     bool ShouldUpdateGame();
 
     GizmoMode GetGizmoMode() const { return m_gizmoMode; }
@@ -48,6 +50,7 @@ public:
 
     void DrawGizmo(ImDrawList* drawList, const ImVec2& vpPos, const ImVec2& vpSize);
     void DrawColliders(ImDrawList* drawList, const ImVec2& vpPos, const ImVec2& vpSize);
+    void DrawLights(ImDrawList* drawList, const ImVec2& vpPos, const ImVec2& vpSize);
 
     // Prefab Edit Mode (Prefab Stage)
     bool IsPrefabEditMode() const { return m_isPrefabEditMode; }
@@ -75,6 +78,7 @@ private:
     char m_shaderPathInput[256] = "Assets/Shader/Wireframe.hlsl";
     char m_sceneJsonPath[256] = "Assets/Scene/SceneTest.json";
     bool m_showColliders = true;
+    bool m_showLights = true;
     GizmoMode m_gizmoMode = GizmoMode::Translate;
 
 #ifdef _DEBUG

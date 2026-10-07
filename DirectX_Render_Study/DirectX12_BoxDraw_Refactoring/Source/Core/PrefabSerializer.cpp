@@ -21,6 +21,7 @@
 #include "ButtonComponent.h"
 #include "EnemyCounterComponent.h"
 #include "FieldComponent.h"
+#include "LightComponent.h"
 #include "Source/External/json.hpp"
 #include <fstream>
 #include <filesystem>
@@ -286,6 +287,24 @@ bool PrefabSerializer::SavePrefab(const std::string& filepath, CObject* obj)
     if (ecComp)
     {
         comps["EnemyCounterComponent"]["TargetTextName"] = ecComp->GetTargetTextName();
+    }
+
+    // 20. LightComponent
+    LightComponent* lComp = obj->GetComponent<LightComponent>();
+    if (lComp)
+    {
+        comps["LightComponent"]["Type"] = static_cast<int>(lComp->GetLightType());
+        DirectX::XMFLOAT3 col = lComp->GetColor();
+        comps["LightComponent"]["Color"] = { col.x, col.y, col.z };
+        comps["LightComponent"]["Intensity"] = lComp->GetIntensity();
+        DirectX::XMFLOAT3 amb = lComp->GetAmbientColor();
+        comps["LightComponent"]["AmbientColor"] = { amb.x, amb.y, amb.z };
+        comps["LightComponent"]["SpecularPower"] = lComp->GetSpecularPower();
+        comps["LightComponent"]["CastShadow"] = lComp->GetCastShadow();
+        comps["LightComponent"]["ShadowBias"] = lComp->GetShadowBias();
+        comps["LightComponent"]["ShadowDarkness"] = lComp->GetShadowDarkness();
+        comps["LightComponent"]["Range"] = lComp->GetRange();
+        comps["LightComponent"]["SpotAngle"] = lComp->GetSpotAngle();
     }
 
     root["Components"] = comps;
