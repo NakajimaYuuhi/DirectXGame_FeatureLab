@@ -51,6 +51,21 @@ void LightManager::Init(ID3D12Device* device)
     m_isInitialized = true;
 }
 
+void LightManager::Finalize()
+{
+    if (m_constantBuffer)
+    {
+        if (m_mappedBuffer)
+        {
+            m_constantBuffer->Unmap(0, nullptr);
+            m_mappedBuffer = nullptr;
+        }
+        m_constantBuffer.Reset();
+    }
+    m_shadowMap.reset();
+    m_isInitialized = false;
+}
+
 void LightManager::UpdateBuffer(const DirectX::XMFLOAT3& targetPos, const DirectX::XMFLOAT3& cameraPos)
 {
     // 1. Calculate Light View & Orthographic Projection Matrix

@@ -34,6 +34,7 @@ public:
     }
 
     void Init(ID3D12Device* device);
+    void Finalize();
     void UpdateBuffer(const DirectX::XMFLOAT3& targetPos, const DirectX::XMFLOAT3& cameraPos);
 
     const DirectionalLight& GetDirectionalLight() const { return m_dirLight; }

@@ -3,6 +3,8 @@
 #include "DX12Manager.h"
 
 #include <d3dcompiler.h>
+#include <dxgidebug.h>
+#pragma comment(lib, "dxguid.lib")
 #include <iostream>
 
 #include "InputManager.h"
@@ -17,7 +19,7 @@
 #include "ObjectManager.h"
 
 
-// ?O???{??h???C?o?iNVIDIA / AMD?j??????A????A?v???N??????O??GPU??????g?p???????`???�E�x?@
+// ?O???{??h???C?o?iNVIDIA / AMD?j??????A????A?v???N??????O??GPU??????g?p???????`???・ｽx?@
 extern "C" {
 	_declspec(dllexport) DWORD NvOptimusEnablement = 0x00000001;
 	_declspec(dllexport) int AmdPowerXpressRequestHighPerformance = 1;
@@ -28,7 +30,7 @@ const UINT DX12Manager::m_FrameBufferCount = FRAME_BUFFER_COUNT;   //?t???[???o?
 
 //===== ???\?b?h??` =====
 
-//?C???X?^???X?�E��E�
+//?C???X?^???X?・ｽ・ｽ
 DX12Manager& DX12Manager::GetInstance()
 {
 	static DX12Manager instance;
@@ -56,7 +58,7 @@ bool DX12Manager::Initialize(HWND hwnd)
 	//if (FAILED(hr))
 	//	return false;
 
-	////?A?_?v?^?�E��E�
+	////?A?_?v?^?・ｽ・ｽ
 	//ComPtr<IDXGIAdapter1> adapter;
 
 	//for (UINT i = 0;
@@ -79,14 +81,14 @@ bool DX12Manager::Initialize(HWND hwnd)
 	if (FAILED(hr))
 		return false;
 
-	// ?A?_?v?^?�E��E�
+	// ?A?_?v?^?・ｽ・ｽ
 	ComPtr<IDXGIAdapter1> adapter;
 	ComPtr<IDXGIFactory6> factory6;
 
 	// Factory??IDXGIFactory6??L???X?g????AEnumAdapterByGpuPreference??g??????????
 	if (SUCCEEDED(m_factory.As(&factory6)))
 	{
-		// DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE ??w???�E�???A
+		// DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE ??w???・ｽ???A
 		// ?????\???????iVRAM???????O??GPU???j????O???{???????????
 		for (UINT i = 0;
 			factory6->EnumAdapterByGpuPreference(i, DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE, IID_PPV_ARGS(&adapter)) != DXGI_ERROR_NOT_FOUND;
@@ -191,20 +193,20 @@ bool DX12Manager::Initialize(HWND hwnd)
 	if (FAILED(hr))
 		return false;
 
-	//?f?B?X?N???v?^?T?C?Y?�E��E�
+	//?f?B?X?N???v?^?T?C?Y?・ｽ・ｽ
 	m_rtvDescriptorSize =
 		m_device->GetDescriptorHandleIncrementSize(
 			D3D12_DESCRIPTOR_HEAP_TYPE_RTV
 		);
 
-	//?o?b?N?o?b?t?@?�E��E�??RTV??
-	//?q?[?v????n???h???�E��E�
+	//?o?b?N?o?b?t?@?・ｽ・ｽ??RTV??
+	//?q?[?v????n???h???・ｽ・ｽ
 	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle =
 		m_rtvHeap->GetCPUDescriptorHandleForHeapStart();
 
 	for (UINT i = 0; i < m_FrameBufferCount; ++i)
 	{
-		//?o?b?N?o?b?t?@?�E��E�
+		//?o?b?N?o?b?t?@?・ｽ・ｽ
 		hr = m_swapChain->GetBuffer(
 			i,
 			IID_PPV_ARGS(&m_renderTargets[i])
@@ -329,7 +331,7 @@ bool DX12Manager::Initialize(HWND hwnd)
 //Todo : Model??`??e?X?g?????????A???????????
 
 
-	//?????�E��E�??p
+	//?????・ｽ・ｽ??p
 	//m_view = DirectX::XMMatrixLookAtLH(
 	//	DirectX::XMVectorSet(40, 0, 0, 1),
 	//	DirectX::XMVectorSet(0, 0, 0, 1),
@@ -348,14 +350,58 @@ bool DX12Manager::Initialize(HWND hwnd)
 	return true;
 }
 
-//?I??????
+// 終了処理
 void DX12Manager::Finalize()
 {
-	m_srvAllocator.Destroy();
+	// 1. GPUの実行完了を待機
+	WaitForPendingOperations();
+
+	// 2. 依存サブシステムの終了
 	D2DTextRenderer::GetInstance().Finalize();
+
+	// 3. SRVアロケーターの破棄
+	m_srvAllocator.Destroy();
+
+	// 4. レンダーターゲットおよびスワップチェーンの解放
+	for (UINT i = 0; i < FRAME_BUFFER_COUNT; ++i)
+	{
+		m_renderTargets[i].Reset();
+	}
+	m_swapChain.Reset();
+
+	// 5. 深度バッファ・ヒープの解放
+	m_depthBuffer.Reset();
+	m_rtvHeap.Reset();
+	m_dsvHeap.Reset();
+	m_srvHeap.Reset();
+
+	// 6. コマンド関連の解放
+	m_commandList.Reset();
+	m_commandAllocator.Reset();
+	m_imguiCommandAllocator.Reset();
+
+	// 7. フェンスの解放
+	if (m_fenceEvent)
+	{
+		CloseHandle(m_fenceEvent);
+		m_fenceEvent = nullptr;
+	}
+	m_fence.Reset();
+
+	// 8. コマンドキューの解放
 	m_commandQueue.Reset();
+
+	// 9. デバイスとファクトリの解放
 	m_device.Reset();
 	m_factory.Reset();
+
+#if defined(_DEBUG)
+	ComPtr<IDXGIDebug1> dxgiDebug;
+	if (SUCCEEDED(DXGIGetDebugInterface1(0, IID_PPV_ARGS(&dxgiDebug))))
+	{
+		dxgiDebug->ReportLiveObjects(DXGI_DEBUG_ALL, DXGI_DEBUG_RLO_FLAGS(DXGI_DEBUG_RLO_DETAIL | DXGI_DEBUG_RLO_IGNORE_INTERNAL));
+	}
+#endif
 }
 
 
@@ -431,7 +477,7 @@ void DX12Manager::BeginDraw()
 	// 1. ?t???[???C???f?b?N?X?X?V
 	m_frameIndex = m_swapChain->GetCurrentBackBufferIndex();
 
-	// 2. コマンドアロケータ・リスト�EリセチE���E�前フレームのGPU完亁E��E��後！E
+	// 2. 繧ｳ繝槭Φ繝峨い繝ｭ繧ｱ繝ｼ繧ｿ繝ｻ繝ｪ繧ｹ繝医・繝ｪ繧ｻ繝・ヨ・亥燕繝輔Ξ繝ｼ繝�縺ｮGPU螳御ｺ・ｾ・ｩ溷ｾ鯉ｼ・
 	m_commandAllocator->Reset();
 	m_imguiCommandAllocator->Reset();
 	m_commandList->Reset(m_commandAllocator.Get(), nullptr);
@@ -447,7 +493,7 @@ void DX12Manager::BeginDraw()
 
 	m_commandList->ResourceBarrier(1, &barrier);
 
-	// 4. RTV?n???h???�E��E�
+	// 4. RTV?n???h???・ｽ・ｽ
 	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle =
 		m_rtvHeap->GetCPUDescriptorHandleForHeapStart();
 
@@ -473,7 +519,7 @@ void DX12Manager::BeginDraw()
 	m_commandList->RSSetViewports(1, &viewport);
 	m_commandList->RSSetScissorRects(1, &scissorRect);
 
-	// 5. DSV?n???h???�E��E�
+	// 5. DSV?n???h???・ｽ・ｽ
 	D3D12_CPU_DESCRIPTOR_HANDLE dsvHandle =
 		m_dsvHeap->GetCPUDescriptorHandleForHeapStart();
 
@@ -481,7 +527,7 @@ void DX12Manager::BeginDraw()
 	// 6. ?N???A
 	//????F
 #ifdef _DEBUG
-	FLOAT clearColor[] = { 0.10f, 0.10f, 0.10f, 1.0f }; // �G�f�B�^�p�_�[�N�O���[
+	FLOAT clearColor[] = { 0.10f, 0.10f, 0.10f, 1.0f }; // エディタ用ダークグレー
 #else
 	FLOAT clearColor[] = { 0.0f, 0.0f, 0.0f, 1.0f };
 #endif
@@ -512,23 +558,23 @@ void DX12Manager::BeginDraw()
 
 void DX12Manager::EndSceneDraw()
 {
-	// 1. シーン描画コマンドリストをクローズして実衁E
+	// 1. 繧ｷ繝ｼ繝ｳ謠冗判繧ｳ繝槭Φ繝峨Μ繧ｹ繝医ｒ繧ｯ繝ｭ繝ｼ繧ｺ縺励※螳溯｡・
 	m_commandList->Close();
 	ID3D12CommandList* commandLists[] = { m_commandList.Get() };
 	m_commandQueue->ExecuteCommandLists(1, commandLists);
 
 	bool d2dRendered = false;
-	// 2. Direct2D チE��ストをバックバッファに焼き付け�E�ゲーム冁EIチE��スト描画�E�E
+	// 2. Direct2D 繝・く繧ｹ繝医ｒ繝舌ャ繧ｯ繝舌ャ繝輔ぃ縺ｫ辟ｼ縺堺ｻ倥￠・医ご繝ｼ繝�蜀・I繝・く繧ｹ繝域緒逕ｻ・・
 	{
 		PROFILE_SCOPE("Render::D2DText");
 		d2dRendered = D2DTextRenderer::GetInstance().Render(m_frameIndex);
 	}
 
-	// 3. ImGui �`��p�� ImGui �p�R�}���h�A���P�[�^�ŃR�}���h���X�g���ĊJ
+	// 3. ImGui 描画用に ImGui 用コマンドアロケータでコマンドリストを再開
 	m_commandList->Reset(m_imguiCommandAllocator.Get(), nullptr);
 
-	// D2DTextRenderer::Render �����ۂɎ��s����� PRESENT ��ԂɑJ�ڂ����ꍇ�̂݁A
-	// ImGui �`��̂��߂� RENDER_TARGET ��Ԃ֖߂�
+	// D2DTextRenderer::Render が実際に実行されて PRESENT 状態に遷移した場合のみ、
+	// ImGui 描画のために RENDER_TARGET 状態へ戻す
 	if (d2dRendered)
 	{
 		D3D12_RESOURCE_BARRIER barrier{};
@@ -540,12 +586,12 @@ void DX12Manager::EndSceneDraw()
 		m_commandList->ResourceBarrier(1, &barrier);
 	}
 
-	// レンダーターゲチE��をセチE��
+	// 繝ｬ繝ｳ繝繝ｼ繧ｿ繝ｼ繧ｲ繝・ヨ繧偵そ繝・ヨ
 	D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle = m_rtvHeap->GetCPUDescriptorHandleForHeapStart();
 	rtvHandle.ptr += m_frameIndex * m_rtvDescriptorSize;
 	m_commandList->OMSetRenderTargets(1, &rtvHandle, FALSE, nullptr);
 
-	// ビューポ�Eトとシザー矩形を設宁E
+	// 繝薙Η繝ｼ繝昴・繝医→繧ｷ繧ｶ繝ｼ遏ｩ蠖｢繧定ｨｭ螳・
 	D3D12_VIEWPORT viewport{};
 	viewport.Width = (float)m_Width;
 	viewport.Height = (float)m_Height;
@@ -564,7 +610,7 @@ void DX12Manager::EndSceneDraw()
 
 void DX12Manager::EndDraw()
 {
-	// ImGui 描画後�EバックバッファめEPRESENT 状態へ遷移
+	// ImGui 謠冗判蠕後・繝舌ャ繧ｯ繝舌ャ繝輔ぃ繧・PRESENT 迥ｶ諷九∈驕ｷ遘ｻ
 	D3D12_RESOURCE_BARRIER barrier{};
 	barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
 	barrier.Transition.pResource = m_renderTargets[m_frameIndex].Get();
@@ -581,7 +627,7 @@ void DX12Manager::EndDraw()
 	HRESULT hr = m_swapChain->Present(1, 0);
 	m_SwapChainOccluded = (hr == DXGI_STATUS_OCCLUDED);
 
-	// フェンスシグナル
+	// 繝輔ぉ繝ｳ繧ｹ繧ｷ繧ｰ繝翫Ν
 	const UINT64 fenceToWaitFor = m_fenceValue;
 	m_commandQueue->Signal(m_fence.Get(), fenceToWaitFor);
 	m_fenceValue++;
@@ -590,13 +636,13 @@ void DX12Manager::EndDraw()
 void DX12Manager::CreateCommandObjects()
 {
 
-	// シーン描画用コマンドアロケータ
+	// 繧ｷ繝ｼ繝ｳ謠冗判逕ｨ繧ｳ繝槭Φ繝峨い繝ｭ繧ｱ繝ｼ繧ｿ
 	m_device->CreateCommandAllocator(
 		D3D12_COMMAND_LIST_TYPE_DIRECT,
 		IID_PPV_ARGS(&m_commandAllocator)
 	);
 
-	// ImGui/後続描画用コマンドアロケータ
+	// ImGui/蠕檎ｶ壽緒逕ｻ逕ｨ繧ｳ繝槭Φ繝峨い繝ｭ繧ｱ繝ｼ繧ｿ
 	m_device->CreateCommandAllocator(
 		D3D12_COMMAND_LIST_TYPE_DIRECT,
 		IID_PPV_ARGS(&m_imguiCommandAllocator)
@@ -745,7 +791,7 @@ void DX12Manager::CreateRenderTarget()
 
 	for (UINT i = 0; i < m_FrameBufferCount; ++i)
 	{
-		//?o?b?N?o?b?t?@?�E��E�
+		//?o?b?N?o?b?t?@?・ｽ・ｽ
 		HRESULT hr = m_swapChain->GetBuffer(
 			i,
 			IID_PPV_ARGS(&m_renderTargets[i])

@@ -18,12 +18,13 @@ public:
     }
 
     void Init(ID3D12Device* device);
+    void Finalize();
 
-	// “®“IPSO¶?E
+	// å‹•çš„PSOç”Ÿ?E
 	ID3D12PipelineState* GetPSO(CMaterial* material, ID3D12RootSignature* rootSig);
 
 private:
-	// PSOƒLƒƒƒ`E??ƒ…: ƒL[‚Í "ƒVƒF[ƒ_[ƒpƒX_ƒuƒŒƒ“ƒhƒ‚[ƒ`E ‚È‚Ç‚ÌˆêˆÓ?E?E???E
+	// PSOã‚­ãƒ£ãƒE??ãƒ¥: ã‚­ãƒ¼ã¯ "ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ãƒ‘ã‚¹_ãƒ–ãƒ¬ãƒ³ãƒ‰ãƒ¢ãƒ¼ãƒE ãªã©ã®ä¸€æ„?E?E???E
 	std::unordered_map<std::wstring, ComPtr<ID3D12PipelineState>> m_psoCache;
 
 

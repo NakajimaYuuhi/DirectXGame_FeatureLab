@@ -9,7 +9,7 @@ void PSOManager::Init(ID3D12Device* device)
 {
     // ===== ????? =====
 
-    // --ƒGƒ‰[ƒnƒ“ƒhƒŠƒ“ƒO—p
+    // --ã‚¨ãƒ©ãƒ¼ãƒãƒ³ãƒ‰ãƒªãƒ³ã‚°ç”¨
 
     // --?V?F?[?_??A
     // ???b?V???p
@@ -22,7 +22,7 @@ void PSOManager::Init(ID3D12Device* device)
     //  2. ???[?g?V?O?l?`????
     // =========================================================
 
-    // ----- ƒƒbƒVƒ…—pƒ‹[ƒgƒVƒOƒlƒ`ƒƒ -----
+    // ----- ãƒ¡ãƒƒã‚·ãƒ¥ç”¨ãƒ«ãƒ¼ãƒˆã‚·ã‚°ãƒãƒãƒ£ -----
     {
         RootSignatureBuilder rsBuilder;
         rsBuilder.AddConstants(36, 0, 0, D3D12_SHADER_VISIBILITY_ALL); // 0: WVP(16) + World(16) + UV(4) = 36 DWORD, register(b0)
@@ -55,7 +55,7 @@ void PSOManager::Init(ID3D12Device* device)
         rsBuilder.Build(device, &m_meshRootSignature);
     }
 
-    // ----- ƒVƒƒƒhƒE—pƒ‹[ƒgƒVƒOƒlƒ`ƒƒ -----
+    // ----- ã‚·ãƒ£ãƒ‰ã‚¦ç”¨ãƒ«ãƒ¼ãƒˆã‚·ã‚°ãƒãƒãƒ£ -----
     {
         RootSignatureBuilder rsBuilder;
         rsBuilder.AddConstants(16, 0, 0, D3D12_SHADER_VISIBILITY_VERTEX); // 0: LightWVP (16 DWORD), register(b0)
@@ -140,7 +140,7 @@ void PSOManager::Init(ID3D12Device* device)
         psoBuilder.Build(device, &m_additivePipelineState);
     }
 
-    // ----- ƒVƒƒƒhƒE—p PSO ([“x‚Ì‚İ•`‰æ) -----
+    // ----- ã‚·ãƒ£ãƒ‰ã‚¦ç”¨ PSO (æ·±åº¦ã®ã¿æç”») -----
     auto shadowVertexShader = ShaderManager::GetInstance().GetShader(L"Assets/Shader/ShadowMap.hlsl", "VSMain", "vs_5_0");
     if (shadowVertexShader)
     {
@@ -212,7 +212,7 @@ void PSOManager::Init(ID3D12Device* device)
         psoBuilder.Build(device, &m_spritePipelineState);
     }
 
-    // ----- ƒ_ƒ~[ƒ{[ƒ“ƒoƒbƒtƒ@iƒ{[ƒ“‚ğ‚½‚È‚¢ƒƒbƒVƒ…‚ÌˆÀ‘S‘Îôj -----
+    // ----- ãƒ€ãƒŸãƒ¼ãƒœãƒ¼ãƒ³ãƒãƒƒãƒ•ã‚¡ï¼ˆãƒœãƒ¼ãƒ³ã‚’æŒãŸãªã„ãƒ¡ãƒƒã‚·ãƒ¥ã®å®‰å…¨å¯¾ç­–ï¼‰ -----
     {
         D3D12_HEAP_PROPERTIES heapProp = {};
         heapProp.Type = D3D12_HEAP_TYPE_UPLOAD;
@@ -327,4 +327,17 @@ ID3D12PipelineState* PSOManager::GetPSO(CMaterial* material, ID3D12RootSignature
     
     m_psoCache[key] = newPso;
     return newPso.Get();
+}
+
+void PSOManager::Finalize()
+{
+    m_psoCache.clear();
+    m_meshPipelineState.Reset();
+    m_meshRootSignature.Reset();
+    m_additivePipelineState.Reset();
+    m_shadowPipelineState.Reset();
+    m_shadowRootSignature.Reset();
+    m_spritePipelineState.Reset();
+    m_spriteRootSignature.Reset();
+    m_dummyBoneBuffer.Reset();
 }
