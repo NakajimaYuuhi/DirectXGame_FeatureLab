@@ -38,6 +38,20 @@ cbuffer LightBuffer : register(b1)
 };
 
 // ================================
+// Material Buffer (b2) - Material Constants
+// ================================
+cbuffer MaterialBuffer : register(b2)
+{
+    float4   matBaseColor;     // 4 floats (0..3)   Base Color / Tint
+    float2   matUvTiling;      // 2 floats (4..5)   UV Tiling
+    float2   matUvOffset;      // 2 floats (6..7)   UV Offset
+    float    matRoughness;     // 1 float  (8)      Roughness (0..1)
+    float    matMetallic;      // 1 float  (9)      Metallic (0..1)
+    float2   matPadding;       // 2 floats (10..11) 16-byte alignment
+    float4   matCustomParams[2];// 8 floats (12..19) Custom shader parameters
+};
+
+// ================================
 // Resources
 // ================================
 Texture2D tex0 : register(t0);
@@ -109,8 +123,8 @@ PSInput VSMain(VSInput input)
     // Light projection for shadow mapping
     output.shadowPos = mul(float4(output.worldPos, 1.0f), LightViewProj);
 
-    // UV Transform
-    output.uv = (input.uv * uvScale) + uvOffset;
+    // UV Transform: combine Object uvScale/uvOffset with Material matUvTiling/matUvOffset
+    output.uv = (input.uv * uvScale * matUvTiling) + uvOffset + matUvOffset;
 
     return output;
 }
@@ -163,7 +177,7 @@ float CalculateShadow(float4 shadowPos, float3 N, float3 L)
 // ================================
 float4 PSMain(PSInput input) : SV_TARGET
 {
-    float4 texColor = tex0.Sample(samLinear, input.uv);
+    float4 texColor = tex0.Sample(samLinear, input.uv) * matBaseColor;
     if (texColor.a < 0.05f)
     {
         discard;
@@ -179,9 +193,11 @@ float4 PSMain(PSInput input) : SV_TARGET
     float halfLambert = saturate(NdotL * 0.5f + 0.5f);
     float diffuse = halfLambert * halfLambert;
 
-    // 2. Blinn-Phong Specular Highlight
+    // 2. Blinn-Phong Specular Highlight (modulated by roughness / metallic)
     float NdotH = saturate(dot(N, H));
-    float specPower = max(ambientColor.a, 1.0f);
+    // Roughness inversely affects specPower (0.0 -> power 128, 1.0 -> power 4)
+    float roughnessFactor = clamp(matRoughness, 0.01f, 1.0f);
+    float specPower = max(ambientColor.a * (1.0f / (roughnessFactor * roughnessFactor)), 1.0f);
     float specular = pow(NdotH, specPower) * (NdotL > 0.0f ? 1.0f : 0.0f);
 
     // 3. Shadow Calculation

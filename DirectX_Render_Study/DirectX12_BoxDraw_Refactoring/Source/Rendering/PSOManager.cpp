@@ -1,4 +1,4 @@
-#include "PSOBuilder.h"
+﻿#include "PSOBuilder.h"
 #include "ShaderManager.h"
 #include "PSOManager.h"
 #include "DX12Manager.h"
@@ -9,7 +9,7 @@ void PSOManager::Init(ID3D12Device* device)
 {
     // ===== ????? =====
 
-    // --エラーハンドリング用
+    // --繧ｨ繝ｩ繝ｼ繝上Φ繝峨Μ繝ｳ繧ｰ逕ｨ
 
     // --?V?F?[?_??A
     // ???b?V???p
@@ -22,7 +22,7 @@ void PSOManager::Init(ID3D12Device* device)
     //  2. ???[?g?V?O?l?`????
     // =========================================================
 
-    // ----- メッシュ用ルートシグネチャ -----
+    // ----- 繝｡繝・す繝･逕ｨ繝ｫ繝ｼ繝医す繧ｰ繝阪メ繝｣ -----
     {
         RootSignatureBuilder rsBuilder;
         rsBuilder.AddConstants(36, 0, 0, D3D12_SHADER_VISIBILITY_ALL); // 0: WVP(16) + World(16) + UV(4) = 36 DWORD, register(b0)
@@ -30,6 +30,7 @@ void PSOManager::Init(ID3D12Device* device)
         rsBuilder.AddDescriptorTable(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 1, 0, D3D12_SHADER_VISIBILITY_VERTEX); // 2: Bone register(t1)
         rsBuilder.AddConstantBufferView(1, 0, D3D12_SHADER_VISIBILITY_ALL); // 3: LightBuffer register(b1) (Root CBV)
         rsBuilder.AddDescriptorTable(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 2, 0, D3D12_SHADER_VISIBILITY_PIXEL); // 4: ShadowMap register(t2)
+        rsBuilder.AddConstantBufferView(2, 0, D3D12_SHADER_VISIBILITY_ALL); // 5: MaterialBuffer register(b2) (Root CBV)
 
         // Static Sampler 0: s0 (Material Linear Wrap)
         D3D12_STATIC_SAMPLER_DESC sampler{};
@@ -55,7 +56,7 @@ void PSOManager::Init(ID3D12Device* device)
         rsBuilder.Build(device, &m_meshRootSignature);
     }
 
-    // ----- シャドウ用ルートシグネチャ -----
+    // ----- 繧ｷ繝｣繝峨え逕ｨ繝ｫ繝ｼ繝医す繧ｰ繝阪メ繝｣ -----
     {
         RootSignatureBuilder rsBuilder;
         rsBuilder.AddConstants(16, 0, 0, D3D12_SHADER_VISIBILITY_VERTEX); // 0: LightWVP (16 DWORD), register(b0)
@@ -140,7 +141,7 @@ void PSOManager::Init(ID3D12Device* device)
         psoBuilder.Build(device, &m_additivePipelineState);
     }
 
-    // ----- シャドウ用 PSO (深度のみ描画) -----
+    // ----- 繧ｷ繝｣繝峨え逕ｨ PSO (豺ｱ蠎ｦ縺ｮ縺ｿ謠冗判) -----
     auto shadowVertexShader = ShaderManager::GetInstance().GetShader(L"Assets/Shader/ShadowMap.hlsl", "VSMain", "vs_5_0");
     if (shadowVertexShader)
     {
@@ -212,7 +213,7 @@ void PSOManager::Init(ID3D12Device* device)
         psoBuilder.Build(device, &m_spritePipelineState);
     }
 
-    // ----- ダミーボーンバッファ（ボーンを持たないメッシュの安全対策） -----
+    // ----- 繝繝溘・繝懊・繝ｳ繝舌ャ繝輔ぃ・医・繝ｼ繝ｳ繧呈戟縺溘↑縺・Γ繝・す繝･縺ｮ螳牙・蟇ｾ遲厄ｼ・-----
     {
         D3D12_HEAP_PROPERTIES heapProp = {};
         heapProp.Type = D3D12_HEAP_TYPE_UPLOAD;

@@ -128,6 +128,45 @@ void ComponentFactory::InitDefaultComponents()
 				std::wstring wTexPath(texPath.begin(), texPath.end());
 				model->SetMaterialTexture(wTexPath.c_str());
 			}
+
+			if (p.contains("Materials") && p["Materials"].is_array())
+			{
+				const auto& matArray = p["Materials"];
+				auto& currentMats = model->GetMaterials();
+				for (size_t i = 0; i < matArray.size() && i < currentMats.size(); ++i)
+				{
+					auto mat = currentMats[i];
+					if (!mat) continue;
+					const auto& mj = matArray[i];
+
+					if (mj.contains("BaseColor") && mj["BaseColor"].size() >= 4)
+					{
+						mat->SetColor({ mj["BaseColor"][0], mj["BaseColor"][1], mj["BaseColor"][2], mj["BaseColor"][3] });
+					}
+					if (mj.contains("Roughness")) mat->SetRoughness(mj["Roughness"].get<float>());
+					if (mj.contains("Metallic")) mat->SetMetallic(mj["Metallic"].get<float>());
+					if (mj.contains("UVTiling") && mj["UVTiling"].size() >= 2)
+					{
+						mat->SetUVTiling({ mj["UVTiling"][0], mj["UVTiling"][1] });
+					}
+					if (mj.contains("UVOffset") && mj["UVOffset"].size() >= 2)
+					{
+						mat->SetUVOffset({ mj["UVOffset"][0], mj["UVOffset"][1] });
+					}
+					if (mj.contains("BlendMode"))
+					{
+						mat->SetBlendMode(static_cast<BlendMode>(mj["BlendMode"].get<int>()));
+					}
+					if (mj.contains("TexturePath"))
+					{
+						std::string tPath = mj["TexturePath"].get<std::string>();
+						if (!tPath.empty())
+						{
+							mat->LoadTexture(std::wstring(tPath.begin(), tPath.end()));
+						}
+					}
+				}
+			}
 		}
 		return model;
 	});

@@ -118,6 +118,28 @@ bool PrefabSerializer::SavePrefab(const std::string& filepath, CObject* obj)
         if (rLayer == RenderLayer::Transparent) comps["Model"]["RenderLayer"] = "Transparent";
         else if (rLayer == RenderLayer::UI) comps["Model"]["RenderLayer"] = "UI";
         else comps["Model"]["RenderLayer"] = "Opaque";
+
+        // Save Materials
+        const auto& materials = model->GetMaterials();
+        if (!materials.empty())
+        {
+            json matArray = json::array();
+            for (const auto& mat : materials)
+            {
+                if (!mat) continue;
+                json matJson;
+                const auto& md = mat->GetData();
+                matJson["BaseColor"] = { md.baseColor.x, md.baseColor.y, md.baseColor.z, md.baseColor.w };
+                matJson["Roughness"] = md.roughness;
+                matJson["Metallic"] = md.metallic;
+                matJson["UVTiling"] = { md.uvTiling.x, md.uvTiling.y };
+                matJson["UVOffset"] = { md.uvOffset.x, md.uvOffset.y };
+                matJson["BlendMode"] = static_cast<int>(mat->GetBlendMode());
+                matJson["TexturePath"] = WStringToString(mat->GetTextureFilePath());
+                matArray.push_back(matJson);
+            }
+            comps["Model"]["Materials"] = matArray;
+        }
     }
 
     // 3. BoxCollider3D

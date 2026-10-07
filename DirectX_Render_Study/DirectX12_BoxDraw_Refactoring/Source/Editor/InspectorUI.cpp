@@ -1356,6 +1356,121 @@ void CInspectorUI::Draw()
                 }
 
                 // -------------------------------------------------------------
+                // Model & Material Settings
+                // -------------------------------------------------------------
+                CModel* modelComp = selectedObj->GetComponent<CModel>();
+                if (modelComp)
+                {
+                    if (ImGui::CollapsingHeader("Model & Materials", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        ImGui::Text("Model: %s", modelComp->GetModelPath().c_str());
+                        auto& materials = modelComp->GetMaterials();
+                        ImGui::Text("Materials Count: %d", (int)materials.size());
+                        ImGui::Separator();
+
+                        for (size_t matIdx = 0; matIdx < materials.size(); ++matIdx)
+                        {
+                            auto mat = materials[matIdx];
+                            if (!mat) continue;
+
+                            std::string headerName = "Material [" + std::to_string(matIdx) + "]";
+                            if (ImGui::TreeNode(headerName.c_str()))
+                            {
+                                ImGui::PushID((int)matIdx);
+
+                                // Base Color
+                                auto& matData = mat->GetData();
+                                float col[4] = { matData.baseColor.x, matData.baseColor.y, matData.baseColor.z, matData.baseColor.w };
+                                if (ImGui::ColorEdit4("Base Color", col))
+                                {
+                                    mat->SetColor(XMFLOAT4(col[0], col[1], col[2], col[3]));
+                                }
+
+                                // Roughness & Metallic
+                                float roughness = mat->GetRoughness();
+                                if (ImGui::SliderFloat("Roughness", &roughness, 0.01f, 1.0f))
+                                {
+                                    mat->SetRoughness(roughness);
+                                }
+                                float metallic = mat->GetMetallic();
+                                if (ImGui::SliderFloat("Metallic", &metallic, 0.0f, 1.0f))
+                                {
+                                    mat->SetMetallic(metallic);
+                                }
+
+                                // UV Tiling & Offset
+                                float uvTiling[2] = { matData.uvTiling.x, matData.uvTiling.y };
+                                if (ImGui::DragFloat2("UV Tiling", uvTiling, 0.05f))
+                                {
+                                    mat->SetUVTiling(XMFLOAT2(uvTiling[0], uvTiling[1]));
+                                }
+                                float uvOffset[2] = { matData.uvOffset.x, matData.uvOffset.y };
+                                if (ImGui::DragFloat2("UV Offset", uvOffset, 0.05f))
+                                {
+                                    mat->SetUVOffset(XMFLOAT2(uvOffset[0], uvOffset[1]));
+                                }
+
+                                // Blend Mode Combo
+                                const char* blendModeNames[] = { "Opaque", "Alpha", "Additive" };
+                                int currentBlend = static_cast<int>(mat->GetBlendMode());
+                                if (ImGui::Combo("Blend Mode", &currentBlend, blendModeNames, IM_ARRAYSIZE(blendModeNames)))
+                                {
+                                    mat->SetBlendMode(static_cast<BlendMode>(currentBlend));
+                                }
+
+                                // Texture File Path & Load
+                                std::wstring texWPath = mat->GetTextureFilePath();
+                                std::string texPath(texWPath.begin(), texWPath.end());
+                                ImGui::Text("Texture: %s", texPath.empty() ? "(None)" : texPath.c_str());
+
+                                char texBuf[260] = "";
+                                strncpy_s(texBuf, texPath.c_str(), sizeof(texBuf) - 1);
+                                if (ImGui::InputText("Texture Path", texBuf, sizeof(texBuf), ImGuiInputTextFlags_EnterReturnsTrue))
+                                {
+                                    std::string newStr = texBuf;
+                                    mat->LoadTexture(std::wstring(newStr.begin(), newStr.end()));
+                                }
+
+                                // Custom Params (Float4 x 2)
+                                if (ImGui::TreeNode("Custom Shader Parameters"))
+                                {
+                                    float cp0[4] = { matData.customParams[0].x, matData.customParams[0].y, matData.customParams[0].z, matData.customParams[0].w };
+                                    if (ImGui::DragFloat4("Param[0]", cp0, 0.05f))
+                                    {
+                                        mat->SetCustomParam(0, 0, cp0[0]); mat->SetCustomParam(0, 1, cp0[1]);
+                                        mat->SetCustomParam(0, 2, cp0[2]); mat->SetCustomParam(0, 3, cp0[3]);
+                                    }
+                                    float cp1[4] = { matData.customParams[1].x, matData.customParams[1].y, matData.customParams[1].z, matData.customParams[1].w };
+                                    if (ImGui::DragFloat4("Param[1]", cp1, 0.05f))
+                                    {
+                                        mat->SetCustomParam(1, 0, cp1[0]); mat->SetCustomParam(1, 1, cp1[1]);
+                                        mat->SetCustomParam(1, 2, cp1[2]); mat->SetCustomParam(1, 3, cp1[3]);
+                                    }
+                                    ImGui::TreePop();
+                                }
+
+                                // Material Save / Load buttons (.mat)
+                                ImGui::Spacing();
+                                static char matFilePath[128] = "Assets/Materials/Custom.mat";
+                                ImGui::InputText("Mat File", matFilePath, sizeof(matFilePath));
+                                if (ImGui::Button("Save Material (.mat)"))
+                                {
+                                    mat->SaveToFile(matFilePath);
+                                }
+                                ImGui::SameLine();
+                                if (ImGui::Button("Load Material (.mat)"))
+                                {
+                                    mat->LoadFromFile(matFilePath);
+                                }
+
+                                ImGui::PopID();
+                                ImGui::TreePop();
+                            }
+                        }
+                    }
+                }
+
+                // -------------------------------------------------------------
                 // Other Components (Components without custom inspector panels)
                 // -------------------------------------------------------------
                 std::vector<std::string> otherCompNames;
@@ -1365,7 +1480,8 @@ void CInspectorUI::Draw()
                     CComponent* cPtr = comp.get();
                     if (cPtr != transform && cPtr != sprite && cPtr != textComp &&
                         cPtr != btnComp && cPtr != ecComp && cPtr != objInfo &&
-                        cPtr != lightComp && cPtr != boxCol && cPtr != capCol)
+                        cPtr != lightComp && cPtr != boxCol && cPtr != capCol &&
+                        cPtr != modelComp)
                     {
                         otherCompNames.push_back(GetCleanComponentName(cPtr));
                     }

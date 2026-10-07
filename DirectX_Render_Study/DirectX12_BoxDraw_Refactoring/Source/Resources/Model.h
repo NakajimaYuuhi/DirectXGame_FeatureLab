@@ -178,6 +178,18 @@ public:
 	bool IsAnimationLooping() const { return m_isLoop; }
 	float GetAnimationTime() const { return m_animationTime; }
 
+	// Material getters / setters
+	Materials& GetMaterials() { return m_Materials; }
+	const Materials& GetMaterials() const { return m_Materials; }
+	Material GetMaterial(UINT index = 0) { return (index < m_Materials.size()) ? m_Materials[index] : nullptr; }
+	void SetMaterial(Material mat, UINT index = 0) {
+		if (index < m_Materials.size()) {
+			m_Materials[index] = mat;
+		} else if (index == m_Materials.size()) {
+			m_Materials.push_back(mat);
+		}
+	}
+
 	void UpdateAnimation(float deltaTime);
 
 private:
