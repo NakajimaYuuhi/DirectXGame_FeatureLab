@@ -3,6 +3,7 @@
 #include "CapsuleCollider3D.h"
 #include "ObjectTag.h"
 #include "ContainerAlias.h"
+#include <algorithm>
 
 class Collision
 {
@@ -39,15 +40,17 @@ public:
 	static bool CalculateHorizontalPenetration(Collider3D* a, Collider3D* b, DirectX::XMFLOAT3& outPushVector);
 	static bool CalculatePenetration(Collider3D* a, Collider3D* b, DirectX::XMFLOAT3& outPushVector);
 
-	Vector<Vector<ObjectTag>>& GetCollisionOrder() { return CollisionOrder; }
+	// Solver iterations configuration (default: 3)
+	int GetSolverIterations() const { return m_solverIterations; }
+	void SetSolverIterations(int iterations) { m_solverIterations = (std::max)(1, iterations); }
 
 	// Two-phase collision pipeline:
-	// Phase 1: Solid Resolution (!isTrigger vs !isTrigger) - pushes objects apart
-	// Phase 2: Trigger / Overlap Notification - calls OnCollision
+	// Phase 1: Solid Resolution Solver (iterative push apart for !isTrigger objects)
+	// Phase 2: Trigger / Overlap Notification (evaluates at final confirmed positions)
 	static void ResolveCollisions(Vector<Vector<UniquePtr<CObject>>>& objectList);
 
 private:
-	Vector<Vector<ObjectTag>> CollisionOrder;
+	int m_solverIterations = 3;
 
 public:
 	static Collision& GetInstance()
@@ -57,7 +60,7 @@ public:
 	}
 
 private:
-	Collision();
+	Collision() = default;
 	~Collision() = default;
 
 	Collision(const Collision&) = delete;

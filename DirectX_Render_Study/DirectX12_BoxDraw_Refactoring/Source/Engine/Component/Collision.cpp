@@ -3,16 +3,6 @@
 #include "Object.h"
 #include <vector>
 
-Collision::Collision()
-{
-	CollisionOrder = 
-	{
-		{ ObjectTag::PLAYER, ObjectTag::ENEMY_BULLET },
-		{ ObjectTag::ENEMY, ObjectTag::PLAYER_BULLET },
-		{ ObjectTag::PLAYER, ObjectTag::ENEMY },
-	};
-}
-
 bool Collision::CheckCollision(Collider3D* a, Collider3D* b)
 {
 	if (!a || !b) return false;
@@ -42,7 +32,7 @@ bool Collision::CalculateHorizontalPenetration(Collider3D* a, Collider3D* b, Dir
 	if (boxA && boxB) return boxA->CalculateHorizontalPenetration(boxB, outPushVector);
 	if (capA && capB) return capA->CalculateHorizontalPenetration(capB, outPushVector);
 	if (capA && boxB) return capA->CalculateHorizontalPenetration(boxB, outPushVector);
-	if (boxA && capB) return boxA->CalculateHorizontalPenetration(capB, outPushVector);
+	if (boxA && capB) return boxA->CalculateHorizontalPenetration(boxB, outPushVector);
 
 	return false;
 }
@@ -59,7 +49,7 @@ bool Collision::CalculatePenetration(Collider3D* a, Collider3D* b, DirectX::XMFL
 	if (boxA && boxB) return boxA->CalculatePenetration(boxB, outPushVector);
 	if (capA && capB) return capA->CalculatePenetration(capB, outPushVector);
 	if (capA && boxB) return capA->CalculatePenetration(boxB, outPushVector);
-	if (boxA && capB) return boxA->CalculatePenetration(capB, outPushVector);
+	if (boxA && capB) return boxA->CalculatePenetration(boxB, outPushVector);
 
 	return false;
 }
@@ -74,10 +64,14 @@ static Collider3D* GetColliderFromObject(CObject* obj)
 
 void Collision::ResolveCollisions(Vector<Vector<UniquePtr<CObject>>>& objectList)
 {
+	// -------------------------------------------------------------------------
+	// Phase 0: Collect all active 3D colliders from scene objects
+	// -------------------------------------------------------------------------
 	struct ColliderEntry {
-		CObject* owner = nullptr;
+		CObject*    owner = nullptr;
 		Collider3D* collider = nullptr;
 		CTransform* transform = nullptr;
+		bool        isStatic = false;
 	};
 	std::vector<ColliderEntry> colliders;
 	colliders.reserve(64);
@@ -91,15 +85,28 @@ void Collision::ResolveCollisions(Vector<Vector<UniquePtr<CObject>>>& objectList
 			if (col && col->GetIsValid())
 			{
 				CTransform* trans = obj->GetComponent<CTransform>();
-				colliders.push_back({ obj.get(), col, trans });
+				uint32_t layer = col->GetLayer();
+				bool isStatic = (layer & (CollisionLayer::Terrain | CollisionLayer::Obstacle)) != 0;
+				colliders.push_back({ obj.get(), col, trans, isStatic });
 			}
 		}
 	}
 
 	size_t count = colliders.size();
-	if (count >= 2)
+	if (count < 2) return;
+
+	// -------------------------------------------------------------------------
+	// Phase 1: Solid Resolution Solver (Iterative push-apart for solid objects)
+	// Solves penetration for non-trigger objects (!isTrigger) across multiple
+	// iterations to completely resolve multi-body overlap and establish final
+	// confirmed coordinates before any trigger/damage logic executes.
+	// -------------------------------------------------------------------------
+	int iterations = GetInstance().GetSolverIterations();
+
+	for (int iter = 0; iter < iterations; ++iter)
 	{
-		// Phase 1: Solid Resolution (Physical push apart for non-triggers)
+		bool anyPenetrationResolved = false;
+
 		for (size_t i = 0; i < count; ++i)
 		{
 			auto& a = colliders[i];
@@ -110,6 +117,10 @@ void Collision::ResolveCollisions(Vector<Vector<UniquePtr<CObject>>>& objectList
 				auto& b = colliders[j];
 				if (b.collider->GetIsTrigger() || !b.transform) continue;
 
+				// Skip if both objects are static (e.g. wall vs terrain)
+				if (a.isStatic && b.isStatic) continue;
+
+				// Layer bitmask collision check
 				if (!a.collider->CanCollideWith(b.collider->GetLayer()) &&
 					!b.collider->CanCollideWith(a.collider->GetLayer()))
 				{
@@ -119,52 +130,67 @@ void Collision::ResolveCollisions(Vector<Vector<UniquePtr<CObject>>>& objectList
 				DirectX::XMFLOAT3 pushVec = { 0.0f, 0.0f, 0.0f };
 				if (CalculateHorizontalPenetration(a.collider, b.collider, pushVec))
 				{
+					anyPenetrationResolved = true;
 					DirectX::XMFLOAT3 posA = a.transform->GetPos();
 					DirectX::XMFLOAT3 posB = b.transform->GetPos();
 
-					posA.x += pushVec.x * 0.5f;
-					posA.z += pushVec.z * 0.5f;
-
-					posB.x -= pushVec.x * 0.5f;
-					posB.z -= pushVec.z * 0.5f;
+					if (!a.isStatic && !b.isStatic)
+					{
+						// Both dynamic: distribute displacement equally (50% / 50%)
+						posA.x += pushVec.x * 0.5f;
+						posA.z += pushVec.z * 0.5f;
+						posB.x -= pushVec.x * 0.5f;
+						posB.z -= pushVec.z * 0.5f;
+					}
+					else if (!a.isStatic && b.isStatic)
+					{
+						// 'a' is dynamic, 'b' is static: push 'a' 100% away from 'b'
+						posA.x += pushVec.x;
+						posA.z += pushVec.z;
+					}
+					else if (a.isStatic && !b.isStatic)
+					{
+						// 'a' is static, 'b' is dynamic: push 'b' 100% away from 'a'
+						posB.x -= pushVec.x;
+						posB.z -= pushVec.z;
+					}
 
 					a.transform->SetPos(posA);
 					b.transform->SetPos(posB);
 				}
 			}
 		}
+
+		// If no collisions were found in this iteration, early exit to save CPU cycles
+		if (!anyPenetrationResolved) break;
 	}
 
-	// Phase 2: Overlap Events (Trigger and Solid collision notifications)
-	auto& collisionOrder = GetInstance().GetCollisionOrder();
-	for (auto& order : collisionOrder)
+	// -------------------------------------------------------------------------
+	// Phase 2: Trigger / Overlap Notification (Events evaluated at final positions)
+	// Evaluates intersection with the confirmed positions. If overlapping,
+	// dispatches OnCollision(other) events to trigger damage, pickups, etc.
+	// -------------------------------------------------------------------------
+	for (size_t i = 0; i < count; ++i)
 	{
-		int tagA = static_cast<int>(order[0]);
-		int tagB = static_cast<int>(order[1]);
+		auto& a = colliders[i];
+		if (!a.owner || a.owner->GetIsDestroyed()) continue;
 
-		if (tagA < 0 || tagA >= (int)objectList.size()) continue;
-		if (tagB < 0 || tagB >= (int)objectList.size()) continue;
-
-		for (size_t i = 0; i < objectList[tagA].size(); ++i)
+		for (size_t j = i + 1; j < count; ++j)
 		{
-			for (size_t j = 0; j < objectList[tagB].size(); ++j)
+			auto& b = colliders[j];
+			if (!b.owner || b.owner->GetIsDestroyed()) continue;
+
+			// Layer bitmask collision check
+			if (!a.collider->CanCollideWith(b.collider->GetLayer()) &&
+				!b.collider->CanCollideWith(a.collider->GetLayer()))
 			{
-				CObject* objA = objectList[tagA][i].get();
-				CObject* objB = objectList[tagB][j].get();
+				continue;
+			}
 
-				if (!objA || !objB || objA->GetIsDestroyed() || objB->GetIsDestroyed()) continue;
-
-				Collider3D* colA = GetColliderFromObject(objA);
-				Collider3D* colB = GetColliderFromObject(objB);
-
-				if (colA && colB && colA->GetIsValid() && colB->GetIsValid())
-				{
-					if (CheckCollision(colA, colB))
-					{
-						objA->OnCollision(objB);
-						objB->OnCollision(objA);
-					}
-				}
+			if (CheckCollision(a.collider, b.collider))
+			{
+				a.owner->OnCollision(b.owner);
+				b.owner->OnCollision(a.owner);
 			}
 		}
 	}
