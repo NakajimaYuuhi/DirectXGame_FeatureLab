@@ -126,7 +126,7 @@ var searchData=
   ['negation_123',['negation',['../structnlohmann_1_1detail_1_1negation.html',1,'nlohmann::detail']]],
   ['newframe_124',['NewFrame',['../namespaceImGui.html#ab3f1fc018f903b7ad79fd10663375774',1,'ImGui']]],
   ['newline_125',['NewLine',['../namespaceImGui.html#a77f8b0a33e5335f98661f99e720411da',1,'ImGui']]],
-  ['next_126',['next',['../structstbrp__node.html#a933cb2dd6cddc4fcaf10e3b40634bed4',1,'stbrp_node::next'],['../structImTriangulatorNode.html#a1d8eacc98ab67c7077b4c050d4dd7144',1,'ImTriangulatorNode::Next']]],
+  ['next_126',['next',['../structImTriangulatorNode.html#a1d8eacc98ab67c7077b4c050d4dd7144',1,'ImTriangulatorNode::Next'],['../structstbrp__node.html#a933cb2dd6cddc4fcaf10e3b40634bed4',1,'stbrp_node::next']]],
   ['next_5fbyte_5fin_5frange_127',['next_byte_in_range',['../classnlohmann_1_1detail_1_1lexer.html#af6fe701b8b3ca5f4a1b58db4658bdf87',1,'nlohmann::detail::lexer']]],
   ['next_5fchunk_128',['next_chunk',['../structImChunkStream.html#a3a99f21ce1867d694104d740ac7ab133',1,'ImChunkStream']]],
   ['next_5funget_129',['next_unget',['../classnlohmann_1_1detail_1_1lexer.html#a40b108a0e45a7253f6ad85fbdaa6a262',1,'nlohmann::detail::lexer']]],

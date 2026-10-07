@@ -1,0 +1,1440 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: LightComponent クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classLightComponent.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classLightComponent-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">LightComponent クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="LightComponent_8h_source.html">LightComponent.h</a>&gt;</code></p>
+<div class="dynheader">
+LightComponent の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classLightComponent__inherit__graph.svg" width="140" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+LightComponent 連携図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classLightComponent__coll__graph.svg" width="143" height="199"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:af0969ffa9e9110a82b0d94ab48f211cb" id="r_af0969ffa9e9110a82b0d94ab48f211cb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#af0969ffa9e9110a82b0d94ab48f211cb">LightComponent</a> ()</td></tr>
+<tr class="separator:af0969ffa9e9110a82b0d94ab48f211cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2305ed5abb661e5cd94bfdb409266574" id="r_a2305ed5abb661e5cd94bfdb409266574"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#a2305ed5abb661e5cd94bfdb409266574">~LightComponent</a> ()=default</td></tr>
+<tr class="separator:a2305ed5abb661e5cd94bfdb409266574"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b1665343cfa0b449590f61af8430f76" id="r_a0b1665343cfa0b449590f61af8430f76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#a0b1665343cfa0b449590f61af8430f76">Init</a> () override</td></tr>
+<tr class="separator:a0b1665343cfa0b449590f61af8430f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed757ffed29ffd8c646af7edde21814f" id="r_aed757ffed29ffd8c646af7edde21814f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#aed757ffed29ffd8c646af7edde21814f">Start</a> () override</td></tr>
+<tr class="separator:aed757ffed29ffd8c646af7edde21814f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d01e74fa66f889185d9be2bb392b03e" id="r_a5d01e74fa66f889185d9be2bb392b03e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#a5d01e74fa66f889185d9be2bb392b03e">Update</a> (float deltaTime) override</td></tr>
+<tr class="separator:a5d01e74fa66f889185d9be2bb392b03e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac481f85302e8ab451fb4ddfa81172b7c" id="r_ac481f85302e8ab451fb4ddfa81172b7c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#ac481f85302e8ab451fb4ddfa81172b7c">GetUpdatePhase</a> () const override</td></tr>
+<tr class="separator:ac481f85302e8ab451fb4ddfa81172b7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc75ea761617b51bbbdcd0e033277e6d" id="r_abc75ea761617b51bbbdcd0e033277e6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638">LightType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#abc75ea761617b51bbbdcd0e033277e6d">GetLightType</a> () const</td></tr>
+<tr class="separator:abc75ea761617b51bbbdcd0e033277e6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5c82d71382ded2b67ea04dec0d1cf2a" id="r_ae5c82d71382ded2b67ea04dec0d1cf2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#ae5c82d71382ded2b67ea04dec0d1cf2a">SetLightType</a> (<a class="el" href="LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638">LightType</a> type)</td></tr>
+<tr class="separator:ae5c82d71382ded2b67ea04dec0d1cf2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ec103992207075eb86c69956b524e3b" id="r_a5ec103992207075eb86c69956b524e3b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#a5ec103992207075eb86c69956b524e3b">GetLightTypeName</a> () const</td></tr>
+<tr class="separator:a5ec103992207075eb86c69956b524e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5c9ad3b66b43c54b668bfcc83527128" id="r_ab5c9ad3b66b43c54b668bfcc83527128"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#ab5c9ad3b66b43c54b668bfcc83527128">GetColor</a> () const</td></tr>
+<tr class="separator:ab5c9ad3b66b43c54b668bfcc83527128"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff9388001e21aeedd15875c0fa15a3ca" id="r_aff9388001e21aeedd15875c0fa15a3ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#aff9388001e21aeedd15875c0fa15a3ca">SetColor</a> (const DirectX::XMFLOAT3 &amp;color)</td></tr>
+<tr class="separator:aff9388001e21aeedd15875c0fa15a3ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4b65aee4ac8334a2560a7c1c07926de" id="r_ac4b65aee4ac8334a2560a7c1c07926de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#ac4b65aee4ac8334a2560a7c1c07926de">SetColor</a> (float r, float g, float b)</td></tr>
+<tr class="separator:ac4b65aee4ac8334a2560a7c1c07926de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe9e5d66cee04d2527ce66823fb9ee1f" id="r_afe9e5d66cee04d2527ce66823fb9ee1f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#afe9e5d66cee04d2527ce66823fb9ee1f">GetIntensity</a> () const</td></tr>
+<tr class="separator:afe9e5d66cee04d2527ce66823fb9ee1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5df23c149de15d3a81442f5d684fdde6" id="r_a5df23c149de15d3a81442f5d684fdde6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#a5df23c149de15d3a81442f5d684fdde6">SetIntensity</a> (float intensity)</td></tr>
+<tr class="separator:a5df23c149de15d3a81442f5d684fdde6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a792e3fadcecc5e139e6b0077cba3717e" id="r_a792e3fadcecc5e139e6b0077cba3717e"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#a792e3fadcecc5e139e6b0077cba3717e">GetAmbientColor</a> () const</td></tr>
+<tr class="separator:a792e3fadcecc5e139e6b0077cba3717e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8b10bff014b76517bce5149715087cd" id="r_af8b10bff014b76517bce5149715087cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#af8b10bff014b76517bce5149715087cd">SetAmbientColor</a> (const DirectX::XMFLOAT3 &amp;ambient)</td></tr>
+<tr class="separator:af8b10bff014b76517bce5149715087cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa70dc047f4c00de113941e924ecc558b" id="r_aa70dc047f4c00de113941e924ecc558b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#aa70dc047f4c00de113941e924ecc558b">SetAmbientColor</a> (float r, float g, float b)</td></tr>
+<tr class="separator:aa70dc047f4c00de113941e924ecc558b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f1c4d4b2bc982f2970df9902650ae32" id="r_a3f1c4d4b2bc982f2970df9902650ae32"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#a3f1c4d4b2bc982f2970df9902650ae32">GetSpecularPower</a> () const</td></tr>
+<tr class="separator:a3f1c4d4b2bc982f2970df9902650ae32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc55bd435133d9d92efc858880a3b97b" id="r_adc55bd435133d9d92efc858880a3b97b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#adc55bd435133d9d92efc858880a3b97b">SetSpecularPower</a> (float power)</td></tr>
+<tr class="separator:adc55bd435133d9d92efc858880a3b97b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae928e78ba8e40f15a4aab3f9fa3469fa" id="r_ae928e78ba8e40f15a4aab3f9fa3469fa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#ae928e78ba8e40f15a4aab3f9fa3469fa">GetCastShadow</a> () const</td></tr>
+<tr class="separator:ae928e78ba8e40f15a4aab3f9fa3469fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e556459dcd9978f3afc2870152f0078" id="r_a2e556459dcd9978f3afc2870152f0078"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#a2e556459dcd9978f3afc2870152f0078">SetCastShadow</a> (bool cast)</td></tr>
+<tr class="separator:a2e556459dcd9978f3afc2870152f0078"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80cb882aab0b5de4a239dcba80e974da" id="r_a80cb882aab0b5de4a239dcba80e974da"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#a80cb882aab0b5de4a239dcba80e974da">GetShadowBias</a> () const</td></tr>
+<tr class="separator:a80cb882aab0b5de4a239dcba80e974da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21b5719a1d2d82c350dfd2c3b9fa857d" id="r_a21b5719a1d2d82c350dfd2c3b9fa857d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#a21b5719a1d2d82c350dfd2c3b9fa857d">SetShadowBias</a> (float bias)</td></tr>
+<tr class="separator:a21b5719a1d2d82c350dfd2c3b9fa857d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac821a8b903d1e57135eac2ea3a63f3c2" id="r_ac821a8b903d1e57135eac2ea3a63f3c2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#ac821a8b903d1e57135eac2ea3a63f3c2">GetShadowDarkness</a> () const</td></tr>
+<tr class="separator:ac821a8b903d1e57135eac2ea3a63f3c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54bdff5a41965163fd0cdff7fe125398" id="r_a54bdff5a41965163fd0cdff7fe125398"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#a54bdff5a41965163fd0cdff7fe125398">SetShadowDarkness</a> (float darkness)</td></tr>
+<tr class="separator:a54bdff5a41965163fd0cdff7fe125398"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30ca63732d91598ed42059d97b165876" id="r_a30ca63732d91598ed42059d97b165876"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#a30ca63732d91598ed42059d97b165876">GetRange</a> () const</td></tr>
+<tr class="separator:a30ca63732d91598ed42059d97b165876"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0039dd7fdb32dc11304cb0b0c020231" id="r_ac0039dd7fdb32dc11304cb0b0c020231"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#ac0039dd7fdb32dc11304cb0b0c020231">SetRange</a> (float range)</td></tr>
+<tr class="separator:ac0039dd7fdb32dc11304cb0b0c020231"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3076152dffa1040359a6fffb2b1746e" id="r_aa3076152dffa1040359a6fffb2b1746e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#aa3076152dffa1040359a6fffb2b1746e">GetSpotAngle</a> () const</td></tr>
+<tr class="separator:aa3076152dffa1040359a6fffb2b1746e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa08603955d096c3fadd6716cd9f01ce6" id="r_aa08603955d096c3fadd6716cd9f01ce6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#aa08603955d096c3fadd6716cd9f01ce6">SetSpotAngle</a> (float angle)</td></tr>
+<tr class="separator:aa08603955d096c3fadd6716cd9f01ce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e8216ff18d29d21f58335cdcadf554d" id="r_a1e8216ff18d29d21f58335cdcadf554d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#a1e8216ff18d29d21f58335cdcadf554d">SyncToLightManager</a> ()</td></tr>
+<tr class="separator:a1e8216ff18d29d21f58335cdcadf554d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbf8c84a806e90045c2c1490f061f3be" id="r_acbf8c84a806e90045c2c1490f061f3be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#acbf8c84a806e90045c2c1490f061f3be">DrawDebug</a> (<a class="el" href="classCameraComponent.html">CameraComponent</a> *camera, <a class="el" href="structImDrawList.html">ImDrawList</a> *customDrawList, const <a class="el" href="structImVec2.html">ImVec2</a> &amp;vpPos, const <a class="el" href="structImVec2.html">ImVec2</a> &amp;vpSize)</td></tr>
+<tr class="separator:acbf8c84a806e90045c2c1490f061f3be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classCComponent"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCComponent')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCComponent.html">CComponent</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:ab87a6940be69962c3f4f5a8552643245 inherit pub_methods_classCComponent" id="r_ab87a6940be69962c3f4f5a8552643245"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ab87a6940be69962c3f4f5a8552643245">CComponent</a> ()</td></tr>
+<tr class="separator:ab87a6940be69962c3f4f5a8552643245 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accf17908f97e4d07d7f04fbde292dcda inherit pub_methods_classCComponent" id="r_accf17908f97e4d07d7f04fbde292dcda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#accf17908f97e4d07d7f04fbde292dcda">CComponent</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:accf17908f97e4d07d7f04fbde292dcda inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2ad4d80f616aedbf6b08f33bdd9d2d5 inherit pub_methods_classCComponent" id="r_af2ad4d80f616aedbf6b08f33bdd9d2d5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#af2ad4d80f616aedbf6b08f33bdd9d2d5">~CComponent</a> ()=default</td></tr>
+<tr class="separator:af2ad4d80f616aedbf6b08f33bdd9d2d5 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf3ad4406a744d3fa20d83cc704345cf inherit pub_methods_classCComponent" id="r_adf3ad4406a744d3fa20d83cc704345cf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#adf3ad4406a744d3fa20d83cc704345cf">Awake</a> ()</td></tr>
+<tr class="separator:adf3ad4406a744d3fa20d83cc704345cf inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a760d6a0423bc53cb943410926a0d1c65 inherit pub_methods_classCComponent" id="r_a760d6a0423bc53cb943410926a0d1c65"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a760d6a0423bc53cb943410926a0d1c65">OnEnable</a> ()</td></tr>
+<tr class="separator:a760d6a0423bc53cb943410926a0d1c65 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a4d61758b48e83685c1ffe002dc1b41 inherit pub_methods_classCComponent" id="r_a0a4d61758b48e83685c1ffe002dc1b41"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a0a4d61758b48e83685c1ffe002dc1b41">OnDisable</a> ()</td></tr>
+<tr class="separator:a0a4d61758b48e83685c1ffe002dc1b41 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad72e93375519950fa4cbc176ede60db1 inherit pub_methods_classCComponent" id="r_ad72e93375519950fa4cbc176ede60db1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ad72e93375519950fa4cbc176ede60db1">LateUpdate</a> (float deltaTime)</td></tr>
+<tr class="separator:ad72e93375519950fa4cbc176ede60db1 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cce55e18bd5fff318f8448bf260540d inherit pub_methods_classCComponent" id="r_a2cce55e18bd5fff318f8448bf260540d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a2cce55e18bd5fff318f8448bf260540d">Draw</a> ()</td></tr>
+<tr class="separator:a2cce55e18bd5fff318f8448bf260540d inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26e97bcceac386d951092ade96512283 inherit pub_methods_classCComponent" id="r_a26e97bcceac386d951092ade96512283"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a26e97bcceac386d951092ade96512283">OnCollision</a> (<a class="el" href="classCObject.html">CObject</a> *_Other)</td></tr>
+<tr class="separator:a26e97bcceac386d951092ade96512283 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a800d2a962717b13577b17b7264a91da8 inherit pub_methods_classCComponent" id="r_a800d2a962717b13577b17b7264a91da8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="RenderLayer_8h.html#ad16d91520dd8dbd7a2178564fce5a168">RenderLayer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a800d2a962717b13577b17b7264a91da8">GetRenderLayer</a> () const</td></tr>
+<tr class="separator:a800d2a962717b13577b17b7264a91da8 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9de9cd78a132d68bdb0977b7d9272df8 inherit pub_methods_classCComponent" id="r_a9de9cd78a132d68bdb0977b7d9272df8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a9de9cd78a132d68bdb0977b7d9272df8">IsEnabled</a> () const</td></tr>
+<tr class="separator:a9de9cd78a132d68bdb0977b7d9272df8 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72945a287cdce2b3dd7cd9a33ce022f9 inherit pub_methods_classCComponent" id="r_a72945a287cdce2b3dd7cd9a33ce022f9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a72945a287cdce2b3dd7cd9a33ce022f9">GetEnabled</a> () const</td></tr>
+<tr class="separator:a72945a287cdce2b3dd7cd9a33ce022f9 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3588f81b9d893984ece9dfa4cdaf8383 inherit pub_methods_classCComponent" id="r_a3588f81b9d893984ece9dfa4cdaf8383"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a3588f81b9d893984ece9dfa4cdaf8383">SetEnabled</a> (bool enabled)</td></tr>
+<tr class="separator:a3588f81b9d893984ece9dfa4cdaf8383 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a281a46452f6f59625e5488936cd70aa7 inherit pub_methods_classCComponent" id="r_a281a46452f6f59625e5488936cd70aa7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a281a46452f6f59625e5488936cd70aa7">GetName</a> () const</td></tr>
+<tr class="separator:a281a46452f6f59625e5488936cd70aa7 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1df83625aa856f9cc7047da68dce131d inherit pub_methods_classCComponent" id="r_a1df83625aa856f9cc7047da68dce131d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a1df83625aa856f9cc7047da68dce131d">GetIsValid</a> () const</td></tr>
+<tr class="separator:a1df83625aa856f9cc7047da68dce131d inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf4188a21189f533eed52041962cafd4 inherit pub_methods_classCComponent" id="r_abf4188a21189f533eed52041962cafd4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#abf4188a21189f533eed52041962cafd4">GetIsVarid</a> () const</td></tr>
+<tr class="separator:abf4188a21189f533eed52041962cafd4 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5bf6fd967c58b6784aa399a27ce0eaa inherit pub_methods_classCComponent" id="r_ad5bf6fd967c58b6784aa399a27ce0eaa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ad5bf6fd967c58b6784aa399a27ce0eaa">SetName</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="separator:ad5bf6fd967c58b6784aa399a27ce0eaa inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96b82c9108e83190f29a5dd8bafe59fe inherit pub_methods_classCComponent" id="r_a96b82c9108e83190f29a5dd8bafe59fe"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a96b82c9108e83190f29a5dd8bafe59fe">SetIsValid</a> (bool _IsValid)</td></tr>
+<tr class="separator:a96b82c9108e83190f29a5dd8bafe59fe inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ababe3aca6f026b146eb458dab2a57587 inherit pub_methods_classCComponent" id="r_ababe3aca6f026b146eb458dab2a57587"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ababe3aca6f026b146eb458dab2a57587">SetOwner</a> (<a class="el" href="classCObject.html">CObject</a> *_Object)</td></tr>
+<tr class="separator:ababe3aca6f026b146eb458dab2a57587 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa05b48a46eeaff9527c00de7547edd32 inherit pub_methods_classCComponent" id="r_aa05b48a46eeaff9527c00de7547edd32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#aa05b48a46eeaff9527c00de7547edd32">GetOwner</a> () const</td></tr>
+<tr class="separator:aa05b48a46eeaff9527c00de7547edd32 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:ae3485303b50490130c48b1ee68a7bfef" id="r_ae3485303b50490130c48b1ee68a7bfef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638">LightType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#ae3485303b50490130c48b1ee68a7bfef">m_type</a> = <a class="el" href="LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638ab04a8341537fac392bfd17776491d03c">LightType::Directional</a></td></tr>
+<tr class="separator:ae3485303b50490130c48b1ee68a7bfef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4e5e9c290c0f15594b9473ef950638b" id="r_ad4e5e9c290c0f15594b9473ef950638b"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#ad4e5e9c290c0f15594b9473ef950638b">m_color</a> = { 1.0f, 0.98f, 0.92f }</td></tr>
+<tr class="separator:ad4e5e9c290c0f15594b9473ef950638b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24920c543117e1a03af60fa955a76709" id="r_a24920c543117e1a03af60fa955a76709"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#a24920c543117e1a03af60fa955a76709">m_intensity</a> = 1.0f</td></tr>
+<tr class="separator:a24920c543117e1a03af60fa955a76709"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05a161125ea5cf641218a7bb074b88af" id="r_a05a161125ea5cf641218a7bb074b88af"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#a05a161125ea5cf641218a7bb074b88af">m_ambientColor</a> = { 0.25f, 0.28f, 0.35f }</td></tr>
+<tr class="separator:a05a161125ea5cf641218a7bb074b88af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d619f5917fc1b17c3e21e9dfde29d0a" id="r_a1d619f5917fc1b17c3e21e9dfde29d0a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#a1d619f5917fc1b17c3e21e9dfde29d0a">m_specularPower</a> = 32.0f</td></tr>
+<tr class="separator:a1d619f5917fc1b17c3e21e9dfde29d0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0da96e8bb9085d9e0e1cd598118d0dab" id="r_a0da96e8bb9085d9e0e1cd598118d0dab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#a0da96e8bb9085d9e0e1cd598118d0dab">m_castShadow</a> = true</td></tr>
+<tr class="separator:a0da96e8bb9085d9e0e1cd598118d0dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa86b0105b7925cc1e2a11559a3151f53" id="r_aa86b0105b7925cc1e2a11559a3151f53"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#aa86b0105b7925cc1e2a11559a3151f53">m_shadowBias</a> = 0.0015f</td></tr>
+<tr class="separator:aa86b0105b7925cc1e2a11559a3151f53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f1774d111ae020d061511563d222517" id="r_a2f1774d111ae020d061511563d222517"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#a2f1774d111ae020d061511563d222517">m_shadowDarkness</a> = 0.5f</td></tr>
+<tr class="separator:a2f1774d111ae020d061511563d222517"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8c23255305b1ad4667a6ac7a5ff9de2" id="r_ac8c23255305b1ad4667a6ac7a5ff9de2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#ac8c23255305b1ad4667a6ac7a5ff9de2">m_range</a> = 10.0f</td></tr>
+<tr class="separator:ac8c23255305b1ad4667a6ac7a5ff9de2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab4a11561ebb54b682d1cbce6ec09043" id="r_aab4a11561ebb54b682d1cbce6ec09043"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightComponent.html#aab4a11561ebb54b682d1cbce6ec09043">m_spotAngle</a> = 45.0f</td></tr>
+<tr class="separator:aab4a11561ebb54b682d1cbce6ec09043"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+その他の継承メンバ</h2></td></tr>
+<tr class="inherit_header pro_attribs_classCComponent"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classCComponent')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCComponent.html">CComponent</a> に属する継承限定公開変数類</td></tr>
+<tr class="memitem:a76959a9e98ef06163c56858026e9da5b inherit pro_attribs_classCComponent" id="r_a76959a9e98ef06163c56858026e9da5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a76959a9e98ef06163c56858026e9da5b">m_Owner</a> = nullptr</td></tr>
+<tr class="separator:a76959a9e98ef06163c56858026e9da5b inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4918d7f95edb1a545724dab2be500e75 inherit pro_attribs_classCComponent" id="r_a4918d7f95edb1a545724dab2be500e75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a4918d7f95edb1a545724dab2be500e75">m_ComponentName</a> = &quot;&quot;</td></tr>
+<tr class="separator:a4918d7f95edb1a545724dab2be500e75 inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f8c7080b1f9972952ceda4e155568cb inherit pro_attribs_classCComponent" id="r_a8f8c7080b1f9972952ceda4e155568cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a8f8c7080b1f9972952ceda4e155568cb">m_ComponentIsValid</a> = true</td></tr>
+<tr class="separator:a8f8c7080b1f9972952ceda4e155568cb inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9d3c1123f1a477922084a25423b2579 inherit pro_attribs_classCComponent" id="r_af9d3c1123f1a477922084a25423b2579"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#af9d3c1123f1a477922084a25423b2579">m_enabled</a> = true</td></tr>
+<tr class="separator:af9d3c1123f1a477922084a25423b2579 inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="af0969ffa9e9110a82b0d94ab48f211cb" name="af0969ffa9e9110a82b0d94ab48f211cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0969ffa9e9110a82b0d94ab48f211cb">&#9670;&#160;</a></span>LightComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LightComponent::LightComponent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2305ed5abb661e5cd94bfdb409266574" name="a2305ed5abb661e5cd94bfdb409266574"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2305ed5abb661e5cd94bfdb409266574">&#9670;&#160;</a></span>~LightComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual LightComponent::~LightComponent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="acbf8c84a806e90045c2c1490f061f3be" name="acbf8c84a806e90045c2c1490f061f3be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbf8c84a806e90045c2c1490f061f3be">&#9670;&#160;</a></span>DrawDebug()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightComponent::DrawDebug </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCameraComponent.html">CameraComponent</a> *&#160;</td>
+          <td class="paramname"><em>camera</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structImDrawList.html">ImDrawList</a> *&#160;</td>
+          <td class="paramname"><em>customDrawList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> &amp;&#160;</td>
+          <td class="paramname"><em>vpPos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> &amp;&#160;</td>
+          <td class="paramname"><em>vpSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_acbf8c84a806e90045c2c1490f061f3be_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_acbf8c84a806e90045c2c1490f061f3be_icgraph.svg" width="100%" height="364"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a792e3fadcecc5e139e6b0077cba3717e" name="a792e3fadcecc5e139e6b0077cba3717e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a792e3fadcecc5e139e6b0077cba3717e">&#9670;&#160;</a></span>GetAmbientColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 LightComponent::GetAmbientColor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_a792e3fadcecc5e139e6b0077cba3717e_icgraph.svg" width="100%" height="512"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ae928e78ba8e40f15a4aab3f9fa3469fa" name="ae928e78ba8e40f15a4aab3f9fa3469fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae928e78ba8e40f15a4aab3f9fa3469fa">&#9670;&#160;</a></span>GetCastShadow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LightComponent::GetCastShadow </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_ae928e78ba8e40f15a4aab3f9fa3469fa_icgraph.svg" width="100%" height="512"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ab5c9ad3b66b43c54b668bfcc83527128" name="ab5c9ad3b66b43c54b668bfcc83527128"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5c9ad3b66b43c54b668bfcc83527128">&#9670;&#160;</a></span>GetColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 LightComponent::GetColor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_ab5c9ad3b66b43c54b668bfcc83527128_icgraph.svg" width="100%" height="512"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="afe9e5d66cee04d2527ce66823fb9ee1f" name="afe9e5d66cee04d2527ce66823fb9ee1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe9e5d66cee04d2527ce66823fb9ee1f">&#9670;&#160;</a></span>GetIntensity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float LightComponent::GetIntensity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_afe9e5d66cee04d2527ce66823fb9ee1f_icgraph.svg" width="100%" height="512"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="abc75ea761617b51bbbdcd0e033277e6d" name="abc75ea761617b51bbbdcd0e033277e6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc75ea761617b51bbbdcd0e033277e6d">&#9670;&#160;</a></span>GetLightType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638">LightType</a> LightComponent::GetLightType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_abc75ea761617b51bbbdcd0e033277e6d_icgraph.svg" width="100%" height="512"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a5ec103992207075eb86c69956b524e3b" name="a5ec103992207075eb86c69956b524e3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ec103992207075eb86c69956b524e3b">&#9670;&#160;</a></span>GetLightTypeName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string LightComponent::GetLightTypeName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a30ca63732d91598ed42059d97b165876" name="a30ca63732d91598ed42059d97b165876"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30ca63732d91598ed42059d97b165876">&#9670;&#160;</a></span>GetRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float LightComponent::GetRange </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_a30ca63732d91598ed42059d97b165876_icgraph.svg" width="100%" height="512"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a80cb882aab0b5de4a239dcba80e974da" name="a80cb882aab0b5de4a239dcba80e974da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80cb882aab0b5de4a239dcba80e974da">&#9670;&#160;</a></span>GetShadowBias()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float LightComponent::GetShadowBias </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_a80cb882aab0b5de4a239dcba80e974da_icgraph.svg" width="100%" height="512"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ac821a8b903d1e57135eac2ea3a63f3c2" name="ac821a8b903d1e57135eac2ea3a63f3c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac821a8b903d1e57135eac2ea3a63f3c2">&#9670;&#160;</a></span>GetShadowDarkness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float LightComponent::GetShadowDarkness </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_ac821a8b903d1e57135eac2ea3a63f3c2_icgraph.svg" width="100%" height="512"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a3f1c4d4b2bc982f2970df9902650ae32" name="a3f1c4d4b2bc982f2970df9902650ae32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f1c4d4b2bc982f2970df9902650ae32">&#9670;&#160;</a></span>GetSpecularPower()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float LightComponent::GetSpecularPower </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_a3f1c4d4b2bc982f2970df9902650ae32_icgraph.svg" width="100%" height="512"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aa3076152dffa1040359a6fffb2b1746e" name="aa3076152dffa1040359a6fffb2b1746e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3076152dffa1040359a6fffb2b1746e">&#9670;&#160;</a></span>GetSpotAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float LightComponent::GetSpotAngle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_aa3076152dffa1040359a6fffb2b1746e_icgraph.svg" width="100%" height="512"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ac481f85302e8ab451fb4ddfa81172b7c" name="ac481f85302e8ab451fb4ddfa81172b7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac481f85302e8ab451fb4ddfa81172b7c">&#9670;&#160;</a></span>GetUpdatePhase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a> LightComponent::GetUpdatePhase </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCComponent.html#a8cb4ec11d3210b5f3278d8e55b7308bd">CComponent</a>を再実装しています。</p>
+
+</div>
+</div>
+<a id="a0b1665343cfa0b449590f61af8430f76" name="a0b1665343cfa0b449590f61af8430f76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b1665343cfa0b449590f61af8430f76">&#9670;&#160;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightComponent::Init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCComponent.html#ac9bf36b35de54f49a3d604da091228a4">CComponent</a>を再実装しています。</p>
+
+</div>
+</div>
+<a id="af8b10bff014b76517bce5149715087cd" name="af8b10bff014b76517bce5149715087cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8b10bff014b76517bce5149715087cd">&#9670;&#160;</a></span>SetAmbientColor() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightComponent::SetAmbientColor </td>
+          <td>(</td>
+          <td class="paramtype">const DirectX::XMFLOAT3 &amp;&#160;</td>
+          <td class="paramname"><em>ambient</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_af8b10bff014b76517bce5149715087cd_icgraph.svg" width="100%" height="528"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aa70dc047f4c00de113941e924ecc558b" name="aa70dc047f4c00de113941e924ecc558b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa70dc047f4c00de113941e924ecc558b">&#9670;&#160;</a></span>SetAmbientColor() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightComponent::SetAmbientColor </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2e556459dcd9978f3afc2870152f0078" name="a2e556459dcd9978f3afc2870152f0078"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e556459dcd9978f3afc2870152f0078">&#9670;&#160;</a></span>SetCastShadow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightComponent::SetCastShadow </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>cast</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_a2e556459dcd9978f3afc2870152f0078_icgraph.svg" width="100%" height="528"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aff9388001e21aeedd15875c0fa15a3ca" name="aff9388001e21aeedd15875c0fa15a3ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff9388001e21aeedd15875c0fa15a3ca">&#9670;&#160;</a></span>SetColor() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightComponent::SetColor </td>
+          <td>(</td>
+          <td class="paramtype">const DirectX::XMFLOAT3 &amp;&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_aff9388001e21aeedd15875c0fa15a3ca_icgraph.svg" width="100%" height="528"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ac4b65aee4ac8334a2560a7c1c07926de" name="ac4b65aee4ac8334a2560a7c1c07926de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4b65aee4ac8334a2560a7c1c07926de">&#9670;&#160;</a></span>SetColor() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightComponent::SetColor </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5df23c149de15d3a81442f5d684fdde6" name="a5df23c149de15d3a81442f5d684fdde6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5df23c149de15d3a81442f5d684fdde6">&#9670;&#160;</a></span>SetIntensity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightComponent::SetIntensity </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>intensity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_a5df23c149de15d3a81442f5d684fdde6_icgraph.svg" width="100%" height="528"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ae5c82d71382ded2b67ea04dec0d1cf2a" name="ae5c82d71382ded2b67ea04dec0d1cf2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5c82d71382ded2b67ea04dec0d1cf2a">&#9670;&#160;</a></span>SetLightType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightComponent::SetLightType </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638">LightType</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_ae5c82d71382ded2b67ea04dec0d1cf2a_icgraph.svg" width="100%" height="528"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ac0039dd7fdb32dc11304cb0b0c020231" name="ac0039dd7fdb32dc11304cb0b0c020231"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0039dd7fdb32dc11304cb0b0c020231">&#9670;&#160;</a></span>SetRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightComponent::SetRange </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>range</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_ac0039dd7fdb32dc11304cb0b0c020231_icgraph.svg" width="100%" height="528"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a21b5719a1d2d82c350dfd2c3b9fa857d" name="a21b5719a1d2d82c350dfd2c3b9fa857d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21b5719a1d2d82c350dfd2c3b9fa857d">&#9670;&#160;</a></span>SetShadowBias()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightComponent::SetShadowBias </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>bias</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_a21b5719a1d2d82c350dfd2c3b9fa857d_icgraph.svg" width="100%" height="528"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a54bdff5a41965163fd0cdff7fe125398" name="a54bdff5a41965163fd0cdff7fe125398"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54bdff5a41965163fd0cdff7fe125398">&#9670;&#160;</a></span>SetShadowDarkness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightComponent::SetShadowDarkness </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>darkness</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_a54bdff5a41965163fd0cdff7fe125398_icgraph.svg" width="100%" height="528"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="adc55bd435133d9d92efc858880a3b97b" name="adc55bd435133d9d92efc858880a3b97b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc55bd435133d9d92efc858880a3b97b">&#9670;&#160;</a></span>SetSpecularPower()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightComponent::SetSpecularPower </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>power</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_adc55bd435133d9d92efc858880a3b97b_icgraph.svg" width="100%" height="528"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aa08603955d096c3fadd6716cd9f01ce6" name="aa08603955d096c3fadd6716cd9f01ce6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa08603955d096c3fadd6716cd9f01ce6">&#9670;&#160;</a></span>SetSpotAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightComponent::SetSpotAngle </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>angle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_aa08603955d096c3fadd6716cd9f01ce6_icgraph.svg" width="100%" height="528"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aed757ffed29ffd8c646af7edde21814f" name="aed757ffed29ffd8c646af7edde21814f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed757ffed29ffd8c646af7edde21814f">&#9670;&#160;</a></span>Start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightComponent::Start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCComponent.html#adcee296a2416501cf52755038d4f27eb">CComponent</a>を再実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_aed757ffed29ffd8c646af7edde21814f_cgraph.svg" width="100%" height="401"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a1e8216ff18d29d21f58335cdcadf554d" name="a1e8216ff18d29d21f58335cdcadf554d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e8216ff18d29d21f58335cdcadf554d">&#9670;&#160;</a></span>SyncToLightManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightComponent::SyncToLightManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_a1e8216ff18d29d21f58335cdcadf554d_cgraph.svg" width="100%" height="401"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_a1e8216ff18d29d21f58335cdcadf554d_icgraph.svg" width="100%" height="528"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a5d01e74fa66f889185d9be2bb392b03e" name="a5d01e74fa66f889185d9be2bb392b03e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d01e74fa66f889185d9be2bb392b03e">&#9670;&#160;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightComponent::Update </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCComponent.html#ae575194dbb8c5f6ad344bb8c17fa778b">CComponent</a>を再実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightComponent_a5d01e74fa66f889185d9be2bb392b03e_cgraph.svg" width="100%" height="407"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a05a161125ea5cf641218a7bb074b88af" name="a05a161125ea5cf641218a7bb074b88af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05a161125ea5cf641218a7bb074b88af">&#9670;&#160;</a></span>m_ambientColor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 LightComponent::m_ambientColor = { 0.25f, 0.28f, 0.35f }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0da96e8bb9085d9e0e1cd598118d0dab" name="a0da96e8bb9085d9e0e1cd598118d0dab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0da96e8bb9085d9e0e1cd598118d0dab">&#9670;&#160;</a></span>m_castShadow</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LightComponent::m_castShadow = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad4e5e9c290c0f15594b9473ef950638b" name="ad4e5e9c290c0f15594b9473ef950638b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4e5e9c290c0f15594b9473ef950638b">&#9670;&#160;</a></span>m_color</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 LightComponent::m_color = { 1.0f, 0.98f, 0.92f }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a24920c543117e1a03af60fa955a76709" name="a24920c543117e1a03af60fa955a76709"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24920c543117e1a03af60fa955a76709">&#9670;&#160;</a></span>m_intensity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float LightComponent::m_intensity = 1.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac8c23255305b1ad4667a6ac7a5ff9de2" name="ac8c23255305b1ad4667a6ac7a5ff9de2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8c23255305b1ad4667a6ac7a5ff9de2">&#9670;&#160;</a></span>m_range</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float LightComponent::m_range = 10.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa86b0105b7925cc1e2a11559a3151f53" name="aa86b0105b7925cc1e2a11559a3151f53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa86b0105b7925cc1e2a11559a3151f53">&#9670;&#160;</a></span>m_shadowBias</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float LightComponent::m_shadowBias = 0.0015f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2f1774d111ae020d061511563d222517" name="a2f1774d111ae020d061511563d222517"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f1774d111ae020d061511563d222517">&#9670;&#160;</a></span>m_shadowDarkness</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float LightComponent::m_shadowDarkness = 0.5f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1d619f5917fc1b17c3e21e9dfde29d0a" name="a1d619f5917fc1b17c3e21e9dfde29d0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d619f5917fc1b17c3e21e9dfde29d0a">&#9670;&#160;</a></span>m_specularPower</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float LightComponent::m_specularPower = 32.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aab4a11561ebb54b682d1cbce6ec09043" name="aab4a11561ebb54b682d1cbce6ec09043"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab4a11561ebb54b682d1cbce6ec09043">&#9670;&#160;</a></span>m_spotAngle</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float LightComponent::m_spotAngle = 45.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae3485303b50490130c48b1ee68a7bfef" name="ae3485303b50490130c48b1ee68a7bfef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3485303b50490130c48b1ee68a7bfef">&#9670;&#160;</a></span>m_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638">LightType</a> LightComponent::m_type = <a class="el" href="LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638ab04a8341537fac392bfd17776491d03c">LightType::Directional</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/Engine/Component/<a class="el" href="LightComponent_8h_source.html">LightComponent.h</a></li>
+<li>Source/Engine/Component/<a class="el" href="LightComponent_8cpp.html">LightComponent.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classLightComponent.html">LightComponent</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

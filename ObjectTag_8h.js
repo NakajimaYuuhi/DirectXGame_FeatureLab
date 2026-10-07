@@ -17,6 +17,7 @@ var ObjectTag_8h =
       [ "CAMERA", "ObjectTag_8h.html#a601de737429833556e7418bb4a8975b0a9d820291fd75d33b2108aec3577bdeb6", null ],
       [ "FADE", "ObjectTag_8h.html#a601de737429833556e7418bb4a8975b0a142bb1585eb5776aa9dedde4839a0ed3", null ],
       [ "MANAGER", "ObjectTag_8h.html#a601de737429833556e7418bb4a8975b0ae0f079647ea1fa2abde91b1d2d99727b", null ],
+      [ "LIGHT", "ObjectTag_8h.html#a601de737429833556e7418bb4a8975b0a2c3992641cd104186ff698ed3af9fe77", null ],
       [ "NUM", "ObjectTag_8h.html#a601de737429833556e7418bb4a8975b0a55d5915589a4add53f5c635f6f3c08c2", null ]
     ] ]
 ];

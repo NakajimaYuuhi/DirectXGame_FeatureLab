@@ -75,7 +75,7 @@ var searchData=
   ['resetcount_72',['ResetCount',['../classEnemyCounterComponent.html#af12873e46b0e94ecaa0108a5b86ff61d',1,'EnemyCounterComponent']]],
   ['resetisoccluded_73',['ResetIsOccluded',['../classDX12Manager.html#ad80d1c45d94aad340fd38833beab0640',1,'DX12Manager']]],
   ['resetmousedragdelta_74',['ResetMouseDragDelta',['../namespaceImGui.html#a771c37d1bb71fb7f30632721618633b9',1,'ImGui']]],
-  ['resize_75',['resize',['../structImVector.html#abe7f21776ecfb7d0214963fd8c0689f0',1,'ImVector::resize()'],['../classD2DTextRenderer.html#af495f36dddda70ff4abd49775498f5b9',1,'D2DTextRenderer::Resize()'],['../structImStableVector.html#ae24cfe1c42a5c7846697d26b1415c2df',1,'ImStableVector::resize()'],['../structImGuiTextBuffer.html#a0fc40be148c1238cc11c15fb4e7bdbc2',1,'ImGuiTextBuffer::resize()'],['../structImVector.html#ac371dd62e56ae486b1a5038cf07eee56',1,'ImVector::resize()']]],
+  ['resize_75',['resize',['../structImVector.html#ac371dd62e56ae486b1a5038cf07eee56',1,'ImVector::resize()'],['../structImStableVector.html#ae24cfe1c42a5c7846697d26b1415c2df',1,'ImStableVector::resize()'],['../structImGuiTextBuffer.html#a0fc40be148c1238cc11c15fb4e7bdbc2',1,'ImGuiTextBuffer::resize()'],['../structImVector.html#abe7f21776ecfb7d0214963fd8c0689f0',1,'ImVector::resize()'],['../classD2DTextRenderer.html#af495f36dddda70ff4abd49775498f5b9',1,'D2DTextRenderer::Resize()']]],
   ['resizedepthbuffer_76',['ResizeDepthBuffer',['../classDX12Manager.html#ad5cf42d00a996fb82f7f4d9c96d85f38',1,'DX12Manager']]],
   ['resizerendertarget_77',['ResizeRenderTarget',['../classDX12Manager.html#a8e1892018ed6f11e0a25536fef2af773',1,'DX12Manager']]],
   ['resizeviewport_78',['ResizeViewPort',['../classDX12Manager.html#ae2caa512054b6f537785787e6f271bc0',1,'DX12Manager']]],

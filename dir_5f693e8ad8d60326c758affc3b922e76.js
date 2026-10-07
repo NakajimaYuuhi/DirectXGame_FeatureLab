@@ -27,6 +27,8 @@ var dir_5f693e8ad8d60326c758affc3b922e76 =
     [ "FieldComponent.h", "FieldComponent_8h.html", "FieldComponent_8h" ],
     [ "GravityComponent.cpp", "GravityComponent_8cpp.html", null ],
     [ "GravityComponent.h", "GravityComponent_8h.html", "GravityComponent_8h" ],
+    [ "LightComponent.cpp", "LightComponent_8cpp.html", null ],
+    [ "LightComponent.h", "LightComponent_8h.html", "LightComponent_8h" ],
     [ "ParticleComponent.cpp", "ParticleComponent_8cpp.html", null ],
     [ "ParticleComponent.h", "ParticleComponent_8h.html", "ParticleComponent_8h" ],
     [ "ParticleEmitterComponent.cpp", "ParticleEmitterComponent_8cpp.html", null ],

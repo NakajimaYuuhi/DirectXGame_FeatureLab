@@ -235,6 +235,13 @@ var NAVTREEINDEX0 =
 "InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817a8d2de5368588552fbae54044ac5c7b3d":[3,0,0,1,13,1,1],
 "InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817adeccbe4e9083c3b5f7cd2632722765bb":[3,0,0,1,13,1,0],
 "InspectorUI_8h_source.html":[3,0,0,1,13],
+"LightComponent_8cpp.html":[3,0,0,2,0,27],
+"LightComponent_8h.html":[3,0,0,2,0,28],
+"LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638":[3,0,0,2,0,28,1],
+"LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638a2a3cd5946cfd317eb99c3d32e35e2d4c":[3,0,0,2,0,28,1,1],
+"LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638a6c9d6b8aea6f3d16847bdebe05878a2d":[3,0,0,2,0,28,1,2],
+"LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638ab04a8341537fac392bfd17776491d03c":[3,0,0,2,0,28,1,0],
+"LightComponent_8h_source.html":[3,0,0,2,0,28],
 "LightManager_8cpp.html":[3,0,0,6,5],
 "LightManager_8h.html":[3,0,0,6,6],
 "LightManager_8h_source.html":[3,0,0,6,6],
@@ -242,12 +249,5 @@ var NAVTREEINDEX0 =
 "Manager_8h.html":[3,0,0,0,9],
 "Manager_8h_source.html":[3,0,0,0,9],
 "Material_8cpp.html":[3,0,0,7,10],
-"Material_8h.html":[3,0,0,7,11],
-"Material_8h.html#aa06ee67baf54d5ede87c0bcb743d6b45":[3,0,0,7,11,1],
-"Material_8h.html#ac8b60b8e94f1c20a4c6060ee931ba609":[3,0,0,7,11,3],
-"Material_8h.html#affde712b32c38228461fafa7f703afe0":[3,0,0,7,11,2],
-"Material_8h_source.html":[3,0,0,7,11],
-"Mesh_8cpp.html":[3,0,0,7,12],
-"Mesh_8cpp.html#a05a035cc60d55c89d92cc5c934610b2d":[3,0,0,7,12,1],
-"Mesh_8cpp.html#a6d9e74717b8755caf9ca0c63e6a828c1":[3,0,0,7,12,0]
+"Material_8h.html":[3,0,0,7,11]
 };

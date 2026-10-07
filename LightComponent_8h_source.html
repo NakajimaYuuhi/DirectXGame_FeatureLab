@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Engine/Component/LightComponent.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('LightComponent_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">LightComponent.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="LightComponent_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="Component_8h.html">Component.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;DirectXMath.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">class </span><a class="code hl_class" href="classCameraComponent.html">CameraComponent</a>;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">struct </span><a class="code hl_struct" href="structImDrawList.html">ImDrawList</a>;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">struct </span><a class="code hl_struct" href="structImVec2.html">ImVec2</a>;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638">   10</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638">LightType</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_enumvalue" href="LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638ab04a8341537fac392bfd17776491d03c">Directional</a> = 0,</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_enumvalue" href="LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638a2a3cd5946cfd317eb99c3d32e35e2d4c">Point</a> = 1,</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_enumvalue" href="LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638a6c9d6b8aea6f3d16847bdebe05878a2d">Spot</a> = 2</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>};</div>
+</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classLightComponent.html">   17</a></span><span class="keyword">class </span><a class="code hl_class" href="classLightComponent.html">LightComponent</a> : <span class="keyword">public</span> <a class="code hl_class" href="classCComponent.html">CComponent</a></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_function" href="classLightComponent.html#af0969ffa9e9110a82b0d94ab48f211cb">LightComponent</a>();</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classLightComponent.html#a2305ed5abb661e5cd94bfdb409266574">   21</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classLightComponent.html#a2305ed5abb661e5cd94bfdb409266574">~LightComponent</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLightComponent.html#a0b1665343cfa0b449590f61af8430f76">Init</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLightComponent.html#aed757ffed29ffd8c646af7edde21814f">Start</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLightComponent.html#a5d01e74fa66f889185d9be2bb392b03e">Update</a>(<span class="keywordtype">float</span> deltaTime) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classLightComponent.html#ac481f85302e8ab451fb4ddfa81172b7c">   27</a></span>    <a class="code hl_enumeration" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a> <a class="code hl_function" href="classLightComponent.html#ac481f85302e8ab451fb4ddfa81172b7c">GetUpdatePhase</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa8f94c0495202ed76c429ac546efcbc0b">UpdatePhase::PostPhysics</a>; }</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="comment">// Light Type</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classLightComponent.html#abc75ea761617b51bbbdcd0e033277e6d">   30</a></span>    <a class="code hl_enumeration" href="LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638">LightType</a> <a class="code hl_function" href="classLightComponent.html#abc75ea761617b51bbbdcd0e033277e6d">GetLightType</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classLightComponent.html#ae3485303b50490130c48b1ee68a7bfef">m_type</a>; }</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classLightComponent.html#ae5c82d71382ded2b67ea04dec0d1cf2a">   31</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLightComponent.html#ae5c82d71382ded2b67ea04dec0d1cf2a">SetLightType</a>(<a class="code hl_enumeration" href="LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638">LightType</a> type) { <a class="code hl_variable" href="classLightComponent.html#ae3485303b50490130c48b1ee68a7bfef">m_type</a> = type; }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    std::string <a class="code hl_function" href="classLightComponent.html#a5ec103992207075eb86c69956b524e3b">GetLightTypeName</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="comment">// Light Color &amp; Intensity</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classLightComponent.html#ab5c9ad3b66b43c54b668bfcc83527128">   35</a></span>    DirectX::XMFLOAT3 <a class="code hl_function" href="classLightComponent.html#ab5c9ad3b66b43c54b668bfcc83527128">GetColor</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classLightComponent.html#ad4e5e9c290c0f15594b9473ef950638b">m_color</a>; }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classLightComponent.html#aff9388001e21aeedd15875c0fa15a3ca">   36</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLightComponent.html#aff9388001e21aeedd15875c0fa15a3ca">SetColor</a>(<span class="keyword">const</span> DirectX::XMFLOAT3&amp; color) { <a class="code hl_variable" href="classLightComponent.html#ad4e5e9c290c0f15594b9473ef950638b">m_color</a> = color; }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classLightComponent.html#ac4b65aee4ac8334a2560a7c1c07926de">   37</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLightComponent.html#ac4b65aee4ac8334a2560a7c1c07926de">SetColor</a>(<span class="keywordtype">float</span> r, <span class="keywordtype">float</span> g, <span class="keywordtype">float</span> b) { <a class="code hl_variable" href="classLightComponent.html#ad4e5e9c290c0f15594b9473ef950638b">m_color</a> = { r, g, b }; }</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classLightComponent.html#afe9e5d66cee04d2527ce66823fb9ee1f">   39</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classLightComponent.html#afe9e5d66cee04d2527ce66823fb9ee1f">GetIntensity</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classLightComponent.html#a24920c543117e1a03af60fa955a76709">m_intensity</a>; }</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classLightComponent.html#a5df23c149de15d3a81442f5d684fdde6">   40</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLightComponent.html#a5df23c149de15d3a81442f5d684fdde6">SetIntensity</a>(<span class="keywordtype">float</span> intensity) { <a class="code hl_variable" href="classLightComponent.html#a24920c543117e1a03af60fa955a76709">m_intensity</a> = intensity; }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="comment">// Ambient &amp; Specular</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classLightComponent.html#a792e3fadcecc5e139e6b0077cba3717e">   43</a></span>    DirectX::XMFLOAT3 <a class="code hl_function" href="classLightComponent.html#a792e3fadcecc5e139e6b0077cba3717e">GetAmbientColor</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classLightComponent.html#a05a161125ea5cf641218a7bb074b88af">m_ambientColor</a>; }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classLightComponent.html#af8b10bff014b76517bce5149715087cd">   44</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLightComponent.html#af8b10bff014b76517bce5149715087cd">SetAmbientColor</a>(<span class="keyword">const</span> DirectX::XMFLOAT3&amp; ambient) { <a class="code hl_variable" href="classLightComponent.html#a05a161125ea5cf641218a7bb074b88af">m_ambientColor</a> = ambient; }</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classLightComponent.html#aa70dc047f4c00de113941e924ecc558b">   45</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLightComponent.html#aa70dc047f4c00de113941e924ecc558b">SetAmbientColor</a>(<span class="keywordtype">float</span> r, <span class="keywordtype">float</span> g, <span class="keywordtype">float</span> b) { <a class="code hl_variable" href="classLightComponent.html#a05a161125ea5cf641218a7bb074b88af">m_ambientColor</a> = { r, g, b }; }</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classLightComponent.html#a3f1c4d4b2bc982f2970df9902650ae32">   47</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classLightComponent.html#a3f1c4d4b2bc982f2970df9902650ae32">GetSpecularPower</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classLightComponent.html#a1d619f5917fc1b17c3e21e9dfde29d0a">m_specularPower</a>; }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classLightComponent.html#adc55bd435133d9d92efc858880a3b97b">   48</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLightComponent.html#adc55bd435133d9d92efc858880a3b97b">SetSpecularPower</a>(<span class="keywordtype">float</span> power) { <a class="code hl_variable" href="classLightComponent.html#a1d619f5917fc1b17c3e21e9dfde29d0a">m_specularPower</a> = power; }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment">// Shadows</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classLightComponent.html#ae928e78ba8e40f15a4aab3f9fa3469fa">   51</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classLightComponent.html#ae928e78ba8e40f15a4aab3f9fa3469fa">GetCastShadow</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classLightComponent.html#a0da96e8bb9085d9e0e1cd598118d0dab">m_castShadow</a>; }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classLightComponent.html#a2e556459dcd9978f3afc2870152f0078">   52</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLightComponent.html#a2e556459dcd9978f3afc2870152f0078">SetCastShadow</a>(<span class="keywordtype">bool</span> cast) { <a class="code hl_variable" href="classLightComponent.html#a0da96e8bb9085d9e0e1cd598118d0dab">m_castShadow</a> = cast; }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classLightComponent.html#a80cb882aab0b5de4a239dcba80e974da">   54</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classLightComponent.html#a80cb882aab0b5de4a239dcba80e974da">GetShadowBias</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classLightComponent.html#aa86b0105b7925cc1e2a11559a3151f53">m_shadowBias</a>; }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classLightComponent.html#a21b5719a1d2d82c350dfd2c3b9fa857d">   55</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLightComponent.html#a21b5719a1d2d82c350dfd2c3b9fa857d">SetShadowBias</a>(<span class="keywordtype">float</span> bias) { <a class="code hl_variable" href="classLightComponent.html#aa86b0105b7925cc1e2a11559a3151f53">m_shadowBias</a> = bias; }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classLightComponent.html#ac821a8b903d1e57135eac2ea3a63f3c2">   57</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classLightComponent.html#ac821a8b903d1e57135eac2ea3a63f3c2">GetShadowDarkness</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classLightComponent.html#a2f1774d111ae020d061511563d222517">m_shadowDarkness</a>; }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classLightComponent.html#a54bdff5a41965163fd0cdff7fe125398">   58</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLightComponent.html#a54bdff5a41965163fd0cdff7fe125398">SetShadowDarkness</a>(<span class="keywordtype">float</span> darkness) { <a class="code hl_variable" href="classLightComponent.html#a2f1774d111ae020d061511563d222517">m_shadowDarkness</a> = darkness; }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="comment">// Point / Spot light future-ready parameters</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classLightComponent.html#a30ca63732d91598ed42059d97b165876">   61</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classLightComponent.html#a30ca63732d91598ed42059d97b165876">GetRange</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classLightComponent.html#ac8c23255305b1ad4667a6ac7a5ff9de2">m_range</a>; }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classLightComponent.html#ac0039dd7fdb32dc11304cb0b0c020231">   62</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLightComponent.html#ac0039dd7fdb32dc11304cb0b0c020231">SetRange</a>(<span class="keywordtype">float</span> range) { <a class="code hl_variable" href="classLightComponent.html#ac8c23255305b1ad4667a6ac7a5ff9de2">m_range</a> = range; }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classLightComponent.html#aa3076152dffa1040359a6fffb2b1746e">   64</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classLightComponent.html#aa3076152dffa1040359a6fffb2b1746e">GetSpotAngle</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classLightComponent.html#aab4a11561ebb54b682d1cbce6ec09043">m_spotAngle</a>; }</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classLightComponent.html#aa08603955d096c3fadd6716cd9f01ce6">   65</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLightComponent.html#aa08603955d096c3fadd6716cd9f01ce6">SetSpotAngle</a>(<span class="keywordtype">float</span> angle) { <a class="code hl_variable" href="classLightComponent.html#aab4a11561ebb54b682d1cbce6ec09043">m_spotAngle</a> = angle; }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="comment">// Synchronize parameters to LightManager</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLightComponent.html#a1e8216ff18d29d21f58335cdcadf554d">SyncToLightManager</a>();</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="comment">// Editor Gizmo Rendering</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLightComponent.html#acbf8c84a806e90045c2c1490f061f3be">DrawDebug</a>(<a class="code hl_class" href="classCameraComponent.html">CameraComponent</a>* camera, <a class="code hl_struct" href="structImDrawList.html">ImDrawList</a>* customDrawList, <span class="keyword">const</span> <a class="code hl_struct" href="structImVec2.html">ImVec2</a>&amp; vpPos, <span class="keyword">const</span> <a class="code hl_struct" href="structImVec2.html">ImVec2</a>&amp; vpSize);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classLightComponent.html#ae3485303b50490130c48b1ee68a7bfef">   74</a></span>    <a class="code hl_enumeration" href="LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638">LightType</a> <a class="code hl_variable" href="classLightComponent.html#ae3485303b50490130c48b1ee68a7bfef">m_type</a> = <a class="code hl_enumvalue" href="LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638ab04a8341537fac392bfd17776491d03c">LightType::Directional</a>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classLightComponent.html#ad4e5e9c290c0f15594b9473ef950638b">   75</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="classLightComponent.html#ad4e5e9c290c0f15594b9473ef950638b">m_color</a> = { 1.0f, 0.98f, 0.92f };</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classLightComponent.html#a24920c543117e1a03af60fa955a76709">   76</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classLightComponent.html#a24920c543117e1a03af60fa955a76709">m_intensity</a> = 1.0f;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classLightComponent.html#a05a161125ea5cf641218a7bb074b88af">   77</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="classLightComponent.html#a05a161125ea5cf641218a7bb074b88af">m_ambientColor</a> = { 0.25f, 0.28f, 0.35f };</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classLightComponent.html#a1d619f5917fc1b17c3e21e9dfde29d0a">   78</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classLightComponent.html#a1d619f5917fc1b17c3e21e9dfde29d0a">m_specularPower</a> = 32.0f;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classLightComponent.html#a0da96e8bb9085d9e0e1cd598118d0dab">   80</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classLightComponent.html#a0da96e8bb9085d9e0e1cd598118d0dab">m_castShadow</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classLightComponent.html#aa86b0105b7925cc1e2a11559a3151f53">   81</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classLightComponent.html#aa86b0105b7925cc1e2a11559a3151f53">m_shadowBias</a> = 0.0015f;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classLightComponent.html#a2f1774d111ae020d061511563d222517">   82</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classLightComponent.html#a2f1774d111ae020d061511563d222517">m_shadowDarkness</a> = 0.5f;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classLightComponent.html#ac8c23255305b1ad4667a6ac7a5ff9de2">   84</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classLightComponent.html#ac8c23255305b1ad4667a6ac7a5ff9de2">m_range</a> = 10.0f;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classLightComponent.html#aab4a11561ebb54b682d1cbce6ec09043">   85</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classLightComponent.html#aab4a11561ebb54b682d1cbce6ec09043">m_spotAngle</a> = 45.0f; <span class="comment">// degrees</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>};</div>
+</div>
+<div class="ttc" id="aComponent_8h_html"><div class="ttname"><a href="Component_8h.html">Component.h</a></div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93f"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a></div><div class="ttdeci">UpdatePhase</div><div class="ttdef"><b>Definition</b> Component.h:11</div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fa8f94c0495202ed76c429ac546efcbc0b"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa8f94c0495202ed76c429ac546efcbc0b">UpdatePhase::PostPhysics</a></div><div class="ttdeci">@ PostPhysics</div></div>
+<div class="ttc" id="aLightComponent_8h_html_adc3ec8293e6a97ebe43f0196b9a7f638"><div class="ttname"><a href="LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638">LightType</a></div><div class="ttdeci">LightType</div><div class="ttdef"><b>Definition</b> LightComponent.h:11</div></div>
+<div class="ttc" id="aLightComponent_8h_html_adc3ec8293e6a97ebe43f0196b9a7f638a2a3cd5946cfd317eb99c3d32e35e2d4c"><div class="ttname"><a href="LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638a2a3cd5946cfd317eb99c3d32e35e2d4c">LightType::Point</a></div><div class="ttdeci">@ Point</div></div>
+<div class="ttc" id="aLightComponent_8h_html_adc3ec8293e6a97ebe43f0196b9a7f638a6c9d6b8aea6f3d16847bdebe05878a2d"><div class="ttname"><a href="LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638a6c9d6b8aea6f3d16847bdebe05878a2d">LightType::Spot</a></div><div class="ttdeci">@ Spot</div></div>
+<div class="ttc" id="aLightComponent_8h_html_adc3ec8293e6a97ebe43f0196b9a7f638ab04a8341537fac392bfd17776491d03c"><div class="ttname"><a href="LightComponent_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638ab04a8341537fac392bfd17776491d03c">LightType::Directional</a></div><div class="ttdeci">@ Directional</div></div>
+<div class="ttc" id="aclassCComponent_html"><div class="ttname"><a href="classCComponent.html">CComponent</a></div><div class="ttdef"><b>Definition</b> Component.h:22</div></div>
+<div class="ttc" id="aclassCameraComponent_html"><div class="ttname"><a href="classCameraComponent.html">CameraComponent</a></div><div class="ttdef"><b>Definition</b> CameraComponent.h:6</div></div>
+<div class="ttc" id="aclassLightComponent_html"><div class="ttname"><a href="classLightComponent.html">LightComponent</a></div><div class="ttdef"><b>Definition</b> LightComponent.h:18</div></div>
+<div class="ttc" id="aclassLightComponent_html_a05a161125ea5cf641218a7bb074b88af"><div class="ttname"><a href="classLightComponent.html#a05a161125ea5cf641218a7bb074b88af">LightComponent::m_ambientColor</a></div><div class="ttdeci">DirectX::XMFLOAT3 m_ambientColor</div><div class="ttdef"><b>Definition</b> LightComponent.h:77</div></div>
+<div class="ttc" id="aclassLightComponent_html_a0b1665343cfa0b449590f61af8430f76"><div class="ttname"><a href="classLightComponent.html#a0b1665343cfa0b449590f61af8430f76">LightComponent::Init</a></div><div class="ttdeci">void Init() override</div><div class="ttdef"><b>Definition</b> LightComponent.cpp:39</div></div>
+<div class="ttc" id="aclassLightComponent_html_a0da96e8bb9085d9e0e1cd598118d0dab"><div class="ttname"><a href="classLightComponent.html#a0da96e8bb9085d9e0e1cd598118d0dab">LightComponent::m_castShadow</a></div><div class="ttdeci">bool m_castShadow</div><div class="ttdef"><b>Definition</b> LightComponent.h:80</div></div>
+<div class="ttc" id="aclassLightComponent_html_a1d619f5917fc1b17c3e21e9dfde29d0a"><div class="ttname"><a href="classLightComponent.html#a1d619f5917fc1b17c3e21e9dfde29d0a">LightComponent::m_specularPower</a></div><div class="ttdeci">float m_specularPower</div><div class="ttdef"><b>Definition</b> LightComponent.h:78</div></div>
+<div class="ttc" id="aclassLightComponent_html_a1e8216ff18d29d21f58335cdcadf554d"><div class="ttname"><a href="classLightComponent.html#a1e8216ff18d29d21f58335cdcadf554d">LightComponent::SyncToLightManager</a></div><div class="ttdeci">void SyncToLightManager()</div><div class="ttdef"><b>Definition</b> LightComponent.cpp:65</div></div>
+<div class="ttc" id="aclassLightComponent_html_a21b5719a1d2d82c350dfd2c3b9fa857d"><div class="ttname"><a href="classLightComponent.html#a21b5719a1d2d82c350dfd2c3b9fa857d">LightComponent::SetShadowBias</a></div><div class="ttdeci">void SetShadowBias(float bias)</div><div class="ttdef"><b>Definition</b> LightComponent.h:55</div></div>
+<div class="ttc" id="aclassLightComponent_html_a2305ed5abb661e5cd94bfdb409266574"><div class="ttname"><a href="classLightComponent.html#a2305ed5abb661e5cd94bfdb409266574">LightComponent::~LightComponent</a></div><div class="ttdeci">virtual ~LightComponent()=default</div></div>
+<div class="ttc" id="aclassLightComponent_html_a24920c543117e1a03af60fa955a76709"><div class="ttname"><a href="classLightComponent.html#a24920c543117e1a03af60fa955a76709">LightComponent::m_intensity</a></div><div class="ttdeci">float m_intensity</div><div class="ttdef"><b>Definition</b> LightComponent.h:76</div></div>
+<div class="ttc" id="aclassLightComponent_html_a2e556459dcd9978f3afc2870152f0078"><div class="ttname"><a href="classLightComponent.html#a2e556459dcd9978f3afc2870152f0078">LightComponent::SetCastShadow</a></div><div class="ttdeci">void SetCastShadow(bool cast)</div><div class="ttdef"><b>Definition</b> LightComponent.h:52</div></div>
+<div class="ttc" id="aclassLightComponent_html_a2f1774d111ae020d061511563d222517"><div class="ttname"><a href="classLightComponent.html#a2f1774d111ae020d061511563d222517">LightComponent::m_shadowDarkness</a></div><div class="ttdeci">float m_shadowDarkness</div><div class="ttdef"><b>Definition</b> LightComponent.h:82</div></div>
+<div class="ttc" id="aclassLightComponent_html_a30ca63732d91598ed42059d97b165876"><div class="ttname"><a href="classLightComponent.html#a30ca63732d91598ed42059d97b165876">LightComponent::GetRange</a></div><div class="ttdeci">float GetRange() const</div><div class="ttdef"><b>Definition</b> LightComponent.h:61</div></div>
+<div class="ttc" id="aclassLightComponent_html_a3f1c4d4b2bc982f2970df9902650ae32"><div class="ttname"><a href="classLightComponent.html#a3f1c4d4b2bc982f2970df9902650ae32">LightComponent::GetSpecularPower</a></div><div class="ttdeci">float GetSpecularPower() const</div><div class="ttdef"><b>Definition</b> LightComponent.h:47</div></div>
+<div class="ttc" id="aclassLightComponent_html_a54bdff5a41965163fd0cdff7fe125398"><div class="ttname"><a href="classLightComponent.html#a54bdff5a41965163fd0cdff7fe125398">LightComponent::SetShadowDarkness</a></div><div class="ttdeci">void SetShadowDarkness(float darkness)</div><div class="ttdef"><b>Definition</b> LightComponent.h:58</div></div>
+<div class="ttc" id="aclassLightComponent_html_a5d01e74fa66f889185d9be2bb392b03e"><div class="ttname"><a href="classLightComponent.html#a5d01e74fa66f889185d9be2bb392b03e">LightComponent::Update</a></div><div class="ttdeci">void Update(float deltaTime) override</div><div class="ttdef"><b>Definition</b> LightComponent.cpp:48</div></div>
+<div class="ttc" id="aclassLightComponent_html_a5df23c149de15d3a81442f5d684fdde6"><div class="ttname"><a href="classLightComponent.html#a5df23c149de15d3a81442f5d684fdde6">LightComponent::SetIntensity</a></div><div class="ttdeci">void SetIntensity(float intensity)</div><div class="ttdef"><b>Definition</b> LightComponent.h:40</div></div>
+<div class="ttc" id="aclassLightComponent_html_a5ec103992207075eb86c69956b524e3b"><div class="ttname"><a href="classLightComponent.html#a5ec103992207075eb86c69956b524e3b">LightComponent::GetLightTypeName</a></div><div class="ttdeci">std::string GetLightTypeName() const</div><div class="ttdef"><b>Definition</b> LightComponent.cpp:54</div></div>
+<div class="ttc" id="aclassLightComponent_html_a792e3fadcecc5e139e6b0077cba3717e"><div class="ttname"><a href="classLightComponent.html#a792e3fadcecc5e139e6b0077cba3717e">LightComponent::GetAmbientColor</a></div><div class="ttdeci">DirectX::XMFLOAT3 GetAmbientColor() const</div><div class="ttdef"><b>Definition</b> LightComponent.h:43</div></div>
+<div class="ttc" id="aclassLightComponent_html_a80cb882aab0b5de4a239dcba80e974da"><div class="ttname"><a href="classLightComponent.html#a80cb882aab0b5de4a239dcba80e974da">LightComponent::GetShadowBias</a></div><div class="ttdeci">float GetShadowBias() const</div><div class="ttdef"><b>Definition</b> LightComponent.h:54</div></div>
+<div class="ttc" id="aclassLightComponent_html_aa08603955d096c3fadd6716cd9f01ce6"><div class="ttname"><a href="classLightComponent.html#aa08603955d096c3fadd6716cd9f01ce6">LightComponent::SetSpotAngle</a></div><div class="ttdeci">void SetSpotAngle(float angle)</div><div class="ttdef"><b>Definition</b> LightComponent.h:65</div></div>
+<div class="ttc" id="aclassLightComponent_html_aa3076152dffa1040359a6fffb2b1746e"><div class="ttname"><a href="classLightComponent.html#aa3076152dffa1040359a6fffb2b1746e">LightComponent::GetSpotAngle</a></div><div class="ttdeci">float GetSpotAngle() const</div><div class="ttdef"><b>Definition</b> LightComponent.h:64</div></div>
+<div class="ttc" id="aclassLightComponent_html_aa70dc047f4c00de113941e924ecc558b"><div class="ttname"><a href="classLightComponent.html#aa70dc047f4c00de113941e924ecc558b">LightComponent::SetAmbientColor</a></div><div class="ttdeci">void SetAmbientColor(float r, float g, float b)</div><div class="ttdef"><b>Definition</b> LightComponent.h:45</div></div>
+<div class="ttc" id="aclassLightComponent_html_aa86b0105b7925cc1e2a11559a3151f53"><div class="ttname"><a href="classLightComponent.html#aa86b0105b7925cc1e2a11559a3151f53">LightComponent::m_shadowBias</a></div><div class="ttdeci">float m_shadowBias</div><div class="ttdef"><b>Definition</b> LightComponent.h:81</div></div>
+<div class="ttc" id="aclassLightComponent_html_aab4a11561ebb54b682d1cbce6ec09043"><div class="ttname"><a href="classLightComponent.html#aab4a11561ebb54b682d1cbce6ec09043">LightComponent::m_spotAngle</a></div><div class="ttdeci">float m_spotAngle</div><div class="ttdef"><b>Definition</b> LightComponent.h:85</div></div>
+<div class="ttc" id="aclassLightComponent_html_ab5c9ad3b66b43c54b668bfcc83527128"><div class="ttname"><a href="classLightComponent.html#ab5c9ad3b66b43c54b668bfcc83527128">LightComponent::GetColor</a></div><div class="ttdeci">DirectX::XMFLOAT3 GetColor() const</div><div class="ttdef"><b>Definition</b> LightComponent.h:35</div></div>
+<div class="ttc" id="aclassLightComponent_html_abc75ea761617b51bbbdcd0e033277e6d"><div class="ttname"><a href="classLightComponent.html#abc75ea761617b51bbbdcd0e033277e6d">LightComponent::GetLightType</a></div><div class="ttdeci">LightType GetLightType() const</div><div class="ttdef"><b>Definition</b> LightComponent.h:30</div></div>
+<div class="ttc" id="aclassLightComponent_html_ac0039dd7fdb32dc11304cb0b0c020231"><div class="ttname"><a href="classLightComponent.html#ac0039dd7fdb32dc11304cb0b0c020231">LightComponent::SetRange</a></div><div class="ttdeci">void SetRange(float range)</div><div class="ttdef"><b>Definition</b> LightComponent.h:62</div></div>
+<div class="ttc" id="aclassLightComponent_html_ac481f85302e8ab451fb4ddfa81172b7c"><div class="ttname"><a href="classLightComponent.html#ac481f85302e8ab451fb4ddfa81172b7c">LightComponent::GetUpdatePhase</a></div><div class="ttdeci">UpdatePhase GetUpdatePhase() const override</div><div class="ttdef"><b>Definition</b> LightComponent.h:27</div></div>
+<div class="ttc" id="aclassLightComponent_html_ac4b65aee4ac8334a2560a7c1c07926de"><div class="ttname"><a href="classLightComponent.html#ac4b65aee4ac8334a2560a7c1c07926de">LightComponent::SetColor</a></div><div class="ttdeci">void SetColor(float r, float g, float b)</div><div class="ttdef"><b>Definition</b> LightComponent.h:37</div></div>
+<div class="ttc" id="aclassLightComponent_html_ac821a8b903d1e57135eac2ea3a63f3c2"><div class="ttname"><a href="classLightComponent.html#ac821a8b903d1e57135eac2ea3a63f3c2">LightComponent::GetShadowDarkness</a></div><div class="ttdeci">float GetShadowDarkness() const</div><div class="ttdef"><b>Definition</b> LightComponent.h:57</div></div>
+<div class="ttc" id="aclassLightComponent_html_ac8c23255305b1ad4667a6ac7a5ff9de2"><div class="ttname"><a href="classLightComponent.html#ac8c23255305b1ad4667a6ac7a5ff9de2">LightComponent::m_range</a></div><div class="ttdeci">float m_range</div><div class="ttdef"><b>Definition</b> LightComponent.h:84</div></div>
+<div class="ttc" id="aclassLightComponent_html_acbf8c84a806e90045c2c1490f061f3be"><div class="ttname"><a href="classLightComponent.html#acbf8c84a806e90045c2c1490f061f3be">LightComponent::DrawDebug</a></div><div class="ttdeci">void DrawDebug(CameraComponent *camera, ImDrawList *customDrawList, const ImVec2 &amp;vpPos, const ImVec2 &amp;vpSize)</div><div class="ttdef"><b>Definition</b> LightComponent.cpp:89</div></div>
+<div class="ttc" id="aclassLightComponent_html_ad4e5e9c290c0f15594b9473ef950638b"><div class="ttname"><a href="classLightComponent.html#ad4e5e9c290c0f15594b9473ef950638b">LightComponent::m_color</a></div><div class="ttdeci">DirectX::XMFLOAT3 m_color</div><div class="ttdef"><b>Definition</b> LightComponent.h:75</div></div>
+<div class="ttc" id="aclassLightComponent_html_adc55bd435133d9d92efc858880a3b97b"><div class="ttname"><a href="classLightComponent.html#adc55bd435133d9d92efc858880a3b97b">LightComponent::SetSpecularPower</a></div><div class="ttdeci">void SetSpecularPower(float power)</div><div class="ttdef"><b>Definition</b> LightComponent.h:48</div></div>
+<div class="ttc" id="aclassLightComponent_html_ae3485303b50490130c48b1ee68a7bfef"><div class="ttname"><a href="classLightComponent.html#ae3485303b50490130c48b1ee68a7bfef">LightComponent::m_type</a></div><div class="ttdeci">LightType m_type</div><div class="ttdef"><b>Definition</b> LightComponent.h:74</div></div>
+<div class="ttc" id="aclassLightComponent_html_ae5c82d71382ded2b67ea04dec0d1cf2a"><div class="ttname"><a href="classLightComponent.html#ae5c82d71382ded2b67ea04dec0d1cf2a">LightComponent::SetLightType</a></div><div class="ttdeci">void SetLightType(LightType type)</div><div class="ttdef"><b>Definition</b> LightComponent.h:31</div></div>
+<div class="ttc" id="aclassLightComponent_html_ae928e78ba8e40f15a4aab3f9fa3469fa"><div class="ttname"><a href="classLightComponent.html#ae928e78ba8e40f15a4aab3f9fa3469fa">LightComponent::GetCastShadow</a></div><div class="ttdeci">bool GetCastShadow() const</div><div class="ttdef"><b>Definition</b> LightComponent.h:51</div></div>
+<div class="ttc" id="aclassLightComponent_html_aed757ffed29ffd8c646af7edde21814f"><div class="ttname"><a href="classLightComponent.html#aed757ffed29ffd8c646af7edde21814f">LightComponent::Start</a></div><div class="ttdeci">void Start() override</div><div class="ttdef"><b>Definition</b> LightComponent.cpp:43</div></div>
+<div class="ttc" id="aclassLightComponent_html_af0969ffa9e9110a82b0d94ab48f211cb"><div class="ttname"><a href="classLightComponent.html#af0969ffa9e9110a82b0d94ab48f211cb">LightComponent::LightComponent</a></div><div class="ttdeci">LightComponent()</div><div class="ttdef"><b>Definition</b> LightComponent.cpp:34</div></div>
+<div class="ttc" id="aclassLightComponent_html_af8b10bff014b76517bce5149715087cd"><div class="ttname"><a href="classLightComponent.html#af8b10bff014b76517bce5149715087cd">LightComponent::SetAmbientColor</a></div><div class="ttdeci">void SetAmbientColor(const DirectX::XMFLOAT3 &amp;ambient)</div><div class="ttdef"><b>Definition</b> LightComponent.h:44</div></div>
+<div class="ttc" id="aclassLightComponent_html_afe9e5d66cee04d2527ce66823fb9ee1f"><div class="ttname"><a href="classLightComponent.html#afe9e5d66cee04d2527ce66823fb9ee1f">LightComponent::GetIntensity</a></div><div class="ttdeci">float GetIntensity() const</div><div class="ttdef"><b>Definition</b> LightComponent.h:39</div></div>
+<div class="ttc" id="aclassLightComponent_html_aff9388001e21aeedd15875c0fa15a3ca"><div class="ttname"><a href="classLightComponent.html#aff9388001e21aeedd15875c0fa15a3ca">LightComponent::SetColor</a></div><div class="ttdeci">void SetColor(const DirectX::XMFLOAT3 &amp;color)</div><div class="ttdef"><b>Definition</b> LightComponent.h:36</div></div>
+<div class="ttc" id="astructImDrawList_html"><div class="ttname"><a href="structImDrawList.html">ImDrawList</a></div><div class="ttdef"><b>Definition</b> imgui.h:3272</div></div>
+<div class="ttc" id="astructImVec2_html"><div class="ttname"><a href="structImVec2.html">ImVec2</a></div><div class="ttdef"><b>Definition</b> imgui.h:296</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_5405398c23c020946029b9f4e6e04094.html">Engine</a></li><li class="navelem"><a class="el" href="dir_5f693e8ad8d60326c758affc3b922e76.html">Component</a></li><li class="navelem"><a class="el" href="LightComponent_8h.html">LightComponent.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

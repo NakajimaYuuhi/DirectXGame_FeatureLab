@@ -3,6 +3,7 @@ var classPSOManager =
     [ "PSOManager", "classPSOManager.html#a8ac97176fa368941647bd8d178e608ce", null ],
     [ "~PSOManager", "classPSOManager.html#a2949b711c64ddae019caafd11ead17cb", null ],
     [ "PSOManager", "classPSOManager.html#a8af8dbbcac57fa2a45d243d8fd161c45", null ],
+    [ "Finalize", "classPSOManager.html#a0e10937a2c5689bbc002965d1ff0bc64", null ],
     [ "GetAdditivePSO", "classPSOManager.html#af6a5d8da89d123e456ab3726257fea91", null ],
     [ "GetDummyBoneSRV", "classPSOManager.html#a893ddc1fa215c135815342f8ce90b986", null ],
     [ "GetInstance", "classPSOManager.html#a359f046382fe2e8c49f8d0e6407765c1", null ],

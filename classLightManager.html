@@ -104,13 +104,15 @@ $(document).ready(function(){initNavTree('classLightManager.html',''); initResiz
 <div class="dynheader">
 LightManager 連携図</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classLightManager__coll__graph.svg" width="320" height="124"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classLightManager__coll__graph.svg" width="304" height="212"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
 <tr class="memitem:a1def695f9a04c27af5ba56c808e48262" id="r_a1def695f9a04c27af5ba56c808e48262"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightManager.html#a1def695f9a04c27af5ba56c808e48262">Init</a> (ID3D12Device *device)</td></tr>
 <tr class="separator:a1def695f9a04c27af5ba56c808e48262"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a303895a27839730bafa8607e0ca17032" id="r_a303895a27839730bafa8607e0ca17032"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightManager.html#a303895a27839730bafa8607e0ca17032">Finalize</a> ()</td></tr>
+<tr class="separator:a303895a27839730bafa8607e0ca17032"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae31667b2a31d42ba594f12d8d0324fa0" id="r_ae31667b2a31d42ba594f12d8d0324fa0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightManager.html#ae31667b2a31d42ba594f12d8d0324fa0">UpdateBuffer</a> (const DirectX::XMFLOAT3 &amp;targetPos, const DirectX::XMFLOAT3 &amp;cameraPos)</td></tr>
 <tr class="separator:ae31667b2a31d42ba594f12d8d0324fa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd0a0da07166d270a8399942a56303ba" id="r_acd0a0da07166d270a8399942a56303ba"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structDirectionalLight.html">DirectionalLight</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightManager.html#acd0a0da07166d270a8399942a56303ba">GetDirectionalLight</a> () const</td></tr>
@@ -171,6 +173,12 @@ LightManager 連携図</div>
 <tr class="separator:a655e6229384efff3db97a8dd942cd5e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9280c3ce4e2148def4e35a6f9e6f95e" id="r_ad9280c3ce4e2148def4e35a6f9e6f95e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightManager.html#ad9280c3ce4e2148def4e35a6f9e6f95e">SetBloomSpread</a> (float spread)</td></tr>
 <tr class="separator:ad9280c3ce4e2148def4e35a6f9e6f95e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2faf572fbf35971dd291210c936d5dbd" id="r_a2faf572fbf35971dd291210c936d5dbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightManager.html#a2faf572fbf35971dd291210c936d5dbd">ClearPointLights</a> ()</td></tr>
+<tr class="separator:a2faf572fbf35971dd291210c936d5dbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43002ba180e2fb2fe452da09b4350fce" id="r_a43002ba180e2fb2fe452da09b4350fce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightManager.html#a43002ba180e2fb2fe452da09b4350fce">AddPointLight</a> (const DirectX::XMFLOAT3 &amp;pos, const DirectX::XMFLOAT3 &amp;color, float intensity, float range)</td></tr>
+<tr class="separator:a43002ba180e2fb2fe452da09b4350fce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51d537ebce5e5610552626ec8727c1a5" id="r_a51d537ebce5e5610552626ec8727c1a5"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightManager.html#a51d537ebce5e5610552626ec8727c1a5">GetPointLightCount</a> () const</td></tr>
+<tr class="separator:a51d537ebce5e5610552626ec8727c1a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
@@ -230,6 +238,8 @@ LightManager 連携図</div>
 <tr class="separator:ab19362655af8d5262d105dfdd3542ea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd9b6487a0bf92dd08e2abfcd9911865" id="r_acd9b6487a0bf92dd08e2abfcd9911865"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLightBufferData.html">LightBufferData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightManager.html#acd9b6487a0bf92dd08e2abfcd9911865">m_mappedBuffer</a> = nullptr</td></tr>
 <tr class="separator:acd9b6487a0bf92dd08e2abfcd9911865"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7640bc2af36ab5806e220e5005106553" id="r_a7640bc2af36ab5806e220e5005106553"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structPointLightGPUData.html">PointLightGPUData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLightManager.html#a7640bc2af36ab5806e220e5005106553">m_activePointLights</a></td></tr>
+<tr class="separator:a7640bc2af36ab5806e220e5005106553"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">構築子と解体子</h2>
 <a id="a1eee8eb276ec7f041d961a567389754a" name="a1eee8eb276ec7f041d961a567389754a"></a>
@@ -314,6 +324,95 @@ LightManager 連携図</div>
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
+<a id="a43002ba180e2fb2fe452da09b4350fce" name="a43002ba180e2fb2fe452da09b4350fce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43002ba180e2fb2fe452da09b4350fce">&#9670;&#160;</a></span>AddPointLight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightManager::AddPointLight </td>
+          <td>(</td>
+          <td class="paramtype">const DirectX::XMFLOAT3 &amp;&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DirectX::XMFLOAT3 &amp;&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>intensity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>range</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightManager_a43002ba180e2fb2fe452da09b4350fce_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a2faf572fbf35971dd291210c936d5dbd" name="a2faf572fbf35971dd291210c936d5dbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2faf572fbf35971dd291210c936d5dbd">&#9670;&#160;</a></span>ClearPointLights()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightManager::ClearPointLights </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightManager_a2faf572fbf35971dd291210c936d5dbd_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a303895a27839730bafa8607e0ca17032" name="a303895a27839730bafa8607e0ca17032"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a303895a27839730bafa8607e0ca17032">&#9670;&#160;</a></span>Finalize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LightManager::Finalize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classLightManager_a303895a27839730bafa8607e0ca17032_icgraph.svg" width="307" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="ac1b66a84c89975f8edba2824b7bab4e0" name="ac1b66a84c89975f8edba2824b7bab4e0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac1b66a84c89975f8edba2824b7bab4e0">&#9670;&#160;</a></span>GetBloomIntensity()</h2>
 
@@ -501,7 +600,7 @@ LightManager 連携図</div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classLightManager_a0a4931745ec0e8c5c14f4371d66a4ba0_icgraph.svg" width="572" height="234"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightManager_a0a4931745ec0e8c5c14f4371d66a4ba0_icgraph.svg" width="100%" height="582"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -572,6 +671,31 @@ LightManager 連携図</div>
       <table class="memname">
         <tr>
           <td class="memname">float LightManager::GetPitch </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a51d537ebce5e5610552626ec8727c1a5" name="a51d537ebce5e5610552626ec8727c1a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51d537ebce5e5610552626ec8727c1a5">&#9670;&#160;</a></span>GetPointLightCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t LightManager::GetPointLightCount </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1235,6 +1359,11 @@ LightManager 連携図</div>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classLightManager_ae31667b2a31d42ba594f12d8d0324fa0_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classLightManager_ae31667b2a31d42ba594f12d8d0324fa0_icgraph.svg" width="454" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
@@ -1278,6 +1407,28 @@ LightManager 連携図</div>
 </div>
 </div>
 <h2 class="groupheader">メンバ詳解</h2>
+<a id="a7640bc2af36ab5806e220e5005106553" name="a7640bc2af36ab5806e220e5005106553"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7640bc2af36ab5806e220e5005106553">&#9670;&#160;</a></span>m_activePointLights</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structPointLightGPUData.html">PointLightGPUData</a>&gt; LightManager::m_activePointLights</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a3b4909ac4ed266628d632081fe39e03a" name="a3b4909ac4ed266628d632081fe39e03a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3b4909ac4ed266628d632081fe39e03a">&#9670;&#160;</a></span>m_bloomEnabled</h2>
 

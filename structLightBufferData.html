@@ -98,6 +98,11 @@ $(document).ready(function(){initNavTree('structLightBufferData.html',''); initR
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="LightManager_8h_source.html">LightManager.h</a>&gt;</code></p>
+<div class="dynheader">
+LightBufferData 連携図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="structLightBufferData__coll__graph.svg" width="162" height="124"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 公開変数類</h2></td></tr>
@@ -113,8 +118,12 @@ $(document).ready(function(){initNavTree('structLightBufferData.html',''); initR
 <tr class="separator:a61f239abaab9bcdfeea95cc02e755b35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca95f0491f9a2683ea596e4c35b63fa0" id="r_aca95f0491f9a2683ea596e4c35b63fa0"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLightBufferData.html#aca95f0491f9a2683ea596e4c35b63fa0">shadowParams</a></td></tr>
 <tr class="separator:aca95f0491f9a2683ea596e4c35b63fa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f6250fbfc38239891fdd631964d36a3" id="r_a5f6250fbfc38239891fdd631964d36a3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLightBufferData.html#a5f6250fbfc38239891fdd631964d36a3">padding</a> [28]</td></tr>
-<tr class="separator:a5f6250fbfc38239891fdd631964d36a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a15c4631f0dd2c0c2a125c5f446cc53" id="r_a5a15c4631f0dd2c0c2a125c5f446cc53"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLightBufferData.html#a5a15c4631f0dd2c0c2a125c5f446cc53">lightCounts</a></td></tr>
+<tr class="separator:a5a15c4631f0dd2c0c2a125c5f446cc53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29424255d614c3f9c8db8d955adb759b" id="r_a29424255d614c3f9c8db8d955adb759b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLightBufferData.html#a29424255d614c3f9c8db8d955adb759b">reserved</a> [24]</td></tr>
+<tr class="separator:a29424255d614c3f9c8db8d955adb759b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a0630301651641f27f1269e391b9bbc" id="r_a8a0630301651641f27f1269e391b9bbc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPointLightGPUData.html">PointLightGPUData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLightBufferData.html#a8a0630301651641f27f1269e391b9bbc">pointLights</a> [8]</td></tr>
+<tr class="separator:a8a0630301651641f27f1269e391b9bbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">メンバ詳解</h2>
 <a id="a61f239abaab9bcdfeea95cc02e755b35" name="a61f239abaab9bcdfeea95cc02e755b35"></a>
@@ -159,6 +168,20 @@ $(document).ready(function(){initNavTree('structLightBufferData.html',''); initR
 
 </div>
 </div>
+<a id="a5a15c4631f0dd2c0c2a125c5f446cc53" name="a5a15c4631f0dd2c0c2a125c5f446cc53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a15c4631f0dd2c0c2a125c5f446cc53">&#9670;&#160;</a></span>lightCounts</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT4 LightBufferData::lightCounts</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a86b8abd899c0bb2638211fa0e50df4c4" name="a86b8abd899c0bb2638211fa0e50df4c4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a86b8abd899c0bb2638211fa0e50df4c4">&#9670;&#160;</a></span>lightDir</h2>
 
@@ -187,14 +210,28 @@ $(document).ready(function(){initNavTree('structLightBufferData.html',''); initR
 
 </div>
 </div>
-<a id="a5f6250fbfc38239891fdd631964d36a3" name="a5f6250fbfc38239891fdd631964d36a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f6250fbfc38239891fdd631964d36a3">&#9670;&#160;</a></span>padding</h2>
+<a id="a8a0630301651641f27f1269e391b9bbc" name="a8a0630301651641f27f1269e391b9bbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a0630301651641f27f1269e391b9bbc">&#9670;&#160;</a></span>pointLights</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float LightBufferData::padding[28]</td>
+          <td class="memname"><a class="el" href="structPointLightGPUData.html">PointLightGPUData</a> LightBufferData::pointLights[8]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a29424255d614c3f9c8db8d955adb759b" name="a29424255d614c3f9c8db8d955adb759b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29424255d614c3f9c8db8d955adb759b">&#9670;&#160;</a></span>reserved</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float LightBufferData::reserved[24]</td>
         </tr>
       </table>
 </div><div class="memdoc">

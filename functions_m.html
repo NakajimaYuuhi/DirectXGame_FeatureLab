@@ -95,10 +95,12 @@ $(document).ready(function(){initNavTree('functions_m.html',''); initResizable()
 <h3><a id="index_m" name="index_m"></a>- m -</h3><ul>
 <li>m&#160;:&#160;<a class="el" href="classnlohmann_1_1detail_1_1exception.html#ad54778dc4f125488cbce8ec276dfdde2">nlohmann::detail::exception</a></li>
 <li>m_action&#160;:&#160;<a class="el" href="classButtonComponent.html#ac843ac8d4d168e0554973585068982b3">ButtonComponent</a></li>
+<li>m_activePointLights&#160;:&#160;<a class="el" href="classLightManager.html#a7640bc2af36ab5806e220e5005106553">LightManager</a></li>
 <li>m_activeSceneID&#160;:&#160;<a class="el" href="classSceneManager.html#aab8a23cbf7a9e598b6990476f94c9127">SceneManager</a></li>
 <li>m_activeTweens&#160;:&#160;<a class="el" href="classTweenManager.html#aef71fe4ec9ec61ddf8a7f3095e171cce">TweenManager</a></li>
 <li>m_additivePipelineState&#160;:&#160;<a class="el" href="classPSOManager.html#a1da1a173aadbdf693f26370266f5d600">PSOManager</a></li>
 <li>m_alpha&#160;:&#160;<a class="el" href="classSceneFade.html#afa6949c13b43a765e5e75a71fd6229f3">SceneFade</a></li>
+<li>m_ambientColor&#160;:&#160;<a class="el" href="classLightComponent.html#a05a161125ea5cf641218a7bb074b88af">LightComponent</a></li>
 <li>m_anchoredPosition&#160;:&#160;<a class="el" href="classCRectTransform.html#a930f2b7e37055b8046e737ff309d4754">CRectTransform</a></li>
 <li>m_anchorMax&#160;:&#160;<a class="el" href="classCRectTransform.html#acb32840417b35cc3272f8c4e0f3b2e78">CRectTransform</a></li>
 <li>m_anchorMin&#160;:&#160;<a class="el" href="classCRectTransform.html#a70c1ea6ce39aa24a8c8b6aafbe5ff0f7">CRectTransform</a></li>
@@ -123,12 +125,13 @@ $(document).ready(function(){initNavTree('functions_m.html',''); initResizable()
 <li>m_burstCount&#160;:&#160;<a class="el" href="classParticleEmitterComponent.html#a8da12b28af6304d4e1f96ef01b1f44b2">ParticleEmitterComponent</a></li>
 <li>m_burstOnStart&#160;:&#160;<a class="el" href="classParticleEmitterComponent.html#aff2670ddeece2ae1a83760428e2e5812">ParticleEmitterComponent</a></li>
 <li>m_cameraComp&#160;:&#160;<a class="el" href="classPlayerControllerComponent.html#a6ef9874e943154f3ae28b5c8323aebcf">PlayerControllerComponent</a></li>
+<li>m_castShadow&#160;:&#160;<a class="el" href="classLightComponent.html#a0da96e8bb9085d9e0e1cd598118d0dab">LightComponent</a></li>
 <li>m_centerPos&#160;:&#160;<a class="el" href="classCRectTransform.html#af40bf696085fc648638bfb747454f85d">CRectTransform</a></li>
 <li>m_children&#160;:&#160;<a class="el" href="classCTransform.html#a94c7a15d091ab9ed29a77675e5199aec">CTransform</a></li>
 <li>m_clearColor&#160;:&#160;<a class="el" href="classRenderTexture.html#a874269fa202e9bf05de69b6baa8b917a">RenderTexture</a></li>
 <li>m_collisionMask&#160;:&#160;<a class="el" href="classCollider.html#a545ce31f61a7da07e0c25c40bcbd2006">Collider</a></li>
 <li>m_Color&#160;:&#160;<a class="el" href="classCMaterial.html#acf2fcdd629e5ffc98b91d1370d0f2268">CMaterial</a></li>
-<li>m_color&#160;:&#160;<a class="el" href="classCSpriteRenderer.html#a6c4f77fb3cde393918a92c4e3d7f11f5">CSpriteRenderer</a>, <a class="el" href="classCTextRenderer.html#a4cc8bde731835caa166f3cde0d839d7c">CTextRenderer</a></li>
+<li>m_color&#160;:&#160;<a class="el" href="classCSpriteRenderer.html#a6c4f77fb3cde393918a92c4e3d7f11f5">CSpriteRenderer</a>, <a class="el" href="classCTextRenderer.html#a4cc8bde731835caa166f3cde0d839d7c">CTextRenderer</a>, <a class="el" href="classLightComponent.html#ad4e5e9c290c0f15594b9473ef950638b">LightComponent</a></li>
 <li>m_cols&#160;:&#160;<a class="el" href="classUVAnimationComponent.html#aae38c6ed6d5ff98e14b7f8291c8a22d4">UVAnimationComponent</a></li>
 <li>m_commandAllocator&#160;:&#160;<a class="el" href="classDX12Manager.html#abea329e1717f15967fb1089283dbacdf">DX12Manager</a></li>
 <li>m_commandList&#160;:&#160;<a class="el" href="classDX12Manager.html#aeee929fd644d6503a27b80487007f593">DX12Manager</a></li>
@@ -244,6 +247,7 @@ $(document).ready(function(){initNavTree('functions_m.html',''); initResizable()
 <li>m_indexBuffer&#160;:&#160;<a class="el" href="classCMesh.html#ae0c463f751d328d6f7efa2d1b0bdb925">CMesh</a>, <a class="el" href="classCSpriteRenderer.html#a72615224e2523afdf7d330efd247f84b">CSpriteRenderer</a></li>
 <li>m_indexBufferView&#160;:&#160;<a class="el" href="classCMesh.html#a6d8be3a1bc3ca33e25fb99f2e6f5d46c">CMesh</a>, <a class="el" href="classCSpriteRenderer.html#a0cfd1306eae8a868a6e2a5f3db5033ea">CSpriteRenderer</a></li>
 <li>m_Indices&#160;:&#160;<a class="el" href="classCMesh.html#a06f6cdb933619d47ecfac688d5a3936f">CMesh</a></li>
+<li>m_intensity&#160;:&#160;<a class="el" href="classLightComponent.html#a24920c543117e1a03af60fa955a76709">LightComponent</a></li>
 <li>m_invincibleDuration&#160;:&#160;<a class="el" href="classHealthComponent.html#a3a290ec487aa287e28bb3ac873cbab25">HealthComponent</a></li>
 <li>m_invincibleTimer&#160;:&#160;<a class="el" href="classHealthComponent.html#a0865c687e4a8fd1dff877b201fbe3882">HealthComponent</a></li>
 <li>m_isAnimationFinished&#160;:&#160;<a class="el" href="classCModel.html#a65e0edb35a017bf6b17c07f7455eb1d2">CModel</a></li>
@@ -350,6 +354,7 @@ $(document).ready(function(){initNavTree('functions_m.html',''); initResizable()
 <li>m_psoCache&#160;:&#160;<a class="el" href="classPSOManager.html#aeb51977243b3c4525fe3cd8dc3369879">PSOManager</a></li>
 <li>m_psoDesc&#160;:&#160;<a class="el" href="classPSOBuilder.html#ad3ef95f31d7306634de6baac10e6452b">PSOBuilder</a></li>
 <li>m_pSourceTex&#160;:&#160;<a class="el" href="classPostProcessPass.html#acd09dbac9b9d9e8f702afe630697fc01">PostProcessPass</a></li>
+<li>m_range&#160;:&#160;<a class="el" href="classLightComponent.html#ac8c23255305b1ad4667a6ac7a5ff9de2">LightComponent</a></li>
 <li>m_redoStack&#160;:&#160;<a class="el" href="classUndoManager.html#aa5f4178dbb720f4df6d7e91c59b41ae4">UndoManager</a></li>
 <li>m_registry&#160;:&#160;<a class="el" href="classPrefabManager.html#a6bacacf4718aa76aa25da68ef485c21f">PrefabManager</a></li>
 <li>m_renderLayer&#160;:&#160;<a class="el" href="classCModel.html#a9ec4059daaeb59a56926790412a02f21">CModel</a>, <a class="el" href="classCSpriteRenderer.html#aa5bad119621239e25c8a7cdf40fa6f2c">CSpriteRenderer</a>, <a class="el" href="classCTextRenderer.html#add945cefc06129c73049758e41f41db4">CTextRenderer</a></li>
@@ -379,8 +384,8 @@ $(document).ready(function(){initNavTree('functions_m.html',''); initResizable()
 <li>m_ShaderFile&#160;:&#160;<a class="el" href="classCMaterial.html#a7d48d6c5419ac5d5e3fec8b9a4c35c88">CMaterial</a></li>
 <li>m_shaderPathInput&#160;:&#160;<a class="el" href="classCInspectorUI.html#abb8abee3d709e4fc284f6db9eb4a1a57">CInspectorUI</a></li>
 <li>m_shaders&#160;:&#160;<a class="el" href="classShaderManager.html#a66ef5537e34121c926f97793978b5e40">ShaderManager</a></li>
-<li>m_shadowBias&#160;:&#160;<a class="el" href="classLightManager.html#a60cc48dfc5638912d037a6caa486469d">LightManager</a></li>
-<li>m_shadowDarkness&#160;:&#160;<a class="el" href="classLightManager.html#abd9c7acd37cdf5dbc36a12a720640662">LightManager</a></li>
+<li>m_shadowBias&#160;:&#160;<a class="el" href="classLightComponent.html#aa86b0105b7925cc1e2a11559a3151f53">LightComponent</a>, <a class="el" href="classLightManager.html#a60cc48dfc5638912d037a6caa486469d">LightManager</a></li>
+<li>m_shadowDarkness&#160;:&#160;<a class="el" href="classLightComponent.html#a2f1774d111ae020d061511563d222517">LightComponent</a>, <a class="el" href="classLightManager.html#abd9c7acd37cdf5dbc36a12a720640662">LightManager</a></li>
 <li>m_shadowDistance&#160;:&#160;<a class="el" href="classLightManager.html#a7886ad83cb78c24b6d8d95dac61da151">LightManager</a></li>
 <li>m_shadowEnabled&#160;:&#160;<a class="el" href="classLightManager.html#a33a3104b7f6859c03be864180a224886">LightManager</a></li>
 <li>m_shadowFar&#160;:&#160;<a class="el" href="classLightManager.html#a60f1e3d3cc925c1b0855087cc81c92ae">LightManager</a></li>
@@ -392,12 +397,15 @@ $(document).ready(function(){initNavTree('functions_m.html',''); initResizable()
 <li>m_shakeIntensity&#160;:&#160;<a class="el" href="classCameraComponent.html#aaeca018a515ce1388d8fac402f0c7cfc">CameraComponent</a></li>
 <li>m_shakeTimer&#160;:&#160;<a class="el" href="classCameraComponent.html#ab0ae57d78af19e37ba5e98bac5d37d96">CameraComponent</a></li>
 <li>m_showColliders&#160;:&#160;<a class="el" href="classCInspectorUI.html#af7b96a8abbbb09057c8f476c396c79aa">CInspectorUI</a></li>
+<li>m_showLights&#160;:&#160;<a class="el" href="classCInspectorUI.html#a4492ffaab81a482f7742c2980567738d">CInspectorUI</a></li>
 <li>m_size&#160;:&#160;<a class="el" href="classCSpriteRenderer.html#ae6c3eea46524253e181b3d29e8aa6e6f">CSpriteRenderer</a></li>
 <li>m_sizeDelta&#160;:&#160;<a class="el" href="classCRectTransform.html#a19876bbfae28f3c9a9e570a4aea32b77">CRectTransform</a></li>
 <li>m_SkinJoints&#160;:&#160;<a class="el" href="classCModel.html#a7fec62122cfaae85c50c105277ee2209">CModel</a></li>
 <li>m_SkinningMatrices&#160;:&#160;<a class="el" href="classCModel.html#a6a3e794bcba1a6349c13802218181af8">CModel</a></li>
 <li>m_spawnInterval&#160;:&#160;<a class="el" href="classParticleEmitterComponent.html#a4ff1113496c973408cfbee8fcde0582f">ParticleEmitterComponent</a></li>
+<li>m_specularPower&#160;:&#160;<a class="el" href="classLightComponent.html#a1d619f5917fc1b17c3e21e9dfde29d0a">LightComponent</a></li>
 <li>m_speed&#160;:&#160;<a class="el" href="classBulletComponent.html#ae56b9416252bc728f5e12afd0d3fc2c9">BulletComponent</a>, <a class="el" href="classCharacterMovementComponent.html#a18117e611b9fe558151e8a9ab4905540">CharacterMovementComponent</a>, <a class="el" href="classParticleComponent.html#a72a7efb911a9f8444ba8d11734bd9a2e">ParticleComponent</a></li>
+<li>m_spotAngle&#160;:&#160;<a class="el" href="classLightComponent.html#aab4a11561ebb54b682d1cbce6ec09043">LightComponent</a></li>
 <li>m_spritePipelineState&#160;:&#160;<a class="el" href="classPSOManager.html#aae7f5c086a2c5adc1d6607c32d997f2b">PSOManager</a></li>
 <li>m_spriteRootSignature&#160;:&#160;<a class="el" href="classPSOManager.html#abab2a25f504b6215a001dd362c905fc6">PSOManager</a></li>
 <li>m_srvAllocated&#160;:&#160;<a class="el" href="classRenderTexture.html#a755f1466191c1c61523ed2f82bf613fd">RenderTexture</a>, <a class="el" href="classShadowMap.html#ad950d29a1843153d680fa9f91204180e">ShadowMap</a></li>
@@ -440,6 +448,7 @@ $(document).ready(function(){initNavTree('functions_m.html',''); initResizable()
 <li>m_totalFrames&#160;:&#160;<a class="el" href="classUVAnimationComponent.html#a14cffff0698205e939cae6fe00cad270">UVAnimationComponent</a></li>
 <li>m_totalFrameTimeMs&#160;:&#160;<a class="el" href="classProfiler.html#a151b0327822ff89ca4c67e0449ea594a">Profiler</a></li>
 <li>m_transitionStep&#160;:&#160;<a class="el" href="classSceneManager.html#ae2267fef4dff45c8f04e0d2ae9a0fbaf">SceneManager</a></li>
+<li>m_type&#160;:&#160;<a class="el" href="classLightComponent.html#ae3485303b50490130c48b1ee68a7bfef">LightComponent</a></li>
 <li>m_undoStack&#160;:&#160;<a class="el" href="classUndoManager.html#ad3fc56a434e58395db5e8a9566eb8937">UndoManager</a></li>
 <li>m_upName&#160;:&#160;<a class="el" href="classButtonComponent.html#aace7e59f5b32796b63abfcaba49c06b9">ButtonComponent</a></li>
 <li>m_UVOffset&#160;:&#160;<a class="el" href="classCTransform.html#a62fd0b10d59c09bf1e176cfeae4d777c">CTransform</a></li>
