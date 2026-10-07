@@ -1,4 +1,5 @@
 #include "BoxCollider3D.h"
+#include "CapsuleCollider3D.h"
 #include "imgui.h"
 
 void BoxCollider3D::DrawDebug(CameraComponent* camera, ImDrawList* customDrawList, const ImVec2& vpPos, const ImVec2& vpSize)
@@ -90,4 +91,10 @@ void BoxCollider3D::DrawDebug(CameraComponent* camera, ImDrawList* customDrawLis
 	{
 		drawList->PopClipRect();
 	}
+}
+
+bool BoxCollider3D::CheckCollision(const CapsuleCollider3D* other) const
+{
+	if (!other) return false;
+	return other->CheckCollision(this);
 }

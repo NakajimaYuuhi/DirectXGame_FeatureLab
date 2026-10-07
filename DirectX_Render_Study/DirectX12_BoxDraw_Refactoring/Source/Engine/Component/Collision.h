@@ -1,28 +1,39 @@
 #pragma once
 #include "BoxCollider3D.h"
+#include "CapsuleCollider3D.h"
 #include "ObjectTag.h"
 #include "ContainerAlias.h"
 
 class Collision
 {
 public:
-
-	//衝突判定
-	static bool CheckCollision(BoxCollider3D* colliderA, BoxCollider3D* colliderB)
+	// Intersection checks (Box vs Box, Capsule vs Capsule, Capsule vs Box)
+	static bool CheckCollision(BoxCollider3D* a, BoxCollider3D* b)
 	{
-		DirectX::XMFLOAT3 posA = colliderA->GetWorldPos();
-		DirectX::XMFLOAT3 sizeA = colliderA->GetSize();
-		DirectX::XMFLOAT3 posB = colliderB->GetWorldPos();
-		DirectX::XMFLOAT3 sizeB = colliderB->GetSize();
-		// AABB同士の衝突判定
-		if (abs(posA.x - posB.x) < (sizeA.x / 2 + sizeB.x / 2) &&
-			abs(posA.y - posB.y) < (sizeA.y / 2 + sizeB.y / 2) &&
-			abs(posA.z - posB.z) < (sizeA.z / 2 + sizeB.z / 2))
-		{
-			return true; // 衝突している
-		}
-		return false; // 衝突していない
+		if (!a || !b) return false;
+		return a->CheckCollision(b);
 	}
+
+	static bool CheckCollision(CapsuleCollider3D* a, CapsuleCollider3D* b)
+	{
+		if (!a || !b) return false;
+		return a->CheckCollision(b);
+	}
+
+	static bool CheckCollision(CapsuleCollider3D* a, BoxCollider3D* b)
+	{
+		if (!a || !b) return false;
+		return a->CheckCollision(b);
+	}
+
+	static bool CheckCollision(BoxCollider3D* a, CapsuleCollider3D* b)
+	{
+		if (!a || !b) return false;
+		return a->CheckCollision(b);
+	}
+
+	// Dynamic dispatch for base Collider3D pointers
+	static bool CheckCollision(Collider3D* a, Collider3D* b);
 
 	Vector<Vector<ObjectTag>>& GetCollisionOrder() { return CollisionOrder; }
 
@@ -32,30 +43,19 @@ public:
 	static void ResolveCollisions(Vector<Vector<UniquePtr<CObject>>>& objectList);
 
 private:
-	//Collisionの順番
 	Vector<Vector<ObjectTag>> CollisionOrder;
 
-	//----- シングルトンの実装に必要 -----
 public:
 	static Collision& GetInstance()
 	{
 		static Collision Instance;
-
-		//インスタンスを返す
 		return Instance;
 	}
 
 private:
-	//コンストラクタ
 	Collision();
+	~Collision() = default;
 
-	//デストラクタ
-	~Collision(){}
-
-	//コピー禁止
 	Collision(const Collision&) = delete;
-
-	//代入禁止
 	Collision& operator=(const Collision&) = delete;
 };
-

@@ -6,22 +6,23 @@
 #include "Transform.h"
 
 class CameraComponent;
+class CapsuleCollider3D;
 #include "CameraComponent.h"
 
 class BoxCollider3D : public Collider3D
 {
 public:
-	//ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	//ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	BoxCollider3D()
 	{
 		SetName("BoxCollider3D");
 		ColliderType = Collider::BOX_3D;
 	}
 
-	//ƒfƒXƒgƒ‰ƒNƒ^
+	//ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	virtual ~BoxCollider3D(){}
 
-	//WorldPos‚Ìæ“¾
+	//WorldPosã®å–å¾—
 	virtual DirectX::XMFLOAT3 GetWorldPos() override
 	{
 		DirectX::XMFLOAT3 pos = { 0.0f,0.0f,0.0f };
@@ -132,11 +133,26 @@ public:
 		return true;
 	}
 
-	// ƒfƒoƒbƒO‰Â‹‰»—p
+	// ãƒ‡ãƒãƒƒã‚°å¯è¦–åŒ–ç”¨
+	// Intersection checks
+	bool CheckCollision(const BoxCollider3D* other) const
+	{
+		if (!other) return false;
+		DirectX::XMFLOAT3 posA = const_cast<BoxCollider3D*>(this)->GetWorldPos();
+		DirectX::XMFLOAT3 sizeA = GetSize();
+		DirectX::XMFLOAT3 posB = const_cast<BoxCollider3D*>(other)->GetWorldPos();
+		DirectX::XMFLOAT3 sizeB = other->GetSize();
+		return (fabsf(posA.x - posB.x) < (sizeA.x * 0.5f + sizeB.x * 0.5f) &&
+		        fabsf(posA.y - posB.y) < (sizeA.y * 0.5f + sizeB.y * 0.5f) &&
+		        fabsf(posA.z - posB.z) < (sizeA.z * 0.5f + sizeB.z * 0.5f));
+	}
+
+	bool CheckCollision(const CapsuleCollider3D* other) const;
+
 	void DrawDebug(CameraComponent* camera, ImDrawList* drawList = nullptr, const ImVec2& vpPos = ImVec2(0.0f, 0.0f), const ImVec2& vpSize = ImVec2(0.0f, 0.0f));
 
 	RenderLayer GetRenderLayer() const override { return RenderLayer::Debug; }
 
 protected:
-	DirectX::XMFLOAT3 Size = { 1.0f, 1.0f, 1.0f };	//‘å‚«‚³
+	DirectX::XMFLOAT3 Size = { 1.0f, 1.0f, 1.0f };	//å¤§ãã•
 };

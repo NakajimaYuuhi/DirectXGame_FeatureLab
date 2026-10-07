@@ -13,6 +13,31 @@ Collision::Collision()
 	};
 }
 
+bool Collision::CheckCollision(Collider3D* a, Collider3D* b)
+{
+	if (!a || !b) return false;
+
+	auto* boxA = dynamic_cast<BoxCollider3D*>(a);
+	auto* capA = dynamic_cast<CapsuleCollider3D*>(a);
+	auto* boxB = dynamic_cast<BoxCollider3D*>(b);
+	auto* capB = dynamic_cast<CapsuleCollider3D*>(b);
+
+	if (boxA && boxB) return CheckCollision(boxA, boxB);
+	if (capA && capB) return CheckCollision(capA, capB);
+	if (capA && boxB) return CheckCollision(capA, boxB);
+	if (boxA && capB) return CheckCollision(boxA, capB);
+
+	return false;
+}
+
+static Collider3D* GetColliderFromObject(CObject* obj)
+{
+	if (!obj) return nullptr;
+	Collider3D* col = obj->GetComponent<CapsuleCollider3D>();
+	if (!col) col = obj->GetComponent<BoxCollider3D>();
+	return col;
+}
+
 void Collision::ResolveCollisions(Vector<Vector<UniquePtr<CObject>>>& objectList)
 {
 	struct ColliderEntry {
@@ -38,39 +63,40 @@ void Collision::ResolveCollisions(Vector<Vector<UniquePtr<CObject>>>& objectList
 	}
 
 	size_t count = colliders.size();
-	if (count < 2) return;
-
-	// Phase 1: Solid Resolution (Physical push apart for non-triggers)
-	for (size_t i = 0; i < count; ++i)
+	if (count >= 2)
 	{
-		auto& a = colliders[i];
-		if (a.collider->GetIsTrigger() || !a.transform) continue;
-
-		for (size_t j = i + 1; j < count; ++j)
+		// Phase 1: Solid Resolution (Physical push apart for non-triggers)
+		for (size_t i = 0; i < count; ++i)
 		{
-			auto& b = colliders[j];
-			if (b.collider->GetIsTrigger() || !b.transform) continue;
+			auto& a = colliders[i];
+			if (a.collider->GetIsTrigger() || !a.transform) continue;
 
-			if (!a.collider->CanCollideWith(b.collider->GetLayer()) &&
-				!b.collider->CanCollideWith(a.collider->GetLayer()))
+			for (size_t j = i + 1; j < count; ++j)
 			{
-				continue;
-			}
+				auto& b = colliders[j];
+				if (b.collider->GetIsTrigger() || !b.transform) continue;
 
-			DirectX::XMFLOAT3 pushVec = { 0.0f, 0.0f, 0.0f };
-			if (a.collider->CalculateHorizontalPenetration(b.collider, pushVec))
-			{
-				DirectX::XMFLOAT3 posA = a.transform->GetPos();
-				DirectX::XMFLOAT3 posB = b.transform->GetPos();
+				if (!a.collider->CanCollideWith(b.collider->GetLayer()) &&
+					!b.collider->CanCollideWith(a.collider->GetLayer()))
+				{
+					continue;
+				}
 
-				posA.x += pushVec.x * 0.5f;
-				posA.z += pushVec.z * 0.5f;
+				DirectX::XMFLOAT3 pushVec = { 0.0f, 0.0f, 0.0f };
+				if (a.collider->CalculateHorizontalPenetration(b.collider, pushVec))
+				{
+					DirectX::XMFLOAT3 posA = a.transform->GetPos();
+					DirectX::XMFLOAT3 posB = b.transform->GetPos();
 
-				posB.x -= pushVec.x * 0.5f;
-				posB.z -= pushVec.z * 0.5f;
+					posA.x += pushVec.x * 0.5f;
+					posA.z += pushVec.z * 0.5f;
 
-				a.transform->SetPos(posA);
-				b.transform->SetPos(posB);
+					posB.x -= pushVec.x * 0.5f;
+					posB.z -= pushVec.z * 0.5f;
+
+					a.transform->SetPos(posA);
+					b.transform->SetPos(posB);
+				}
 			}
 		}
 	}
@@ -94,8 +120,8 @@ void Collision::ResolveCollisions(Vector<Vector<UniquePtr<CObject>>>& objectList
 
 				if (!objA || !objB || objA->GetIsDestroyed() || objB->GetIsDestroyed()) continue;
 
-				BoxCollider3D* colA = objA->GetComponent<BoxCollider3D>();
-				BoxCollider3D* colB = objB->GetComponent<BoxCollider3D>();
+				Collider3D* colA = GetColliderFromObject(objA);
+				Collider3D* colB = GetColliderFromObject(objB);
 
 				if (colA && colB && colA->GetIsValid() && colB->GetIsValid())
 				{

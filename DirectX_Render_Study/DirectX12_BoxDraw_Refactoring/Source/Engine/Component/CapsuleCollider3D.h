@@ -6,6 +6,7 @@
 #include "imgui.h"
 
 class CameraComponent;
+class BoxCollider3D;
 
 class CapsuleCollider3D : public Collider3D
 {
@@ -25,6 +26,21 @@ public:
 
 	// Get segment endpoints (Bottom sphere center & Top sphere center)
 	void GetSegmentEndpoints(DirectX::XMFLOAT3& outBottom, DirectX::XMFLOAT3& outTop) const;
+
+	// Geometric helper methods
+	static float ClosestPtSegmentSegment(
+		const DirectX::XMFLOAT3& p1, const DirectX::XMFLOAT3& q1,
+		const DirectX::XMFLOAT3& p2, const DirectX::XMFLOAT3& q2,
+		DirectX::XMFLOAT3& outC1, DirectX::XMFLOAT3& outC2);
+
+	static float ClosestPtSegmentAABB(
+		const DirectX::XMFLOAT3& p0, const DirectX::XMFLOAT3& p1,
+		const DirectX::XMFLOAT3& boxMin, const DirectX::XMFLOAT3& boxMax,
+		DirectX::XMFLOAT3& outClosestSegPt, DirectX::XMFLOAT3& outClosestBoxPt);
+
+	// Intersection checks
+	bool CheckCollision(const CapsuleCollider3D* other) const;
+	bool CheckCollision(const BoxCollider3D* other) const;
 
 	// Debug wireframe rendering
 	void DrawDebug(CameraComponent* camera, ImDrawList* customDrawList = nullptr, const ImVec2& vpPos = ImVec2(0.0f, 0.0f), const ImVec2& vpSize = ImVec2(0.0f, 0.0f));
