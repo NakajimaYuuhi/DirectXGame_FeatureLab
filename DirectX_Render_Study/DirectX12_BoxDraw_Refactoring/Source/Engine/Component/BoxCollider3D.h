@@ -149,6 +149,9 @@ public:
 
 	bool CheckCollision(const CapsuleCollider3D* other) const;
 
+	bool CalculatePenetration(const CapsuleCollider3D* other, DirectX::XMFLOAT3& outPushVector) const;
+	bool CalculateHorizontalPenetration(const CapsuleCollider3D* other, DirectX::XMFLOAT3& outPushVector) const;
+
 	void DrawDebug(CameraComponent* camera, ImDrawList* drawList = nullptr, const ImVec2& vpPos = ImVec2(0.0f, 0.0f), const ImVec2& vpSize = ImVec2(0.0f, 0.0f));
 
 	RenderLayer GetRenderLayer() const override { return RenderLayer::Debug; }

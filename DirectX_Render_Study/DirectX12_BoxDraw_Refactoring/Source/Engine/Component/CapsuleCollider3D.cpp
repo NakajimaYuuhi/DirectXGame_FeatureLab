@@ -209,6 +209,222 @@ bool CapsuleCollider3D::CheckCollision(const BoxCollider3D* other) const
 	return distSq <= (m_radius * m_radius);
 }
 
+bool CapsuleCollider3D::CalculatePenetration(const CapsuleCollider3D* other, DirectX::XMFLOAT3& outPushVector) const
+{
+	if (!other) return false;
+
+	DirectX::XMFLOAT3 aBottom, aTop;
+	GetSegmentEndpoints(aBottom, aTop);
+
+	DirectX::XMFLOAT3 bBottom, bTop;
+	other->GetSegmentEndpoints(bBottom, bTop);
+
+	DirectX::XMFLOAT3 c1, c2;
+	float distSq = ClosestPtSegmentSegment(aBottom, aTop, bBottom, bTop, c1, c2);
+
+	float radiusSum = m_radius + other->m_radius;
+	if (distSq >= radiusSum * radiusSum) return false;
+
+	float dist = sqrtf(distSq);
+	float penetration = radiusSum - dist;
+
+	if (dist > 1e-5f)
+	{
+		float invDist = 1.0f / dist;
+		outPushVector = {
+			(c1.x - c2.x) * invDist * penetration,
+			(c1.y - c2.y) * invDist * penetration,
+			(c1.z - c2.z) * invDist * penetration
+		};
+	}
+	else
+	{
+		outPushVector = { penetration, 0.0f, 0.0f };
+	}
+
+	return true;
+}
+
+bool CapsuleCollider3D::CalculateHorizontalPenetration(const CapsuleCollider3D* other, DirectX::XMFLOAT3& outPushVector) const
+{
+	if (!other) return false;
+
+	DirectX::XMFLOAT3 aBottom, aTop;
+	GetSegmentEndpoints(aBottom, aTop);
+
+	DirectX::XMFLOAT3 bBottom, bTop;
+	other->GetSegmentEndpoints(bBottom, bTop);
+
+	DirectX::XMFLOAT3 c1, c2;
+	float distSq = ClosestPtSegmentSegment(aBottom, aTop, bBottom, bTop, c1, c2);
+
+	float radiusSum = m_radius + other->m_radius;
+	if (distSq >= radiusSum * radiusSum) return false;
+
+	float dist = sqrtf(distSq);
+	float penetration = radiusSum - dist;
+
+	float dx = c1.x - c2.x;
+	float dz = c1.z - c2.z;
+	float hDistSq = dx * dx + dz * dz;
+
+	if (hDistSq > 1e-6f)
+	{
+		float hDist = sqrtf(hDistSq);
+		float invHDist = 1.0f / hDist;
+		outPushVector = {
+			dx * invHDist * penetration,
+			0.0f,
+			dz * invHDist * penetration
+		};
+	}
+	else
+	{
+		outPushVector = { penetration, 0.0f, 0.0f };
+	}
+
+	return true;
+}
+
+bool CapsuleCollider3D::CalculatePenetration(const BoxCollider3D* other, DirectX::XMFLOAT3& outPushVector) const
+{
+	if (!other) return false;
+
+	DirectX::XMFLOAT3 aBottom, aTop;
+	GetSegmentEndpoints(aBottom, aTop);
+
+	DirectX::XMFLOAT3 boxPos = const_cast<BoxCollider3D*>(other)->GetWorldPos();
+	DirectX::XMFLOAT3 boxSize = other->GetSize();
+
+	DirectX::XMFLOAT3 boxMin = {
+		boxPos.x - boxSize.x * 0.5f,
+		boxPos.y - boxSize.y * 0.5f,
+		boxPos.z - boxSize.z * 0.5f
+	};
+	DirectX::XMFLOAT3 boxMax = {
+		boxPos.x + boxSize.x * 0.5f,
+		boxPos.y + boxSize.y * 0.5f,
+		boxPos.z + boxSize.z * 0.5f
+	};
+
+	DirectX::XMFLOAT3 cSeg, cBox;
+	float distSq = ClosestPtSegmentAABB(aBottom, aTop, boxMin, boxMax, cSeg, cBox);
+
+	if (distSq >= m_radius * m_radius) return false;
+
+	float dist = sqrtf(distSq);
+	float penetration = m_radius - dist;
+
+	float dx = cSeg.x - cBox.x;
+	float dy = cSeg.y - cBox.y;
+	float dz = cSeg.z - cBox.z;
+
+	if (dist > 1e-5f)
+	{
+		float invDist = 1.0f / dist;
+		outPushVector = {
+			dx * invDist * penetration,
+			dy * invDist * penetration,
+			dz * invDist * penetration
+		};
+	}
+	else
+	{
+		DirectX::XMFLOAT3 capPos = const_cast<CapsuleCollider3D*>(this)->GetWorldPos();
+		float halfBx = boxSize.x * 0.5f;
+		float halfBy = boxSize.y * 0.5f;
+		float halfBz = boxSize.z * 0.5f;
+
+		float cdx = capPos.x - boxPos.x;
+		float px = (halfBx + m_radius) - fabsf(cdx);
+		float cdy = capPos.y - boxPos.y;
+		float py = (halfBy + m_radius) - fabsf(cdy);
+		float cdz = capPos.z - boxPos.z;
+		float pz = (halfBz + m_radius) - fabsf(cdz);
+
+		if (px <= 0.0f || py <= 0.0f || pz <= 0.0f) return false;
+
+		if (px < py && px < pz)
+			outPushVector = { (cdx > 0.0f ? px : -px), 0.0f, 0.0f };
+		else if (pz < px && pz < py)
+			outPushVector = { 0.0f, 0.0f, (cdz > 0.0f ? pz : -pz) };
+		else
+			outPushVector = { 0.0f, (cdy > 0.0f ? py : -py), 0.0f };
+	}
+
+	return true;
+}
+
+bool CapsuleCollider3D::CalculateHorizontalPenetration(const BoxCollider3D* other, DirectX::XMFLOAT3& outPushVector) const
+{
+	if (!other) return false;
+
+	DirectX::XMFLOAT3 aBottom, aTop;
+	GetSegmentEndpoints(aBottom, aTop);
+
+	DirectX::XMFLOAT3 boxPos = const_cast<BoxCollider3D*>(other)->GetWorldPos();
+	DirectX::XMFLOAT3 boxSize = other->GetSize();
+
+	DirectX::XMFLOAT3 boxMin = {
+		boxPos.x - boxSize.x * 0.5f,
+		boxPos.y - boxSize.y * 0.5f,
+		boxPos.z - boxSize.z * 0.5f
+	};
+	DirectX::XMFLOAT3 boxMax = {
+		boxPos.x + boxSize.x * 0.5f,
+		boxPos.y + boxSize.y * 0.5f,
+		boxPos.z + boxSize.z * 0.5f
+	};
+
+	DirectX::XMFLOAT3 cSeg, cBox;
+	float distSq = ClosestPtSegmentAABB(aBottom, aTop, boxMin, boxMax, cSeg, cBox);
+
+	if (distSq >= m_radius * m_radius) return false;
+
+	float dist = sqrtf(distSq);
+	float penetration = m_radius - dist;
+
+	float dx = cSeg.x - cBox.x;
+	float dz = cSeg.z - cBox.z;
+	float hDistSq = dx * dx + dz * dz;
+
+	if (hDistSq > 1e-6f)
+	{
+		float hDist = sqrtf(hDistSq);
+		float invHDist = 1.0f / hDist;
+		outPushVector = {
+			dx * invHDist * penetration,
+			0.0f,
+			dz * invHDist * penetration
+		};
+	}
+	else
+	{
+		DirectX::XMFLOAT3 capPos = const_cast<CapsuleCollider3D*>(this)->GetWorldPos();
+		float halfBx = boxSize.x * 0.5f;
+		float halfBz = boxSize.z * 0.5f;
+
+		float cdx = capPos.x - boxPos.x;
+		float px = (halfBx + m_radius) - fabsf(cdx);
+		if (px <= 0.0f) return false;
+
+		float cdz = capPos.z - boxPos.z;
+		float pz = (halfBz + m_radius) - fabsf(cdz);
+		if (pz <= 0.0f) return false;
+
+		if (px < pz)
+		{
+			outPushVector = { (cdx > 0.0f ? px : -px), 0.0f, 0.0f };
+		}
+		else
+		{
+			outPushVector = { 0.0f, 0.0f, (cdz > 0.0f ? pz : -pz) };
+		}
+	}
+
+	return true;
+}
+
 void CapsuleCollider3D::DrawDebug(CameraComponent* camera, ImDrawList* customDrawList, const ImVec2& vpPos, const ImVec2& vpSize)
 {
 #ifndef _DEBUG

@@ -30,6 +30,40 @@ bool Collision::CheckCollision(Collider3D* a, Collider3D* b)
 	return false;
 }
 
+bool Collision::CalculateHorizontalPenetration(Collider3D* a, Collider3D* b, DirectX::XMFLOAT3& outPushVector)
+{
+	if (!a || !b) return false;
+
+	auto* boxA = dynamic_cast<BoxCollider3D*>(a);
+	auto* capA = dynamic_cast<CapsuleCollider3D*>(a);
+	auto* boxB = dynamic_cast<BoxCollider3D*>(b);
+	auto* capB = dynamic_cast<CapsuleCollider3D*>(b);
+
+	if (boxA && boxB) return boxA->CalculateHorizontalPenetration(boxB, outPushVector);
+	if (capA && capB) return capA->CalculateHorizontalPenetration(capB, outPushVector);
+	if (capA && boxB) return capA->CalculateHorizontalPenetration(boxB, outPushVector);
+	if (boxA && capB) return boxA->CalculateHorizontalPenetration(capB, outPushVector);
+
+	return false;
+}
+
+bool Collision::CalculatePenetration(Collider3D* a, Collider3D* b, DirectX::XMFLOAT3& outPushVector)
+{
+	if (!a || !b) return false;
+
+	auto* boxA = dynamic_cast<BoxCollider3D*>(a);
+	auto* capA = dynamic_cast<CapsuleCollider3D*>(a);
+	auto* boxB = dynamic_cast<BoxCollider3D*>(b);
+	auto* capB = dynamic_cast<CapsuleCollider3D*>(b);
+
+	if (boxA && boxB) return boxA->CalculatePenetration(boxB, outPushVector);
+	if (capA && capB) return capA->CalculatePenetration(capB, outPushVector);
+	if (capA && boxB) return capA->CalculatePenetration(boxB, outPushVector);
+	if (boxA && capB) return boxA->CalculatePenetration(capB, outPushVector);
+
+	return false;
+}
+
 static Collider3D* GetColliderFromObject(CObject* obj)
 {
 	if (!obj) return nullptr;
@@ -42,7 +76,7 @@ void Collision::ResolveCollisions(Vector<Vector<UniquePtr<CObject>>>& objectList
 {
 	struct ColliderEntry {
 		CObject* owner = nullptr;
-		BoxCollider3D* collider = nullptr;
+		Collider3D* collider = nullptr;
 		CTransform* transform = nullptr;
 	};
 	std::vector<ColliderEntry> colliders;
@@ -53,7 +87,7 @@ void Collision::ResolveCollisions(Vector<Vector<UniquePtr<CObject>>>& objectList
 		for (auto& obj : objectList[tag])
 		{
 			if (!obj || obj->GetIsDestroyed()) continue;
-			BoxCollider3D* col = obj->GetComponent<BoxCollider3D>();
+			Collider3D* col = GetColliderFromObject(obj.get());
 			if (col && col->GetIsValid())
 			{
 				CTransform* trans = obj->GetComponent<CTransform>();
@@ -83,7 +117,7 @@ void Collision::ResolveCollisions(Vector<Vector<UniquePtr<CObject>>>& objectList
 				}
 
 				DirectX::XMFLOAT3 pushVec = { 0.0f, 0.0f, 0.0f };
-				if (a.collider->CalculateHorizontalPenetration(b.collider, pushVec))
+				if (CalculateHorizontalPenetration(a.collider, b.collider, pushVec))
 				{
 					DirectX::XMFLOAT3 posA = a.transform->GetPos();
 					DirectX::XMFLOAT3 posB = b.transform->GetPos();

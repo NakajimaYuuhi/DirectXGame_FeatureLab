@@ -98,3 +98,29 @@ bool BoxCollider3D::CheckCollision(const CapsuleCollider3D* other) const
 	if (!other) return false;
 	return other->CheckCollision(this);
 }
+
+bool BoxCollider3D::CalculatePenetration(const CapsuleCollider3D* other, DirectX::XMFLOAT3& outPushVector) const
+{
+	if (!other) return false;
+	if (other->CalculatePenetration(this, outPushVector))
+	{
+		outPushVector.x = -outPushVector.x;
+		outPushVector.y = -outPushVector.y;
+		outPushVector.z = -outPushVector.z;
+		return true;
+	}
+	return false;
+}
+
+bool BoxCollider3D::CalculateHorizontalPenetration(const CapsuleCollider3D* other, DirectX::XMFLOAT3& outPushVector) const
+{
+	if (!other) return false;
+	if (other->CalculateHorizontalPenetration(this, outPushVector))
+	{
+		outPushVector.x = -outPushVector.x;
+		outPushVector.y = -outPushVector.y;
+		outPushVector.z = -outPushVector.z;
+		return true;
+	}
+	return false;
+}

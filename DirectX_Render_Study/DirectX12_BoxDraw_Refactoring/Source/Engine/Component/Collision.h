@@ -35,6 +35,10 @@ public:
 	// Dynamic dispatch for base Collider3D pointers
 	static bool CheckCollision(Collider3D* a, Collider3D* b);
 
+	// Penetration depth and separation vector dispatch
+	static bool CalculateHorizontalPenetration(Collider3D* a, Collider3D* b, DirectX::XMFLOAT3& outPushVector);
+	static bool CalculatePenetration(Collider3D* a, Collider3D* b, DirectX::XMFLOAT3& outPushVector);
+
 	Vector<Vector<ObjectTag>>& GetCollisionOrder() { return CollisionOrder; }
 
 	// Two-phase collision pipeline:

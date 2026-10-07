@@ -42,6 +42,13 @@ public:
 	bool CheckCollision(const CapsuleCollider3D* other) const;
 	bool CheckCollision(const BoxCollider3D* other) const;
 
+	// Penetration depth and separation vector calculations
+	bool CalculatePenetration(const CapsuleCollider3D* other, DirectX::XMFLOAT3& outPushVector) const;
+	bool CalculateHorizontalPenetration(const CapsuleCollider3D* other, DirectX::XMFLOAT3& outPushVector) const;
+
+	bool CalculatePenetration(const BoxCollider3D* other, DirectX::XMFLOAT3& outPushVector) const;
+	bool CalculateHorizontalPenetration(const BoxCollider3D* other, DirectX::XMFLOAT3& outPushVector) const;
+
 	// Debug wireframe rendering
 	void DrawDebug(CameraComponent* camera, ImDrawList* customDrawList = nullptr, const ImVec2& vpPos = ImVec2(0.0f, 0.0f), const ImVec2& vpSize = ImVec2(0.0f, 0.0f));
 
