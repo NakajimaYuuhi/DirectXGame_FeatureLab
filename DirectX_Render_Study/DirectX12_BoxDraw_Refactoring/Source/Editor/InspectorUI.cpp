@@ -15,6 +15,7 @@
 #include "Model.h"
 #include "ObjectInfo.h"
 #include "BoxCollider3D.h"
+#include "CapsuleCollider3D.h"
 #include "TimeManager.h"
 #include "Source/Core/Scenes/Manager/SceneManager.h"
 #include "Source/Core/Scenes/Serializer/SceneSerializer.h"
@@ -1269,6 +1270,88 @@ void CInspectorUI::Draw()
                     }
                 }
 
+                // BoxCollider3D Settings
+                BoxCollider3D* boxCol = selectedObj->GetComponent<BoxCollider3D>();
+                if (boxCol)
+                {
+                    if (ImGui::CollapsingHeader("BoxCollider3D Settings", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        DirectX::XMFLOAT3 size = boxCol->GetSize();
+                        if (ImGui::DragFloat3("Size", &size.x, 0.05f, 0.01f, 1000.0f))
+                        {
+                            boxCol->SetSize(size);
+                        }
+
+                        DirectX::XMFLOAT3 offset = boxCol->GetOffset();
+                        if (ImGui::DragFloat3("Center Offset##Box", &offset.x, 0.05f))
+                        {
+                            boxCol->SetOffset(offset);
+                        }
+
+                        bool isTrigger = boxCol->GetIsTrigger();
+                        if (ImGui::Checkbox("Is Trigger##Box", &isTrigger))
+                        {
+                            boxCol->SetIsTrigger(isTrigger);
+                        }
+
+                        int layer = static_cast<int>(boxCol->GetLayer());
+                        if (ImGui::InputInt("Layer##Box", &layer))
+                        {
+                            boxCol->SetLayer(static_cast<uint32_t>(layer));
+                        }
+
+                        int mask = static_cast<int>(boxCol->GetCollisionMask());
+                        if (ImGui::InputInt("Collision Mask##Box", &mask))
+                        {
+                            boxCol->SetCollisionMask(static_cast<uint32_t>(mask));
+                        }
+                    }
+                }
+
+                // CapsuleCollider3D Settings
+                CapsuleCollider3D* capCol = selectedObj->GetComponent<CapsuleCollider3D>();
+                if (capCol)
+                {
+                    if (ImGui::CollapsingHeader("CapsuleCollider3D Settings", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        float radius = capCol->GetRadius();
+                        if (ImGui::DragFloat("Radius##Cap", &radius, 0.05f, 0.01f, 100.0f))
+                        {
+                            capCol->SetRadius(radius);
+                        }
+
+                        float height = capCol->GetHeight();
+                        if (ImGui::DragFloat("Height##Cap", &height, 0.05f, capCol->GetRadius() * 2.0f, 100.0f))
+                        {
+                            capCol->SetHeight(height);
+                        }
+
+                        DirectX::XMFLOAT3 offset = capCol->GetOffset();
+                        if (ImGui::DragFloat3("Center Offset##Cap", &offset.x, 0.05f))
+                        {
+                            capCol->SetOffset(offset);
+                        }
+
+                        bool isTrigger = capCol->GetIsTrigger();
+                        if (ImGui::Checkbox("Is Trigger##Cap", &isTrigger))
+                        {
+                            capCol->SetIsTrigger(isTrigger);
+                        }
+
+                        int layer = static_cast<int>(capCol->GetLayer());
+                        if (ImGui::InputInt("Layer##Cap", &layer))
+                        {
+                            capCol->SetLayer(static_cast<uint32_t>(layer));
+                        }
+
+                        int mask = static_cast<int>(capCol->GetCollisionMask());
+                        if (ImGui::InputInt("Collision Mask##Cap", &mask))
+                        {
+                            capCol->SetCollisionMask(static_cast<uint32_t>(mask));
+                        }
+                    }
+                }
+
                 // -------------------------------------------------------------
                 // Other Components (Components without custom inspector panels)
                 // -------------------------------------------------------------
@@ -1279,7 +1362,7 @@ void CInspectorUI::Draw()
                     CComponent* cPtr = comp.get();
                     if (cPtr != transform && cPtr != sprite && cPtr != textComp &&
                         cPtr != btnComp && cPtr != ecComp && cPtr != objInfo &&
-                        cPtr != lightComp)
+                        cPtr != lightComp && cPtr != boxCol && cPtr != capCol)
                     {
                         otherCompNames.push_back(GetCleanComponentName(cPtr));
                     }
@@ -1383,6 +1466,13 @@ void CInspectorUI::Draw()
                         if (ImGui::Selectable("Box Collider 3D (BoxCollider3D)"))
                         {
                             selectedObj->AddComponent<BoxCollider3D>();
+                        }
+                    }
+                    if (MatchesFilter("Capsule Collider 3D (CapsuleCollider3D)") && !selectedObj->GetComponent<CapsuleCollider3D>())
+                    {
+                        if (ImGui::Selectable("Capsule Collider 3D (CapsuleCollider3D)"))
+                        {
+                            selectedObj->AddComponent<CapsuleCollider3D>();
                         }
                     }
                     if (MatchesFilter("Gravity Component") && !selectedObj->GetComponent<GravityComponent>())
@@ -1760,16 +1850,32 @@ void CInspectorUI::DrawColliders(ImDrawList* drawList, const ImVec2& vpPos, cons
     CameraComponent* camera = ObjectManager::GetInstance().GetCamera();
     if (!camera) return;
 
+    if (m_isPrefabEditMode && m_prefabEditTarget)
+    {
+        BoxCollider3D* bCol = m_prefabEditTarget->GetComponent<BoxCollider3D>();
+        if (bCol) bCol->DrawDebug(camera, drawList, vpPos, vpSize);
+
+        CapsuleCollider3D* cCol = m_prefabEditTarget->GetComponent<CapsuleCollider3D>();
+        if (cCol) cCol->DrawDebug(camera, drawList, vpPos, vpSize);
+        return;
+    }
+
     const auto& objectList = ObjectManager::GetInstance().GetObjectList();
     for (size_t tagIdx = 0; tagIdx < objectList.size(); ++tagIdx)
     {
         for (const auto& obj : objectList[tagIdx])
         {
             if (!obj || obj->GetIsDestroyed()) continue;
-            BoxCollider3D* collider = obj->GetComponent<BoxCollider3D>();
-            if (collider)
+            BoxCollider3D* boxCollider = obj->GetComponent<BoxCollider3D>();
+            if (boxCollider)
             {
-                collider->DrawDebug(camera, drawList, vpPos, vpSize);
+                boxCollider->DrawDebug(camera, drawList, vpPos, vpSize);
+            }
+
+            CapsuleCollider3D* capsuleCollider = obj->GetComponent<CapsuleCollider3D>();
+            if (capsuleCollider)
+            {
+                capsuleCollider->DrawDebug(camera, drawList, vpPos, vpSize);
             }
         }
     }

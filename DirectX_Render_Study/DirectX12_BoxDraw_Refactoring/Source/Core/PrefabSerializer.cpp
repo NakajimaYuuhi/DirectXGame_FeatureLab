@@ -4,6 +4,7 @@
 #include "Transform.h"
 #include "Model.h"
 #include "BoxCollider3D.h"
+#include "CapsuleCollider3D.h"
 #include "audio.h"
 #include "GravityComponent.h"
 #include "CharacterMovementComponent.h"
@@ -130,6 +131,19 @@ bool PrefabSerializer::SavePrefab(const std::string& filepath, CObject* obj)
         comps["BoxCollider3D"]["IsTrigger"] = collider->GetIsTrigger();
         comps["BoxCollider3D"]["Layer"] = collider->GetLayer();
         comps["BoxCollider3D"]["CollisionMask"] = collider->GetCollisionMask();
+    }
+
+    // CapsuleCollider3D
+    CapsuleCollider3D* capsule = obj->GetComponent<CapsuleCollider3D>();
+    if (capsule)
+    {
+        comps["CapsuleCollider3D"]["Radius"] = capsule->GetRadius();
+        comps["CapsuleCollider3D"]["Height"] = capsule->GetHeight();
+        DirectX::XMFLOAT3 offset = capsule->GetOffset();
+        comps["CapsuleCollider3D"]["Offset"] = { offset.x, offset.y, offset.z };
+        comps["CapsuleCollider3D"]["IsTrigger"] = capsule->GetIsTrigger();
+        comps["CapsuleCollider3D"]["Layer"] = capsule->GetLayer();
+        comps["CapsuleCollider3D"]["CollisionMask"] = capsule->GetCollisionMask();
     }
 
     // 4. Audio

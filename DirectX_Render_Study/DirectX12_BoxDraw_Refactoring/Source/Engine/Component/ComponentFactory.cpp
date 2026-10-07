@@ -3,6 +3,7 @@
 #include "Model.h"
 #include "ModelManager.h"
 #include "BoxCollider3D.h"
+#include "CapsuleCollider3D.h"
 #include "audio.h"
 #include "GravityComponent.h"
 #include "CharacterMovementComponent.h"
@@ -141,6 +142,32 @@ void ComponentFactory::InitDefaultComponents()
 			if (p.contains("Size") && p["Size"].is_array() && p["Size"].size() >= 3)
 			{
 				collider->SetSize({ p["Size"][0], p["Size"][1], p["Size"][2] });
+			}
+			if (p.contains("Offset") && p["Offset"].is_array() && p["Offset"].size() >= 3)
+			{
+				collider->SetOffset({ p["Offset"][0], p["Offset"][1], p["Offset"][2] });
+			}
+			collider->SetIsTrigger(p.value("IsTrigger", false));
+			collider->SetLayer(p.value("Layer", (uint32_t)CollisionLayer::Default));
+			collider->SetCollisionMask(p.value("CollisionMask", (uint32_t)CollisionLayer::All));
+		}
+		return collider;
+	});
+
+	// CapsuleCollider3D Component
+	RegisterComponent("CapsuleCollider3D", [](CObject* owner, const nlohmann::json& p) -> CComponent* {
+		CapsuleCollider3D* collider = owner->GetComponent<CapsuleCollider3D>();
+		if (!collider) collider = owner->AddComponent<CapsuleCollider3D>();
+
+		if (collider)
+		{
+			if (p.contains("Radius"))
+			{
+				collider->SetRadius(p["Radius"].get<float>());
+			}
+			if (p.contains("Height"))
+			{
+				collider->SetHeight(p["Height"].get<float>());
 			}
 			if (p.contains("Offset") && p["Offset"].is_array() && p["Offset"].size() >= 3)
 			{

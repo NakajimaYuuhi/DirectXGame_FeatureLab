@@ -16,6 +16,8 @@ public:
 		BOX_2D_Trigger,
 		BOX_3D,
 		BOX_3D_Trigger,
+		CAPSULE_3D,
+		CAPSULE_3D_Trigger,
 	}CololiderType;
 
 	Collider() : m_layer(CollisionLayer::Default), m_collisionMask(CollisionLayer::All), m_isTrigger(false), IsTrriger(false) {}

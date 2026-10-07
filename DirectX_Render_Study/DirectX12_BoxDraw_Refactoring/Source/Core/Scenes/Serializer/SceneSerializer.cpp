@@ -10,6 +10,8 @@
 #include "CameraComponent.h"
 #include "ButtonComponent.h"
 #include "LightComponent.h"
+#include "BoxCollider3D.h"
+#include "CapsuleCollider3D.h"
 #include "PrefabManager.h"
 #include "Source/UI/RectTransform.h"
 #include "Source/External/json.hpp"
@@ -166,6 +168,32 @@ bool SceneSerializer::SaveScene(const std::string& filepath, Scenes::ID sceneID)
 				objJson["light"]["shadowDarkness"] = lightComp->GetShadowDarkness();
 				objJson["light"]["range"] = lightComp->GetRange();
 				objJson["light"]["spotAngle"] = lightComp->GetSpotAngle();
+			}
+
+			// BoxCollider3D
+			BoxCollider3D* boxCol = obj->GetComponent<BoxCollider3D>();
+			if (boxCol)
+			{
+				DirectX::XMFLOAT3 size = boxCol->GetSize();
+				DirectX::XMFLOAT3 offset = boxCol->GetOffset();
+				objJson["boxCollider"]["size"] = { size.x, size.y, size.z };
+				objJson["boxCollider"]["offset"] = { offset.x, offset.y, offset.z };
+				objJson["boxCollider"]["isTrigger"] = boxCol->GetIsTrigger();
+				objJson["boxCollider"]["layer"] = boxCol->GetLayer();
+				objJson["boxCollider"]["collisionMask"] = boxCol->GetCollisionMask();
+			}
+
+			// CapsuleCollider3D
+			CapsuleCollider3D* capCol = obj->GetComponent<CapsuleCollider3D>();
+			if (capCol)
+			{
+				DirectX::XMFLOAT3 offset = capCol->GetOffset();
+				objJson["capsuleCollider"]["radius"] = capCol->GetRadius();
+				objJson["capsuleCollider"]["height"] = capCol->GetHeight();
+				objJson["capsuleCollider"]["offset"] = { offset.x, offset.y, offset.z };
+				objJson["capsuleCollider"]["isTrigger"] = capCol->GetIsTrigger();
+				objJson["capsuleCollider"]["layer"] = capCol->GetLayer();
+				objJson["capsuleCollider"]["collisionMask"] = capCol->GetCollisionMask();
 			}
 
 			rootJson["objects"].push_back(objJson);
@@ -511,6 +539,54 @@ bool SceneSerializer::LoadScene(const std::string& filepath, Scenes::ID sceneID)
 					}
 
 					lightComp->SyncToLightManager();
+				}
+			}
+
+			// BoxCollider3D
+			if (objJson.contains("boxCollider") || objJson.contains("boxCollider3D"))
+			{
+				const auto& bJson = objJson.contains("boxCollider") ? objJson["boxCollider"] : objJson["boxCollider3D"];
+				BoxCollider3D* boxCol = newObj->GetComponent<BoxCollider3D>();
+				if (!boxCol) boxCol = newObj->AddComponent<BoxCollider3D>();
+				if (boxCol)
+				{
+					if (bJson.contains("size") && bJson["size"].is_array() && bJson["size"].size() >= 3)
+					{
+						boxCol->SetSize({ bJson["size"][0], bJson["size"][1], bJson["size"][2] });
+					}
+					if (bJson.contains("offset") && bJson["offset"].is_array() && bJson["offset"].size() >= 3)
+					{
+						boxCol->SetOffset({ bJson["offset"][0], bJson["offset"][1], bJson["offset"][2] });
+					}
+					boxCol->SetIsTrigger(bJson.value("isTrigger", false));
+					boxCol->SetLayer(bJson.value("layer", (uint32_t)CollisionLayer::Default));
+					boxCol->SetCollisionMask(bJson.value("collisionMask", (uint32_t)CollisionLayer::All));
+				}
+			}
+
+			// CapsuleCollider3D
+			if (objJson.contains("capsuleCollider") || objJson.contains("capsuleCollider3D"))
+			{
+				const auto& cJson = objJson.contains("capsuleCollider") ? objJson["capsuleCollider"] : objJson["capsuleCollider3D"];
+				CapsuleCollider3D* capCol = newObj->GetComponent<CapsuleCollider3D>();
+				if (!capCol) capCol = newObj->AddComponent<CapsuleCollider3D>();
+				if (capCol)
+				{
+					if (cJson.contains("radius"))
+					{
+						capCol->SetRadius(cJson["radius"].get<float>());
+					}
+					if (cJson.contains("height"))
+					{
+						capCol->SetHeight(cJson["height"].get<float>());
+					}
+					if (cJson.contains("offset") && cJson["offset"].is_array() && cJson["offset"].size() >= 3)
+					{
+						capCol->SetOffset({ cJson["offset"][0], cJson["offset"][1], cJson["offset"][2] });
+					}
+					capCol->SetIsTrigger(cJson.value("isTrigger", false));
+					capCol->SetLayer(cJson.value("layer", (uint32_t)CollisionLayer::Default));
+					capCol->SetCollisionMask(cJson.value("collisionMask", (uint32_t)CollisionLayer::All));
 				}
 			}
 
