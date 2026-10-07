@@ -5,6 +5,7 @@
 #include "ProfilerUI.h"
 #include "AssetSecurityUI.h"
 #include "ViewportUI.h"
+#include "EditorCamera.h"
 #include "Source/Util/Profiler.h"
 ///////////////////////////////////////////
 //main.cpp                               
@@ -85,6 +86,11 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 {
 
 	// ImGuiがメッセージを処理したらそこでリターン
+	if (msg == WM_MOUSEWHEEL)
+	{
+		CInputManager::GetInstance().OnMouseWheel(GET_WHEEL_DELTA_WPARAM(wparam));
+	}
+
 	if (ImGui_ImplWin32_WndProcHandler(hwnd, msg, wparam, lparam))
 		return true;
 
@@ -158,7 +164,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 	//----- SceneManagerの開始 -----
 	SceneManager::GetInstance();
 
-	CInputManager::GetInstance();
+	CInputManager::GetInstance().Initialize(hwnd);
 
 	CImGuiManager::GetInstance().Initialize(hwnd);
 	
@@ -208,6 +214,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 			CProfilerUI::GetInstance().Draw();
 			CAssetSecurityUI::GetInstance().Draw();
 		}
+		EditorCamera::GetInstance().Update(TimeManager::GetInstance().GetDeltaTime());
 #endif
 
 		// Update

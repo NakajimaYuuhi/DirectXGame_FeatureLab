@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "Component.h"
 #include <DirectXMath.h>
 
@@ -57,6 +57,30 @@ public:
 	void SetFarZ(float farZ) { m_farZ = farZ; UpdateProjection(); }
 	float GetFarZ() const { return m_farZ; }
 
+	// Mouse Look Settings
+	void SetMouseLookEnabled(bool enabled) { m_enableMouseLook = enabled; }
+	bool IsMouseLookEnabled() const { return m_enableMouseLook; }
+
+	void SetMouseSensitivity(float x, float y) { m_mouseSensitivityX = x; m_mouseSensitivityY = y; }
+	float GetMouseSensitivityX() const { return m_mouseSensitivityX; }
+	float GetMouseSensitivityY() const { return m_mouseSensitivityY; }
+
+	void SetInvertY(bool invert) { m_invertY = invert; }
+	bool GetInvertY() const { return m_invertY; }
+
+	void SetMinPitch(float minP) { m_minPitch = minP; }
+	float GetMinPitch() const { return m_minPitch; }
+	void SetMaxPitch(float maxP) { m_maxPitch = maxP; }
+	float GetMaxPitch() const { return m_maxPitch; }
+
+	void SetMinDistance(float minD) { m_minDistance = minD; }
+	float GetMinDistance() const { return m_minDistance; }
+	void SetMaxDistance(float maxD) { m_maxDistance = maxD; }
+	float GetMaxDistance() const { return m_maxDistance; }
+
+	void SetZoomSpeed(float speed) { m_zoomSpeed = speed; }
+	float GetZoomSpeed() const { return m_zoomSpeed; }
+
 	void UpdateProjection();
 
 private:
@@ -75,6 +99,17 @@ private:
 	float m_rotationSpeed = 0.02f;
 	float m_followSpeed = 12.0f; // Smooth lerp speed
 	DirectX::XMFLOAT3 m_targetOffset = { 0.0f, 1.0f, 0.0f };
+
+	// Mouse look parameters
+	bool m_enableMouseLook = true;
+	float m_mouseSensitivityX = 0.003f;
+	float m_mouseSensitivityY = 0.003f;
+	bool m_invertY = false;
+	float m_minPitch = -DirectX::XM_PIDIV2 * 0.85f; // -76.5 degrees
+	float m_maxPitch = DirectX::XM_PIDIV2 * 0.85f;  // +76.5 degrees
+	float m_minDistance = 1.5f;
+	float m_maxDistance = 15.0f;
+	float m_zoomSpeed = 0.8f;
 
 	// Current smooth position & matrices
 	DirectX::XMFLOAT3 m_eyePos = { 0.0f, 2.5f, -5.0f };

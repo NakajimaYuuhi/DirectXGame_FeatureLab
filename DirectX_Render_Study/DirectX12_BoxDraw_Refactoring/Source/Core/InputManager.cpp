@@ -1,8 +1,9 @@
-#include "InputManager.h"
+﻿#include "InputManager.h"
 #include <algorithm>
 #pragma comment(lib, "xinput.lib")
+
 //------------------------------------------------------------------------------
-// ?C???X?^???X?��?i?B???C???X?^???X?????j
+// インスタンス取得（シングルトン）
 //------------------------------------------------------------------------------
 CInputManager& CInputManager::GetInstance()
 {
@@ -11,88 +12,228 @@ CInputManager& CInputManager::GetInstance()
 }
 
 //------------------------------------------------------------------------------
-// ?R???X?g???N?^
+// コンストラクタ
 //------------------------------------------------------------------------------
 CInputManager::CInputManager()
 {
-    // ?L?[????z????????
     ZeroMemory(m_keyTable, sizeof(m_keyTable));
     ZeroMemory(m_oldKeyTable, sizeof(m_oldKeyTable));
 
-    // ?Q?[???p?b?h????????????
+    ZeroMemory(m_mouseButtons, sizeof(m_mouseButtons));
+    ZeroMemory(m_oldMouseButtons, sizeof(m_oldMouseButtons));
+
     ZeroMemory(&m_state, sizeof(m_state));
     ZeroMemory(&m_oldstate, sizeof(m_oldstate));
-
-    // ?U??????????i??~???j
     ZeroMemory(&m_vibration, sizeof(m_vibration));
 }
 
 //------------------------------------------------------------------------------
-// ???t???[?????X?V????
-// ?L?[?{?[?h??Q?[???p?b?h?????��??????
+// ウィンドウハンドル設定
+//------------------------------------------------------------------------------
+void CInputManager::Initialize(HWND hwnd)
+{
+    m_hwnd = hwnd;
+}
+
+//------------------------------------------------------------------------------
+// 毎フレームの更新処理
 //------------------------------------------------------------------------------
 void CInputManager::Update()
 {
-    //--- ?L?[?{?[?h?X?V ---
+    //--- キーボード更新 ---
     for (int i = 0; i < 256; ++i)
     {
-        // ?O?t???[?????????
         m_oldKeyTable[i] = m_keyTable[i];
-
-        // ?????L?[????��?i????????????1?A??????????????0?j
         m_keyTable[i] = (GetAsyncKeyState(i) & 0x8000) ? 1 : 0;
     }
 
-    //????t???[???????????L?[????
+    //--- マウスボタン更新 ---
+    for (int i = 0; i < static_cast<int>(MouseButton::Count); ++i)
+    {
+        m_oldMouseButtons[i] = m_mouseButtons[i];
+    }
+    m_mouseButtons[static_cast<int>(MouseButton::Left)]   = (GetAsyncKeyState(VK_LBUTTON) & 0x8000) != 0;
+    m_mouseButtons[static_cast<int>(MouseButton::Right)]  = (GetAsyncKeyState(VK_RBUTTON) & 0x8000) != 0;
+    m_mouseButtons[static_cast<int>(MouseButton::Middle)] = (GetAsyncKeyState(VK_MBUTTON) & 0x8000) != 0;
+
+    //--- マウス座標 & デルタ更新 ---
+    POINT curScreenPos = { 0, 0 };
+    GetCursorPos(&curScreenPos);
+
+    bool isWindowActive = (m_hwnd == nullptr) || (GetForegroundWindow() == m_hwnd);
+
+    if (m_hwnd && isWindowActive)
+    {
+        RECT clientRect;
+        GetClientRect(m_hwnd, &clientRect);
+        POINT centerClient = {
+            (clientRect.right - clientRect.left) / 2,
+            (clientRect.bottom - clientRect.top) / 2
+        };
+
+        if (m_isCursorLocked)
+        {
+            POINT centerScreen = centerClient;
+            ClientToScreen(m_hwnd, &centerScreen);
+
+            m_mouseDeltaX = static_cast<float>(curScreenPos.x - centerScreen.x);
+            m_mouseDeltaY = static_cast<float>(curScreenPos.y - centerScreen.y);
+
+            SetCursorPos(centerScreen.x, centerScreen.y);
+            m_clientMousePos = centerClient;
+            m_prevClientMousePos = centerClient;
+            m_hasInitialMousePos = true;
+        }
+        else
+        {
+            POINT curClientPos = curScreenPos;
+            ScreenToClient(m_hwnd, &curClientPos);
+
+            if (!m_hasInitialMousePos)
+            {
+                m_prevClientMousePos = curClientPos;
+                m_hasInitialMousePos = true;
+                m_mouseDeltaX = 0.0f;
+                m_mouseDeltaY = 0.0f;
+            }
+            else
+            {
+                m_mouseDeltaX = static_cast<float>(curClientPos.x - m_prevClientMousePos.x);
+                m_mouseDeltaY = static_cast<float>(curClientPos.y - m_prevClientMousePos.y);
+                m_prevClientMousePos = curClientPos;
+            }
+            m_clientMousePos = curClientPos;
+        }
+    }
+    else
+    {
+        m_mouseDeltaX = 0.0f;
+        m_mouseDeltaY = 0.0f;
+    }
+
+    //--- ホイール回転量更新 ---
+    m_mouseWheelDelta = m_accumulatedWheelDelta;
+    m_accumulatedWheelDelta = 0.0f;
+
+    //--- ゲームパッド更新 ---
     m_oldstate = m_state;
-
-    //--- ?Q?[???p?b?h?X?V ---
-
     ZeroMemory(&m_state, sizeof(XINPUT_STATE));
-    DWORD dwResult = XInputGetState(0, &m_state); // ?v???C???[1?????????
+    DWORD dwResult = XInputGetState(0, &m_state);
     if (dwResult != ERROR_SUCCESS)
     {
-        // ??????????????0
         ZeroMemory(&m_state.Gamepad, sizeof(XINPUT_GAMEPAD));
     }
 
-  
-
-    // ?A?i???O?X?e?B?b?N??f?b?h?]?[??????
+    // アナログスティック デッドゾーン処理
     if ((m_state.Gamepad.sThumbLX < XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE &&
-        m_state.Gamepad.sThumbLX > -XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE) &&
+         m_state.Gamepad.sThumbLX > -XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE) &&
         (m_state.Gamepad.sThumbLY < XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE &&
-            m_state.Gamepad.sThumbLY > -XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE))
+         m_state.Gamepad.sThumbLY > -XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE))
     {
-        // ??????????0????????
         m_state.Gamepad.sThumbLX = 0;
         m_state.Gamepad.sThumbLY = 0;
     }
 
-    //--- ?U?????Z?b?g ---
+    // バイブレーションリセット
     ZeroMemory(&m_vibration, sizeof(XINPUT_VIBRATION));
 }
 
 //------------------------------------------------------------------------------
-// ?L?[?{?[?h??????
+// キーボード入力判定
 //------------------------------------------------------------------------------
 bool CInputManager::IsKeyPress(int key) const
 {
-    return m_keyTable[key]; // ??????????
+    return m_keyTable[key] != 0;
 }
 
 bool CInputManager::IsKeyTrigger(int key) const
 {
-    return m_keyTable[key] && !m_oldKeyTable[key]; // ???????u??
+    return m_keyTable[key] && !m_oldKeyTable[key];
 }
 
 bool CInputManager::IsKeyRelease(int key) const
 {
-    return !m_keyTable[key] && m_oldKeyTable[key]; // ???????u??
+    return !m_keyTable[key] && m_oldKeyTable[key];
 }
 
 //------------------------------------------------------------------------------
-// ?Q?[???p?b?h????
+// マウスボタン入力判定
+//------------------------------------------------------------------------------
+bool CInputManager::IsMousePress(MouseButton button) const
+{
+    return m_mouseButtons[static_cast<int>(button)];
+}
+
+bool CInputManager::IsMouseTrigger(MouseButton button) const
+{
+    int idx = static_cast<int>(button);
+    return m_mouseButtons[idx] && !m_oldMouseButtons[idx];
+}
+
+bool CInputManager::IsMouseRelease(MouseButton button) const
+{
+    int idx = static_cast<int>(button);
+    return !m_mouseButtons[idx] && m_oldMouseButtons[idx];
+}
+
+float CInputManager::GetMouseX() const
+{
+    return static_cast<float>(m_clientMousePos.x);
+}
+
+float CInputManager::GetMouseY() const
+{
+    return static_cast<float>(m_clientMousePos.y);
+}
+
+float CInputManager::GetMouseDeltaX() const
+{
+    return m_mouseDeltaX;
+}
+
+float CInputManager::GetMouseDeltaY() const
+{
+    return m_mouseDeltaY;
+}
+
+float CInputManager::GetMouseWheel() const
+{
+    return m_mouseWheelDelta;
+}
+
+void CInputManager::SetCursorVisible(bool visible)
+{
+    if (m_isCursorVisible == visible) return;
+    m_isCursorVisible = visible;
+    ShowCursor(visible ? TRUE : FALSE);
+}
+
+void CInputManager::SetCursorLocked(bool locked)
+{
+    if (m_isCursorLocked == locked) return;
+    m_isCursorLocked = locked;
+
+    if (m_isCursorLocked && m_hwnd)
+    {
+        RECT clientRect;
+        GetClientRect(m_hwnd, &clientRect);
+        POINT centerScreen = {
+            (clientRect.right - clientRect.left) / 2,
+            (clientRect.bottom - clientRect.top) / 2
+        };
+        ClientToScreen(m_hwnd, &centerScreen);
+        SetCursorPos(centerScreen.x, centerScreen.y);
+    }
+}
+
+void CInputManager::OnMouseWheel(short delta)
+{
+    // 120刻みを 1.0f 単位に正規化して累積
+    m_accumulatedWheelDelta += static_cast<float>(delta) / 120.0f;
+}
+
+//------------------------------------------------------------------------------
+// ゲームパッド入力判定
 //------------------------------------------------------------------------------
 bool CInputManager::IsPadPress(WORD button) const
 {
@@ -109,7 +250,6 @@ bool CInputManager::IsPadRelease(WORD button) const
     return !(m_state.Gamepad.wButtons & button) && (m_oldstate.Gamepad.wButtons & button);
 }
 
-// ?A?i???O?X?e?B?b?N (-1.0f ~ 1.0f)
 float CInputManager::GetThumbLX() const
 {
     return m_state.Gamepad.sThumbLX / 32767.0f;
@@ -120,7 +260,6 @@ float CInputManager::GetThumbLY() const
     return m_state.Gamepad.sThumbLY / 32767.0f;
 }
 
-// ?g???K?[???? (0~255)
 BYTE CInputManager::GetLeftTrigger() const
 {
     return m_state.Gamepad.bLeftTrigger;
@@ -131,10 +270,6 @@ BYTE CInputManager::GetRightTrigger() const
     return m_state.Gamepad.bRightTrigger;
 }
 
-//------------------------------------------------------------------------------
-// ?Q?[???p?b?h?U?????
-// leftMotor, rightMotor = 0~65535
-//------------------------------------------------------------------------------
 void CInputManager::SetVibration(WORD leftMotor, WORD rightMotor)
 {
     m_vibration.wLeftMotorSpeed = leftMotor;

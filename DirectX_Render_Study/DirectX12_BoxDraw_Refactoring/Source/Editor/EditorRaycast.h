@@ -1,11 +1,10 @@
-#pragma once
+﻿#pragma once
 #include <DirectXMath.h>
 #include <vector>
 #include <memory>
 
 class CObject;
 class CameraComponent;
-#include "CameraComponent.h"
 
 struct Ray
 {
@@ -28,6 +27,16 @@ public:
         const DirectX::XMFLOAT3& boxMin,
         const DirectX::XMFLOAT3& boxMax,
         float& outDistance
+    );
+
+    static CObject* PickObject(
+        float screenX, float screenY,
+        float screenWidth, float screenHeight,
+        const DirectX::XMMATRIX& view,
+        const DirectX::XMMATRIX& proj,
+        const std::vector<std::vector<std::unique_ptr<CObject>>>& objectList,
+        int& outTagIndex,
+        int& outObjectIndex
     );
 
     static CObject* PickObject(

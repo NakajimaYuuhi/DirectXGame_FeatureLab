@@ -29,6 +29,7 @@ public:
 
 	// Input checks
 	bool HasMoveInput() const;
+	bool HasAttackInput() const;
 
 	// Actions
 	void PerformAttack();

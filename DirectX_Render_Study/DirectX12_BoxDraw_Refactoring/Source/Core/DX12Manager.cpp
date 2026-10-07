@@ -17,6 +17,8 @@
 #include "Source/Util/Profiler.h"
 
 #include "ObjectManager.h"
+#include "InspectorUI.h"
+#include "EditorCamera.h"
 
 
 // ?O???{??h???C?o?iNVIDIA / AMD?j??????A????A?v???N??????O??GPU??????g?p???????`???・ｽx?@
@@ -426,6 +428,11 @@ void DX12Manager::ForceWait()
 //????view,proj??Getter
 DirectX::XMMATRIX DX12Manager::GetView()
 {
+	if (CInspectorUI::GetInstance().IsEditMode() || CInspectorUI::GetInstance().IsPrefabEditMode())
+	{
+		return EditorCamera::GetInstance().GetViewMatrix();
+	}
+
 	CObject* camObj = ObjectManager::GetInstance().GetCameraObject();
 	if (camObj && !camObj->GetIsDestroyed())
 	{
@@ -439,6 +446,11 @@ DirectX::XMMATRIX DX12Manager::GetView()
 
 DirectX::XMMATRIX DX12Manager::GetProj()
 {
+	if (CInspectorUI::GetInstance().IsEditMode() || CInspectorUI::GetInstance().IsPrefabEditMode())
+	{
+		return EditorCamera::GetInstance().GetProjectionMatrix();
+	}
+
 	CObject* camObj = ObjectManager::GetInstance().GetCameraObject();
 	if (camObj && !camObj->GetIsDestroyed())
 	{

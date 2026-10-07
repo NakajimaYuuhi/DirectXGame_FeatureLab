@@ -1,11 +1,14 @@
-#include "CameraComponent.h"
+﻿#include "CameraComponent.h"
 #include "Object.h"
 #include "Transform.h"
 #include "ObjectManager.h"
 #include "InputManager.h"
 #include "BasicSettings.h"
+#include "InspectorUI.h"
+#include "ViewportUI.h"
 #include <cmath>
 #include <cstdlib>
+#include <algorithm>
 
 CameraComponent::CameraComponent()
 	: CComponent("CameraComponent")
@@ -74,7 +77,68 @@ void CameraComponent::Shake(float intensity, float duration)
 
 void CameraComponent::Update(float deltaTime)
 {
-	// Input for camera rotation (L / J keys)
+	bool isEditMode = CInspectorUI::GetInstance().IsEditMode() || CInspectorUI::GetInstance().IsPrefabEditMode();
+	bool isPaused = CInspectorUI::GetInstance().IsPaused();
+
+	// エディットモードの時はゲームカメラのマウス制御・カーソルロックを行わない
+	if (isEditMode)
+	{
+		if (CInputManager::GetInstance().IsCursorLocked())
+		{
+			CInputManager::GetInstance().SetCursorLocked(false);
+			CInputManager::GetInstance().SetCursorVisible(true);
+		}
+	}
+	else
+	{
+		// プレイモード時
+		// 原神ライクなカーソル制御:
+		// Altキー押下中またはポーズ時はカーソルを解放して表示。
+		// それ以外の通常プレイ時はカーソルをロック＆非表示にしてマウス直接視点移動。
+		bool altPressed = CInputManager::GetInstance().IsKeyPress(VK_MENU);
+
+		if (altPressed || isPaused)
+		{
+			CInputManager::GetInstance().SetCursorLocked(false);
+			CInputManager::GetInstance().SetCursorVisible(true);
+		}
+		else
+		{
+			// Viewportがクリックされたか、またはプレイ中はアクティブにロック
+			if (CViewportUI::GetInstance().IsHovered() && CInputManager::GetInstance().IsMouseTrigger(MouseButton::Left))
+			{
+				CInputManager::GetInstance().SetCursorLocked(true);
+				CInputManager::GetInstance().SetCursorVisible(false);
+			}
+			else if (!CInputManager::GetInstance().IsCursorLocked() && !ImGui::GetIO().WantCaptureMouse)
+			{
+				// 通常プレイ状態への復帰
+				CInputManager::GetInstance().SetCursorLocked(true);
+				CInputManager::GetInstance().SetCursorVisible(false);
+			}
+		}
+
+		// マウス視点移動（カーソルロック時）
+		if (m_enableMouseLook && CInputManager::GetInstance().IsCursorLocked())
+		{
+			float deltaX = CInputManager::GetInstance().GetMouseDeltaX();
+			float deltaY = CInputManager::GetInstance().GetMouseDeltaY();
+
+			m_angleY -= deltaX * m_mouseSensitivityX;
+			m_angleX += (m_invertY ? deltaY : -deltaY) * m_mouseSensitivityY;
+			m_angleX = std::clamp(m_angleX, m_minPitch, m_maxPitch);
+
+			// マウスホイールによる距離ズーム
+			float wheel = CInputManager::GetInstance().GetMouseWheel();
+			if (wheel != 0.0f)
+			{
+				m_distance -= wheel * m_zoomSpeed;
+				m_distance = std::clamp(m_distance, m_minDistance, m_maxDistance);
+			}
+		}
+	}
+
+	// キーボード操作（L / J keys による予備回転）
 	if (CInputManager::GetInstance().IsKeyPress('L'))
 	{
 		m_angleY -= m_rotationSpeed;

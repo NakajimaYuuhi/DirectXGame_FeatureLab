@@ -2,6 +2,7 @@
 #include "Object.h"
 #include "Transform.h"
 #include "CameraComponent.h"
+#include "DX12Manager.h"
 #include "LightManager.h"
 #include "imgui.h"
 #include <cmath>
@@ -91,13 +92,13 @@ void LightComponent::DrawDebug(CameraComponent* camera, ImDrawList* customDrawLi
 #ifndef _DEBUG
 	return;
 #endif
-	if (!camera || !m_Owner) return;
+	if (!m_Owner) return;
 
 	CTransform* transform = m_Owner->GetComponent<CTransform>();
 	if (!transform) return;
 
 	DirectX::XMFLOAT3 pos = transform->GetWorldPosition();
-	DirectX::XMMATRIX viewProj = camera->GetViewMatrix() * camera->GetProjectionMatrix();
+	DirectX::XMMATRIX viewProj = DX12Manager::GetInstance().GetView() * DX12Manager::GetInstance().GetProj();
 	ImGuiIO& io = ImGui::GetIO();
 
 	bool useViewport = (vpSize.x > 0.0f && vpSize.y > 0.0f);

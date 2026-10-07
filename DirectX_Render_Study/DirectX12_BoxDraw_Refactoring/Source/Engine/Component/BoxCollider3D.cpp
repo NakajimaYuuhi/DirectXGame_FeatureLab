@@ -1,6 +1,7 @@
 #include "BoxCollider3D.h"
 #include "CapsuleCollider3D.h"
 #include "imgui.h"
+#include "DX12Manager.h"
 
 void BoxCollider3D::DrawDebug(CameraComponent* camera, ImDrawList* customDrawList, const ImVec2& vpPos, const ImVec2& vpSize)
 {
@@ -8,8 +9,7 @@ void BoxCollider3D::DrawDebug(CameraComponent* camera, ImDrawList* customDrawLis
 	return;
 #endif // !_DEBUG
 
-	if (!camera) return;
-
+	
 	DirectX::XMFLOAT3 center = GetWorldPos();
 	DirectX::XMFLOAT3 size = GetSize();
 
@@ -28,7 +28,7 @@ void BoxCollider3D::DrawDebug(CameraComponent* camera, ImDrawList* customDrawLis
 		{ center.x - hx, center.y + hy, center.z + hz }
 	};
 
-	DirectX::XMMATRIX viewProj = camera->GetViewMatrix() * camera->GetProjectionMatrix();
+	DirectX::XMMATRIX viewProj = DX12Manager::GetInstance().GetView() * DX12Manager::GetInstance().GetProj();
 	ImGuiIO& io = ImGui::GetIO();
 
 	bool useViewport = (vpSize.x > 0.0f && vpSize.y > 0.0f);

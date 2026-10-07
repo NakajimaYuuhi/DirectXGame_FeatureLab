@@ -1,62 +1,58 @@
-#include "EditorRaycast.h"
-#include "CameraComponent.h"
+﻿#include "EditorRaycast.h"
 #include "Object.h"
 #include "Transform.h"
 #include "BoxCollider3D.h"
 #include "ObjectInfo.h"
+#include "CameraComponent.h"
 #include <algorithm>
-#include <cmath>
 
 using namespace DirectX;
 
 Ray EditorRaycast::CreateRayFromScreen(
     float screenX, float screenY,
     float screenWidth, float screenHeight,
-    const XMMATRIX& view,
-    const XMMATRIX& proj)
+    const DirectX::XMMATRIX& view,
+    const DirectX::XMMATRIX& proj)
 {
-    if (screenWidth <= 0.0f || screenHeight <= 0.0f)
-    {
-        return Ray{};
-    }
-
     float ndcX = (2.0f * screenX / screenWidth) - 1.0f;
     float ndcY = 1.0f - (2.0f * screenY / screenHeight);
 
-    XMMATRIX invViewProj = XMMatrixInverse(nullptr, view * proj);
+    XMMATRIX viewProj = XMMatrixMultiply(view, proj);
+    XMVECTOR det;
+    XMMATRIX invViewProj = XMMatrixInverse(&det, viewProj);
 
-    XMVECTOR nearPointScreen = XMVectorSet(ndcX, ndcY, 0.0f, 1.0f);
-    XMVECTOR farPointScreen  = XMVectorSet(ndcX, ndcY, 1.0f, 1.0f);
+    XMVECTOR nearPointNdc = XMVectorSet(ndcX, ndcY, 0.0f, 1.0f);
+    XMVECTOR farPointNdc  = XMVectorSet(ndcX, ndcY, 1.0f, 1.0f);
 
-    XMVECTOR nearPointWorld = XMVector3TransformCoord(nearPointScreen, invViewProj);
-    XMVECTOR farPointWorld  = XMVector3TransformCoord(farPointScreen, invViewProj);
+    XMVECTOR nearWorld = XMVector3TransformCoord(nearPointNdc, invViewProj);
+    XMVECTOR farWorld  = XMVector3TransformCoord(farPointNdc, invViewProj);
 
-    XMVECTOR rayDirVec = XMVector3Normalize(farPointWorld - nearPointWorld);
+    XMVECTOR dir = XMVector3Normalize(XMVectorSubtract(farWorld, nearWorld));
 
     Ray ray;
-    XMStoreFloat3(&ray.origin, nearPointWorld);
-    XMStoreFloat3(&ray.direction, rayDirVec);
+    XMStoreFloat3(&ray.origin, nearWorld);
+    XMStoreFloat3(&ray.direction, dir);
 
     return ray;
 }
 
 bool EditorRaycast::RayIntersectAABB(
     const Ray& ray,
-    const XMFLOAT3& boxMin,
-    const XMFLOAT3& boxMax,
+    const DirectX::XMFLOAT3& boxMin,
+    const DirectX::XMFLOAT3& boxMax,
     float& outDistance)
 {
     float tMin = 0.0f;
     float tMax = 1e30f;
 
-    const float* rayOrigin = &ray.origin.x;
-    const float* rayDir = &ray.direction.x;
-    const float* bMin = &boxMin.x;
-    const float* bMax = &boxMax.x;
+    const float rayOrigin[3] = { ray.origin.x, ray.origin.y, ray.origin.z };
+    const float rayDir[3]    = { ray.direction.x, ray.direction.y, ray.direction.z };
+    const float bMin[3]      = { boxMin.x, boxMin.y, boxMin.z };
+    const float bMax[3]      = { boxMax.x, boxMax.y, boxMax.z };
 
     for (int i = 0; i < 3; ++i)
     {
-        if (std::abs(rayDir[i]) < 1e-8f)
+        if (fabsf(rayDir[i]) < 1e-6f)
         {
             if (rayOrigin[i] < bMin[i] || rayOrigin[i] > bMax[i])
             {
@@ -85,18 +81,14 @@ bool EditorRaycast::RayIntersectAABB(
 CObject* EditorRaycast::PickObject(
     float screenX, float screenY,
     float screenWidth, float screenHeight,
-    CameraComponent* camera,
+    const DirectX::XMMATRIX& view,
+    const DirectX::XMMATRIX& proj,
     const std::vector<std::vector<std::unique_ptr<CObject>>>& objectList,
     int& outTagIndex,
     int& outObjectIndex)
 {
     outTagIndex = -1;
     outObjectIndex = -1;
-
-    if (!camera) return nullptr;
-
-    XMMATRIX view = camera->GetViewMatrix();
-    XMMATRIX proj = camera->GetProjectionMatrix();
 
     Ray ray = CreateRayFromScreen(screenX, screenY, screenWidth, screenHeight, view, proj);
 
@@ -115,7 +107,6 @@ CObject* EditorRaycast::PickObject(
             if (info)
             {
                 ObjectTag tag = info->GetObjectTag();
-                // Skip camera, fade, manager, or background UI elements if desired
                 if (tag == ObjectTag::CAMERA || tag == ObjectTag::FADE || tag == ObjectTag::MANAGER)
                 {
                     continue;
@@ -151,7 +142,6 @@ CObject* EditorRaycast::PickObject(
             }
             else
             {
-                // Default bounding box fallback for objects without colliders
                 XMFLOAT3 halfExtents = {
                     (std::max)(0.4f, scale.x * 0.5f),
                     (std::max)(0.4f, scale.y * 0.5f),
@@ -176,4 +166,20 @@ CObject* EditorRaycast::PickObject(
     }
 
     return bestHitObj;
+}
+
+CObject* EditorRaycast::PickObject(
+    float screenX, float screenY,
+    float screenWidth, float screenHeight,
+    CameraComponent* camera,
+    const std::vector<std::vector<std::unique_ptr<CObject>>>& objectList,
+    int& outTagIndex,
+    int& outObjectIndex)
+{
+    if (!camera) return nullptr;
+    return PickObject(
+        screenX, screenY, screenWidth, screenHeight,
+        camera->GetViewMatrix(), camera->GetProjectionMatrix(),
+        objectList, outTagIndex, outObjectIndex
+    );
 }

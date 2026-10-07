@@ -3,6 +3,7 @@
 #include "Object.h"
 #include "Transform.h"
 #include "CameraComponent.h"
+#include "DX12Manager.h"
 #include "imgui.h"
 #include <cmath>
 #include <vector>
@@ -431,12 +432,11 @@ void CapsuleCollider3D::DrawDebug(CameraComponent* camera, ImDrawList* customDra
 	return;
 #endif // !_DEBUG
 
-	if (!camera) return;
-
+	
 	DirectX::XMFLOAT3 bottomCenter, topCenter;
 	GetSegmentEndpoints(bottomCenter, topCenter);
 
-	DirectX::XMMATRIX viewProj = camera->GetViewMatrix() * camera->GetProjectionMatrix();
+	DirectX::XMMATRIX viewProj = DX12Manager::GetInstance().GetView() * DX12Manager::GetInstance().GetProj();
 	ImGuiIO& io = ImGui::GetIO();
 
 	bool useViewport = (vpSize.x > 0.0f && vpSize.y > 0.0f);

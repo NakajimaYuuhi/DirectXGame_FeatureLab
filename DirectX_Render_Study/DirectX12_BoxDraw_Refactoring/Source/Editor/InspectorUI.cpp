@@ -1,4 +1,5 @@
 #include "InspectorUI.h"
+#include "EditorCamera.h"
 #include "ViewportUI.h"
 #include "EditorRaycast.h"
 #include "UndoManager.h"
@@ -183,7 +184,9 @@ void CInspectorUI::Draw()
 
         int hitTag = -1, hitObj = -1;
         const auto& objectListForPick = ObjectManager::GetInstance().GetObjectList();
-        CObject* hit = EditorRaycast::PickObject(mouseX, mouseY, screenW, screenH, camera, objectListForPick, hitTag, hitObj);
+        DirectX::XMMATRIX view = (m_isEditMode || m_isPrefabEditMode) ? EditorCamera::GetInstance().GetViewMatrix() : (camera ? camera->GetViewMatrix() : DirectX::XMMatrixIdentity());
+        DirectX::XMMATRIX proj = (m_isEditMode || m_isPrefabEditMode) ? EditorCamera::GetInstance().GetProjectionMatrix() : (camera ? camera->GetProjectionMatrix() : DirectX::XMMatrixIdentity());
+        CObject* hit = EditorRaycast::PickObject(mouseX, mouseY, screenW, screenH, view, proj, objectListForPick, hitTag, hitObj);
         if (hit && hitTag >= 0 && hitObj >= 0)
         {
             m_selectedTagIndex = hitTag;
@@ -1614,8 +1617,20 @@ void CInspectorUI::DrawGizmo(ImDrawList* drawList, const ImVec2& vpPos, const Im
         return;
     }
 
-    CameraComponent* camera = ObjectManager::GetInstance().GetCamera();
-    if (!camera) return;
+    DirectX::XMMATRIX view;
+    DirectX::XMMATRIX proj;
+    if (m_isEditMode || m_isPrefabEditMode)
+    {
+        view = EditorCamera::GetInstance().GetViewMatrix();
+        proj = EditorCamera::GetInstance().GetProjectionMatrix();
+    }
+    else
+    {
+        CameraComponent* camera = ObjectManager::GetInstance().GetCamera();
+        if (!camera) return;
+        view = camera->GetViewMatrix();
+        proj = camera->GetProjectionMatrix();
+    }
 
     CObject* targetObj = nullptr;
     if (m_isPrefabEditMode && m_prefabEditTarget)
@@ -1644,8 +1659,7 @@ void CInspectorUI::DrawGizmo(ImDrawList* drawList, const ImVec2& vpPos, const Im
     if (!transform) return;
 
     DirectX::XMFLOAT3 pos = transform->GetPos();
-    DirectX::XMMATRIX view = camera->GetViewMatrix();
-    DirectX::XMMATRIX proj = camera->GetProjectionMatrix();
+
 
     DirectX::XMVECTOR vOrigin = DirectX::XMVectorSet(pos.x, pos.y, pos.z, 1.0f);
     DirectX::XMVECTOR vAxisX = DirectX::XMVectorSet(pos.x + 1.5f, pos.y, pos.z, 1.0f);
@@ -1848,7 +1862,7 @@ void CInspectorUI::DrawColliders(ImDrawList* drawList, const ImVec2& vpPos, cons
     if (!m_showColliders) return;
 
     CameraComponent* camera = ObjectManager::GetInstance().GetCamera();
-    if (!camera) return;
+    if (!camera && !m_isEditMode && !m_isPrefabEditMode) return;
 
     if (m_isPrefabEditMode && m_prefabEditTarget)
     {
@@ -1886,7 +1900,7 @@ void CInspectorUI::DrawLights(ImDrawList* drawList, const ImVec2& vpPos, const I
     if (!m_showLights) return;
 
     CameraComponent* camera = ObjectManager::GetInstance().GetCamera();
-    if (!camera) return;
+    if (!camera && !m_isEditMode && !m_isPrefabEditMode) return;
 
     if (m_isPrefabEditMode && m_prefabEditTarget)
     {
