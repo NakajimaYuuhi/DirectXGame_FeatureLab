@@ -3,6 +3,7 @@
 #include <d3d12.h>
 #include <wrl/client.h>
 #include <memory>
+#include <vector>
 #include "ShadowMap.h"
 
 struct DirectionalLight
@@ -12,7 +13,13 @@ struct DirectionalLight
     DirectX::XMFLOAT4 ambient   = { 0.25f, 0.28f, 0.35f, 32.0f };      // rgb: ambient, a: specular power
 };
 
-// 256-byte aligned Constant Buffer Data for register(b1)
+struct PointLightGPUData
+{
+    DirectX::XMFLOAT4 position = { 0.0f, 0.0f, 0.0f, 0.0f }; // xyz: pos, w: range
+    DirectX::XMFLOAT4 color    = { 1.0f, 1.0f, 1.0f, 1.0f }; // rgb: col, w: intensity
+};
+
+// 512-byte aligned Constant Buffer Data for register(b1)
 struct LightBufferData
 {
     DirectX::XMMATRIX lightViewProj;    // 16 floats (0..15)
@@ -21,7 +28,10 @@ struct LightBufferData
     DirectX::XMFLOAT4 lightColor;       // 4 floats  (24..27) rgb: col, w: unused
     DirectX::XMFLOAT4 ambientColor;     // 4 floats  (28..31) rgb: ambient, w: specularPower
     DirectX::XMFLOAT4 shadowParams;     // 4 floats  (32..35) x: bias, y: darkness, z: mapSize, w: enabled
-    float             padding[28];      // Pad to 256 bytes (64 floats total = 256 bytes)
+    DirectX::XMFLOAT4 lightCounts;      // 4 floats  (36..39) x: active point light count
+    float             reserved[24];     // Pad first block to 256 bytes (64 floats total = 256 bytes)
+
+    PointLightGPUData pointLights[8];   // 8 point lights (32 bytes each = 256 bytes, total 512 bytes)
 };
 
 class LightManager
@@ -81,6 +91,11 @@ public:
     float GetBloomSpread() const { return m_bloomSpread; }
     void SetBloomSpread(float spread) { m_bloomSpread = spread; }
 
+    // Point Light Registration (Accumulated per frame from active Point Lights)
+    void ClearPointLights();
+    void AddPointLight(const DirectX::XMFLOAT3& pos, const DirectX::XMFLOAT3& color, float intensity, float range);
+    size_t GetPointLightCount() const { return m_activePointLights.size(); }
+
 private:
     LightManager();
     ~LightManager() = default;
@@ -115,4 +130,6 @@ private:
     std::unique_ptr<ShadowMap> m_shadowMap;
     Microsoft::WRL::ComPtr<ID3D12Resource> m_constantBuffer;
     LightBufferData* m_mappedBuffer = nullptr;
+
+    std::vector<PointLightGPUData> m_activePointLights;
 };

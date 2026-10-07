@@ -1,6 +1,11 @@
 #include "LightManager.h"
+#include "ObjectManager.h"
+#include "Object.h"
+#include "Transform.h"
+#include "LightComponent.h"
 #include <cmath>
 #include <stdexcept>
+#include <algorithm>
 
 LightManager::LightManager()
 {
@@ -63,6 +68,7 @@ void LightManager::Finalize()
         m_constantBuffer.Reset();
     }
     m_shadowMap.reset();
+    m_activePointLights.clear();
     m_isInitialized = false;
 }
 
@@ -101,7 +107,56 @@ void LightManager::UpdateBuffer(const DirectX::XMFLOAT3& targetPos, const Direct
             mapSize,
             m_shadowEnabled ? 1.0f : 0.0f
         };
+
+        // 3. Collect active point lights from scene objects
+        ClearPointLights();
+        const auto& objectList = ObjectManager::GetInstance().GetObjectList();
+        for (size_t tagIdx = 0; tagIdx < objectList.size(); ++tagIdx)
+        {
+            for (const auto& obj : objectList[tagIdx])
+            {
+                if (!obj || obj->GetIsDestroyed()) continue;
+                LightComponent* lightComp = obj->GetComponent<LightComponent>();
+                if (lightComp && lightComp->IsEnabled())
+                {
+                    if (lightComp->GetLightType() == LightType::Point)
+                    {
+                        CTransform* transform = obj->GetComponent<CTransform>();
+                        DirectX::XMFLOAT3 pos = transform ? transform->GetWorldPosition() : DirectX::XMFLOAT3(0.0f, 0.0f, 0.0f);
+                        AddPointLight(pos, lightComp->GetColor(), lightComp->GetIntensity(), lightComp->GetRange());
+                    }
+                }
+            }
+        }
+
+        // 4. Write Point Lights
+        size_t numPointLights = (std::min)(m_activePointLights.size(), static_cast<size_t>(8));
+        m_mappedBuffer->lightCounts = { static_cast<float>(numPointLights), 0.0f, 0.0f, 0.0f };
+
+        for (size_t i = 0; i < numPointLights; ++i)
+        {
+            m_mappedBuffer->pointLights[i] = m_activePointLights[i];
+        }
+        for (size_t i = numPointLights; i < 8; ++i)
+        {
+            m_mappedBuffer->pointLights[i] = {};
+        }
     }
+}
+
+void LightManager::ClearPointLights()
+{
+    m_activePointLights.clear();
+}
+
+void LightManager::AddPointLight(const DirectX::XMFLOAT3& pos, const DirectX::XMFLOAT3& color, float intensity, float range)
+{
+    if (m_activePointLights.size() >= 8) return;
+
+    PointLightGPUData data;
+    data.position = { pos.x, pos.y, pos.z, range };
+    data.color    = { color.x, color.y, color.z, intensity };
+    m_activePointLights.push_back(data);
 }
 
 D3D12_GPU_VIRTUAL_ADDRESS LightManager::GetConstantBufferGPUAddress() const

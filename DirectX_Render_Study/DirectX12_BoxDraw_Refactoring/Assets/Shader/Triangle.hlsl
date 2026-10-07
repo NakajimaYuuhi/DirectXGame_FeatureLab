@@ -14,8 +14,14 @@ cbuffer ObjectBuffer : register(b0)
     float2   uvScale;     // 2 floats  (34..35)
 };
 
+struct PointLightData
+{
+    float4 position; // xyz: world pos, w: range
+    float4 color;    // rgb: color, w: intensity
+};
+
 // ================================
-// Light Buffer (b1) - Frame-wide Constant Buffer
+// Light Buffer (b1) - Frame-wide Constant Buffer (512 bytes)
 // ================================
 cbuffer LightBuffer : register(b1)
 {
@@ -25,6 +31,10 @@ cbuffer LightBuffer : register(b1)
     float4   lightColor;    // 4 floats  (24..27)  rgb: light color
     float4   ambientColor;  // 4 floats  (28..31)  rgb: ambient color, a: specular power
     float4   shadowParams;  // 4 floats  (32..35)  x: bias, y: darkness, z: mapSize, w: enabled
+    float4   lightCounts;   // 4 floats  (36..39)  x: active point light count
+    float4   reserved[6];   // 24 floats (40..63) -> 64 floats (256 bytes)
+
+    PointLightData pointLights[8]; // 8 * 8 floats = 64 floats (256 bytes, total 512 bytes)
 };
 
 // ================================
@@ -177,13 +187,52 @@ float4 PSMain(PSInput input) : SV_TARGET
     // 3. Shadow Calculation
     float shadowFactor = CalculateShadow(input.shadowPos, N, L);
 
-    // 4. Combine lighting terms
+    // 4. Directional Light contribution
     // Direct light (diffuse & specular) is attenuated by shadow; ambient is unaffected
     float3 lightContribution    = lightColor.rgb * (diffuse * lightDir.w * shadowFactor);
     float3 ambientContribution  = ambientColor.rgb;
     float3 specularContribution = lightColor.rgb * (specular * 0.35f * shadowFactor);
 
-    float3 finalColor = texColor.rgb * (lightContribution + ambientContribution) + specularContribution;
+    // 5. Point Lights (Smooth distance attenuation + Lambert diffuse + Blinn-Phong specular)
+    float3 pointLightContribution = float3(0.0f, 0.0f, 0.0f);
+    float3 pointSpecularContribution = float3(0.0f, 0.0f, 0.0f);
+    int numPointLights = min(int(lightCounts.x), 8);
+
+    [loop]
+    for (int i = 0; i < numPointLights; ++i)
+    {
+        float3 lightPos   = pointLights[i].position.xyz;
+        float  range      = pointLights[i].position.w;
+        float3 pColor     = pointLights[i].color.rgb;
+        float  pIntensity = pointLights[i].color.w;
+
+        float3 toLight = lightPos - input.worldPos;
+        float  dist    = length(toLight);
+
+        if (dist < range && dist > 0.001f)
+        {
+            float3 pL = toLight / dist; // Direction towards point light source
+            float3 pH = normalize(pL + V);
+
+            // Smooth windowed distance attenuation: drops smoothly to 0 at dist == range
+            float normDist   = dist / range;
+            float attenWindow = saturate(1.0f - normDist * normDist);
+            float smoothAtten = (attenWindow * attenWindow) / (dist * dist + 1.0f);
+
+            // Diffuse
+            float pNdotL  = saturate(dot(N, pL));
+            float pDiffuse = pNdotL * (pIntensity * 10.0f) * smoothAtten;
+
+            // Specular
+            float pNdotH   = saturate(dot(N, pH));
+            float pSpecular = pow(pNdotH, specPower) * (pNdotL > 0.0f ? 1.0f : 0.0f) * (pIntensity * 10.0f) * smoothAtten * 0.35f;
+
+            pointLightContribution    += pColor * pDiffuse;
+            pointSpecularContribution += pColor * pSpecular;
+        }
+    }
+
+    float3 finalColor = texColor.rgb * (lightContribution + ambientContribution + pointLightContribution) + specularContribution + pointSpecularContribution;
 
     return float4(finalColor, texColor.a);
 }
