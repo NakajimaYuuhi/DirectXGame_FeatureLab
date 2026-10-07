@@ -1,5 +1,6 @@
 var NAVTREEINDEX54 =
 {
+"structtinygltf_1_1PositionalEmitter.html#a7f33e8935fe17fba279ce873f0ed99c2":[1,0,9,24,1],
 "structtinygltf_1_1PositionalEmitter.html#a7f33e8935fe17fba279ce873f0ed99c2":[2,0,3,24,1],
 "structtinygltf_1_1PositionalEmitter.html#a89ac1da3e5c9f3fab18c63f34c9ee0fa":[1,0,9,24,9],
 "structtinygltf_1_1PositionalEmitter.html#a89ac1da3e5c9f3fab18c63f34c9ee0fa":[2,0,3,24,9],
@@ -248,6 +249,5 @@ var NAVTREEINDEX54 =
 "tiny__gltf_8h.html#a6edc97dc3af0e739b26b1972a17909a4":[3,0,0,3,18,65],
 "tiny__gltf_8h.html#a706fe59212e1787230a99547cbe29a6c":[3,0,0,3,18,133],
 "tiny__gltf_8h.html#a73d9058e4f4fdb98ef035622360de928":[3,0,0,3,18,126],
-"tiny__gltf_8h.html#a7628581621bb3e7af0f4bb9b12bcf656":[3,0,0,3,18,76],
-"tiny__gltf_8h.html#a78dd9e1dfb0b7d1f38bc0dd00ebd3786":[3,0,0,3,18,114]
+"tiny__gltf_8h.html#a7628581621bb3e7af0f4bb9b12bcf656":[3,0,0,3,18,76]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX49 =
 {
+"structnlohmann_1_1detail_1_1conjunction.html":[1,0,5,0,5],
 "structnlohmann_1_1detail_1_1conjunction_3_01B1_00_01Bn_8_8_8_01_4.html":[2,0,1,0,7],
 "structnlohmann_1_1detail_1_1conjunction_3_01B1_00_01Bn_8_8_8_01_4.html":[1,0,5,0,7],
 "structnlohmann_1_1detail_1_1conjunction_3_01B1_01_4.html":[2,0,1,0,6],
@@ -248,6 +249,5 @@ var NAVTREEINDEX49 =
 "structnlohmann_1_1detail_1_1is__default__constructible.html":[2,0,1,0,65],
 "structnlohmann_1_1detail_1_1is__default__constructible_3_01const_01std_1_1pair_3_01T1_00_01T2_01_4_01_4.html":[2,0,1,0,66],
 "structnlohmann_1_1detail_1_1is__default__constructible_3_01const_01std_1_1pair_3_01T1_00_01T2_01_4_01_4.html":[1,0,5,0,66],
-"structnlohmann_1_1detail_1_1is__default__constructible_3_01const_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4.html":[2,0,1,0,67],
-"structnlohmann_1_1detail_1_1is__default__constructible_3_01const_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4.html":[1,0,5,0,67]
+"structnlohmann_1_1detail_1_1is__default__constructible_3_01const_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4.html":[2,0,1,0,67]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX37 =
 {
+"namespacenlohmann_1_1detail.html#a3e111e6cef3aa52f1d36fd7b85991ffb":[1,0,5,0,174],
 "namespacenlohmann_1_1detail.html#a40f7bb070a60e8ba14fffb9c117fcbd8":[1,0,5,0,195],
 "namespacenlohmann_1_1detail.html#a422430dab7adbe4dfcf125dfcfbeffd0":[1,0,5,0,136],
 "namespacenlohmann_1_1detail.html#a44869ca9f422b260625d78e4e8121559":[1,0,5,0,143],
@@ -248,6 +249,5 @@ var NAVTREEINDEX37 =
 "stb__image_8h.html#afec644d4e1a3cd858dfe0f9c55a1e55c":[3,0,0,3,16,43],
 "stb__image_8h.html#aff26696e30b62a40dd00bc12415343f6":[3,0,0,3,16,6],
 "stb__image_8h_source.html":[3,0,0,3,16],
-"stb__image__write_8h.html":[3,0,0,3,17],
-"stb__image__write_8h.html#a1d964457ebf7cc898b8cb14e66cbfaa8":[3,0,0,3,17,0]
+"stb__image__write_8h.html":[3,0,0,3,17]
 };

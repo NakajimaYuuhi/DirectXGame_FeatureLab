@@ -1,5 +1,6 @@
 var NAVTREEINDEX43 =
 {
+"structImGuiInputTextDeactivatedState.html#ab25f0ed83856bf370fa78e9a6aaaa895":[2,0,135,1],
 "structImGuiInputTextDeactivatedState.html#abefa99fe24b6becb8a463e66120219a1":[2,0,135,0],
 "structImGuiInputTextState.html":[2,0,136],
 "structImGuiInputTextState.html#a061d099bd9dad94fe86a435f48c7fe1e":[2,0,136,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX43 =
 "structImGuiOldColumns.html#aa4554860fcb988d5c667d6d7d70d5484":[2,0,156,5],
 "structImGuiOldColumns.html#aaaaa00e20d7b72ac75c9deea4f09ce15":[2,0,156,9],
 "structImGuiOldColumns.html#aaf37a990d000be9d6d16181edbe1072c":[2,0,156,4],
-"structImGuiOldColumns.html#ab4f542da960ccad64557fe388a8f82eb":[2,0,156,1],
-"structImGuiOldColumns.html#ab8cae447d704e5d9ca332af63301fbf9":[2,0,156,0]
+"structImGuiOldColumns.html#ab4f542da960ccad64557fe388a8f82eb":[2,0,156,1]
 };
