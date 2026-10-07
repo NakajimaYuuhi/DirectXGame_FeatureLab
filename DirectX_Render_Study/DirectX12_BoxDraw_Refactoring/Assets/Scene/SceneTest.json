@@ -224,6 +224,49 @@
       },
       "type": "CObject",
       "prefab": "EnemyCounter"
+    },
+    {
+      "name": "DirectionalLight",
+      "prefab": "DirectionalLight",
+      "tag": 14,
+      "type": "Light",
+      "transform": {
+        "position": [
+          0.0,
+          10.0,
+          0.0
+        ],
+        "rotation": [
+          0.7853981852531433,
+          -0.7853981852531433,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "light": {
+        "ambientColor": [
+          0.25,
+          0.28,
+          0.35
+        ],
+        "castShadow": true,
+        "color": [
+          1.0,
+          0.9800000190734863,
+          0.9200000166893005
+        ],
+        "intensity": 1.0,
+        "range": 10.0,
+        "shadowBias": 0.001500000013038516,
+        "shadowDarkness": 0.5,
+        "specularPower": 32.0,
+        "spotAngle": 45.0,
+        "type": 0
+      }
     }
   ],
   "sceneID": 5

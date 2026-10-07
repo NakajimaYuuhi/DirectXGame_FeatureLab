@@ -84,6 +84,7 @@ bool PrefabSerializer::SavePrefab(const std::string& filepath, CObject* obj)
         case ObjectTag::CAMERA:        tagStr = "CAMERA"; break;
         case ObjectTag::FADE:          tagStr = "FADE"; break;
         case ObjectTag::MANAGER:       tagStr = "MANAGER"; break;
+        case ObjectTag::LIGHT:         tagStr = "LIGHT"; break;
         default:                       tagStr = "NONE"; break;
         }
     }

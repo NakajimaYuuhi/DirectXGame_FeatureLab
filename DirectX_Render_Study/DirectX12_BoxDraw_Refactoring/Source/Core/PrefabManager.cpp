@@ -182,6 +182,7 @@ CObject* PrefabManager::InstantiateFromJSON(const std::string& jsonPath, const s
 		else if (tagStr == "CAMERA") info->SetObjectTag(ObjectTag::CAMERA);
 		else if (tagStr == "FADE") info->SetObjectTag(ObjectTag::FADE);
 		else if (tagStr == "MANAGER") info->SetObjectTag(ObjectTag::MANAGER);
+		else if (tagStr == "LIGHT") info->SetObjectTag(ObjectTag::LIGHT);
 		else info->SetObjectTag(ObjectTag::NONE);
 	}
 

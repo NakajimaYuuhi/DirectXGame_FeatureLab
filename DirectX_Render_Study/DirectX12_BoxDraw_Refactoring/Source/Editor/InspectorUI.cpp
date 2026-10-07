@@ -625,13 +625,13 @@ void CInspectorUI::Draw()
 
                     static const char* tagNames[] = {
                         "NONE", "BACKGROUND", "PLAYER", "PLAYER_BULLET", "ENEMY", "ENEMY_BULLET",
-                        "FIELD", "TRIANGLE", "BILLBOARD", "EFFECT", "UI", "TEXT", "CAMERA", "FADE", "MANAGER"
+                        "FIELD", "TRIANGLE", "BILLBOARD", "EFFECT", "UI", "TEXT", "CAMERA", "FADE", "MANAGER", "LIGHT"
                     };
                     static const ObjectTag tagValues[] = {
                         ObjectTag::NONE, ObjectTag::BACKGROUND, ObjectTag::PLAYER, ObjectTag::PLAYER_BULLET,
                         ObjectTag::ENEMY, ObjectTag::ENEMY_BULLET, ObjectTag::FIELD, ObjectTag::TRIANGLE,
                         ObjectTag::BILLBOARD, ObjectTag::EFFECT, ObjectTag::UI, ObjectTag::TEXT,
-                        ObjectTag::CAMERA, ObjectTag::FADE, ObjectTag::MANAGER
+                        ObjectTag::CAMERA, ObjectTag::FADE, ObjectTag::MANAGER, ObjectTag::LIGHT
                     };
                     int currentTagIdx = 0;
                     ObjectTag curTag = objInfo->GetObjectTag();

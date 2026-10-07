@@ -76,6 +76,8 @@ bool SceneSerializer::SaveScene(const std::string& filepath, Scenes::ID sceneID)
 				objJson["type"] = "Field";
 			else if (objInfo->GetObjectTag() == ObjectTag::CAMERA || obj->GetComponent<CameraComponent>() )
 				objJson["type"] = "Camera";
+			else if (objInfo->GetObjectTag() == ObjectTag::LIGHT || obj->GetComponent<LightComponent>() )
+				objJson["type"] = "Light";
 			else
 				objJson["type"] = "CObject";
 
@@ -270,6 +272,10 @@ bool SceneSerializer::LoadScene(const std::string& filepath, Scenes::ID sceneID)
 			{
 				tag = ObjectTag::MANAGER;
 			}
+			else if (type == "Light" || type == "LightComponent" || type == "DirectionalLight")
+			{
+				tag = ObjectTag::LIGHT;
+			}
 		}
 
 		std::string prefabStr = objJson.value("prefab", "");
@@ -289,6 +295,10 @@ bool SceneSerializer::LoadScene(const std::string& filepath, Scenes::ID sceneID)
 				if (type == "Camera" || name == "Camera" || type == "CameraComponent")
 				{
 					info->SetObjectTag(ObjectTag::CAMERA);
+				}
+				else if (type == "Light" || type == "LightComponent" || type == "DirectionalLight" || tag == ObjectTag::LIGHT)
+				{
+					info->SetObjectTag(ObjectTag::LIGHT);
 				}
 			}
 		}

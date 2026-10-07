@@ -35,10 +35,10 @@ void ObjectManager::Update(Scenes::ID _SceneID)
 {
 	float dt = TimeManager::GetInstance().GetDeltaTime();
 
-	// 1. ƒtƒŒ[ƒ€ŠJn‚Ì•Û—¯ƒIƒuƒWƒFƒNƒg”½‰fií‚ÉÀsj
+	// 1. ãƒ•ãƒ¬ãƒ¼ãƒ é–‹å§‹æ™‚ã®ä¿ç•™ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆåæ˜ ï¼ˆå¸¸ã«å®Ÿè¡Œï¼‰
 	FlushPendingAddObjects();
 
-	// 2. Tween ƒAƒjƒ[ƒVƒ‡ƒ“‚ÌXViUI‰‰oEƒGƒfƒBƒ^‘€ì“™‚ğŠÜ‚Ş‚½‚ßí‚ÉÀsj
+	// 2. Tween ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®æ›´æ–°ï¼ˆUIæ¼”å‡ºãƒ»ã‚¨ãƒ‡ã‚£ã‚¿æ“ä½œç­‰ã‚’å«ã‚€ãŸã‚å¸¸ã«å®Ÿè¡Œï¼‰
 	{
 		PROFILE_SCOPE("Update::Tween");
 		TweenManager::GetInstance().Update(dt);
@@ -49,7 +49,7 @@ void ObjectManager::Update(Scenes::ID _SceneID)
 		return;
 	}
 
-	// 3. –¢ÀsƒIƒuƒWƒFƒNƒgEƒRƒ“ƒ|[ƒlƒ“ƒg‚Ì‰Šú‰»iAwake / Startj‚ğˆêŠ‡Šm’è
+	// 3. æœªå®Ÿè¡Œã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãƒ»ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®åˆæœŸåŒ–ï¼ˆAwake / Startï¼‰ã‚’ä¸€æ‹¬ç¢ºå®š
 	for (size_t tagIdx = 0; tagIdx < vecObject.size(); ++tagIdx)
 	{
 		auto& vec = vecObject[tagIdx];
@@ -64,49 +64,49 @@ void ObjectManager::Update(Scenes::ID _SceneID)
 		}
 	}
 
-	// 3. Phase 0: Input (‘SƒIƒuƒWƒFƒNƒg‚Ì“ü—Íó•tE‘€ì)
+	// 3. Phase 0: Input (å…¨ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å…¥åŠ›å—ä»˜ãƒ»æ“ä½œ)
 	{
 		PROFILE_SCOPE("Update::Input");
 		UpdatePhaseAll(UpdatePhase::Input, dt);
 	}
 
-	// 4. Phase 1: AI (‘SƒGƒlƒ~[‚ÌvlEó‘Ô‘JˆÚ)
+	// 4. Phase 1: AI (å…¨ã‚¨ãƒãƒŸãƒ¼ã®æ€è€ƒãƒ»çŠ¶æ…‹é·ç§»)
 	{
 		PROFILE_SCOPE("Update::AI");
 		UpdatePhaseAll(UpdatePhase::AI, dt);
 	}
 
-	// 5. Phase 2: Movement (‘SƒLƒƒƒ‰‚ÌˆÚ“®E‘¬“xŒvZ)
+	// 5. Phase 2: Movement (å…¨ã‚­ãƒ£ãƒ©ã®ç§»å‹•ãƒ»é€Ÿåº¦è¨ˆç®—)
 	{
 		PROFILE_SCOPE("Update::Movement");
 		UpdatePhaseAll(UpdatePhase::Movement, dt);
 	}
 
-	// 6. Phase 3: Physics (d—Í“K—pAŠO—ÍŒvZ‚È‚Ç)
+	// 6. Phase 3: Physics (é‡åŠ›é©ç”¨ã€å¤–åŠ›è¨ˆç®—ãªã©)
 	{
 		PROFILE_SCOPE("Update::Physics");
 		UpdatePhaseAll(UpdatePhase::Physics, dt);
 	}
 
-	// 7. Õ“Ë”»’èE‰Ÿ‚µ–ß‚µ‰ğŒˆi‘SƒIƒuƒWƒFƒNƒg‚ÌˆÊ’u‚ª•¨—“I‚ÉŠm’èj
+	// 7. è¡çªåˆ¤å®šãƒ»æŠ¼ã—æˆ»ã—è§£æ±ºï¼ˆå…¨ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä½ç½®ãŒç‰©ç†çš„ã«ç¢ºå®šï¼‰
 	{
 		PROFILE_SCOPE("Update::Collision");
 		CollisionUpdate(_SceneID);
 	}
 
-	// 8. Phase 4: Animation (Šm’è‚µ‚½ˆÚ“®Ep¨‚ÉŠî‚Ã‚­ƒ{[ƒ“XVEUVƒAƒjƒ)
+	// 8. Phase 4: Animation (ç¢ºå®šã—ãŸç§»å‹•ãƒ»å§¿å‹¢ã«åŸºã¥ããƒœãƒ¼ãƒ³æ›´æ–°ãƒ»UVã‚¢ãƒ‹ãƒ¡)
 	{
 		PROFILE_SCOPE("Update::Animation");
 		UpdatePhaseAll(UpdatePhase::Animation, dt);
 	}
 
-	// 9. Phase 5: PostPhysics (‰Ÿ‚µ–ß‚µŠm’èŒã‚ÌƒvƒŒƒCƒ„[ˆÊ’u‚ğƒJƒƒ‰‚ª’Ç]Eƒrƒ‹ƒ{[ƒh)
+	// 9. Phase 5: PostPhysics (æŠ¼ã—æˆ»ã—ç¢ºå®šå¾Œã®ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ä½ç½®ã‚’ã‚«ãƒ¡ãƒ©ãŒè¿½å¾“ãƒ»ãƒ“ãƒ«ãƒœãƒ¼ãƒ‰)
 	{
 		PROFILE_SCOPE("Update::PostPhysics");
 		UpdatePhaseAll(UpdatePhase::PostPhysics, dt);
 	}
 
-	// 10. LateUpdate (‘SƒIƒuƒWƒFƒNƒg‚ÌÅI•â³)
+	// 10. LateUpdate (å…¨ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æœ€çµ‚è£œæ­£)
 	for (size_t tagIdx = 0; tagIdx < vecObject.size(); ++tagIdx)
 	{
 		auto& vec = vecObject[tagIdx];
@@ -120,7 +120,7 @@ void ObjectManager::Update(Scenes::ID _SceneID)
 		}
 	}
 
-	// 11. ƒtƒŒ[ƒ€I—¹‚Ì•Û—¯ƒIƒuƒWƒFƒNƒg”½‰f & ”jŠüƒIƒuƒWƒFƒNƒg‚ÌˆÀ‘S‚È‰ñû
+	// 11. ãƒ•ãƒ¬ãƒ¼ãƒ çµ‚äº†æ™‚ã®ä¿ç•™ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆåæ˜  & ç ´æ£„ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å®‰å…¨ãªå›å
 	FlushPendingAddObjects();
 	FlushDestroyedObjects();
 }
@@ -164,7 +164,7 @@ void ObjectManager::Draw(Scenes::ID _SceneID)
 {
 	FlushPendingAddObjects();
 
-	// ƒŒƒCƒ„[‡‚É®—ñ•`‰æi•s“§–¾ -> “§‰ß -> ƒfƒoƒbƒO -> UIj
+	// ãƒ¬ã‚¤ãƒ¤ãƒ¼é †ã«æ•´åˆ—æç”»ï¼ˆä¸é€æ˜ -> é€é -> ãƒ‡ãƒãƒƒã‚° -> UIï¼‰
 	{
 		PROFILE_SCOPE("Render::Opaque");
 		DrawByLayer(RenderLayer::Opaque);
@@ -204,7 +204,8 @@ void ObjectManager::DrawShadow(const DirectX::XMMATRIX& lightViewProj)
 	for (size_t tagIdx = 0; tagIdx < vecObject.size(); ++tagIdx)
 	{
 		if (tagIdx == ObjectTag::UI || tagIdx == ObjectTag::CAMERA ||
-			tagIdx == ObjectTag::BACKGROUND || tagIdx == ObjectTag::EFFECT)
+			tagIdx == ObjectTag::BACKGROUND || tagIdx == ObjectTag::EFFECT ||
+			tagIdx == ObjectTag::LIGHT)
 		{
 			continue;
 		}

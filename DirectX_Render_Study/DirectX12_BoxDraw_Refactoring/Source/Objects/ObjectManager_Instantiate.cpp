@@ -30,6 +30,7 @@
 
 // --Manager
 #include "EnemyCounterComponent.h"
+#include "LightComponent.h"
 
 
 //===== ???\?b?h??` =====
@@ -203,6 +204,25 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 		tmpObject->AddComponent<EnemyCounterComponent>();
 		returnObject = tmpObject.get();
 		m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::MANAGER), std::move(tmpObject) });
+		break;
+
+	case ObjectTag::LIGHT:
+		{
+			CObject* rawObj = PrefabManager::GetInstance().Instantiate("DirectionalLight", _ObjectName);
+			if (!rawObj) rawObj = PrefabManager::GetInstance().InstantiateFromJSON("Assets/Prefabs/DirectionalLight.json", _ObjectName);
+			if (!rawObj)
+			{
+				rawObj = new CObject(_ObjectName);
+				rawObj->AddComponent<LightComponent>();
+			}
+			if (auto info = rawObj->GetComponent<CObjectInfo>())
+			{
+				info->SetObjectTag(ObjectTag::LIGHT);
+			}
+			tmpObject = std::unique_ptr<CObject>(rawObj);
+			returnObject = tmpObject.get();
+			m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::LIGHT), std::move(tmpObject) });
+		}
 		break;
 	}
 

@@ -50,6 +50,7 @@ void CSceneTest::Init()
         }
 
         CObject* enemyCounter = ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::MANAGER, "EnemyCounter");
+        CObject* dirLight = ObjectManager::GetInstance().Instantiate(Scenes::ID::NONE, ObjectTag::LIGHT, "DirectionalLight", "DirectionalLight");
 
         ObjectManager::GetInstance().Init(Scenes::ID::NONE);
 
