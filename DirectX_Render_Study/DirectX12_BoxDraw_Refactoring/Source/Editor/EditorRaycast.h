@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <DirectXMath.h>
 #include <vector>
 #include <memory>
@@ -36,7 +36,9 @@ public:
         const DirectX::XMMATRIX& proj,
         const std::vector<std::vector<std::unique_ptr<CObject>>>& objectList,
         int& outTagIndex,
-        int& outObjectIndex
+        int& outObjectIndex,
+        int* outMeshIndex = nullptr,
+        int* outMaterialSlot = nullptr
     );
 
     static CObject* PickObject(
@@ -45,6 +47,8 @@ public:
         CameraComponent* camera,
         const std::vector<std::vector<std::unique_ptr<CObject>>>& objectList,
         int& outTagIndex,
-        int& outObjectIndex
+        int& outObjectIndex,
+        int* outMeshIndex = nullptr,
+        int* outMaterialSlot = nullptr
     );
 };

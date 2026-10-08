@@ -87,10 +87,9 @@ uint32_t mesh_indices[] =
 //Initializeをどこかで呼ぶ?E  有めE
 CMesh::CMesh()
 {  
-    //ここで、E  点?E  、インチE  クス?E  をデフォルトでセチE  (仮実裁E
-    m_Vertices.assign(std::begin(mesh_vertices), std::end(mesh_vertices));//assignで入れれるらしい
+    m_Vertices.assign(std::begin(mesh_vertices), std::end(mesh_vertices));
     m_Indices.assign(std::begin(mesh_indices), std::end(mesh_indices));
-
+    CalculateBounds();
 }
 
 void CMesh::Init()
@@ -306,6 +305,7 @@ void CMesh::SetVertex(const MeshVertex* vertices, size_t vertexCount, const uint
 
     m_Vertices.assign(vertices, vertices + vertexCount);
     m_Indices.assign(indices, indices + indexCount);
+    CalculateBounds();
 
     //----- 頂点バッファの?EE -----
     //サイズ?EE
@@ -396,4 +396,38 @@ void CMesh::RegisterOwner(CObject* _Owner)
 {
     m_Owner = _Owner;
 }
+
+void CMesh::CalculateBounds()
+{
+    if (m_Vertices.empty())
+    {
+        m_localAABBMin = { -0.5f, -0.5f, -0.5f };
+        m_localAABBMax = {  0.5f,  0.5f,  0.5f };
+        return;
+    }
+
+    DirectX::XMFLOAT3 bMin = { m_Vertices[0].position[0], m_Vertices[0].position[1], m_Vertices[0].position[2] };
+    DirectX::XMFLOAT3 bMax = { m_Vertices[0].position[0], m_Vertices[0].position[1], m_Vertices[0].position[2] };
+
+    for (const auto& v : m_Vertices)
+    {
+        bMin.x = fminf(bMin.x, v.position[0]);
+        bMin.y = fminf(bMin.y, v.position[1]);
+        bMin.z = fminf(bMin.z, v.position[2]);
+
+        bMax.x = fmaxf(bMax.x, v.position[0]);
+        bMax.y = fmaxf(bMax.y, v.position[1]);
+        bMax.z = fmaxf(bMax.z, v.position[2]);
+    }
+
+    // Degenerate bounds fallback
+    const float eps = 0.001f;
+    if (fabsf(bMax.x - bMin.x) < eps) { bMin.x -= 0.1f; bMax.x += 0.1f; }
+    if (fabsf(bMax.y - bMin.y) < eps) { bMin.y -= 0.1f; bMax.y += 0.1f; }
+    if (fabsf(bMax.z - bMin.z) < eps) { bMin.z -= 0.1f; bMax.z += 0.1f; }
+
+    m_localAABBMin = bMin;
+    m_localAABBMax = bMax;
+}
+
 

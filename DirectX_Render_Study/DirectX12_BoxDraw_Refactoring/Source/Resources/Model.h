@@ -192,6 +192,7 @@ public:
 
 	// Mesh & Slot inspection helpers
 	size_t GetMeshCount() const { return m_Meshes.size(); }
+	Mesh GetMesh(size_t meshIdx) const { return (meshIdx < m_Meshes.size()) ? m_Meshes[meshIdx] : nullptr; }
 	const std::vector<UINT>& GetMeshMaterialIndices() const { return m_MeshMaterialIndices; }
 	UINT GetMeshMaterialIndex(size_t meshIdx) const {
 		return (meshIdx < m_MeshMaterialIndices.size()) ? m_MeshMaterialIndices[meshIdx] : 0;
@@ -202,9 +203,11 @@ public:
 		}
 	}
 
-	// Editor highlight selection (-1: none, >=0: material slot index)
+	// Editor highlight selection & hover (-1: none, >=0: material slot index)
 	int GetSelectedMaterialIndex() const { return m_selectedMaterialIndex; }
 	void SetSelectedMaterialIndex(int index) { m_selectedMaterialIndex = index; }
+	int GetHoveredMaterialIndex() const { return m_hoveredMaterialIndex; }
+	void SetHoveredMaterialIndex(int index) { m_hoveredMaterialIndex = index; }
 
 	void UpdateAnimation(float deltaTime);
 
@@ -231,4 +234,5 @@ private:
 	bool m_isAnimationFinished = false;
 	std::string m_modelPath;
 	int m_selectedMaterialIndex = -1;
+	int m_hoveredMaterialIndex = -1;
 };

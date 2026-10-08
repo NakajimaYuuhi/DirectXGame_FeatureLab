@@ -60,6 +60,10 @@ public:
 	void SetVertex(const MeshVertex* vertices, size_t vertexCount,
 		const uint32_t* indices, size_t indexCount);
 
+	// Bounds
+	DirectX::XMFLOAT3 GetLocalAABBMin() const { return m_localAABBMin; }
+	DirectX::XMFLOAT3 GetLocalAABBMax() const { return m_localAABBMax; }
+
 private:
 	ComPtr<ID3D12Resource> m_vertexBuffer;
 	ComPtr<ID3D12Resource> m_indexBuffer;
@@ -68,18 +72,18 @@ private:
 
 	D3D12_GPU_DESCRIPTOR_HANDLE m_BoneSrvGpuHandle;
 
-	//----- ??? -----
+	// Bounds
+	DirectX::XMFLOAT3 m_localAABBMin{ -0.5f, -0.5f, -0.5f };
+	DirectX::XMFLOAT3 m_localAABBMax{  0.5f,  0.5f,  0.5f };
 
-	//CObject??Q??
-	std::vector<MeshVertex> m_Vertices;	//???_
-	std::vector<uint32_t>	m_Indices;	//?C???f?b?N?X
+	// 頂点・インデックス
+	std::vector<MeshVertex> m_Vertices;
+	std::vector<uint32_t>	m_Indices;
 
-
+	void CalculateBounds();
 
 private:
-	
-	//CObject??Q??
-	CObject* m_Owner;
+	CObject* m_Owner = nullptr;
 
 
 

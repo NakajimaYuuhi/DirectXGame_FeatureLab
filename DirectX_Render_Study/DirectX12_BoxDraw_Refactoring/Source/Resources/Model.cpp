@@ -437,8 +437,9 @@ void CModel::Draw()
 			mat = m_Materials[matSlot].get();
 		}
 
-		bool isHighlighted = (m_selectedMaterialIndex >= 0 && static_cast<UINT>(m_selectedMaterialIndex) == matSlot);
-		m_Meshes[i]->Draw(transform, mat, m_BlendMode, isHighlighted);
+		bool isSelected = (m_selectedMaterialIndex >= 0 && static_cast<UINT>(m_selectedMaterialIndex) == matSlot);
+		bool isHovered = (m_hoveredMaterialIndex >= 0 && static_cast<UINT>(m_hoveredMaterialIndex) == matSlot);
+		m_Meshes[i]->Draw(transform, mat, m_BlendMode, isSelected || isHovered);
 	}
 }
 

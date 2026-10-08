@@ -184,14 +184,24 @@ void CInspectorUI::Draw()
         float screenH = io.DisplaySize.y;
 
         int hitTag = -1, hitObj = -1;
+        int hitMesh = -1, hitMatSlot = -1;
         const auto& objectListForPick = ObjectManager::GetInstance().GetObjectList();
         DirectX::XMMATRIX view = (m_isEditMode || m_isPrefabEditMode) ? EditorCamera::GetInstance().GetViewMatrix() : (camera ? camera->GetViewMatrix() : DirectX::XMMatrixIdentity());
         DirectX::XMMATRIX proj = (m_isEditMode || m_isPrefabEditMode) ? EditorCamera::GetInstance().GetProjectionMatrix() : (camera ? camera->GetProjectionMatrix() : DirectX::XMMatrixIdentity());
-        CObject* hit = EditorRaycast::PickObject(mouseX, mouseY, screenW, screenH, view, proj, objectListForPick, hitTag, hitObj);
+        CObject* hit = EditorRaycast::PickObject(mouseX, mouseY, screenW, screenH, view, proj, objectListForPick, hitTag, hitObj, &hitMesh, &hitMatSlot);
         if (hit && hitTag >= 0 && hitObj >= 0)
         {
             m_selectedTagIndex = hitTag;
             m_selectedObjectIndex = hitObj;
+
+            CModel* model = hit->GetComponent<CModel>();
+            if (model)
+            {
+                if (hitMatSlot >= 0)
+                {
+                    model->SetSelectedMaterialIndex(hitMatSlot);
+                }
+            }
         }
     }
 
@@ -1371,6 +1381,7 @@ void CInspectorUI::Draw()
 
                         // Highlight clear button
                         int currentHighlight = modelComp->GetSelectedMaterialIndex();
+                        int currentHover = -1;
                         if (currentHighlight >= 0)
                         {
                             ImGui::SameLine();
@@ -1401,13 +1412,18 @@ void CInspectorUI::Draw()
                             std::string headerName = "Slot [" + std::to_string(matIdx) + "] (" + std::to_string(assignedMeshes) + " meshes)";
                             if (isSelected)
                             {
-                                headerName += " *HIGHLIGHTED*";
+                                headerName += " [SELECTED]";
                             }
 
                             ImGuiTreeNodeFlags nodeFlags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick;
                             if (isSelected) nodeFlags |= ImGuiTreeNodeFlags_Selected;
 
                             bool nodeOpen = ImGui::TreeNodeEx((void*)(uintptr_t)matIdx, nodeFlags, "%s", headerName.c_str());
+
+                            if (ImGui::IsItemHovered())
+                            {
+                                currentHover = static_cast<int>(matIdx);
+                            }
 
                             // Highlight slot on click
                             if (ImGui::IsItemClicked() && !ImGui::IsItemToggledOpen())
@@ -1537,6 +1553,8 @@ void CInspectorUI::Draw()
                                 ImGui::TreePop();
                             }
                         }
+
+                        modelComp->SetHoveredMaterialIndex(currentHover);
                     }
                 }
 

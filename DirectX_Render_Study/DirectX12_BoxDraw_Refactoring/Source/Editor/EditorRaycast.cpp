@@ -1,9 +1,10 @@
-﻿#include "EditorRaycast.h"
+#include "EditorRaycast.h"
 #include "Object.h"
 #include "Transform.h"
 #include "BoxCollider3D.h"
 #include "ObjectInfo.h"
 #include "CameraComponent.h"
+#include "Model.h"
 #include <algorithm>
 
 using namespace DirectX;
@@ -85,15 +86,21 @@ CObject* EditorRaycast::PickObject(
     const DirectX::XMMATRIX& proj,
     const std::vector<std::vector<std::unique_ptr<CObject>>>& objectList,
     int& outTagIndex,
-    int& outObjectIndex)
+    int& outObjectIndex,
+    int* outMeshIndex,
+    int* outMaterialSlot)
 {
     outTagIndex = -1;
     outObjectIndex = -1;
+    if (outMeshIndex) *outMeshIndex = -1;
+    if (outMaterialSlot) *outMaterialSlot = -1;
 
     Ray ray = CreateRayFromScreen(screenX, screenY, screenWidth, screenHeight, view, proj);
 
     float closestDist = 1e30f;
     CObject* bestHitObj = nullptr;
+    int bestMeshIdx = -1;
+    int bestMatSlot = -1;
 
     for (size_t tagIdx = 0; tagIdx < objectList.size(); ++tagIdx)
     {
@@ -118,9 +125,9 @@ CObject* EditorRaycast::PickObject(
 
             XMFLOAT3 pos = transform->GetPos();
             XMFLOAT3 scale = transform->GetScale();
-            XMFLOAT3 boxMin, boxMax;
-
             BoxCollider3D* collider = obj->GetComponent<BoxCollider3D>();
+            CModel* model = obj->GetComponent<CModel>();
+
             if (collider)
             {
                 XMFLOAT3 colSize = collider->GetSize();
@@ -137,32 +144,95 @@ CObject* EditorRaycast::PickObject(
                     (std::max)(0.2f, colSize.z * scale.z * 0.5f)
                 };
 
-                boxMin = { center.x - halfExtents.x, center.y - halfExtents.y, center.z - halfExtents.z };
-                boxMax = { center.x + halfExtents.x, center.y + halfExtents.y, center.z + halfExtents.z };
+                XMFLOAT3 boxMin = { center.x - halfExtents.x, center.y - halfExtents.y, center.z - halfExtents.z };
+                XMFLOAT3 boxMax = { center.x + halfExtents.x, center.y + halfExtents.y, center.z + halfExtents.z };
+
+                float dist = 0.0f;
+                if (RayIntersectAABB(ray, boxMin, boxMax, dist))
+                {
+                    if (dist < closestDist)
+                    {
+                        closestDist = dist;
+                        bestHitObj = obj.get();
+                        outTagIndex = static_cast<int>(tagIdx);
+                        outObjectIndex = static_cast<int>(objIdx);
+                        bestMeshIdx = -1;
+                        bestMatSlot = -1;
+                    }
+                }
+            }
+            else if (model && model->GetMeshCount() > 0)
+            {
+                // Sub-mesh per-mesh AABB check
+                size_t meshCount = model->GetMeshCount();
+                for (size_t mi = 0; mi < meshCount; ++mi)
+                {
+                    auto mesh = model->GetMesh(mi);
+                    if (!mesh) continue;
+
+                    XMFLOAT3 lMin = mesh->GetLocalAABBMin();
+                    XMFLOAT3 lMax = mesh->GetLocalAABBMax();
+
+                    XMFLOAT3 halfExtents = {
+                        (std::max)(0.15f, (lMax.x - lMin.x) * fabsf(scale.x) * 0.5f),
+                        (std::max)(0.15f, (lMax.y - lMin.y) * fabsf(scale.y) * 0.5f),
+                        (std::max)(0.15f, (lMax.z - lMin.z) * fabsf(scale.z) * 0.5f)
+                    };
+                    XMFLOAT3 center = {
+                        pos.x + (lMin.x + lMax.x) * 0.5f * scale.x,
+                        pos.y + (lMin.y + lMax.y) * 0.5f * scale.y,
+                        pos.z + (lMin.z + lMax.z) * 0.5f * scale.z
+                    };
+
+                    XMFLOAT3 boxMin = { center.x - halfExtents.x, center.y - halfExtents.y, center.z - halfExtents.z };
+                    XMFLOAT3 boxMax = { center.x + halfExtents.x, center.y + halfExtents.y, center.z + halfExtents.z };
+
+                    float dist = 0.0f;
+                    if (RayIntersectAABB(ray, boxMin, boxMax, dist))
+                    {
+                        if (dist < closestDist)
+                        {
+                            closestDist = dist;
+                            bestHitObj = obj.get();
+                            outTagIndex = static_cast<int>(tagIdx);
+                            outObjectIndex = static_cast<int>(objIdx);
+                            bestMeshIdx = static_cast<int>(mi);
+                            bestMatSlot = static_cast<int>(model->GetMeshMaterialIndex(mi));
+                        }
+                    }
+                }
             }
             else
             {
                 XMFLOAT3 halfExtents = {
-                    (std::max)(0.4f, scale.x * 0.5f),
-                    (std::max)(0.4f, scale.y * 0.5f),
-                    (std::max)(0.4f, scale.z * 0.5f)
+                    (std::max)(0.4f, fabsf(scale.x) * 0.5f),
+                    (std::max)(0.4f, fabsf(scale.y) * 0.5f),
+                    (std::max)(0.4f, fabsf(scale.z) * 0.5f)
                 };
-                boxMin = { pos.x - halfExtents.x, pos.y - halfExtents.y, pos.z - halfExtents.z };
-                boxMax = { pos.x + halfExtents.x, pos.y + halfExtents.y, pos.z + halfExtents.z };
-            }
+                XMFLOAT3 boxMin = { pos.x - halfExtents.x, pos.y - halfExtents.y, pos.z - halfExtents.z };
+                XMFLOAT3 boxMax = { pos.x + halfExtents.x, pos.y + halfExtents.y, pos.z + halfExtents.z };
 
-            float dist = 0.0f;
-            if (RayIntersectAABB(ray, boxMin, boxMax, dist))
-            {
-                if (dist < closestDist)
+                float dist = 0.0f;
+                if (RayIntersectAABB(ray, boxMin, boxMax, dist))
                 {
-                    closestDist = dist;
-                    bestHitObj = obj.get();
-                    outTagIndex = static_cast<int>(tagIdx);
-                    outObjectIndex = static_cast<int>(objIdx);
+                    if (dist < closestDist)
+                    {
+                        closestDist = dist;
+                        bestHitObj = obj.get();
+                        outTagIndex = static_cast<int>(tagIdx);
+                        outObjectIndex = static_cast<int>(objIdx);
+                        bestMeshIdx = -1;
+                        bestMatSlot = -1;
+                    }
                 }
             }
         }
+    }
+
+    if (bestHitObj)
+    {
+        if (outMeshIndex) *outMeshIndex = bestMeshIdx;
+        if (outMaterialSlot) *outMaterialSlot = bestMatSlot;
     }
 
     return bestHitObj;
@@ -174,12 +244,15 @@ CObject* EditorRaycast::PickObject(
     CameraComponent* camera,
     const std::vector<std::vector<std::unique_ptr<CObject>>>& objectList,
     int& outTagIndex,
-    int& outObjectIndex)
+    int& outObjectIndex,
+    int* outMeshIndex,
+    int* outMaterialSlot)
 {
     if (!camera) return nullptr;
     return PickObject(
         screenX, screenY, screenWidth, screenHeight,
         camera->GetViewMatrix(), camera->GetProjectionMatrix(),
-        objectList, outTagIndex, outObjectIndex
+        objectList, outTagIndex, outObjectIndex,
+        outMeshIndex, outMaterialSlot
     );
 }
