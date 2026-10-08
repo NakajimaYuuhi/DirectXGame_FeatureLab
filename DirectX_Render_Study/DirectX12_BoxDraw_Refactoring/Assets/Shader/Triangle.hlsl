@@ -250,5 +250,13 @@ float4 PSMain(PSInput input) : SV_TARGET
 
     float3 finalColor = texColor.rgb * (lightContribution + ambientContribution + pointLightContribution) + specularContribution + pointSpecularContribution;
 
+    // Mesh Highlight (Editor selection effect): matCustomParams[0].w is highlight intensity (0.0: off, >0.0: highlight)
+    if (matCustomParams[0].w > 0.001f)
+    {
+        // Blink highlight with a vibrant golden yellow tint
+        float3 highlightColor = float3(1.0f, 0.85f, 0.2f);
+        finalColor = lerp(finalColor, highlightColor, matCustomParams[0].w);
+    }
+
     return float4(finalColor, texColor.a);
 }

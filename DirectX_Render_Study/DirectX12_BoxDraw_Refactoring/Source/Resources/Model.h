@@ -190,6 +190,22 @@ public:
 		}
 	}
 
+	// Mesh & Slot inspection helpers
+	size_t GetMeshCount() const { return m_Meshes.size(); }
+	const std::vector<UINT>& GetMeshMaterialIndices() const { return m_MeshMaterialIndices; }
+	UINT GetMeshMaterialIndex(size_t meshIdx) const {
+		return (meshIdx < m_MeshMaterialIndices.size()) ? m_MeshMaterialIndices[meshIdx] : 0;
+	}
+	void SetMeshMaterialIndex(size_t meshIdx, UINT matIdx) {
+		if (meshIdx < m_MeshMaterialIndices.size()) {
+			m_MeshMaterialIndices[meshIdx] = matIdx;
+		}
+	}
+
+	// Editor highlight selection (-1: none, >=0: material slot index)
+	int GetSelectedMaterialIndex() const { return m_selectedMaterialIndex; }
+	void SetSelectedMaterialIndex(int index) { m_selectedMaterialIndex = index; }
+
 	void UpdateAnimation(float deltaTime);
 
 private:
@@ -214,4 +230,5 @@ private:
 	bool m_isLoop = true;
 	bool m_isAnimationFinished = false;
 	std::string m_modelPath;
+	int m_selectedMaterialIndex = -1;
 };

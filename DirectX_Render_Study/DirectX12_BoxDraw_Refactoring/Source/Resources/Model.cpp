@@ -236,7 +236,7 @@ void CModel::ModelLoad(std::string _Path)
 		}
 	};
 
-	//?e???????E  ?[?h?IEarentIndex == -1 ?? Root?`EE?h?j??N?_????“_??E
+	//?e???????E  ?[?h?IEarentIndex == -1 ?? Root?`EE?h?j??N?_????пїЅ_??E
 	for (int i = 0; i < m_Bones.size(); ++i)
 	{
 		//-1???N?_
@@ -246,7 +246,7 @@ void CModel::ModelLoad(std::string _Path)
 		}
 	}
 
-	//-- 4.SkinData ???—Ф???? inverseBindPose E ??E   E E ????дн???E
+	//-- 4.SkinData ???пїЅпїЅ???? inverseBindPose E ??E   E E ????пїЅпїЅ???E
 	// ???EE?`EE?h??????A?X?`E  ?`E??globalBindPose???E   E???EE?p?????????
 	for (auto& bone : m_Bones)
 	{
@@ -430,12 +430,15 @@ void CModel::Draw()
 		m_Meshes[i]->SetBoneSRV(m_BoneSrvGpuHandle);
 		
 		CMaterial* mat = nullptr;
+		UINT matSlot = 0;
 		if (i < m_MeshMaterialIndices.size() && m_MeshMaterialIndices[i] < m_Materials.size())
 		{
-			mat = m_Materials[m_MeshMaterialIndices[i]].get();
+			matSlot = m_MeshMaterialIndices[i];
+			mat = m_Materials[matSlot].get();
 		}
 
-		m_Meshes[i]->Draw(transform, mat, m_BlendMode);
+		bool isHighlighted = (m_selectedMaterialIndex >= 0 && static_cast<UINT>(m_selectedMaterialIndex) == matSlot);
+		m_Meshes[i]->Draw(transform, mat, m_BlendMode, isHighlighted);
 	}
 }
 

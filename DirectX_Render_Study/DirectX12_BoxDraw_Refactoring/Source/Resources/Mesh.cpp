@@ -153,7 +153,7 @@ void CMesh::Update()
 
 
 
-void CMesh::Draw(CTransform* transform, CMaterial* material, BlendMode blendMode)
+void CMesh::Draw(CTransform* transform, CMaterial* material, BlendMode blendMode, bool isHighlighted)
 {
     // --コマンドリスチE
     ID3D12GraphicsCommandList* commandList = DX12Manager::GetInstance().GetCommandList();
@@ -230,11 +230,28 @@ void CMesh::Draw(CTransform* transform, CMaterial* material, BlendMode blendMode
     // 5: MaterialBuffer (b2) - Root CBV
     if (material)
     {
+        // If highlighted in editor, temporarily set highlight blink in customParams[0].w
+        float prevCustom = material->GetCustomParam(0, 3);
+        if (isHighlighted)
+        {
+            // Blink highlight intensity (sin wave 0.35 .. 0.75)
+            static float blinkTimer = 0.0f;
+            blinkTimer += 0.05f;
+            float blink = 0.45f + 0.3f * sinf(blinkTimer);
+            material->SetCustomParam(0, 3, blink);
+        }
+
         material->UpdateBuffer();
         D3D12_GPU_VIRTUAL_ADDRESS matCbGpu = material->GetConstantBufferGPUAddress();
         if (matCbGpu != 0)
         {
             commandList->SetGraphicsRootConstantBufferView(5, matCbGpu);
+        }
+
+        // Restore original custom parameter
+        if (isHighlighted)
+        {
+            material->SetCustomParam(0, 3, prevCustom);
         }
     }
 

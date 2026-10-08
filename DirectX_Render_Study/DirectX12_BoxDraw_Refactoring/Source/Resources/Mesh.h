@@ -48,10 +48,10 @@ public:
 	//Initialize??????????K?v?L??
 	CMesh();
 
-	//DX12Manager????èÔ????(??)
+	//DX12Manager????ÔøΩÔøΩ????(??)
 	void Init();
 	void Update();
-	void Draw(class CTransform* transform, class CMaterial* material, BlendMode blendMode);
+	void Draw(class CTransform* transform, class CMaterial* material, BlendMode blendMode, bool isHighlighted = false);
 	void DrawShadow(class CTransform* transform, const DirectX::XMMATRIX& lightViewProj);
 
 	void BindBoneSRV(D3D12_GPU_DESCRIPTOR_HANDLE handle);
@@ -86,7 +86,7 @@ private:
 
 	//----- Getter,Setter -----
 public:
-	//???_?f?[?^??èÔ
+	//???_?f?[?^??ÔøΩÔøΩ
 	void RegisterOwner(CObject* _Owner);
 
 	void SetBoneSRV(D3D12_GPU_DESCRIPTOR_HANDLE handle)

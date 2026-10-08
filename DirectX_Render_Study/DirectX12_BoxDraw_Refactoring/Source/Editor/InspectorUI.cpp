@@ -14,6 +14,7 @@
 #include "ObjectManager.h"
 #include "Transform.h"
 #include "Model.h"
+#include "MaterialManager.h"
 #include "ObjectInfo.h"
 #include "BoxCollider3D.h"
 #include "CapsuleCollider3D.h"
@@ -1365,7 +1366,20 @@ void CInspectorUI::Draw()
                     {
                         ImGui::Text("Model: %s", modelComp->GetModelPath().c_str());
                         auto& materials = modelComp->GetMaterials();
-                        ImGui::Text("Materials Count: %d", (int)materials.size());
+                        size_t meshCount = modelComp->GetMeshCount();
+                        ImGui::Text("Meshes: %d | Material Slots: %d", (int)meshCount, (int)materials.size());
+
+                        // Highlight clear button
+                        int currentHighlight = modelComp->GetSelectedMaterialIndex();
+                        if (currentHighlight >= 0)
+                        {
+                            ImGui::SameLine();
+                            if (ImGui::SmallButton("Clear Highlight"))
+                            {
+                                modelComp->SetSelectedMaterialIndex(-1);
+                                currentHighlight = -1;
+                            }
+                        }
                         ImGui::Separator();
 
                         for (size_t matIdx = 0; matIdx < materials.size(); ++matIdx)
@@ -1373,10 +1387,58 @@ void CInspectorUI::Draw()
                             auto mat = materials[matIdx];
                             if (!mat) continue;
 
-                            std::string headerName = "Material [" + std::to_string(matIdx) + "]";
-                            if (ImGui::TreeNode(headerName.c_str()))
+                            // Count how many meshes reference this material slot
+                            int assignedMeshes = 0;
+                            for (size_t mi = 0; mi < meshCount; ++mi)
+                            {
+                                if (modelComp->GetMeshMaterialIndex(mi) == matIdx)
+                                {
+                                    assignedMeshes++;
+                                }
+                            }
+
+                            bool isSelected = (currentHighlight == static_cast<int>(matIdx));
+                            std::string headerName = "Slot [" + std::to_string(matIdx) + "] (" + std::to_string(assignedMeshes) + " meshes)";
+                            if (isSelected)
+                            {
+                                headerName += " *HIGHLIGHTED*";
+                            }
+
+                            ImGuiTreeNodeFlags nodeFlags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick;
+                            if (isSelected) nodeFlags |= ImGuiTreeNodeFlags_Selected;
+
+                            bool nodeOpen = ImGui::TreeNodeEx((void*)(uintptr_t)matIdx, nodeFlags, "%s", headerName.c_str());
+
+                            // Highlight slot on click
+                            if (ImGui::IsItemClicked() && !ImGui::IsItemToggledOpen())
+                            {
+                                if (isSelected)
+                                    modelComp->SetSelectedMaterialIndex(-1);
+                                else
+                                    modelComp->SetSelectedMaterialIndex(static_cast<int>(matIdx));
+                            }
+
+                            if (nodeOpen)
                             {
                                 ImGui::PushID((int)matIdx);
+
+                                // Highlight toggle button inside
+                                if (isSelected)
+                                {
+                                    ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.85f, 0.7f, 0.1f, 1.0f));
+                                    if (ImGui::Button("Highlighting Active (Click to disable)"))
+                                    {
+                                        modelComp->SetSelectedMaterialIndex(-1);
+                                    }
+                                    ImGui::PopStyleColor();
+                                }
+                                else
+                                {
+                                    if (ImGui::Button("Highlight Meshes in Viewport"))
+                                    {
+                                        modelComp->SetSelectedMaterialIndex(static_cast<int>(matIdx));
+                                    }
+                                }
 
                                 // Base Color
                                 auto& matData = mat->GetData();
@@ -1421,11 +1483,11 @@ void CInspectorUI::Draw()
                                 // Texture File Path & Load
                                 std::wstring texWPath = mat->GetTextureFilePath();
                                 std::string texPath(texWPath.begin(), texWPath.end());
-                                ImGui::Text("Texture: %s", texPath.empty() ? "(None)" : texPath.c_str());
+                                ImGui::Text("Texture: %s", texPath.empty() ? "(Embedded / None)" : texPath.c_str());
 
                                 char texBuf[260] = "";
                                 strncpy_s(texBuf, texPath.c_str(), sizeof(texBuf) - 1);
-                                if (ImGui::InputText("Texture Path", texBuf, sizeof(texBuf), ImGuiInputTextFlags_EnterReturnsTrue))
+                                if (ImGui::InputText("Replace Texture", texBuf, sizeof(texBuf), ImGuiInputTextFlags_EnterReturnsTrue))
                                 {
                                     std::string newStr = texBuf;
                                     mat->LoadTexture(std::wstring(newStr.begin(), newStr.end()));
@@ -1449,18 +1511,26 @@ void CInspectorUI::Draw()
                                     ImGui::TreePop();
                                 }
 
-                                // Material Save / Load buttons (.mat)
+                                // Material File Operations (.mat load / assign / export)
                                 ImGui::Spacing();
-                                static char matFilePath[128] = "Assets/Materials/Custom.mat";
-                                ImGui::InputText("Mat File", matFilePath, sizeof(matFilePath));
-                                if (ImGui::Button("Save Material (.mat)"))
+                                ImGui::Separator();
+                                ImGui::Text("Material File (.mat) Assignment:");
+
+                                static char slotMatFilePath[128] = "Assets/Materials/Default_Mesh.mat";
+                                ImGui::InputText("Mat Asset", slotMatFilePath, sizeof(slotMatFilePath));
+
+                                if (ImGui::Button("Assign .mat to Slot"))
                                 {
-                                    mat->SaveToFile(matFilePath);
+                                    auto newMat = MaterialManager::GetInstance().CreateInstance(slotMatFilePath);
+                                    if (newMat)
+                                    {
+                                        modelComp->SetMaterial(newMat, static_cast<UINT>(matIdx));
+                                    }
                                 }
                                 ImGui::SameLine();
-                                if (ImGui::Button("Load Material (.mat)"))
+                                if (ImGui::Button("Export Current (.mat)"))
                                 {
-                                    mat->LoadFromFile(matFilePath);
+                                    mat->SaveToFile(slotMatFilePath);
                                 }
 
                                 ImGui::PopID();
