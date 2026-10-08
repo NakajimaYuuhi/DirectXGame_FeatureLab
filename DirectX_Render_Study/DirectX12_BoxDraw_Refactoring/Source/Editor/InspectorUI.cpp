@@ -585,40 +585,7 @@ void CInspectorUI::Draw()
         ImGui::Separator();
     }
 
-    // 5. Hierarchy (Object List)
-    ImGui::Text("Hierarchy");
-    ImGui::BeginChild("HierarchyList", ImVec2(0, 180), true);
-    int objectCounter = 0;
-    
-    for (size_t tagIdx = 0; tagIdx < objectList.size(); ++tagIdx)
-    {
-        const auto& objVec = objectList[tagIdx];
-        if (objVec.empty()) continue;
-
-        if (ImGui::CollapsingHeader(("Tag: " + std::to_string(tagIdx)).c_str(), ImGuiTreeNodeFlags_DefaultOpen))
-        {
-            for (size_t i = 0; i < objVec.size(); ++i)
-            {
-                CObject* obj = objVec[i].get();
-                if (!obj || obj->GetIsDestroyed()) continue;
-
-                CObjectInfo* objInfo = obj->GetComponent<CObjectInfo>();
-                std::string objName = objInfo ? objInfo->GetObjectName() : "Object " + std::to_string(objectCounter);
-                std::string label = objName + "##" + std::to_string(tagIdx) + "_" + std::to_string(i);
-
-                bool isSelected = (m_selectedTagIndex == (int)tagIdx && m_selectedObjectIndex == (int)i);
-                if (ImGui::Selectable(label.c_str(), isSelected))
-                {
-                    m_selectedTagIndex = (int)tagIdx;
-                    m_selectedObjectIndex = (int)i;
-                }
-                objectCounter++;
-            }
-        }
-    }
-    ImGui::EndChild();
-
-    // 6. Inspector (Selected Object Details)
+    // Inspector (Selected Object Details)
     ImGui::Spacing();
     ImGui::Text("Inspector");
     ImGui::Separator();
