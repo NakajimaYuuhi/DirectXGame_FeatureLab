@@ -251,47 +251,8 @@ void CInspectorUI::Draw()
     auto& objectList = ObjectManager::GetInstance().GetObjectList();
     Scenes::ID currentSceneID = SceneManager::GetInstance().GetActiveSceneID();
 
-    // 1. Mode Controls
-    ImGui::Text("Mode & Simulation");
-    ImGui::SameLine();
-    if (ImGui::Button("Content Drawer (Ctrl+Space)"))
-    {
-        CContentDrawerUI::GetInstance().ToggleVisible();
-    }
-    if (m_isEditMode)
-    {
-        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.8f, 0.2f, 0.2f, 1.0f));
-        if (ImGui::Button("  [EDIT MODE] Click to Play  "))
-        {
-            m_isEditMode = false;
-            // Play Mode Start
-            for (auto& vec : objectList)
-            {
-                for (auto& obj : vec)
-                {
-                    if (obj && !obj->GetIsDestroyed())
-                    {
-                        if (!obj->GetHasAwoken()) obj->Awake();
-                        if (!obj->GetHasStarted()) obj->Start();
-                    }
-                }
-            }
-        }
-        ImGui::PopStyleColor();
-    }
-    else
-    {
-        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.2f, 0.8f, 0.2f, 1.0f));
-        if (ImGui::Button("  [PLAY MODE] Click to Edit  "))
-        {
-            m_isEditMode = true;
-            // Edit Mode Reload
-            SceneSerializer::LoadScene(m_sceneJsonPath, currentSceneID);
-        }
-        ImGui::PopStyleColor();
-    }
-
-    ImGui::SameLine();
+    // 1. Simulation & View Controls
+    ImGui::Text("Simulation Controls");
     if (ImGui::Button(m_isPaused ? " Resume " : " Pause "))
     {
         m_isPaused = !m_isPaused;
@@ -386,54 +347,7 @@ void CInspectorUI::Draw()
     }
     ImGui::Separator();
 
-    // 3. Prefab Palette (Object Spawner)
-    ImGui::Text("Prefab Spawner (Add Objects)");
-    if (ImGui::Button("+ Player"))
-    {
-        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::PLAYER, "Player", "Player");
-        if (newObj) newObj->Awake();
-    }
-    ImGui::SameLine();
-    if (ImGui::Button("+ Enemy"))
-    {
-        static int enemyCounter = 0;
-        std::string name = "Enemy_" + std::to_string(enemyCounter++);
-        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::ENEMY, "Enemy", name);
-        if (newObj) newObj->Awake();
-    }
-    ImGui::SameLine();
-    if (ImGui::Button("+ Box Field"))
-    {
-        static int boxCounter = 0;
-        std::string name = "Box_" + std::to_string(boxCounter++);
-        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::FIELD, "3DObject", name);
-        if (newObj) newObj->Awake();
-    }
-    ImGui::SameLine();
-    if (ImGui::Button("+ UI Image"))
-    {
-        static int uiCounter = 0;
-        std::string name = "UIImage_" + std::to_string(uiCounter++);
-        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::UI, "UIImage", name);
-        if (newObj) newObj->Awake();
-    }
-    ImGui::SameLine();
-    if (ImGui::Button("+ UI Button"))
-    {
-        static int btnCounter = 0;
-        std::string name = "UIButton_" + std::to_string(btnCounter++);
-        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::UI, "UIButton", name);
-        if (newObj) newObj->Awake();
-    }
-    ImGui::SameLine();
-    if (ImGui::Button("+ UI Text"))
-    {
-        static int txtCounter = 0;
-        std::string name = "Text_" + std::to_string(txtCounter++);
-        CObject* newObj = ObjectManager::GetInstance().Instantiate(currentSceneID, ObjectTag::TEXT, "Text", name);
-        if (newObj) newObj->Awake();
-    }
-    ImGui::Separator();
+
 
     // 4. JSON Scene Serialization
     ImGui::Text("Scene Serialization (JSON)");
