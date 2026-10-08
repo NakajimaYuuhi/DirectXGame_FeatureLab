@@ -91,6 +91,13 @@ public:
     float GetBloomSpread() const { return m_bloomSpread; }
     void SetBloomSpread(float spread) { m_bloomSpread = spread; }
 
+    // Additional PostProcess Effects
+    int GetPostProcessEffectType() const { return m_postProcessType; } // 0: None, 1: Grayscale, 2: Sepia, 3: Invert, 4: Vignette
+    void SetPostProcessEffectType(int type) { m_postProcessType = type; }
+
+    float GetPostProcessEffectStrength() const { return m_postProcessStrength; }
+    void SetPostProcessEffectStrength(float strength) { m_postProcessStrength = strength; }
+
     // Point Light Registration (Accumulated per frame from active Point Lights)
     void ClearPointLights();
     void AddPointLight(const DirectX::XMFLOAT3& pos, const DirectX::XMFLOAT3& color, float intensity, float range);
@@ -122,6 +129,10 @@ private:
     float m_bloomThreshold  = 0.8f;
     float m_bloomIntensity  = 1.0f;
     float m_bloomSpread     = 1.0f;
+
+    // PostProcess parameters
+    int   m_postProcessType     = 0;
+    float m_postProcessStrength = 1.0f;
 
     DirectX::XMMATRIX m_lightViewProj = DirectX::XMMatrixIdentity();
     bool m_isInitialized = false;

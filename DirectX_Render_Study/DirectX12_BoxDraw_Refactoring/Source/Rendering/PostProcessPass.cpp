@@ -1,4 +1,4 @@
-#include "PostProcessPass.h"
+Ôªø#include "PostProcessPass.h"
 #include <d3dcompiler.h>
 #include <stdexcept>
 #include "d3dx12.h"
@@ -17,7 +17,7 @@ PostProcessPass::PostProcessPass(RenderTexture* pSourceTex)
 void PostProcessPass::Init(ID3D12Device* pDevice)
 {
     // --------------------------------------------------------
-    // 1. ÉãÅ[ÉgÉVÉOÉlÉ`ÉÉçÏê¨
+    // 1. „É´„Éº„Éà„Ç∑„Ç∞„Éç„ÉÅ„É£‰ΩúÊàê
     // Param 0: 32-bit Constants (8 DWORD = 32 bytes, register b0)
     // Param 1: Descriptor Table (1 SRV, register t0) - Input / Main
     // Param 2: Descriptor Table (1 SRV, register t1) - Bloom blur
@@ -38,9 +38,9 @@ void PostProcessPass::Init(ID3D12Device* pDevice)
     rangeT1.Init(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 1, 0, D3D12_DESCRIPTOR_RANGE_FLAG_NONE);
     rootParams[2].InitAsDescriptorTable(1, &rangeT1, D3D12_SHADER_VISIBILITY_PIXEL);
 
-    // Sampler: Linear Clamp
+    // Static Sampler (s0: Linear Clamp)
     CD3DX12_STATIC_SAMPLER_DESC sampler(
-        0, // register s0
+        0, // shaderRegister
         D3D12_FILTER_MIN_MAG_MIP_LINEAR,
         D3D12_TEXTURE_ADDRESS_MODE_CLAMP,
         D3D12_TEXTURE_ADDRESS_MODE_CLAMP,
@@ -50,36 +50,42 @@ void PostProcessPass::Init(ID3D12Device* pDevice)
     CD3DX12_VERSIONED_ROOT_SIGNATURE_DESC rootSigDesc;
     rootSigDesc.Init_1_1(3, rootParams, 1, &sampler, D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT);
 
-    Microsoft::WRL::ComPtr<ID3DBlob> sigBlob, errBlob;
-    HRESULT hr = D3D12SerializeVersionedRootSignature(&rootSigDesc, &sigBlob, &errBlob);
+    Microsoft::WRL::ComPtr<ID3DBlob> signatureBlob;
+    Microsoft::WRL::ComPtr<ID3DBlob> errorBlob;
+    HRESULT hr = D3DX12SerializeVersionedRootSignature(
+        &rootSigDesc,
+        D3D_ROOT_SIGNATURE_VERSION_1_1,
+        &signatureBlob,
+        &errorBlob
+    );
     if (FAILED(hr))
     {
-        if (errBlob)
-        {
-            OutputDebugStringA((char*)errBlob->GetBufferPointer());
-        }
+        if (errorBlob) OutputDebugStringA((char*)errorBlob->GetBufferPointer());
         throw std::runtime_error("Failed to serialize PostProcess RootSignature");
     }
 
-    hr = pDevice->CreateRootSignature(0, sigBlob->GetBufferPointer(), sigBlob->GetBufferSize(), IID_PPV_ARGS(&m_pRootSignature));
+    hr = pDevice->CreateRootSignature(
+        0, signatureBlob->GetBufferPointer(), signatureBlob->GetBufferSize(),
+        IID_PPV_ARGS(&m_pRootSignature)
+    );
     if (FAILED(hr))
     {
         throw std::runtime_error("Failed to create PostProcess RootSignature");
     }
 
     // --------------------------------------------------------
-    // 2. ÉVÉFÅ[É_ÉRÉìÉpÉCÉã
+    // 2. „Ç∑„Çß„Éº„ÉÄ„Éº„Ç≥„É≥„Éë„Ç§„É´
     // --------------------------------------------------------
-    UINT compileFlags = D3DCOMPILE_ENABLE_STRICTNESS;
-#if defined(_DEBUG)
-    compileFlags |= D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION;
-#endif
-
     Microsoft::WRL::ComPtr<ID3DBlob> vsBlob;
     Microsoft::WRL::ComPtr<ID3DBlob> psPassThroughBlob;
     Microsoft::WRL::ComPtr<ID3DBlob> psBrightBlob;
     Microsoft::WRL::ComPtr<ID3DBlob> psBlurBlob;
     Microsoft::WRL::ComPtr<ID3DBlob> psCompositeBlob;
+
+    UINT compileFlags = 0;
+#ifdef _DEBUG
+    compileFlags = D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION;
+#endif
 
     auto CompileShader = [&](const char* entryPoint, const char* target, Microsoft::WRL::ComPtr<ID3DBlob>& blob)
     {
@@ -102,7 +108,7 @@ void PostProcessPass::Init(ID3D12Device* pDevice)
     CompileShader("PSComposite",   "ps_5_0", psCompositeBlob);
 
     // --------------------------------------------------------
-    // 3. äePSOçÏê¨ópÉwÉãÉpÅ[
+    // 3. ÂêÑPSO‰ΩúÊàê„Éò„É´„Éë„Éº
     // --------------------------------------------------------
     auto BuildPSO = [&](ID3DBlob* ps, Microsoft::WRL::ComPtr<ID3D12PipelineState>& outPSO)
     {
@@ -110,11 +116,25 @@ void PostProcessPass::Init(ID3D12Device* pDevice)
         psoDesc.pRootSignature = m_pRootSignature.Get();
         psoDesc.VS = CD3DX12_SHADER_BYTECODE(vsBlob.Get());
         psoDesc.PS = CD3DX12_SHADER_BYTECODE(ps);
-        psoDesc.RasterizerState = CD3DX12_RASTERIZER_DESC(D3D12_DEFAULT);
-        psoDesc.RasterizerState.CullMode = D3D12_CULL_MODE_NONE;
-        psoDesc.BlendState = CD3DX12_BLEND_DESC(D3D12_DEFAULT);
-        psoDesc.DepthStencilState.DepthEnable = FALSE;
-        psoDesc.DepthStencilState.StencilEnable = FALSE;
+
+        // „Éï„É´„Çπ„ÇØ„É™„Éº„É≥„ÇØ„Ç¢„ÉÉ„Éâ„ÅÆ„Åü„ÇÅÈ†ÇÁÇπ„É¨„Ç§„Ç¢„Ç¶„Éà„ÅØÁ©∫
+        psoDesc.InputLayout = { nullptr, 0 };
+
+        // „Éñ„É¨„É≥„Éâ„Çπ„ÉÜ„Éº„Éà (‰∏çÈÄèÊòé‰∏äÊõ∏„Åç)
+        CD3DX12_BLEND_DESC blendDesc(D3D12_DEFAULT);
+        psoDesc.BlendState = blendDesc;
+
+        // „É©„Çπ„Çø„É©„Ç§„Ç∂„Éº„Çπ„ÉÜ„Éº„Éà („Ç´„É™„É≥„Ç∞„Å™„Åó)
+        CD3DX12_RASTERIZER_DESC rastDesc(D3D12_DEFAULT);
+        rastDesc.CullMode = D3D12_CULL_MODE_NONE;
+        psoDesc.RasterizerState = rastDesc;
+
+        // Ê∑±Â∫¶„ÉÜ„Çπ„ÉàÁÑ°Âäπ
+        CD3DX12_DEPTH_STENCIL_DESC depthDesc(D3D12_DEFAULT);
+        depthDesc.DepthEnable = FALSE;
+        depthDesc.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ZERO;
+        psoDesc.DepthStencilState = depthDesc;
+
         psoDesc.SampleMask = UINT_MAX;
         psoDesc.PrimitiveTopologyType = D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE;
         psoDesc.NumRenderTargets = 1;
@@ -134,7 +154,7 @@ void PostProcessPass::Init(ID3D12Device* pDevice)
     BuildPSO(psCompositeBlob.Get(),   m_pCompositePSO);
 
     // --------------------------------------------------------
-    // 4. ÉuÉãÅ[ÉÄçÏã∆óp 1/2 âëúìxÉeÉNÉXÉ`ÉÉÇÃçÏê¨
+    // 4. „Éñ„É´„Éº„É†Áî® 1/2 Ëß£ÂÉèÂ∫¶„ÉÜ„ÇØ„Çπ„ÉÅ„É£„ÅÆ‰ΩúÊàê
     // --------------------------------------------------------
     UINT bloomWidth  = SCREEN_WIDTH / 2;
     UINT bloomHeight = SCREEN_HEIGHT / 2;
@@ -143,7 +163,7 @@ void PostProcessPass::Init(ID3D12Device* pDevice)
     m_pBlurTexTemp = std::make_unique<RenderTexture>(pDevice, bloomWidth, bloomHeight, DXGI_FORMAT_R8G8B8A8_UNORM);
 
     // --------------------------------------------------------
-    // 5. ç≈èIçáê¨åãâ óp ÉtÉãâëúìxÉeÉNÉXÉ`ÉÉÇÃçÏê¨ (Viewportï\é¶óp)
+    // 5. ÊúÄÁµÇÂá∫ÂäõÁî® „Éï„É´Ëß£ÂÉèÂ∫¶„ÉÜ„ÇØ„Çπ„ÉÅ„É£„ÅÆ‰ΩúÊàê (ViewportË°®Á§∫Áî®)
     // --------------------------------------------------------
     m_pFinalTex = std::make_unique<RenderTexture>(pDevice, SCREEN_WIDTH, SCREEN_HEIGHT, DXGI_FORMAT_R8G8B8A8_UNORM);
 }
@@ -152,7 +172,7 @@ void PostProcessPass::Execute(const RenderContext& ctx)
 {
     if (!m_pSourceTex || !m_pCompositePSO || !m_pFinalTex) return;
 
-    // 0. SRVÉfÉXÉNÉäÉvÉ^ÉqÅ[ÉvÇÉoÉCÉìÉh
+    // 0. SRV„Éá„Çπ„ÇØ„É™„Éó„Çø„Éí„Éº„Éó„Éê„Ç§„É≥„Éâ
     ID3D12DescriptorHeap* heaps[] = { DX12Manager::GetInstance().GetSRVHeap() };
     ctx.cmdList->SetDescriptorHeaps(1, heaps);
 
@@ -161,6 +181,7 @@ void PostProcessPass::Execute(const RenderContext& ctx)
 
     const LightManager& lightMgr = LightManager::GetInstance();
     bool bloomEnabled = lightMgr.IsBloomEnabled();
+    int effectType = lightMgr.GetPostProcessEffectType();
 
     struct PostProcessConstants
     {
@@ -171,7 +192,7 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         float dirX;
         float dirY;
         float bloomEnabled;
-        float padding;
+        float effectType;
     };
 
     D3D12_VIEWPORT vpFull = { 0.0f, 0.0f, static_cast<float>(ctx.screenWidth), static_cast<float>(ctx.screenHeight), 0.0f, 1.0f };
@@ -190,7 +211,7 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         D3D12_RECT scHalf = { 0, 0, static_cast<LONG>(bloomW), static_cast<LONG>(bloomH) };
 
         // --------------------------------------------------------
-        // Step 1: çÇãPìxíäèo (Bright Pass: SceneTex -> BrightTex)
+        // Step 1: ËºùÂ∫¶ÊäΩÂá∫ (Bright Pass: SceneTex -> BrightTex)
         // --------------------------------------------------------
         m_pSourceTex->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE);
         m_pBrightTex->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_RENDER_TARGET);
@@ -210,13 +231,14 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         cb.dirX         = 0.0f;
         cb.dirY         = 0.0f;
         cb.bloomEnabled = 1.0f;
+        cb.effectType   = static_cast<float>(effectType);
         ctx.cmdList->SetGraphicsRoot32BitConstants(0, 8, &cb, 0);
 
         ctx.cmdList->SetGraphicsRootDescriptorTable(1, m_pSourceTex->GetSRV());
         ctx.cmdList->DrawInstanced(3, 1, 0, 0);
 
         // --------------------------------------------------------
-        // Step 2: êÖïΩÉKÉEÉXÉuÉâÅ[ (Horizontal Blur: BrightTex -> BlurTexTemp)
+        // Step 2: „Ç¨„Ç¶„Çπ„Éñ„É©„Éº (Horizontal Blur: BrightTex -> BlurTexTemp)
         // --------------------------------------------------------
         m_pBrightTex->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE);
         m_pBlurTexTemp->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_RENDER_TARGET);
@@ -234,7 +256,7 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         ctx.cmdList->DrawInstanced(3, 1, 0, 0);
 
         // --------------------------------------------------------
-        // Step 3: êÇíºÉKÉEÉXÉuÉâÅ[ (Vertical Blur: BlurTexTemp -> BrightTex)
+        // Step 3: „Ç¨„Ç¶„Çπ„Éñ„É©„Éº (Vertical Blur: BlurTexTemp -> BrightTex)
         // --------------------------------------------------------
         m_pBlurTexTemp->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE);
         m_pBrightTex->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_RENDER_TARGET);
@@ -249,7 +271,7 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         ctx.cmdList->DrawInstanced(3, 1, 0, 0);
 
         // --------------------------------------------------------
-        // Step 4: ç≈èIçáê¨ (Composite: SceneTex + BrightTex -> m_pFinalTex)
+        // Step 4: ÊúÄÁµÇÂêàÊàê (Composite: SceneTex + BrightTex -> m_pFinalTex)
         // --------------------------------------------------------
         m_pBrightTex->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE);
         m_pFinalTex->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_RENDER_TARGET);
@@ -262,20 +284,21 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         ctx.cmdList->SetPipelineState(m_pCompositePSO.Get());
 
         cb.bloomEnabled = 1.0f;
+        cb.effectType   = static_cast<float>(effectType);
         ctx.cmdList->SetGraphicsRoot32BitConstants(0, 8, &cb, 0);
 
         ctx.cmdList->SetGraphicsRootDescriptorTable(1, m_pSourceTex->GetSRV());
         ctx.cmdList->SetGraphicsRootDescriptorTable(2, m_pBrightTex->GetSRV());
         ctx.cmdList->DrawInstanced(3, 1, 0, 0);
 
-        // Viewportï\é¶ópÇ…ÉeÉNÉXÉ`ÉÉÇPIXEL_SHADER_RESOURCEÇ÷ëJà⁄
+        // ViewportË°®Á§∫Áî®„Å´„ÉÜ„ÇØ„Çπ„ÉÅ„É£„ÇíPIXEL_SHADER_RESOURCE„Å∏ÈÅ∑Áßª
         m_pFinalTex->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE);
         CViewportUI::GetInstance().SetTextureSRV(m_pFinalTex->GetSRV());
 
-                // --------------------------------------------------------
-        // Step 5: ÉoÉbÉNÉoÉbÉtÉ@Ç÷ÇÃèoóÕ (m_pFinalTex -> BackBuffer)
-        // Å¶DebugÉrÉãÉhÇ©Ç¬ViewportUIï\é¶éûÇÕViewportì‡ÇÃÇ›èoóÕÇµÅAÉoÉbÉNÉoÉbÉtÉ@Ç÷ÇÕï`âÊÇµÇ»Ç¢
-                // ÉoÉbÉNÉoÉbÉtÉ@Ç÷èoóÕÅiDebugÉrÉãÉhÇ©Ç¬Viewportï\é¶éûÇÕÉXÉLÉbÉvÅj
+        // --------------------------------------------------------
+        // Step 5: „Éê„ÉÉ„ÇØ„Éê„ÉÉ„Éï„Ç°„Å∏„ÅÆÂá∫Âäõ (m_pFinalTex -> BackBuffer)
+        // ‚ÄªDebug„Éì„É´„Éâ„ÅßViewportUIË°®Á§∫ÊôÇ„ÅØViewport„ÅÆ„ÅøÂá∫Âäõ„Åó„ÄÅ„Éê„ÉÉ„ÇØ„Éê„ÉÉ„Éï„Ç°„Å∏„ÅØÊèèÁîª„Åó„Å™„ÅÑ
+        // --------------------------------------------------------
         bool outputToBackBuffer = true;
 #ifdef _DEBUG
         if (CViewportUI::GetInstance().IsVisible())
@@ -297,7 +320,7 @@ void PostProcessPass::Execute(const RenderContext& ctx)
     else
     {
         // --------------------------------------------------------
-        // ÉuÉãÅ[ÉÄñ≥å¯éû: ÉpÉXÉXÉãÅ[ (SceneTex -> m_pFinalTex -> BackBuffer)
+        // „Éñ„É´„Éº„É†ÁÑ°Âäπ: „Éë„Çπ„Çπ„É´„Éº (SceneTex -> m_pFinalTex -> BackBuffer)
         // --------------------------------------------------------
         m_pSourceTex->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE);
         m_pFinalTex->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_RENDER_TARGET);
@@ -308,20 +331,35 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         ctx.cmdList->RSSetScissorRects(1, &scFull);
 
         ctx.cmdList->SetPipelineState(m_pPassThroughPSO.Get());
+
+        PostProcessConstants cb{};
+        cb.effectType = static_cast<float>(effectType);
+        ctx.cmdList->SetGraphicsRoot32BitConstants(0, 8, &cb, 0);
+
         ctx.cmdList->SetGraphicsRootDescriptorTable(1, m_pSourceTex->GetSRV());
         ctx.cmdList->DrawInstanced(3, 1, 0, 0);
 
-        // Viewportï\é¶ópÇ…ÉeÉNÉXÉ`ÉÉÇPIXEL_SHADER_RESOURCEÇ÷ëJà⁄
+        // ViewportË°®Á§∫Áî®„Å´„ÉÜ„ÇØ„Çπ„ÉÅ„É£„ÇíPIXEL_SHADER_RESOURCE„Å∏ÈÅ∑Áßª
         m_pFinalTex->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE);
         CViewportUI::GetInstance().SetTextureSRV(m_pFinalTex->GetSRV());
 
-        // ÉoÉbÉNÉoÉbÉtÉ@Ç÷èoóÕ
-        ctx.cmdList->OMSetRenderTargets(1, &ctx.backBufferRTV, FALSE, nullptr);
-        ctx.cmdList->RSSetViewports(1, &vpFull);
-        ctx.cmdList->RSSetScissorRects(1, &scFull);
+        // „Éê„ÉÉ„ÇØ„Éê„ÉÉ„Éï„Ç°„Å∏Âá∫Âäõ
+        bool outputToBackBuffer = true;
+#ifdef _DEBUG
+        if (CViewportUI::GetInstance().IsVisible())
+        {
+            outputToBackBuffer = false;
+        }
+#endif
+        if (outputToBackBuffer)
+        {
+            ctx.cmdList->OMSetRenderTargets(1, &ctx.backBufferRTV, FALSE, nullptr);
+            ctx.cmdList->RSSetViewports(1, &vpFull);
+            ctx.cmdList->RSSetScissorRects(1, &scFull);
 
-        ctx.cmdList->SetPipelineState(m_pPassThroughPSO.Get());
-        ctx.cmdList->SetGraphicsRootDescriptorTable(1, m_pFinalTex->GetSRV());
-        ctx.cmdList->DrawInstanced(3, 1, 0, 0);
+            ctx.cmdList->SetPipelineState(m_pPassThroughPSO.Get());
+            ctx.cmdList->SetGraphicsRootDescriptorTable(1, m_pFinalTex->GetSRV());
+            ctx.cmdList->DrawInstanced(3, 1, 0, 0);
+        }
     }
 }

@@ -572,6 +572,16 @@ void CInspectorUI::Draw()
             }
         }
 
+        // Post-Process Filters (Grayscale, Sepia, Invert, Vignette)
+        ImGui::Spacing();
+        ImGui::Text("Post-Process Color Filter");
+        const char* ppEffects[] = { "None", "Grayscale", "Sepia", "Invert", "Vignette" };
+        int currentPPEffect = lightMgr.GetPostProcessEffectType();
+        if (ImGui::Combo("Filter Effect", &currentPPEffect, ppEffects, IM_ARRAYSIZE(ppEffects)))
+        {
+            lightMgr.SetPostProcessEffectType(currentPPEffect);
+        }
+
         ImGui::Separator();
     }
 
