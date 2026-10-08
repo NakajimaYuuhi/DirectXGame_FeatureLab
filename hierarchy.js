@@ -71,7 +71,6 @@ var hierarchy =
     [ "tinygltf::detail::CJ_NoAllocator", "structtinygltf_1_1detail_1_1CJ__NoAllocator.html", null ],
     [ "cj_parse_ctx", "structcj__parse__ctx.html", null ],
     [ "cj_strbuf", "structcj__strbuf.html", null ],
-    [ "CMaterial", "classCMaterial.html", null ],
     [ "CMesh", "classCMesh.html", null ],
     [ "CObject", "classCObject.html", [
       [ "Manager", "classManager.html", null ]
@@ -103,6 +102,9 @@ var hierarchy =
     [ "EaseUtility", "classEaseUtility.html", null ],
     [ "EditorCamera", "classEditorCamera.html", null ],
     [ "EditorRaycast", "classEditorRaycast.html", null ],
+    [ "std::enable_shared_from_this", null, [
+      [ "CMaterial", "classCMaterial.html", null ]
+    ] ],
     [ "Event", "classEvent.html", null ],
     [ "EventData", "classEventData.html", [
       [ "EventData_NextScene", "classEventData__NextScene.html", null ]
@@ -485,7 +487,9 @@ var hierarchy =
     [ "LoadedModelData", "structLoadedModelData.html", null ],
     [ "nlohmann::detail::make_void< Ts >", "structnlohmann_1_1detail_1_1make__void.html", null ],
     [ "tinygltf::Material", "structtinygltf_1_1Material.html", null ],
+    [ "MaterialBufferData", "structMaterialBufferData.html", null ],
     [ "MaterialData", "structMaterialData.html", null ],
+    [ "MaterialManager", "classMaterialManager.html", null ],
     [ "tinygltf::Mesh", "structtinygltf_1_1Mesh.html", null ],
     [ "MeshConstantBufferData", "structMeshConstantBufferData.html", null ],
     [ "MeshData", "structMeshData.html", null ],

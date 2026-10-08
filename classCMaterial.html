@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('classCMaterial.html',''); initResizabl
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pri-methods">非公開メンバ関数</a> &#124;
 <a href="#pri-attribs">非公開変数類</a> &#124;
 <a href="classCMaterial-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">CMaterial クラス</div></div>
@@ -99,15 +100,39 @@ $(document).ready(function(){initNavTree('classCMaterial.html',''); initResizabl
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="Material_8h_source.html">Material.h</a>&gt;</code></p>
+<div class="dynheader">
+CMaterial の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCMaterial__inherit__graph.svg" width="195" height="124"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+CMaterial 連携図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCMaterial__coll__graph.svg" width="366" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
+<tr class="memitem:aec5f4576141a2dd3a1ffce6491c34912" id="r_aec5f4576141a2dd3a1ffce6491c34912"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#aec5f4576141a2dd3a1ffce6491c34912">CMaterial</a> ()</td></tr>
+<tr class="separator:aec5f4576141a2dd3a1ffce6491c34912"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab63eb3abe9435904350cc8bd013a89eb" id="r_ab63eb3abe9435904350cc8bd013a89eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#ab63eb3abe9435904350cc8bd013a89eb">CMaterial</a> (<a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a> _FilePath, <a class="el" href="Material_8h.html#ac8b60b8e94f1c20a4c6060ee931ba609">XMFLOAT4</a> _Color, <a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a> shaderFile=L&quot;Assets/<a class="el" href="classShader.html">Shader</a>/Triangle.hlsl&quot;, <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">string</a> vsEntry=&quot;VSMain&quot;, <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">string</a> psEntry=&quot;PSMain&quot;, <a class="el" href="BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85">BlendMode</a> blendMode=<a class="el" href="BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85afaa90538de35640e4b1e31ccf35b6eb5">BlendMode::Opaque</a>)</td></tr>
 <tr class="separator:ab63eb3abe9435904350cc8bd013a89eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4e986a9a628c785b4f0a0684064a2ca" id="r_ad4e986a9a628c785b4f0a0684064a2ca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#ad4e986a9a628c785b4f0a0684064a2ca">~CMaterial</a> ()</td></tr>
+<tr class="separator:ad4e986a9a628c785b4f0a0684064a2ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a934cf6581bd9e482a9dbae73ac613d07" id="r_a934cf6581bd9e482a9dbae73ac613d07"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classCMaterial.html">CMaterial</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a934cf6581bd9e482a9dbae73ac613d07">Clone</a> () const</td></tr>
+<tr class="separator:a934cf6581bd9e482a9dbae73ac613d07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a963b3fbc9cf1bd42e5805a1782f72b95" id="r_a963b3fbc9cf1bd42e5805a1782f72b95"><td class="memItemLeft" align="right" valign="top">D3D12_GPU_DESCRIPTOR_HANDLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a963b3fbc9cf1bd42e5805a1782f72b95">GetGpuHandle</a> ()</td></tr>
 <tr class="separator:a963b3fbc9cf1bd42e5805a1782f72b95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedd8eee02b1c1d0d247338304eddb4d8" id="r_aedd8eee02b1c1d0d247338304eddb4d8"><td class="memItemLeft" align="right" valign="top">D3D12_GPU_VIRTUAL_ADDRESS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#aedd8eee02b1c1d0d247338304eddb4d8">GetConstantBufferGPUAddress</a> ()</td></tr>
+<tr class="separator:aedd8eee02b1c1d0d247338304eddb4d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af16b888b2da2a65e8dbe3d62cd008c54" id="r_af16b888b2da2a65e8dbe3d62cd008c54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#af16b888b2da2a65e8dbe3d62cd008c54">LoadTexture</a> (<a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a> _FilePath)</td></tr>
 <tr class="separator:af16b888b2da2a65e8dbe3d62cd008c54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe5e49b6e6e4c0d11282e124804b9c18" id="r_abe5e49b6e6e4c0d11282e124804b9c18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#abe5e49b6e6e4c0d11282e124804b9c18">SetTexture</a> (<a class="el" href="Material_8h.html#affde712b32c38228461fafa7f703afe0">pTexture</a> texture, const <a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a> &amp;filePath=L&quot;&quot;)</td></tr>
+<tr class="separator:abe5e49b6e6e4c0d11282e124804b9c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fca6ae97eca912f7695e9e244a41462" id="r_a6fca6ae97eca912f7695e9e244a41462"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Material_8h.html#affde712b32c38228461fafa7f703afe0">pTexture</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a6fca6ae97eca912f7695e9e244a41462">GetTexture</a> () const</td></tr>
+<tr class="separator:a6fca6ae97eca912f7695e9e244a41462"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab67fdc4c4718b8381da11b5cb5f7ff7d" id="r_ab67fdc4c4718b8381da11b5cb5f7ff7d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#ab67fdc4c4718b8381da11b5cb5f7ff7d">GetTextureFilePath</a> () const</td></tr>
+<tr class="separator:ab67fdc4c4718b8381da11b5cb5f7ff7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b0f1135f2487b03a55908c14b204ffa" id="r_a7b0f1135f2487b03a55908c14b204ffa"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a7b0f1135f2487b03a55908c14b204ffa">GetShaderFile</a> () const</td></tr>
 <tr class="separator:a7b0f1135f2487b03a55908c14b204ffa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff5232b18c8898bcd6a2e5d7976ae8f9" id="r_aff5232b18c8898bcd6a2e5d7976ae8f9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#aff5232b18c8898bcd6a2e5d7976ae8f9">GetVsEntry</a> () const</td></tr>
@@ -116,17 +141,64 @@ $(document).ready(function(){initNavTree('classCMaterial.html',''); initResizabl
 <tr class="separator:abd8a9374b7aba1877bf095993973346f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af82f9fc7cb487d5ce2085cd4dfac5d67" id="r_af82f9fc7cb487d5ce2085cd4dfac5d67"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85">BlendMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#af82f9fc7cb487d5ce2085cd4dfac5d67">GetBlendMode</a> () const</td></tr>
 <tr class="separator:af82f9fc7cb487d5ce2085cd4dfac5d67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fe2ded8e62f5e203596584272529bee" id="r_a3fe2ded8e62f5e203596584272529bee"><td class="memItemLeft" align="right" valign="top">D3D12_CULL_MODE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a3fe2ded8e62f5e203596584272529bee">GetCullMode</a> () const</td></tr>
+<tr class="separator:a3fe2ded8e62f5e203596584272529bee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a503f0de0776c7ab46c47e7e5a3ff59f4" id="r_a503f0de0776c7ab46c47e7e5a3ff59f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a503f0de0776c7ab46c47e7e5a3ff59f4">SetShader</a> (<a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a> shaderFile, <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">string</a> vsEntry=&quot;VSMain&quot;, <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">string</a> psEntry=&quot;PSMain&quot;)</td></tr>
 <tr class="separator:a503f0de0776c7ab46c47e7e5a3ff59f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bd42ae8b076d452755b4795ef810dcd" id="r_a5bd42ae8b076d452755b4795ef810dcd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a5bd42ae8b076d452755b4795ef810dcd">SetBlendMode</a> (<a class="el" href="BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85">BlendMode</a> blendMode)</td></tr>
 <tr class="separator:a5bd42ae8b076d452755b4795ef810dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c4b22413041bbb83ef2f2407a634b58" id="r_a4c4b22413041bbb83ef2f2407a634b58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a4c4b22413041bbb83ef2f2407a634b58">SetCullMode</a> (D3D12_CULL_MODE cullMode)</td></tr>
+<tr class="separator:a4c4b22413041bbb83ef2f2407a634b58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67c509780734f973eef4ed4bae03e448" id="r_a67c509780734f973eef4ed4bae03e448"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMaterialBufferData.html">MaterialBufferData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a67c509780734f973eef4ed4bae03e448">GetData</a> ()</td></tr>
+<tr class="separator:a67c509780734f973eef4ed4bae03e448"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32800e4198732d4045d1d7e065e238e2" id="r_a32800e4198732d4045d1d7e065e238e2"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structMaterialBufferData.html">MaterialBufferData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a32800e4198732d4045d1d7e065e238e2">GetData</a> () const</td></tr>
+<tr class="separator:a32800e4198732d4045d1d7e065e238e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa41e087bf4ee6c30b6c73f3c6669ad9" id="r_afa41e087bf4ee6c30b6c73f3c6669ad9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#afa41e087bf4ee6c30b6c73f3c6669ad9">SetColor</a> (const <a class="el" href="Material_8h.html#ac8b60b8e94f1c20a4c6060ee931ba609">XMFLOAT4</a> &amp;color)</td></tr>
+<tr class="separator:afa41e087bf4ee6c30b6c73f3c6669ad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af57654bb797f866ab40b440b105bb5d9" id="r_af57654bb797f866ab40b440b105bb5d9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="Material_8h.html#ac8b60b8e94f1c20a4c6060ee931ba609">XMFLOAT4</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#af57654bb797f866ab40b440b105bb5d9">GetColor</a> () const</td></tr>
+<tr class="separator:af57654bb797f866ab40b440b105bb5d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef1205a38eb08c362616d79aab554611" id="r_aef1205a38eb08c362616d79aab554611"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#aef1205a38eb08c362616d79aab554611">SetUVTiling</a> (const <a class="el" href="Material_8h.html#a0e17a5e72984fef7ff49d91c422d97dc">XMFLOAT2</a> &amp;tiling)</td></tr>
+<tr class="separator:aef1205a38eb08c362616d79aab554611"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cec88dc1c5f327ebf5eb3b17625713f" id="r_a1cec88dc1c5f327ebf5eb3b17625713f"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="Material_8h.html#a0e17a5e72984fef7ff49d91c422d97dc">XMFLOAT2</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a1cec88dc1c5f327ebf5eb3b17625713f">GetUVTiling</a> () const</td></tr>
+<tr class="separator:a1cec88dc1c5f327ebf5eb3b17625713f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ca431f25f373678093accce1b50b232" id="r_a4ca431f25f373678093accce1b50b232"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a4ca431f25f373678093accce1b50b232">SetUVOffset</a> (const <a class="el" href="Material_8h.html#a0e17a5e72984fef7ff49d91c422d97dc">XMFLOAT2</a> &amp;offset)</td></tr>
+<tr class="separator:a4ca431f25f373678093accce1b50b232"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa93ef968009d26f880019bebda3a108b" id="r_aa93ef968009d26f880019bebda3a108b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="Material_8h.html#a0e17a5e72984fef7ff49d91c422d97dc">XMFLOAT2</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#aa93ef968009d26f880019bebda3a108b">GetUVOffset</a> () const</td></tr>
+<tr class="separator:aa93ef968009d26f880019bebda3a108b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca431175a2bdcb36037d2f7b0ead2c06" id="r_aca431175a2bdcb36037d2f7b0ead2c06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#aca431175a2bdcb36037d2f7b0ead2c06">SetRoughness</a> (float roughness)</td></tr>
+<tr class="separator:aca431175a2bdcb36037d2f7b0ead2c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf960f8f021bb62c2a4ef3f06a08b76f" id="r_abf960f8f021bb62c2a4ef3f06a08b76f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#abf960f8f021bb62c2a4ef3f06a08b76f">GetRoughness</a> () const</td></tr>
+<tr class="separator:abf960f8f021bb62c2a4ef3f06a08b76f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a710d62f960071369536b580bd280dade" id="r_a710d62f960071369536b580bd280dade"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a710d62f960071369536b580bd280dade">SetMetallic</a> (float metallic)</td></tr>
+<tr class="separator:a710d62f960071369536b580bd280dade"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53f8d89b14264f5095ffbf8ad8076097" id="r_a53f8d89b14264f5095ffbf8ad8076097"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a53f8d89b14264f5095ffbf8ad8076097">GetMetallic</a> () const</td></tr>
+<tr class="separator:a53f8d89b14264f5095ffbf8ad8076097"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaeac684fe97fbc0df060d95ce2216300" id="r_aaeac684fe97fbc0df060d95ce2216300"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#aaeac684fe97fbc0df060d95ce2216300">SetCustomParam</a> (int vectorIndex, int elementIndex, float value)</td></tr>
+<tr class="separator:aaeac684fe97fbc0df060d95ce2216300"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8f5d73c457b873b415d65cd8626ad82" id="r_aa8f5d73c457b873b415d65cd8626ad82"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#aa8f5d73c457b873b415d65cd8626ad82">GetCustomParam</a> (int vectorIndex, int elementIndex) const</td></tr>
+<tr class="separator:aa8f5d73c457b873b415d65cd8626ad82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a096081939560983836d87d93177787f1" id="r_a096081939560983836d87d93177787f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a096081939560983836d87d93177787f1">UpdateBuffer</a> ()</td></tr>
+<tr class="separator:a096081939560983836d87d93177787f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad19a93909895810d9ef51c346c06b3c5" id="r_ad19a93909895810d9ef51c346c06b3c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#ad19a93909895810d9ef51c346c06b3c5">Bind</a> (ID3D12GraphicsCommandList *cmdList, UINT rootParameterIndexCBV, UINT rootParameterIndexSRV)</td></tr>
+<tr class="separator:ad19a93909895810d9ef51c346c06b3c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d8910f30b0726ccaa8bb69c1e2afecb" id="r_a0d8910f30b0726ccaa8bb69c1e2afecb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a0d8910f30b0726ccaa8bb69c1e2afecb">SaveToFile</a> (const std::string &amp;filePath)</td></tr>
+<tr class="separator:a0d8910f30b0726ccaa8bb69c1e2afecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b62d65dfde1449b7b788b6089b62d47" id="r_a0b62d65dfde1449b7b788b6089b62d47"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a0b62d65dfde1449b7b788b6089b62d47">LoadFromFile</a> (const std::string &amp;filePath)</td></tr>
+<tr class="separator:a0b62d65dfde1449b7b788b6089b62d47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+非公開メンバ関数</h2></td></tr>
+<tr class="memitem:a50205b6dbb53dca1f2fcc321fc524419" id="r_a50205b6dbb53dca1f2fcc321fc524419"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a50205b6dbb53dca1f2fcc321fc524419">CreateConstantBuffer</a> ()</td></tr>
+<tr class="separator:a50205b6dbb53dca1f2fcc321fc524419"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 非公開変数類</h2></td></tr>
 <tr class="memitem:ab007c0e5d4fb93ef2d74a7f3417b2f6e" id="r_ab007c0e5d4fb93ef2d74a7f3417b2f6e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Material_8h.html#affde712b32c38228461fafa7f703afe0">pTexture</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#ab007c0e5d4fb93ef2d74a7f3417b2f6e">m_Texture</a></td></tr>
 <tr class="separator:ab007c0e5d4fb93ef2d74a7f3417b2f6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf2fcdd629e5ffc98b91d1370d0f2268" id="r_acf2fcdd629e5ffc98b91d1370d0f2268"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Material_8h.html#aa06ee67baf54d5ede87c0bcb743d6b45">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#acf2fcdd629e5ffc98b91d1370d0f2268">m_Color</a></td></tr>
-<tr class="separator:acf2fcdd629e5ffc98b91d1370d0f2268"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab66f4d497b673dc27c53aca3d3283922" id="r_ab66f4d497b673dc27c53aca3d3283922"><td class="memItemLeft" align="right" valign="top"><a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#ab66f4d497b673dc27c53aca3d3283922">m_TextureFilePath</a></td></tr>
+<tr class="separator:ab66f4d497b673dc27c53aca3d3283922"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa541f9500937abdf9ce3e4f50e2ca9b0" id="r_aa541f9500937abdf9ce3e4f50e2ca9b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMaterialBufferData.html">MaterialBufferData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#aa541f9500937abdf9ce3e4f50e2ca9b0">m_Data</a></td></tr>
+<tr class="separator:aa541f9500937abdf9ce3e4f50e2ca9b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d48d6c5419ac5d5e3fec8b9a4c35c88" id="r_a7d48d6c5419ac5d5e3fec8b9a4c35c88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a7d48d6c5419ac5d5e3fec8b9a4c35c88">m_ShaderFile</a></td></tr>
 <tr class="separator:a7d48d6c5419ac5d5e3fec8b9a4c35c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5070649cfbef6173b87dd47f0339aaf" id="r_ab5070649cfbef6173b87dd47f0339aaf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#ab5070649cfbef6173b87dd47f0339aaf">m_VsEntry</a></td></tr>
@@ -135,10 +207,40 @@ $(document).ready(function(){initNavTree('classCMaterial.html',''); initResizabl
 <tr class="separator:a25ff8455bd259284d26e3408f08ead98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8aec0728b71c9916212d9d21a6aa804" id="r_ae8aec0728b71c9916212d9d21a6aa804"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85">BlendMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#ae8aec0728b71c9916212d9d21a6aa804">m_BlendMode</a></td></tr>
 <tr class="separator:ae8aec0728b71c9916212d9d21a6aa804"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6ac4539fd7883daca25153d89b8736d" id="r_aa6ac4539fd7883daca25153d89b8736d"><td class="memItemLeft" align="right" valign="top">D3D12_CULL_MODE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#aa6ac4539fd7883daca25153d89b8736d">m_CullMode</a></td></tr>
+<tr class="separator:aa6ac4539fd7883daca25153d89b8736d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9538be71f29cb82274c8134f4f90e397" id="r_a9538be71f29cb82274c8134f4f90e397"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12Resource &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a9538be71f29cb82274c8134f4f90e397">m_constantBuffer</a></td></tr>
+<tr class="separator:a9538be71f29cb82274c8134f4f90e397"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a059fad9eb1d3a12a2b65a697ec0742e8" id="r_a059fad9eb1d3a12a2b65a697ec0742e8"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#a059fad9eb1d3a12a2b65a697ec0742e8">m_mappedData</a> = nullptr</td></tr>
+<tr class="separator:a059fad9eb1d3a12a2b65a697ec0742e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba9afd689ecf336d240de2f02f146756" id="r_aba9afd689ecf336d240de2f02f146756"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html#aba9afd689ecf336d240de2f02f146756">m_isDirty</a> = true</td></tr>
+<tr class="separator:aba9afd689ecf336d240de2f02f146756"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">構築子と解体子</h2>
+<a id="aec5f4576141a2dd3a1ffce6491c34912" name="aec5f4576141a2dd3a1ffce6491c34912"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec5f4576141a2dd3a1ffce6491c34912">&#9670;&#160;</a></span>CMaterial() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CMaterial::CMaterial </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCMaterial_aec5f4576141a2dd3a1ffce6491c34912_cgraph.svg" width="658" height="184"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="ab63eb3abe9435904350cc8bd013a89eb" name="ab63eb3abe9435904350cc8bd013a89eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab63eb3abe9435904350cc8bd013a89eb">&#9670;&#160;</a></span>CMaterial()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab63eb3abe9435904350cc8bd013a89eb">&#9670;&#160;</a></span>CMaterial() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -189,12 +291,120 @@ $(document).ready(function(){initNavTree('classCMaterial.html',''); initResizabl
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCMaterial_ab63eb3abe9435904350cc8bd013a89eb_cgraph.svg" width="100%" height="586"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCMaterial_ab63eb3abe9435904350cc8bd013a89eb_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
+<a id="ad4e986a9a628c785b4f0a0684064a2ca" name="ad4e986a9a628c785b4f0a0684064a2ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4e986a9a628c785b4f0a0684064a2ca">&#9670;&#160;</a></span>~CMaterial()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CMaterial::~CMaterial </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">関数詳解</h2>
+<a id="ad19a93909895810d9ef51c346c06b3c5" name="ad19a93909895810d9ef51c346c06b3c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad19a93909895810d9ef51c346c06b3c5">&#9670;&#160;</a></span>Bind()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CMaterial::Bind </td>
+          <td>(</td>
+          <td class="paramtype">ID3D12GraphicsCommandList *&#160;</td>
+          <td class="paramname"><em>cmdList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>rootParameterIndexCBV</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>rootParameterIndexSRV</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCMaterial_ad19a93909895810d9ef51c346c06b3c5_cgraph.svg" width="360" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a934cf6581bd9e482a9dbae73ac613d07" name="a934cf6581bd9e482a9dbae73ac613d07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a934cf6581bd9e482a9dbae73ac613d07">&#9670;&#160;</a></span>Clone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classCMaterial.html">CMaterial</a> &gt; CMaterial::Clone </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a50205b6dbb53dca1f2fcc321fc524419" name="a50205b6dbb53dca1f2fcc321fc524419"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50205b6dbb53dca1f2fcc321fc524419">&#9670;&#160;</a></span>CreateConstantBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CMaterial::CreateConstantBuffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCMaterial_a50205b6dbb53dca1f2fcc321fc524419_cgraph.svg" width="454" height="184"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCMaterial_a50205b6dbb53dca1f2fcc321fc524419_icgraph.svg" width="410" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="af82f9fc7cb487d5ce2085cd4dfac5d67" name="af82f9fc7cb487d5ce2085cd4dfac5d67"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af82f9fc7cb487d5ce2085cd4dfac5d67">&#9670;&#160;</a></span>GetBlendMode()</h2>
 
@@ -225,8 +435,8 @@ $(document).ready(function(){initNavTree('classCMaterial.html',''); initResizabl
 
 </div>
 </div>
-<a id="a963b3fbc9cf1bd42e5805a1782f72b95" name="a963b3fbc9cf1bd42e5805a1782f72b95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a963b3fbc9cf1bd42e5805a1782f72b95">&#9670;&#160;</a></span>GetGpuHandle()</h2>
+<a id="af57654bb797f866ab40b440b105bb5d9" name="af57654bb797f866ab40b440b105bb5d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af57654bb797f866ab40b440b105bb5d9">&#9670;&#160;</a></span>GetColor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -235,7 +445,112 @@ $(document).ready(function(){initNavTree('classCMaterial.html',''); initResizabl
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">D3D12_GPU_DESCRIPTOR_HANDLE CMaterial::GetGpuHandle </td>
+          <td class="memname">const <a class="el" href="Material_8h.html#ac8b60b8e94f1c20a4c6060ee931ba609">XMFLOAT4</a> &amp; CMaterial::GetColor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aedd8eee02b1c1d0d247338304eddb4d8" name="aedd8eee02b1c1d0d247338304eddb4d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedd8eee02b1c1d0d247338304eddb4d8">&#9670;&#160;</a></span>GetConstantBufferGPUAddress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_GPU_VIRTUAL_ADDRESS CMaterial::GetConstantBufferGPUAddress </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCMaterial_aedd8eee02b1c1d0d247338304eddb4d8_icgraph.svg" width="380" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3fe2ded8e62f5e203596584272529bee" name="a3fe2ded8e62f5e203596584272529bee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fe2ded8e62f5e203596584272529bee">&#9670;&#160;</a></span>GetCullMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_CULL_MODE CMaterial::GetCullMode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa8f5d73c457b873b415d65cd8626ad82" name="aa8f5d73c457b873b415d65cd8626ad82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8f5d73c457b873b415d65cd8626ad82">&#9670;&#160;</a></span>GetCustomParam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CMaterial::GetCustomParam </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>vectorIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>elementIndex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCMaterial_aa8f5d73c457b873b415d65cd8626ad82_icgraph.svg" width="374" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a67c509780734f973eef4ed4bae03e448" name="a67c509780734f973eef4ed4bae03e448"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67c509780734f973eef4ed4bae03e448">&#9670;&#160;</a></span>GetData() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structMaterialBufferData.html">MaterialBufferData</a> &amp; CMaterial::GetData </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -247,11 +562,78 @@ $(document).ready(function(){initNavTree('classCMaterial.html',''); initResizabl
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a32800e4198732d4045d1d7e065e238e2" name="a32800e4198732d4045d1d7e065e238e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32800e4198732d4045d1d7e065e238e2">&#9670;&#160;</a></span>GetData() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structMaterialBufferData.html">MaterialBufferData</a> &amp; CMaterial::GetData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a963b3fbc9cf1bd42e5805a1782f72b95" name="a963b3fbc9cf1bd42e5805a1782f72b95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a963b3fbc9cf1bd42e5805a1782f72b95">&#9670;&#160;</a></span>GetGpuHandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_GPU_DESCRIPTOR_HANDLE CMaterial::GetGpuHandle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classCMaterial_a963b3fbc9cf1bd42e5805a1782f72b95_icgraph.svg" width="355" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="a53f8d89b14264f5095ffbf8ad8076097" name="a53f8d89b14264f5095ffbf8ad8076097"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53f8d89b14264f5095ffbf8ad8076097">&#9670;&#160;</a></span>GetMetallic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CMaterial::GetMetallic </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -285,6 +667,31 @@ $(document).ready(function(){initNavTree('classCMaterial.html',''); initResizabl
 
 </div>
 </div>
+<a id="abf960f8f021bb62c2a4ef3f06a08b76f" name="abf960f8f021bb62c2a4ef3f06a08b76f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf960f8f021bb62c2a4ef3f06a08b76f">&#9670;&#160;</a></span>GetRoughness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CMaterial::GetRoughness </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a7b0f1135f2487b03a55908c14b204ffa" name="a7b0f1135f2487b03a55908c14b204ffa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7b0f1135f2487b03a55908c14b204ffa">&#9670;&#160;</a></span>GetShaderFile()</h2>
 
@@ -312,6 +719,106 @@ $(document).ready(function(){initNavTree('classCMaterial.html',''); initResizabl
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classCMaterial_a7b0f1135f2487b03a55908c14b204ffa_icgraph.svg" width="562" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="a6fca6ae97eca912f7695e9e244a41462" name="a6fca6ae97eca912f7695e9e244a41462"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fca6ae97eca912f7695e9e244a41462">&#9670;&#160;</a></span>GetTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Material_8h.html#affde712b32c38228461fafa7f703afe0">pTexture</a> CMaterial::GetTexture </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab67fdc4c4718b8381da11b5cb5f7ff7d" name="ab67fdc4c4718b8381da11b5cb5f7ff7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab67fdc4c4718b8381da11b5cb5f7ff7d">&#9670;&#160;</a></span>GetTextureFilePath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a> &amp; CMaterial::GetTextureFilePath </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa93ef968009d26f880019bebda3a108b" name="aa93ef968009d26f880019bebda3a108b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa93ef968009d26f880019bebda3a108b">&#9670;&#160;</a></span>GetUVOffset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="Material_8h.html#a0e17a5e72984fef7ff49d91c422d97dc">XMFLOAT2</a> &amp; CMaterial::GetUVOffset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1cec88dc1c5f327ebf5eb3b17625713f" name="a1cec88dc1c5f327ebf5eb3b17625713f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cec88dc1c5f327ebf5eb3b17625713f">&#9670;&#160;</a></span>GetUVTiling()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="Material_8h.html#a0e17a5e72984fef7ff49d91c422d97dc">XMFLOAT2</a> &amp; CMaterial::GetUVTiling </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -345,6 +852,29 @@ $(document).ready(function(){initNavTree('classCMaterial.html',''); initResizabl
 
 </div>
 </div>
+<a id="a0b62d65dfde1449b7b788b6089b62d47" name="a0b62d65dfde1449b7b788b6089b62d47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b62d65dfde1449b7b788b6089b62d47">&#9670;&#160;</a></span>LoadFromFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CMaterial::LoadFromFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filePath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCMaterial_a0b62d65dfde1449b7b788b6089b62d47_cgraph.svg" width="642" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="af16b888b2da2a65e8dbe3d62cd008c54" name="af16b888b2da2a65e8dbe3d62cd008c54"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af16b888b2da2a65e8dbe3d62cd008c54">&#9670;&#160;</a></span>LoadTexture()</h2>
 
@@ -373,6 +903,29 @@ $(document).ready(function(){initNavTree('classCMaterial.html',''); initResizabl
 
 </div>
 </div>
+<a id="a0d8910f30b0726ccaa8bb69c1e2afecb" name="a0d8910f30b0726ccaa8bb69c1e2afecb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d8910f30b0726ccaa8bb69c1e2afecb">&#9670;&#160;</a></span>SaveToFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CMaterial::SaveToFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filePath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCMaterial_a0d8910f30b0726ccaa8bb69c1e2afecb_cgraph.svg" width="384" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="a5bd42ae8b076d452755b4795ef810dcd" name="a5bd42ae8b076d452755b4795ef810dcd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5bd42ae8b076d452755b4795ef810dcd">&#9670;&#160;</a></span>SetBlendMode()</h2>
 
@@ -387,6 +940,149 @@ $(document).ready(function(){initNavTree('classCMaterial.html',''); initResizabl
           <td>(</td>
           <td class="paramtype"><a class="el" href="BasicSettings_8h.html#a30323fa90e24ca484998b9fba6c40e85">BlendMode</a>&#160;</td>
           <td class="paramname"><em>blendMode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afa41e087bf4ee6c30b6c73f3c6669ad9" name="afa41e087bf4ee6c30b6c73f3c6669ad9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa41e087bf4ee6c30b6c73f3c6669ad9">&#9670;&#160;</a></span>SetColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CMaterial::SetColor </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="Material_8h.html#ac8b60b8e94f1c20a4c6060ee931ba609">XMFLOAT4</a> &amp;&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4c4b22413041bbb83ef2f2407a634b58" name="a4c4b22413041bbb83ef2f2407a634b58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c4b22413041bbb83ef2f2407a634b58">&#9670;&#160;</a></span>SetCullMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CMaterial::SetCullMode </td>
+          <td>(</td>
+          <td class="paramtype">D3D12_CULL_MODE&#160;</td>
+          <td class="paramname"><em>cullMode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaeac684fe97fbc0df060d95ce2216300" name="aaeac684fe97fbc0df060d95ce2216300"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaeac684fe97fbc0df060d95ce2216300">&#9670;&#160;</a></span>SetCustomParam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CMaterial::SetCustomParam </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>vectorIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>elementIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCMaterial_aaeac684fe97fbc0df060d95ce2216300_icgraph.svg" width="372" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a710d62f960071369536b580bd280dade" name="a710d62f960071369536b580bd280dade"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a710d62f960071369536b580bd280dade">&#9670;&#160;</a></span>SetMetallic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CMaterial::SetMetallic </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>metallic</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aca431175a2bdcb36037d2f7b0ead2c06" name="aca431175a2bdcb36037d2f7b0ead2c06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca431175a2bdcb36037d2f7b0ead2c06">&#9670;&#160;</a></span>SetRoughness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CMaterial::SetRoughness </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>roughness</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -441,6 +1137,108 @@ $(document).ready(function(){initNavTree('classCMaterial.html',''); initResizabl
 
 </div>
 </div>
+<a id="abe5e49b6e6e4c0d11282e124804b9c18" name="abe5e49b6e6e4c0d11282e124804b9c18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe5e49b6e6e4c0d11282e124804b9c18">&#9670;&#160;</a></span>SetTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CMaterial::SetTexture </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="Material_8h.html#affde712b32c38228461fafa7f703afe0">pTexture</a>&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a> &amp;&#160;</td>
+          <td class="paramname"><em>filePath</em> = <code>L&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ca431f25f373678093accce1b50b232" name="a4ca431f25f373678093accce1b50b232"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ca431f25f373678093accce1b50b232">&#9670;&#160;</a></span>SetUVOffset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CMaterial::SetUVOffset </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="Material_8h.html#a0e17a5e72984fef7ff49d91c422d97dc">XMFLOAT2</a> &amp;&#160;</td>
+          <td class="paramname"><em>offset</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aef1205a38eb08c362616d79aab554611" name="aef1205a38eb08c362616d79aab554611"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef1205a38eb08c362616d79aab554611">&#9670;&#160;</a></span>SetUVTiling()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CMaterial::SetUVTiling </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="Material_8h.html#a0e17a5e72984fef7ff49d91c422d97dc">XMFLOAT2</a> &amp;&#160;</td>
+          <td class="paramname"><em>tiling</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a096081939560983836d87d93177787f1" name="a096081939560983836d87d93177787f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a096081939560983836d87d93177787f1">&#9670;&#160;</a></span>UpdateBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CMaterial::UpdateBuffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCMaterial_a096081939560983836d87d93177787f1_icgraph.svg" width="636" height="151"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <h2 class="groupheader">メンバ詳解</h2>
 <a id="ae8aec0728b71c9916212d9d21a6aa804" name="ae8aec0728b71c9916212d9d21a6aa804"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae8aec0728b71c9916212d9d21a6aa804">&#9670;&#160;</a></span>m_BlendMode</h2>
@@ -464,8 +1262,8 @@ $(document).ready(function(){initNavTree('classCMaterial.html',''); initResizabl
 
 </div>
 </div>
-<a id="acf2fcdd629e5ffc98b91d1370d0f2268" name="acf2fcdd629e5ffc98b91d1370d0f2268"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf2fcdd629e5ffc98b91d1370d0f2268">&#9670;&#160;</a></span>m_Color</h2>
+<a id="a9538be71f29cb82274c8134f4f90e397" name="a9538be71f29cb82274c8134f4f90e397"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9538be71f29cb82274c8134f4f90e397">&#9670;&#160;</a></span>m_constantBuffer</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -474,7 +1272,95 @@ $(document).ready(function(){initNavTree('classCMaterial.html',''); initResizabl
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="Material_8h.html#aa06ee67baf54d5ede87c0bcb743d6b45">Color</a> CMaterial::m_Color</td>
+          <td class="memname">Microsoft::WRL::ComPtr&lt;ID3D12Resource&gt; CMaterial::m_constantBuffer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa6ac4539fd7883daca25153d89b8736d" name="aa6ac4539fd7883daca25153d89b8736d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6ac4539fd7883daca25153d89b8736d">&#9670;&#160;</a></span>m_CullMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_CULL_MODE CMaterial::m_CullMode</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa541f9500937abdf9ce3e4f50e2ca9b0" name="aa541f9500937abdf9ce3e4f50e2ca9b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa541f9500937abdf9ce3e4f50e2ca9b0">&#9670;&#160;</a></span>m_Data</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structMaterialBufferData.html">MaterialBufferData</a> CMaterial::m_Data</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aba9afd689ecf336d240de2f02f146756" name="aba9afd689ecf336d240de2f02f146756"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba9afd689ecf336d240de2f02f146756">&#9670;&#160;</a></span>m_isDirty</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CMaterial::m_isDirty = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a059fad9eb1d3a12a2b65a697ec0742e8" name="a059fad9eb1d3a12a2b65a697ec0742e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a059fad9eb1d3a12a2b65a697ec0742e8">&#9670;&#160;</a></span>m_mappedData</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* CMaterial::m_mappedData = nullptr</td>
         </tr>
       </table>
   </td>
@@ -541,6 +1427,28 @@ $(document).ready(function(){initNavTree('classCMaterial.html',''); initResizabl
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="Material_8h.html#affde712b32c38228461fafa7f703afe0">pTexture</a> CMaterial::m_Texture</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab66f4d497b673dc27c53aca3d3283922" name="ab66f4d497b673dc27c53aca3d3283922"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab66f4d497b673dc27c53aca3d3283922">&#9670;&#160;</a></span>m_TextureFilePath</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">wstring</a> CMaterial::m_TextureFilePath</td>
         </tr>
       </table>
   </td>

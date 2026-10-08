@@ -97,6 +97,10 @@ $(document).ready(function(){initNavTree('Material_8h.html',''); initResizable()
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;DirectXMath.h&gt;</code><br />
+<code>#include &lt;d3d12.h&gt;</code><br />
+<code>#include &lt;wrl.h&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
 <code>#include &quot;<a class="el" href="StringAlias_8h_source.html">StringAlias.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="SmartPtrAlias_8h_source.html">SmartPtrAlias.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Texture_8h_source.html">Texture.h</a>&quot;</code><br />
@@ -109,13 +113,15 @@ Material.h の依存先関係図:</div>
 </div><div class="textblock"><div class="dynheader">
 被依存関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="Material_8h__dep__incl.svg" width="100%" height="525"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="Material_8h__dep__incl.svg" width="100%" height="536"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="Material_8h_source.html">[ソースコード]</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 クラス</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMaterialBufferData.html">MaterialBufferData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMaterial.html">CMaterial</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -123,6 +129,8 @@ Material.h の依存先関係図:</div>
 型定義</h2></td></tr>
 <tr class="memitem:ac8b60b8e94f1c20a4c6060ee931ba609" id="r_ac8b60b8e94f1c20a4c6060ee931ba609"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Material_8h.html#ac8b60b8e94f1c20a4c6060ee931ba609">XMFLOAT4</a> = DirectX::XMFLOAT4</td></tr>
 <tr class="separator:ac8b60b8e94f1c20a4c6060ee931ba609"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e17a5e72984fef7ff49d91c422d97dc" id="r_a0e17a5e72984fef7ff49d91c422d97dc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Material_8h.html#a0e17a5e72984fef7ff49d91c422d97dc">XMFLOAT2</a> = DirectX::XMFLOAT2</td></tr>
+<tr class="separator:a0e17a5e72984fef7ff49d91c422d97dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa06ee67baf54d5ede87c0bcb743d6b45" id="r_aa06ee67baf54d5ede87c0bcb743d6b45"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Material_8h.html#aa06ee67baf54d5ede87c0bcb743d6b45">Color</a> = <a class="el" href="Material_8h.html#ac8b60b8e94f1c20a4c6060ee931ba609">XMFLOAT4</a></td></tr>
 <tr class="separator:aa06ee67baf54d5ede87c0bcb743d6b45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affde712b32c38228461fafa7f703afe0" id="r_affde712b32c38228461fafa7f703afe0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Material_8h.html#affde712b32c38228461fafa7f703afe0">pTexture</a> = <a class="el" href="SmartPtrAlias_8h.html#ad71c1f3b8d46b57fd328d48cee283c1f">SharedPtr</a>&lt; <a class="el" href="classCTexture.html">CTexture</a> &gt;</td></tr>
@@ -151,6 +159,20 @@ Material.h の依存先関係図:</div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="Material_8h.html#affde712b32c38228461fafa7f703afe0">pTexture</a> =  <a class="el" href="SmartPtrAlias_8h.html#ad71c1f3b8d46b57fd328d48cee283c1f">SharedPtr</a>&lt;<a class="el" href="classCTexture.html">CTexture</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0e17a5e72984fef7ff49d91c422d97dc" name="a0e17a5e72984fef7ff49d91c422d97dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e17a5e72984fef7ff49d91c422d97dc">&#9670;&#160;</a></span>XMFLOAT2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="Material_8h.html#a0e17a5e72984fef7ff49d91c422d97dc">XMFLOAT2</a> =  DirectX::XMFLOAT2</td>
         </tr>
       </table>
 </div><div class="memdoc">
