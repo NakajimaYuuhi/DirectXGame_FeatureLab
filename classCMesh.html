@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('classCMesh.html',''); initResizable();
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pri-methods">非公開メンバ関数</a> &#124;
 <a href="#pri-attribs">非公開変数類</a> &#124;
 <a href="classCMesh-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">CMesh クラス</div></div>
@@ -121,10 +122,19 @@ CMesh 連携図</div>
 <tr class="separator:afa9560ab3d213b4c9452693be14df6ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada72362cb98127490b9104ac00dc7157" id="r_ada72362cb98127490b9104ac00dc7157"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMesh.html#ada72362cb98127490b9104ac00dc7157">SetVertex</a> (const <a class="el" href="structMeshVertex.html">MeshVertex</a> *vertices, size_t vertexCount, const uint32_t *indices, size_t indexCount)</td></tr>
 <tr class="separator:ada72362cb98127490b9104ac00dc7157"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a787eff2df4fbea13dfa077a698db69ff" id="r_a787eff2df4fbea13dfa077a698db69ff"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMesh.html#a787eff2df4fbea13dfa077a698db69ff">GetLocalAABBMin</a> () const</td></tr>
+<tr class="separator:a787eff2df4fbea13dfa077a698db69ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f781677bc9416d07518484d39fc492c" id="r_a6f781677bc9416d07518484d39fc492c"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMesh.html#a6f781677bc9416d07518484d39fc492c">GetLocalAABBMax</a> () const</td></tr>
+<tr class="separator:a6f781677bc9416d07518484d39fc492c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0b8c8d73cdf4347f69e82f115e44931" id="r_ae0b8c8d73cdf4347f69e82f115e44931"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMesh.html#ae0b8c8d73cdf4347f69e82f115e44931">RegisterOwner</a> (<a class="el" href="classCObject.html">CObject</a> *_Owner)</td></tr>
 <tr class="separator:ae0b8c8d73cdf4347f69e82f115e44931"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f0812d33ca65d672732278a933d1e66" id="r_a8f0812d33ca65d672732278a933d1e66"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMesh.html#a8f0812d33ca65d672732278a933d1e66">SetBoneSRV</a> (D3D12_GPU_DESCRIPTOR_HANDLE handle)</td></tr>
 <tr class="separator:a8f0812d33ca65d672732278a933d1e66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+非公開メンバ関数</h2></td></tr>
+<tr class="memitem:a0e869616f0fa312e870a1260f2c94ddd" id="r_a0e869616f0fa312e870a1260f2c94ddd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMesh.html#a0e869616f0fa312e870a1260f2c94ddd">CalculateBounds</a> ()</td></tr>
+<tr class="separator:a0e869616f0fa312e870a1260f2c94ddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 非公開変数類</h2></td></tr>
@@ -138,11 +148,15 @@ CMesh 連携図</div>
 <tr class="separator:a6d8be3a1bc3ca33e25fb99f2e6f5d46c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24b7470b1449fc473d4d4fbd68834f0a" id="r_a24b7470b1449fc473d4d4fbd68834f0a"><td class="memItemLeft" align="right" valign="top">D3D12_GPU_DESCRIPTOR_HANDLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMesh.html#a24b7470b1449fc473d4d4fbd68834f0a">m_BoneSrvGpuHandle</a></td></tr>
 <tr class="separator:a24b7470b1449fc473d4d4fbd68834f0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b75b4116e860d5db0de9aa289e088b0" id="r_a6b75b4116e860d5db0de9aa289e088b0"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMesh.html#a6b75b4116e860d5db0de9aa289e088b0">m_localAABBMin</a> { -0.5f, -0.5f, -0.5f }</td></tr>
+<tr class="separator:a6b75b4116e860d5db0de9aa289e088b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e58cd7596aab90110f52fa3b3844a5c" id="r_a0e58cd7596aab90110f52fa3b3844a5c"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMesh.html#a0e58cd7596aab90110f52fa3b3844a5c">m_localAABBMax</a> { 0.5f, 0.5f, 0.5f }</td></tr>
+<tr class="separator:a0e58cd7596aab90110f52fa3b3844a5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada340996e304fd53327a7943c2521034" id="r_ada340996e304fd53327a7943c2521034"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structMeshVertex.html">MeshVertex</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMesh.html#ada340996e304fd53327a7943c2521034">m_Vertices</a></td></tr>
 <tr class="separator:ada340996e304fd53327a7943c2521034"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06f6cdb933619d47ecfac688d5a3936f" id="r_a06f6cdb933619d47ecfac688d5a3936f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMesh.html#a06f6cdb933619d47ecfac688d5a3936f">m_Indices</a></td></tr>
 <tr class="separator:a06f6cdb933619d47ecfac688d5a3936f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7d7c641e56dbb94f2ac79cac37924e4" id="r_ac7d7c641e56dbb94f2ac79cac37924e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMesh.html#ac7d7c641e56dbb94f2ac79cac37924e4">m_Owner</a></td></tr>
+<tr class="memitem:ac7d7c641e56dbb94f2ac79cac37924e4" id="r_ac7d7c641e56dbb94f2ac79cac37924e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMesh.html#ac7d7c641e56dbb94f2ac79cac37924e4">m_Owner</a> = nullptr</td></tr>
 <tr class="separator:ac7d7c641e56dbb94f2ac79cac37924e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">構築子と解体子</h2>
@@ -160,6 +174,11 @@ CMesh 連携図</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCMesh_a64788cc21ccfb530be510baf60c40c85_cgraph.svg" width="360" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -183,6 +202,36 @@ CMesh 連携図</div>
 呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classCMesh_afa9560ab3d213b4c9452693be14df6ef_cgraph.svg" width="456" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0e869616f0fa312e870a1260f2c94ddd" name="a0e869616f0fa312e870a1260f2c94ddd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e869616f0fa312e870a1260f2c94ddd">&#9670;&#160;</a></span>CalculateBounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CMesh::CalculateBounds </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCMesh_a0e869616f0fa312e870a1260f2c94ddd_icgraph.svg" width="379" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -262,6 +311,56 @@ CMesh 連携図</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCMesh_aa8cd84131edadae0ab066954d7b0bd10_cgraph.svg" width="100%" height="475"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
+
+</div>
+</div>
+<a id="a6f781677bc9416d07518484d39fc492c" name="a6f781677bc9416d07518484d39fc492c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f781677bc9416d07518484d39fc492c">&#9670;&#160;</a></span>GetLocalAABBMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 CMesh::GetLocalAABBMax </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a787eff2df4fbea13dfa077a698db69ff" name="a787eff2df4fbea13dfa077a698db69ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a787eff2df4fbea13dfa077a698db69ff">&#9670;&#160;</a></span>GetLocalAABBMin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 CMesh::GetLocalAABBMin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -366,7 +465,7 @@ CMesh 連携図</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCMesh_ada72362cb98127490b9104ac00dc7157_cgraph.svg" width="396" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCMesh_ada72362cb98127490b9104ac00dc7157_cgraph.svg" width="396" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -477,6 +576,50 @@ CMesh 連携図</div>
 
 </div>
 </div>
+<a id="a0e58cd7596aab90110f52fa3b3844a5c" name="a0e58cd7596aab90110f52fa3b3844a5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e58cd7596aab90110f52fa3b3844a5c">&#9670;&#160;</a></span>m_localAABBMax</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 CMesh::m_localAABBMax { 0.5f, 0.5f, 0.5f }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6b75b4116e860d5db0de9aa289e088b0" name="a6b75b4116e860d5db0de9aa289e088b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b75b4116e860d5db0de9aa289e088b0">&#9670;&#160;</a></span>m_localAABBMin</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 CMesh::m_localAABBMin { -0.5f, -0.5f, -0.5f }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ac7d7c641e56dbb94f2ac79cac37924e4" name="ac7d7c641e56dbb94f2ac79cac37924e4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac7d7c641e56dbb94f2ac79cac37924e4">&#9670;&#160;</a></span>m_Owner</h2>
 
@@ -487,7 +630,7 @@ CMesh 連携図</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classCObject.html">CObject</a>* CMesh::m_Owner</td>
+          <td class="memname"><a class="el" href="classCObject.html">CObject</a>* CMesh::m_Owner = nullptr</td>
         </tr>
       </table>
   </td>

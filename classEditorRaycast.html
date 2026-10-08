@@ -105,10 +105,10 @@ $(document).ready(function(){initNavTree('classEditorRaycast.html',''); initResi
 <tr class="separator:a196945a4cccb2ae2712372a93ef45a39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b30dc63fc01d33feac40d310c397a2c" id="r_a2b30dc63fc01d33feac40d310c397a2c"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorRaycast.html#a2b30dc63fc01d33feac40d310c397a2c">RayIntersectAABB</a> (const <a class="el" href="structRay.html">Ray</a> &amp;ray, const DirectX::XMFLOAT3 &amp;boxMin, const DirectX::XMFLOAT3 &amp;boxMax, float &amp;outDistance)</td></tr>
 <tr class="separator:a2b30dc63fc01d33feac40d310c397a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a2cffd5b913a3f9cee39c42c5142a57" id="r_a2a2cffd5b913a3f9cee39c42c5142a57"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorRaycast.html#a2a2cffd5b913a3f9cee39c42c5142a57">PickObject</a> (float screenX, float screenY, float screenWidth, float screenHeight, const DirectX::XMMATRIX &amp;view, const DirectX::XMMATRIX &amp;proj, const std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="classCObject.html">CObject</a> &gt; &gt; &gt; &amp;objectList, int &amp;outTagIndex, int &amp;outObjectIndex)</td></tr>
-<tr class="separator:a2a2cffd5b913a3f9cee39c42c5142a57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1e20a9d44fc39c480db10cc5c8eb7bd" id="r_ab1e20a9d44fc39c480db10cc5c8eb7bd"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorRaycast.html#ab1e20a9d44fc39c480db10cc5c8eb7bd">PickObject</a> (float screenX, float screenY, float screenWidth, float screenHeight, <a class="el" href="classCameraComponent.html">CameraComponent</a> *camera, const std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="classCObject.html">CObject</a> &gt; &gt; &gt; &amp;objectList, int &amp;outTagIndex, int &amp;outObjectIndex)</td></tr>
-<tr class="separator:ab1e20a9d44fc39c480db10cc5c8eb7bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a040dc90dc5cc38abf84eea29d76ecfcc" id="r_a040dc90dc5cc38abf84eea29d76ecfcc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorRaycast.html#a040dc90dc5cc38abf84eea29d76ecfcc">PickObject</a> (float screenX, float screenY, float screenWidth, float screenHeight, const DirectX::XMMATRIX &amp;view, const DirectX::XMMATRIX &amp;proj, const std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="classCObject.html">CObject</a> &gt; &gt; &gt; &amp;objectList, int &amp;outTagIndex, int &amp;outObjectIndex, int *outMeshIndex=nullptr, int *outMaterialSlot=nullptr)</td></tr>
+<tr class="separator:a040dc90dc5cc38abf84eea29d76ecfcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91013ddacaea940c3566929840cde1b1" id="r_a91013ddacaea940c3566929840cde1b1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorRaycast.html#a91013ddacaea940c3566929840cde1b1">PickObject</a> (float screenX, float screenY, float screenWidth, float screenHeight, <a class="el" href="classCameraComponent.html">CameraComponent</a> *camera, const std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="classCObject.html">CObject</a> &gt; &gt; &gt; &amp;objectList, int &amp;outTagIndex, int &amp;outObjectIndex, int *outMeshIndex=nullptr, int *outMaterialSlot=nullptr)</td></tr>
+<tr class="separator:a91013ddacaea940c3566929840cde1b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">関数詳解</h2>
 <a id="a196945a4cccb2ae2712372a93ef45a39" name="a196945a4cccb2ae2712372a93ef45a39"></a>
@@ -176,8 +176,8 @@ $(document).ready(function(){initNavTree('classEditorRaycast.html',''); initResi
 
 </div>
 </div>
-<a id="ab1e20a9d44fc39c480db10cc5c8eb7bd" name="ab1e20a9d44fc39c480db10cc5c8eb7bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1e20a9d44fc39c480db10cc5c8eb7bd">&#9670;&#160;</a></span>PickObject() <span class="overload">[1/2]</span></h2>
+<a id="a91013ddacaea940c3566929840cde1b1" name="a91013ddacaea940c3566929840cde1b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91013ddacaea940c3566929840cde1b1">&#9670;&#160;</a></span>PickObject() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -231,7 +231,19 @@ $(document).ready(function(){initNavTree('classEditorRaycast.html',''); initResi
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>outObjectIndex</em>&#160;</td>
+          <td class="paramname"><em>outObjectIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>outMeshIndex</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>outMaterialSlot</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -248,13 +260,13 @@ $(document).ready(function(){initNavTree('classEditorRaycast.html',''); initResi
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEditorRaycast_ab1e20a9d44fc39c480db10cc5c8eb7bd_cgraph.svg" width="100%" height="561"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEditorRaycast_a91013ddacaea940c3566929840cde1b1_cgraph.svg" width="100%" height="561"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="a2a2cffd5b913a3f9cee39c42c5142a57" name="a2a2cffd5b913a3f9cee39c42c5142a57"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a2cffd5b913a3f9cee39c42c5142a57">&#9670;&#160;</a></span>PickObject() <span class="overload">[2/2]</span></h2>
+<a id="a040dc90dc5cc38abf84eea29d76ecfcc" name="a040dc90dc5cc38abf84eea29d76ecfcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a040dc90dc5cc38abf84eea29d76ecfcc">&#9670;&#160;</a></span>PickObject() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -314,7 +326,19 @@ $(document).ready(function(){initNavTree('classEditorRaycast.html',''); initResi
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>outObjectIndex</em>&#160;</td>
+          <td class="paramname"><em>outObjectIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>outMeshIndex</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>outMaterialSlot</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -331,12 +355,12 @@ $(document).ready(function(){initNavTree('classEditorRaycast.html',''); initResi
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classEditorRaycast_a2a2cffd5b913a3f9cee39c42c5142a57_cgraph.svg" width="487" height="348"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classEditorRaycast_a040dc90dc5cc38abf84eea29d76ecfcc_cgraph.svg" width="487" height="348"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classEditorRaycast_a2a2cffd5b913a3f9cee39c42c5142a57_icgraph.svg" width="564" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classEditorRaycast_a040dc90dc5cc38abf84eea29d76ecfcc_icgraph.svg" width="564" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
