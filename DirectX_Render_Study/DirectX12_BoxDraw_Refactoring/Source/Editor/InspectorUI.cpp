@@ -183,23 +183,49 @@ void CInspectorUI::Draw()
         float screenW = io.DisplaySize.x;
         float screenH = io.DisplaySize.y;
 
-        int hitTag = -1, hitObj = -1;
-        int hitMesh = -1, hitMatSlot = -1;
-        const auto& objectListForPick = ObjectManager::GetInstance().GetObjectList();
-        DirectX::XMMATRIX view = (m_isEditMode || m_isPrefabEditMode) ? EditorCamera::GetInstance().GetViewMatrix() : (camera ? camera->GetViewMatrix() : DirectX::XMMatrixIdentity());
-        DirectX::XMMATRIX proj = (m_isEditMode || m_isPrefabEditMode) ? EditorCamera::GetInstance().GetProjectionMatrix() : (camera ? camera->GetProjectionMatrix() : DirectX::XMMatrixIdentity());
-        CObject* hit = EditorRaycast::PickObject(mouseX, mouseY, screenW, screenH, view, proj, objectListForPick, hitTag, hitObj, &hitMesh, &hitMatSlot);
-        if (hit && hitTag >= 0 && hitObj >= 0)
+        // If Viewport image is active, calculate raycast relative to the rendered image quad
+        if (CViewportUI::GetInstance().IsVisible())
         {
-            m_selectedTagIndex = hitTag;
-            m_selectedObjectIndex = hitObj;
-
-            CModel* model = hit->GetComponent<CModel>();
-            if (model)
+            ImVec2 imgPos = CViewportUI::GetInstance().GetImagePos();
+            ImVec2 imgSize = CViewportUI::GetInstance().GetImageSize();
+            if (imgSize.x > 1.0f && imgSize.y > 1.0f)
             {
-                if (hitMatSlot >= 0)
+                // Only pick if mouse is inside the 3D viewport rendered area
+                if (mouseX >= imgPos.x && mouseX <= imgPos.x + imgSize.x &&
+                    mouseY >= imgPos.y && mouseY <= imgPos.y + imgSize.y)
                 {
-                    model->SetSelectedMaterialIndex(hitMatSlot);
+                    mouseX -= imgPos.x;
+                    mouseY -= imgPos.y;
+                    screenW = imgSize.x;
+                    screenH = imgSize.y;
+                }
+                else
+                {
+                    screenW = -1.0f; // Skip pick outside viewport image
+                }
+            }
+        }
+
+        if (screenW > 0.0f && screenH > 0.0f)
+        {
+            int hitTag = -1, hitObj = -1;
+            int hitMesh = -1, hitMatSlot = -1;
+            const auto& objectListForPick = ObjectManager::GetInstance().GetObjectList();
+            DirectX::XMMATRIX view = (m_isEditMode || m_isPrefabEditMode) ? EditorCamera::GetInstance().GetViewMatrix() : (camera ? camera->GetViewMatrix() : DirectX::XMMatrixIdentity());
+            DirectX::XMMATRIX proj = (m_isEditMode || m_isPrefabEditMode) ? EditorCamera::GetInstance().GetProjectionMatrix() : (camera ? camera->GetProjectionMatrix() : DirectX::XMMatrixIdentity());
+            CObject* hit = EditorRaycast::PickObject(mouseX, mouseY, screenW, screenH, view, proj, objectListForPick, hitTag, hitObj, &hitMesh, &hitMatSlot);
+            if (hit && hitTag >= 0 && hitObj >= 0)
+            {
+                m_selectedTagIndex = hitTag;
+                m_selectedObjectIndex = hitObj;
+
+                CModel* model = hit->GetComponent<CModel>();
+                if (model)
+                {
+                    if (hitMatSlot >= 0)
+                    {
+                        model->SetSelectedMaterialIndex(hitMatSlot);
+                    }
                 }
             }
         }
@@ -1496,6 +1522,31 @@ void CInspectorUI::Draw()
                                     mat->SetBlendMode(static_cast<BlendMode>(currentBlend));
                                 }
 
+                                // Cull Mode Combo
+                                const char* cullModeNames[] = { "None (Cull Off)", "Front", "Back" };
+                                int currentCull = 2; // Default back
+                                if (mat->GetCullMode() == D3D12_CULL_MODE_NONE) currentCull = 0;
+                                else if (mat->GetCullMode() == D3D12_CULL_MODE_FRONT) currentCull = 1;
+                                else currentCull = 2;
+
+                                if (ImGui::Combo("Cull Mode", &currentCull, cullModeNames, IM_ARRAYSIZE(cullModeNames)))
+                                {
+                                    if (currentCull == 0) mat->SetCullMode(D3D12_CULL_MODE_NONE);
+                                    else if (currentCull == 1) mat->SetCullMode(D3D12_CULL_MODE_FRONT);
+                                    else mat->SetCullMode(D3D12_CULL_MODE_BACK);
+                                }
+
+                                // Shader File Path
+                                std::wstring shaderWPath = mat->GetShaderFile();
+                                std::string shaderStr(shaderWPath.begin(), shaderWPath.end());
+                                char shaderBuf[260] = "";
+                                strncpy_s(shaderBuf, shaderStr.c_str(), sizeof(shaderBuf) - 1);
+                                if (ImGui::InputText("Shader File (.hlsl)", shaderBuf, sizeof(shaderBuf), ImGuiInputTextFlags_EnterReturnsTrue))
+                                {
+                                    std::string newShader = shaderBuf;
+                                    mat->SetShader(std::wstring(newShader.begin(), newShader.end()), mat->GetVsEntry(), mat->GetPsEntry());
+                                }
+
                                 // Texture File Path & Load
                                 std::wstring texWPath = mat->GetTextureFilePath();
                                 std::string texPath(texWPath.begin(), texWPath.end());
@@ -1530,23 +1581,52 @@ void CInspectorUI::Draw()
                                 // Material File Operations (.mat load / assign / export)
                                 ImGui::Spacing();
                                 ImGui::Separator();
-                                ImGui::Text("Material File (.mat) Assignment:");
+                                ImGui::Text("Material Asset (.mat):");
+
+                                auto availableMatFiles = MaterialManager::GetInstance().GetAvailableMaterialFiles();
+                                if (!availableMatFiles.empty())
+                                {
+                                    if (ImGui::BeginCombo("Select .mat", "Choose existing..."))
+                                    {
+                                        for (const auto& matPath : availableMatFiles)
+                                        {
+                                            if (ImGui::Selectable(matPath.c_str()))
+                                            {
+                                                auto newMat = MaterialManager::GetInstance().CreateInstance(matPath);
+                                                if (newMat)
+                                                {
+                                                    modelComp->SetMaterial(newMat, static_cast<UINT>(matIdx));
+                                                    CInspectorUI::GetInstance().SetStatusMessage("Applied material: " + matPath);
+                                                }
+                                            }
+                                        }
+                                        ImGui::EndCombo();
+                                    }
+                                }
 
                                 static char slotMatFilePath[128] = "Assets/Materials/Default_Mesh.mat";
-                                ImGui::InputText("Mat Asset", slotMatFilePath, sizeof(slotMatFilePath));
+                                ImGui::InputText("Custom Path", slotMatFilePath, sizeof(slotMatFilePath));
 
-                                if (ImGui::Button("Assign .mat to Slot"))
+                                if (ImGui::Button("Assign Path to Slot"))
                                 {
                                     auto newMat = MaterialManager::GetInstance().CreateInstance(slotMatFilePath);
                                     if (newMat)
                                     {
                                         modelComp->SetMaterial(newMat, static_cast<UINT>(matIdx));
+                                        CInspectorUI::GetInstance().SetStatusMessage("Assigned material asset.");
+                                    }
+                                    else
+                                    {
+                                        CInspectorUI::GetInstance().SetStatusMessage("Failed to load material asset.");
                                     }
                                 }
                                 ImGui::SameLine();
-                                if (ImGui::Button("Export Current (.mat)"))
+                                if (ImGui::Button("Export / Save (.mat)"))
                                 {
-                                    mat->SaveToFile(slotMatFilePath);
+                                    if (mat->SaveToFile(slotMatFilePath))
+                                    {
+                                        CInspectorUI::GetInstance().SetStatusMessage("Saved material to " + std::string(slotMatFilePath));
+                                    }
                                 }
 
                                 ImGui::PopID();

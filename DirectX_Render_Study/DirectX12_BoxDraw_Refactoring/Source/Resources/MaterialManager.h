@@ -1,7 +1,9 @@
-﻿#pragma once
+#pragma once
 #include <string>
 #include <unordered_map>
 #include <memory>
+#include <vector>
+#include <filesystem>
 #include "Material.h"
 
 class MaterialManager
@@ -39,6 +41,36 @@ public:
             return base->Clone();
         }
         return nullptr;
+    }
+
+    std::vector<std::string> GetAvailableMaterialFiles() const
+    {
+        std::vector<std::string> files;
+        try
+        {
+            const std::string dir = "Assets/Materials";
+            if (std::filesystem::exists(dir))
+            {
+                for (const auto& entry : std::filesystem::directory_iterator(dir))
+                {
+                    if (entry.is_regular_file() && entry.path().extension() == ".mat")
+                    {
+                        files.push_back(entry.path().generic_string());
+                    }
+                }
+            }
+        }
+        catch (...) {}
+        return files;
+    }
+
+    void ReloadMaterial(const std::string& filePath)
+    {
+        auto it = m_materials.find(filePath);
+        if (it != m_materials.end() && it->second)
+        {
+            it->second->LoadFromFile(filePath);
+        }
     }
 
     void Clear()
