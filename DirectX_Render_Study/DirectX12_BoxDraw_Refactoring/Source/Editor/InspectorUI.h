@@ -27,7 +27,7 @@ public:
     bool IsPaused() const { return m_isPaused; }
     void SetPaused(bool paused) { m_isPaused = paused; }
     bool IsEditMode() const { return m_isEditMode; }
-    void SetEditMode(bool editMode) { m_isEditMode = editMode; }
+    void SetEditMode(bool editMode);
     bool ShouldShowColliders() const { return m_showColliders; }
     void SetShowColliders(bool show) { m_showColliders = show; }
     bool ShouldShowLights() const { return m_showLights; }

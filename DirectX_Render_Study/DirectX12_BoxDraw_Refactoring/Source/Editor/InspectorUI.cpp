@@ -123,6 +123,36 @@ bool CInspectorUI::ShouldUpdateGame()
     return false;
 }
 
+void CInspectorUI::SetEditMode(bool editMode)
+{
+    if (m_isEditMode == editMode) return;
+    m_isEditMode = editMode;
+
+    auto& objectList = ObjectManager::GetInstance().GetObjectList();
+    Scenes::ID currentSceneID = SceneManager::GetInstance().GetActiveSceneID();
+
+    if (!m_isEditMode)
+    {
+        // Play Mode Start
+        for (auto& vec : objectList)
+        {
+            for (auto& obj : vec)
+            {
+                if (obj && !obj->GetIsDestroyed())
+                {
+                    if (!obj->GetHasAwoken()) obj->Awake();
+                    if (!obj->GetHasStarted()) obj->Start();
+                }
+            }
+        }
+    }
+    else
+    {
+        // Edit Mode Reload
+        SceneSerializer::LoadScene(m_sceneJsonPath, currentSceneID);
+    }
+}
+
 void CInspectorUI::Draw()
 {
 #ifndef _DEBUG
@@ -253,6 +283,26 @@ void CInspectorUI::Draw()
 
     // 1. Simulation & View Controls
     ImGui::Text("Simulation Controls");
+    if (m_isEditMode)
+    {
+        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.8f, 0.2f, 0.2f, 1.0f));
+        if (ImGui::Button("  [EDIT MODE] Click to Play  "))
+        {
+            SetEditMode(false);
+        }
+        ImGui::PopStyleColor();
+    }
+    else
+    {
+        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.2f, 0.8f, 0.2f, 1.0f));
+        if (ImGui::Button("  [PLAY MODE] Click to Edit  "))
+        {
+            SetEditMode(true);
+        }
+        ImGui::PopStyleColor();
+    }
+
+    ImGui::SameLine();
     if (ImGui::Button(m_isPaused ? " Resume " : " Pause "))
     {
         m_isPaused = !m_isPaused;

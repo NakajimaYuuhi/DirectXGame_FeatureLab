@@ -32,12 +32,12 @@ void CEditorToolbarUI::Draw()
     if (ImGui::Begin("Editor Toolbar", &m_isVisible, flags))
     {
         // ---------------------------------------------------------
-        // 1. 繝励Ξ繧､繝｢繝ｼ繝・/ 邱ｨ髮・Δ繝ｼ繝・/ 繝励Ξ繝上ヶ邱ｨ髮・Δ繝ｼ繝峨・蛻ｶ蠕｡繝懊ち繝ｳ
+        // 1. Prefab Stage Mode Controls
         // ---------------------------------------------------------
         bool isPrefabMode = CInspectorUI::GetInstance().IsPrefabEditMode();
         if (isPrefabMode)
         {
-            // 繝励Ξ繝上ヶ邱ｨ髮・せ繝・・繧ｸ荳ｭ縺ｮ謫堺ｽ懊・繧ｿ繝ｳ
+            // Prefab edit stage controls
             std::string path = CInspectorUI::GetInstance().GetEditingPrefabPath();
             ImGui::TextColored(ImVec4(1.0f, 0.8f, 0.2f, 1.0f), "[PREFAB STAGE MODE] %s", path.c_str());
             ImGui::SameLine();
@@ -50,43 +50,10 @@ void CEditorToolbarUI::Draw()
             {
                 CInspectorUI::GetInstance().ClosePrefabEditMode();
             }
+            ImGui::SameLine();
+            ImGui::Text("|");
+            ImGui::SameLine();
         }
-        else
-        {
-            // 騾壼ｸｸ繧ｷ繝ｼ繝ｳ縺ｧ縺ｮ邱ｨ髮・・蜀咲函繝ｻ荳譎ょ●豁｢蛻・崛
-            bool isEditMode = CInspectorUI::GetInstance().IsEditMode();
-            bool isPaused = CInspectorUI::GetInstance().IsPaused();
-
-            if (isEditMode)
-            {
-                ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.8f, 0.2f, 0.2f, 1.0f));
-                if (ImGui::Button(" [Edit Mode] Click to Play "))
-                {
-                    CInspectorUI::GetInstance().SetEditMode(false);
-                }
-                ImGui::PopStyleColor();
-            }
-            else
-            {
-                ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.2f, 0.7f, 0.3f, 1.0f));
-                if (ImGui::Button(" [PLAYING] Click to Edit "))
-                {
-                    CInspectorUI::GetInstance().SetEditMode(true);
-                }
-                ImGui::PopStyleColor();
-
-                ImGui::SameLine();
-                if (ImGui::Button(isPaused ? " Resume " : " Pause "))
-                {
-                    CInspectorUI::GetInstance().SetPaused(!isPaused);
-                }
-            }
-        }
-
-        ImGui::SameLine();
-        ImGui::Text("|");
-        ImGui::SameLine();
-
         // ---------------------------------------------------------
         // 2. 繧ｮ繧ｺ繝｢謫堺ｽ懊Δ繝ｼ繝牙・繧頑崛縺茨ｼ育ｧｻ蜍・ W / 蝗櫁ｻ｢: E / 諡｡螟ｧ邵ｮ蟆・ R
         // ---------------------------------------------------------
