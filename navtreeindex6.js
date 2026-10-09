@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"classCollision.html":[2,0,37],
+"classCollision.html#a04062e8d30c3ab7ae63e01d78012988e":[2,0,37,3],
 "classCollision.html#a07ebe483f70cdc0d32798347fd92ec30":[2,0,37,8],
 "classCollision.html#a187236f2a581226801e9e84d2a3da5fb":[2,0,37,2],
 "classCollision.html#a1c247612eae832108bf79b78127f35f3":[2,0,37,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "classEventData.html":[2,0,61],
 "classEventData.html#abc776b7a755383c50e618a8b2140174c":[2,0,61,1],
 "classEventData.html#af3b2887aee6312e35a2df0d621930b75":[2,0,61,0],
-"classEventData__NextScene.html":[2,0,62],
-"classEventData__NextScene.html#a4b170458f5ddc31b803037ffcfa40cd1":[2,0,62,0],
-"classEventData__NextScene.html#a62156330dfcb0c2eea489b7b2ff02081":[2,0,62,1]
+"classEventData__NextScene.html":[2,0,62]
 };

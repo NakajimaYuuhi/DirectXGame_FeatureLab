@@ -5,6 +5,7 @@ var classCScene =
     [ "~CScene", "classCScene.html#af0670c9e61a88a429f298a162f9ea985", null ],
     [ "Draw", "classCScene.html#a94b87b2309681c85f6893d364c23132b", null ],
     [ "GetID", "classCScene.html#a99023c4732db0ddf062737109a4e6c06", null ],
+    [ "GetRenderPipeline", "classCScene.html#ad558dd2d1673903480fcaeef32dc5c3e", null ],
     [ "Init", "classCScene.html#a1a9a0a7de61eb77ca64998ab5586896a", null ],
     [ "Update", "classCScene.html#af3c7441b18b9ca1f31226c6dac1a0e00", null ],
     [ "id", "classCScene.html#acb9e32c5518691b30549ef649ed91b2a", null ],

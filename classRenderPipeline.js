@@ -5,6 +5,8 @@ var classRenderPipeline =
     [ "AddPass", "classRenderPipeline.html#a5c1ce524c923471950e1a87204398203", null ],
     [ "ClearPasses", "classRenderPipeline.html#aad822f0fad32d3277aa92f4f0d317822", null ],
     [ "Execute", "classRenderPipeline.html#a0f0d5927dbdb9d8e6a0ac30b29c19a71", null ],
+    [ "GetPasses", "classRenderPipeline.html#abebc4760ccd62d7c893c55b7dfb48c8c", null ],
+    [ "GetPasses", "classRenderPipeline.html#acb7260b2b9c46b4c0c73296bc3f72c92", null ],
     [ "Init", "classRenderPipeline.html#ac850ebd2a1e379e5b43c7cfc20bb1efb", null ],
     [ "m_passes", "classRenderPipeline.html#a1a489acfe2a9b5fbaa3b042388d7d588", null ]
 ];

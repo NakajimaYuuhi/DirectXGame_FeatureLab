@@ -3,6 +3,7 @@ var classSceneTitle =
     [ "SceneTitle", "classSceneTitle.html#a841bc9115f6a988d61944ecc39a4bd16", null ],
     [ "~SceneTitle", "classSceneTitle.html#a7b68be9869ca545234914b352c57ccc6", null ],
     [ "Draw", "classSceneTitle.html#a75b890d7e0f69c0c8e6dc012d830662a", null ],
+    [ "GetRenderPipeline", "classSceneTitle.html#ab45c88fe5a14b872acd1011210f44df6", null ],
     [ "Init", "classSceneTitle.html#a06205b4d192b9d9b9ca9bccbb61af2d2", null ],
     [ "Update", "classSceneTitle.html#a28eb942a6d221a6dbaab9c509623b50f", null ],
     [ "m_pOffscreenTexture", "classSceneTitle.html#ac0f15f4daf78f96b4fa01f942dfde650", null ],

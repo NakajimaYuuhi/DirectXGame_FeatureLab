@@ -119,6 +119,8 @@ CScene の継承関係図</div>
 <tr class="separator:af3c7441b18b9ca1f31226c6dac1a0e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94b87b2309681c85f6893d364c23132b" id="r_a94b87b2309681c85f6893d364c23132b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCScene.html#a94b87b2309681c85f6893d364c23132b">Draw</a> ()=0</td></tr>
 <tr class="separator:a94b87b2309681c85f6893d364c23132b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad558dd2d1673903480fcaeef32dc5c3e" id="r_ad558dd2d1673903480fcaeef32dc5c3e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classRenderPipeline.html">RenderPipeline</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCScene.html#ad558dd2d1673903480fcaeef32dc5c3e">GetRenderPipeline</a> ()</td></tr>
+<tr class="separator:ad558dd2d1673903480fcaeef32dc5c3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99023c4732db0ddf062737109a4e6c06" id="r_a99023c4732db0ddf062737109a4e6c06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275">Scenes::ID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCScene.html#a99023c4732db0ddf062737109a4e6c06">GetID</a> () const</td></tr>
 <tr class="separator:a99023c4732db0ddf062737109a4e6c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -126,7 +128,7 @@ CScene の継承関係図</div>
 限定公開変数類</h2></td></tr>
 <tr class="memitem:ac07ec27dc1b6c857d5dc059efab045d0" id="r_ac07ec27dc1b6c857d5dc059efab045d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Scene_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCScene.html#ac07ec27dc1b6c857d5dc059efab045d0">m_Name</a></td></tr>
 <tr class="separator:ac07ec27dc1b6c857d5dc059efab045d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb9e32c5518691b30549ef649ed91b2a" id="r_acb9e32c5518691b30549ef649ed91b2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275">Scenes::ID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCScene.html#acb9e32c5518691b30549ef649ed91b2a">id</a></td></tr>
+<tr class="memitem:acb9e32c5518691b30549ef649ed91b2a" id="r_acb9e32c5518691b30549ef649ed91b2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275">Scenes::ID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCScene.html#acb9e32c5518691b30549ef649ed91b2a">id</a> = <a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275a0a07cb136b841bb4834472e6d018b877">Scenes::ID::NONE</a></td></tr>
 <tr class="separator:acb9e32c5518691b30549ef649ed91b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">構築子と解体子</h2>
@@ -259,6 +261,38 @@ CScene の継承関係図</div>
 
 </div>
 </div>
+<a id="ad558dd2d1673903480fcaeef32dc5c3e" name="ad558dd2d1673903480fcaeef32dc5c3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad558dd2d1673903480fcaeef32dc5c3e">&#9670;&#160;</a></span>GetRenderPipeline()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classRenderPipeline.html">RenderPipeline</a> * CScene::GetRenderPipeline </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classSceneClear.html#a381bb3d099b195bdd95087563643c500">SceneClear</a>, <a class="el" href="classSceneFailed.html#a270fca7398c03aca1d3204a79d5ec356">SceneFailed</a>, <a class="el" href="classCSceneTest.html#aabba26054ff3524a0832ca40c8905e44">CSceneTest</a>, <a class="el" href="classSceneTitle.html#ab45c88fe5a14b872acd1011210f44df6">SceneTitle</a>で再実装されています。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCScene_ad558dd2d1673903480fcaeef32dc5c3e_icgraph.svg" width="531" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="a1a9a0a7de61eb77ca64998ab5586896a" name="a1a9a0a7de61eb77ca64998ab5586896a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1a9a0a7de61eb77ca64998ab5586896a">&#9670;&#160;</a></span>Init()</h2>
 
@@ -324,7 +358,7 @@ CScene の継承関係図</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275">Scenes::ID</a> CScene::id</td>
+          <td class="memname"><a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275">Scenes::ID</a> CScene::id = <a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275a0a07cb136b841bb4834472e6d018b877">Scenes::ID::NONE</a></td>
         </tr>
       </table>
   </td>

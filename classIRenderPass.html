@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('classIRenderPass.html',''); initResiza
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pro-attribs">限定公開変数類</a> &#124;
 <a href="classIRenderPass-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">IRenderPass クラス<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
@@ -114,6 +115,15 @@ IRenderPass の継承関係図</div>
 <tr class="separator:a296b54adab092c7100589ea49f2bfd15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0620af6b0dfcf2951f413c8fdcb451a" id="r_aa0620af6b0dfcf2951f413c8fdcb451a"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#aa0620af6b0dfcf2951f413c8fdcb451a">GetName</a> () const =0</td></tr>
 <tr class="separator:aa0620af6b0dfcf2951f413c8fdcb451a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7902d9b20ee85fb3a30c6e5555445f51" id="r_a7902d9b20ee85fb3a30c6e5555445f51"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a7902d9b20ee85fb3a30c6e5555445f51">IsEnabled</a> () const</td></tr>
+<tr class="separator:a7902d9b20ee85fb3a30c6e5555445f51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adee3ba2abf5a11714da17de66e7d685f" id="r_adee3ba2abf5a11714da17de66e7d685f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#adee3ba2abf5a11714da17de66e7d685f">SetEnabled</a> (bool enabled)</td></tr>
+<tr class="separator:adee3ba2abf5a11714da17de66e7d685f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+限定公開変数類</h2></td></tr>
+<tr class="memitem:a4786d22e2938e223a6c611f98a26577d" id="r_a4786d22e2938e223a6c611f98a26577d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a4786d22e2938e223a6c611f98a26577d">m_isEnabled</a> = true</td></tr>
+<tr class="separator:a4786d22e2938e223a6c611f98a26577d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">構築子と解体子</h2>
 <a id="a52c6a9a8b5ae4b98d6c9d9d6899998e0" name="a52c6a9a8b5ae4b98d6c9d9d6899998e0"></a>
@@ -222,6 +232,80 @@ IRenderPass の継承関係図</div>
 </div><div class="memdoc">
 
 <p><a class="el" href="classForwardRenderPass.html#a3fab71acf16e7f5756719d2cd4623e16">ForwardRenderPass</a>, <a class="el" href="classPostProcessPass.html#a28abf6b07cb94aca17a662d90b10720b">PostProcessPass</a>, <a class="el" href="classShadowMapPass.html#a9411d702ab83f2f7b91eb78bc4c56786">ShadowMapPass</a>で実装されています。</p>
+
+</div>
+</div>
+<a id="a7902d9b20ee85fb3a30c6e5555445f51" name="a7902d9b20ee85fb3a30c6e5555445f51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7902d9b20ee85fb3a30c6e5555445f51">&#9670;&#160;</a></span>IsEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IRenderPass::IsEnabled </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adee3ba2abf5a11714da17de66e7d685f" name="adee3ba2abf5a11714da17de66e7d685f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adee3ba2abf5a11714da17de66e7d685f">&#9670;&#160;</a></span>SetEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IRenderPass::SetEnabled </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enabled</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a4786d22e2938e223a6c611f98a26577d" name="a4786d22e2938e223a6c611f98a26577d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4786d22e2938e223a6c611f98a26577d">&#9670;&#160;</a></span>m_isEnabled</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IRenderPass::m_isEnabled = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
