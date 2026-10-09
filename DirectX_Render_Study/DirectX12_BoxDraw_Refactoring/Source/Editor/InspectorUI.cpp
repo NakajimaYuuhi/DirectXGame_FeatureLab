@@ -21,6 +21,7 @@
 #include "TimeManager.h"
 #include "Source/Core/Scenes/Manager/SceneManager.h"
 #include "Source/Core/Scenes/Serializer/SceneSerializer.h"
+#include "RenderPipeline.h"
 #include "SceneEnums.h"
 #include "Source/UI/RectTransform.h"
 #include "SpriteRenderer.h"
@@ -587,6 +588,51 @@ void CInspectorUI::Draw()
             if (ImGui::SliderFloat("Outline Width", &outlineWidth, 0.5f, 4.0f, "%.1f px"))
             {
                 lightMgr.SetOutlineWidth(outlineWidth);
+            }
+        }
+
+        // 5. Exposure & Tonemapping
+        ImGui::Spacing();
+        ImGui::Separator();
+        ImGui::Text("Color Grading / Tonemapping");
+        float exposure = lightMgr.GetExposure();
+        if (ImGui::SliderFloat("Exposure", &exposure, 0.1f, 4.0f, "%.2f"))
+        {
+            lightMgr.SetExposure(exposure);
+        }
+
+        const char* toneMaps[] = { "None (Linear)", "Reinhard", "ACES Filmic (Cinematic)" };
+        int currentToneMap = lightMgr.GetToneMapType();
+        if (ImGui::Combo("Tonemap Operator", &currentToneMap, toneMaps, IM_ARRAYSIZE(toneMaps)))
+        {
+            lightMgr.SetToneMapType(currentToneMap);
+        }
+
+        // 6. Active Render Pipeline Passes
+        ImGui::Spacing();
+        ImGui::Separator();
+        ImGui::Text("Active Render Pipeline Passes");
+        CScene* activeScene = SceneManager::GetInstance().GetActiveScene();
+        if (activeScene)
+        {
+            RenderPipeline* pipeline = activeScene->GetRenderPipeline();
+            if (pipeline)
+            {
+                auto& passes = pipeline->GetPasses();
+                for (size_t i = 0; i < passes.size(); ++i)
+                {
+                    if (!passes[i]) continue;
+                    bool passEnabled = passes[i]->IsEnabled();
+                    std::string passLabel = "[" + std::to_string(i + 1) + "] " + passes[i]->GetName();
+                    if (ImGui::Checkbox(passLabel.c_str(), &passEnabled))
+                    {
+                        passes[i]->SetEnabled(passEnabled);
+                    }
+                }
+            }
+            else
+            {
+                ImGui::TextDisabled("No RenderPipeline attached to current scene.");
             }
         }
 

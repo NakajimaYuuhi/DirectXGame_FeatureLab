@@ -18,6 +18,8 @@ public:
 	void Update();
 	void Draw();
 
+	RenderPipeline* GetRenderPipeline() override { return m_renderPipeline.get(); }
+
 private:
 	std::unique_ptr<RenderPipeline> m_renderPipeline;
 	std::unique_ptr<RenderTexture>  m_pSceneTexture;

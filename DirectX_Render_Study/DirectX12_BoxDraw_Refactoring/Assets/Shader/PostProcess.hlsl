@@ -1,6 +1,6 @@
 // ==========================================
 // PostProcess.hlsl
-// ポストプロセス (ブルーム・色調フィルタ・色収差・アウトライン)
+// ポストプロセス (ブルーム・トーンマッピング・露出・色調フィルタ・色収差・アウトライン)
 // ==========================================
 
 struct VSOutput {
@@ -31,7 +31,8 @@ cbuffer PostProcessCB : register(b0)
     float g_outlineThreshold;    // アウトライン閾値
     float g_outlineWidth;        // アウトライン幅
     float2 g_screenSize;         // 画面解像度 (幅, 高さ)
-    float2 g_padding;            // パディング
+    float g_toneMapType;         // 0: None, 1: Reinhard, 2: ACES Filmic
+    float g_exposure;            // 露出倍率 (1.0: デフォルト)
 };
 
 Texture2D    g_texture0 : register(t0); // メイン入力
@@ -82,6 +83,36 @@ float CalculateEdge(Texture2D tex, SamplerState smp, float2 uv, float2 screenSiz
     return smoothstep(threshold, threshold * 2.0f + 0.05f, edge);
 }
 
+// --- ACES Filmic トーンマッピング関数 ---
+float3 ACESFilm(float3 x)
+{
+    float a = 2.51f;
+    float b = 0.03f;
+    float c = 2.43f;
+    float d = 0.59f;
+    float e = 0.14f;
+    return saturate((x * (a * x + b)) / (x * (c * x + d) + e));
+}
+
+// --- トーンマッピング・露出適用 ---
+float3 ApplyToneMapping(float3 col, float toneMapType, float exposure)
+{
+    col *= max(0.01f, exposure);
+
+    int type = (int)(toneMapType + 0.5f);
+    if (type == 1)
+    {
+        // Reinhard
+        return col / (col + 1.0f);
+    }
+    else if (type == 2)
+    {
+        // ACES Filmic
+        return ACESFilm(col);
+    }
+    return col;
+}
+
 // --- カラーフィルター適用関数 ---
 float3 ApplyEffect(float3 col, float2 uv, float effectType)
 {
@@ -119,6 +150,7 @@ float3 ApplyEffect(float3 col, float2 uv, float effectType)
 // --- パススルー ---
 float4 PSPassThrough(VSOutput input) : SV_TARGET {
     float3 col = SampleWithChromaticAberration(g_texture0, g_sampler, input.uv, g_chromaticAberration);
+    col = ApplyToneMapping(col, g_toneMapType, g_exposure);
     col = ApplyEffect(col, input.uv, g_effectType);
 
     if (g_outlineIntensity > 0.001f)
@@ -181,6 +213,7 @@ float4 PSComposite(VSOutput input) : SV_TARGET {
         finalColor += bloomColor * g_intensity;
     }
     
+    finalColor = ApplyToneMapping(finalColor, g_toneMapType, g_exposure);
     finalColor = ApplyEffect(finalColor, input.uv, g_effectType);
 
     if (g_outlineIntensity > 0.001f)

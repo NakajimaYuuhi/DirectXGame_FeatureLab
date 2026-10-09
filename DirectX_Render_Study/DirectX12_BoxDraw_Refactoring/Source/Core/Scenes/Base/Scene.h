@@ -4,16 +4,13 @@
 
 using String = std::string;
 
-//===== ?O???? =====
-//class CObject;
+class RenderPipeline;
 
-//===== ?N???X??` =====
+//===== クラス定義 =====
 class CScene
 {
 public:
-
-	//
-	CScene()=  default;
+	CScene() = default;
 	CScene(Scenes::ID _id) { id = _id; }
 	virtual ~CScene() = default;
 
@@ -21,14 +18,15 @@ public:
 	virtual void Update()	= 0;
 	virtual void Draw()		= 0;
 
+	// レンダリングパイプラインへのアクセサ
+	virtual RenderPipeline* GetRenderPipeline() { return nullptr; }
+
 	//----- Getter -----
-	Scenes::ID GetID()const { return id; }
+	Scenes::ID GetID() const { return id; }
 
 protected:
 	String m_Name;
-	//Tag
-	Scenes::ID id;
+	Scenes::ID id = Scenes::ID::NONE;
 
 private:
 };
-

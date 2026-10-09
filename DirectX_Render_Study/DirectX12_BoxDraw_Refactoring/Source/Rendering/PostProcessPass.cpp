@@ -186,6 +186,8 @@ void PostProcessPass::Execute(const RenderContext& ctx)
     float outlineIntensity = lightMgr.IsOutlineEnabled() ? lightMgr.GetOutlineIntensity() : 0.0f;
     float outlineThreshold = lightMgr.GetOutlineThreshold();
     float outlineWidth     = lightMgr.GetOutlineWidth();
+    float toneMapType      = static_cast<float>(lightMgr.GetToneMapType());
+    float exposure         = lightMgr.GetExposure();
 
     struct PostProcessConstants
     {
@@ -203,8 +205,8 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         float outlineWidth;
         float screenW;
         float screenH;
-        float pad0;
-        float pad1;
+        float toneMapType;
+        float exposure;
     };
 
     D3D12_VIEWPORT vpFull = { 0.0f, 0.0f, static_cast<float>(ctx.screenWidth), static_cast<float>(ctx.screenHeight), 0.0f, 1.0f };
@@ -250,6 +252,8 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         cb.outlineWidth        = outlineWidth;
         cb.screenW             = static_cast<float>(ctx.screenWidth);
         cb.screenH             = static_cast<float>(ctx.screenHeight);
+        cb.toneMapType         = toneMapType;
+        cb.exposure            = exposure;
         ctx.cmdList->SetGraphicsRoot32BitConstants(0, 16, &cb, 0);
 
         ctx.cmdList->SetGraphicsRootDescriptorTable(1, m_pSourceTex->GetSRV());
@@ -309,6 +313,8 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         cb.outlineWidth        = outlineWidth;
         cb.screenW             = static_cast<float>(ctx.screenWidth);
         cb.screenH             = static_cast<float>(ctx.screenHeight);
+        cb.toneMapType         = toneMapType;
+        cb.exposure            = exposure;
         ctx.cmdList->SetGraphicsRoot32BitConstants(0, 16, &cb, 0);
 
         ctx.cmdList->SetGraphicsRootDescriptorTable(1, m_pSourceTex->GetSRV());
@@ -364,6 +370,8 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         cb.outlineWidth        = outlineWidth;
         cb.screenW             = static_cast<float>(ctx.screenWidth);
         cb.screenH             = static_cast<float>(ctx.screenHeight);
+        cb.toneMapType         = toneMapType;
+        cb.exposure            = exposure;
         ctx.cmdList->SetGraphicsRoot32BitConstants(0, 16, &cb, 0);
 
         ctx.cmdList->SetGraphicsRootDescriptorTable(1, m_pSourceTex->GetSRV());

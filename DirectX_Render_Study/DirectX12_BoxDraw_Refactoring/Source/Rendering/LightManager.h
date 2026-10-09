@@ -114,6 +114,12 @@ public:
     float GetOutlineWidth() const { return m_outlineWidth; }
     void SetOutlineWidth(float width) { m_outlineWidth = width; }
 
+    // Tonemapping & Exposure
+    int GetToneMapType() const { return m_toneMapType; } // 0: None, 1: Reinhard, 2: ACES Filmic
+    void SetToneMapType(int type) { m_toneMapType = type; }
+    float GetExposure() const { return m_exposure; }
+    void SetExposure(float exposure) { m_exposure = exposure; }
+
     // Point Light Registration (Accumulated per frame from active Point Lights)
     void ClearPointLights();
     void AddPointLight(const DirectX::XMFLOAT3& pos, const DirectX::XMFLOAT3& color, float intensity, float range);
@@ -155,6 +161,8 @@ private:
     float m_outlineIntensity             = 1.0f;
     float m_outlineThreshold             = 0.1f;
     float m_outlineWidth                 = 1.0f;
+    int   m_toneMapType                  = 0;
+    float m_exposure                     = 1.0f;
 
     DirectX::XMMATRIX m_lightViewProj = DirectX::XMMatrixIdentity();
     bool m_isInitialized = false;

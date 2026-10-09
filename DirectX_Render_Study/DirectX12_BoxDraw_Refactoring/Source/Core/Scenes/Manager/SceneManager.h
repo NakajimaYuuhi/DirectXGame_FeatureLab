@@ -63,6 +63,13 @@ public:
 	bool GetIsGameEnd(void) const { return IsGameEnd; }
 	Scenes::ID GetActiveSceneID() const { return m_activeSceneID; }
 	bool IsTransitioning() const { return m_transitionStep != TransitionStep::None; }
+	CScene* GetActiveScene() const
+	{
+		for (const auto& s : m_scenes) {
+			if (s && s->GetID() == m_activeSceneID) return s.get();
+		}
+		return nullptr;
+	}
 
 // ƒVƒ“ƒOƒ‹ƒgƒ“
 public:
