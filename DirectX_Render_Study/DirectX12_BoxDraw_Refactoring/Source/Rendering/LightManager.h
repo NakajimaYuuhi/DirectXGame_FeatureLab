@@ -98,6 +98,22 @@ public:
     float GetPostProcessEffectStrength() const { return m_postProcessStrength; }
     void SetPostProcessEffectStrength(float strength) { m_postProcessStrength = strength; }
 
+    // Chromatic Aberration
+    bool IsChromaticAberrationEnabled() const { return m_chromaticAberrationEnabled; }
+    void SetChromaticAberrationEnabled(bool enabled) { m_chromaticAberrationEnabled = enabled; }
+    float GetChromaticAberrationIntensity() const { return m_chromaticAberrationIntensity; }
+    void SetChromaticAberrationIntensity(float intensity) { m_chromaticAberrationIntensity = intensity; }
+
+    // Outline / Edge Detection
+    bool IsOutlineEnabled() const { return m_outlineEnabled; }
+    void SetOutlineEnabled(bool enabled) { m_outlineEnabled = enabled; }
+    float GetOutlineIntensity() const { return m_outlineIntensity; }
+    void SetOutlineIntensity(float intensity) { m_outlineIntensity = intensity; }
+    float GetOutlineThreshold() const { return m_outlineThreshold; }
+    void SetOutlineThreshold(float threshold) { m_outlineThreshold = threshold; }
+    float GetOutlineWidth() const { return m_outlineWidth; }
+    void SetOutlineWidth(float width) { m_outlineWidth = width; }
+
     // Point Light Registration (Accumulated per frame from active Point Lights)
     void ClearPointLights();
     void AddPointLight(const DirectX::XMFLOAT3& pos, const DirectX::XMFLOAT3& color, float intensity, float range);
@@ -133,6 +149,12 @@ private:
     // PostProcess parameters
     int   m_postProcessType     = 0;
     float m_postProcessStrength = 1.0f;
+    bool  m_chromaticAberrationEnabled   = false;
+    float m_chromaticAberrationIntensity = 0.012f;
+    bool  m_outlineEnabled               = false;
+    float m_outlineIntensity             = 1.0f;
+    float m_outlineThreshold             = 0.1f;
+    float m_outlineWidth                 = 1.0f;
 
     DirectX::XMMATRIX m_lightViewProj = DirectX::XMMatrixIdentity();
     bool m_isInitialized = false;

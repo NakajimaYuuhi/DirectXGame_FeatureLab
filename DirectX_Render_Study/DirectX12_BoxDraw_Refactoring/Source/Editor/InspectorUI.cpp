@@ -540,6 +540,56 @@ void CInspectorUI::Draw()
             lightMgr.SetPostProcessEffectType(currentPPEffect);
         }
 
+        ImGui::Spacing();
+        ImGui::Separator();
+
+        // 3. Chromatic Aberration (色収差)
+        ImGui::Text("Chromatic Aberration");
+        bool caEnabled = lightMgr.IsChromaticAberrationEnabled();
+        if (ImGui::Checkbox("Enable Chromatic Aberration", &caEnabled))
+        {
+            lightMgr.SetChromaticAberrationEnabled(caEnabled);
+        }
+        if (caEnabled)
+        {
+            float caIntensity = lightMgr.GetChromaticAberrationIntensity();
+            if (ImGui::SliderFloat("CA Intensity", &caIntensity, 0.001f, 0.05f, "%.4f"))
+            {
+                lightMgr.SetChromaticAberrationIntensity(caIntensity);
+            }
+        }
+
+        ImGui::Spacing();
+        ImGui::Separator();
+
+        // 4. Outline / Edge Detection (輪郭線)
+        ImGui::Text("Outline (Sobel Edge Filter)");
+        bool outlineEnabled = lightMgr.IsOutlineEnabled();
+        if (ImGui::Checkbox("Enable Outline", &outlineEnabled))
+        {
+            lightMgr.SetOutlineEnabled(outlineEnabled);
+        }
+        if (outlineEnabled)
+        {
+            float outlineIntensity = lightMgr.GetOutlineIntensity();
+            if (ImGui::SliderFloat("Outline Intensity", &outlineIntensity, 0.0f, 1.0f, "%.2f"))
+            {
+                lightMgr.SetOutlineIntensity(outlineIntensity);
+            }
+
+            float outlineThreshold = lightMgr.GetOutlineThreshold();
+            if (ImGui::SliderFloat("Outline Threshold", &outlineThreshold, 0.01f, 0.5f, "%.3f"))
+            {
+                lightMgr.SetOutlineThreshold(outlineThreshold);
+            }
+
+            float outlineWidth = lightMgr.GetOutlineWidth();
+            if (ImGui::SliderFloat("Outline Width", &outlineWidth, 0.5f, 4.0f, "%.1f px"))
+            {
+                lightMgr.SetOutlineWidth(outlineWidth);
+            }
+        }
+
         ImGui::Separator();
     }
 

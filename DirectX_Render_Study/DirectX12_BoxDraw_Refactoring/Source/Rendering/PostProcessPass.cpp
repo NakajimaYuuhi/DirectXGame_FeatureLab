@@ -1,4 +1,4 @@
-﻿#include "PostProcessPass.h"
+#include "PostProcessPass.h"
 #include <d3dcompiler.h>
 #include <stdexcept>
 #include "d3dx12.h"
@@ -25,8 +25,8 @@ void PostProcessPass::Init(ID3D12Device* pDevice)
     // --------------------------------------------------------
     CD3DX12_ROOT_PARAMETER1 rootParams[3];
     
-    // Param 0: Root Constants
-    rootParams[0].InitAsConstants(8, 0, 0, D3D12_SHADER_VISIBILITY_PIXEL);
+    // Param 0: Root Constants (16 DWORD = 64 bytes, register b0)
+    rootParams[0].InitAsConstants(16, 0, 0, D3D12_SHADER_VISIBILITY_PIXEL);
 
     // Param 1: Descriptor Table t0
     CD3DX12_DESCRIPTOR_RANGE1 rangeT0;
@@ -182,6 +182,10 @@ void PostProcessPass::Execute(const RenderContext& ctx)
     const LightManager& lightMgr = LightManager::GetInstance();
     bool bloomEnabled = lightMgr.IsBloomEnabled();
     int effectType = lightMgr.GetPostProcessEffectType();
+    float chromaticAberration = lightMgr.IsChromaticAberrationEnabled() ? lightMgr.GetChromaticAberrationIntensity() : 0.0f;
+    float outlineIntensity = lightMgr.IsOutlineEnabled() ? lightMgr.GetOutlineIntensity() : 0.0f;
+    float outlineThreshold = lightMgr.GetOutlineThreshold();
+    float outlineWidth     = lightMgr.GetOutlineWidth();
 
     struct PostProcessConstants
     {
@@ -193,6 +197,14 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         float dirY;
         float bloomEnabled;
         float effectType;
+        float chromaticAberration;
+        float outlineIntensity;
+        float outlineThreshold;
+        float outlineWidth;
+        float screenW;
+        float screenH;
+        float pad0;
+        float pad1;
     };
 
     D3D12_VIEWPORT vpFull = { 0.0f, 0.0f, static_cast<float>(ctx.screenWidth), static_cast<float>(ctx.screenHeight), 0.0f, 1.0f };
@@ -224,15 +236,21 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         ctx.cmdList->SetPipelineState(m_pBrightPSO.Get());
 
         PostProcessConstants cb{};
-        cb.threshold    = threshold;
-        cb.knee         = 0.2f;
-        cb.intensity    = intensity;
-        cb.spread       = spread;
-        cb.dirX         = 0.0f;
-        cb.dirY         = 0.0f;
-        cb.bloomEnabled = 1.0f;
-        cb.effectType   = static_cast<float>(effectType);
-        ctx.cmdList->SetGraphicsRoot32BitConstants(0, 8, &cb, 0);
+        cb.threshold           = threshold;
+        cb.knee                = 0.2f;
+        cb.intensity           = intensity;
+        cb.spread              = spread;
+        cb.dirX                = 0.0f;
+        cb.dirY                = 0.0f;
+        cb.bloomEnabled        = 1.0f;
+        cb.effectType          = static_cast<float>(effectType);
+        cb.chromaticAberration = chromaticAberration;
+        cb.outlineIntensity    = outlineIntensity;
+        cb.outlineThreshold    = outlineThreshold;
+        cb.outlineWidth        = outlineWidth;
+        cb.screenW             = static_cast<float>(ctx.screenWidth);
+        cb.screenH             = static_cast<float>(ctx.screenHeight);
+        ctx.cmdList->SetGraphicsRoot32BitConstants(0, 16, &cb, 0);
 
         ctx.cmdList->SetGraphicsRootDescriptorTable(1, m_pSourceTex->GetSRV());
         ctx.cmdList->DrawInstanced(3, 1, 0, 0);
@@ -250,7 +268,7 @@ void PostProcessPass::Execute(const RenderContext& ctx)
 
         cb.dirX = 1.0f / static_cast<float>(bloomW);
         cb.dirY = 0.0f;
-        ctx.cmdList->SetGraphicsRoot32BitConstants(0, 8, &cb, 0);
+        ctx.cmdList->SetGraphicsRoot32BitConstants(0, 16, &cb, 0);
 
         ctx.cmdList->SetGraphicsRootDescriptorTable(1, m_pBrightTex->GetSRV());
         ctx.cmdList->DrawInstanced(3, 1, 0, 0);
@@ -265,7 +283,7 @@ void PostProcessPass::Execute(const RenderContext& ctx)
 
         cb.dirX = 0.0f;
         cb.dirY = 1.0f / static_cast<float>(bloomH);
-        ctx.cmdList->SetGraphicsRoot32BitConstants(0, 8, &cb, 0);
+        ctx.cmdList->SetGraphicsRoot32BitConstants(0, 16, &cb, 0);
 
         ctx.cmdList->SetGraphicsRootDescriptorTable(1, m_pBlurTexTemp->GetSRV());
         ctx.cmdList->DrawInstanced(3, 1, 0, 0);
@@ -283,9 +301,15 @@ void PostProcessPass::Execute(const RenderContext& ctx)
 
         ctx.cmdList->SetPipelineState(m_pCompositePSO.Get());
 
-        cb.bloomEnabled = 1.0f;
-        cb.effectType   = static_cast<float>(effectType);
-        ctx.cmdList->SetGraphicsRoot32BitConstants(0, 8, &cb, 0);
+        cb.bloomEnabled        = 1.0f;
+        cb.effectType          = static_cast<float>(effectType);
+        cb.chromaticAberration = chromaticAberration;
+        cb.outlineIntensity    = outlineIntensity;
+        cb.outlineThreshold    = outlineThreshold;
+        cb.outlineWidth        = outlineWidth;
+        cb.screenW             = static_cast<float>(ctx.screenWidth);
+        cb.screenH             = static_cast<float>(ctx.screenHeight);
+        ctx.cmdList->SetGraphicsRoot32BitConstants(0, 16, &cb, 0);
 
         ctx.cmdList->SetGraphicsRootDescriptorTable(1, m_pSourceTex->GetSRV());
         ctx.cmdList->SetGraphicsRootDescriptorTable(2, m_pBrightTex->GetSRV());
@@ -333,8 +357,14 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         ctx.cmdList->SetPipelineState(m_pPassThroughPSO.Get());
 
         PostProcessConstants cb{};
-        cb.effectType = static_cast<float>(effectType);
-        ctx.cmdList->SetGraphicsRoot32BitConstants(0, 8, &cb, 0);
+        cb.effectType          = static_cast<float>(effectType);
+        cb.chromaticAberration = chromaticAberration;
+        cb.outlineIntensity    = outlineIntensity;
+        cb.outlineThreshold    = outlineThreshold;
+        cb.outlineWidth        = outlineWidth;
+        cb.screenW             = static_cast<float>(ctx.screenWidth);
+        cb.screenH             = static_cast<float>(ctx.screenHeight);
+        ctx.cmdList->SetGraphicsRoot32BitConstants(0, 16, &cb, 0);
 
         ctx.cmdList->SetGraphicsRootDescriptorTable(1, m_pSourceTex->GetSRV());
         ctx.cmdList->DrawInstanced(3, 1, 0, 0);
