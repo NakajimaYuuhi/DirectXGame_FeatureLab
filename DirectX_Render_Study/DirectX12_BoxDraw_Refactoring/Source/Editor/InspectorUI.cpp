@@ -491,9 +491,16 @@ void CInspectorUI::Draw()
             }
         }
 
-        // Post-Process (Bloom) Settings
-        ImGui::Spacing();
-        ImGui::Text("Post-Process (Bloom)");
+        ImGui::Separator();
+    }
+
+    // 4.6 Post-Process Pipeline Settings
+    if (ImGui::CollapsingHeader("Post-Process Pipeline Settings", ImGuiTreeNodeFlags_DefaultOpen))
+    {
+        auto& lightMgr = LightManager::GetInstance();
+
+        // 1. Bloom Pass
+        ImGui::Text("Bloom Effect");
         bool bloomEnabled = lightMgr.IsBloomEnabled();
         if (ImGui::Checkbox("Enable Bloom", &bloomEnabled))
         {
@@ -503,30 +510,32 @@ void CInspectorUI::Draw()
         if (bloomEnabled)
         {
             float threshold = lightMgr.GetBloomThreshold();
-            if (ImGui::SliderFloat("Bloom Threshold", &threshold, 0.0f, 2.0f, "%.2f"))
+            if (ImGui::SliderFloat("Threshold", &threshold, 0.0f, 2.0f, "%.2f"))
             {
                 lightMgr.SetBloomThreshold(threshold);
             }
 
             float bloomIntensity = lightMgr.GetBloomIntensity();
-            if (ImGui::SliderFloat("Bloom Intensity", &bloomIntensity, 0.0f, 5.0f, "%.2f"))
+            if (ImGui::SliderFloat("Intensity", &bloomIntensity, 0.0f, 5.0f, "%.2f"))
             {
                 lightMgr.SetBloomIntensity(bloomIntensity);
             }
 
             float bloomSpread = lightMgr.GetBloomSpread();
-            if (ImGui::SliderFloat("Bloom Blur Spread", &bloomSpread, 0.2f, 3.0f, "%.2f"))
+            if (ImGui::SliderFloat("Blur Spread", &bloomSpread, 0.2f, 3.0f, "%.2f"))
             {
                 lightMgr.SetBloomSpread(bloomSpread);
             }
         }
 
-        // Post-Process Filters (Grayscale, Sepia, Invert, Vignette)
         ImGui::Spacing();
-        ImGui::Text("Post-Process Color Filter");
-        const char* ppEffects[] = { "None", "Grayscale", "Sepia", "Invert", "Vignette" };
+        ImGui::Separator();
+
+        // 2. Color Tone Filter Pass
+        ImGui::Text("Color Filter");
+        const char* ppEffects[] = { "None (Default)", "Grayscale", "Sepia", "Invert Color", "Vignette" };
         int currentPPEffect = lightMgr.GetPostProcessEffectType();
-        if (ImGui::Combo("Filter Effect", &currentPPEffect, ppEffects, IM_ARRAYSIZE(ppEffects)))
+        if (ImGui::Combo("Filter Type", &currentPPEffect, ppEffects, IM_ARRAYSIZE(ppEffects)))
         {
             lightMgr.SetPostProcessEffectType(currentPPEffect);
         }
