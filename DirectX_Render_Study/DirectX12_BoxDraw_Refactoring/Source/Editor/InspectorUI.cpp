@@ -414,21 +414,6 @@ void CInspectorUI::Draw()
     }
     ImGui::Separator();
 
-    // Player Status
-    CObject* player = ObjectManager::GetInstance().GetPlayer();
-    if (player)
-    {
-        HealthComponent* health = player->GetComponent<HealthComponent>();
-        if (health)
-        {
-            ImGui::Text("Player Status");
-            ImGui::Text("HP: %d / %d", health->GetHP(), health->GetMaxHP());
-            float hpFraction = (float)health->GetHP() / (float)health->GetMaxHP();
-            ImGui::ProgressBar(hpFraction, ImVec2(-1.0f, 0.0f));
-            ImGui::Separator();
-        }
-    }
-
     // 4.5 Lighting & Environment (Directional Light / Ambient)
     if (ImGui::CollapsingHeader("Lighting & Environment", ImGuiTreeNodeFlags_DefaultOpen))
     {
@@ -1579,6 +1564,77 @@ void CInspectorUI::Draw()
                     }
                 }
 
+                // HealthComponent Settings
+                HealthComponent* healthComp = selectedObj->GetComponent<HealthComponent>();
+                if (healthComp)
+                {
+                    if (ImGui::CollapsingHeader("HealthComponent Settings", ImGuiTreeNodeFlags_DefaultOpen))
+                    {
+                        int currentHp = healthComp->GetHP();
+                        int maxHp = healthComp->GetMaxHP();
+
+                        // HP Progress Bar
+                        float hpFraction = (maxHp > 0) ? (static_cast<float>(currentHp) / static_cast<float>(maxHp)) : 0.0f;
+                        char hpOverlay[32];
+                        sprintf_s(hpOverlay, "%d / %d", currentHp, maxHp);
+                        ImGui::ProgressBar(hpFraction, ImVec2(-1.0f, 0.0f), hpOverlay);
+
+                        // State Status
+                        if (healthComp->IsDead())
+                        {
+                            ImGui::TextColored(ImVec4(1.0f, 0.3f, 0.3f, 1.0f), "Status: DEAD");
+                        }
+                        else if (healthComp->IsInvincible())
+                        {
+                            ImGui::TextColored(ImVec4(1.0f, 0.8f, 0.2f, 1.0f), "Status: INVINCIBLE");
+                        }
+                        else
+                        {
+                            ImGui::TextColored(ImVec4(0.3f, 1.0f, 0.3f, 1.0f), "Status: ALIVE");
+                        }
+
+                        // HP controls
+                        if (ImGui::DragInt("Current HP", &currentHp, 1.0f, 0, maxHp))
+                        {
+                            healthComp->SetHP(currentHp);
+                        }
+
+                        if (ImGui::DragInt("Max HP", &maxHp, 1.0f, 1, 9999))
+                        {
+                            healthComp->SetMaxHP(maxHp, false);
+                        }
+
+                        float invDuration = healthComp->GetInvincibleDuration();
+                        if (ImGui::DragFloat("Invincible Duration (s)", &invDuration, 0.05f, 0.0f, 10.0f, "%.2f s"))
+                        {
+                            healthComp->SetInvincibleDuration(invDuration);
+                        }
+
+                        float blinkInterval = healthComp->GetBlinkInterval();
+                        if (ImGui::DragFloat("Blink Interval (s)", &blinkInterval, 0.01f, 0.01f, 1.0f, "%.2f s"))
+                        {
+                            healthComp->SetBlinkInterval(blinkInterval);
+                        }
+
+                        // Debug actions
+                        ImGui::Spacing();
+                        if (ImGui::Button("Damage (-1)"))
+                        {
+                            healthComp->TakeDamage(1);
+                        }
+                        ImGui::SameLine();
+                        if (ImGui::Button("Heal (+1)"))
+                        {
+                            healthComp->SetHP((std::min)(healthComp->GetHP() + 1, healthComp->GetMaxHP()));
+                        }
+                        ImGui::SameLine();
+                        if (ImGui::Button("Full HP"))
+                        {
+                            healthComp->SetHP(healthComp->GetMaxHP());
+                        }
+                    }
+                }
+
                 // -------------------------------------------------------------
                 // Other Components (Components without custom inspector panels)
                 // -------------------------------------------------------------
@@ -1590,7 +1646,7 @@ void CInspectorUI::Draw()
                     if (cPtr != transform && cPtr != sprite && cPtr != textComp &&
                         cPtr != btnComp && cPtr != ecComp && cPtr != objInfo &&
                         cPtr != lightComp && cPtr != boxCol && cPtr != capCol &&
-                        cPtr != modelComp)
+                        cPtr != modelComp && cPtr != healthComp)
                     {
                         otherCompNames.push_back(GetCleanComponentName(cPtr));
                     }
