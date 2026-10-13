@@ -18,6 +18,7 @@ public:
     void AddDescriptorTable(D3D12_DESCRIPTOR_RANGE_TYPE rangeType, UINT numDescriptors, UINT baseShaderRegister, UINT registerSpace, D3D12_SHADER_VISIBILITY visibility);
     void AddConstantBufferView(UINT shaderRegister, UINT registerSpace, D3D12_SHADER_VISIBILITY visibility);
     void AddStaticSampler(const D3D12_STATIC_SAMPLER_DESC& sampler);
+    void SetFlags(D3D12_ROOT_SIGNATURE_FLAGS flags) { m_flags = flags; }
 
     bool Build(ID3D12Device* device, ID3D12RootSignature** ppRootSig);
 
@@ -25,11 +26,12 @@ private:
     std::vector<D3D12_ROOT_PARAMETER> m_parameters;
     std::vector<std::vector<D3D12_DESCRIPTOR_RANGE>> m_descriptorRanges; 
     std::vector<D3D12_STATIC_SAMPLER_DESC> m_samplers;
+    D3D12_ROOT_SIGNATURE_FLAGS m_flags = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT;
 };
 
 
 // ========================================================
-// PSOBuilder
+// PSOBuilder (Graphics)
 // ========================================================
 class PSOBuilder
 {
@@ -53,4 +55,21 @@ public:
 
 private:
     D3D12_GRAPHICS_PIPELINE_STATE_DESC m_psoDesc;
+};
+
+// ========================================================
+// ComputePSOBuilder
+// ========================================================
+class ComputePSOBuilder
+{
+public:
+    ComputePSOBuilder();
+
+    ComputePSOBuilder& SetRootSignature(ID3D12RootSignature* rootSig);
+    ComputePSOBuilder& SetComputeShader(D3D12_SHADER_BYTECODE cs);
+
+    bool Build(ID3D12Device* device, ID3D12PipelineState** ppPipelineState);
+
+private:
+    D3D12_COMPUTE_PIPELINE_STATE_DESC m_psoDesc;
 };

@@ -4,7 +4,7 @@
 
 class RenderTexture {
 public:
-    RenderTexture(ID3D12Device* pDevice, UINT width, UINT height, DXGI_FORMAT format, const float clearColor[4] = nullptr);
+    RenderTexture(ID3D12Device* pDevice, UINT width, UINT height, DXGI_FORMAT format, const float clearColor[4] = nullptr, bool allowUAV = false);
     ~RenderTexture();
 
     RenderTexture(const RenderTexture&) = delete;
@@ -12,11 +12,16 @@ public:
 
     void Transition(ID3D12GraphicsCommandList* cmdList, D3D12_RESOURCE_STATES nextState);
     void Clear(ID3D12GraphicsCommandList* cmdList, const float clearColor[4] = nullptr);
+    void UAVBarrier(ID3D12GraphicsCommandList* cmdList);
 
     ID3D12Resource* GetResource() const { return m_pResource.Get(); }
     D3D12_CPU_DESCRIPTOR_HANDLE GetRTV() const { return m_rtvHandleCPU; }
     D3D12_GPU_DESCRIPTOR_HANDLE GetSRV() const { return m_srvHandleGPU; }
+    D3D12_CPU_DESCRIPTOR_HANDLE GetUAVCPU() const { return m_uavHandleCPU; }
+    D3D12_GPU_DESCRIPTOR_HANDLE GetUAV() const { return m_uavHandleGPU; }
+    bool HasUAV() const { return m_uavAllocated; }
 
+    D3D12_RESOURCE_STATES GetCurrentState() const { return m_currentState; }
     UINT GetWidth() const { return m_width; }
     UINT GetHeight() const { return m_height; }
     DXGI_FORMAT GetFormat() const { return m_format; }
@@ -39,4 +44,9 @@ private:
     D3D12_CPU_DESCRIPTOR_HANDLE m_srvHandleCPU{};
     D3D12_GPU_DESCRIPTOR_HANDLE m_srvHandleGPU{};
     bool m_srvAllocated = false;
+
+    // UAV handles allocated from main SRV/UAV heap
+    D3D12_CPU_DESCRIPTOR_HANDLE m_uavHandleCPU{};
+    D3D12_GPU_DESCRIPTOR_HANDLE m_uavHandleGPU{};
+    bool m_uavAllocated = false;
 };

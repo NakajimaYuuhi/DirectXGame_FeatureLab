@@ -3,7 +3,7 @@
 #include <cstring>
 #include "DX12Manager.h"
 
-RenderTexture::RenderTexture(ID3D12Device* pDevice, UINT width, UINT height, DXGI_FORMAT format, const float clearColor[4])
+RenderTexture::RenderTexture(ID3D12Device* pDevice, UINT width, UINT height, DXGI_FORMAT format, const float clearColor[4], bool allowUAV)
     : m_width(width)
     , m_height(height)
     , m_format(format)
@@ -36,6 +36,10 @@ RenderTexture::RenderTexture(ID3D12Device* pDevice, UINT width, UINT height, DXG
     resDesc.SampleDesc.Quality = 0;
     resDesc.Layout = D3D12_TEXTURE_LAYOUT_UNKNOWN;
     resDesc.Flags = D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET;
+    if (allowUAV)
+    {
+        resDesc.Flags |= D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS;
+    }
 
     D3D12_CLEAR_VALUE d3dClearValue = {};
     d3dClearValue.Format = format;
@@ -79,6 +83,18 @@ RenderTexture::RenderTexture(ID3D12Device* pDevice, UINT width, UINT height, DXG
     srvDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
     srvDesc.Texture2D.MipLevels = 1;
     pDevice->CreateShaderResourceView(m_pResource.Get(), &srvDesc, m_srvHandleCPU);
+
+    // 4. Allocate UAV from main descriptor heap if requested
+    if (allowUAV)
+    {
+        DX12Manager::GetInstance().GetSRVAllocator()->Alloc(&m_uavHandleCPU, &m_uavHandleGPU);
+        m_uavAllocated = true;
+
+        D3D12_UNORDERED_ACCESS_VIEW_DESC uavDesc = {};
+        uavDesc.Format = format;
+        uavDesc.ViewDimension = D3D12_UAV_DIMENSION_TEXTURE2D;
+        pDevice->CreateUnorderedAccessView(m_pResource.Get(), nullptr, &uavDesc, m_uavHandleCPU);
+    }
 }
 
 RenderTexture::~RenderTexture()
@@ -88,6 +104,20 @@ RenderTexture::~RenderTexture()
         DX12Manager::GetInstance().GetSRVAllocator()->Free(m_srvHandleCPU, m_srvHandleGPU);
         m_srvAllocated = false;
     }
+    if (m_uavAllocated)
+    {
+        DX12Manager::GetInstance().GetSRVAllocator()->Free(m_uavHandleCPU, m_uavHandleGPU);
+        m_uavAllocated = false;
+    }
+}
+
+void RenderTexture::UAVBarrier(ID3D12GraphicsCommandList* cmdList)
+{
+    D3D12_RESOURCE_BARRIER barrier = {};
+    barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_UAV;
+    barrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+    barrier.UAV.pResource = m_pResource.Get();
+    cmdList->ResourceBarrier(1, &barrier);
 }
 
 void RenderTexture::Transition(ID3D12GraphicsCommandList* cmdList, D3D12_RESOURCE_STATES nextState)

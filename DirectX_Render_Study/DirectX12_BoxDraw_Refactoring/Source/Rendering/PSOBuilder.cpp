@@ -70,7 +70,7 @@ bool RootSignatureBuilder::Build(ID3D12Device* device, ID3D12RootSignature** ppR
     rootSignatureDesc.pParameters = m_parameters.empty() ? nullptr : m_parameters.data();
     rootSignatureDesc.NumStaticSamplers = static_cast<UINT>(m_samplers.size());
     rootSignatureDesc.pStaticSamplers = m_samplers.empty() ? nullptr : m_samplers.data();
-    rootSignatureDesc.Flags = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT;
+    rootSignatureDesc.Flags = m_flags;
 
     ComPtr<ID3DBlob> signature;
     ComPtr<ID3DBlob> error;
@@ -219,5 +219,33 @@ PSOBuilder& PSOBuilder::SetDefaultBlendState()
 bool PSOBuilder::Build(ID3D12Device* device, ID3D12PipelineState** ppPipelineState)
 {
     HRESULT hr = device->CreateGraphicsPipelineState(&m_psoDesc, IID_PPV_ARGS(ppPipelineState));
+    return SUCCEEDED(hr);
+}
+
+// ========================================================
+// ComputePSOBuilder
+// ========================================================
+
+ComputePSOBuilder::ComputePSOBuilder()
+{
+    ZeroMemory(&m_psoDesc, sizeof(m_psoDesc));
+}
+
+ComputePSOBuilder& ComputePSOBuilder::SetRootSignature(ID3D12RootSignature* rootSig)
+{
+    m_psoDesc.pRootSignature = rootSig;
+    return *this;
+}
+
+ComputePSOBuilder& ComputePSOBuilder::SetComputeShader(D3D12_SHADER_BYTECODE cs)
+{
+    m_psoDesc.CS = cs;
+    return *this;
+}
+
+bool ComputePSOBuilder::Build(ID3D12Device* device, ID3D12PipelineState** ppPipelineState)
+{
+    if (!device || !ppPipelineState) return false;
+    HRESULT hr = device->CreateComputePipelineState(&m_psoDesc, IID_PPV_ARGS(ppPipelineState));
     return SUCCEEDED(hr);
 }
