@@ -6,7 +6,9 @@ var classRootSignatureBuilder =
     [ "AddDescriptorTable", "classRootSignatureBuilder.html#a1d694876446e39f483fe7c6a3102eb98", null ],
     [ "AddStaticSampler", "classRootSignatureBuilder.html#aa9e24dba3fa95b1897c18e0961e0a547", null ],
     [ "Build", "classRootSignatureBuilder.html#accd44a50cee2575c2da481c9fc790f09", null ],
+    [ "SetFlags", "classRootSignatureBuilder.html#a505551dc7403cca37637b2b765c9dfc1", null ],
     [ "m_descriptorRanges", "classRootSignatureBuilder.html#a70f29e41193ba6f82cd9a03ea322e427", null ],
+    [ "m_flags", "classRootSignatureBuilder.html#a596cf6c45ff3bc78768bdd8d41369baa", null ],
     [ "m_parameters", "classRootSignatureBuilder.html#a5ea2e454391c7de6bba2f347076780fc", null ],
     [ "m_samplers", "classRootSignatureBuilder.html#adae68c5b7e01af9c69c595b2bf328009", null ]
 ];

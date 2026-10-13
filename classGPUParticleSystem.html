@@ -1,0 +1,1386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: GPUParticleSystem クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classGPUParticleSystem.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pri-methods">非公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classGPUParticleSystem-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">GPUParticleSystem クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="GPUParticleSystem_8h_source.html">GPUParticleSystem.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a3b66ad3c495b346e1303b087b13de107" id="r_a3b66ad3c495b346e1303b087b13de107"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a3b66ad3c495b346e1303b087b13de107">GPUParticleSystem</a> ()</td></tr>
+<tr class="separator:a3b66ad3c495b346e1303b087b13de107"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20c11270b1c3ed6bb139e6c7ca252542" id="r_a20c11270b1c3ed6bb139e6c7ca252542"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a20c11270b1c3ed6bb139e6c7ca252542">~GPUParticleSystem</a> ()</td></tr>
+<tr class="separator:a20c11270b1c3ed6bb139e6c7ca252542"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9c4135ccf62feaec53f4a798a1e99bc" id="r_aa9c4135ccf62feaec53f4a798a1e99bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#aa9c4135ccf62feaec53f4a798a1e99bc">GPUParticleSystem</a> (const <a class="el" href="classGPUParticleSystem.html">GPUParticleSystem</a> &amp;)=delete</td></tr>
+<tr class="separator:aa9c4135ccf62feaec53f4a798a1e99bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae90ff303a83d5055f9917958e7f3d4e0" id="r_ae90ff303a83d5055f9917958e7f3d4e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGPUParticleSystem.html">GPUParticleSystem</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#ae90ff303a83d5055f9917958e7f3d4e0">operator=</a> (const <a class="el" href="classGPUParticleSystem.html">GPUParticleSystem</a> &amp;)=delete</td></tr>
+<tr class="separator:ae90ff303a83d5055f9917958e7f3d4e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14258b32ea1c7893f76b19081993ecb3" id="r_a14258b32ea1c7893f76b19081993ecb3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a14258b32ea1c7893f76b19081993ecb3">Init</a> (ID3D12Device *device, UINT maxParticles=16384)</td></tr>
+<tr class="separator:a14258b32ea1c7893f76b19081993ecb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cb8258c7aeb692fd72836d8179ca454" id="r_a8cb8258c7aeb692fd72836d8179ca454"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a8cb8258c7aeb692fd72836d8179ca454">UpdateAndSimulate</a> (ID3D12GraphicsCommandList *cmdList, float deltaTime)</td></tr>
+<tr class="separator:a8cb8258c7aeb692fd72836d8179ca454"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95bff34571a91694b1b3a89bd0feed57" id="r_a95bff34571a91694b1b3a89bd0feed57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a95bff34571a91694b1b3a89bd0feed57">Render</a> (ID3D12GraphicsCommandList *cmdList, const DirectX::XMMATRIX &amp;view, const DirectX::XMMATRIX &amp;proj)</td></tr>
+<tr class="separator:a95bff34571a91694b1b3a89bd0feed57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a239cbbca89e599e3f8fa5b3b391518d0" id="r_a239cbbca89e599e3f8fa5b3b391518d0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a239cbbca89e599e3f8fa5b3b391518d0">IsEnabled</a> () const</td></tr>
+<tr class="separator:a239cbbca89e599e3f8fa5b3b391518d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0f8d6066ab8262d1ba3233dda21e439" id="r_aa0f8d6066ab8262d1ba3233dda21e439"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#aa0f8d6066ab8262d1ba3233dda21e439">SetEnabled</a> (bool enabled)</td></tr>
+<tr class="separator:aa0f8d6066ab8262d1ba3233dda21e439"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90b5e38fe0c89d393d7fa6af8610ceba" id="r_a90b5e38fe0c89d393d7fa6af8610ceba"><td class="memItemLeft" align="right" valign="top">UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a90b5e38fe0c89d393d7fa6af8610ceba">GetMaxParticles</a> () const</td></tr>
+<tr class="separator:a90b5e38fe0c89d393d7fa6af8610ceba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52b067bc41f76c976e7de4672348679d" id="r_a52b067bc41f76c976e7de4672348679d"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a52b067bc41f76c976e7de4672348679d">GetEmitterPosition</a> ()</td></tr>
+<tr class="separator:a52b067bc41f76c976e7de4672348679d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb3fdbe3034300f5c387c0925221bbd5" id="r_afb3fdbe3034300f5c387c0925221bbd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#afb3fdbe3034300f5c387c0925221bbd5">SetEmitterPosition</a> (const DirectX::XMFLOAT3 &amp;pos)</td></tr>
+<tr class="separator:afb3fdbe3034300f5c387c0925221bbd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1b2fa0e90228422719aad96d37629e3" id="r_ab1b2fa0e90228422719aad96d37629e3"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#ab1b2fa0e90228422719aad96d37629e3">GetGravity</a> ()</td></tr>
+<tr class="separator:ab1b2fa0e90228422719aad96d37629e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa57591459d404a3293efd0df87b2c567" id="r_aa57591459d404a3293efd0df87b2c567"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#aa57591459d404a3293efd0df87b2c567">SetGravity</a> (const DirectX::XMFLOAT3 &amp;g)</td></tr>
+<tr class="separator:aa57591459d404a3293efd0df87b2c567"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af89e9695f1d21df2f810ea69be188620" id="r_af89e9695f1d21df2f810ea69be188620"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT4 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#af89e9695f1d21df2f810ea69be188620">GetParticleColor</a> ()</td></tr>
+<tr class="separator:af89e9695f1d21df2f810ea69be188620"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae94e17bdade3ad4b0eab7527b7452c1b" id="r_ae94e17bdade3ad4b0eab7527b7452c1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#ae94e17bdade3ad4b0eab7527b7452c1b">SetParticleColor</a> (const DirectX::XMFLOAT4 &amp;color)</td></tr>
+<tr class="separator:ae94e17bdade3ad4b0eab7527b7452c1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a088a0f21c1905c40e27fe6dd31192eae" id="r_a088a0f21c1905c40e27fe6dd31192eae"><td class="memItemLeft" align="right" valign="top">float &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a088a0f21c1905c40e27fe6dd31192eae">GetParticleScale</a> ()</td></tr>
+<tr class="separator:a088a0f21c1905c40e27fe6dd31192eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97c4fa102db05e957626c566da8bd123" id="r_a97c4fa102db05e957626c566da8bd123"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a97c4fa102db05e957626c566da8bd123">SetParticleScale</a> (float scale)</td></tr>
+<tr class="separator:a97c4fa102db05e957626c566da8bd123"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac75908eef1643bd90099fec98d72a79c" id="r_ac75908eef1643bd90099fec98d72a79c"><td class="memItemLeft" align="right" valign="top">float &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#ac75908eef1643bd90099fec98d72a79c">GetInitialSpeed</a> ()</td></tr>
+<tr class="separator:ac75908eef1643bd90099fec98d72a79c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ac5bd58377f77539b871af34e476a83" id="r_a9ac5bd58377f77539b871af34e476a83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a9ac5bd58377f77539b871af34e476a83">SetInitialSpeed</a> (float speed)</td></tr>
+<tr class="separator:a9ac5bd58377f77539b871af34e476a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4da3f138f966b0e1a5d5c4e3687ca520" id="r_a4da3f138f966b0e1a5d5c4e3687ca520"><td class="memItemLeft" align="right" valign="top">float &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a4da3f138f966b0e1a5d5c4e3687ca520">GetEmitRate</a> ()</td></tr>
+<tr class="separator:a4da3f138f966b0e1a5d5c4e3687ca520"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af04871667207c7c04a2face6178b3f3c" id="r_af04871667207c7c04a2face6178b3f3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#af04871667207c7c04a2face6178b3f3c">SetEmitRate</a> (float rate)</td></tr>
+<tr class="separator:af04871667207c7c04a2face6178b3f3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7bcc7776469302b3585e612e2d154bd" id="r_aa7bcc7776469302b3585e612e2d154bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#aa7bcc7776469302b3585e612e2d154bd">ResetParticles</a> (ID3D12GraphicsCommandList *cmdList)</td></tr>
+<tr class="separator:aa7bcc7776469302b3585e612e2d154bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+非公開メンバ関数</h2></td></tr>
+<tr class="memitem:a0cda91cd50658a8cf33226218f29d32a" id="r_a0cda91cd50658a8cf33226218f29d32a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a0cda91cd50658a8cf33226218f29d32a">CreateBuffers</a> (ID3D12Device *device)</td></tr>
+<tr class="separator:a0cda91cd50658a8cf33226218f29d32a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10046600d1a38fbac917bce17f9b38e2" id="r_a10046600d1a38fbac917bce17f9b38e2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a10046600d1a38fbac917bce17f9b38e2">CreateSimulationPipeline</a> (ID3D12Device *device)</td></tr>
+<tr class="separator:a10046600d1a38fbac917bce17f9b38e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2608455d232502bbb370da119d8463b" id="r_aa2608455d232502bbb370da119d8463b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#aa2608455d232502bbb370da119d8463b">CreateRenderPipeline</a> (ID3D12Device *device)</td></tr>
+<tr class="separator:aa2608455d232502bbb370da119d8463b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:a2918a61a7ea595b92fd001950b1560af" id="r_a2918a61a7ea595b92fd001950b1560af"><td class="memItemLeft" align="right" valign="top">UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a2918a61a7ea595b92fd001950b1560af">m_maxParticles</a> = 16384</td></tr>
+<tr class="separator:a2918a61a7ea595b92fd001950b1560af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1614d038e685b189c614a48bbabb469" id="r_ac1614d038e685b189c614a48bbabb469"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#ac1614d038e685b189c614a48bbabb469">m_isEnabled</a> = true</td></tr>
+<tr class="separator:ac1614d038e685b189c614a48bbabb469"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5636f6740fdaca8cc58d5de32c67fa8" id="r_ab5636f6740fdaca8cc58d5de32c67fa8"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#ab5636f6740fdaca8cc58d5de32c67fa8">m_emitterPosition</a> = { 0.0f, 1.0f, 0.0f }</td></tr>
+<tr class="separator:ab5636f6740fdaca8cc58d5de32c67fa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3a68c9b70fd3bb369ad18401cd29f39" id="r_aa3a68c9b70fd3bb369ad18401cd29f39"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#aa3a68c9b70fd3bb369ad18401cd29f39">m_gravity</a> = { 0.0f, -2.0f, 0.0f }</td></tr>
+<tr class="separator:aa3a68c9b70fd3bb369ad18401cd29f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75e40e09c1ab3f4c5fa396f13de2313e" id="r_a75e40e09c1ab3f4c5fa396f13de2313e"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a75e40e09c1ab3f4c5fa396f13de2313e">m_particleColor</a> = { 1.0f, 0.65f, 0.2f, 1.0f }</td></tr>
+<tr class="separator:a75e40e09c1ab3f4c5fa396f13de2313e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38bd50f9b30f0f0550349dd6265624ad" id="r_a38bd50f9b30f0f0550349dd6265624ad"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a38bd50f9b30f0f0550349dd6265624ad">m_particleScale</a> = 0.35f</td></tr>
+<tr class="separator:a38bd50f9b30f0f0550349dd6265624ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c3e3a03afbb330c60d01c80b2148b9f" id="r_a0c3e3a03afbb330c60d01c80b2148b9f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a0c3e3a03afbb330c60d01c80b2148b9f">m_initialSpeed</a> = 5.0f</td></tr>
+<tr class="separator:a0c3e3a03afbb330c60d01c80b2148b9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cb16a83ee9391d05eef176e80fe6b26" id="r_a9cb16a83ee9391d05eef176e80fe6b26"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a9cb16a83ee9391d05eef176e80fe6b26">m_emitRate</a> = 800.0f</td></tr>
+<tr class="separator:a9cb16a83ee9391d05eef176e80fe6b26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9a809f6e544aba72e14c557fc12a55a" id="r_ac9a809f6e544aba72e14c557fc12a55a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#ac9a809f6e544aba72e14c557fc12a55a">m_emitAccumulator</a> = 0.0f</td></tr>
+<tr class="separator:ac9a809f6e544aba72e14c557fc12a55a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57f5973fdf5e3e44284b627f13a9a81f" id="r_a57f5973fdf5e3e44284b627f13a9a81f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a57f5973fdf5e3e44284b627f13a9a81f">m_totalTime</a> = 0.0f</td></tr>
+<tr class="separator:a57f5973fdf5e3e44284b627f13a9a81f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef8aa85eef7b9b6636cbb717c3e605b0" id="r_aef8aa85eef7b9b6636cbb717c3e605b0"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12Resource &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#aef8aa85eef7b9b6636cbb717c3e605b0">m_pParticleBuffer</a></td></tr>
+<tr class="separator:aef8aa85eef7b9b6636cbb717c3e605b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a288603e84caa50be3bfeaac3b265057c" id="r_a288603e84caa50be3bfeaac3b265057c"><td class="memItemLeft" align="right" valign="top">D3D12_RESOURCE_STATES&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a288603e84caa50be3bfeaac3b265057c">m_currentState</a> = D3D12_RESOURCE_STATE_COMMON</td></tr>
+<tr class="separator:a288603e84caa50be3bfeaac3b265057c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eec6d730a2663870d013e13cb005e2e" id="r_a8eec6d730a2663870d013e13cb005e2e"><td class="memItemLeft" align="right" valign="top">D3D12_CPU_DESCRIPTOR_HANDLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a8eec6d730a2663870d013e13cb005e2e">m_uavCPU</a> {}</td></tr>
+<tr class="separator:a8eec6d730a2663870d013e13cb005e2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af190703162e884c820e9b934cfc741a1" id="r_af190703162e884c820e9b934cfc741a1"><td class="memItemLeft" align="right" valign="top">D3D12_GPU_DESCRIPTOR_HANDLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#af190703162e884c820e9b934cfc741a1">m_uavGPU</a> {}</td></tr>
+<tr class="separator:af190703162e884c820e9b934cfc741a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4965b49459d2b93b344eed6bd9c33b79" id="r_a4965b49459d2b93b344eed6bd9c33b79"><td class="memItemLeft" align="right" valign="top">D3D12_CPU_DESCRIPTOR_HANDLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a4965b49459d2b93b344eed6bd9c33b79">m_srvCPU</a> {}</td></tr>
+<tr class="separator:a4965b49459d2b93b344eed6bd9c33b79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d70400b84fa19746eb19d9eaf210933" id="r_a5d70400b84fa19746eb19d9eaf210933"><td class="memItemLeft" align="right" valign="top">D3D12_GPU_DESCRIPTOR_HANDLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a5d70400b84fa19746eb19d9eaf210933">m_srvGPU</a> {}</td></tr>
+<tr class="separator:a5d70400b84fa19746eb19d9eaf210933"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a194c88809f0ae800846b3e67a97ecb31" id="r_a194c88809f0ae800846b3e67a97ecb31"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12RootSignature &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a194c88809f0ae800846b3e67a97ecb31">m_pCSRootSignature</a></td></tr>
+<tr class="separator:a194c88809f0ae800846b3e67a97ecb31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5351d067abdc3bc4c3bb8a95df53c038" id="r_a5351d067abdc3bc4c3bb8a95df53c038"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a5351d067abdc3bc4c3bb8a95df53c038">m_pCSPipelineState</a></td></tr>
+<tr class="separator:a5351d067abdc3bc4c3bb8a95df53c038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9c52e05968a4ffa73b7122dfa4e2a16" id="r_af9c52e05968a4ffa73b7122dfa4e2a16"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12RootSignature &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#af9c52e05968a4ffa73b7122dfa4e2a16">m_pRenderRootSignature</a></td></tr>
+<tr class="separator:af9c52e05968a4ffa73b7122dfa4e2a16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a496cce41e03f2911b87e612a0d357e47" id="r_a496cce41e03f2911b87e612a0d357e47"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUParticleSystem.html#a496cce41e03f2911b87e612a0d357e47">m_pRenderPipelineState</a></td></tr>
+<tr class="separator:a496cce41e03f2911b87e612a0d357e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="a3b66ad3c495b346e1303b087b13de107" name="a3b66ad3c495b346e1303b087b13de107"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b66ad3c495b346e1303b087b13de107">&#9670;&#160;</a></span>GPUParticleSystem() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GPUParticleSystem::GPUParticleSystem </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a20c11270b1c3ed6bb139e6c7ca252542" name="a20c11270b1c3ed6bb139e6c7ca252542"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20c11270b1c3ed6bb139e6c7ca252542">&#9670;&#160;</a></span>~GPUParticleSystem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GPUParticleSystem::~GPUParticleSystem </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classGPUParticleSystem_a20c11270b1c3ed6bb139e6c7ca252542_cgraph.svg" width="100%" height="426"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aa9c4135ccf62feaec53f4a798a1e99bc" name="aa9c4135ccf62feaec53f4a798a1e99bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9c4135ccf62feaec53f4a798a1e99bc">&#9670;&#160;</a></span>GPUParticleSystem() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GPUParticleSystem::GPUParticleSystem </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classGPUParticleSystem.html">GPUParticleSystem</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a0cda91cd50658a8cf33226218f29d32a" name="a0cda91cd50658a8cf33226218f29d32a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cda91cd50658a8cf33226218f29d32a">&#9670;&#160;</a></span>CreateBuffers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GPUParticleSystem::CreateBuffers </td>
+          <td>(</td>
+          <td class="paramtype">ID3D12Device *&#160;</td>
+          <td class="paramname"><em>device</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classGPUParticleSystem_a0cda91cd50658a8cf33226218f29d32a_cgraph.svg" width="640" height="167"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classGPUParticleSystem_a0cda91cd50658a8cf33226218f29d32a_icgraph.svg" width="594" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa2608455d232502bbb370da119d8463b" name="aa2608455d232502bbb370da119d8463b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2608455d232502bbb370da119d8463b">&#9670;&#160;</a></span>CreateRenderPipeline()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GPUParticleSystem::CreateRenderPipeline </td>
+          <td>(</td>
+          <td class="paramtype">ID3D12Device *&#160;</td>
+          <td class="paramname"><em>device</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classGPUParticleSystem_aa2608455d232502bbb370da119d8463b_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classGPUParticleSystem_aa2608455d232502bbb370da119d8463b_icgraph.svg" width="602" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a10046600d1a38fbac917bce17f9b38e2" name="a10046600d1a38fbac917bce17f9b38e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10046600d1a38fbac917bce17f9b38e2">&#9670;&#160;</a></span>CreateSimulationPipeline()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GPUParticleSystem::CreateSimulationPipeline </td>
+          <td>(</td>
+          <td class="paramtype">ID3D12Device *&#160;</td>
+          <td class="paramname"><em>device</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classGPUParticleSystem_a10046600d1a38fbac917bce17f9b38e2_cgraph.svg" width="431" height="535"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classGPUParticleSystem_a10046600d1a38fbac917bce17f9b38e2_icgraph.svg" width="626" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a4da3f138f966b0e1a5d5c4e3687ca520" name="a4da3f138f966b0e1a5d5c4e3687ca520"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4da3f138f966b0e1a5d5c4e3687ca520">&#9670;&#160;</a></span>GetEmitRate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float &amp; GPUParticleSystem::GetEmitRate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a52b067bc41f76c976e7de4672348679d" name="a52b067bc41f76c976e7de4672348679d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52b067bc41f76c976e7de4672348679d">&#9670;&#160;</a></span>GetEmitterPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 &amp; GPUParticleSystem::GetEmitterPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab1b2fa0e90228422719aad96d37629e3" name="ab1b2fa0e90228422719aad96d37629e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1b2fa0e90228422719aad96d37629e3">&#9670;&#160;</a></span>GetGravity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 &amp; GPUParticleSystem::GetGravity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac75908eef1643bd90099fec98d72a79c" name="ac75908eef1643bd90099fec98d72a79c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac75908eef1643bd90099fec98d72a79c">&#9670;&#160;</a></span>GetInitialSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float &amp; GPUParticleSystem::GetInitialSpeed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a90b5e38fe0c89d393d7fa6af8610ceba" name="a90b5e38fe0c89d393d7fa6af8610ceba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90b5e38fe0c89d393d7fa6af8610ceba">&#9670;&#160;</a></span>GetMaxParticles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UINT GPUParticleSystem::GetMaxParticles </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af89e9695f1d21df2f810ea69be188620" name="af89e9695f1d21df2f810ea69be188620"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af89e9695f1d21df2f810ea69be188620">&#9670;&#160;</a></span>GetParticleColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT4 &amp; GPUParticleSystem::GetParticleColor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a088a0f21c1905c40e27fe6dd31192eae" name="a088a0f21c1905c40e27fe6dd31192eae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a088a0f21c1905c40e27fe6dd31192eae">&#9670;&#160;</a></span>GetParticleScale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float &amp; GPUParticleSystem::GetParticleScale </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a14258b32ea1c7893f76b19081993ecb3" name="a14258b32ea1c7893f76b19081993ecb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14258b32ea1c7893f76b19081993ecb3">&#9670;&#160;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GPUParticleSystem::Init </td>
+          <td>(</td>
+          <td class="paramtype">ID3D12Device *&#160;</td>
+          <td class="paramname"><em>device</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>maxParticles</em> = <code>16384</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classGPUParticleSystem_a14258b32ea1c7893f76b19081993ecb3_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classGPUParticleSystem_a14258b32ea1c7893f76b19081993ecb3_icgraph.svg" width="391" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a239cbbca89e599e3f8fa5b3b391518d0" name="a239cbbca89e599e3f8fa5b3b391518d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a239cbbca89e599e3f8fa5b3b391518d0">&#9670;&#160;</a></span>IsEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GPUParticleSystem::IsEnabled </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae90ff303a83d5055f9917958e7f3d4e0" name="ae90ff303a83d5055f9917958e7f3d4e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae90ff303a83d5055f9917958e7f3d4e0">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classGPUParticleSystem.html">GPUParticleSystem</a> &amp; GPUParticleSystem::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classGPUParticleSystem.html">GPUParticleSystem</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a95bff34571a91694b1b3a89bd0feed57" name="a95bff34571a91694b1b3a89bd0feed57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95bff34571a91694b1b3a89bd0feed57">&#9670;&#160;</a></span>Render()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPUParticleSystem::Render </td>
+          <td>(</td>
+          <td class="paramtype">ID3D12GraphicsCommandList *&#160;</td>
+          <td class="paramname"><em>cmdList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DirectX::XMMATRIX &amp;&#160;</td>
+          <td class="paramname"><em>view</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DirectX::XMMATRIX &amp;&#160;</td>
+          <td class="paramname"><em>proj</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classGPUParticleSystem_a95bff34571a91694b1b3a89bd0feed57_cgraph.svg" width="419" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classGPUParticleSystem_a95bff34571a91694b1b3a89bd0feed57_icgraph.svg" width="400" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa7bcc7776469302b3585e612e2d154bd" name="aa7bcc7776469302b3585e612e2d154bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7bcc7776469302b3585e612e2d154bd">&#9670;&#160;</a></span>ResetParticles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPUParticleSystem::ResetParticles </td>
+          <td>(</td>
+          <td class="paramtype">ID3D12GraphicsCommandList *&#160;</td>
+          <td class="paramname"><em>cmdList</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af04871667207c7c04a2face6178b3f3c" name="af04871667207c7c04a2face6178b3f3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af04871667207c7c04a2face6178b3f3c">&#9670;&#160;</a></span>SetEmitRate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPUParticleSystem::SetEmitRate </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afb3fdbe3034300f5c387c0925221bbd5" name="afb3fdbe3034300f5c387c0925221bbd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb3fdbe3034300f5c387c0925221bbd5">&#9670;&#160;</a></span>SetEmitterPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPUParticleSystem::SetEmitterPosition </td>
+          <td>(</td>
+          <td class="paramtype">const DirectX::XMFLOAT3 &amp;&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa0f8d6066ab8262d1ba3233dda21e439" name="aa0f8d6066ab8262d1ba3233dda21e439"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0f8d6066ab8262d1ba3233dda21e439">&#9670;&#160;</a></span>SetEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPUParticleSystem::SetEnabled </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enabled</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classGPUParticleSystem_aa0f8d6066ab8262d1ba3233dda21e439_icgraph.svg" width="400" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa57591459d404a3293efd0df87b2c567" name="aa57591459d404a3293efd0df87b2c567"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa57591459d404a3293efd0df87b2c567">&#9670;&#160;</a></span>SetGravity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPUParticleSystem::SetGravity </td>
+          <td>(</td>
+          <td class="paramtype">const DirectX::XMFLOAT3 &amp;&#160;</td>
+          <td class="paramname"><em>g</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9ac5bd58377f77539b871af34e476a83" name="a9ac5bd58377f77539b871af34e476a83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ac5bd58377f77539b871af34e476a83">&#9670;&#160;</a></span>SetInitialSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPUParticleSystem::SetInitialSpeed </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>speed</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae94e17bdade3ad4b0eab7527b7452c1b" name="ae94e17bdade3ad4b0eab7527b7452c1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae94e17bdade3ad4b0eab7527b7452c1b">&#9670;&#160;</a></span>SetParticleColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPUParticleSystem::SetParticleColor </td>
+          <td>(</td>
+          <td class="paramtype">const DirectX::XMFLOAT4 &amp;&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a97c4fa102db05e957626c566da8bd123" name="a97c4fa102db05e957626c566da8bd123"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97c4fa102db05e957626c566da8bd123">&#9670;&#160;</a></span>SetParticleScale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPUParticleSystem::SetParticleScale </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>scale</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8cb8258c7aeb692fd72836d8179ca454" name="a8cb8258c7aeb692fd72836d8179ca454"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cb8258c7aeb692fd72836d8179ca454">&#9670;&#160;</a></span>UpdateAndSimulate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GPUParticleSystem::UpdateAndSimulate </td>
+          <td>(</td>
+          <td class="paramtype">ID3D12GraphicsCommandList *&#160;</td>
+          <td class="paramname"><em>cmdList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classGPUParticleSystem_a8cb8258c7aeb692fd72836d8179ca454_cgraph.svg" width="419" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classGPUParticleSystem_a8cb8258c7aeb692fd72836d8179ca454_icgraph.svg" width="400" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="a288603e84caa50be3bfeaac3b265057c" name="a288603e84caa50be3bfeaac3b265057c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a288603e84caa50be3bfeaac3b265057c">&#9670;&#160;</a></span>m_currentState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_RESOURCE_STATES GPUParticleSystem::m_currentState = D3D12_RESOURCE_STATE_COMMON</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac9a809f6e544aba72e14c557fc12a55a" name="ac9a809f6e544aba72e14c557fc12a55a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9a809f6e544aba72e14c557fc12a55a">&#9670;&#160;</a></span>m_emitAccumulator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float GPUParticleSystem::m_emitAccumulator = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9cb16a83ee9391d05eef176e80fe6b26" name="a9cb16a83ee9391d05eef176e80fe6b26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cb16a83ee9391d05eef176e80fe6b26">&#9670;&#160;</a></span>m_emitRate</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float GPUParticleSystem::m_emitRate = 800.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab5636f6740fdaca8cc58d5de32c67fa8" name="ab5636f6740fdaca8cc58d5de32c67fa8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5636f6740fdaca8cc58d5de32c67fa8">&#9670;&#160;</a></span>m_emitterPosition</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 GPUParticleSystem::m_emitterPosition = { 0.0f, 1.0f, 0.0f }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa3a68c9b70fd3bb369ad18401cd29f39" name="aa3a68c9b70fd3bb369ad18401cd29f39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3a68c9b70fd3bb369ad18401cd29f39">&#9670;&#160;</a></span>m_gravity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT3 GPUParticleSystem::m_gravity = { 0.0f, -2.0f, 0.0f }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0c3e3a03afbb330c60d01c80b2148b9f" name="a0c3e3a03afbb330c60d01c80b2148b9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c3e3a03afbb330c60d01c80b2148b9f">&#9670;&#160;</a></span>m_initialSpeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float GPUParticleSystem::m_initialSpeed = 5.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac1614d038e685b189c614a48bbabb469" name="ac1614d038e685b189c614a48bbabb469"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1614d038e685b189c614a48bbabb469">&#9670;&#160;</a></span>m_isEnabled</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GPUParticleSystem::m_isEnabled = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2918a61a7ea595b92fd001950b1560af" name="a2918a61a7ea595b92fd001950b1560af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2918a61a7ea595b92fd001950b1560af">&#9670;&#160;</a></span>m_maxParticles</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UINT GPUParticleSystem::m_maxParticles = 16384</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a75e40e09c1ab3f4c5fa396f13de2313e" name="a75e40e09c1ab3f4c5fa396f13de2313e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75e40e09c1ab3f4c5fa396f13de2313e">&#9670;&#160;</a></span>m_particleColor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT4 GPUParticleSystem::m_particleColor = { 1.0f, 0.65f, 0.2f, 1.0f }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a38bd50f9b30f0f0550349dd6265624ad" name="a38bd50f9b30f0f0550349dd6265624ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38bd50f9b30f0f0550349dd6265624ad">&#9670;&#160;</a></span>m_particleScale</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float GPUParticleSystem::m_particleScale = 0.35f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5351d067abdc3bc4c3bb8a95df53c038" name="a5351d067abdc3bc4c3bb8a95df53c038"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5351d067abdc3bc4c3bb8a95df53c038">&#9670;&#160;</a></span>m_pCSPipelineState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Microsoft::WRL::ComPtr&lt;ID3D12PipelineState&gt; GPUParticleSystem::m_pCSPipelineState</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a194c88809f0ae800846b3e67a97ecb31" name="a194c88809f0ae800846b3e67a97ecb31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a194c88809f0ae800846b3e67a97ecb31">&#9670;&#160;</a></span>m_pCSRootSignature</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Microsoft::WRL::ComPtr&lt;ID3D12RootSignature&gt; GPUParticleSystem::m_pCSRootSignature</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aef8aa85eef7b9b6636cbb717c3e605b0" name="aef8aa85eef7b9b6636cbb717c3e605b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef8aa85eef7b9b6636cbb717c3e605b0">&#9670;&#160;</a></span>m_pParticleBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Microsoft::WRL::ComPtr&lt;ID3D12Resource&gt; GPUParticleSystem::m_pParticleBuffer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a496cce41e03f2911b87e612a0d357e47" name="a496cce41e03f2911b87e612a0d357e47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a496cce41e03f2911b87e612a0d357e47">&#9670;&#160;</a></span>m_pRenderPipelineState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Microsoft::WRL::ComPtr&lt;ID3D12PipelineState&gt; GPUParticleSystem::m_pRenderPipelineState</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af9c52e05968a4ffa73b7122dfa4e2a16" name="af9c52e05968a4ffa73b7122dfa4e2a16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9c52e05968a4ffa73b7122dfa4e2a16">&#9670;&#160;</a></span>m_pRenderRootSignature</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Microsoft::WRL::ComPtr&lt;ID3D12RootSignature&gt; GPUParticleSystem::m_pRenderRootSignature</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4965b49459d2b93b344eed6bd9c33b79" name="a4965b49459d2b93b344eed6bd9c33b79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4965b49459d2b93b344eed6bd9c33b79">&#9670;&#160;</a></span>m_srvCPU</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_CPU_DESCRIPTOR_HANDLE GPUParticleSystem::m_srvCPU {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d70400b84fa19746eb19d9eaf210933" name="a5d70400b84fa19746eb19d9eaf210933"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d70400b84fa19746eb19d9eaf210933">&#9670;&#160;</a></span>m_srvGPU</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_GPU_DESCRIPTOR_HANDLE GPUParticleSystem::m_srvGPU {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a57f5973fdf5e3e44284b627f13a9a81f" name="a57f5973fdf5e3e44284b627f13a9a81f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57f5973fdf5e3e44284b627f13a9a81f">&#9670;&#160;</a></span>m_totalTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float GPUParticleSystem::m_totalTime = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8eec6d730a2663870d013e13cb005e2e" name="a8eec6d730a2663870d013e13cb005e2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8eec6d730a2663870d013e13cb005e2e">&#9670;&#160;</a></span>m_uavCPU</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_CPU_DESCRIPTOR_HANDLE GPUParticleSystem::m_uavCPU {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af190703162e884c820e9b934cfc741a1" name="af190703162e884c820e9b934cfc741a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af190703162e884c820e9b934cfc741a1">&#9670;&#160;</a></span>m_uavGPU</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_GPU_DESCRIPTOR_HANDLE GPUParticleSystem::m_uavGPU {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/Rendering/<a class="el" href="GPUParticleSystem_8h_source.html">GPUParticleSystem.h</a></li>
+<li>Source/Rendering/<a class="el" href="GPUParticleSystem_8cpp.html">GPUParticleSystem.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classGPUParticleSystem.html">GPUParticleSystem</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

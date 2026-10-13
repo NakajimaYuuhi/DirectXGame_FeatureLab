@@ -1,18 +1,23 @@
 var classRenderTexture =
 [
-    [ "RenderTexture", "classRenderTexture.html#a70c9280445bacab9cf17ca7678be8ae5", null ],
+    [ "RenderTexture", "classRenderTexture.html#ae597dd0783768016c3c75844b06d3d85", null ],
     [ "~RenderTexture", "classRenderTexture.html#a09968448696504585c6dd61203f2c5b9", null ],
     [ "RenderTexture", "classRenderTexture.html#a61195eb544cf9de97ec0aa45787e84c9", null ],
     [ "Clear", "classRenderTexture.html#aadc9a7820889e43adc2cae5731a307b3", null ],
     [ "GetClearColor", "classRenderTexture.html#aa0ce6219a8d29e5e51e2a9a42570cab0", null ],
+    [ "GetCurrentState", "classRenderTexture.html#aa1c252f0c9889239ab07e777b9da698e", null ],
     [ "GetFormat", "classRenderTexture.html#a1272e8a17a172deea87236d4962f6a68", null ],
     [ "GetHeight", "classRenderTexture.html#a293f6b642602069185741d706041554e", null ],
     [ "GetResource", "classRenderTexture.html#a3a768f48620db5be27665fc9a7113cba", null ],
     [ "GetRTV", "classRenderTexture.html#afbb24327ad25b881b51f43119385c424", null ],
     [ "GetSRV", "classRenderTexture.html#a40ecbf9999b9b8bc306f19281ec0405e", null ],
+    [ "GetUAV", "classRenderTexture.html#aad01a656a8ed07c75765abb64d4eb2be", null ],
+    [ "GetUAVCPU", "classRenderTexture.html#af0d1a83560dafea231ceff45bd5ac86a", null ],
     [ "GetWidth", "classRenderTexture.html#ae70489a9e0c45dcef7091b6338e2f7c7", null ],
+    [ "HasUAV", "classRenderTexture.html#a6db05f7bfca7889d379af8a949bb0f7c", null ],
     [ "operator=", "classRenderTexture.html#a01c37d603eff3f1676fd0c54efb644eb", null ],
     [ "Transition", "classRenderTexture.html#aa490e51502e484466a31c41912878b34", null ],
+    [ "UAVBarrier", "classRenderTexture.html#abb159893169767035ae2aa171f79efc9", null ],
     [ "m_clearColor", "classRenderTexture.html#a874269fa202e9bf05de69b6baa8b917a", null ],
     [ "m_currentState", "classRenderTexture.html#aec40bd383f308624d534571369aeb202", null ],
     [ "m_format", "classRenderTexture.html#ad4579ad8fc5b82259d4b7956f2036e8b", null ],
@@ -23,5 +28,8 @@ var classRenderTexture =
     [ "m_srvAllocated", "classRenderTexture.html#a755f1466191c1c61523ed2f82bf613fd", null ],
     [ "m_srvHandleCPU", "classRenderTexture.html#a64988c063d0a46d18f1e8614d65b19e9", null ],
     [ "m_srvHandleGPU", "classRenderTexture.html#a499e9e8ee4003a719078543464acfe3a", null ],
+    [ "m_uavAllocated", "classRenderTexture.html#aed8079d862735b59261b8813ddd7d049", null ],
+    [ "m_uavHandleCPU", "classRenderTexture.html#ae38f5e7ea49c2574f58b4c0188366d84", null ],
+    [ "m_uavHandleGPU", "classRenderTexture.html#a75f39f6f061175ab94cdb6579291147e", null ],
     [ "m_width", "classRenderTexture.html#a2e5859ee4ee47143426ee959ad9639b3", null ]
 ];

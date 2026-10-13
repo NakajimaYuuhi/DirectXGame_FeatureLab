@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Rendering/GPUParticleSystem.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('GPUParticleSystem_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">GPUParticleSystem.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="GPUParticleSystem_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;d3d12.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;wrl/client.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;DirectXMath.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="structGPUParticle.html">    9</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structGPUParticle.html">GPUParticle</a></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="structGPUParticle.html#adac7a2490bc086cc35a2ca92eb7cc6b4">   11</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="structGPUParticle.html#adac7a2490bc086cc35a2ca92eb7cc6b4">position</a>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="structGPUParticle.html#af1542cbce5a6efa4a9d9b79e98c27a09">   12</a></span>    <span class="keywordtype">float</span>  <a class="code hl_variable" href="structGPUParticle.html#af1542cbce5a6efa4a9d9b79e98c27a09">life</a>;        <span class="comment">// Remaining life in seconds</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="structGPUParticle.html#abf0f2a32794ac5bdd506286040b371fb">   13</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="structGPUParticle.html#abf0f2a32794ac5bdd506286040b371fb">velocity</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structGPUParticle.html#a0ecb7db75958de504014c635e0339bc8">   14</a></span>    <span class="keywordtype">float</span>  <a class="code hl_variable" href="structGPUParticle.html#a0ecb7db75958de504014c635e0339bc8">maxLife</a>;     <span class="comment">// Max life</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="structGPUParticle.html#a7c12d7e4a4db8fb457bc40979205e082">   15</a></span>    DirectX::XMFLOAT4 <a class="code hl_variable" href="structGPUParticle.html#a7c12d7e4a4db8fb457bc40979205e082">color</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="structGPUParticle.html#a59e882495a3d45e0c6aefa3339e7ccda">   16</a></span>    <span class="keywordtype">float</span>  <a class="code hl_variable" href="structGPUParticle.html#a59e882495a3d45e0c6aefa3339e7ccda">scale</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="structGPUParticle.html#aeb161c5f1b152ea8f66acc5864a2d3d0">   17</a></span>    UINT   <a class="code hl_variable" href="structGPUParticle.html#aeb161c5f1b152ea8f66acc5864a2d3d0">active</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="structGPUParticle.html#ae7dc8120f7e1ec57cb3d6126de995705">   18</a></span>    DirectX::XMFLOAT2 <a class="code hl_variable" href="structGPUParticle.html#ae7dc8120f7e1ec57cb3d6126de995705">pad</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>};</div>
+</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html">   21</a></span><span class="keyword">class </span><a class="code hl_class" href="classGPUParticleSystem.html">GPUParticleSystem</a></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_function" href="classGPUParticleSystem.html#a3b66ad3c495b346e1303b087b13de107">GPUParticleSystem</a>();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_function" href="classGPUParticleSystem.html#a20c11270b1c3ed6bb139e6c7ca252542">~GPUParticleSystem</a>();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#aa9c4135ccf62feaec53f4a798a1e99bc">   27</a></span>    <a class="code hl_function" href="classGPUParticleSystem.html#aa9c4135ccf62feaec53f4a798a1e99bc">GPUParticleSystem</a>(<span class="keyword">const</span> <a class="code hl_class" href="classGPUParticleSystem.html">GPUParticleSystem</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#ae90ff303a83d5055f9917958e7f3d4e0">   28</a></span>    <a class="code hl_class" href="classGPUParticleSystem.html">GPUParticleSystem</a>&amp; <a class="code hl_function" href="classGPUParticleSystem.html#ae90ff303a83d5055f9917958e7f3d4e0">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classGPUParticleSystem.html">GPUParticleSystem</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classGPUParticleSystem.html#a14258b32ea1c7893f76b19081993ecb3">Init</a>(ID3D12Device* device, UINT maxParticles = 16384);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGPUParticleSystem.html#a8cb8258c7aeb692fd72836d8179ca454">UpdateAndSimulate</a>(ID3D12GraphicsCommandList* cmdList, <span class="keywordtype">float</span> deltaTime);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGPUParticleSystem.html#a95bff34571a91694b1b3a89bd0feed57">Render</a>(ID3D12GraphicsCommandList* cmdList, <span class="keyword">const</span> DirectX::XMMATRIX&amp; view, <span class="keyword">const</span> DirectX::XMMATRIX&amp; proj);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="comment">// Getters and Setters for Editor UI</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#a239cbbca89e599e3f8fa5b3b391518d0">   35</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classGPUParticleSystem.html#a239cbbca89e599e3f8fa5b3b391518d0">IsEnabled</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classGPUParticleSystem.html#ac1614d038e685b189c614a48bbabb469">m_isEnabled</a>; }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#aa0f8d6066ab8262d1ba3233dda21e439">   36</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGPUParticleSystem.html#aa0f8d6066ab8262d1ba3233dda21e439">SetEnabled</a>(<span class="keywordtype">bool</span> enabled) { <a class="code hl_variable" href="classGPUParticleSystem.html#ac1614d038e685b189c614a48bbabb469">m_isEnabled</a> = enabled; }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#a90b5e38fe0c89d393d7fa6af8610ceba">   38</a></span>    UINT <a class="code hl_function" href="classGPUParticleSystem.html#a90b5e38fe0c89d393d7fa6af8610ceba">GetMaxParticles</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classGPUParticleSystem.html#a2918a61a7ea595b92fd001950b1560af">m_maxParticles</a>; }</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#a52b067bc41f76c976e7de4672348679d">   40</a></span>    DirectX::XMFLOAT3&amp; <a class="code hl_function" href="classGPUParticleSystem.html#a52b067bc41f76c976e7de4672348679d">GetEmitterPosition</a>() { <span class="keywordflow">return</span> <a class="code hl_variable" href="classGPUParticleSystem.html#ab5636f6740fdaca8cc58d5de32c67fa8">m_emitterPosition</a>; }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#afb3fdbe3034300f5c387c0925221bbd5">   41</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGPUParticleSystem.html#afb3fdbe3034300f5c387c0925221bbd5">SetEmitterPosition</a>(<span class="keyword">const</span> DirectX::XMFLOAT3&amp; pos) { <a class="code hl_variable" href="classGPUParticleSystem.html#ab5636f6740fdaca8cc58d5de32c67fa8">m_emitterPosition</a> = pos; }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#ab1b2fa0e90228422719aad96d37629e3">   43</a></span>    DirectX::XMFLOAT3&amp; <a class="code hl_function" href="classGPUParticleSystem.html#ab1b2fa0e90228422719aad96d37629e3">GetGravity</a>() { <span class="keywordflow">return</span> <a class="code hl_variable" href="classGPUParticleSystem.html#aa3a68c9b70fd3bb369ad18401cd29f39">m_gravity</a>; }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#aa57591459d404a3293efd0df87b2c567">   44</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGPUParticleSystem.html#aa57591459d404a3293efd0df87b2c567">SetGravity</a>(<span class="keyword">const</span> DirectX::XMFLOAT3&amp; g) { <a class="code hl_variable" href="classGPUParticleSystem.html#aa3a68c9b70fd3bb369ad18401cd29f39">m_gravity</a> = g; }</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#af89e9695f1d21df2f810ea69be188620">   46</a></span>    DirectX::XMFLOAT4&amp; <a class="code hl_function" href="classGPUParticleSystem.html#af89e9695f1d21df2f810ea69be188620">GetParticleColor</a>() { <span class="keywordflow">return</span> <a class="code hl_variable" href="classGPUParticleSystem.html#a75e40e09c1ab3f4c5fa396f13de2313e">m_particleColor</a>; }</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#ae94e17bdade3ad4b0eab7527b7452c1b">   47</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGPUParticleSystem.html#ae94e17bdade3ad4b0eab7527b7452c1b">SetParticleColor</a>(<span class="keyword">const</span> DirectX::XMFLOAT4&amp; color) { <a class="code hl_variable" href="classGPUParticleSystem.html#a75e40e09c1ab3f4c5fa396f13de2313e">m_particleColor</a> = color; }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#a088a0f21c1905c40e27fe6dd31192eae">   49</a></span>    <span class="keywordtype">float</span>&amp; <a class="code hl_function" href="classGPUParticleSystem.html#a088a0f21c1905c40e27fe6dd31192eae">GetParticleScale</a>() { <span class="keywordflow">return</span> <a class="code hl_variable" href="classGPUParticleSystem.html#a38bd50f9b30f0f0550349dd6265624ad">m_particleScale</a>; }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#a97c4fa102db05e957626c566da8bd123">   50</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGPUParticleSystem.html#a97c4fa102db05e957626c566da8bd123">SetParticleScale</a>(<span class="keywordtype">float</span> scale) { <a class="code hl_variable" href="classGPUParticleSystem.html#a38bd50f9b30f0f0550349dd6265624ad">m_particleScale</a> = scale; }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#ac75908eef1643bd90099fec98d72a79c">   52</a></span>    <span class="keywordtype">float</span>&amp; <a class="code hl_function" href="classGPUParticleSystem.html#ac75908eef1643bd90099fec98d72a79c">GetInitialSpeed</a>() { <span class="keywordflow">return</span> <a class="code hl_variable" href="classGPUParticleSystem.html#a0c3e3a03afbb330c60d01c80b2148b9f">m_initialSpeed</a>; }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#a9ac5bd58377f77539b871af34e476a83">   53</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGPUParticleSystem.html#a9ac5bd58377f77539b871af34e476a83">SetInitialSpeed</a>(<span class="keywordtype">float</span> speed) { <a class="code hl_variable" href="classGPUParticleSystem.html#a0c3e3a03afbb330c60d01c80b2148b9f">m_initialSpeed</a> = speed; }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#a4da3f138f966b0e1a5d5c4e3687ca520">   55</a></span>    <span class="keywordtype">float</span>&amp; <a class="code hl_function" href="classGPUParticleSystem.html#a4da3f138f966b0e1a5d5c4e3687ca520">GetEmitRate</a>() { <span class="keywordflow">return</span> <a class="code hl_variable" href="classGPUParticleSystem.html#a9cb16a83ee9391d05eef176e80fe6b26">m_emitRate</a>; }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#af04871667207c7c04a2face6178b3f3c">   56</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGPUParticleSystem.html#af04871667207c7c04a2face6178b3f3c">SetEmitRate</a>(<span class="keywordtype">float</span> rate) { <a class="code hl_variable" href="classGPUParticleSystem.html#a9cb16a83ee9391d05eef176e80fe6b26">m_emitRate</a> = rate; }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGPUParticleSystem.html#aa7bcc7776469302b3585e612e2d154bd">ResetParticles</a>(ID3D12GraphicsCommandList* cmdList);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classGPUParticleSystem.html#a0cda91cd50658a8cf33226218f29d32a">CreateBuffers</a>(ID3D12Device* device);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classGPUParticleSystem.html#a10046600d1a38fbac917bce17f9b38e2">CreateSimulationPipeline</a>(ID3D12Device* device);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classGPUParticleSystem.html#aa2608455d232502bbb370da119d8463b">CreateRenderPipeline</a>(ID3D12Device* device);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#a2918a61a7ea595b92fd001950b1560af">   66</a></span>    UINT <a class="code hl_variable" href="classGPUParticleSystem.html#a2918a61a7ea595b92fd001950b1560af">m_maxParticles</a> = 16384;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#ac1614d038e685b189c614a48bbabb469">   67</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classGPUParticleSystem.html#ac1614d038e685b189c614a48bbabb469">m_isEnabled</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="comment">// Parameters</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#ab5636f6740fdaca8cc58d5de32c67fa8">   70</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="classGPUParticleSystem.html#ab5636f6740fdaca8cc58d5de32c67fa8">m_emitterPosition</a> = { 0.0f, 1.0f, 0.0f };</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#aa3a68c9b70fd3bb369ad18401cd29f39">   71</a></span>    DirectX::XMFLOAT3 <a class="code hl_variable" href="classGPUParticleSystem.html#aa3a68c9b70fd3bb369ad18401cd29f39">m_gravity</a> = { 0.0f, -2.0f, 0.0f };</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#a75e40e09c1ab3f4c5fa396f13de2313e">   72</a></span>    DirectX::XMFLOAT4 <a class="code hl_variable" href="classGPUParticleSystem.html#a75e40e09c1ab3f4c5fa396f13de2313e">m_particleColor</a> = { 1.0f, 0.65f, 0.2f, 1.0f };</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#a38bd50f9b30f0f0550349dd6265624ad">   73</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classGPUParticleSystem.html#a38bd50f9b30f0f0550349dd6265624ad">m_particleScale</a> = 0.35f;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#a0c3e3a03afbb330c60d01c80b2148b9f">   74</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classGPUParticleSystem.html#a0c3e3a03afbb330c60d01c80b2148b9f">m_initialSpeed</a> = 5.0f;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#a9cb16a83ee9391d05eef176e80fe6b26">   75</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classGPUParticleSystem.html#a9cb16a83ee9391d05eef176e80fe6b26">m_emitRate</a> = 800.0f; <span class="comment">// particles per second</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#ac9a809f6e544aba72e14c557fc12a55a">   77</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classGPUParticleSystem.html#ac9a809f6e544aba72e14c557fc12a55a">m_emitAccumulator</a> = 0.0f;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#a57f5973fdf5e3e44284b627f13a9a81f">   78</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classGPUParticleSystem.html#a57f5973fdf5e3e44284b627f13a9a81f">m_totalTime</a> = 0.0f;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="comment">// GPU Resource</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#aef8aa85eef7b9b6636cbb717c3e605b0">   81</a></span>    Microsoft::WRL::ComPtr&lt;ID3D12Resource&gt; <a class="code hl_variable" href="classGPUParticleSystem.html#aef8aa85eef7b9b6636cbb717c3e605b0">m_pParticleBuffer</a>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#a288603e84caa50be3bfeaac3b265057c">   82</a></span>    D3D12_RESOURCE_STATES <a class="code hl_variable" href="classGPUParticleSystem.html#a288603e84caa50be3bfeaac3b265057c">m_currentState</a> = D3D12_RESOURCE_STATE_COMMON;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="comment">// Descriptors</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#a8eec6d730a2663870d013e13cb005e2e">   85</a></span>    D3D12_CPU_DESCRIPTOR_HANDLE <a class="code hl_variable" href="classGPUParticleSystem.html#a8eec6d730a2663870d013e13cb005e2e">m_uavCPU</a>{};</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#af190703162e884c820e9b934cfc741a1">   86</a></span>    D3D12_GPU_DESCRIPTOR_HANDLE <a class="code hl_variable" href="classGPUParticleSystem.html#af190703162e884c820e9b934cfc741a1">m_uavGPU</a>{};</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#a4965b49459d2b93b344eed6bd9c33b79">   87</a></span>    D3D12_CPU_DESCRIPTOR_HANDLE <a class="code hl_variable" href="classGPUParticleSystem.html#a4965b49459d2b93b344eed6bd9c33b79">m_srvCPU</a>{};</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#a5d70400b84fa19746eb19d9eaf210933">   88</a></span>    D3D12_GPU_DESCRIPTOR_HANDLE <a class="code hl_variable" href="classGPUParticleSystem.html#a5d70400b84fa19746eb19d9eaf210933">m_srvGPU</a>{};</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="comment">// Compute Pipeline</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#a194c88809f0ae800846b3e67a97ecb31">   91</a></span>    Microsoft::WRL::ComPtr&lt;ID3D12RootSignature&gt; <a class="code hl_variable" href="classGPUParticleSystem.html#a194c88809f0ae800846b3e67a97ecb31">m_pCSRootSignature</a>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#a5351d067abdc3bc4c3bb8a95df53c038">   92</a></span>    Microsoft::WRL::ComPtr&lt;ID3D12PipelineState&gt; <a class="code hl_variable" href="classGPUParticleSystem.html#a5351d067abdc3bc4c3bb8a95df53c038">m_pCSPipelineState</a>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="comment">// Render Pipeline</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#af9c52e05968a4ffa73b7122dfa4e2a16">   95</a></span>    Microsoft::WRL::ComPtr&lt;ID3D12RootSignature&gt; <a class="code hl_variable" href="classGPUParticleSystem.html#af9c52e05968a4ffa73b7122dfa4e2a16">m_pRenderRootSignature</a>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classGPUParticleSystem.html#a496cce41e03f2911b87e612a0d357e47">   96</a></span>    Microsoft::WRL::ComPtr&lt;ID3D12PipelineState&gt; <a class="code hl_variable" href="classGPUParticleSystem.html#a496cce41e03f2911b87e612a0d357e47">m_pRenderPipelineState</a>;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>};</div>
+</div>
+<div class="ttc" id="aclassGPUParticleSystem_html"><div class="ttname"><a href="classGPUParticleSystem.html">GPUParticleSystem</a></div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:22</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a088a0f21c1905c40e27fe6dd31192eae"><div class="ttname"><a href="classGPUParticleSystem.html#a088a0f21c1905c40e27fe6dd31192eae">GPUParticleSystem::GetParticleScale</a></div><div class="ttdeci">float &amp; GetParticleScale()</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:49</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a0c3e3a03afbb330c60d01c80b2148b9f"><div class="ttname"><a href="classGPUParticleSystem.html#a0c3e3a03afbb330c60d01c80b2148b9f">GPUParticleSystem::m_initialSpeed</a></div><div class="ttdeci">float m_initialSpeed</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:74</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a0cda91cd50658a8cf33226218f29d32a"><div class="ttname"><a href="classGPUParticleSystem.html#a0cda91cd50658a8cf33226218f29d32a">GPUParticleSystem::CreateBuffers</a></div><div class="ttdeci">bool CreateBuffers(ID3D12Device *device)</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.cpp:39</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a10046600d1a38fbac917bce17f9b38e2"><div class="ttname"><a href="classGPUParticleSystem.html#a10046600d1a38fbac917bce17f9b38e2">GPUParticleSystem::CreateSimulationPipeline</a></div><div class="ttdeci">bool CreateSimulationPipeline(ID3D12Device *device)</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.cpp:95</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a14258b32ea1c7893f76b19081993ecb3"><div class="ttname"><a href="classGPUParticleSystem.html#a14258b32ea1c7893f76b19081993ecb3">GPUParticleSystem::Init</a></div><div class="ttdeci">bool Init(ID3D12Device *device, UINT maxParticles=16384)</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.cpp:28</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a194c88809f0ae800846b3e67a97ecb31"><div class="ttname"><a href="classGPUParticleSystem.html#a194c88809f0ae800846b3e67a97ecb31">GPUParticleSystem::m_pCSRootSignature</a></div><div class="ttdeci">Microsoft::WRL::ComPtr&lt; ID3D12RootSignature &gt; m_pCSRootSignature</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:91</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a20c11270b1c3ed6bb139e6c7ca252542"><div class="ttname"><a href="classGPUParticleSystem.html#a20c11270b1c3ed6bb139e6c7ca252542">GPUParticleSystem::~GPUParticleSystem</a></div><div class="ttdeci">~GPUParticleSystem()</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.cpp:12</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a239cbbca89e599e3f8fa5b3b391518d0"><div class="ttname"><a href="classGPUParticleSystem.html#a239cbbca89e599e3f8fa5b3b391518d0">GPUParticleSystem::IsEnabled</a></div><div class="ttdeci">bool IsEnabled() const</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:35</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a288603e84caa50be3bfeaac3b265057c"><div class="ttname"><a href="classGPUParticleSystem.html#a288603e84caa50be3bfeaac3b265057c">GPUParticleSystem::m_currentState</a></div><div class="ttdeci">D3D12_RESOURCE_STATES m_currentState</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:82</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a2918a61a7ea595b92fd001950b1560af"><div class="ttname"><a href="classGPUParticleSystem.html#a2918a61a7ea595b92fd001950b1560af">GPUParticleSystem::m_maxParticles</a></div><div class="ttdeci">UINT m_maxParticles</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:66</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a38bd50f9b30f0f0550349dd6265624ad"><div class="ttname"><a href="classGPUParticleSystem.html#a38bd50f9b30f0f0550349dd6265624ad">GPUParticleSystem::m_particleScale</a></div><div class="ttdeci">float m_particleScale</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:73</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a3b66ad3c495b346e1303b087b13de107"><div class="ttname"><a href="classGPUParticleSystem.html#a3b66ad3c495b346e1303b087b13de107">GPUParticleSystem::GPUParticleSystem</a></div><div class="ttdeci">GPUParticleSystem()</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.cpp:8</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a4965b49459d2b93b344eed6bd9c33b79"><div class="ttname"><a href="classGPUParticleSystem.html#a4965b49459d2b93b344eed6bd9c33b79">GPUParticleSystem::m_srvCPU</a></div><div class="ttdeci">D3D12_CPU_DESCRIPTOR_HANDLE m_srvCPU</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:87</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a496cce41e03f2911b87e612a0d357e47"><div class="ttname"><a href="classGPUParticleSystem.html#a496cce41e03f2911b87e612a0d357e47">GPUParticleSystem::m_pRenderPipelineState</a></div><div class="ttdeci">Microsoft::WRL::ComPtr&lt; ID3D12PipelineState &gt; m_pRenderPipelineState</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:96</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a4da3f138f966b0e1a5d5c4e3687ca520"><div class="ttname"><a href="classGPUParticleSystem.html#a4da3f138f966b0e1a5d5c4e3687ca520">GPUParticleSystem::GetEmitRate</a></div><div class="ttdeci">float &amp; GetEmitRate()</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:55</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a52b067bc41f76c976e7de4672348679d"><div class="ttname"><a href="classGPUParticleSystem.html#a52b067bc41f76c976e7de4672348679d">GPUParticleSystem::GetEmitterPosition</a></div><div class="ttdeci">DirectX::XMFLOAT3 &amp; GetEmitterPosition()</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:40</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a5351d067abdc3bc4c3bb8a95df53c038"><div class="ttname"><a href="classGPUParticleSystem.html#a5351d067abdc3bc4c3bb8a95df53c038">GPUParticleSystem::m_pCSPipelineState</a></div><div class="ttdeci">Microsoft::WRL::ComPtr&lt; ID3D12PipelineState &gt; m_pCSPipelineState</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:92</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a57f5973fdf5e3e44284b627f13a9a81f"><div class="ttname"><a href="classGPUParticleSystem.html#a57f5973fdf5e3e44284b627f13a9a81f">GPUParticleSystem::m_totalTime</a></div><div class="ttdeci">float m_totalTime</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:78</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a5d70400b84fa19746eb19d9eaf210933"><div class="ttname"><a href="classGPUParticleSystem.html#a5d70400b84fa19746eb19d9eaf210933">GPUParticleSystem::m_srvGPU</a></div><div class="ttdeci">D3D12_GPU_DESCRIPTOR_HANDLE m_srvGPU</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:88</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a75e40e09c1ab3f4c5fa396f13de2313e"><div class="ttname"><a href="classGPUParticleSystem.html#a75e40e09c1ab3f4c5fa396f13de2313e">GPUParticleSystem::m_particleColor</a></div><div class="ttdeci">DirectX::XMFLOAT4 m_particleColor</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:72</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a8cb8258c7aeb692fd72836d8179ca454"><div class="ttname"><a href="classGPUParticleSystem.html#a8cb8258c7aeb692fd72836d8179ca454">GPUParticleSystem::UpdateAndSimulate</a></div><div class="ttdeci">void UpdateAndSimulate(ID3D12GraphicsCommandList *cmdList, float deltaTime)</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.cpp:208</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a8eec6d730a2663870d013e13cb005e2e"><div class="ttname"><a href="classGPUParticleSystem.html#a8eec6d730a2663870d013e13cb005e2e">GPUParticleSystem::m_uavCPU</a></div><div class="ttdeci">D3D12_CPU_DESCRIPTOR_HANDLE m_uavCPU</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:85</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a90b5e38fe0c89d393d7fa6af8610ceba"><div class="ttname"><a href="classGPUParticleSystem.html#a90b5e38fe0c89d393d7fa6af8610ceba">GPUParticleSystem::GetMaxParticles</a></div><div class="ttdeci">UINT GetMaxParticles() const</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:38</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a95bff34571a91694b1b3a89bd0feed57"><div class="ttname"><a href="classGPUParticleSystem.html#a95bff34571a91694b1b3a89bd0feed57">GPUParticleSystem::Render</a></div><div class="ttdeci">void Render(ID3D12GraphicsCommandList *cmdList, const DirectX::XMMATRIX &amp;view, const DirectX::XMMATRIX &amp;proj)</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.cpp:278</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a97c4fa102db05e957626c566da8bd123"><div class="ttname"><a href="classGPUParticleSystem.html#a97c4fa102db05e957626c566da8bd123">GPUParticleSystem::SetParticleScale</a></div><div class="ttdeci">void SetParticleScale(float scale)</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:50</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a9ac5bd58377f77539b871af34e476a83"><div class="ttname"><a href="classGPUParticleSystem.html#a9ac5bd58377f77539b871af34e476a83">GPUParticleSystem::SetInitialSpeed</a></div><div class="ttdeci">void SetInitialSpeed(float speed)</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:53</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_a9cb16a83ee9391d05eef176e80fe6b26"><div class="ttname"><a href="classGPUParticleSystem.html#a9cb16a83ee9391d05eef176e80fe6b26">GPUParticleSystem::m_emitRate</a></div><div class="ttdeci">float m_emitRate</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:75</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_aa0f8d6066ab8262d1ba3233dda21e439"><div class="ttname"><a href="classGPUParticleSystem.html#aa0f8d6066ab8262d1ba3233dda21e439">GPUParticleSystem::SetEnabled</a></div><div class="ttdeci">void SetEnabled(bool enabled)</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:36</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_aa2608455d232502bbb370da119d8463b"><div class="ttname"><a href="classGPUParticleSystem.html#aa2608455d232502bbb370da119d8463b">GPUParticleSystem::CreateRenderPipeline</a></div><div class="ttdeci">bool CreateRenderPipeline(ID3D12Device *device)</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.cpp:132</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_aa3a68c9b70fd3bb369ad18401cd29f39"><div class="ttname"><a href="classGPUParticleSystem.html#aa3a68c9b70fd3bb369ad18401cd29f39">GPUParticleSystem::m_gravity</a></div><div class="ttdeci">DirectX::XMFLOAT3 m_gravity</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:71</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_aa57591459d404a3293efd0df87b2c567"><div class="ttname"><a href="classGPUParticleSystem.html#aa57591459d404a3293efd0df87b2c567">GPUParticleSystem::SetGravity</a></div><div class="ttdeci">void SetGravity(const DirectX::XMFLOAT3 &amp;g)</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:44</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_aa7bcc7776469302b3585e612e2d154bd"><div class="ttname"><a href="classGPUParticleSystem.html#aa7bcc7776469302b3585e612e2d154bd">GPUParticleSystem::ResetParticles</a></div><div class="ttdeci">void ResetParticles(ID3D12GraphicsCommandList *cmdList)</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.cpp:333</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_aa9c4135ccf62feaec53f4a798a1e99bc"><div class="ttname"><a href="classGPUParticleSystem.html#aa9c4135ccf62feaec53f4a798a1e99bc">GPUParticleSystem::GPUParticleSystem</a></div><div class="ttdeci">GPUParticleSystem(const GPUParticleSystem &amp;)=delete</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_ab1b2fa0e90228422719aad96d37629e3"><div class="ttname"><a href="classGPUParticleSystem.html#ab1b2fa0e90228422719aad96d37629e3">GPUParticleSystem::GetGravity</a></div><div class="ttdeci">DirectX::XMFLOAT3 &amp; GetGravity()</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:43</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_ab5636f6740fdaca8cc58d5de32c67fa8"><div class="ttname"><a href="classGPUParticleSystem.html#ab5636f6740fdaca8cc58d5de32c67fa8">GPUParticleSystem::m_emitterPosition</a></div><div class="ttdeci">DirectX::XMFLOAT3 m_emitterPosition</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:70</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_ac1614d038e685b189c614a48bbabb469"><div class="ttname"><a href="classGPUParticleSystem.html#ac1614d038e685b189c614a48bbabb469">GPUParticleSystem::m_isEnabled</a></div><div class="ttdeci">bool m_isEnabled</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:67</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_ac75908eef1643bd90099fec98d72a79c"><div class="ttname"><a href="classGPUParticleSystem.html#ac75908eef1643bd90099fec98d72a79c">GPUParticleSystem::GetInitialSpeed</a></div><div class="ttdeci">float &amp; GetInitialSpeed()</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:52</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_ac9a809f6e544aba72e14c557fc12a55a"><div class="ttname"><a href="classGPUParticleSystem.html#ac9a809f6e544aba72e14c557fc12a55a">GPUParticleSystem::m_emitAccumulator</a></div><div class="ttdeci">float m_emitAccumulator</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:77</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_ae90ff303a83d5055f9917958e7f3d4e0"><div class="ttname"><a href="classGPUParticleSystem.html#ae90ff303a83d5055f9917958e7f3d4e0">GPUParticleSystem::operator=</a></div><div class="ttdeci">GPUParticleSystem &amp; operator=(const GPUParticleSystem &amp;)=delete</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_ae94e17bdade3ad4b0eab7527b7452c1b"><div class="ttname"><a href="classGPUParticleSystem.html#ae94e17bdade3ad4b0eab7527b7452c1b">GPUParticleSystem::SetParticleColor</a></div><div class="ttdeci">void SetParticleColor(const DirectX::XMFLOAT4 &amp;color)</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:47</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_aef8aa85eef7b9b6636cbb717c3e605b0"><div class="ttname"><a href="classGPUParticleSystem.html#aef8aa85eef7b9b6636cbb717c3e605b0">GPUParticleSystem::m_pParticleBuffer</a></div><div class="ttdeci">Microsoft::WRL::ComPtr&lt; ID3D12Resource &gt; m_pParticleBuffer</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:81</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_af04871667207c7c04a2face6178b3f3c"><div class="ttname"><a href="classGPUParticleSystem.html#af04871667207c7c04a2face6178b3f3c">GPUParticleSystem::SetEmitRate</a></div><div class="ttdeci">void SetEmitRate(float rate)</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:56</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_af190703162e884c820e9b934cfc741a1"><div class="ttname"><a href="classGPUParticleSystem.html#af190703162e884c820e9b934cfc741a1">GPUParticleSystem::m_uavGPU</a></div><div class="ttdeci">D3D12_GPU_DESCRIPTOR_HANDLE m_uavGPU</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:86</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_af89e9695f1d21df2f810ea69be188620"><div class="ttname"><a href="classGPUParticleSystem.html#af89e9695f1d21df2f810ea69be188620">GPUParticleSystem::GetParticleColor</a></div><div class="ttdeci">DirectX::XMFLOAT4 &amp; GetParticleColor()</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:46</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_af9c52e05968a4ffa73b7122dfa4e2a16"><div class="ttname"><a href="classGPUParticleSystem.html#af9c52e05968a4ffa73b7122dfa4e2a16">GPUParticleSystem::m_pRenderRootSignature</a></div><div class="ttdeci">Microsoft::WRL::ComPtr&lt; ID3D12RootSignature &gt; m_pRenderRootSignature</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:95</div></div>
+<div class="ttc" id="aclassGPUParticleSystem_html_afb3fdbe3034300f5c387c0925221bbd5"><div class="ttname"><a href="classGPUParticleSystem.html#afb3fdbe3034300f5c387c0925221bbd5">GPUParticleSystem::SetEmitterPosition</a></div><div class="ttdeci">void SetEmitterPosition(const DirectX::XMFLOAT3 &amp;pos)</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:41</div></div>
+<div class="ttc" id="astructGPUParticle_html"><div class="ttname"><a href="structGPUParticle.html">GPUParticle</a></div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:10</div></div>
+<div class="ttc" id="astructGPUParticle_html_a0ecb7db75958de504014c635e0339bc8"><div class="ttname"><a href="structGPUParticle.html#a0ecb7db75958de504014c635e0339bc8">GPUParticle::maxLife</a></div><div class="ttdeci">float maxLife</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:14</div></div>
+<div class="ttc" id="astructGPUParticle_html_a59e882495a3d45e0c6aefa3339e7ccda"><div class="ttname"><a href="structGPUParticle.html#a59e882495a3d45e0c6aefa3339e7ccda">GPUParticle::scale</a></div><div class="ttdeci">float scale</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:16</div></div>
+<div class="ttc" id="astructGPUParticle_html_a7c12d7e4a4db8fb457bc40979205e082"><div class="ttname"><a href="structGPUParticle.html#a7c12d7e4a4db8fb457bc40979205e082">GPUParticle::color</a></div><div class="ttdeci">DirectX::XMFLOAT4 color</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:15</div></div>
+<div class="ttc" id="astructGPUParticle_html_abf0f2a32794ac5bdd506286040b371fb"><div class="ttname"><a href="structGPUParticle.html#abf0f2a32794ac5bdd506286040b371fb">GPUParticle::velocity</a></div><div class="ttdeci">DirectX::XMFLOAT3 velocity</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:13</div></div>
+<div class="ttc" id="astructGPUParticle_html_adac7a2490bc086cc35a2ca92eb7cc6b4"><div class="ttname"><a href="structGPUParticle.html#adac7a2490bc086cc35a2ca92eb7cc6b4">GPUParticle::position</a></div><div class="ttdeci">DirectX::XMFLOAT3 position</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:11</div></div>
+<div class="ttc" id="astructGPUParticle_html_ae7dc8120f7e1ec57cb3d6126de995705"><div class="ttname"><a href="structGPUParticle.html#ae7dc8120f7e1ec57cb3d6126de995705">GPUParticle::pad</a></div><div class="ttdeci">DirectX::XMFLOAT2 pad</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:18</div></div>
+<div class="ttc" id="astructGPUParticle_html_aeb161c5f1b152ea8f66acc5864a2d3d0"><div class="ttname"><a href="structGPUParticle.html#aeb161c5f1b152ea8f66acc5864a2d3d0">GPUParticle::active</a></div><div class="ttdeci">UINT active</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:17</div></div>
+<div class="ttc" id="astructGPUParticle_html_af1542cbce5a6efa4a9d9b79e98c27a09"><div class="ttname"><a href="structGPUParticle.html#af1542cbce5a6efa4a9d9b79e98c27a09">GPUParticle::life</a></div><div class="ttdeci">float life</div><div class="ttdef"><b>Definition</b> GPUParticleSystem.h:12</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_e350ea9347b5bfd16d4777c6b135cca8.html">Rendering</a></li><li class="navelem"><a class="el" href="GPUParticleSystem_8h.html">GPUParticleSystem.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Rendering/SampleComputePass.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('SampleComputePass_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">SampleComputePass.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="SampleComputePass_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="IRenderPass_8h.html">IRenderPass.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="RenderTexture_8h.html">RenderTexture.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;wrl/client.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="classSampleComputePass.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="classSampleComputePass.html">SampleComputePass</a> : <span class="keyword">public</span> <a class="code hl_class" href="classIRenderPass.html">IRenderPass</a> {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_function" href="classSampleComputePass.html#a3ee1a9890286ae83fe76391be7117c42">SampleComputePass</a>();</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classSampleComputePass.html#a7261a0d67eddc6bb35d2823f77db00b9">   10</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classSampleComputePass.html#a7261a0d67eddc6bb35d2823f77db00b9">~SampleComputePass</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classSampleComputePass.html#ad1cba6c12edcd7e926f36ebae4a26e24">Init</a>(ID3D12Device* pDevice) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classSampleComputePass.html#a47d336ffcd34e93eb2c8982f77940502">Execute</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structRenderContext.html">RenderContext</a>&amp; ctx) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classSampleComputePass.html#a5ec6de0e72635c65d57fbd89676423e5">   14</a></span>    <span class="keyword">virtual</span> std::string <a class="code hl_function" href="classSampleComputePass.html#a5ec6de0e72635c65d57fbd89676423e5">GetName</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;Compute Shader Pass&quot;</span>; }</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classSampleComputePass.html#a8c7f374e98489a0fd291ac2049b2d724">   16</a></span>    <a class="code hl_class" href="classRenderTexture.html">RenderTexture</a>* <a class="code hl_function" href="classSampleComputePass.html#a8c7f374e98489a0fd291ac2049b2d724">GetOutputTexture</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classSampleComputePass.html#a0ee8a8d7cccbdc677d62c892bac1603a">m_pOutputTexture</a>.get(); }</div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classSampleComputePass.html#a3f3b441ecf22f826d37eb922fe0eb874">   17</a></span>    D3D12_GPU_DESCRIPTOR_HANDLE <a class="code hl_function" href="classSampleComputePass.html#a3f3b441ecf22f826d37eb922fe0eb874">GetOutputSRV</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classSampleComputePass.html#a0ee8a8d7cccbdc677d62c892bac1603a">m_pOutputTexture</a> ? <a class="code hl_variable" href="classSampleComputePass.html#a0ee8a8d7cccbdc677d62c892bac1603a">m_pOutputTexture</a>-&gt;GetSRV() : D3D12_GPU_DESCRIPTOR_HANDLE{};</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    }</div>
+</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classSampleComputePass.html#ad922672cbb4b43dc988d5992f314af35">   21</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classSampleComputePass.html#ad922672cbb4b43dc988d5992f314af35">IsPreviewEnabled</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classSampleComputePass.html#a214d7ddc965ca70215297018ebd4ef1c">m_previewInViewport</a>; }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classSampleComputePass.html#a6bda2cdddf4772ab99a8f5e641d228d3">   22</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSampleComputePass.html#a6bda2cdddf4772ab99a8f5e641d228d3">SetPreviewEnabled</a>(<span class="keywordtype">bool</span> enabled) { <a class="code hl_variable" href="classSampleComputePass.html#a214d7ddc965ca70215297018ebd4ef1c">m_previewInViewport</a> = enabled; }</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classSampleComputePass.html#ab2515d0ba8e1f0474edd4585af07b5c6">   23</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classSampleComputePass.html#ab2515d0ba8e1f0474edd4585af07b5c6">GetSpeed</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classSampleComputePass.html#a4ed97122858078506c8a645a13037240">m_speed</a>; }</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classSampleComputePass.html#a78e0f360824e013f3df21a1a368d4018">   24</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSampleComputePass.html#a78e0f360824e013f3df21a1a368d4018">SetSpeed</a>(<span class="keywordtype">float</span> speed) { <a class="code hl_variable" href="classSampleComputePass.html#a4ed97122858078506c8a645a13037240">m_speed</a> = speed; }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classSampleComputePass.html#a0ee8a8d7cccbdc677d62c892bac1603a">   27</a></span>    std::unique_ptr&lt;RenderTexture&gt; <a class="code hl_variable" href="classSampleComputePass.html#a0ee8a8d7cccbdc677d62c892bac1603a">m_pOutputTexture</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classSampleComputePass.html#ac11e0b446f8060e133ec87df3f968448">   28</a></span>    Microsoft::WRL::ComPtr&lt;ID3D12RootSignature&gt; <a class="code hl_variable" href="classSampleComputePass.html#ac11e0b446f8060e133ec87df3f968448">m_pRootSignature</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classSampleComputePass.html#a2fa87771f13db87d21729386c5c85e4d">   29</a></span>    Microsoft::WRL::ComPtr&lt;ID3D12PipelineState&gt; <a class="code hl_variable" href="classSampleComputePass.html#a2fa87771f13db87d21729386c5c85e4d">m_pPipelineState</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classSampleComputePass.html#a64a5a96fbb189eaad0c945a385ec7337">   31</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classSampleComputePass.html#a64a5a96fbb189eaad0c945a385ec7337">m_totalTime</a> = 0.0f;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classSampleComputePass.html#a4ed97122858078506c8a645a13037240">   32</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classSampleComputePass.html#a4ed97122858078506c8a645a13037240">m_speed</a> = 1.0f;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classSampleComputePass.html#a214d7ddc965ca70215297018ebd4ef1c">   33</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classSampleComputePass.html#a214d7ddc965ca70215297018ebd4ef1c">m_previewInViewport</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>};</div>
+</div>
+<div class="ttc" id="aIRenderPass_8h_html"><div class="ttname"><a href="IRenderPass_8h.html">IRenderPass.h</a></div></div>
+<div class="ttc" id="aRenderTexture_8h_html"><div class="ttname"><a href="RenderTexture_8h.html">RenderTexture.h</a></div></div>
+<div class="ttc" id="aclassIRenderPass_html"><div class="ttname"><a href="classIRenderPass.html">IRenderPass</a></div><div class="ttdef"><b>Definition</b> IRenderPass.h:6</div></div>
+<div class="ttc" id="aclassRenderTexture_html"><div class="ttname"><a href="classRenderTexture.html">RenderTexture</a></div><div class="ttdef"><b>Definition</b> RenderTexture.h:5</div></div>
+<div class="ttc" id="aclassSampleComputePass_html"><div class="ttname"><a href="classSampleComputePass.html">SampleComputePass</a></div><div class="ttdef"><b>Definition</b> SampleComputePass.h:7</div></div>
+<div class="ttc" id="aclassSampleComputePass_html_a0ee8a8d7cccbdc677d62c892bac1603a"><div class="ttname"><a href="classSampleComputePass.html#a0ee8a8d7cccbdc677d62c892bac1603a">SampleComputePass::m_pOutputTexture</a></div><div class="ttdeci">std::unique_ptr&lt; RenderTexture &gt; m_pOutputTexture</div><div class="ttdef"><b>Definition</b> SampleComputePass.h:27</div></div>
+<div class="ttc" id="aclassSampleComputePass_html_a214d7ddc965ca70215297018ebd4ef1c"><div class="ttname"><a href="classSampleComputePass.html#a214d7ddc965ca70215297018ebd4ef1c">SampleComputePass::m_previewInViewport</a></div><div class="ttdeci">bool m_previewInViewport</div><div class="ttdef"><b>Definition</b> SampleComputePass.h:33</div></div>
+<div class="ttc" id="aclassSampleComputePass_html_a2fa87771f13db87d21729386c5c85e4d"><div class="ttname"><a href="classSampleComputePass.html#a2fa87771f13db87d21729386c5c85e4d">SampleComputePass::m_pPipelineState</a></div><div class="ttdeci">Microsoft::WRL::ComPtr&lt; ID3D12PipelineState &gt; m_pPipelineState</div><div class="ttdef"><b>Definition</b> SampleComputePass.h:29</div></div>
+<div class="ttc" id="aclassSampleComputePass_html_a3ee1a9890286ae83fe76391be7117c42"><div class="ttname"><a href="classSampleComputePass.html#a3ee1a9890286ae83fe76391be7117c42">SampleComputePass::SampleComputePass</a></div><div class="ttdeci">SampleComputePass()</div><div class="ttdef"><b>Definition</b> SampleComputePass.cpp:8</div></div>
+<div class="ttc" id="aclassSampleComputePass_html_a3f3b441ecf22f826d37eb922fe0eb874"><div class="ttname"><a href="classSampleComputePass.html#a3f3b441ecf22f826d37eb922fe0eb874">SampleComputePass::GetOutputSRV</a></div><div class="ttdeci">D3D12_GPU_DESCRIPTOR_HANDLE GetOutputSRV() const</div><div class="ttdef"><b>Definition</b> SampleComputePass.h:17</div></div>
+<div class="ttc" id="aclassSampleComputePass_html_a47d336ffcd34e93eb2c8982f77940502"><div class="ttname"><a href="classSampleComputePass.html#a47d336ffcd34e93eb2c8982f77940502">SampleComputePass::Execute</a></div><div class="ttdeci">virtual void Execute(const RenderContext &amp;ctx) override</div><div class="ttdef"><b>Definition</b> SampleComputePass.cpp:58</div></div>
+<div class="ttc" id="aclassSampleComputePass_html_a4ed97122858078506c8a645a13037240"><div class="ttname"><a href="classSampleComputePass.html#a4ed97122858078506c8a645a13037240">SampleComputePass::m_speed</a></div><div class="ttdeci">float m_speed</div><div class="ttdef"><b>Definition</b> SampleComputePass.h:32</div></div>
+<div class="ttc" id="aclassSampleComputePass_html_a5ec6de0e72635c65d57fbd89676423e5"><div class="ttname"><a href="classSampleComputePass.html#a5ec6de0e72635c65d57fbd89676423e5">SampleComputePass::GetName</a></div><div class="ttdeci">virtual std::string GetName() const override</div><div class="ttdef"><b>Definition</b> SampleComputePass.h:14</div></div>
+<div class="ttc" id="aclassSampleComputePass_html_a64a5a96fbb189eaad0c945a385ec7337"><div class="ttname"><a href="classSampleComputePass.html#a64a5a96fbb189eaad0c945a385ec7337">SampleComputePass::m_totalTime</a></div><div class="ttdeci">float m_totalTime</div><div class="ttdef"><b>Definition</b> SampleComputePass.h:31</div></div>
+<div class="ttc" id="aclassSampleComputePass_html_a6bda2cdddf4772ab99a8f5e641d228d3"><div class="ttname"><a href="classSampleComputePass.html#a6bda2cdddf4772ab99a8f5e641d228d3">SampleComputePass::SetPreviewEnabled</a></div><div class="ttdeci">void SetPreviewEnabled(bool enabled)</div><div class="ttdef"><b>Definition</b> SampleComputePass.h:22</div></div>
+<div class="ttc" id="aclassSampleComputePass_html_a7261a0d67eddc6bb35d2823f77db00b9"><div class="ttname"><a href="classSampleComputePass.html#a7261a0d67eddc6bb35d2823f77db00b9">SampleComputePass::~SampleComputePass</a></div><div class="ttdeci">virtual ~SampleComputePass()=default</div></div>
+<div class="ttc" id="aclassSampleComputePass_html_a78e0f360824e013f3df21a1a368d4018"><div class="ttname"><a href="classSampleComputePass.html#a78e0f360824e013f3df21a1a368d4018">SampleComputePass::SetSpeed</a></div><div class="ttdeci">void SetSpeed(float speed)</div><div class="ttdef"><b>Definition</b> SampleComputePass.h:24</div></div>
+<div class="ttc" id="aclassSampleComputePass_html_a8c7f374e98489a0fd291ac2049b2d724"><div class="ttname"><a href="classSampleComputePass.html#a8c7f374e98489a0fd291ac2049b2d724">SampleComputePass::GetOutputTexture</a></div><div class="ttdeci">RenderTexture * GetOutputTexture() const</div><div class="ttdef"><b>Definition</b> SampleComputePass.h:16</div></div>
+<div class="ttc" id="aclassSampleComputePass_html_ab2515d0ba8e1f0474edd4585af07b5c6"><div class="ttname"><a href="classSampleComputePass.html#ab2515d0ba8e1f0474edd4585af07b5c6">SampleComputePass::GetSpeed</a></div><div class="ttdeci">float GetSpeed() const</div><div class="ttdef"><b>Definition</b> SampleComputePass.h:23</div></div>
+<div class="ttc" id="aclassSampleComputePass_html_ac11e0b446f8060e133ec87df3f968448"><div class="ttname"><a href="classSampleComputePass.html#ac11e0b446f8060e133ec87df3f968448">SampleComputePass::m_pRootSignature</a></div><div class="ttdeci">Microsoft::WRL::ComPtr&lt; ID3D12RootSignature &gt; m_pRootSignature</div><div class="ttdef"><b>Definition</b> SampleComputePass.h:28</div></div>
+<div class="ttc" id="aclassSampleComputePass_html_ad1cba6c12edcd7e926f36ebae4a26e24"><div class="ttname"><a href="classSampleComputePass.html#ad1cba6c12edcd7e926f36ebae4a26e24">SampleComputePass::Init</a></div><div class="ttdeci">virtual void Init(ID3D12Device *pDevice) override</div><div class="ttdef"><b>Definition</b> SampleComputePass.cpp:12</div></div>
+<div class="ttc" id="aclassSampleComputePass_html_ad922672cbb4b43dc988d5992f314af35"><div class="ttname"><a href="classSampleComputePass.html#ad922672cbb4b43dc988d5992f314af35">SampleComputePass::IsPreviewEnabled</a></div><div class="ttdeci">bool IsPreviewEnabled() const</div><div class="ttdef"><b>Definition</b> SampleComputePass.h:21</div></div>
+<div class="ttc" id="astructRenderContext_html"><div class="ttname"><a href="structRenderContext.html">RenderContext</a></div><div class="ttdef"><b>Definition</b> RenderContext.h:7</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_e350ea9347b5bfd16d4777c6b135cca8.html">Rendering</a></li><li class="navelem"><a class="el" href="SampleComputePass_8h.html">SampleComputePass.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -78,6 +78,7 @@ var hierarchy =
     [ "Collision", "classCollision.html", null ],
     [ "ComponentFactory", "classComponentFactory.html", null ],
     [ "ComponentManager", "classComponentManager.html", null ],
+    [ "ComputePSOBuilder", "classComputePSOBuilder.html", null ],
     [ "nlohmann::detail::container_input_adapter_factory_impl::container_input_adapter_factory< ContainerType, Enable >", "structnlohmann_1_1detail_1_1container__input__adapter__factory__impl_1_1container__input__adapter__factory.html", null ],
     [ "nlohmann::detail::container_input_adapter_factory_impl::container_input_adapter_factory< ContainerType, void_t< decltype(begin(std::declval< ContainerType >()), end(std::declval< ContainerType >()))> >", "structnlohmann_1_1detail_1_1container__input__adapter__factory__impl_1_1container__input__adapte602516bdb0b70b8ee5c6d4ff825368be.html", null ],
     [ "CProfilerUI", "classCProfilerUI.html", null ],
@@ -174,6 +175,8 @@ var hierarchy =
     [ "tinygltf::FsCallbacks", "structtinygltf_1_1FsCallbacks.html", null ],
     [ "nlohmann::detail::utility_internal::Gen< T, N >", "structnlohmann_1_1detail_1_1utility__internal_1_1Gen.html", null ],
     [ "nlohmann::detail::utility_internal::Gen< T, 0 >", "structnlohmann_1_1detail_1_1utility__internal_1_1Gen_3_01T_00_010_01_4.html", null ],
+    [ "GPUParticle", "structGPUParticle.html", null ],
+    [ "GPUParticleSystem", "classGPUParticleSystem.html", null ],
     [ "nlohmann::detail::has_from_json< BasicJsonType, T, enable_if_t< !is_basic_json< T >::value > >", "structnlohmann_1_1detail_1_1has__from__json_3_01BasicJsonType_00_01T_00_01enable__if__t_3_01_9is3ee028c64c76c768be45996bb13fc9c5.html", null ],
     [ "nlohmann::detail::has_non_default_from_json< BasicJsonType, T, enable_if_t< !is_basic_json< T >::value > >", "structnlohmann_1_1detail_1_1has__non__default__from__json_3_01BasicJsonType_00_01T_00_01enable__b7a8cd863889b54d1139b207b4233111.html", null ],
     [ "nlohmann::detail::has_to_json< BasicJsonType, T, enable_if_t< !is_basic_json< T >::value > >", "structnlohmann_1_1detail_1_1has__to__json_3_01BasicJsonType_00_01T_00_01enable__if__t_3_01_9is__4a8838c1c30336126696a126041e661c.html", null ],
@@ -423,7 +426,9 @@ var hierarchy =
     [ "nlohmann::detail::internal_iterator< typename std::remove_const< BasicJsonType >::type >", "structnlohmann_1_1detail_1_1internal__iterator.html", null ],
     [ "IRenderPass", "classIRenderPass.html", [
       [ "ForwardRenderPass", "classForwardRenderPass.html", null ],
+      [ "GPUParticlePass", "classGPUParticlePass.html", null ],
       [ "PostProcessPass", "classPostProcessPass.html", null ],
+      [ "SampleComputePass", "classSampleComputePass.html", null ],
       [ "ShadowMapPass", "classShadowMapPass.html", null ]
     ] ],
     [ "nlohmann::detail::is_compatible_array_type_impl< BasicJsonType, CompatibleArrayType, enable_if_t< is_detected< iterator_t, CompatibleArrayType >::value &&is_iterator_traits< iterator_traits< detected_t< iterator_t, CompatibleArrayType > > >::value &&!std::is_same< CompatibleArrayType, detected_t< range_value_t, CompatibleArrayType > >::value > >", "structnlohmann_1_1detail_1_1is__compatible__array__type__impl_3_01BasicJsonType_00_01CompatibleAfaa3c0bd038fd031f5ee109e19639e03.html", null ],

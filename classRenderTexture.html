@@ -102,8 +102,8 @@ $(document).ready(function(){initNavTree('classRenderTexture.html',''); initResi
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a70c9280445bacab9cf17ca7678be8ae5" id="r_a70c9280445bacab9cf17ca7678be8ae5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#a70c9280445bacab9cf17ca7678be8ae5">RenderTexture</a> (ID3D12Device *pDevice, UINT width, UINT height, DXGI_FORMAT format, const float clearColor[4]=nullptr)</td></tr>
-<tr class="separator:a70c9280445bacab9cf17ca7678be8ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae597dd0783768016c3c75844b06d3d85" id="r_ae597dd0783768016c3c75844b06d3d85"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#ae597dd0783768016c3c75844b06d3d85">RenderTexture</a> (ID3D12Device *pDevice, UINT width, UINT height, DXGI_FORMAT format, const float clearColor[4]=nullptr, bool allowUAV=false)</td></tr>
+<tr class="separator:ae597dd0783768016c3c75844b06d3d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09968448696504585c6dd61203f2c5b9" id="r_a09968448696504585c6dd61203f2c5b9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#a09968448696504585c6dd61203f2c5b9">~RenderTexture</a> ()</td></tr>
 <tr class="separator:a09968448696504585c6dd61203f2c5b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61195eb544cf9de97ec0aa45787e84c9" id="r_a61195eb544cf9de97ec0aa45787e84c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#a61195eb544cf9de97ec0aa45787e84c9">RenderTexture</a> (const <a class="el" href="classRenderTexture.html">RenderTexture</a> &amp;)=delete</td></tr>
@@ -114,12 +114,22 @@ $(document).ready(function(){initNavTree('classRenderTexture.html',''); initResi
 <tr class="separator:aa490e51502e484466a31c41912878b34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aadc9a7820889e43adc2cae5731a307b3" id="r_aadc9a7820889e43adc2cae5731a307b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#aadc9a7820889e43adc2cae5731a307b3">Clear</a> (ID3D12GraphicsCommandList *cmdList, const float clearColor[4]=nullptr)</td></tr>
 <tr class="separator:aadc9a7820889e43adc2cae5731a307b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb159893169767035ae2aa171f79efc9" id="r_abb159893169767035ae2aa171f79efc9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#abb159893169767035ae2aa171f79efc9">UAVBarrier</a> (ID3D12GraphicsCommandList *cmdList)</td></tr>
+<tr class="separator:abb159893169767035ae2aa171f79efc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a768f48620db5be27665fc9a7113cba" id="r_a3a768f48620db5be27665fc9a7113cba"><td class="memItemLeft" align="right" valign="top">ID3D12Resource *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#a3a768f48620db5be27665fc9a7113cba">GetResource</a> () const</td></tr>
 <tr class="separator:a3a768f48620db5be27665fc9a7113cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbb24327ad25b881b51f43119385c424" id="r_afbb24327ad25b881b51f43119385c424"><td class="memItemLeft" align="right" valign="top">D3D12_CPU_DESCRIPTOR_HANDLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#afbb24327ad25b881b51f43119385c424">GetRTV</a> () const</td></tr>
 <tr class="separator:afbb24327ad25b881b51f43119385c424"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40ecbf9999b9b8bc306f19281ec0405e" id="r_a40ecbf9999b9b8bc306f19281ec0405e"><td class="memItemLeft" align="right" valign="top">D3D12_GPU_DESCRIPTOR_HANDLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#a40ecbf9999b9b8bc306f19281ec0405e">GetSRV</a> () const</td></tr>
 <tr class="separator:a40ecbf9999b9b8bc306f19281ec0405e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0d1a83560dafea231ceff45bd5ac86a" id="r_af0d1a83560dafea231ceff45bd5ac86a"><td class="memItemLeft" align="right" valign="top">D3D12_CPU_DESCRIPTOR_HANDLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#af0d1a83560dafea231ceff45bd5ac86a">GetUAVCPU</a> () const</td></tr>
+<tr class="separator:af0d1a83560dafea231ceff45bd5ac86a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad01a656a8ed07c75765abb64d4eb2be" id="r_aad01a656a8ed07c75765abb64d4eb2be"><td class="memItemLeft" align="right" valign="top">D3D12_GPU_DESCRIPTOR_HANDLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#aad01a656a8ed07c75765abb64d4eb2be">GetUAV</a> () const</td></tr>
+<tr class="separator:aad01a656a8ed07c75765abb64d4eb2be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6db05f7bfca7889d379af8a949bb0f7c" id="r_a6db05f7bfca7889d379af8a949bb0f7c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#a6db05f7bfca7889d379af8a949bb0f7c">HasUAV</a> () const</td></tr>
+<tr class="separator:a6db05f7bfca7889d379af8a949bb0f7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1c252f0c9889239ab07e777b9da698e" id="r_aa1c252f0c9889239ab07e777b9da698e"><td class="memItemLeft" align="right" valign="top">D3D12_RESOURCE_STATES&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#aa1c252f0c9889239ab07e777b9da698e">GetCurrentState</a> () const</td></tr>
+<tr class="separator:aa1c252f0c9889239ab07e777b9da698e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae70489a9e0c45dcef7091b6338e2f7c7" id="r_ae70489a9e0c45dcef7091b6338e2f7c7"><td class="memItemLeft" align="right" valign="top">UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#ae70489a9e0c45dcef7091b6338e2f7c7">GetWidth</a> () const</td></tr>
 <tr class="separator:ae70489a9e0c45dcef7091b6338e2f7c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a293f6b642602069185741d706041554e" id="r_a293f6b642602069185741d706041554e"><td class="memItemLeft" align="right" valign="top">UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#a293f6b642602069185741d706041554e">GetHeight</a> () const</td></tr>
@@ -153,10 +163,16 @@ $(document).ready(function(){initNavTree('classRenderTexture.html',''); initResi
 <tr class="separator:a499e9e8ee4003a719078543464acfe3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a755f1466191c1c61523ed2f82bf613fd" id="r_a755f1466191c1c61523ed2f82bf613fd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#a755f1466191c1c61523ed2f82bf613fd">m_srvAllocated</a> = false</td></tr>
 <tr class="separator:a755f1466191c1c61523ed2f82bf613fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae38f5e7ea49c2574f58b4c0188366d84" id="r_ae38f5e7ea49c2574f58b4c0188366d84"><td class="memItemLeft" align="right" valign="top">D3D12_CPU_DESCRIPTOR_HANDLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#ae38f5e7ea49c2574f58b4c0188366d84">m_uavHandleCPU</a> {}</td></tr>
+<tr class="separator:ae38f5e7ea49c2574f58b4c0188366d84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75f39f6f061175ab94cdb6579291147e" id="r_a75f39f6f061175ab94cdb6579291147e"><td class="memItemLeft" align="right" valign="top">D3D12_GPU_DESCRIPTOR_HANDLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#a75f39f6f061175ab94cdb6579291147e">m_uavHandleGPU</a> {}</td></tr>
+<tr class="separator:a75f39f6f061175ab94cdb6579291147e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed8079d862735b59261b8813ddd7d049" id="r_aed8079d862735b59261b8813ddd7d049"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderTexture.html#aed8079d862735b59261b8813ddd7d049">m_uavAllocated</a> = false</td></tr>
+<tr class="separator:aed8079d862735b59261b8813ddd7d049"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">構築子と解体子</h2>
-<a id="a70c9280445bacab9cf17ca7678be8ae5" name="a70c9280445bacab9cf17ca7678be8ae5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70c9280445bacab9cf17ca7678be8ae5">&#9670;&#160;</a></span>RenderTexture() <span class="overload">[1/2]</span></h2>
+<a id="ae597dd0783768016c3c75844b06d3d85" name="ae597dd0783768016c3c75844b06d3d85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae597dd0783768016c3c75844b06d3d85">&#9670;&#160;</a></span>RenderTexture() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -189,7 +205,13 @@ $(document).ready(function(){initNavTree('classRenderTexture.html',''); initResi
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const float&#160;</td>
-          <td class="paramname"><em>clearColor</em>[4] = <code>nullptr</code>&#160;</td>
+          <td class="paramname"><em>clearColor</em>[4] = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>allowUAV</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -201,7 +223,7 @@ $(document).ready(function(){initNavTree('classRenderTexture.html',''); initResi
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classRenderTexture_a70c9280445bacab9cf17ca7678be8ae5_cgraph.svg" width="100%" height="425"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classRenderTexture_ae597dd0783768016c3c75844b06d3d85_cgraph.svg" width="100%" height="425"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -313,6 +335,31 @@ $(document).ready(function(){initNavTree('classRenderTexture.html',''); initResi
 
 </div>
 </div>
+<a id="aa1c252f0c9889239ab07e777b9da698e" name="aa1c252f0c9889239ab07e777b9da698e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1c252f0c9889239ab07e777b9da698e">&#9670;&#160;</a></span>GetCurrentState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_RESOURCE_STATES RenderTexture::GetCurrentState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a1272e8a17a172deea87236d4962f6a68" name="a1272e8a17a172deea87236d4962f6a68"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1272e8a17a172deea87236d4962f6a68">&#9670;&#160;</a></span>GetFormat()</h2>
 
@@ -413,7 +460,7 @@ $(document).ready(function(){initNavTree('classRenderTexture.html',''); initResi
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classRenderTexture_afbb24327ad25b881b51f43119385c424_icgraph.svg" width="388" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classRenderTexture_afbb24327ad25b881b51f43119385c424_icgraph.svg" width="418" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -448,6 +495,56 @@ $(document).ready(function(){initNavTree('classRenderTexture.html',''); initResi
 
 </div>
 </div>
+<a id="aad01a656a8ed07c75765abb64d4eb2be" name="aad01a656a8ed07c75765abb64d4eb2be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad01a656a8ed07c75765abb64d4eb2be">&#9670;&#160;</a></span>GetUAV()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_GPU_DESCRIPTOR_HANDLE RenderTexture::GetUAV </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af0d1a83560dafea231ceff45bd5ac86a" name="af0d1a83560dafea231ceff45bd5ac86a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0d1a83560dafea231ceff45bd5ac86a">&#9670;&#160;</a></span>GetUAVCPU()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_CPU_DESCRIPTOR_HANDLE RenderTexture::GetUAVCPU </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ae70489a9e0c45dcef7091b6338e2f7c7" name="ae70489a9e0c45dcef7091b6338e2f7c7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae70489a9e0c45dcef7091b6338e2f7c7">&#9670;&#160;</a></span>GetWidth()</h2>
 
@@ -459,6 +556,31 @@ $(document).ready(function(){initNavTree('classRenderTexture.html',''); initResi
       <table class="memname">
         <tr>
           <td class="memname">UINT RenderTexture::GetWidth </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6db05f7bfca7889d379af8a949bb0f7c" name="a6db05f7bfca7889d379af8a949bb0f7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6db05f7bfca7889d379af8a949bb0f7c">&#9670;&#160;</a></span>HasUAV()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RenderTexture::HasUAV </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -527,8 +649,26 @@ $(document).ready(function(){initNavTree('classRenderTexture.html',''); initResi
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classRenderTexture_aa490e51502e484466a31c41912878b34_icgraph.svg" width="434" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classRenderTexture_aa490e51502e484466a31c41912878b34_icgraph.svg" width="434" height="151"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="abb159893169767035ae2aa171f79efc9" name="abb159893169767035ae2aa171f79efc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb159893169767035ae2aa171f79efc9">&#9670;&#160;</a></span>UAVBarrier()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RenderTexture::UAVBarrier </td>
+          <td>(</td>
+          <td class="paramtype">ID3D12GraphicsCommandList *&#160;</td>
+          <td class="paramname"><em>cmdList</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -742,6 +882,72 @@ $(document).ready(function(){initNavTree('classRenderTexture.html',''); initResi
       <table class="memname">
         <tr>
           <td class="memname">D3D12_GPU_DESCRIPTOR_HANDLE RenderTexture::m_srvHandleGPU {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aed8079d862735b59261b8813ddd7d049" name="aed8079d862735b59261b8813ddd7d049"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed8079d862735b59261b8813ddd7d049">&#9670;&#160;</a></span>m_uavAllocated</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RenderTexture::m_uavAllocated = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae38f5e7ea49c2574f58b4c0188366d84" name="ae38f5e7ea49c2574f58b4c0188366d84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae38f5e7ea49c2574f58b4c0188366d84">&#9670;&#160;</a></span>m_uavHandleCPU</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_CPU_DESCRIPTOR_HANDLE RenderTexture::m_uavHandleCPU {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a75f39f6f061175ab94cdb6579291147e" name="a75f39f6f061175ab94cdb6579291147e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75f39f6f061175ab94cdb6579291147e">&#9670;&#160;</a></span>m_uavHandleGPU</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">D3D12_GPU_DESCRIPTOR_HANDLE RenderTexture::m_uavHandleGPU {}</td>
         </tr>
       </table>
   </td>
