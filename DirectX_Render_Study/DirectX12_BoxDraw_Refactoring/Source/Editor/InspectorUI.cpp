@@ -23,6 +23,7 @@
 #include "Source/Core/Scenes/Serializer/SceneSerializer.h"
 #include "RenderPipeline.h"
 #include "SampleComputePass.h"
+#include "GPUParticlePass.h"
 #include "SceneEnums.h"
 #include "Source/UI/RectTransform.h"
 #include "SpriteRenderer.h"
@@ -642,6 +643,36 @@ void CInspectorUI::Draw()
                         if (ImGui::SliderFloat("Speed##CS", &speed, 0.0f, 5.0f, "%.2f"))
                         {
                             csPass->SetSpeed(speed);
+                        }
+                        ImGui::Unindent();
+                    }
+
+                    if (auto* gpPass = dynamic_cast<GPUParticlePass*>(passes[i].get()))
+                    {
+                        ImGui::Indent();
+                        auto& ps = gpPass->GetParticleSystem();
+                        ImGui::Text("GPU Particles: %u", ps.GetMaxParticles());
+
+                        auto& emitterPos = ps.GetEmitterPosition();
+                        float pos[3] = { emitterPos.x, emitterPos.y, emitterPos.z };
+                        if (ImGui::DragFloat3("Emitter Pos##GP", pos, 0.1f)) {
+                            emitterPos = { pos[0], pos[1], pos[2] };
+                        }
+
+                        auto& col = ps.GetParticleColor();
+                        float color[4] = { col.x, col.y, col.z, col.w };
+                        if (ImGui::ColorEdit4("Color##GP", color)) {
+                            col = { color[0], color[1], color[2], color[3] };
+                        }
+
+                        ImGui::SliderFloat("Scale##GP", &ps.GetParticleScale(), 0.05f, 2.0f, "%.2f");
+                        ImGui::SliderFloat("Speed##GP", &ps.GetInitialSpeed(), 0.5f, 20.0f, "%.1f");
+                        ImGui::SliderFloat("Emit Rate##GP", &ps.GetEmitRate(), 10.0f, 5000.0f, "%.0f");
+
+                        auto& grav = ps.GetGravity();
+                        float g[3] = { grav.x, grav.y, grav.z };
+                        if (ImGui::DragFloat3("Gravity##GP", g, 0.1f)) {
+                            grav = { g[0], g[1], g[2] };
                         }
                         ImGui::Unindent();
                     }

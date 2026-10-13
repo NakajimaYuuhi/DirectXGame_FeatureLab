@@ -12,6 +12,7 @@
 #include "ForwardRenderPass.h"
 #include "PostProcessPass.h"
 #include "SampleComputePass.h"
+#include "GPUParticlePass.h"
 #include "TimeManager.h"
 #include "BasicSettings.h"
 
@@ -65,8 +66,11 @@ void CSceneTest::Init()
     m_renderPipeline = std::make_unique<RenderPipeline>();
     m_renderPipeline->AddPass(std::make_unique<ShadowMapPass>());
     m_renderPipeline->AddPass(std::make_unique<ForwardRenderPass>(m_pSceneTexture.get()));
+    m_renderPipeline->AddPass(std::make_unique<GPUParticlePass>(m_pSceneTexture.get()));
     m_renderPipeline->AddPass(std::make_unique<PostProcessPass>(m_pSceneTexture.get()));
-    m_renderPipeline->AddPass(std::make_unique<SampleComputePass>());
+    auto sampleCS = std::make_unique<SampleComputePass>();
+    sampleCS->SetEnabled(false);
+    m_renderPipeline->AddPass(std::move(sampleCS));
     m_renderPipeline->Init(pDevice);
 }
 
