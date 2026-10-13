@@ -22,6 +22,7 @@
 #include "Source/Core/Scenes/Manager/SceneManager.h"
 #include "Source/Core/Scenes/Serializer/SceneSerializer.h"
 #include "RenderPipeline.h"
+#include "SampleComputePass.h"
 #include "SceneEnums.h"
 #include "Source/UI/RectTransform.h"
 #include "SpriteRenderer.h"
@@ -627,6 +628,22 @@ void CInspectorUI::Draw()
                     if (ImGui::Checkbox(passLabel.c_str(), &passEnabled))
                     {
                         passes[i]->SetEnabled(passEnabled);
+                    }
+
+                    if (auto* csPass = dynamic_cast<SampleComputePass*>(passes[i].get()))
+                    {
+                        ImGui::Indent();
+                        bool preview = csPass->IsPreviewEnabled();
+                        if (ImGui::Checkbox("Preview in Viewport##CS", &preview))
+                        {
+                            csPass->SetPreviewEnabled(preview);
+                        }
+                        float speed = csPass->GetSpeed();
+                        if (ImGui::SliderFloat("Speed##CS", &speed, 0.0f, 5.0f, "%.2f"))
+                        {
+                            csPass->SetSpeed(speed);
+                        }
+                        ImGui::Unindent();
                     }
                 }
             }

@@ -11,6 +11,7 @@
 #include "ShadowMapPass.h"
 #include "ForwardRenderPass.h"
 #include "PostProcessPass.h"
+#include "SampleComputePass.h"
 #include "TimeManager.h"
 #include "BasicSettings.h"
 
@@ -65,6 +66,7 @@ void CSceneTest::Init()
     m_renderPipeline->AddPass(std::make_unique<ShadowMapPass>());
     m_renderPipeline->AddPass(std::make_unique<ForwardRenderPass>(m_pSceneTexture.get()));
     m_renderPipeline->AddPass(std::make_unique<PostProcessPass>(m_pSceneTexture.get()));
+    m_renderPipeline->AddPass(std::make_unique<SampleComputePass>());
     m_renderPipeline->Init(pDevice);
 }
 
