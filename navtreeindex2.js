@@ -1,5 +1,8 @@
 var NAVTREEINDEX2 =
 {
+"SmartPtrAlias_8h.html#ad71c1f3b8d46b57fd328d48cee283c1f":[3,0,0,9,11,0],
+"SmartPtrAlias_8h_source.html":[3,0,0,9,11],
+"SpriteRenderer_8cpp.html":[3,0,0,8,4],
 "SpriteRenderer_8h.html":[3,0,0,8,5],
 "SpriteRenderer_8h_source.html":[3,0,0,8,5],
 "StateBase_8h.html":[3,0,0,9,0,0,0],
@@ -13,9 +16,9 @@ var NAVTREEINDEX2 =
 "TextRenderer_8cpp.html":[3,0,0,8,6],
 "TextRenderer_8h.html":[3,0,0,8,7],
 "TextRenderer_8h_source.html":[3,0,0,8,7],
-"TextureManager_8cpp.html":[3,0,0,6,33],
-"TextureManager_8h.html":[3,0,0,6,34],
-"TextureManager_8h_source.html":[3,0,0,6,34],
+"TextureManager_8cpp.html":[3,0,0,6,35],
+"TextureManager_8h.html":[3,0,0,6,36],
+"TextureManager_8h_source.html":[3,0,0,6,36],
 "Texture_8cpp.html":[3,0,0,7,20],
 "Texture_8h.html":[3,0,0,7,21],
 "Texture_8h_source.html":[3,0,0,7,21],
@@ -246,8 +249,5 @@ var NAVTREEINDEX2 =
 "classCEditorToolbarUI.html#a1926db543a9becb976938345ac3e7ff8":[2,0,20,3],
 "classCEditorToolbarUI.html#a29919e9b79ae201af7fcbee1297547cf":[2,0,20,6],
 "classCEditorToolbarUI.html#a883ce6879473c91ad48b3487c4c2149e":[2,0,20,2],
-"classCEditorToolbarUI.html#ac438503c1d934bf674e003868c8b94b5":[2,0,20,1],
-"classCEditorToolbarUI.html#ac948c6c8699c242b325c4b8b4d8558a3":[2,0,20,0],
-"classCEditorToolbarUI.html#ad4f66897069c5d0a88317a4db5450186":[2,0,20,7],
-"classCEditorToolbarUI.html#ad6fa87f99c1a54160ff578028daf0ccf":[2,0,20,4]
+"classCEditorToolbarUI.html#ac438503c1d934bf674e003868c8b94b5":[2,0,20,1]
 };

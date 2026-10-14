@@ -4,6 +4,8 @@ var dir_e350ea9347b5bfd16d4777c6b135cca8 =
     [ "DescriptorHeapAllocator.h", "DescriptorHeapAllocator_8h.html", "DescriptorHeapAllocator_8h" ],
     [ "ForwardRenderPass.cpp", "ForwardRenderPass_8cpp.html", null ],
     [ "ForwardRenderPass.h", "ForwardRenderPass_8h.html", "ForwardRenderPass_8h" ],
+    [ "GBuffer.cpp", "GBuffer_8cpp.html", null ],
+    [ "GBuffer.h", "GBuffer_8h.html", "GBuffer_8h" ],
     [ "GPUParticlePass.cpp", "GPUParticlePass_8cpp.html", null ],
     [ "GPUParticlePass.h", "GPUParticlePass_8h.html", "GPUParticlePass_8h" ],
     [ "GPUParticleSystem.cpp", "GPUParticleSystem_8cpp.html", null ],

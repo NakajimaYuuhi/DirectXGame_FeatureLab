@@ -173,6 +173,7 @@ var hierarchy =
     [ "D2DTextRenderer::FrameResources", "structD2DTextRenderer_1_1FrameResources.html", null ],
     [ "nlohmann::detail::from_json_fn", "structnlohmann_1_1detail_1_1from__json__fn.html", null ],
     [ "tinygltf::FsCallbacks", "structtinygltf_1_1FsCallbacks.html", null ],
+    [ "GBuffer", "classGBuffer.html", null ],
     [ "nlohmann::detail::utility_internal::Gen< T, N >", "structnlohmann_1_1detail_1_1utility__internal_1_1Gen.html", null ],
     [ "nlohmann::detail::utility_internal::Gen< T, 0 >", "structnlohmann_1_1detail_1_1utility__internal_1_1Gen_3_01T_00_010_01_4.html", null ],
     [ "GPUParticle", "structGPUParticle.html", null ],

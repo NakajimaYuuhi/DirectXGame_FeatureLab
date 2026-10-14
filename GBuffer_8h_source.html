@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Rendering/GBuffer.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('GBuffer_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">GBuffer.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="GBuffer_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;d3d12.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="RenderTexture_8h.html">RenderTexture.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// =========================================================================</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// GBuffer</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">// Manages Multi-Render-Target (MRT) textures for Deferred Rendering:</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">// - RT0: Albedo (RGB) + Material ID / Specular (A)   [R8G8B8A8_UNORM]</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">// - RT1: World Normal (RGB) + Roughness (A)          [R16G16B16A16_FLOAT]</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">// - RT2: Metallic (R) + AO (G) + Emissive (B)        [R8G8B8A8_UNORM]</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">// =========================================================================</span></div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classGBuffer.html">   15</a></span><span class="keyword">class </span><a class="code hl_class" href="classGBuffer.html">GBuffer</a></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classGBuffer.html#a415c583664f405b4ddc7c013756ea84f">   18</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="classGBuffer.html#a415c583664f405b4ddc7c013756ea84f">TargetIndex</a></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classGBuffer.html#a415c583664f405b4ddc7c013756ea84fad696d2741150596abe52232689339e88">   20</a></span>        <a class="code hl_enumvalue" href="classGBuffer.html#a415c583664f405b4ddc7c013756ea84fad696d2741150596abe52232689339e88">ALBEDO</a> = 0,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classGBuffer.html#a415c583664f405b4ddc7c013756ea84fae4893f9f8cfc5910ce5461ca4e07b6a8">   21</a></span>        <a class="code hl_enumvalue" href="classGBuffer.html#a415c583664f405b4ddc7c013756ea84fae4893f9f8cfc5910ce5461ca4e07b6a8">NORMAL</a> = 1,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classGBuffer.html#a415c583664f405b4ddc7c013756ea84fa977467d1ec20670242b494dee2ff73f3">   22</a></span>        <a class="code hl_enumvalue" href="classGBuffer.html#a415c583664f405b4ddc7c013756ea84fa977467d1ec20670242b494dee2ff73f3">MATERIAL</a> = 2,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <a class="code hl_enumvalue" href="classGBuffer.html#a415c583664f405b4ddc7c013756ea84faee7badfb458416c8110bc5b5af4c113f">COUNT</a> = 3</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classGBuffer.html#a415c583664f405b4ddc7c013756ea84faee7badfb458416c8110bc5b5af4c113f">   24</a></span>    };</div>
+</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classGBuffer.html#ad2728f3b99b4ecded07b05fefb186ca1">   26</a></span>    <a class="code hl_function" href="classGBuffer.html#ad2728f3b99b4ecded07b05fefb186ca1">GBuffer</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classGBuffer.html#ae12e309228c0a499ea72052f8561450e">   27</a></span>    <a class="code hl_function" href="classGBuffer.html#ae12e309228c0a499ea72052f8561450e">~GBuffer</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classGBuffer.html#a9322c9e15086d8752f5e80bd34daa8de">   29</a></span>    <a class="code hl_function" href="classGBuffer.html#a9322c9e15086d8752f5e80bd34daa8de">GBuffer</a>(<span class="keyword">const</span> <a class="code hl_class" href="classGBuffer.html">GBuffer</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classGBuffer.html#a782bef678e39e9ad545678051ef2c3c6">   30</a></span>    <a class="code hl_class" href="classGBuffer.html">GBuffer</a>&amp; <a class="code hl_function" href="classGBuffer.html#a782bef678e39e9ad545678051ef2c3c6">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classGBuffer.html">GBuffer</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGBuffer.html#a887837a69a72d7856150302ea2ea6fce">Init</a>(ID3D12Device* pDevice, UINT width, UINT height);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGBuffer.html#a4d7c0cbb59761d57d376c2f1d63e1fdc">TransitionToRenderTargets</a>(ID3D12GraphicsCommandList* cmdList);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGBuffer.html#a58a0eb36ad4e8421a982482884e8d725">TransitionToShaderResources</a>(ID3D12GraphicsCommandList* cmdList);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGBuffer.html#a92919f6e403a47dc037a03cf97e97b40">Clear</a>(ID3D12GraphicsCommandList* cmdList);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="comment">// Get RTV CPU handles for OMSetRenderTargets</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGBuffer.html#a4062d1a2ccddb8c0c93536e41d07b5d1">GetRTVHandles</a>(D3D12_CPU_DESCRIPTOR_HANDLE outHandles[<a class="code hl_enumvalue" href="classGBuffer.html#a415c583664f405b4ddc7c013756ea84faee7badfb458416c8110bc5b5af4c113f">COUNT</a>]) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classGBuffer.html#ab8cb7893719f5efa7618e65413d94dac">   42</a></span>    <a class="code hl_class" href="classRenderTexture.html">RenderTexture</a>* <a class="code hl_function" href="classGBuffer.html#ab8cb7893719f5efa7618e65413d94dac">GetTexture</a>(<a class="code hl_enumeration" href="classGBuffer.html#a415c583664f405b4ddc7c013756ea84f">TargetIndex</a> index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classGBuffer.html#adc8e69995b36ecd29bc70ad37b4ba39a">m_targets</a>[index].get(); }</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="}">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classGBuffer.html#aad26b1232a030cadd0e64f4e3d03a4a4">   44</a></span>    D3D12_GPU_DESCRIPTOR_HANDLE <a class="code hl_function" href="classGBuffer.html#aad26b1232a030cadd0e64f4e3d03a4a4">GetSRV</a>(<a class="code hl_enumeration" href="classGBuffer.html#a415c583664f405b4ddc7c013756ea84f">TargetIndex</a> index)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classGBuffer.html#adc8e69995b36ecd29bc70ad37b4ba39a">m_targets</a>[index] ? <a class="code hl_variable" href="classGBuffer.html#adc8e69995b36ecd29bc70ad37b4ba39a">m_targets</a>[index]-&gt;GetSRV() : D3D12_GPU_DESCRIPTOR_HANDLE{};</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    }</div>
+</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classGBuffer.html#aba54dae36f7e903ced4768aedafbd07d">   49</a></span>    UINT <a class="code hl_function" href="classGBuffer.html#aba54dae36f7e903ced4768aedafbd07d">GetWidth</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classGBuffer.html#a7692b20bc04797a9185cceacf3f5b764">m_width</a>; }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classGBuffer.html#aec8409f88f3bdb0e3e699f0cafd8fed6">   50</a></span>    UINT <a class="code hl_function" href="classGBuffer.html#aec8409f88f3bdb0e3e699f0cafd8fed6">GetHeight</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classGBuffer.html#aef5ab4821181893302a1a05ca59fe832">m_height</a>; }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classGBuffer.html#a7692b20bc04797a9185cceacf3f5b764">   53</a></span>    UINT <a class="code hl_variable" href="classGBuffer.html#a7692b20bc04797a9185cceacf3f5b764">m_width</a> = 0;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classGBuffer.html#aef5ab4821181893302a1a05ca59fe832">   54</a></span>    UINT <a class="code hl_variable" href="classGBuffer.html#aef5ab4821181893302a1a05ca59fe832">m_height</a> = 0;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classGBuffer.html#adc8e69995b36ecd29bc70ad37b4ba39a">   56</a></span>    std::unique_ptr&lt;RenderTexture&gt; <a class="code hl_variable" href="classGBuffer.html#adc8e69995b36ecd29bc70ad37b4ba39a">m_targets</a>[<a class="code hl_enumvalue" href="classGBuffer.html#a415c583664f405b4ddc7c013756ea84faee7badfb458416c8110bc5b5af4c113f">COUNT</a>];</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>};</div>
+</div>
+<div class="ttc" id="aRenderTexture_8h_html"><div class="ttname"><a href="RenderTexture_8h.html">RenderTexture.h</a></div></div>
+<div class="ttc" id="aclassGBuffer_html"><div class="ttname"><a href="classGBuffer.html">GBuffer</a></div><div class="ttdef"><b>Definition</b> GBuffer.h:16</div></div>
+<div class="ttc" id="aclassGBuffer_html_a4062d1a2ccddb8c0c93536e41d07b5d1"><div class="ttname"><a href="classGBuffer.html#a4062d1a2ccddb8c0c93536e41d07b5d1">GBuffer::GetRTVHandles</a></div><div class="ttdeci">void GetRTVHandles(D3D12_CPU_DESCRIPTOR_HANDLE outHandles[COUNT]) const</div><div class="ttdef"><b>Definition</b> GBuffer.cpp:62</div></div>
+<div class="ttc" id="aclassGBuffer_html_a415c583664f405b4ddc7c013756ea84f"><div class="ttname"><a href="classGBuffer.html#a415c583664f405b4ddc7c013756ea84f">GBuffer::TargetIndex</a></div><div class="ttdeci">TargetIndex</div><div class="ttdef"><b>Definition</b> GBuffer.h:19</div></div>
+<div class="ttc" id="aclassGBuffer_html_a415c583664f405b4ddc7c013756ea84fa977467d1ec20670242b494dee2ff73f3"><div class="ttname"><a href="classGBuffer.html#a415c583664f405b4ddc7c013756ea84fa977467d1ec20670242b494dee2ff73f3">GBuffer::MATERIAL</a></div><div class="ttdeci">@ MATERIAL</div><div class="ttdef"><b>Definition</b> GBuffer.h:22</div></div>
+<div class="ttc" id="aclassGBuffer_html_a415c583664f405b4ddc7c013756ea84fad696d2741150596abe52232689339e88"><div class="ttname"><a href="classGBuffer.html#a415c583664f405b4ddc7c013756ea84fad696d2741150596abe52232689339e88">GBuffer::ALBEDO</a></div><div class="ttdeci">@ ALBEDO</div><div class="ttdef"><b>Definition</b> GBuffer.h:20</div></div>
+<div class="ttc" id="aclassGBuffer_html_a415c583664f405b4ddc7c013756ea84fae4893f9f8cfc5910ce5461ca4e07b6a8"><div class="ttname"><a href="classGBuffer.html#a415c583664f405b4ddc7c013756ea84fae4893f9f8cfc5910ce5461ca4e07b6a8">GBuffer::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdef"><b>Definition</b> GBuffer.h:21</div></div>
+<div class="ttc" id="aclassGBuffer_html_a415c583664f405b4ddc7c013756ea84faee7badfb458416c8110bc5b5af4c113f"><div class="ttname"><a href="classGBuffer.html#a415c583664f405b4ddc7c013756ea84faee7badfb458416c8110bc5b5af4c113f">GBuffer::COUNT</a></div><div class="ttdeci">@ COUNT</div><div class="ttdef"><b>Definition</b> GBuffer.h:23</div></div>
+<div class="ttc" id="aclassGBuffer_html_a4d7c0cbb59761d57d376c2f1d63e1fdc"><div class="ttname"><a href="classGBuffer.html#a4d7c0cbb59761d57d376c2f1d63e1fdc">GBuffer::TransitionToRenderTargets</a></div><div class="ttdeci">void TransitionToRenderTargets(ID3D12GraphicsCommandList *cmdList)</div><div class="ttdef"><b>Definition</b> GBuffer.cpp:29</div></div>
+<div class="ttc" id="aclassGBuffer_html_a58a0eb36ad4e8421a982482884e8d725"><div class="ttname"><a href="classGBuffer.html#a58a0eb36ad4e8421a982482884e8d725">GBuffer::TransitionToShaderResources</a></div><div class="ttdeci">void TransitionToShaderResources(ID3D12GraphicsCommandList *cmdList)</div><div class="ttdef"><b>Definition</b> GBuffer.cpp:40</div></div>
+<div class="ttc" id="aclassGBuffer_html_a7692b20bc04797a9185cceacf3f5b764"><div class="ttname"><a href="classGBuffer.html#a7692b20bc04797a9185cceacf3f5b764">GBuffer::m_width</a></div><div class="ttdeci">UINT m_width</div><div class="ttdef"><b>Definition</b> GBuffer.h:53</div></div>
+<div class="ttc" id="aclassGBuffer_html_a782bef678e39e9ad545678051ef2c3c6"><div class="ttname"><a href="classGBuffer.html#a782bef678e39e9ad545678051ef2c3c6">GBuffer::operator=</a></div><div class="ttdeci">GBuffer &amp; operator=(const GBuffer &amp;)=delete</div></div>
+<div class="ttc" id="aclassGBuffer_html_a887837a69a72d7856150302ea2ea6fce"><div class="ttname"><a href="classGBuffer.html#a887837a69a72d7856150302ea2ea6fce">GBuffer::Init</a></div><div class="ttdeci">void Init(ID3D12Device *pDevice, UINT width, UINT height)</div><div class="ttdef"><b>Definition</b> GBuffer.cpp:3</div></div>
+<div class="ttc" id="aclassGBuffer_html_a92919f6e403a47dc037a03cf97e97b40"><div class="ttname"><a href="classGBuffer.html#a92919f6e403a47dc037a03cf97e97b40">GBuffer::Clear</a></div><div class="ttdeci">void Clear(ID3D12GraphicsCommandList *cmdList)</div><div class="ttdef"><b>Definition</b> GBuffer.cpp:51</div></div>
+<div class="ttc" id="aclassGBuffer_html_a9322c9e15086d8752f5e80bd34daa8de"><div class="ttname"><a href="classGBuffer.html#a9322c9e15086d8752f5e80bd34daa8de">GBuffer::GBuffer</a></div><div class="ttdeci">GBuffer(const GBuffer &amp;)=delete</div></div>
+<div class="ttc" id="aclassGBuffer_html_aad26b1232a030cadd0e64f4e3d03a4a4"><div class="ttname"><a href="classGBuffer.html#aad26b1232a030cadd0e64f4e3d03a4a4">GBuffer::GetSRV</a></div><div class="ttdeci">D3D12_GPU_DESCRIPTOR_HANDLE GetSRV(TargetIndex index) const</div><div class="ttdef"><b>Definition</b> GBuffer.h:44</div></div>
+<div class="ttc" id="aclassGBuffer_html_ab8cb7893719f5efa7618e65413d94dac"><div class="ttname"><a href="classGBuffer.html#ab8cb7893719f5efa7618e65413d94dac">GBuffer::GetTexture</a></div><div class="ttdeci">RenderTexture * GetTexture(TargetIndex index) const</div><div class="ttdef"><b>Definition</b> GBuffer.h:42</div></div>
+<div class="ttc" id="aclassGBuffer_html_aba54dae36f7e903ced4768aedafbd07d"><div class="ttname"><a href="classGBuffer.html#aba54dae36f7e903ced4768aedafbd07d">GBuffer::GetWidth</a></div><div class="ttdeci">UINT GetWidth() const</div><div class="ttdef"><b>Definition</b> GBuffer.h:49</div></div>
+<div class="ttc" id="aclassGBuffer_html_ad2728f3b99b4ecded07b05fefb186ca1"><div class="ttname"><a href="classGBuffer.html#ad2728f3b99b4ecded07b05fefb186ca1">GBuffer::GBuffer</a></div><div class="ttdeci">GBuffer()=default</div></div>
+<div class="ttc" id="aclassGBuffer_html_adc8e69995b36ecd29bc70ad37b4ba39a"><div class="ttname"><a href="classGBuffer.html#adc8e69995b36ecd29bc70ad37b4ba39a">GBuffer::m_targets</a></div><div class="ttdeci">std::unique_ptr&lt; RenderTexture &gt; m_targets[COUNT]</div><div class="ttdef"><b>Definition</b> GBuffer.h:56</div></div>
+<div class="ttc" id="aclassGBuffer_html_ae12e309228c0a499ea72052f8561450e"><div class="ttname"><a href="classGBuffer.html#ae12e309228c0a499ea72052f8561450e">GBuffer::~GBuffer</a></div><div class="ttdeci">~GBuffer()=default</div></div>
+<div class="ttc" id="aclassGBuffer_html_aec8409f88f3bdb0e3e699f0cafd8fed6"><div class="ttname"><a href="classGBuffer.html#aec8409f88f3bdb0e3e699f0cafd8fed6">GBuffer::GetHeight</a></div><div class="ttdeci">UINT GetHeight() const</div><div class="ttdef"><b>Definition</b> GBuffer.h:50</div></div>
+<div class="ttc" id="aclassGBuffer_html_aef5ab4821181893302a1a05ca59fe832"><div class="ttname"><a href="classGBuffer.html#aef5ab4821181893302a1a05ca59fe832">GBuffer::m_height</a></div><div class="ttdeci">UINT m_height</div><div class="ttdef"><b>Definition</b> GBuffer.h:54</div></div>
+<div class="ttc" id="aclassRenderTexture_html"><div class="ttname"><a href="classRenderTexture.html">RenderTexture</a></div><div class="ttdef"><b>Definition</b> RenderTexture.h:5</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_e350ea9347b5bfd16d4777c6b135cca8.html">Rendering</a></li><li class="navelem"><a class="el" href="GBuffer_8h.html">GBuffer.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

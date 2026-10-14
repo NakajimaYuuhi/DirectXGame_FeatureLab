@@ -268,6 +268,7 @@ var annotated_dup =
     [ "ExampleTreeNode", "structExampleTreeNode.html", "structExampleTreeNode" ],
     [ "FieldComponent", "classFieldComponent.html", "classFieldComponent" ],
     [ "ForwardRenderPass", "classForwardRenderPass.html", "classForwardRenderPass" ],
+    [ "GBuffer", "classGBuffer.html", "classGBuffer" ],
     [ "GltfModelLoader", "classGltfModelLoader.html", "classGltfModelLoader" ],
     [ "GPUParticle", "structGPUParticle.html", "structGPUParticle" ],
     [ "GPUParticlePass", "classGPUParticlePass.html", "classGPUParticlePass" ],
