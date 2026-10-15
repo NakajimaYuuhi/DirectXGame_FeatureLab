@@ -5,6 +5,7 @@
 using String = std::string;
 
 class RenderPipeline;
+class RenderTexture;
 
 //===== クラス定義 =====
 class CScene
@@ -20,6 +21,9 @@ public:
 
 	// レンダリングパイプラインへのアクセサ
 	virtual RenderPipeline* GetRenderPipeline() { return nullptr; }
+
+	// シーン用レンダーターゲットへのアクセサ
+	virtual RenderTexture* GetSceneTexture() { return nullptr; }
 
 	//----- Getter -----
 	Scenes::ID GetID() const { return id; }

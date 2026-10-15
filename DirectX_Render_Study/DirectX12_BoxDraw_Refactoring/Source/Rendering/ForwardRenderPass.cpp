@@ -1,6 +1,7 @@
 #include "ForwardRenderPass.h"
 #include "ObjectManager.h"
 #include "DX12Manager.h"
+#include "ViewportUI.h"
 
 ForwardRenderPass::ForwardRenderPass(RenderTexture* pDestTex)
     : m_pDestTex(pDestTex)
@@ -42,6 +43,11 @@ void ForwardRenderPass::Execute(const RenderContext& ctx)
 
     // 5. Draw objects
     ObjectManager::GetInstance().Draw(ctx.sceneID);
+
+    // 6. Update Viewport preview if drawing to offscreen texture
+    if (m_pDestTex) {
+        CViewportUI::GetInstance().SetTextureSRV(m_pDestTex->GetSRV());
+    }
 }
 
 std::string ForwardRenderPass::GetName() const

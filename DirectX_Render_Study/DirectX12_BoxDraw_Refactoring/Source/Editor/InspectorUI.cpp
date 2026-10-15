@@ -22,8 +22,12 @@
 #include "Source/Core/Scenes/Manager/SceneManager.h"
 #include "Source/Core/Scenes/Serializer/SceneSerializer.h"
 #include "RenderPipeline.h"
+#include "ShadowMapPass.h"
+#include "ForwardRenderPass.h"
+#include "PostProcessPass.h"
 #include "SampleComputePass.h"
 #include "GPUParticlePass.h"
+#include "DX12Manager.h"
 #include "SceneEnums.h"
 #include "Source/UI/RectTransform.h"
 #include "SpriteRenderer.h"
@@ -614,6 +618,7 @@ void CInspectorUI::Draw()
         ImGui::Spacing();
         ImGui::Separator();
         ImGui::Text("Active Render Pipeline Passes");
+        ImGui::TextDisabled("Drag & drop or use buttons to reorder passes.");
         CScene* activeScene = SceneManager::GetInstance().GetActiveScene();
         if (activeScene)
         {
@@ -621,9 +626,38 @@ void CInspectorUI::Draw()
             if (pipeline)
             {
                 auto& passes = pipeline->GetPasses();
+                int moveFrom = -1;
+                int moveTo = -1;
+                int removeIdx = -1;
+
                 for (size_t i = 0; i < passes.size(); ++i)
                 {
                     if (!passes[i]) continue;
+
+                    ImGui::PushID(static_cast<int>(i));
+
+                    // --- Reorder Buttons ---
+                    ImGui::BeginDisabled(i == 0);
+                    if (ImGui::ArrowButton("##Up", ImGuiDir_Up))
+                    {
+                        moveFrom = static_cast<int>(i);
+                        moveTo = static_cast<int>(i - 1);
+                    }
+                    ImGui::EndDisabled();
+
+                    ImGui::SameLine();
+
+                    ImGui::BeginDisabled(i + 1 >= passes.size());
+                    if (ImGui::ArrowButton("##Down", ImGuiDir_Down))
+                    {
+                        moveFrom = static_cast<int>(i);
+                        moveTo = static_cast<int>(i + 1);
+                    }
+                    ImGui::EndDisabled();
+
+                    ImGui::SameLine();
+
+                    // --- Pass Enable/Disable Checkbox with Drag&Drop ---
                     bool passEnabled = passes[i]->IsEnabled();
                     std::string passLabel = "[" + std::to_string(i + 1) + "] " + passes[i]->GetName();
                     if (ImGui::Checkbox(passLabel.c_str(), &passEnabled))
@@ -631,6 +665,38 @@ void CInspectorUI::Draw()
                         passes[i]->SetEnabled(passEnabled);
                     }
 
+                    // Drag & Drop Source
+                    if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_None))
+                    {
+                        int src = static_cast<int>(i);
+                        ImGui::SetDragDropPayload("RENDER_PASS_REORDER", &src, sizeof(int));
+                        ImGui::Text("Move %s", passes[i]->GetName().c_str());
+                        ImGui::EndDragDropSource();
+                    }
+
+                    // Drag & Drop Target
+                    if (ImGui::BeginDragDropTarget())
+                    {
+                        if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("RENDER_PASS_REORDER"))
+                        {
+                            int src = *(const int*)payload->Data;
+                            moveFrom = src;
+                            moveTo = static_cast<int>(i);
+                        }
+                        ImGui::EndDragDropTarget();
+                    }
+
+                    // --- Delete Button ---
+                    ImGui::SameLine();
+                    ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.7f, 0.2f, 0.2f, 0.6f));
+                    ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0.9f, 0.3f, 0.3f, 0.9f));
+                    if (ImGui::SmallButton("X"))
+                    {
+                        removeIdx = static_cast<int>(i);
+                    }
+                    ImGui::PopStyleColor(2);
+
+                    // --- Pass Specific Parameters ---
                     if (auto* csPass = dynamic_cast<SampleComputePass*>(passes[i].get()))
                     {
                         ImGui::Indent();
@@ -676,6 +742,85 @@ void CInspectorUI::Draw()
                         }
                         ImGui::Unindent();
                     }
+
+                    ImGui::PopID();
+                }
+
+                // Apply Reorder / Removal after loop
+                if (moveFrom >= 0 && moveTo >= 0 && moveFrom != moveTo)
+                {
+                    pipeline->MovePass(moveFrom, moveTo);
+                }
+                if (removeIdx >= 0)
+                {
+                    pipeline->RemovePass(removeIdx);
+                }
+
+                // --- Add Pass Section ---
+                ImGui::Spacing();
+                ImGui::Separator();
+                ImGui::Text("Add Render Pass");
+
+                static int selectedPassToAdd = 0;
+                const char* passTypeNames[] = {
+                    "Shadow Map Pass",
+                    "Forward Render Pass",
+                    "GPU Particle Pass",
+                    "PostProcess Pass (Bloom)",
+                    "Compute Shader Pass"
+                };
+
+                ImGui::SetNextItemWidth(180.0f);
+                ImGui::Combo("##PassTypeSelect", &selectedPassToAdd, passTypeNames, IM_ARRAYSIZE(passTypeNames));
+                ImGui::SameLine();
+
+                if (ImGui::Button("+ Add Pass"))
+                {
+                    ID3D12Device* pDevice = DX12Manager::GetInstance().GetDevice();
+                    RenderTexture* pSceneTex = activeScene->GetSceneTexture();
+                    std::unique_ptr<IRenderPass> newPass = nullptr;
+
+                    switch (selectedPassToAdd)
+                    {
+                    case 0: // Shadow Map
+                        newPass = std::make_unique<ShadowMapPass>();
+                        break;
+                    case 1: // Forward Render
+                        newPass = std::make_unique<ForwardRenderPass>(pSceneTex);
+                        break;
+                    case 2: // GPU Particle
+                        newPass = std::make_unique<GPUParticlePass>(pSceneTex);
+                        break;
+                    case 3: // PostProcess
+                        newPass = std::make_unique<PostProcessPass>(pSceneTex);
+                        break;
+                    case 4: // Compute Shader
+                        newPass = std::make_unique<SampleComputePass>();
+                        break;
+                    default:
+                        break;
+                    }
+
+                    if (newPass)
+                    {
+                        pipeline->AddPass(std::move(newPass), pDevice);
+                    }
+                }
+
+                ImGui::SameLine();
+                if (ImGui::Button("Reset Default"))
+                {
+                    ID3D12Device* pDevice = DX12Manager::GetInstance().GetDevice();
+                    RenderTexture* pSceneTex = activeScene->GetSceneTexture();
+
+                    pipeline->ClearPasses();
+                    pipeline->AddPass(std::make_unique<ShadowMapPass>(), pDevice);
+                    pipeline->AddPass(std::make_unique<ForwardRenderPass>(pSceneTex), pDevice);
+                    pipeline->AddPass(std::make_unique<GPUParticlePass>(pSceneTex), pDevice);
+                    pipeline->AddPass(std::make_unique<PostProcessPass>(pSceneTex), pDevice);
+                    auto cs = std::make_unique<SampleComputePass>();
+                    cs->SetEnabled(false);
+                    pipeline->AddPass(std::move(cs), pDevice);
                 }
             }
             else

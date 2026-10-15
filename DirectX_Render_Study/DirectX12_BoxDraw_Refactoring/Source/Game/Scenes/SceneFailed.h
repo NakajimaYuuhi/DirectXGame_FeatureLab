@@ -22,6 +22,7 @@ public:
 	void Draw();
 
 	RenderPipeline* GetRenderPipeline() override { return m_renderPipeline.get(); }
+	RenderTexture*  GetSceneTexture() override { return m_pOffscreenTexture.get(); }
 
 private:
 	std::unique_ptr<RenderPipeline> m_renderPipeline;
