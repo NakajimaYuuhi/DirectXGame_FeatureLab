@@ -2,10 +2,12 @@
 #include "ObjectManager.h"
 #include "DX12Manager.h"
 #include "ViewportUI.h"
+#include "RenderBlackboard.h"
 
 ForwardRenderPass::ForwardRenderPass(RenderTexture* pDestTex)
     : m_pDestTex(pDestTex)
 {
+    m_outputResourceName = "SceneColor";
 }
 
 void ForwardRenderPass::Init(ID3D12Device* pDevice)
@@ -18,12 +20,21 @@ void ForwardRenderPass::Execute(const RenderContext& ctx)
     ID3D12DescriptorHeap* heaps[] = { DX12Manager::GetInstance().GetSRVHeap() };
     ctx.cmdList->SetDescriptorHeaps(1, heaps);
 
+    // Resolve destination texture from blackboard (fallback to m_pDestTex)
+    RenderTexture* pDest = nullptr;
+    if (ctx.blackboard && !m_outputResourceName.empty()) {
+        pDest = ctx.blackboard->GetTexture(m_outputResourceName);
+    }
+    if (!pDest) {
+        pDest = m_pDestTex;
+    }
+
     // 1. Render target
     D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle = ctx.backBufferRTV;
 
-    if (m_pDestTex) {
-        m_pDestTex->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_RENDER_TARGET);
-        rtvHandle = m_pDestTex->GetRTV();
+    if (pDest) {
+        pDest->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_RENDER_TARGET);
+        rtvHandle = pDest->GetRTV();
     }
 
     // 2. Set render target & depth stencil
@@ -31,7 +42,7 @@ void ForwardRenderPass::Execute(const RenderContext& ctx)
 
     // 3. Clear render target (use texture's optimized clear color if available to avoid #820 warning)
     const float defaultClearColor[] = { 0.1f, 0.2f, 0.4f, 1.0f };
-    const float* clearColor = m_pDestTex ? m_pDestTex->GetClearColor() : defaultClearColor;
+    const float* clearColor = pDest ? pDest->GetClearColor() : defaultClearColor;
     ctx.cmdList->ClearRenderTargetView(rtvHandle, clearColor, 0, nullptr);
     ctx.cmdList->ClearDepthStencilView(ctx.mainDSV, D3D12_CLEAR_FLAG_DEPTH, 1.0f, 0, 0, nullptr);
 
@@ -45,8 +56,8 @@ void ForwardRenderPass::Execute(const RenderContext& ctx)
     ObjectManager::GetInstance().Draw(ctx.sceneID);
 
     // 6. Update Viewport preview if drawing to offscreen texture
-    if (m_pDestTex) {
-        CViewportUI::GetInstance().SetTextureSRV(m_pDestTex->GetSRV());
+    if (pDest) {
+        CViewportUI::GetInstance().SetTextureSRV(pDest->GetSRV());
     }
 }
 

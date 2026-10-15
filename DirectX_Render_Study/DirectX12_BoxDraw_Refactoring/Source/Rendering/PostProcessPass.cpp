@@ -1,4 +1,4 @@
-#include "PostProcessPass.h"
+﻿#include "PostProcessPass.h"
 #include <d3dcompiler.h>
 #include <stdexcept>
 #include "d3dx12.h"
@@ -6,12 +6,15 @@
 #include "LightManager.h"
 #include "BasicSettings.h"
 #include "ViewportUI.h"
+#include "RenderBlackboard.h"
 
 #pragma comment(lib, "d3dcompiler.lib")
 
 PostProcessPass::PostProcessPass(RenderTexture* pSourceTex)
     : m_pSourceTex(pSourceTex)
 {
+    m_inputResourceName = "SceneColor";
+    m_outputResourceName = "FinalColor";
 }
 
 void PostProcessPass::Init(ID3D12Device* pDevice)
@@ -170,7 +173,18 @@ void PostProcessPass::Init(ID3D12Device* pDevice)
 
 void PostProcessPass::Execute(const RenderContext& ctx)
 {
-    if (!m_pSourceTex || !m_pCompositePSO || !m_pFinalTex) return;
+    RenderTexture* pSource = nullptr;
+    if (ctx.blackboard && !m_inputResourceName.empty()) {
+        pSource = ctx.blackboard->GetTexture(m_inputResourceName);
+    }
+    if (!pSource) {
+        pSource = m_pSourceTex;
+    }
+    if (!pSource || !m_pCompositePSO || !m_pFinalTex) return;
+
+    if (ctx.blackboard && !m_outputResourceName.empty()) {
+        ctx.blackboard->RegisterTextureRef(m_outputResourceName, m_pFinalTex.get());
+    }
 
     // 0. SRVデスクリプタヒープバインド
     ID3D12DescriptorHeap* heaps[] = { DX12Manager::GetInstance().GetSRVHeap() };
@@ -227,7 +241,7 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         // --------------------------------------------------------
         // Step 1: 輝度抽出 (Bright Pass: SceneTex -> BrightTex)
         // --------------------------------------------------------
-        m_pSourceTex->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE);
+        pSource->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE);
         m_pBrightTex->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_RENDER_TARGET);
 
         D3D12_CPU_DESCRIPTOR_HANDLE brightRtv = m_pBrightTex->GetRTV();
@@ -256,7 +270,7 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         cb.exposure            = exposure;
         ctx.cmdList->SetGraphicsRoot32BitConstants(0, 16, &cb, 0);
 
-        ctx.cmdList->SetGraphicsRootDescriptorTable(1, m_pSourceTex->GetSRV());
+        ctx.cmdList->SetGraphicsRootDescriptorTable(1, pSource->GetSRV());
         ctx.cmdList->DrawInstanced(3, 1, 0, 0);
 
         // --------------------------------------------------------
@@ -317,7 +331,7 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         cb.exposure            = exposure;
         ctx.cmdList->SetGraphicsRoot32BitConstants(0, 16, &cb, 0);
 
-        ctx.cmdList->SetGraphicsRootDescriptorTable(1, m_pSourceTex->GetSRV());
+        ctx.cmdList->SetGraphicsRootDescriptorTable(1, pSource->GetSRV());
         ctx.cmdList->SetGraphicsRootDescriptorTable(2, m_pBrightTex->GetSRV());
         ctx.cmdList->DrawInstanced(3, 1, 0, 0);
 
@@ -352,7 +366,7 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         // --------------------------------------------------------
         // ブルーム無効: パススルー (SceneTex -> m_pFinalTex -> BackBuffer)
         // --------------------------------------------------------
-        m_pSourceTex->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE);
+        pSource->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE);
         m_pFinalTex->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_RENDER_TARGET);
 
         D3D12_CPU_DESCRIPTOR_HANDLE finalRtv = m_pFinalTex->GetRTV();
@@ -374,7 +388,7 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         cb.exposure            = exposure;
         ctx.cmdList->SetGraphicsRoot32BitConstants(0, 16, &cb, 0);
 
-        ctx.cmdList->SetGraphicsRootDescriptorTable(1, m_pSourceTex->GetSRV());
+        ctx.cmdList->SetGraphicsRootDescriptorTable(1, pSource->GetSRV());
         ctx.cmdList->DrawInstanced(3, 1, 0, 0);
 
         // Viewport表示用にテクスチャをPIXEL_SHADER_RESOURCEへ遷移
@@ -401,3 +415,4 @@ void PostProcessPass::Execute(const RenderContext& ctx)
         }
     }
 }
+

@@ -21,12 +21,17 @@ void RenderPipeline::Init(ID3D12Device* pDevice)
 
 void RenderPipeline::Execute(const RenderContext& ctx)
 {
+    RenderContext localCtx = ctx;
+    if (!localCtx.blackboard) {
+        localCtx.blackboard = &m_blackboard;
+    }
+
     for (auto& pass : m_passes) {
         if (!pass || !pass->IsEnabled()) {
             continue;
         }
 
-        pass->Execute(ctx);
+        pass->Execute(localCtx);
     }
 }
 

@@ -1,9 +1,12 @@
 #include "GPUParticlePass.h"
 #include "DX12Manager.h"
+#include "ViewportUI.h"
+#include "RenderBlackboard.h"
 
 GPUParticlePass::GPUParticlePass(RenderTexture* pRenderTarget)
     : m_pRenderTarget(pRenderTarget)
 {
+    m_outputResourceName = "SceneColor";
 }
 
 void GPUParticlePass::Init(ID3D12Device* pDevice)
@@ -16,15 +19,24 @@ void GPUParticlePass::Execute(const RenderContext& ctx)
     m_particleSystem.SetEnabled(m_isEnabled);
     if (!m_isEnabled) return;
 
+    // Resolve target texture from blackboard (fallback to m_pRenderTarget)
+    RenderTexture* pTarget = nullptr;
+    if (ctx.blackboard && !m_outputResourceName.empty()) {
+        pTarget = ctx.blackboard->GetTexture(m_outputResourceName);
+    }
+    if (!pTarget) {
+        pTarget = m_pRenderTarget;
+    }
+
     // 1. Simulation via Compute Shader (UAV dispatch)
     m_particleSystem.UpdateAndSimulate(ctx.cmdList, ctx.deltaTime);
 
     // 2. Set Render Target & Depth Stencil
     D3D12_CPU_DESCRIPTOR_HANDLE rtvHandle = ctx.backBufferRTV;
-    if (m_pRenderTarget)
+    if (pTarget)
     {
-        m_pRenderTarget->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_RENDER_TARGET);
-        rtvHandle = m_pRenderTarget->GetRTV();
+        pTarget->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_RENDER_TARGET);
+        rtvHandle = pTarget->GetRTV();
     }
 
     ctx.cmdList->OMSetRenderTargets(1, &rtvHandle, FALSE, &ctx.mainDSV);
@@ -49,4 +61,10 @@ void GPUParticlePass::Execute(const RenderContext& ctx)
     DirectX::XMMATRIX proj = DX12Manager::GetInstance().GetProj();
 
     m_particleSystem.Render(ctx.cmdList, view, proj);
+
+    // 4. Update Viewport preview
+    if (pTarget)
+    {
+        CViewportUI::GetInstance().SetTextureSRV(pTarget->GetSRV());
+    }
 }

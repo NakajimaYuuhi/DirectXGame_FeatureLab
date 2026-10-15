@@ -64,6 +64,7 @@ void CSceneTest::Init()
     m_pSceneTexture = std::make_unique<RenderTexture>(pDevice, SCREEN_WIDTH, SCREEN_HEIGHT, DXGI_FORMAT_R8G8B8A8_UNORM, sceneClearColor);
 
     m_renderPipeline = std::make_unique<RenderPipeline>();
+    m_renderPipeline->GetBlackboard().RegisterTextureRef("SceneColor", m_pSceneTexture.get());
     m_renderPipeline->AddPass(std::make_unique<ShadowMapPass>());
     m_renderPipeline->AddPass(std::make_unique<ForwardRenderPass>(m_pSceneTexture.get()));
     m_renderPipeline->AddPass(std::make_unique<GPUParticlePass>(m_pSceneTexture.get()));

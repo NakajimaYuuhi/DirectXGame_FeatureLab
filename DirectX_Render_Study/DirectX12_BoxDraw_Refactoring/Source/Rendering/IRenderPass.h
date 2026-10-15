@@ -20,6 +20,15 @@ public:
     bool IsEnabled() const { return m_isEnabled; }
     void SetEnabled(bool enabled) { m_isEnabled = enabled; }
 
+    // Resource Binding (Input / Output Texture Names in Blackboard)
+    const std::string& GetInputResourceName() const { return m_inputResourceName; }
+    void SetInputResourceName(const std::string& name) { m_inputResourceName = name; }
+
+    const std::string& GetOutputResourceName() const { return m_outputResourceName; }
+    void SetOutputResourceName(const std::string& name) { m_outputResourceName = name; }
+
 protected:
     bool m_isEnabled = true;
+    std::string m_inputResourceName;
+    std::string m_outputResourceName;
 };

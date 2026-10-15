@@ -625,6 +625,79 @@ void CInspectorUI::Draw()
             RenderPipeline* pipeline = activeScene->GetRenderPipeline();
             if (pipeline)
             {
+                // Ensure scene's primary texture is registered to blackboard as fallback
+                if (!pipeline->GetBlackboard().HasTexture("SceneColor"))
+                {
+                    if (RenderTexture* pSceneTex = activeScene->GetSceneTexture())
+                    {
+                        pipeline->GetBlackboard().RegisterTextureRef("SceneColor", pSceneTex);
+                    }
+                }
+
+                // --- Blackboard Resources Panel ---
+                if (ImGui::TreeNodeEx("Render Blackboard (Shared Resources)", ImGuiTreeNodeFlags_Framed))
+                {
+                    auto texNames = pipeline->GetBlackboard().GetTextureNames();
+                    if (texNames.empty())
+                    {
+                        ImGui::TextDisabled("No textures registered in blackboard.");
+                    }
+                    else
+                    {
+                        for (const auto& name : texNames)
+                        {
+                            RenderTexture* tex = pipeline->GetBlackboard().GetTexture(name);
+                            if (tex)
+                            {
+                                ImGui::BulletText("%s (%ux%u)", name.c_str(), tex->GetWidth(), tex->GetHeight());
+                            }
+                        }
+                    }
+
+                    // Dynamically create and register new buffer
+                    static char newTexName[64] = "Layer_Background";
+                    ImGui::SetNextItemWidth(140.0f);
+                    ImGui::InputText("##NewTexName", newTexName, sizeof(newTexName));
+                    ImGui::SameLine();
+                    if (ImGui::Button("+ Create Texture"))
+                    {
+                        if (strlen(newTexName) > 0)
+                        {
+                            ID3D12Device* pDevice = DX12Manager::GetInstance().GetDevice();
+                            pipeline->GetBlackboard().CreateOrGetTexture(newTexName, pDevice, SCREEN_WIDTH, SCREEN_HEIGHT);
+                        }
+                    }
+
+                    ImGui::TreePop();
+                }
+
+                auto registeredTexNames = pipeline->GetBlackboard().GetTextureNames();
+
+                auto DrawResourceSelector = [](const char* label, std::string& currentName, const std::vector<std::string>& availableNames) -> bool {
+                    bool changed = false;
+                    ImGui::SetNextItemWidth(150.0f);
+                    std::string preview = currentName.empty() ? "(Default)" : currentName;
+                    if (ImGui::BeginCombo(label, preview.c_str()))
+                    {
+                        if (ImGui::Selectable("(Default)", currentName.empty()))
+                        {
+                            currentName = "";
+                            changed = true;
+                        }
+                        for (const auto& name : availableNames)
+                        {
+                            bool isSelected = (currentName == name);
+                            if (ImGui::Selectable(name.c_str(), isSelected))
+                            {
+                                currentName = name;
+                                changed = true;
+                            }
+                        }
+                        ImGui::EndCombo();
+                    }
+                    return changed;
+                };
+
                 auto& passes = pipeline->GetPasses();
                 int moveFrom = -1;
                 int moveTo = -1;
@@ -696,10 +769,31 @@ void CInspectorUI::Draw()
                     }
                     ImGui::PopStyleColor(2);
 
+                    // --- Input / Output Texture Wiring ---
+                    ImGui::Indent();
+                    if (dynamic_cast<PostProcessPass*>(passes[i].get()))
+                    {
+                        std::string inRes = passes[i]->GetInputResourceName();
+                        if (DrawResourceSelector("Input##PassRes", inRes, registeredTexNames))
+                        {
+                            passes[i]->SetInputResourceName(inRes);
+                        }
+                    }
+
+                    if (dynamic_cast<ForwardRenderPass*>(passes[i].get()) ||
+                        dynamic_cast<GPUParticlePass*>(passes[i].get()) ||
+                        dynamic_cast<PostProcessPass*>(passes[i].get()))
+                    {
+                        std::string outRes = passes[i]->GetOutputResourceName();
+                        if (DrawResourceSelector("Output##PassRes", outRes, registeredTexNames))
+                        {
+                            passes[i]->SetOutputResourceName(outRes);
+                        }
+                    }
+
                     // --- Pass Specific Parameters ---
                     if (auto* csPass = dynamic_cast<SampleComputePass*>(passes[i].get()))
                     {
-                        ImGui::Indent();
                         bool preview = csPass->IsPreviewEnabled();
                         if (ImGui::Checkbox("Preview in Viewport##CS", &preview))
                         {
@@ -710,12 +804,10 @@ void CInspectorUI::Draw()
                         {
                             csPass->SetSpeed(speed);
                         }
-                        ImGui::Unindent();
                     }
 
                     if (auto* gpPass = dynamic_cast<GPUParticlePass*>(passes[i].get()))
                     {
-                        ImGui::Indent();
                         auto& ps = gpPass->GetParticleSystem();
                         ImGui::Text("GPU Particles: %u", ps.GetMaxParticles());
 
@@ -740,8 +832,8 @@ void CInspectorUI::Draw()
                         if (ImGui::DragFloat3("Gravity##GP", g, 0.1f)) {
                             grav = { g[0], g[1], g[2] };
                         }
-                        ImGui::Unindent();
                     }
+                    ImGui::Unindent();
 
                     ImGui::PopID();
                 }

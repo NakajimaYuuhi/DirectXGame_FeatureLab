@@ -3,6 +3,7 @@
 #include <memory>
 #include "IRenderPass.h"
 #include "RenderContext.h"
+#include "RenderBlackboard.h"
 
 class RenderPipeline {
 public:
@@ -32,6 +33,11 @@ public:
     const std::vector<std::unique_ptr<IRenderPass>>& GetPasses() const { return m_passes; }
     std::vector<std::unique_ptr<IRenderPass>>& GetPasses() { return m_passes; }
 
+    // Blackboard for shared textures
+    RenderBlackboard& GetBlackboard() { return m_blackboard; }
+    const RenderBlackboard& GetBlackboard() const { return m_blackboard; }
+
 private:
     std::vector<std::unique_ptr<IRenderPass>> m_passes;
+    RenderBlackboard m_blackboard;
 };
