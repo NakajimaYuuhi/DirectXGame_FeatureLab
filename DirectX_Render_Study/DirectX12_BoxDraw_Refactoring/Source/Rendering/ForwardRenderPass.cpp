@@ -1,8 +1,9 @@
-#include "ForwardRenderPass.h"
+﻿#include "ForwardRenderPass.h"
 #include "ObjectManager.h"
 #include "DX12Manager.h"
 #include "ViewportUI.h"
 #include "RenderBlackboard.h"
+#include "RenderLayer.h"
 
 ForwardRenderPass::ForwardRenderPass(RenderTexture* pDestTex)
     : m_pDestTex(pDestTex)
@@ -40,11 +41,13 @@ void ForwardRenderPass::Execute(const RenderContext& ctx)
     // 2. Set render target & depth stencil
     ctx.cmdList->OMSetRenderTargets(1, &rtvHandle, FALSE, &ctx.mainDSV);
 
-    // 3. Clear render target (use texture's optimized clear color if available to avoid #820 warning)
-    const float defaultClearColor[] = { 0.1f, 0.2f, 0.4f, 1.0f };
-    const float* clearColor = pDest ? pDest->GetClearColor() : defaultClearColor;
-    ctx.cmdList->ClearRenderTargetView(rtvHandle, clearColor, 0, nullptr);
-    ctx.cmdList->ClearDepthStencilView(ctx.mainDSV, D3D12_CLEAR_FLAG_DEPTH, 1.0f, 0, 0, nullptr);
+    // 3. Clear render target (if enabled)
+    if (m_clearEnabled) {
+        const float defaultClearColor[] = { 0.1f, 0.2f, 0.4f, 1.0f };
+        const float* clearColor = pDest ? pDest->GetClearColor() : defaultClearColor;
+        ctx.cmdList->ClearRenderTargetView(rtvHandle, clearColor, 0, nullptr);
+        ctx.cmdList->ClearDepthStencilView(ctx.mainDSV, D3D12_CLEAR_FLAG_DEPTH, 1.0f, 0, 0, nullptr);
+    }
 
     // 4. Set viewport & scissor
     D3D12_VIEWPORT viewport = { 0.0f, 0.0f, static_cast<float>(ctx.screenWidth), static_cast<float>(ctx.screenHeight), 0.0f, 1.0f };
@@ -52,8 +55,12 @@ void ForwardRenderPass::Execute(const RenderContext& ctx)
     ctx.cmdList->RSSetViewports(1, &viewport);
     ctx.cmdList->RSSetScissorRects(1, &scissorRect);
 
-    // 5. Draw objects
-    ObjectManager::GetInstance().Draw(ctx.sceneID);
+    // 5. Draw objects (by layer filter or all)
+    if (m_layerFilter >= 0 && m_layerFilter < static_cast<int>(RenderLayer::COUNT)) {
+        ObjectManager::GetInstance().DrawByLayer(static_cast<RenderLayer>(m_layerFilter));
+    } else {
+        ObjectManager::GetInstance().Draw(ctx.sceneID);
+    }
 
     // 6. Update Viewport preview if drawing to offscreen texture
     if (pDest) {
@@ -63,5 +70,8 @@ void ForwardRenderPass::Execute(const RenderContext& ctx)
 
 std::string ForwardRenderPass::GetName() const
 {
+    if (m_layerFilter >= 0 && m_layerFilter < static_cast<int>(RenderLayer::COUNT)) {
+        return std::string("Forward Pass [") + GetRenderLayerName(static_cast<RenderLayer>(m_layerFilter)) + "]";
+    }
     return "Forward Render Pass";
 }

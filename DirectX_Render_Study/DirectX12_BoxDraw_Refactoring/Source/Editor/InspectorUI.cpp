@@ -27,6 +27,8 @@
 #include "PostProcessPass.h"
 #include "SampleComputePass.h"
 #include "GPUParticlePass.h"
+#include "CompositePass.h"
+#include "RenderLayer.h"
 #include "DX12Manager.h"
 #include "SceneEnums.h"
 #include "Source/UI/RectTransform.h"
@@ -782,7 +784,8 @@ void CInspectorUI::Draw()
 
                     if (dynamic_cast<ForwardRenderPass*>(passes[i].get()) ||
                         dynamic_cast<GPUParticlePass*>(passes[i].get()) ||
-                        dynamic_cast<PostProcessPass*>(passes[i].get()))
+                        dynamic_cast<PostProcessPass*>(passes[i].get()) ||
+                        dynamic_cast<CompositePass*>(passes[i].get()))
                     {
                         std::string outRes = passes[i]->GetOutputResourceName();
                         if (DrawResourceSelector("Output##PassRes", outRes, registeredTexNames))
@@ -792,6 +795,79 @@ void CInspectorUI::Draw()
                     }
 
                     // --- Pass Specific Parameters ---
+                    if (auto* fwdPass = dynamic_cast<ForwardRenderPass*>(passes[i].get()))
+                    {
+                        int currentLayer = fwdPass->GetLayerFilter();
+                        const char* layerNames[] = { "All Layers", "Opaque", "Transparent", "Debug", "UI" };
+                        int comboIdx = (currentLayer == -1) ? 0 : (currentLayer + 1);
+                        ImGui::SetNextItemWidth(130.0f);
+                        if (ImGui::Combo("Layer Filter##FwdLayer", &comboIdx, layerNames, IM_ARRAYSIZE(layerNames)))
+                        {
+                            fwdPass->SetLayerFilter(comboIdx == 0 ? -1 : (comboIdx - 1));
+                        }
+                        ImGui::SameLine();
+                        bool clear = fwdPass->IsClearEnabled();
+                        if (ImGui::Checkbox("Clear##FwdClear", &clear))
+                        {
+                            fwdPass->SetClearEnabled(clear);
+                        }
+                    }
+
+                    if (auto* compPass = dynamic_cast<CompositePass*>(passes[i].get()))
+                    {
+                        ImGui::Spacing();
+                        ImGui::Text("Composite Layers (%d):", (int)compPass->GetLayers().size());
+                        auto& layers = compPass->GetLayers();
+                        int removeLayerIdx = -1;
+                        const char* blendModeNames[] = { "Alpha", "Additive", "Multiply", "Screen" };
+
+                        for (size_t li = 0; li < layers.size(); ++li)
+                        {
+                            ImGui::PushID(static_cast<int>(li));
+
+                            bool lenabled = layers[li].enabled;
+                            if (ImGui::Checkbox("##LayerEn", &lenabled)) {
+                                layers[li].enabled = lenabled;
+                            }
+                            ImGui::SameLine();
+
+                            if (DrawResourceSelector("##LayerTex", layers[li].textureName, registeredTexNames)) {
+                            }
+                            ImGui::SameLine();
+
+                            int bm = static_cast<int>(layers[li].blendMode);
+                            ImGui::SetNextItemWidth(85.0f);
+                            if (ImGui::Combo("##LayerBM", &bm, blendModeNames, IM_ARRAYSIZE(blendModeNames))) {
+                                layers[li].blendMode = static_cast<CompositePass::BlendMode>(bm);
+                            }
+                            ImGui::SameLine();
+
+                            ImGui::SetNextItemWidth(65.0f);
+                            ImGui::SliderFloat("##LayerOp", &layers[li].opacity, 0.0f, 1.0f, "%.2f");
+                            ImGui::SameLine();
+
+                            if (ImGui::SmallButton("X##DelLayer")) {
+                                removeLayerIdx = static_cast<int>(li);
+                            }
+
+                            ImGui::PopID();
+                        }
+
+                        if (removeLayerIdx >= 0) {
+                            compPass->RemoveLayer(removeLayerIdx);
+                        }
+
+                        if (ImGui::Button("+ Add Layer##Comp")) {
+                            CompositePass::Layer newLayer;
+                            newLayer.textureName = registeredTexNames.empty() ? "SceneColor" : registeredTexNames[0];
+                            newLayer.blendMode = CompositePass::BlendMode::Alpha;
+                            newLayer.opacity = 1.0f;
+                            newLayer.enabled = true;
+                            compPass->AddLayer(newLayer);
+                        }
+                        ImGui::Spacing();
+                    }
+
                     if (auto* csPass = dynamic_cast<SampleComputePass*>(passes[i].get()))
                     {
                         bool preview = csPass->IsPreviewEnabled();
@@ -859,7 +935,8 @@ void CInspectorUI::Draw()
                     "Forward Render Pass",
                     "GPU Particle Pass",
                     "PostProcess Pass (Bloom)",
-                    "Compute Shader Pass"
+                    "Compute Shader Pass",
+                    "Composite Pass (Multi-Layer)"
                 };
 
                 ImGui::SetNextItemWidth(180.0f);
@@ -888,6 +965,9 @@ void CInspectorUI::Draw()
                         break;
                     case 4: // Compute Shader
                         newPass = std::make_unique<SampleComputePass>();
+                        break;
+                    case 5: // Composite Pass
+                        newPass = std::make_unique<CompositePass>();
                         break;
                     default:
                         break;
