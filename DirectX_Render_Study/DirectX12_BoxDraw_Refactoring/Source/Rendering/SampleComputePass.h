@@ -3,6 +3,7 @@
 #include "RenderTexture.h"
 #include <wrl/client.h>
 #include <memory>
+#include <string>
 
 class SampleComputePass : public IRenderPass {
 public:
@@ -11,7 +12,10 @@ public:
 
     virtual void Init(ID3D12Device* pDevice) override;
     virtual void Execute(const RenderContext& ctx) override;
-    virtual std::string GetName() const override { return "Compute Shader Pass"; }
+    virtual std::string GetName() const override { return m_customName.empty() ? "Compute Shader Pass" : m_customName; }
+
+    void SetCustomName(const std::string& name) { m_customName = name; }
+    const std::string& GetCustomName() const { return m_customName; }
 
     RenderTexture* GetOutputTexture() const { return m_pOutputTexture.get(); }
     D3D12_GPU_DESCRIPTOR_HANDLE GetOutputSRV() const {
@@ -24,6 +28,7 @@ public:
     void SetSpeed(float speed) { m_speed = speed; }
 
 private:
+    std::string m_customName;
     std::unique_ptr<RenderTexture> m_pOutputTexture;
     Microsoft::WRL::ComPtr<ID3D12RootSignature> m_pRootSignature;
     Microsoft::WRL::ComPtr<ID3D12PipelineState> m_pPipelineState;

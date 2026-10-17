@@ -4,9 +4,11 @@
 #include "DX12Manager.h"
 #include "BasicSettings.h"
 #include "ViewportUI.h"
+#include "RenderBlackboard.h"
 
 SampleComputePass::SampleComputePass()
 {
+    m_outputResourceName = "ComputeOutput";
 }
 
 void SampleComputePass::Init(ID3D12Device* pDevice)
@@ -60,6 +62,11 @@ void SampleComputePass::Execute(const RenderContext& ctx)
     if (!m_isEnabled || !m_pOutputTexture || !m_pPipelineState || !m_pRootSignature)
     {
         return;
+    }
+
+    if (ctx.blackboard && !m_outputResourceName.empty())
+    {
+        ctx.blackboard->RegisterTextureRef(m_outputResourceName, m_pOutputTexture.get());
     }
 
     m_totalTime += ctx.deltaTime * m_speed;

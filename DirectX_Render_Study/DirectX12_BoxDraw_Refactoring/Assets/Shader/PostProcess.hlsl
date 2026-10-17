@@ -1,6 +1,6 @@
 // ==========================================
 // PostProcess.hlsl
-// ポストプロセス (ブルーム・トーンマッピング・露出・色調フィルタ・色収差・アウトライン)
+// Post-Process (Bloom, Tonemapping, Exposure, Color Filter, Chromatic Aberration, Outline, Fade)
 // ==========================================
 
 struct VSOutput {
@@ -8,7 +8,7 @@ struct VSOutput {
     float2 uv  : TEXCOORD0;
 };
 
-// --- フルスクリーン三角形頂点シェーダー ---
+// --- Fullscreen Triangle Vertex Shader ---
 VSOutput VSMain(uint vertexID : SV_VertexID) {
     VSOutput output;
     output.uv = float2((vertexID << 1) & 2, vertexID & 2);
@@ -16,74 +16,83 @@ VSOutput VSMain(uint vertexID : SV_VertexID) {
     return output;
 }
 
-// --- ルート定数 (16 DWORD / 64 bytes) ---
+// --- Root Constants (24 DWORD / 96 bytes) ---
 cbuffer PostProcessCB : register(b0)
 {
-    float g_threshold;           // ブルーム閾値
-    float g_knee;                // ソフトニー
-    float g_intensity;           // ブルーム強度
-    float g_spread;              // ブラー分散
-    float2 g_direction;          // ブラー方向
-    float g_bloomEnabled;        // 1.0: 有効, 0.0: 無効
-    float g_effectType;          // 0: None, 1: Grayscale, 2: Sepia, 3: Invert, 4: Vignette
-    float g_chromaticAberration; // 色収差強度 (0.0: 無効)
-    float g_outlineIntensity;    // アウトライン強度 (0.0: 無効)
-    float g_outlineThreshold;    // アウトライン閾値
-    float g_outlineWidth;        // アウトライン幅
-    float2 g_screenSize;         // 画面解像度 (幅, 高さ)
-    float g_toneMapType;         // 0: None, 1: Reinhard, 2: ACES Filmic
-    float g_exposure;            // 露出倍率 (1.0: デフォルト)
+    float g_threshold;           // [0] Bloom threshold
+    float g_knee;                // [1] Soft knee
+    float g_intensity;           // [2] Bloom intensity
+    float g_spread;              // [3] Blur spread
+    float2 g_direction;          // [4,5] Blur direction
+    float g_bloomEnabled;        // [6] 1.0: Enabled, 0.0: Disabled
+    float g_effectType;          // [7] 0: None, 1: Grayscale, 2: Sepia, 3: Invert, 4: Vignette
+    float g_chromaticAberration; // [8] Chromatic aberration intensity
+    float g_outlineIntensity;    // [9] Outline intensity
+    float g_outlineThreshold;    // [10] Outline threshold
+    float g_outlineWidth;        // [11] Outline width
+    float2 g_screenSize;         // [12,13] Screen size (width, height)
+    float g_toneMapType;         // [14] 0: None, 1: Reinhard, 2: ACES Filmic
+    float g_exposure;            // [15] Exposure multiplier
+    float3 g_outlineColor;       // [16,17,18] Outline RGB color
+    float g_preserveAlpha;       // [19] 1.0: Preserve source & outline alpha for layer compositing
+    float3 g_fadeColor;          // [20,21,22] Screen fade color (default 0,0,0)
+    float g_fade;                // [23] Screen fade amount (0.0: normal, 1.0: full fade)
 };
 
-Texture2D    g_texture0 : register(t0); // メイン入力
-Texture2D    g_texture1 : register(t1); // ブルームぼかしテクスチャ
-SamplerState g_sampler  : register(s0); // リニアクランプ
+Texture2D    g_texture0 : register(t0); // Main input
+Texture2D    g_texture1 : register(t1); // Bloom blur texture
+SamplerState g_sampler  : register(s0); // Linear clamp
 
-// --- 色収差サンプリング関数 ---
-float3 SampleWithChromaticAberration(Texture2D tex, SamplerState smp, float2 uv, float intensity)
+// --- Chromatic Aberration Sampling ---
+float4 SampleWithChromaticAberration(Texture2D tex, SamplerState smp, float2 uv, float intensity)
 {
+    float4 centerSample = tex.Sample(smp, uv);
     if (intensity <= 0.0001f)
     {
-        return tex.Sample(smp, uv).rgb;
+        return centerSample;
     }
-    // 画面中心 (0.5, 0.5) からの距離に応じた放射状の色ズレ
     float2 toCenter = uv - float2(0.5f, 0.5f);
     float distSq = dot(toCenter, toCenter);
     float2 offset = toCenter * (distSq * intensity * 2.0f);
 
     float r = tex.Sample(smp, uv + offset).r;
-    float g = tex.Sample(smp, uv).g;
+    float g = centerSample.g;
     float b = tex.Sample(smp, uv - offset).b;
-    return float3(r, g, b);
+    return float4(r, g, b, centerSample.a);
 }
 
-// --- エッジ検出 (Sobel Filter による輪郭線抽出) ---
+// --- Edge Detection (Sobel Filter on Luminance & Alpha Silhouette) ---
 float CalculateEdge(Texture2D tex, SamplerState smp, float2 uv, float2 screenSize, float width, float threshold)
 {
     float2 texelSize = (width / max(screenSize, float2(1.0f, 1.0f)));
 
-    float3 c00 = tex.Sample(smp, uv + float2(-texelSize.x, -texelSize.y)).rgb;
-    float3 c01 = tex.Sample(smp, uv + float2(0.0f,         -texelSize.y)).rgb;
-    float3 c02 = tex.Sample(smp, uv + float2( texelSize.x, -texelSize.y)).rgb;
-    float3 c10 = tex.Sample(smp, uv + float2(-texelSize.x,  0.0f)).rgb;
-    float3 c12 = tex.Sample(smp, uv + float2( texelSize.x,  0.0f)).rgb;
-    float3 c20 = tex.Sample(smp, uv + float2(-texelSize.x,  texelSize.y)).rgb;
-    float3 c21 = tex.Sample(smp, uv + float2(0.0f,          texelSize.y)).rgb;
-    float3 c22 = tex.Sample(smp, uv + float2( texelSize.x,  texelSize.y)).rgb;
+    float4 c00 = tex.Sample(smp, uv + float2(-texelSize.x, -texelSize.y));
+    float4 c01 = tex.Sample(smp, uv + float2( 0.0f,        -texelSize.y));
+    float4 c02 = tex.Sample(smp, uv + float2( texelSize.x, -texelSize.y));
+    float4 c10 = tex.Sample(smp, uv + float2(-texelSize.x,  0.0f));
+    float4 c12 = tex.Sample(smp, uv + float2( texelSize.x,  0.0f));
+    float4 c20 = tex.Sample(smp, uv + float2(-texelSize.x,  texelSize.y));
+    float4 c21 = tex.Sample(smp, uv + float2( 0.0f,         texelSize.y));
+    float4 c22 = tex.Sample(smp, uv + float2( texelSize.x,  texelSize.y));
 
     float3 lumW = float3(0.299f, 0.587f, 0.114f);
-    float l00 = dot(c00, lumW); float l01 = dot(c01, lumW); float l02 = dot(c02, lumW);
-    float l10 = dot(c10, lumW); float l12 = dot(c12, lumW);
-    float l20 = dot(c20, lumW); float l21 = dot(c21, lumW); float l22 = dot(c22, lumW);
+    float l00 = dot(c00.rgb, lumW); float l01 = dot(c01.rgb, lumW); float l02 = dot(c02.rgb, lumW);
+    float l10 = dot(c10.rgb, lumW);                                 float l12 = dot(c12.rgb, lumW);
+    float l20 = dot(c20.rgb, lumW); float l21 = dot(c21.rgb, lumW); float l22 = dot(c22.rgb, lumW);
 
-    float gx = (l02 + 2.0f * l12 + l22) - (l00 + 2.0f * l10 + l20);
-    float gy = (l20 + 2.0f * l21 + l22) - (l00 + 2.0f * l01 + l02);
+    float gxLum = (l02 + 2.0f * l12 + l22) - (l00 + 2.0f * l10 + l20);
+    float gyLum = (l20 + 2.0f * l21 + l22) - (l00 + 2.0f * l01 + l02);
+    float edgeLum = sqrt(gxLum * gxLum + gyLum * gyLum);
 
-    float edge = sqrt(gx * gx + gy * gy);
+    float gxAlpha = (c02.a + 2.0f * c12.a + c22.a) - (c00.a + 2.0f * c10.a + c20.a);
+    float gyAlpha = (c20.a + 2.0f * c21.a + c22.a) - (c00.a + 2.0f * c01.a + c02.a);
+    float edgeAlpha = sqrt(gxAlpha * gxAlpha + gyAlpha * gyAlpha);
+
+    float edge = max(edgeLum, edgeAlpha);
     return smoothstep(threshold, threshold * 2.0f + 0.05f, edge);
 }
 
-// --- ACES Filmic トーンマッピング関数 ---
+// --- ACES Filmic Tonemapping ---
 float3 ACESFilm(float3 x)
 {
     float a = 2.51f;
@@ -94,7 +103,7 @@ float3 ACESFilm(float3 x)
     return saturate((x * (a * x + b)) / (x * (c * x + d) + e));
 }
 
-// --- トーンマッピング・露出適用 ---
+// --- Tonemapping & Exposure ---
 float3 ApplyToneMapping(float3 col, float toneMapType, float exposure)
 {
     col *= max(0.01f, exposure);
@@ -102,18 +111,16 @@ float3 ApplyToneMapping(float3 col, float toneMapType, float exposure)
     int type = (int)(toneMapType + 0.5f);
     if (type == 1)
     {
-        // Reinhard
         return col / (col + 1.0f);
     }
     else if (type == 2)
     {
-        // ACES Filmic
         return ACESFilm(col);
     }
     return col;
 }
 
-// --- カラーフィルター適用関数 ---
+// --- Color Filter Effects ---
 float3 ApplyEffect(float3 col, float2 uv, float effectType)
 {
     int type = (int)(effectType + 0.5f);
@@ -147,27 +154,49 @@ float3 ApplyEffect(float3 col, float2 uv, float effectType)
     return col;
 }
 
-// --- パススルー ---
+// --- PassThrough (when Bloom is disabled) ---
 float4 PSPassThrough(VSOutput input) : SV_TARGET {
-    float3 col = SampleWithChromaticAberration(g_texture0, g_sampler, input.uv, g_chromaticAberration);
+    float4 sampled = SampleWithChromaticAberration(g_texture0, g_sampler, input.uv, g_chromaticAberration);
+    float3 col = sampled.rgb;
+    float srcAlpha = sampled.a;
+
     col = ApplyToneMapping(col, g_toneMapType, g_exposure);
     col = ApplyEffect(col, input.uv, g_effectType);
+
+    float outAlpha = (g_preserveAlpha > 0.5f) ? srcAlpha : 1.0f;
 
     if (g_outlineIntensity > 0.001f)
     {
         float edge = CalculateEdge(g_texture0, g_sampler, input.uv, g_screenSize, g_outlineWidth, g_outlineThreshold);
-        col = lerp(col, float3(0.0f, 0.0f, 0.0f), edge * g_outlineIntensity);
+        float edgeFactor = saturate(edge * g_outlineIntensity);
+        if (g_preserveAlpha > 0.5f && srcAlpha < 0.05f)
+        {
+            col = g_outlineColor;
+        }
+        else
+        {
+            col = lerp(col, g_outlineColor, edgeFactor);
+        }
+        if (g_preserveAlpha > 0.5f)
+        {
+            outAlpha = saturate(max(srcAlpha, edgeFactor));
+        }
     }
 
-    return float4(col, 1.0f);
+    if (g_fade > 0.001f)
+    {
+        col = lerp(col, g_fadeColor, saturate(g_fade));
+    }
+
+    return float4(col, outAlpha);
 }
 
-// vcxproj デフォルトエントリポイント
+// Default entry point
 float4 PSMain(VSOutput input) : SV_TARGET {
     return PSPassThrough(input);
 }
 
-// --- 輝度抽出 (Bright Pass) ---
+// --- Bright Pass ---
 float4 PSBrightPass(VSOutput input) : SV_TARGET {
     float4 color = g_texture0.Sample(g_sampler, input.uv);
     
@@ -184,7 +213,7 @@ float4 PSBrightPass(VSOutput input) : SV_TARGET {
     return float4(bright, 1.0f);
 }
 
-// --- ガウスブラー ---
+// --- Gaussian Blur ---
 float4 PSBlurPass(VSOutput input) : SV_TARGET {
     static const float c_weights[3] = { 0.2270270270f, 0.3162162162f, 0.0702702703f };
     static const float c_offsets[3] = { 0.0f, 1.3846153846f, 3.2307692308f };
@@ -203,9 +232,11 @@ float4 PSBlurPass(VSOutput input) : SV_TARGET {
     return float4(result, 1.0f);
 }
 
-// --- 最終合成 ---
+// --- Final Composite (with Bloom) ---
 float4 PSComposite(VSOutput input) : SV_TARGET {
-    float3 finalColor = SampleWithChromaticAberration(g_texture0, g_sampler, input.uv, g_chromaticAberration);
+    float4 sampled = SampleWithChromaticAberration(g_texture0, g_sampler, input.uv, g_chromaticAberration);
+    float3 finalColor = sampled.rgb;
+    float srcAlpha = sampled.a;
     
     if (g_bloomEnabled > 0.5f)
     {
@@ -216,11 +247,30 @@ float4 PSComposite(VSOutput input) : SV_TARGET {
     finalColor = ApplyToneMapping(finalColor, g_toneMapType, g_exposure);
     finalColor = ApplyEffect(finalColor, input.uv, g_effectType);
 
+    float outAlpha = (g_preserveAlpha > 0.5f) ? srcAlpha : 1.0f;
+
     if (g_outlineIntensity > 0.001f)
     {
         float edge = CalculateEdge(g_texture0, g_sampler, input.uv, g_screenSize, g_outlineWidth, g_outlineThreshold);
-        finalColor = lerp(finalColor, float3(0.0f, 0.0f, 0.0f), edge * g_outlineIntensity);
+        float edgeFactor = saturate(edge * g_outlineIntensity);
+        if (g_preserveAlpha > 0.5f && srcAlpha < 0.05f)
+        {
+            finalColor = g_outlineColor;
+        }
+        else
+        {
+            finalColor = lerp(finalColor, g_outlineColor, edgeFactor);
+        }
+        if (g_preserveAlpha > 0.5f)
+        {
+            outAlpha = saturate(max(srcAlpha, edgeFactor));
+        }
     }
 
-    return float4(finalColor, 1.0f);
+    if (g_fade > 0.001f)
+    {
+        finalColor = lerp(finalColor, g_fadeColor, saturate(g_fade));
+    }
+
+    return float4(finalColor, outAlpha);
 }

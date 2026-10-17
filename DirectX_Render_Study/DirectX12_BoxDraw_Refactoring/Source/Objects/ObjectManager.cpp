@@ -183,10 +183,15 @@ void ObjectManager::Draw(Scenes::ID _SceneID)
 	}
 }
 
-void ObjectManager::DrawByLayer(RenderLayer layer)
+void ObjectManager::DrawByLayer(RenderLayer layer, uint32_t tagMask)
 {
 	for (size_t tagIdx = 0; tagIdx < vecObject.size(); ++tagIdx)
 	{
+		if (tagIdx < 32 && ((tagMask & (1u << tagIdx)) == 0))
+		{
+			continue;
+		}
+
 		auto& vec = vecObject[tagIdx];
 		for (size_t i = 0; i < vec.size(); ++i)
 		{
@@ -197,6 +202,22 @@ void ObjectManager::DrawByLayer(RenderLayer layer)
 			}
 		}
 	}
+}
+
+void ObjectManager::DrawFiltered(uint32_t tagMask, int layerFilter)
+{
+	FlushPendingAddObjects();
+
+	if (layerFilter >= 0 && layerFilter < static_cast<int>(RenderLayer::COUNT))
+	{
+		DrawByLayer(static_cast<RenderLayer>(layerFilter), tagMask);
+		return;
+	}
+
+	DrawByLayer(RenderLayer::Opaque, tagMask);
+	DrawByLayer(RenderLayer::Transparent, tagMask);
+	DrawByLayer(RenderLayer::Debug, tagMask);
+	DrawByLayer(RenderLayer::UI, tagMask);
 }
 
 void ObjectManager::DrawShadow(const DirectX::XMMATRIX& lightViewProj)

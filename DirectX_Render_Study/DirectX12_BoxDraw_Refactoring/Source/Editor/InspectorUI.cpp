@@ -637,8 +637,23 @@ void CInspectorUI::Draw()
                 }
 
                 // --- Blackboard Resources Panel ---
-                if (ImGui::TreeNodeEx("Render Blackboard (Shared Resources)", ImGuiTreeNodeFlags_Framed))
+                if (ImGui::TreeNodeEx("Render Blackboard (Shared Resources)", ImGuiTreeNodeFlags_Framed | ImGuiTreeNodeFlags_DefaultOpen))
                 {
+                    static bool showThumbnails = true;
+                    ImGui::Checkbox("Show Thumbnail Previews", &showThumbnails);
+
+                    const std::string& pinnedPreview = pipeline->GetPreviewTextureName();
+                    if (!pinnedPreview.empty())
+                    {
+                        ImGui::SameLine();
+                        ImGui::TextColored(ImVec4(0.3f, 0.9f, 1.0f, 1.0f), "[Viewport: %s]", pinnedPreview.c_str());
+                        ImGui::SameLine();
+                        if (ImGui::SmallButton("Unpin"))
+                        {
+                            pipeline->SetPreviewTextureName("");
+                        }
+                    }
+
                     auto texNames = pipeline->GetBlackboard().GetTextureNames();
                     if (texNames.empty())
                     {
@@ -651,22 +666,57 @@ void CInspectorUI::Draw()
                             RenderTexture* tex = pipeline->GetBlackboard().GetTexture(name);
                             if (tex)
                             {
-                                ImGui::BulletText("%s (%ux%u)", name.c_str(), tex->GetWidth(), tex->GetHeight());
+                                ImGui::PushID(name.c_str());
+                                bool isPinned = (pipeline->GetPreviewTextureName() == name);
+                                if (isPinned)
+                                {
+                                    ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.15f, 0.65f, 0.85f, 1.0f));
+                                }
+                                if (ImGui::SmallButton(isPinned ? "Pinned" : "View"))
+                                {
+                                    pipeline->SetPreviewTextureName(isPinned ? "" : name);
+                                }
+                                if (isPinned)
+                                {
+                                    ImGui::PopStyleColor();
+                                }
+                                ImGui::SameLine();
+                                ImGui::Text("%s (%ux%u)", name.c_str(), tex->GetWidth(), tex->GetHeight());
+
+                                if (showThumbnails && tex->GetSRV().ptr != 0)
+                                {
+                                    ImTextureID texID = static_cast<ImTextureID>(tex->GetSRV().ptr);
+                                    ImGui::Indent(24.0f);
+                                    ImGui::Image(texID, ImVec2(112.0f, 63.0f));
+                                    if (ImGui::IsItemHovered())
+                                    {
+                                        ImGui::BeginTooltip();
+                                        ImGui::Text("%s (%ux%u)", name.c_str(), tex->GetWidth(), tex->GetHeight());
+                                        ImGui::Image(texID, ImVec2(320.0f, 180.0f));
+                                        ImGui::EndTooltip();
+                                    }
+                                    ImGui::Unindent(24.0f);
+                                }
+                                ImGui::PopID();
                             }
                         }
                     }
 
                     // Dynamically create and register new buffer
-                    static char newTexName[64] = "Layer_Background";
-                    ImGui::SetNextItemWidth(140.0f);
+                    static char newTexName[64] = "Layer_Custom";
+                    static bool newTexTransparent = true;
+                    ImGui::SetNextItemWidth(130.0f);
                     ImGui::InputText("##NewTexName", newTexName, sizeof(newTexName));
+                    ImGui::SameLine();
+                    ImGui::Checkbox("Alpha0##NewTexAlpha", &newTexTransparent);
                     ImGui::SameLine();
                     if (ImGui::Button("+ Create Texture"))
                     {
                         if (strlen(newTexName) > 0)
                         {
                             ID3D12Device* pDevice = DX12Manager::GetInstance().GetDevice();
-                            pipeline->GetBlackboard().CreateOrGetTexture(newTexName, pDevice, SCREEN_WIDTH, SCREEN_HEIGHT);
+                            const float clearCol[4] = { 0.0f, 0.0f, 0.0f, newTexTransparent ? 0.0f : 1.0f };
+                            pipeline->GetBlackboard().CreateOrGetTexture(newTexName, pDevice, SCREEN_WIDTH, SCREEN_HEIGHT, DXGI_FORMAT_R8G8B8A8_UNORM, clearCol);
                         }
                     }
 
@@ -780,12 +830,14 @@ void CInspectorUI::Draw()
                         {
                             passes[i]->SetInputResourceName(inRes);
                         }
+                        ImGui::SameLine();
                     }
 
                     if (dynamic_cast<ForwardRenderPass*>(passes[i].get()) ||
                         dynamic_cast<GPUParticlePass*>(passes[i].get()) ||
                         dynamic_cast<PostProcessPass*>(passes[i].get()) ||
-                        dynamic_cast<CompositePass*>(passes[i].get()))
+                        dynamic_cast<CompositePass*>(passes[i].get()) ||
+                        dynamic_cast<SampleComputePass*>(passes[i].get()))
                     {
                         std::string outRes = passes[i]->GetOutputResourceName();
                         if (DrawResourceSelector("Output##PassRes", outRes, registeredTexNames))
@@ -797,19 +849,98 @@ void CInspectorUI::Draw()
                     // --- Pass Specific Parameters ---
                     if (auto* fwdPass = dynamic_cast<ForwardRenderPass*>(passes[i].get()))
                     {
+                        const char* presetNames[] = { "All Objects", "Ground & BG", "Characters", "UI Objects", "Custom Mask" };
+                        int presetIdx = static_cast<int>(fwdPass->GetObjectFilterPreset());
+                        ImGui::SetNextItemWidth(120.0f);
+                        if (ImGui::Combo("Target##FwdPreset", &presetIdx, presetNames, IM_ARRAYSIZE(presetNames)))
+                        {
+                            fwdPass->SetObjectFilterPreset(static_cast<ForwardRenderPass::ObjectFilterPreset>(presetIdx));
+                        }
+                        ImGui::SameLine();
+
                         int currentLayer = fwdPass->GetLayerFilter();
                         const char* layerNames[] = { "All Layers", "Opaque", "Transparent", "Debug", "UI" };
                         int comboIdx = (currentLayer == -1) ? 0 : (currentLayer + 1);
-                        ImGui::SetNextItemWidth(130.0f);
-                        if (ImGui::Combo("Layer Filter##FwdLayer", &comboIdx, layerNames, IM_ARRAYSIZE(layerNames)))
+                        ImGui::SetNextItemWidth(105.0f);
+                        if (ImGui::Combo("Layer##FwdLayer", &comboIdx, layerNames, IM_ARRAYSIZE(layerNames)))
                         {
                             fwdPass->SetLayerFilter(comboIdx == 0 ? -1 : (comboIdx - 1));
                         }
-                        ImGui::SameLine();
-                        bool clear = fwdPass->IsClearEnabled();
-                        if (ImGui::Checkbox("Clear##FwdClear", &clear))
+
+                        bool clearColor = fwdPass->IsClearColorEnabled();
+                        if (ImGui::Checkbox("Clear Color##FwdCC", &clearColor))
                         {
-                            fwdPass->SetClearEnabled(clear);
+                            fwdPass->SetClearColorEnabled(clearColor);
+                        }
+                        ImGui::SameLine();
+                        bool clearDepth = fwdPass->IsClearDepthEnabled();
+                        if (ImGui::Checkbox("Clear Depth (DSV)##FwdCD", &clearDepth))
+                        {
+                            fwdPass->SetClearDepthEnabled(clearDepth);
+                        }
+                    }
+
+                    if (auto* ppPass = dynamic_cast<PostProcessPass*>(passes[i].get()))
+                    {
+                        auto& s = ppPass->GetSettings();
+                        ImGui::Checkbox("Use Per-Pass Settings##PPCustom", &s.useCustomSettings);
+                        if (s.useCustomSettings)
+                        {
+                            ImGui::SameLine();
+                            ImGui::Checkbox("To BackBuffer##PPBB", &s.outputToBackBuffer);
+
+                            if (ImGui::TreeNode("Effect Parameters##PPParams"))
+                            {
+                                // Bloom
+                                ImGui::Checkbox("Bloom##PPBloom", &s.bloomEnabled);
+                                if (s.bloomEnabled)
+                                {
+                                    ImGui::SliderFloat("Bloom Threshold##PP", &s.bloomThreshold, 0.0f, 2.0f, "%.2f");
+                                    ImGui::SliderFloat("Bloom Intensity##PP", &s.bloomIntensity, 0.0f, 5.0f, "%.2f");
+                                    ImGui::SliderFloat("Bloom Spread##PP", &s.bloomSpread, 0.2f, 3.0f, "%.2f");
+                                }
+
+                                // Outline
+                                ImGui::Checkbox("Outline (Sobel)##PPOutline", &s.outlineEnabled);
+                                if (s.outlineEnabled)
+                                {
+                                    ImGui::SameLine();
+                                    ImGui::Checkbox("Preserve Alpha (Layer)##PPAlpha", &s.preserveAlpha);
+                                    ImGui::ColorEdit3("Outline Color##PP", s.outlineColor);
+                                    ImGui::SliderFloat("Outline Intensity##PP", &s.outlineIntensity, 0.0f, 1.0f, "%.2f");
+                                    ImGui::SliderFloat("Outline Threshold##PP", &s.outlineThreshold, 0.01f, 0.5f, "%.3f");
+                                    ImGui::SliderFloat("Outline Width##PP", &s.outlineWidth, 0.5f, 4.0f, "%.1f px");
+                                }
+
+                                // Color Filter & Chromatic Aberration
+                                const char* ppEffects[] = { "None", "Grayscale", "Sepia", "Invert Color", "Vignette" };
+                                ImGui::SetNextItemWidth(140.0f);
+                                ImGui::Combo("Color Filter##PPFilter", &s.effectType, ppEffects, IM_ARRAYSIZE(ppEffects));
+
+                                ImGui::Checkbox("Chromatic Aberration##PPCA", &s.chromaticAberrationEnabled);
+                                if (s.chromaticAberrationEnabled)
+                                {
+                                    ImGui::SliderFloat("CA Intensity##PP", &s.chromaticAberrationIntensity, 0.001f, 0.05f, "%.4f");
+                                }
+
+                                // Tonemapping
+                                const char* toneMaps[] = { "None (Linear)", "Reinhard", "ACES Filmic" };
+                                ImGui::SetNextItemWidth(140.0f);
+                                ImGui::Combo("Tonemap##PPTonemap", &s.toneMapType, toneMaps, IM_ARRAYSIZE(toneMaps));
+                                if (s.toneMapType > 0)
+                                {
+                                    ImGui::SliderFloat("Exposure##PPExp", &s.exposure, 0.1f, 4.0f, "%.2f");
+                                }
+
+                                // Screen Fade
+                                ImGui::SliderFloat("Screen Fade##PPFade", &s.fade, 0.0f, 1.0f, "%.2f");
+                                if (s.fade > 0.001f)
+                                {
+                                    ImGui::ColorEdit3("Fade Color##PPFadeCol", s.fadeColor);
+                                }
+
+                                ImGui::TreePop();
+                            }
                         }
                     }
 
@@ -875,6 +1006,8 @@ void CInspectorUI::Draw()
                         {
                             csPass->SetPreviewEnabled(preview);
                         }
+                        ImGui::SameLine();
+                        ImGui::SetNextItemWidth(100.0f);
                         float speed = csPass->GetSpeed();
                         if (ImGui::SliderFloat("Speed##CS", &speed, 0.0f, 5.0f, "%.2f"))
                         {
@@ -884,32 +1017,42 @@ void CInspectorUI::Draw()
 
                     if (auto* gpPass = dynamic_cast<GPUParticlePass*>(passes[i].get()))
                     {
-                        auto& ps = gpPass->GetParticleSystem();
-                        ImGui::Text("GPU Particles: %u", ps.GetMaxParticles());
-
-                        auto& emitterPos = ps.GetEmitterPosition();
-                        float pos[3] = { emitterPos.x, emitterPos.y, emitterPos.z };
-                        if (ImGui::DragFloat3("Emitter Pos##GP", pos, 0.1f)) {
-                            emitterPos = { pos[0], pos[1], pos[2] };
+                        bool clearTarget = gpPass->IsClearColorEnabled();
+                        if (ImGui::Checkbox("Clear Target Color##GPClear", &clearTarget))
+                        {
+                            gpPass->SetClearColorEnabled(clearTarget);
                         }
+                        if (ImGui::TreeNode("Particle Emitter Settings##GPParams"))
+                        {
+                            auto& ps = gpPass->GetParticleSystem();
+                            ImGui::Text("GPU Particles: %u", ps.GetMaxParticles());
 
-                        auto& col = ps.GetParticleColor();
-                        float color[4] = { col.x, col.y, col.z, col.w };
-                        if (ImGui::ColorEdit4("Color##GP", color)) {
-                            col = { color[0], color[1], color[2], color[3] };
-                        }
+                            auto& emitterPos = ps.GetEmitterPosition();
+                            float pos[3] = { emitterPos.x, emitterPos.y, emitterPos.z };
+                            if (ImGui::DragFloat3("Emitter Pos##GP", pos, 0.1f)) {
+                                emitterPos = { pos[0], pos[1], pos[2] };
+                            }
 
-                        ImGui::SliderFloat("Scale##GP", &ps.GetParticleScale(), 0.05f, 2.0f, "%.2f");
-                        ImGui::SliderFloat("Speed##GP", &ps.GetInitialSpeed(), 0.5f, 20.0f, "%.1f");
-                        ImGui::SliderFloat("Emit Rate##GP", &ps.GetEmitRate(), 10.0f, 5000.0f, "%.0f");
+                            auto& col = ps.GetParticleColor();
+                            float color[4] = { col.x, col.y, col.z, col.w };
+                            if (ImGui::ColorEdit4("Color##GP", color)) {
+                                col = { color[0], color[1], color[2], color[3] };
+                            }
 
-                        auto& grav = ps.GetGravity();
-                        float g[3] = { grav.x, grav.y, grav.z };
-                        if (ImGui::DragFloat3("Gravity##GP", g, 0.1f)) {
-                            grav = { g[0], g[1], g[2] };
+                            ImGui::SliderFloat("Scale##GP", &ps.GetParticleScale(), 0.05f, 2.0f, "%.2f");
+                            ImGui::SliderFloat("Speed##GP", &ps.GetInitialSpeed(), 0.5f, 20.0f, "%.1f");
+                            ImGui::SliderFloat("Emit Rate##GP", &ps.GetEmitRate(), 10.0f, 5000.0f, "%.0f");
+
+                            auto& grav = ps.GetGravity();
+                            float g[3] = { grav.x, grav.y, grav.z };
+                            if (ImGui::DragFloat3("Gravity##GP", g, 0.1f)) {
+                                grav = { g[0], g[1], g[2] };
+                            }
+                            ImGui::TreePop();
                         }
                     }
                     ImGui::Unindent();
+                    ImGui::Separator();
 
                     ImGui::PopID();
                 }
@@ -924,9 +1067,8 @@ void CInspectorUI::Draw()
                     pipeline->RemovePass(removeIdx);
                 }
 
-                // --- Add Pass Section ---
+                // --- Add Pass & Preset Section ---
                 ImGui::Spacing();
-                ImGui::Separator();
                 ImGui::Text("Add Render Pass");
 
                 static int selectedPassToAdd = 0;
@@ -934,7 +1076,7 @@ void CInspectorUI::Draw()
                     "Shadow Map Pass",
                     "Forward Render Pass",
                     "GPU Particle Pass",
-                    "PostProcess Pass (Bloom)",
+                    "PostProcess Pass",
                     "Compute Shader Pass",
                     "Composite Pass (Multi-Layer)"
                 };
@@ -979,20 +1121,51 @@ void CInspectorUI::Draw()
                     }
                 }
 
-                ImGui::SameLine();
-                if (ImGui::Button("Reset Default"))
+                ImGui::Spacing();
+                ImGui::Text("Pipeline Presets & JSON Serialization");
+                if (ImGui::Button("Reset 10-Pass Game Pipeline"))
                 {
                     ID3D12Device* pDevice = DX12Manager::GetInstance().GetDevice();
                     RenderTexture* pSceneTex = activeScene->GetSceneTexture();
+                    pipeline->SetupCommercialMultiLayerPipeline(pDevice, pSceneTex);
+                    SetStatusMessage("Loaded 10-Pass Multi-Layer Game Pipeline", 3.0f);
+                }
+                ImGui::SameLine();
+                if (ImGui::Button("Reset Simple 4-Pass"))
+                {
+                    ID3D12Device* pDevice = DX12Manager::GetInstance().GetDevice();
+                    RenderTexture* pSceneTex = activeScene->GetSceneTexture();
+                    pipeline->SetupSimpleDefaultPipeline(pDevice, pSceneTex);
+                    SetStatusMessage("Loaded Simple 4-Pass Default Pipeline", 3.0f);
+                }
 
-                    pipeline->ClearPasses();
-                    pipeline->AddPass(std::make_unique<ShadowMapPass>(), pDevice);
-                    pipeline->AddPass(std::make_unique<ForwardRenderPass>(pSceneTex), pDevice);
-                    pipeline->AddPass(std::make_unique<GPUParticlePass>(pSceneTex), pDevice);
-                    pipeline->AddPass(std::make_unique<PostProcessPass>(pSceneTex), pDevice);
-                    auto cs = std::make_unique<SampleComputePass>();
-                    cs->SetEnabled(false);
-                    pipeline->AddPass(std::move(cs), pDevice);
+                static char pipelineJsonPath[128] = "Assets/Pipeline/GameScenePipeline.json";
+                ImGui::SetNextItemWidth(240.0f);
+                ImGui::InputText("Preset JSON##PipePath", pipelineJsonPath, sizeof(pipelineJsonPath));
+                if (ImGui::Button("Save Pipeline JSON"))
+                {
+                    if (pipeline->SaveToJson(pipelineJsonPath))
+                    {
+                        SetStatusMessage(std::string("Saved Pipeline JSON: ") + pipelineJsonPath, 3.0f);
+                    }
+                    else
+                    {
+                        SetStatusMessage("Failed to save Pipeline JSON", 3.0f);
+                    }
+                }
+                ImGui::SameLine();
+                if (ImGui::Button("Load Pipeline JSON"))
+                {
+                    ID3D12Device* pDevice = DX12Manager::GetInstance().GetDevice();
+                    RenderTexture* pSceneTex = activeScene->GetSceneTexture();
+                    if (pipeline->LoadFromJson(pipelineJsonPath, pDevice, pSceneTex))
+                    {
+                        SetStatusMessage(std::string("Loaded Pipeline JSON: ") + pipelineJsonPath, 3.0f);
+                    }
+                    else
+                    {
+                        SetStatusMessage("Failed to load Pipeline JSON", 3.0f);
+                    }
                 }
             }
             else

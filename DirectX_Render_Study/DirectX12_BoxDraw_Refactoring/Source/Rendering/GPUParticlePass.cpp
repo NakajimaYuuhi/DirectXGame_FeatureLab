@@ -36,6 +36,10 @@ void GPUParticlePass::Execute(const RenderContext& ctx)
     if (pTarget)
     {
         pTarget->Transition(ctx.cmdList, D3D12_RESOURCE_STATE_RENDER_TARGET);
+        if (m_clearColorEnabled)
+        {
+            pTarget->Clear(ctx.cmdList);
+        }
         rtvHandle = pTarget->GetRTV();
     }
 

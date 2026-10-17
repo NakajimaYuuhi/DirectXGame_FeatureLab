@@ -64,15 +64,8 @@ void CSceneTest::Init()
     m_pSceneTexture = std::make_unique<RenderTexture>(pDevice, SCREEN_WIDTH, SCREEN_HEIGHT, DXGI_FORMAT_R8G8B8A8_UNORM, sceneClearColor);
 
     m_renderPipeline = std::make_unique<RenderPipeline>();
-    m_renderPipeline->GetBlackboard().RegisterTextureRef("SceneColor", m_pSceneTexture.get());
-    m_renderPipeline->AddPass(std::make_unique<ShadowMapPass>());
-    m_renderPipeline->AddPass(std::make_unique<ForwardRenderPass>(m_pSceneTexture.get()));
-    m_renderPipeline->AddPass(std::make_unique<GPUParticlePass>(m_pSceneTexture.get()));
-    m_renderPipeline->AddPass(std::make_unique<PostProcessPass>(m_pSceneTexture.get()));
-    auto sampleCS = std::make_unique<SampleComputePass>();
-    sampleCS->SetEnabled(false);
-    m_renderPipeline->AddPass(std::move(sampleCS));
-    m_renderPipeline->Init(pDevice);
+    m_renderPipeline->SetupCommercialMultiLayerPipeline(pDevice, m_pSceneTexture.get());
+    m_renderPipeline->SaveToJson("Assets/Pipeline/GameScenePipeline.json");
 }
 
 void CSceneTest::Update() 

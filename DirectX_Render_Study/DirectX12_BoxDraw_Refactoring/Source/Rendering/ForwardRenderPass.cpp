@@ -1,4 +1,4 @@
-﻿#include "ForwardRenderPass.h"
+#include "ForwardRenderPass.h"
 #include "ObjectManager.h"
 #include "DX12Manager.h"
 #include "ViewportUI.h"
@@ -13,6 +13,37 @@ ForwardRenderPass::ForwardRenderPass(RenderTexture* pDestTex)
 
 void ForwardRenderPass::Init(ID3D12Device* pDevice)
 {
+}
+
+void ForwardRenderPass::SetFilterPreset(ObjectFilterPreset preset)
+{
+    m_filterPreset = preset;
+    switch (preset)
+    {
+    case ObjectFilterPreset::All:
+        m_tagMask = 0xFFFFFFFFu;
+        break;
+    case ObjectFilterPreset::GroundAndBackground:
+        m_tagMask = (1u << ObjectTag::BACKGROUND) |
+                    (1u << ObjectTag::FIELD) |
+                    (1u << ObjectTag::TRIANGLE) |
+                    (1u << ObjectTag::BILLBOARD);
+        break;
+    case ObjectFilterPreset::Characters:
+        m_tagMask = (1u << ObjectTag::PLAYER) |
+                    (1u << ObjectTag::ENEMY) |
+                    (1u << ObjectTag::PLAYER_BULLET) |
+                    (1u << ObjectTag::ENEMY_BULLET);
+        break;
+    case ObjectFilterPreset::UIOnly:
+        m_tagMask = (1u << ObjectTag::UI) |
+                    (1u << ObjectTag::TEXT) |
+                    (1u << ObjectTag::MANAGER);
+        break;
+    case ObjectFilterPreset::Custom:
+    default:
+        break;
+    }
 }
 
 void ForwardRenderPass::Execute(const RenderContext& ctx)
@@ -41,11 +72,13 @@ void ForwardRenderPass::Execute(const RenderContext& ctx)
     // 2. Set render target & depth stencil
     ctx.cmdList->OMSetRenderTargets(1, &rtvHandle, FALSE, &ctx.mainDSV);
 
-    // 3. Clear render target (if enabled)
-    if (m_clearEnabled) {
+    // 3. Clear render target & depth stencil (independently controlled)
+    if (m_clearColorEnabled) {
         const float defaultClearColor[] = { 0.1f, 0.2f, 0.4f, 1.0f };
         const float* clearColor = pDest ? pDest->GetClearColor() : defaultClearColor;
         ctx.cmdList->ClearRenderTargetView(rtvHandle, clearColor, 0, nullptr);
+    }
+    if (m_clearDepthEnabled) {
         ctx.cmdList->ClearDepthStencilView(ctx.mainDSV, D3D12_CLEAR_FLAG_DEPTH, 1.0f, 0, 0, nullptr);
     }
 
@@ -55,11 +88,11 @@ void ForwardRenderPass::Execute(const RenderContext& ctx)
     ctx.cmdList->RSSetViewports(1, &viewport);
     ctx.cmdList->RSSetScissorRects(1, &scissorRect);
 
-    // 5. Draw objects (by layer filter or all)
-    if (m_layerFilter >= 0 && m_layerFilter < static_cast<int>(RenderLayer::COUNT)) {
-        ObjectManager::GetInstance().DrawByLayer(static_cast<RenderLayer>(m_layerFilter));
-    } else {
+    // 5. Draw objects (filtered by tagMask and layerFilter)
+    if (m_tagMask == 0xFFFFFFFFu && m_layerFilter == -1) {
         ObjectManager::GetInstance().Draw(ctx.sceneID);
+    } else {
+        ObjectManager::GetInstance().DrawFiltered(m_tagMask, m_layerFilter);
     }
 
     // 6. Update Viewport preview if drawing to offscreen texture
@@ -70,8 +103,30 @@ void ForwardRenderPass::Execute(const RenderContext& ctx)
 
 std::string ForwardRenderPass::GetName() const
 {
+    if (!m_customName.empty()) {
+        return m_customName;
+    }
+
+    std::string suffix;
+    switch (m_filterPreset)
+    {
+    case ObjectFilterPreset::GroundAndBackground: suffix = "Ground & BG"; break;
+    case ObjectFilterPreset::Characters:          suffix = "Characters"; break;
+    case ObjectFilterPreset::UIOnly:              suffix = "UI Objects"; break;
+    case ObjectFilterPreset::Custom:              suffix = "Custom Tags"; break;
+    default:                                      break;
+    }
+
     if (m_layerFilter >= 0 && m_layerFilter < static_cast<int>(RenderLayer::COUNT)) {
-        return std::string("Forward Pass [") + GetRenderLayerName(static_cast<RenderLayer>(m_layerFilter)) + "]";
+        std::string layerStr = GetRenderLayerName(static_cast<RenderLayer>(m_layerFilter));
+        if (!suffix.empty()) {
+            return "Forward Pass [" + suffix + " / " + layerStr + "]";
+        }
+        return "Forward Pass [" + layerStr + "]";
+    }
+
+    if (!suffix.empty()) {
+        return "Forward Pass [" + suffix + "]";
     }
     return "Forward Render Pass";
 }

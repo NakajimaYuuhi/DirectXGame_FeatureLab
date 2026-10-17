@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <string>
 #include <unordered_map>
 #include <memory>
@@ -26,6 +26,7 @@ public:
 
     // Check if texture exists
     bool HasTexture(const std::string& name) const;
+    bool IsOwnedTexture(const std::string& name) const { return m_ownedTextures.find(name) != m_ownedTextures.end(); }
 
     // Unregister texture
     void UnregisterTexture(const std::string& name);
