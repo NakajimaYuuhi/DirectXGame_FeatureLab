@@ -14,6 +14,8 @@
 #include "CapsuleCollider3D.h"
 #include "PrefabManager.h"
 #include "Source/UI/RectTransform.h"
+#include "Source/Core/Scenes/Manager/SceneManager.h"
+#include "RenderPipeline.h"
 #include "Source/External/json.hpp"
 #include <fstream>
 #include <iostream>
@@ -209,6 +211,17 @@ bool SceneSerializer::SaveScene(const std::string& filepath, Scenes::ID sceneID)
 
 	outFile << rootJson.dump(4);
 	outFile.close();
+
+	if (sceneID == Scenes::ID::TEST)
+	{
+		if (CScene* activeScene = SceneManager::GetInstance().GetActiveScene())
+		{
+			if (RenderPipeline* pipeline = activeScene->GetRenderPipeline())
+			{
+				pipeline->SaveToJson("Assets/Pipeline/GameScenePipeline.json");
+			}
+		}
+	}
 
 	OutputDebugStringA(("[SceneSerializer] Successfully saved scene to: " + filepath + "\n").c_str());
 	return true;

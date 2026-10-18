@@ -15,6 +15,7 @@
 #include "GPUParticlePass.h"
 #include "TimeManager.h"
 #include "BasicSettings.h"
+#include <filesystem>
 
 CSceneTest::CSceneTest()
     :CScene(Scenes::ID::TEST)
@@ -64,8 +65,13 @@ void CSceneTest::Init()
     m_pSceneTexture = std::make_unique<RenderTexture>(pDevice, SCREEN_WIDTH, SCREEN_HEIGHT, DXGI_FORMAT_R8G8B8A8_UNORM, sceneClearColor);
 
     m_renderPipeline = std::make_unique<RenderPipeline>();
-    m_renderPipeline->SetupCommercialMultiLayerPipeline(pDevice, m_pSceneTexture.get());
-    m_renderPipeline->SaveToJson("Assets/Pipeline/GameScenePipeline.json");
+    const std::string pipelineJsonPath = "Assets/Pipeline/GameScenePipeline.json";
+    if (!std::filesystem::exists(pipelineJsonPath) ||
+        !m_renderPipeline->LoadFromJson(pipelineJsonPath, pDevice, m_pSceneTexture.get()))
+    {
+        m_renderPipeline->SetupCommercialMultiLayerPipeline(pDevice, m_pSceneTexture.get());
+        m_renderPipeline->SaveToJson(pipelineJsonPath);
+    }
 }
 
 void CSceneTest::Update() 

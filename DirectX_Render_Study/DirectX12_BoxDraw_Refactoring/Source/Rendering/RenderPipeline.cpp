@@ -8,6 +8,7 @@
 #include "RenderLayer.h"
 #include "ViewportUI.h"
 #include "BasicSettings.h"
+#include "LightManager.h"
 #include "json.hpp"
 #include <fstream>
 #include <filesystem>
@@ -165,10 +166,10 @@ void RenderPipeline::SetupCommercialMultiLayerPipeline(ID3D12Device* pDevice, Re
         s.outlineEnabled = true;
         s.outlineIntensity = 1.0f;
         s.outlineThreshold = 0.08f;
-        s.outlineWidth = 2.0f;
-        s.outlineColor[0] = 0.05f;
-        s.outlineColor[1] = 0.95f;
-        s.outlineColor[2] = 1.0f;
+        s.outlineWidth = 0.5f;
+        s.outlineColor[0] = 0.0f;
+        s.outlineColor[1] = 0.0f;
+        s.outlineColor[2] = 0.0f;
         s.preserveAlpha = true;
         s.toneMapType = 0;
         s.exposure = 1.0f;
@@ -266,6 +267,30 @@ bool RenderPipeline::SaveToJson(const std::string& filePath) const
     try {
         json root;
         root["previewTexture"] = m_previewTextureName;
+
+        // 0. Serialize global LightManager Post-Process & Shadow settings
+        {
+            const auto& lm = LightManager::GetInstance();
+            json gj;
+            gj["bloomEnabled"] = lm.IsBloomEnabled();
+            gj["bloomThreshold"] = lm.GetBloomThreshold();
+            gj["bloomIntensity"] = lm.GetBloomIntensity();
+            gj["bloomSpread"] = lm.GetBloomSpread();
+            gj["outlineEnabled"] = lm.IsOutlineEnabled();
+            gj["outlineIntensity"] = lm.GetOutlineIntensity();
+            gj["outlineThreshold"] = lm.GetOutlineThreshold();
+            gj["outlineWidth"] = lm.GetOutlineWidth();
+            gj["chromaticAberrationEnabled"] = lm.IsChromaticAberrationEnabled();
+            gj["chromaticAberrationIntensity"] = lm.GetChromaticAberrationIntensity();
+            gj["effectType"] = lm.GetPostProcessEffectType();
+            gj["toneMapType"] = lm.GetToneMapType();
+            gj["exposure"] = lm.GetExposure();
+            gj["shadowEnabled"] = lm.IsShadowEnabled();
+            gj["orthoSize"] = lm.GetOrthoSize();
+            gj["shadowBias"] = lm.GetShadowBias();
+            gj["shadowDarkness"] = lm.GetShadowDarkness();
+            root["globalPostProcess"] = gj;
+        }
 
         // 1. Serialize owned Blackboard textures
         json texArray = json::array();
@@ -392,6 +417,28 @@ bool RenderPipeline::LoadFromJson(const std::string& filePath, ID3D12Device* pDe
         }
 
         m_previewTextureName = root.value("previewTexture", "");
+
+        if (root.contains("globalPostProcess") && root["globalPostProcess"].is_object()) {
+            const auto& gj = root["globalPostProcess"];
+            auto& lm = LightManager::GetInstance();
+            if (gj.contains("bloomEnabled")) lm.SetBloomEnabled(gj["bloomEnabled"].get<bool>());
+            if (gj.contains("bloomThreshold")) lm.SetBloomThreshold(gj["bloomThreshold"].get<float>());
+            if (gj.contains("bloomIntensity")) lm.SetBloomIntensity(gj["bloomIntensity"].get<float>());
+            if (gj.contains("bloomSpread")) lm.SetBloomSpread(gj["bloomSpread"].get<float>());
+            if (gj.contains("outlineEnabled")) lm.SetOutlineEnabled(gj["outlineEnabled"].get<bool>());
+            if (gj.contains("outlineIntensity")) lm.SetOutlineIntensity(gj["outlineIntensity"].get<float>());
+            if (gj.contains("outlineThreshold")) lm.SetOutlineThreshold(gj["outlineThreshold"].get<float>());
+            if (gj.contains("outlineWidth")) lm.SetOutlineWidth(gj["outlineWidth"].get<float>());
+            if (gj.contains("chromaticAberrationEnabled")) lm.SetChromaticAberrationEnabled(gj["chromaticAberrationEnabled"].get<bool>());
+            if (gj.contains("chromaticAberrationIntensity")) lm.SetChromaticAberrationIntensity(gj["chromaticAberrationIntensity"].get<float>());
+            if (gj.contains("effectType")) lm.SetPostProcessEffectType(gj["effectType"].get<int>());
+            if (gj.contains("toneMapType")) lm.SetToneMapType(gj["toneMapType"].get<int>());
+            if (gj.contains("exposure")) lm.SetExposure(gj["exposure"].get<float>());
+            if (gj.contains("shadowEnabled")) lm.SetShadowEnabled(gj["shadowEnabled"].get<bool>());
+            if (gj.contains("orthoSize")) lm.SetOrthoSize(gj["orthoSize"].get<float>());
+            if (gj.contains("shadowBias")) lm.SetShadowBias(gj["shadowBias"].get<float>());
+            if (gj.contains("shadowDarkness")) lm.SetShadowDarkness(gj["shadowDarkness"].get<float>());
+        }
 
         if (root.contains("blackboardTextures") && root["blackboardTextures"].is_array()) {
             for (const auto& tj : root["blackboardTextures"]) {
