@@ -1,0 +1,318 @@
+{
+    "blackboardTextures": [
+        {
+            "allowUAV": false,
+            "clearColor": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            ],
+            "height": 1080,
+            "name": "Layer_CharOutlined",
+            "width": 1920
+        },
+        {
+            "allowUAV": false,
+            "clearColor": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            ],
+            "height": 1080,
+            "name": "Layer_Character",
+            "width": 1920
+        },
+        {
+            "allowUAV": false,
+            "clearColor": [
+                0.10000000149011612,
+                0.20000000298023224,
+                0.4000000059604645,
+                1.0
+            ],
+            "height": 1080,
+            "name": "Layer_Ground",
+            "width": 1920
+        },
+        {
+            "allowUAV": false,
+            "clearColor": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            ],
+            "height": 1080,
+            "name": "Layer_Particle",
+            "width": 1920
+        },
+        {
+            "allowUAV": false,
+            "clearColor": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            ],
+            "height": 1080,
+            "name": "Layer_UI",
+            "width": 1920
+        },
+        {
+            "allowUAV": false,
+            "clearColor": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "height": 1080,
+            "name": "Scene_3D_Combined",
+            "width": 1920
+        },
+        {
+            "allowUAV": false,
+            "clearColor": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "height": 1080,
+            "name": "Scene_PostProcessed",
+            "width": 1920
+        },
+        {
+            "allowUAV": false,
+            "clearColor": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "height": 1080,
+            "name": "Scene_With_UI",
+            "width": 1920
+        }
+    ],
+    "passes": [
+        {
+            "enabled": true,
+            "input": "",
+            "output": "",
+            "type": "ShadowMapPass"
+        },
+        {
+            "clearColor": true,
+            "clearDepth": true,
+            "customName": "Forward Pass (Ground & BG)",
+            "enabled": true,
+            "filterPreset": 1,
+            "input": "",
+            "layerFilter": 0,
+            "output": "Layer_Ground",
+            "tagMask": 225,
+            "type": "ForwardRenderPass"
+        },
+        {
+            "clearColor": true,
+            "clearDepth": false,
+            "customName": "Forward Pass (Characters)",
+            "enabled": true,
+            "filterPreset": 2,
+            "input": "",
+            "layerFilter": 0,
+            "output": "Layer_Character",
+            "tagMask": 30,
+            "type": "ForwardRenderPass"
+        },
+        {
+            "customName": "PostProcess (Char Outline)",
+            "enabled": true,
+            "input": "Layer_Character",
+            "output": "Layer_CharOutlined",
+            "settings": {
+                "bloomEnabled": false,
+                "bloomIntensity": 1.2000000476837158,
+                "bloomSpread": 1.0,
+                "bloomThreshold": 0.800000011920929,
+                "chromaticAberrationEnabled": false,
+                "chromaticAberrationIntensity": 0.004999999888241291,
+                "effectType": 0,
+                "exposure": 1.0,
+                "fade": 0.0,
+                "fadeColor": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "outlineColor": [
+                    0.05000000074505806,
+                    0.949999988079071,
+                    1.0
+                ],
+                "outlineEnabled": true,
+                "outlineIntensity": 1.0,
+                "outlineThreshold": 0.07999999821186066,
+                "outlineWidth": 2.0,
+                "outputToBackBuffer": false,
+                "preserveAlpha": true,
+                "toneMapType": 0,
+                "useCustomSettings": true
+            },
+            "type": "PostProcessPass"
+        },
+        {
+            "clearColor": true,
+            "customName": "GPU Particle Pass (CS)",
+            "enabled": true,
+            "input": "",
+            "output": "Layer_Particle",
+            "type": "GPUParticlePass"
+        },
+        {
+            "customName": "Composite (3D Scene Merge)",
+            "enabled": true,
+            "input": "",
+            "layers": [
+                {
+                    "blendMode": 0,
+                    "enabled": true,
+                    "opacity": 1.0,
+                    "textureName": "Layer_Ground"
+                },
+                {
+                    "blendMode": 0,
+                    "enabled": true,
+                    "opacity": 1.0,
+                    "textureName": "Layer_CharOutlined"
+                },
+                {
+                    "blendMode": 1,
+                    "enabled": true,
+                    "opacity": 1.0,
+                    "textureName": "Layer_Particle"
+                }
+            ],
+            "output": "Scene_3D_Combined",
+            "type": "CompositePass"
+        },
+        {
+            "customName": "PostProcess (3D Bloom & ACES)",
+            "enabled": true,
+            "input": "Scene_3D_Combined",
+            "output": "Scene_PostProcessed",
+            "settings": {
+                "bloomEnabled": true,
+                "bloomIntensity": 1.2000000476837158,
+                "bloomSpread": 1.2000000476837158,
+                "bloomThreshold": 0.75,
+                "chromaticAberrationEnabled": false,
+                "chromaticAberrationIntensity": 0.004000000189989805,
+                "effectType": 0,
+                "exposure": 1.100000023841858,
+                "fade": 0.0,
+                "fadeColor": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "outlineColor": [
+                    0.05000000074505806,
+                    0.8999999761581421,
+                    1.0
+                ],
+                "outlineEnabled": false,
+                "outlineIntensity": 1.0,
+                "outlineThreshold": 0.10000000149011612,
+                "outlineWidth": 1.5,
+                "outputToBackBuffer": false,
+                "preserveAlpha": false,
+                "toneMapType": 2,
+                "useCustomSettings": true
+            },
+            "type": "PostProcessPass"
+        },
+        {
+            "clearColor": true,
+            "clearDepth": false,
+            "customName": "Forward Pass (UI Layer)",
+            "enabled": true,
+            "filterPreset": 3,
+            "input": "",
+            "layerFilter": -1,
+            "output": "Layer_UI",
+            "tagMask": 9728,
+            "type": "ForwardRenderPass"
+        },
+        {
+            "customName": "Composite (3D + UI Merge)",
+            "enabled": true,
+            "input": "",
+            "layers": [
+                {
+                    "blendMode": 0,
+                    "enabled": true,
+                    "opacity": 1.0,
+                    "textureName": "Scene_PostProcessed"
+                },
+                {
+                    "blendMode": 0,
+                    "enabled": true,
+                    "opacity": 1.0,
+                    "textureName": "Layer_UI"
+                }
+            ],
+            "output": "Scene_With_UI",
+            "type": "CompositePass"
+        },
+        {
+            "customName": "PostProcess (Final Screen FX)",
+            "enabled": true,
+            "input": "Scene_With_UI",
+            "output": "FinalColor",
+            "settings": {
+                "bloomEnabled": false,
+                "bloomIntensity": 1.2000000476837158,
+                "bloomSpread": 1.0,
+                "bloomThreshold": 0.800000011920929,
+                "chromaticAberrationEnabled": false,
+                "chromaticAberrationIntensity": 0.004999999888241291,
+                "effectType": 0,
+                "exposure": 1.0,
+                "fade": 0.0,
+                "fadeColor": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "outlineColor": [
+                    0.05000000074505806,
+                    0.8999999761581421,
+                    1.0
+                ],
+                "outlineEnabled": false,
+                "outlineIntensity": 1.0,
+                "outlineThreshold": 0.10000000149011612,
+                "outlineWidth": 1.5,
+                "outputToBackBuffer": true,
+                "preserveAlpha": false,
+                "toneMapType": 0,
+                "useCustomSettings": true
+            },
+            "type": "PostProcessPass"
+        },
+        {
+            "customName": "",
+            "enabled": false,
+            "input": "",
+            "output": "ComputeOutput",
+            "preview": false,
+            "speed": 1.0,
+            "type": "SampleComputePass"
+        }
+    ],
+    "previewTexture": ""
+}
