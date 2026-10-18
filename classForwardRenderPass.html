@@ -91,6 +91,7 @@ $(document).ready(function(){initNavTree('classForwardRenderPass.html',''); init
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">公開型</a> &#124;
 <a href="#pub-methods">公開メンバ関数</a> &#124;
 <a href="#pri-attribs">非公開変数類</a> &#124;
 <a href="classForwardRenderPass-members.html">全メンバ一覧</a>  </div>
@@ -110,6 +111,19 @@ ForwardRenderPass 連携図</div>
 <div class="center"><iframe scrolling="no" frameborder="0" src="classForwardRenderPass__coll__graph.svg" width="254" height="124"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+公開型</h2></td></tr>
+<tr class="memitem:af449acca265c5ed05d24fc814cd3ed76" id="r_af449acca265c5ed05d24fc814cd3ed76"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76">ObjectFilterPreset</a> { <br />
+&#160;&#160;<a class="el" href="classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76ab1c94ca2fbc3e78fc30069c8d0f01680">All</a> = 0
+, <a class="el" href="classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76a798842a436d07bd3615cc24710f237a2">GroundAndBackground</a> = 1
+, <a class="el" href="classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76a994d06622c761cbceb384fd10a0b53f3">Characters</a> = 2
+, <a class="el" href="classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76ac0e5fbfdb114540f8a486830ab6aeed1">UIOnly</a> = 3
+, <br />
+&#160;&#160;<a class="el" href="classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76a90589c47f06eb971d548591f23c285af">Custom</a> = 4
+<br />
+ }</td></tr>
+<tr class="separator:af449acca265c5ed05d24fc814cd3ed76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
 <tr class="memitem:ab02090ade6eef5c944a7e3104a40eed0" id="r_ab02090ade6eef5c944a7e3104a40eed0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#ab02090ade6eef5c944a7e3104a40eed0">ForwardRenderPass</a> (<a class="el" href="classRenderTexture.html">RenderTexture</a> *pDestTex=nullptr)</td></tr>
@@ -122,6 +136,38 @@ ForwardRenderPass 連携図</div>
 <tr class="separator:ad04a5434e75b8d1e81fc5b1f2fc2d516"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26a980c3a726cdd518af46056fddfffc" id="r_a26a980c3a726cdd518af46056fddfffc"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#a26a980c3a726cdd518af46056fddfffc">GetName</a> () const override</td></tr>
 <tr class="separator:a26a980c3a726cdd518af46056fddfffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac05cf100b5f31943a19123cb7e34a9ec" id="r_ac05cf100b5f31943a19123cb7e34a9ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#ac05cf100b5f31943a19123cb7e34a9ec">SetCustomName</a> (const std::string &amp;name)</td></tr>
+<tr class="separator:ac05cf100b5f31943a19123cb7e34a9ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c2f8c0adeaf21db1530b9e9c8e95080" id="r_a9c2f8c0adeaf21db1530b9e9c8e95080"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#a9c2f8c0adeaf21db1530b9e9c8e95080">GetCustomName</a> () const</td></tr>
+<tr class="separator:a9c2f8c0adeaf21db1530b9e9c8e95080"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e9ec4ab27d423e8bbb9e69a1af554fe" id="r_a6e9ec4ab27d423e8bbb9e69a1af554fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#a6e9ec4ab27d423e8bbb9e69a1af554fe">GetLayerFilter</a> () const</td></tr>
+<tr class="separator:a6e9ec4ab27d423e8bbb9e69a1af554fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afeb6e8e1e8ac54e76374e8894ccdea44" id="r_afeb6e8e1e8ac54e76374e8894ccdea44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#afeb6e8e1e8ac54e76374e8894ccdea44">SetLayerFilter</a> (int filter)</td></tr>
+<tr class="separator:afeb6e8e1e8ac54e76374e8894ccdea44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d6f22d91e1f06f415520e43a8474cc2" id="r_a5d6f22d91e1f06f415520e43a8474cc2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76">ObjectFilterPreset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#a5d6f22d91e1f06f415520e43a8474cc2">GetFilterPreset</a> () const</td></tr>
+<tr class="separator:a5d6f22d91e1f06f415520e43a8474cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac160b36e8643d5213d37f2a04e931615" id="r_ac160b36e8643d5213d37f2a04e931615"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#ac160b36e8643d5213d37f2a04e931615">SetFilterPreset</a> (<a class="el" href="classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76">ObjectFilterPreset</a> preset)</td></tr>
+<tr class="separator:ac160b36e8643d5213d37f2a04e931615"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed0dfb6e8255d87bcd06a04fb159793e" id="r_aed0dfb6e8255d87bcd06a04fb159793e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76">ObjectFilterPreset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#aed0dfb6e8255d87bcd06a04fb159793e">GetObjectFilterPreset</a> () const</td></tr>
+<tr class="separator:aed0dfb6e8255d87bcd06a04fb159793e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9deaadbd5bde74fffaecdb4b1ad8a0c" id="r_ad9deaadbd5bde74fffaecdb4b1ad8a0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#ad9deaadbd5bde74fffaecdb4b1ad8a0c">SetObjectFilterPreset</a> (<a class="el" href="classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76">ObjectFilterPreset</a> preset)</td></tr>
+<tr class="separator:ad9deaadbd5bde74fffaecdb4b1ad8a0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e002bb6aa49fa18f95b4bc432df5d03" id="r_a2e002bb6aa49fa18f95b4bc432df5d03"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#a2e002bb6aa49fa18f95b4bc432df5d03">GetTagMask</a> () const</td></tr>
+<tr class="separator:a2e002bb6aa49fa18f95b4bc432df5d03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62d6753d04ed68bc6d62598f61cf488d" id="r_a62d6753d04ed68bc6d62598f61cf488d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#a62d6753d04ed68bc6d62598f61cf488d">SetTagMask</a> (uint32_t mask)</td></tr>
+<tr class="separator:a62d6753d04ed68bc6d62598f61cf488d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac933bcef7a5673b607eb2a6ca0cce838" id="r_ac933bcef7a5673b607eb2a6ca0cce838"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#ac933bcef7a5673b607eb2a6ca0cce838">IsClearEnabled</a> () const</td></tr>
+<tr class="separator:ac933bcef7a5673b607eb2a6ca0cce838"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46a1f04949a633ae87e56a0af5dae58b" id="r_a46a1f04949a633ae87e56a0af5dae58b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#a46a1f04949a633ae87e56a0af5dae58b">SetClearEnabled</a> (bool clear)</td></tr>
+<tr class="separator:a46a1f04949a633ae87e56a0af5dae58b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75976b2e59b22c7e9fa103d2c6e8f43a" id="r_a75976b2e59b22c7e9fa103d2c6e8f43a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#a75976b2e59b22c7e9fa103d2c6e8f43a">IsClearColorEnabled</a> () const</td></tr>
+<tr class="separator:a75976b2e59b22c7e9fa103d2c6e8f43a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16092ffead755c5bfca3ab8510838af2" id="r_a16092ffead755c5bfca3ab8510838af2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#a16092ffead755c5bfca3ab8510838af2">SetClearColorEnabled</a> (bool clear)</td></tr>
+<tr class="separator:a16092ffead755c5bfca3ab8510838af2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bd81041a641218c5b460e6a1c142825" id="r_a2bd81041a641218c5b460e6a1c142825"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#a2bd81041a641218c5b460e6a1c142825">IsClearDepthEnabled</a> () const</td></tr>
+<tr class="separator:a2bd81041a641218c5b460e6a1c142825"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a277e419988e81f7b700414965d1da98f" id="r_a277e419988e81f7b700414965d1da98f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#a277e419988e81f7b700414965d1da98f">SetClearDepthEnabled</a> (bool clear)</td></tr>
+<tr class="separator:a277e419988e81f7b700414965d1da98f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classIRenderPass"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classIRenderPass')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classIRenderPass.html">IRenderPass</a> に属する継承公開メンバ関数</td></tr>
 <tr class="memitem:a52c6a9a8b5ae4b98d6c9d9d6899998e0 inherit pub_methods_classIRenderPass" id="r_a52c6a9a8b5ae4b98d6c9d9d6899998e0"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a52c6a9a8b5ae4b98d6c9d9d6899998e0">~IRenderPass</a> ()=default</td></tr>
 <tr class="separator:a52c6a9a8b5ae4b98d6c9d9d6899998e0 inherit pub_methods_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -129,18 +175,72 @@ ForwardRenderPass 連携図</div>
 <tr class="separator:a7902d9b20ee85fb3a30c6e5555445f51 inherit pub_methods_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adee3ba2abf5a11714da17de66e7d685f inherit pub_methods_classIRenderPass" id="r_adee3ba2abf5a11714da17de66e7d685f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#adee3ba2abf5a11714da17de66e7d685f">SetEnabled</a> (bool enabled)</td></tr>
 <tr class="separator:adee3ba2abf5a11714da17de66e7d685f inherit pub_methods_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad813139ca32b2c09417906637c1ac704 inherit pub_methods_classIRenderPass" id="r_ad813139ca32b2c09417906637c1ac704"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#ad813139ca32b2c09417906637c1ac704">GetInputResourceName</a> () const</td></tr>
+<tr class="separator:ad813139ca32b2c09417906637c1ac704 inherit pub_methods_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18a4eee99f195abf014ce5e6fd4172e6 inherit pub_methods_classIRenderPass" id="r_a18a4eee99f195abf014ce5e6fd4172e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a18a4eee99f195abf014ce5e6fd4172e6">SetInputResourceName</a> (const std::string &amp;name)</td></tr>
+<tr class="separator:a18a4eee99f195abf014ce5e6fd4172e6 inherit pub_methods_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3136f173da785fedf682eaece53253d1 inherit pub_methods_classIRenderPass" id="r_a3136f173da785fedf682eaece53253d1"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a3136f173da785fedf682eaece53253d1">GetOutputResourceName</a> () const</td></tr>
+<tr class="separator:a3136f173da785fedf682eaece53253d1 inherit pub_methods_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26673c8aa28b1d943ac68a9417a14a2c inherit pub_methods_classIRenderPass" id="r_a26673c8aa28b1d943ac68a9417a14a2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a26673c8aa28b1d943ac68a9417a14a2c">SetOutputResourceName</a> (const std::string &amp;name)</td></tr>
+<tr class="separator:a26673c8aa28b1d943ac68a9417a14a2c inherit pub_methods_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 非公開変数類</h2></td></tr>
 <tr class="memitem:a610a3488d9ed339b3808b9e9f56a26a2" id="r_a610a3488d9ed339b3808b9e9f56a26a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRenderTexture.html">RenderTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#a610a3488d9ed339b3808b9e9f56a26a2">m_pDestTex</a> = nullptr</td></tr>
 <tr class="separator:a610a3488d9ed339b3808b9e9f56a26a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5ba85654a5aa43cfaa55cad3669bd52" id="r_ab5ba85654a5aa43cfaa55cad3669bd52"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#ab5ba85654a5aa43cfaa55cad3669bd52">m_layerFilter</a> = -1</td></tr>
+<tr class="separator:ab5ba85654a5aa43cfaa55cad3669bd52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a242198b77aec6a4258c27718eca32979" id="r_a242198b77aec6a4258c27718eca32979"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76">ObjectFilterPreset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#a242198b77aec6a4258c27718eca32979">m_filterPreset</a> = <a class="el" href="classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76ab1c94ca2fbc3e78fc30069c8d0f01680">ObjectFilterPreset::All</a></td></tr>
+<tr class="separator:a242198b77aec6a4258c27718eca32979"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf0b57231d8556f5b882237489ca470a" id="r_acf0b57231d8556f5b882237489ca470a"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#acf0b57231d8556f5b882237489ca470a">m_tagMask</a> = 0xFFFFFFFFu</td></tr>
+<tr class="separator:acf0b57231d8556f5b882237489ca470a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a236700f8cca02d9141a7dcb6552c57ff" id="r_a236700f8cca02d9141a7dcb6552c57ff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#a236700f8cca02d9141a7dcb6552c57ff">m_clearColorEnabled</a> = true</td></tr>
+<tr class="separator:a236700f8cca02d9141a7dcb6552c57ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4de2a8b23a28bd76fd3a9cb0f4d8b070" id="r_a4de2a8b23a28bd76fd3a9cb0f4d8b070"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#a4de2a8b23a28bd76fd3a9cb0f4d8b070">m_clearDepthEnabled</a> = true</td></tr>
+<tr class="separator:a4de2a8b23a28bd76fd3a9cb0f4d8b070"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b1041770128ef25df249f708270c78e" id="r_a2b1041770128ef25df249f708270c78e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForwardRenderPass.html#a2b1041770128ef25df249f708270c78e">m_customName</a></td></tr>
+<tr class="separator:a2b1041770128ef25df249f708270c78e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 その他の継承メンバ</h2></td></tr>
 <tr class="inherit_header pro_attribs_classIRenderPass"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classIRenderPass')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classIRenderPass.html">IRenderPass</a> に属する継承限定公開変数類</td></tr>
 <tr class="memitem:a4786d22e2938e223a6c611f98a26577d inherit pro_attribs_classIRenderPass" id="r_a4786d22e2938e223a6c611f98a26577d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a4786d22e2938e223a6c611f98a26577d">m_isEnabled</a> = true</td></tr>
 <tr class="separator:a4786d22e2938e223a6c611f98a26577d inherit pro_attribs_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79e84b5631daa2e8e417b7d1be5f620a inherit pro_attribs_classIRenderPass" id="r_a79e84b5631daa2e8e417b7d1be5f620a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a79e84b5631daa2e8e417b7d1be5f620a">m_inputResourceName</a></td></tr>
+<tr class="separator:a79e84b5631daa2e8e417b7d1be5f620a inherit pro_attribs_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d84cbda025bbefe4b35aeae4a82d2f3 inherit pro_attribs_classIRenderPass" id="r_a1d84cbda025bbefe4b35aeae4a82d2f3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a1d84cbda025bbefe4b35aeae4a82d2f3">m_outputResourceName</a></td></tr>
+<tr class="separator:a1d84cbda025bbefe4b35aeae4a82d2f3 inherit pro_attribs_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">列挙型メンバ詳解</h2>
+<a id="af449acca265c5ed05d24fc814cd3ed76" name="af449acca265c5ed05d24fc814cd3ed76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af449acca265c5ed05d24fc814cd3ed76">&#9670;&#160;</a></span>ObjectFilterPreset</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76">ForwardRenderPass::ObjectFilterPreset</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">列挙値</th></tr><tr><td class="fieldname"><a id="af449acca265c5ed05d24fc814cd3ed76ab1c94ca2fbc3e78fc30069c8d0f01680" name="af449acca265c5ed05d24fc814cd3ed76ab1c94ca2fbc3e78fc30069c8d0f01680"></a>All&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af449acca265c5ed05d24fc814cd3ed76a798842a436d07bd3615cc24710f237a2" name="af449acca265c5ed05d24fc814cd3ed76a798842a436d07bd3615cc24710f237a2"></a>GroundAndBackground&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af449acca265c5ed05d24fc814cd3ed76a994d06622c761cbceb384fd10a0b53f3" name="af449acca265c5ed05d24fc814cd3ed76a994d06622c761cbceb384fd10a0b53f3"></a>Characters&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af449acca265c5ed05d24fc814cd3ed76ac0e5fbfdb114540f8a486830ab6aeed1" name="af449acca265c5ed05d24fc814cd3ed76ac0e5fbfdb114540f8a486830ab6aeed1"></a>UIOnly&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af449acca265c5ed05d24fc814cd3ed76a90589c47f06eb971d548591f23c285af" name="af449acca265c5ed05d24fc814cd3ed76a90589c47f06eb971d548591f23c285af"></a>Custom&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">構築子と解体子</h2>
 <a id="ab02090ade6eef5c944a7e3104a40eed0" name="ab02090ade6eef5c944a7e3104a40eed0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab02090ade6eef5c944a7e3104a40eed0">&#9670;&#160;</a></span>ForwardRenderPass()</h2>
@@ -214,8 +314,83 @@ ForwardRenderPass 連携図</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classForwardRenderPass_ad04a5434e75b8d1e81fc5b1f2fc2d516_cgraph.svg" width="100%" height="570"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classForwardRenderPass_ad04a5434e75b8d1e81fc5b1f2fc2d516_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
+
+</div>
+</div>
+<a id="a9c2f8c0adeaf21db1530b9e9c8e95080" name="a9c2f8c0adeaf21db1530b9e9c8e95080"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c2f8c0adeaf21db1530b9e9c8e95080">&#9670;&#160;</a></span>GetCustomName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; ForwardRenderPass::GetCustomName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d6f22d91e1f06f415520e43a8474cc2" name="a5d6f22d91e1f06f415520e43a8474cc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d6f22d91e1f06f415520e43a8474cc2">&#9670;&#160;</a></span>GetFilterPreset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76">ObjectFilterPreset</a> ForwardRenderPass::GetFilterPreset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6e9ec4ab27d423e8bbb9e69a1af554fe" name="a6e9ec4ab27d423e8bbb9e69a1af554fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e9ec4ab27d423e8bbb9e69a1af554fe">&#9670;&#160;</a></span>GetLayerFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ForwardRenderPass::GetLayerFilter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -243,6 +418,61 @@ ForwardRenderPass 連携図</div>
 </div><div class="memdoc">
 
 <p><a class="el" href="classIRenderPass.html#aa0620af6b0dfcf2951f413c8fdcb451a">IRenderPass</a>を実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classForwardRenderPass_a26a980c3a726cdd518af46056fddfffc_cgraph.svg" width="383" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aed0dfb6e8255d87bcd06a04fb159793e" name="aed0dfb6e8255d87bcd06a04fb159793e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed0dfb6e8255d87bcd06a04fb159793e">&#9670;&#160;</a></span>GetObjectFilterPreset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76">ObjectFilterPreset</a> ForwardRenderPass::GetObjectFilterPreset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2e002bb6aa49fa18f95b4bc432df5d03" name="a2e002bb6aa49fa18f95b4bc432df5d03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e002bb6aa49fa18f95b4bc432df5d03">&#9670;&#160;</a></span>GetTagMask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t ForwardRenderPass::GetTagMask </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -274,7 +504,402 @@ ForwardRenderPass 連携図</div>
 
 </div>
 </div>
+<a id="a75976b2e59b22c7e9fa103d2c6e8f43a" name="a75976b2e59b22c7e9fa103d2c6e8f43a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75976b2e59b22c7e9fa103d2c6e8f43a">&#9670;&#160;</a></span>IsClearColorEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ForwardRenderPass::IsClearColorEnabled </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2bd81041a641218c5b460e6a1c142825" name="a2bd81041a641218c5b460e6a1c142825"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bd81041a641218c5b460e6a1c142825">&#9670;&#160;</a></span>IsClearDepthEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ForwardRenderPass::IsClearDepthEnabled </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac933bcef7a5673b607eb2a6ca0cce838" name="ac933bcef7a5673b607eb2a6ca0cce838"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac933bcef7a5673b607eb2a6ca0cce838">&#9670;&#160;</a></span>IsClearEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ForwardRenderPass::IsClearEnabled </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a16092ffead755c5bfca3ab8510838af2" name="a16092ffead755c5bfca3ab8510838af2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16092ffead755c5bfca3ab8510838af2">&#9670;&#160;</a></span>SetClearColorEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ForwardRenderPass::SetClearColorEnabled </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>clear</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a277e419988e81f7b700414965d1da98f" name="a277e419988e81f7b700414965d1da98f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a277e419988e81f7b700414965d1da98f">&#9670;&#160;</a></span>SetClearDepthEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ForwardRenderPass::SetClearDepthEnabled </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>clear</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a46a1f04949a633ae87e56a0af5dae58b" name="a46a1f04949a633ae87e56a0af5dae58b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46a1f04949a633ae87e56a0af5dae58b">&#9670;&#160;</a></span>SetClearEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ForwardRenderPass::SetClearEnabled </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>clear</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac05cf100b5f31943a19123cb7e34a9ec" name="ac05cf100b5f31943a19123cb7e34a9ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac05cf100b5f31943a19123cb7e34a9ec">&#9670;&#160;</a></span>SetCustomName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ForwardRenderPass::SetCustomName </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac160b36e8643d5213d37f2a04e931615" name="ac160b36e8643d5213d37f2a04e931615"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac160b36e8643d5213d37f2a04e931615">&#9670;&#160;</a></span>SetFilterPreset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ForwardRenderPass::SetFilterPreset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76">ObjectFilterPreset</a>&#160;</td>
+          <td class="paramname"><em>preset</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classForwardRenderPass_ac160b36e8643d5213d37f2a04e931615_icgraph.svg" width="375" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="afeb6e8e1e8ac54e76374e8894ccdea44" name="afeb6e8e1e8ac54e76374e8894ccdea44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afeb6e8e1e8ac54e76374e8894ccdea44">&#9670;&#160;</a></span>SetLayerFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ForwardRenderPass::SetLayerFilter </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>filter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad9deaadbd5bde74fffaecdb4b1ad8a0c" name="ad9deaadbd5bde74fffaecdb4b1ad8a0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9deaadbd5bde74fffaecdb4b1ad8a0c">&#9670;&#160;</a></span>SetObjectFilterPreset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ForwardRenderPass::SetObjectFilterPreset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76">ObjectFilterPreset</a>&#160;</td>
+          <td class="paramname"><em>preset</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classForwardRenderPass_ad9deaadbd5bde74fffaecdb4b1ad8a0c_cgraph.svg" width="375" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a62d6753d04ed68bc6d62598f61cf488d" name="a62d6753d04ed68bc6d62598f61cf488d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62d6753d04ed68bc6d62598f61cf488d">&#9670;&#160;</a></span>SetTagMask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ForwardRenderPass::SetTagMask </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>mask</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">メンバ詳解</h2>
+<a id="a236700f8cca02d9141a7dcb6552c57ff" name="a236700f8cca02d9141a7dcb6552c57ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a236700f8cca02d9141a7dcb6552c57ff">&#9670;&#160;</a></span>m_clearColorEnabled</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ForwardRenderPass::m_clearColorEnabled = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4de2a8b23a28bd76fd3a9cb0f4d8b070" name="a4de2a8b23a28bd76fd3a9cb0f4d8b070"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4de2a8b23a28bd76fd3a9cb0f4d8b070">&#9670;&#160;</a></span>m_clearDepthEnabled</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ForwardRenderPass::m_clearDepthEnabled = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2b1041770128ef25df249f708270c78e" name="a2b1041770128ef25df249f708270c78e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b1041770128ef25df249f708270c78e">&#9670;&#160;</a></span>m_customName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ForwardRenderPass::m_customName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a242198b77aec6a4258c27718eca32979" name="a242198b77aec6a4258c27718eca32979"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a242198b77aec6a4258c27718eca32979">&#9670;&#160;</a></span>m_filterPreset</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76">ObjectFilterPreset</a> ForwardRenderPass::m_filterPreset = <a class="el" href="classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76ab1c94ca2fbc3e78fc30069c8d0f01680">ObjectFilterPreset::All</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab5ba85654a5aa43cfaa55cad3669bd52" name="ab5ba85654a5aa43cfaa55cad3669bd52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5ba85654a5aa43cfaa55cad3669bd52">&#9670;&#160;</a></span>m_layerFilter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ForwardRenderPass::m_layerFilter = -1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a610a3488d9ed339b3808b9e9f56a26a2" name="a610a3488d9ed339b3808b9e9f56a26a2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a610a3488d9ed339b3808b9e9f56a26a2">&#9670;&#160;</a></span>m_pDestTex</h2>
 
@@ -286,6 +911,28 @@ ForwardRenderPass 連携図</div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classRenderTexture.html">RenderTexture</a>* ForwardRenderPass::m_pDestTex = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acf0b57231d8556f5b882237489ca470a" name="acf0b57231d8556f5b882237489ca470a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf0b57231d8556f5b882237489ca470a">&#9670;&#160;</a></span>m_tagMask</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t ForwardRenderPass::m_tagMask = 0xFFFFFFFFu</td>
         </tr>
       </table>
   </td>

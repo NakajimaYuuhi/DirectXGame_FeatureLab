@@ -1,6 +1,7 @@
 var structRenderContext =
 [
     [ "backBufferRTV", "structRenderContext.html#a29fab28400da468e68cf3707367f2fdb", null ],
+    [ "blackboard", "structRenderContext.html#a203300344532e0be65feae573f7b1214", null ],
     [ "cmdList", "structRenderContext.html#af1fbc7f3c111ffccda3b70ce641ce309", null ],
     [ "deltaTime", "structRenderContext.html#a2077e0523174f7d57033c9d17a3fd6ab", null ],
     [ "mainDSV", "structRenderContext.html#a853fe777f17050a3a8e2a03cf34d02ce", null ],

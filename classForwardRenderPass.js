@@ -1,9 +1,38 @@
 var classForwardRenderPass =
 [
+    [ "ObjectFilterPreset", "classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76", [
+      [ "All", "classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76ab1c94ca2fbc3e78fc30069c8d0f01680", null ],
+      [ "GroundAndBackground", "classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76a798842a436d07bd3615cc24710f237a2", null ],
+      [ "Characters", "classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76a994d06622c761cbceb384fd10a0b53f3", null ],
+      [ "UIOnly", "classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76ac0e5fbfdb114540f8a486830ab6aeed1", null ],
+      [ "Custom", "classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76a90589c47f06eb971d548591f23c285af", null ]
+    ] ],
     [ "ForwardRenderPass", "classForwardRenderPass.html#ab02090ade6eef5c944a7e3104a40eed0", null ],
     [ "~ForwardRenderPass", "classForwardRenderPass.html#a6e1fc3210db4d9029fd3e918de9e72b2", null ],
     [ "Execute", "classForwardRenderPass.html#ad04a5434e75b8d1e81fc5b1f2fc2d516", null ],
+    [ "GetCustomName", "classForwardRenderPass.html#a9c2f8c0adeaf21db1530b9e9c8e95080", null ],
+    [ "GetFilterPreset", "classForwardRenderPass.html#a5d6f22d91e1f06f415520e43a8474cc2", null ],
+    [ "GetLayerFilter", "classForwardRenderPass.html#a6e9ec4ab27d423e8bbb9e69a1af554fe", null ],
     [ "GetName", "classForwardRenderPass.html#a26a980c3a726cdd518af46056fddfffc", null ],
+    [ "GetObjectFilterPreset", "classForwardRenderPass.html#aed0dfb6e8255d87bcd06a04fb159793e", null ],
+    [ "GetTagMask", "classForwardRenderPass.html#a2e002bb6aa49fa18f95b4bc432df5d03", null ],
     [ "Init", "classForwardRenderPass.html#a3fab71acf16e7f5756719d2cd4623e16", null ],
-    [ "m_pDestTex", "classForwardRenderPass.html#a610a3488d9ed339b3808b9e9f56a26a2", null ]
+    [ "IsClearColorEnabled", "classForwardRenderPass.html#a75976b2e59b22c7e9fa103d2c6e8f43a", null ],
+    [ "IsClearDepthEnabled", "classForwardRenderPass.html#a2bd81041a641218c5b460e6a1c142825", null ],
+    [ "IsClearEnabled", "classForwardRenderPass.html#ac933bcef7a5673b607eb2a6ca0cce838", null ],
+    [ "SetClearColorEnabled", "classForwardRenderPass.html#a16092ffead755c5bfca3ab8510838af2", null ],
+    [ "SetClearDepthEnabled", "classForwardRenderPass.html#a277e419988e81f7b700414965d1da98f", null ],
+    [ "SetClearEnabled", "classForwardRenderPass.html#a46a1f04949a633ae87e56a0af5dae58b", null ],
+    [ "SetCustomName", "classForwardRenderPass.html#ac05cf100b5f31943a19123cb7e34a9ec", null ],
+    [ "SetFilterPreset", "classForwardRenderPass.html#ac160b36e8643d5213d37f2a04e931615", null ],
+    [ "SetLayerFilter", "classForwardRenderPass.html#afeb6e8e1e8ac54e76374e8894ccdea44", null ],
+    [ "SetObjectFilterPreset", "classForwardRenderPass.html#ad9deaadbd5bde74fffaecdb4b1ad8a0c", null ],
+    [ "SetTagMask", "classForwardRenderPass.html#a62d6753d04ed68bc6d62598f61cf488d", null ],
+    [ "m_clearColorEnabled", "classForwardRenderPass.html#a236700f8cca02d9141a7dcb6552c57ff", null ],
+    [ "m_clearDepthEnabled", "classForwardRenderPass.html#a4de2a8b23a28bd76fd3a9cb0f4d8b070", null ],
+    [ "m_customName", "classForwardRenderPass.html#a2b1041770128ef25df249f708270c78e", null ],
+    [ "m_filterPreset", "classForwardRenderPass.html#a242198b77aec6a4258c27718eca32979", null ],
+    [ "m_layerFilter", "classForwardRenderPass.html#ab5ba85654a5aa43cfaa55cad3669bd52", null ],
+    [ "m_pDestTex", "classForwardRenderPass.html#a610a3488d9ed339b3808b9e9f56a26a2", null ],
+    [ "m_tagMask", "classForwardRenderPass.html#acf0b57231d8556f5b882237489ca470a", null ]
 ];

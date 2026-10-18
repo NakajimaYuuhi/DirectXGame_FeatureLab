@@ -18,7 +18,9 @@ var searchData=
   ['componentfactory_2ecpp_15',['ComponentFactory.cpp',['../ComponentFactory_8cpp.html',1,'']]],
   ['componentfactory_2eh_16',['ComponentFactory.h',['../ComponentFactory_8h.html',1,'']]],
   ['componentmanager_2eh_17',['ComponentManager.h',['../ComponentManager_8h.html',1,'']]],
-  ['containeralias_2eh_18',['ContainerAlias.h',['../ContainerAlias_8h.html',1,'']]],
-  ['contentdrawerui_2ecpp_19',['ContentDrawerUI.cpp',['../ContentDrawerUI_8cpp.html',1,'']]],
-  ['contentdrawerui_2eh_20',['ContentDrawerUI.h',['../ContentDrawerUI_8h.html',1,'']]]
+  ['compositepass_2ecpp_18',['CompositePass.cpp',['../CompositePass_8cpp.html',1,'']]],
+  ['compositepass_2eh_19',['CompositePass.h',['../CompositePass_8h.html',1,'']]],
+  ['containeralias_2eh_20',['ContainerAlias.h',['../ContainerAlias_8h.html',1,'']]],
+  ['contentdrawerui_2ecpp_21',['ContentDrawerUI.cpp',['../ContentDrawerUI_8cpp.html',1,'']]],
+  ['contentdrawerui_2eh_22',['ContentDrawerUI.h',['../ContentDrawerUI_8h.html',1,'']]]
 ];

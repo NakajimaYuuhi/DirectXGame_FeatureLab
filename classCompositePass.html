@@ -1,0 +1,774 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: CompositePass クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classCompositePass.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">クラス</a> &#124;
+<a href="#pub-types">公開型</a> &#124;
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classCompositePass-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">CompositePass クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="CompositePass_8h_source.html">CompositePass.h</a>&gt;</code></p>
+<div class="dynheader">
+CompositePass の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCompositePass__inherit__graph.svg" width="132" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+CompositePass 連携図</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCompositePass__coll__graph.svg" width="132" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+クラス</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCompositePass_1_1Layer.html">Layer</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+公開型</h2></td></tr>
+<tr class="memitem:ab32e25e0f2dfad379ed99719be6ebeab" id="r_ab32e25e0f2dfad379ed99719be6ebeab"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCompositePass.html#ab32e25e0f2dfad379ed99719be6ebeab">BlendMode</a> { <a class="el" href="classCompositePass.html#ab32e25e0f2dfad379ed99719be6ebeaba6132295fcf5570fb8b0a944ef322a598">Alpha</a> = 0
+, <a class="el" href="classCompositePass.html#ab32e25e0f2dfad379ed99719be6ebeaba3f7b3d8ee7bf0d542bd50821c083888f">Additive</a> = 1
+, <a class="el" href="classCompositePass.html#ab32e25e0f2dfad379ed99719be6ebeabae257376d913f3b53cbb4a9b19d770648">Multiply</a> = 2
+, <a class="el" href="classCompositePass.html#ab32e25e0f2dfad379ed99719be6ebeaba2fc3359e12b2a9104121dcf04246f6a0">Screen</a> = 3
+ }</td></tr>
+<tr class="separator:ab32e25e0f2dfad379ed99719be6ebeab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a3ec808314ef970813f0147f0513a583a" id="r_a3ec808314ef970813f0147f0513a583a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCompositePass.html#a3ec808314ef970813f0147f0513a583a">CompositePass</a> (const std::string &amp;outputTexName=&quot;CompositeFinal&quot;)</td></tr>
+<tr class="separator:a3ec808314ef970813f0147f0513a583a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06cd93b03ef96a8281186a7cbfbcde02" id="r_a06cd93b03ef96a8281186a7cbfbcde02"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCompositePass.html#a06cd93b03ef96a8281186a7cbfbcde02">~CompositePass</a> ()=default</td></tr>
+<tr class="separator:a06cd93b03ef96a8281186a7cbfbcde02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc202dd66130441c036550d3ab0d20a6" id="r_afc202dd66130441c036550d3ab0d20a6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCompositePass.html#afc202dd66130441c036550d3ab0d20a6">Init</a> (ID3D12Device *pDevice) override</td></tr>
+<tr class="separator:afc202dd66130441c036550d3ab0d20a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bdfb4adcf81df697ab03c50e9cc5d07" id="r_a0bdfb4adcf81df697ab03c50e9cc5d07"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCompositePass.html#a0bdfb4adcf81df697ab03c50e9cc5d07">Execute</a> (const <a class="el" href="structRenderContext.html">RenderContext</a> &amp;ctx) override</td></tr>
+<tr class="separator:a0bdfb4adcf81df697ab03c50e9cc5d07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacacabe5dc95983eee1a3cfef34ba4a6" id="r_aacacabe5dc95983eee1a3cfef34ba4a6"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCompositePass.html#aacacabe5dc95983eee1a3cfef34ba4a6">GetName</a> () const override</td></tr>
+<tr class="separator:aacacabe5dc95983eee1a3cfef34ba4a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9f40032959b313bf3ffbcfb1e411487" id="r_aa9f40032959b313bf3ffbcfb1e411487"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCompositePass.html#aa9f40032959b313bf3ffbcfb1e411487">SetCustomName</a> (const std::string &amp;name)</td></tr>
+<tr class="separator:aa9f40032959b313bf3ffbcfb1e411487"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac84c3250173a5452cc9f74336d7dab82" id="r_ac84c3250173a5452cc9f74336d7dab82"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCompositePass.html#ac84c3250173a5452cc9f74336d7dab82">GetCustomName</a> () const</td></tr>
+<tr class="separator:ac84c3250173a5452cc9f74336d7dab82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26ba02f693b84cc525c546c34c12a098" id="r_a26ba02f693b84cc525c546c34c12a098"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCompositePass.html#a26ba02f693b84cc525c546c34c12a098">AddLayer</a> (const <a class="el" href="structCompositePass_1_1Layer.html">Layer</a> &amp;layer)</td></tr>
+<tr class="separator:a26ba02f693b84cc525c546c34c12a098"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f20378313e8f228bc46e1933b72898e" id="r_a9f20378313e8f228bc46e1933b72898e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCompositePass.html#a9f20378313e8f228bc46e1933b72898e">RemoveLayer</a> (size_t index)</td></tr>
+<tr class="separator:a9f20378313e8f228bc46e1933b72898e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06b3c936c7af4676e15bbda9b5376390" id="r_a06b3c936c7af4676e15bbda9b5376390"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCompositePass.html#a06b3c936c7af4676e15bbda9b5376390">ClearLayers</a> ()</td></tr>
+<tr class="separator:a06b3c936c7af4676e15bbda9b5376390"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acddcaac19dc7beb07e0f51c162f7513a" id="r_acddcaac19dc7beb07e0f51c162f7513a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structCompositePass_1_1Layer.html">Layer</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCompositePass.html#acddcaac19dc7beb07e0f51c162f7513a">GetLayers</a> ()</td></tr>
+<tr class="separator:acddcaac19dc7beb07e0f51c162f7513a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b105ed4fbd709f416c047c3504e5d27" id="r_a8b105ed4fbd709f416c047c3504e5d27"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="structCompositePass_1_1Layer.html">Layer</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCompositePass.html#a8b105ed4fbd709f416c047c3504e5d27">GetLayers</a> () const</td></tr>
+<tr class="separator:a8b105ed4fbd709f416c047c3504e5d27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbff26a3686d9a07050e3811f63d4360" id="r_abbff26a3686d9a07050e3811f63d4360"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRenderTexture.html">RenderTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCompositePass.html#abbff26a3686d9a07050e3811f63d4360">GetOutputTexture</a> () const</td></tr>
+<tr class="separator:abbff26a3686d9a07050e3811f63d4360"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classIRenderPass"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classIRenderPass')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classIRenderPass.html">IRenderPass</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:a52c6a9a8b5ae4b98d6c9d9d6899998e0 inherit pub_methods_classIRenderPass" id="r_a52c6a9a8b5ae4b98d6c9d9d6899998e0"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a52c6a9a8b5ae4b98d6c9d9d6899998e0">~IRenderPass</a> ()=default</td></tr>
+<tr class="separator:a52c6a9a8b5ae4b98d6c9d9d6899998e0 inherit pub_methods_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7902d9b20ee85fb3a30c6e5555445f51 inherit pub_methods_classIRenderPass" id="r_a7902d9b20ee85fb3a30c6e5555445f51"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a7902d9b20ee85fb3a30c6e5555445f51">IsEnabled</a> () const</td></tr>
+<tr class="separator:a7902d9b20ee85fb3a30c6e5555445f51 inherit pub_methods_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adee3ba2abf5a11714da17de66e7d685f inherit pub_methods_classIRenderPass" id="r_adee3ba2abf5a11714da17de66e7d685f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#adee3ba2abf5a11714da17de66e7d685f">SetEnabled</a> (bool enabled)</td></tr>
+<tr class="separator:adee3ba2abf5a11714da17de66e7d685f inherit pub_methods_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad813139ca32b2c09417906637c1ac704 inherit pub_methods_classIRenderPass" id="r_ad813139ca32b2c09417906637c1ac704"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#ad813139ca32b2c09417906637c1ac704">GetInputResourceName</a> () const</td></tr>
+<tr class="separator:ad813139ca32b2c09417906637c1ac704 inherit pub_methods_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18a4eee99f195abf014ce5e6fd4172e6 inherit pub_methods_classIRenderPass" id="r_a18a4eee99f195abf014ce5e6fd4172e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a18a4eee99f195abf014ce5e6fd4172e6">SetInputResourceName</a> (const std::string &amp;name)</td></tr>
+<tr class="separator:a18a4eee99f195abf014ce5e6fd4172e6 inherit pub_methods_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3136f173da785fedf682eaece53253d1 inherit pub_methods_classIRenderPass" id="r_a3136f173da785fedf682eaece53253d1"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a3136f173da785fedf682eaece53253d1">GetOutputResourceName</a> () const</td></tr>
+<tr class="separator:a3136f173da785fedf682eaece53253d1 inherit pub_methods_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26673c8aa28b1d943ac68a9417a14a2c inherit pub_methods_classIRenderPass" id="r_a26673c8aa28b1d943ac68a9417a14a2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a26673c8aa28b1d943ac68a9417a14a2c">SetOutputResourceName</a> (const std::string &amp;name)</td></tr>
+<tr class="separator:a26673c8aa28b1d943ac68a9417a14a2c inherit pub_methods_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:ac9e9a5ed32927237a9e26884571e55da" id="r_ac9e9a5ed32927237a9e26884571e55da"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCompositePass.html#ac9e9a5ed32927237a9e26884571e55da">m_customName</a></td></tr>
+<tr class="separator:ac9e9a5ed32927237a9e26884571e55da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e2f7520692ec0840aa12d99809312cd" id="r_a4e2f7520692ec0840aa12d99809312cd"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structCompositePass_1_1Layer.html">Layer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCompositePass.html#a4e2f7520692ec0840aa12d99809312cd">m_layers</a></td></tr>
+<tr class="separator:a4e2f7520692ec0840aa12d99809312cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22fb8a5e80af0891c634b22be36b6687" id="r_a22fb8a5e80af0891c634b22be36b6687"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classRenderTexture.html">RenderTexture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCompositePass.html#a22fb8a5e80af0891c634b22be36b6687">m_pOutputTex</a></td></tr>
+<tr class="separator:a22fb8a5e80af0891c634b22be36b6687"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a251f6862fc25da70539c60cc24e36872" id="r_a251f6862fc25da70539c60cc24e36872"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12RootSignature &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCompositePass.html#a251f6862fc25da70539c60cc24e36872">m_pRootSignature</a></td></tr>
+<tr class="separator:a251f6862fc25da70539c60cc24e36872"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38e8ed1c03d7a7c85aa59370d7799483" id="r_a38e8ed1c03d7a7c85aa59370d7799483"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCompositePass.html#a38e8ed1c03d7a7c85aa59370d7799483">m_psoCopy</a></td></tr>
+<tr class="separator:a38e8ed1c03d7a7c85aa59370d7799483"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6f62bb0d89bd72b9666fb2900d16848" id="r_ae6f62bb0d89bd72b9666fb2900d16848"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCompositePass.html#ae6f62bb0d89bd72b9666fb2900d16848">m_psoAlpha</a></td></tr>
+<tr class="separator:ae6f62bb0d89bd72b9666fb2900d16848"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f69cc88a726d69df4d001d770fab224" id="r_a5f69cc88a726d69df4d001d770fab224"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCompositePass.html#a5f69cc88a726d69df4d001d770fab224">m_psoAdditive</a></td></tr>
+<tr class="separator:a5f69cc88a726d69df4d001d770fab224"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4f8c77da35425bc7a6e6510c9952419" id="r_ab4f8c77da35425bc7a6e6510c9952419"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCompositePass.html#ab4f8c77da35425bc7a6e6510c9952419">m_psoMultiply</a></td></tr>
+<tr class="separator:ab4f8c77da35425bc7a6e6510c9952419"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5adb7e7e70acb203e8cef45718708d95" id="r_a5adb7e7e70acb203e8cef45718708d95"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCompositePass.html#a5adb7e7e70acb203e8cef45718708d95">m_psoScreen</a></td></tr>
+<tr class="separator:a5adb7e7e70acb203e8cef45718708d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+その他の継承メンバ</h2></td></tr>
+<tr class="inherit_header pro_attribs_classIRenderPass"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classIRenderPass')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classIRenderPass.html">IRenderPass</a> に属する継承限定公開変数類</td></tr>
+<tr class="memitem:a4786d22e2938e223a6c611f98a26577d inherit pro_attribs_classIRenderPass" id="r_a4786d22e2938e223a6c611f98a26577d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a4786d22e2938e223a6c611f98a26577d">m_isEnabled</a> = true</td></tr>
+<tr class="separator:a4786d22e2938e223a6c611f98a26577d inherit pro_attribs_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79e84b5631daa2e8e417b7d1be5f620a inherit pro_attribs_classIRenderPass" id="r_a79e84b5631daa2e8e417b7d1be5f620a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a79e84b5631daa2e8e417b7d1be5f620a">m_inputResourceName</a></td></tr>
+<tr class="separator:a79e84b5631daa2e8e417b7d1be5f620a inherit pro_attribs_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d84cbda025bbefe4b35aeae4a82d2f3 inherit pro_attribs_classIRenderPass" id="r_a1d84cbda025bbefe4b35aeae4a82d2f3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a1d84cbda025bbefe4b35aeae4a82d2f3">m_outputResourceName</a></td></tr>
+<tr class="separator:a1d84cbda025bbefe4b35aeae4a82d2f3 inherit pro_attribs_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">列挙型メンバ詳解</h2>
+<a id="ab32e25e0f2dfad379ed99719be6ebeab" name="ab32e25e0f2dfad379ed99719be6ebeab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab32e25e0f2dfad379ed99719be6ebeab">&#9670;&#160;</a></span>BlendMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="classCompositePass.html#ab32e25e0f2dfad379ed99719be6ebeab">CompositePass::BlendMode</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">列挙値</th></tr><tr><td class="fieldname"><a id="ab32e25e0f2dfad379ed99719be6ebeaba6132295fcf5570fb8b0a944ef322a598" name="ab32e25e0f2dfad379ed99719be6ebeaba6132295fcf5570fb8b0a944ef322a598"></a>Alpha&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab32e25e0f2dfad379ed99719be6ebeaba3f7b3d8ee7bf0d542bd50821c083888f" name="ab32e25e0f2dfad379ed99719be6ebeaba3f7b3d8ee7bf0d542bd50821c083888f"></a>Additive&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab32e25e0f2dfad379ed99719be6ebeabae257376d913f3b53cbb4a9b19d770648" name="ab32e25e0f2dfad379ed99719be6ebeabae257376d913f3b53cbb4a9b19d770648"></a>Multiply&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab32e25e0f2dfad379ed99719be6ebeaba2fc3359e12b2a9104121dcf04246f6a0" name="ab32e25e0f2dfad379ed99719be6ebeaba2fc3359e12b2a9104121dcf04246f6a0"></a>Screen&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="a3ec808314ef970813f0147f0513a583a" name="a3ec808314ef970813f0147f0513a583a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ec808314ef970813f0147f0513a583a">&#9670;&#160;</a></span>CompositePass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CompositePass::CompositePass </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>outputTexName</em> = <code>&quot;CompositeFinal&quot;</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a06cd93b03ef96a8281186a7cbfbcde02" name="a06cd93b03ef96a8281186a7cbfbcde02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06cd93b03ef96a8281186a7cbfbcde02">&#9670;&#160;</a></span>~CompositePass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual CompositePass::~CompositePass </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a26ba02f693b84cc525c546c34c12a098" name="a26ba02f693b84cc525c546c34c12a098"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26ba02f693b84cc525c546c34c12a098">&#9670;&#160;</a></span>AddLayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CompositePass::AddLayer </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structCompositePass_1_1Layer.html">Layer</a> &amp;&#160;</td>
+          <td class="paramname"><em>layer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a06b3c936c7af4676e15bbda9b5376390" name="a06b3c936c7af4676e15bbda9b5376390"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06b3c936c7af4676e15bbda9b5376390">&#9670;&#160;</a></span>ClearLayers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CompositePass::ClearLayers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0bdfb4adcf81df697ab03c50e9cc5d07" name="a0bdfb4adcf81df697ab03c50e9cc5d07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bdfb4adcf81df697ab03c50e9cc5d07">&#9670;&#160;</a></span>Execute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CompositePass::Execute </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structRenderContext.html">RenderContext</a> &amp;&#160;</td>
+          <td class="paramname"><em>ctx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classIRenderPass.html#a296b54adab092c7100589ea49f2bfd15">IRenderPass</a>を実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCompositePass_a0bdfb4adcf81df697ab03c50e9cc5d07_cgraph.svg" width="459" height="398"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac84c3250173a5452cc9f74336d7dab82" name="ac84c3250173a5452cc9f74336d7dab82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac84c3250173a5452cc9f74336d7dab82">&#9670;&#160;</a></span>GetCustomName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; CompositePass::GetCustomName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acddcaac19dc7beb07e0f51c162f7513a" name="acddcaac19dc7beb07e0f51c162f7513a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acddcaac19dc7beb07e0f51c162f7513a">&#9670;&#160;</a></span>GetLayers() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structCompositePass_1_1Layer.html">Layer</a> &gt; &amp; CompositePass::GetLayers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8b105ed4fbd709f416c047c3504e5d27" name="a8b105ed4fbd709f416c047c3504e5d27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b105ed4fbd709f416c047c3504e5d27">&#9670;&#160;</a></span>GetLayers() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; <a class="el" href="structCompositePass_1_1Layer.html">Layer</a> &gt; &amp; CompositePass::GetLayers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aacacabe5dc95983eee1a3cfef34ba4a6" name="aacacabe5dc95983eee1a3cfef34ba4a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacacabe5dc95983eee1a3cfef34ba4a6">&#9670;&#160;</a></span>GetName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::string CompositePass::GetName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classIRenderPass.html#aa0620af6b0dfcf2951f413c8fdcb451a">IRenderPass</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="abbff26a3686d9a07050e3811f63d4360" name="abbff26a3686d9a07050e3811f63d4360"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbff26a3686d9a07050e3811f63d4360">&#9670;&#160;</a></span>GetOutputTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classRenderTexture.html">RenderTexture</a> * CompositePass::GetOutputTexture </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afc202dd66130441c036550d3ab0d20a6" name="afc202dd66130441c036550d3ab0d20a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc202dd66130441c036550d3ab0d20a6">&#9670;&#160;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CompositePass::Init </td>
+          <td>(</td>
+          <td class="paramtype">ID3D12Device *&#160;</td>
+          <td class="paramname"><em>pDevice</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classIRenderPass.html#a1771179659c4abc6e253814080bba19d">IRenderPass</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="a9f20378313e8f228bc46e1933b72898e" name="a9f20378313e8f228bc46e1933b72898e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f20378313e8f228bc46e1933b72898e">&#9670;&#160;</a></span>RemoveLayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CompositePass::RemoveLayer </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa9f40032959b313bf3ffbcfb1e411487" name="aa9f40032959b313bf3ffbcfb1e411487"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9f40032959b313bf3ffbcfb1e411487">&#9670;&#160;</a></span>SetCustomName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CompositePass::SetCustomName </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="ac9e9a5ed32927237a9e26884571e55da" name="ac9e9a5ed32927237a9e26884571e55da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9e9a5ed32927237a9e26884571e55da">&#9670;&#160;</a></span>m_customName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string CompositePass::m_customName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4e2f7520692ec0840aa12d99809312cd" name="a4e2f7520692ec0840aa12d99809312cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e2f7520692ec0840aa12d99809312cd">&#9670;&#160;</a></span>m_layers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structCompositePass_1_1Layer.html">Layer</a>&gt; CompositePass::m_layers</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a22fb8a5e80af0891c634b22be36b6687" name="a22fb8a5e80af0891c634b22be36b6687"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22fb8a5e80af0891c634b22be36b6687">&#9670;&#160;</a></span>m_pOutputTex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classRenderTexture.html">RenderTexture</a>&gt; CompositePass::m_pOutputTex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a251f6862fc25da70539c60cc24e36872" name="a251f6862fc25da70539c60cc24e36872"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a251f6862fc25da70539c60cc24e36872">&#9670;&#160;</a></span>m_pRootSignature</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Microsoft::WRL::ComPtr&lt;ID3D12RootSignature&gt; CompositePass::m_pRootSignature</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5f69cc88a726d69df4d001d770fab224" name="a5f69cc88a726d69df4d001d770fab224"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f69cc88a726d69df4d001d770fab224">&#9670;&#160;</a></span>m_psoAdditive</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Microsoft::WRL::ComPtr&lt;ID3D12PipelineState&gt; CompositePass::m_psoAdditive</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae6f62bb0d89bd72b9666fb2900d16848" name="ae6f62bb0d89bd72b9666fb2900d16848"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6f62bb0d89bd72b9666fb2900d16848">&#9670;&#160;</a></span>m_psoAlpha</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Microsoft::WRL::ComPtr&lt;ID3D12PipelineState&gt; CompositePass::m_psoAlpha</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a38e8ed1c03d7a7c85aa59370d7799483" name="a38e8ed1c03d7a7c85aa59370d7799483"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38e8ed1c03d7a7c85aa59370d7799483">&#9670;&#160;</a></span>m_psoCopy</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Microsoft::WRL::ComPtr&lt;ID3D12PipelineState&gt; CompositePass::m_psoCopy</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab4f8c77da35425bc7a6e6510c9952419" name="ab4f8c77da35425bc7a6e6510c9952419"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4f8c77da35425bc7a6e6510c9952419">&#9670;&#160;</a></span>m_psoMultiply</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Microsoft::WRL::ComPtr&lt;ID3D12PipelineState&gt; CompositePass::m_psoMultiply</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5adb7e7e70acb203e8cef45718708d95" name="a5adb7e7e70acb203e8cef45718708d95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5adb7e7e70acb203e8cef45718708d95">&#9670;&#160;</a></span>m_psoScreen</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Microsoft::WRL::ComPtr&lt;ID3D12PipelineState&gt; CompositePass::m_psoScreen</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/Rendering/<a class="el" href="CompositePass_8h_source.html">CompositePass.h</a></li>
+<li>Source/Rendering/<a class="el" href="CompositePass_8cpp.html">CompositePass.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classCompositePass.html">CompositePass</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

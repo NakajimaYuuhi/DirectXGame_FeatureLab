@@ -1,96 +1,111 @@
 <map id="nlohmann::basic_json::assert_invariant" name="nlohmann::basic_json::assert_invariant">
-<area shape="rect" id="Node000001" title="checks the class invariants" alt="" coords="1067,728,1229,768"/>
-<area shape="rect" id="Node000002" href="$classnlohmann_1_1basic__json.html#a642afd9d8886e0dedfc0d5cee2baf57f" title="move constructor" alt="" coords="856,5,1019,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1142,715,1131,574,1108,378,1091,278,1070,187,1046,111,1032,82,1017,59,1004,47,1007,43,1021,56,1036,79,1050,109,1075,185,1096,277,1113,377,1136,573,1147,714"/>
-<area shape="rect" id="Node000003" href="$classnlohmann_1_1basic__json.html#adda5ebaff0503f92c8b3d65cfb610ea5" title="create a JSON value" alt="" coords="856,69,1019,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1141,714,1128,585,1104,409,1087,319,1067,237,1043,170,1017,123,1003,111,1007,107,1021,120,1048,167,1072,236,1092,318,1109,408,1134,585,1147,714"/>
-<area shape="rect" id="Node000004" href="$classnlohmann_1_1basic__json.html#a603be713183ad63dd8c9e1052c606004" title="copy constructor" alt="" coords="856,133,1019,173"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1140,714,1126,597,1100,440,1083,360,1063,288,1041,228,1017,187,1003,176,1007,172,1021,184,1046,226,1068,286,1088,359,1105,439,1131,597,1146,714"/>
-<area shape="rect" id="Node000005" href="$classnlohmann_1_1basic__json.html#a40738eb9cb8c5a9ca14ae4b697c29f8e" title="create a JSON value from an existing one" alt="" coords="856,197,1019,237"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1145,714,1143,624,1137,565,1127,501,1111,435,1088,369,1057,307,1017,251,1003,239,1006,235,1021,248,1061,304,1093,367,1116,433,1132,500,1142,565,1148,624,1150,714"/>
-<area shape="rect" id="Node000006" href="$classnlohmann_1_1basic__json.html#a19734fbc9c97d536832892ddacd6b62a" title="create an empty value with a given type" alt="" coords="856,261,1019,301"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1143,715,1135,637,1116,533,1100,477,1078,422,1051,369,1017,322,994,304,997,299,1021,318,1055,366,1083,420,1105,475,1121,532,1141,636,1148,714"/>
-<area shape="rect" id="Node000007" href="$classnlohmann_1_1basic__json.html#aeac617faf3448d6d2cb33a020be01d37" title="create a container (array or object) from an initializer list" alt="" coords="623,347,786,387"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1145,715,1141,639,1134,592,1123,542,1107,492,1085,444,1055,401,1017,366,988,350,957,339,924,333,891,331,825,337,768,349,766,344,824,331,891,326,925,328,959,334,991,345,1020,362,1059,398,1089,441,1112,490,1128,541,1139,591,1146,638,1150,714"/>
-<area shape="rect" id="Node000008" href="$classnlohmann_1_1basic__json.html#a23e540f473d32f1cf5d3243ea3ad495e" title="construct a JSON container given an iterator range" alt="" coords="856,440,1019,480"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1136,715,1120,667,1096,608,1062,547,1041,519,1017,494,1000,482,1004,478,1020,490,1045,516,1066,544,1101,605,1125,665,1141,714"/>
-<area shape="rect" id="Node000009" href="$classnlohmann_1_1basic__json.html#afbccea367512a87b5d76e2bd92c5cc85" title="construct an array with count copies of given value" alt="" coords="856,504,1019,544"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1130,716,1086,638,1054,595,1017,558,999,546,1002,542,1020,554,1059,592,1091,635,1135,714"/>
-<area shape="rect" id="Node000010" href="$classnlohmann_1_1basic__json.html#ace6fbaf6c64f60b61922b5c9d3e61aa6" title="create a null object" alt="" coords="856,568,1019,608"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="1120,719,1075,670,1017,622,996,610,998,606,1020,618,1079,666,1124,715"/>
-<area shape="rect" id="Node000011" href="$classnlohmann_1_1basic__json.html#af244c096197a233edba4c83200ae66ac" title="add an object to an object if key does not exist" alt="" coords="856,376,1019,416"/>
-<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="1139,715,1127,655,1105,579,1069,499,1045,463,1017,430,1002,418,1005,414,1021,426,1049,460,1073,497,1110,577,1132,653,1145,714"/>
-<area shape="rect" id="Node000012" href="$classnlohmann_1_1basic__json.html#a15c0a5db4fb12d49433801bbe6436bfb" title="add an object to an array" alt="" coords="856,632,1019,672"/>
-<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="1095,724,1018,686,990,674,992,670,1020,682,1097,719"/>
-<area shape="rect" id="Node000013" href="$classnlohmann_1_1basic__json.html#a8ac83750e267e37d5d47591eb44cce42" title="remove elements given an iterator range" alt="" coords="856,696,1019,736"/>
-<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="1053,736,1018,731,1019,726,1053,731"/>
-<area shape="rect" id="Node000014" href="$classnlohmann_1_1basic__json.html#a494632b69bbe1d0153d3bedad0901b8e" title="remove element given an iterator" alt="" coords="856,824,1019,864"/>
-<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="1097,777,1020,814,992,826,990,822,1018,810,1095,772"/>
-<area shape="rect" id="Node000017" href="$classnlohmann_1_1basic__json.html#a28f87a769eda285eb4492ac1172d8812" title="copy assignment" alt="" coords="856,952,1019,992"/>
-<area shape="poly" id="edge18_Node000001_Node000017" title=" " alt="" coords="1135,782,1091,861,1059,904,1020,942,1002,954,999,950,1017,938,1054,901,1086,858,1130,780"/>
-<area shape="rect" id="Node000018" href="$classnlohmann_1_1basic__json.html#a3f45f3820c456ad2e3f3df2926564151" title="access specified object element" alt="" coords="856,1016,1019,1056"/>
-<area shape="poly" id="edge19_Node000001_Node000018" title=" " alt="" coords="1141,782,1125,831,1101,891,1066,952,1045,980,1020,1006,1004,1018,1000,1014,1017,1002,1041,977,1062,949,1096,888,1120,829,1136,781"/>
-<area shape="rect" id="Node000019" href="$classnlohmann_1_1basic__json.html#a9ea67fc1ef0ccc42e1d5388fe0416ae5" title="access specified array element" alt="" coords="856,760,1019,800"/>
-<area shape="poly" id="edge20_Node000001_Node000019" title=" " alt="" coords="1053,765,1019,770,1018,765,1053,760"/>
-<area shape="rect" id="Node000020" href="$classnlohmann_1_1basic__json.html#abc94831476f7b4d3efe6f2e9036c7188" title="access specified object element" alt="" coords="856,1080,1019,1120"/>
-<area shape="poly" id="edge22_Node000001_Node000020" title=" " alt="" coords="1145,782,1132,843,1110,919,1073,999,1049,1036,1021,1070,1005,1082,1002,1078,1017,1066,1045,1033,1069,997,1105,917,1127,841,1139,781"/>
-<area shape="rect" id="Node000021" href="$classnlohmann_1_1basic__json.html#ab9e0253c92736db021840105d374c4c4" title="add an object to an array" alt="" coords="856,888,1019,928"/>
-<area shape="poly" id="edge23_Node000001_Node000021" title=" " alt="" coords="1124,781,1079,830,1020,878,998,890,996,886,1017,874,1075,826,1120,777"/>
-<area shape="rect" id="Node000038" href="$classnlohmann_1_1basic__json.html#a3405d38087e13994a5a4556065b0be6d" title="add an object to an array" alt="" coords="856,1144,1019,1184"/>
-<area shape="poly" id="edge46_Node000001_Node000038" title=" " alt="" coords="1147,782,1139,854,1118,947,1102,997,1080,1046,1054,1092,1021,1134,1006,1146,1002,1142,1017,1130,1049,1089,1076,1043,1097,995,1113,946,1133,853,1142,781"/>
-<area shape="rect" id="Node000039" href="$classnlohmann_1_1basic__json.html#ad704839e6a5195e3b76f22e2b9aa63ee" title="add an object to an object" alt="" coords="856,1208,1019,1248"/>
-<area shape="poly" id="edge47_Node000001_Node000039" title=" " alt="" coords="1149,782,1144,865,1126,975,1110,1034,1087,1093,1058,1148,1021,1198,1006,1210,1003,1206,1017,1194,1053,1145,1082,1090,1104,1032,1121,974,1139,864,1144,782"/>
-<area shape="rect" id="Node000040" href="$classnlohmann_1_1basic__json.html#a94295a06e0e7b3867fe83afbee4cb202" title="exchanges the values" alt="" coords="856,1272,1019,1312"/>
-<area shape="poly" id="edge48_Node000001_Node000040" title=" " alt="" coords="1145,782,1129,889,1102,1032,1085,1104,1066,1170,1044,1224,1021,1262,1006,1274,1003,1270,1017,1258,1039,1221,1060,1168,1080,1103,1097,1031,1123,889,1140,781"/>
-<area shape="rect" id="Node000041" href="$classnlohmann_1_1basic__json.html#a9f9e5f668474280acc9bd7f5410b9392" title="updates a JSON object from another object, overwriting existing keys" alt="" coords="856,1336,1019,1376"/>
-<area shape="poly" id="edge49_Node000001_Node000041" title=" " alt="" coords="1146,782,1132,901,1106,1063,1089,1145,1069,1220,1046,1282,1021,1326,1007,1338,1003,1334,1017,1322,1042,1280,1064,1219,1084,1144,1101,1062,1126,900,1141,781"/>
-<area shape="rect" id="Node000042" href="$classnlohmann_1_1basic__json.html#a377819905d567f6f523dcbc592cb6356" title="updates a JSON object from another object, overwriting existing keys" alt="" coords="856,1400,1019,1440"/>
-<area shape="poly" id="edge50_Node000001_Node000042" title=" " alt="" coords="1147,782,1134,914,1110,1094,1093,1187,1073,1271,1049,1341,1035,1368,1021,1390,1007,1402,1003,1398,1017,1386,1031,1366,1044,1339,1067,1269,1088,1185,1105,1094,1129,913,1141,782"/>
-<area shape="rect" id="Node000043" href="$classnlohmann_1_1basic__json.html#a60b643c02a19fa52f99db8215ff58e0f" title="destructor" alt="" coords="856,1464,1019,1504"/>
-<area shape="poly" id="edge51_Node000001_Node000043" title=" " alt="" coords="1147,782,1137,925,1114,1125,1097,1227,1076,1321,1051,1399,1036,1430,1021,1454,1007,1466,1004,1462,1017,1450,1032,1427,1046,1397,1071,1320,1092,1226,1108,1124,1131,924,1142,781"/>
-<area shape="poly" id="edge11_Node000011_Node000007" title=" " alt="" coords="842,387,786,380,786,374,842,381"/>
-<area shape="rect" id="Node000015" href="$classnlohmann_1_1basic__json.html#a844a77cb154752d12118f10af26d54cb" title="applies a JSON Merge Patch" alt="" coords="623,653,786,693"/>
-<area shape="poly" id="edge15_Node000014_Node000015" title=" " alt="" coords="859,818,854,814,843,800,836,786,830,759,824,732,817,720,806,707,785,693,788,689,810,703,822,717,829,731,835,758,841,784,847,797,858,810,862,814"/>
-<area shape="rect" id="Node000016" href="$classnlohmann_1_1basic__json.html#adcc786998f220a5b3083ee8a37c4553e" title="applies a JSON patch" alt="" coords="623,717,786,757"/>
-<area shape="poly" id="edge17_Node000014_Node000016" title=" " alt="" coords="867,821,855,814,830,796,807,778,767,760,769,755,809,774,834,792,857,810,869,816"/>
-<area shape="poly" id="edge16_Node000015_Node000015" title=" " alt="" coords="744,642,730,635,705,632,682,634,669,639,664,645,666,652,661,654,659,644,666,634,681,629,705,627,732,630,746,637"/>
-<area shape="poly" id="edge21_Node000019_Node000015" title=" " alt="" coords="865,756,854,750,830,728,821,718,807,708,782,696,784,691,809,703,824,714,834,724,858,746,868,752"/>
-<area shape="poly" id="edge30_Node000021_Node000016" title=" " alt="" coords="860,883,854,878,836,852,830,827,823,802,806,778,778,760,781,755,810,774,828,800,835,825,841,850,858,874,863,878"/>
-<area shape="rect" id="Node000022" href="$classnlohmann_1_1basic__json.html#a1c1f21327df91a4dd6c5f5a107240385" title="creates a diff as a JSON patch" alt="" coords="623,856,786,896"/>
-<area shape="poly" id="edge24_Node000021_Node000022" title=" " alt="" coords="842,898,786,890,786,884,843,892"/>
-<area shape="rect" id="Node000023" href="$classnlohmann_1_1basic__json.html#a40226d9c84fcb9cb948ae0c27b842c57" title="add an object to an array" alt="" coords="623,920,786,960"/>
-<area shape="poly" id="edge26_Node000021_Node000023" title=" " alt="" coords="843,924,786,932,786,926,842,918"/>
-<area shape="rect" id="Node000024" href="$classnlohmann_1_1basic__json.html#af643a4baa91f484b11af0e4437183115" title="add an object to an array" alt="" coords="623,984,786,1024"/>
-<area shape="poly" id="edge27_Node000021_Node000024" title=" " alt="" coords="870,936,857,942,834,959,809,974,780,986,778,981,807,970,831,954,855,938,868,931"/>
-<area shape="rect" id="Node000025" href="$classnlohmann_1_1basic__json.html#ae300819781bce2193369609457f70f30" title="add an object to an object" alt="" coords="623,1048,786,1088"/>
-<area shape="poly" id="edge28_Node000021_Node000025" title=" " alt="" coords="863,938,858,942,841,965,835,989,828,1014,810,1038,788,1052,785,1048,806,1034,823,1011,830,988,836,963,854,938,860,933"/>
-<area shape="rect" id="Node000026" href="$classnlohmann_1_1basic__json.html#ac48302a8b4f8c2a6e30c2a7bff6abc49" title="add an object to an object" alt="" coords="623,1112,786,1152"/>
-<area shape="poly" id="edge29_Node000021_Node000026" title=" " alt="" coords="862,938,858,942,844,962,837,981,835,1021,833,1061,825,1081,810,1102,788,1118,785,1113,806,1098,821,1079,828,1060,830,1021,832,980,839,959,854,938,858,934"/>
-<area shape="rect" id="Node000027" href="$classnlohmann_1_1basic__json.html#a4567cf75f19b1efca090f75d7a8a350a" title="add an object to an object" alt="" coords="623,1176,786,1216"/>
-<area shape="poly" id="edge31_Node000021_Node000027" title=" " alt="" coords="861,938,858,942,840,970,833,998,833,1025,836,1053,839,1080,838,1109,829,1137,810,1166,788,1182,785,1178,806,1162,825,1135,833,1108,833,1081,830,1053,827,1025,828,997,835,968,854,938,857,935"/>
-<area shape="rect" id="Node000028" href="$classPrefabSerializer.html#aa3597bc9812b9ab53b85b1d3ea637852" title=" " alt="" coords="601,1241,808,1266"/>
-<area shape="poly" id="edge32_Node000021_Node000028" title=" " alt="" coords="861,939,858,942,837,978,829,1014,831,1050,837,1086,843,1121,844,1157,834,1194,810,1230,793,1243,790,1238,806,1226,830,1191,839,1157,838,1122,832,1087,826,1051,824,1014,832,977,854,938,856,935"/>
-<area shape="rect" id="Node000033" href="$classSceneSerializer.html#a1a8588425ab017ee8ff9fb8daede30a8" title=" " alt="" coords="352,1061,553,1086"/>
-<area shape="poly" id="edge39_Node000021_Node000033" title=" " alt="" coords="862,883,854,878,839,863,831,847,822,834,807,822,751,800,703,791,680,792,656,798,603,822,570,846,542,876,519,910,500,945,473,1013,459,1061,454,1059,468,1011,495,943,514,907,538,873,567,842,600,818,655,793,679,787,703,786,752,795,809,818,826,830,835,845,844,860,858,874,865,879"/>
-<area shape="poly" id="edge25_Node000022_Node000022" title=" " alt="" coords="744,844,730,837,705,835,682,837,669,841,664,847,666,855,661,856,659,846,666,837,681,831,705,829,732,832,746,839"/>
-<area shape="rect" id="Node000029" href="$classCInspectorUI.html#af7b8c5d7cc17a5cd5fc261b151a1da07" title=" " alt="" coords="145,1209,291,1234"/>
-<area shape="poly" id="edge33_Node000028_Node000029" title=" " alt="" coords="588,1248,291,1229,292,1223,588,1243"/>
-<area shape="rect" id="Node000031" href="$classCInspectorUI.html#ac707ab3cad0d06aecf856e43f30ba4b4" title=" " alt="" coords="356,1176,549,1216"/>
-<area shape="poly" id="edge35_Node000028_Node000031" title=" " alt="" coords="634,1240,540,1219,542,1213,635,1235"/>
-<area shape="rect" id="Node000030" href="$main_8cpp.html#af7c10ff064e89595606222f0641ffade" title=" " alt="" coords="5,1185,84,1210"/>
-<area shape="poly" id="edge34_Node000029_Node000030" title=" " alt="" coords="130,1212,84,1205,84,1200,131,1207"/>
-<area shape="poly" id="edge38_Node000031_Node000029" title=" " alt="" coords="343,1211,292,1216,291,1211,342,1205"/>
-<area shape="rect" id="Node000032" href="$classCEditorToolbarUI.html#a1926db543a9becb976938345ac3e7ff8" title=" " alt="" coords="132,1159,304,1185"/>
-<area shape="poly" id="edge36_Node000031_Node000032" title=" " alt="" coords="342,1187,304,1183,305,1178,343,1182"/>
-<area shape="poly" id="edge37_Node000032_Node000030" title=" " alt="" coords="119,1189,85,1194,84,1189,118,1184"/>
-<area shape="poly" id="edge41_Node000033_Node000029" title=" " alt="" coords="429,1098,364,1155,305,1200,278,1211,276,1206,303,1195,361,1151,426,1094"/>
-<area shape="poly" id="edge40_Node000033_Node000032" title=" " alt="" coords="419,1095,366,1123,305,1150,271,1162,270,1157,303,1146,364,1118,416,1090"/>
-<area shape="rect" id="Node000034" href="$classSceneClear.html#af940b84babd898d98877d30fdb0ad56c" title=" " alt="" coords="156,1061,280,1086"/>
-<area shape="poly" id="edge42_Node000033_Node000034" title=" " alt="" coords="338,1076,280,1076,280,1071,338,1071"/>
-<area shape="rect" id="Node000035" href="$classSceneFailed.html#a1e540254b1a2bfab52ee4d8af2e8181c" title=" " alt="" coords="154,1110,282,1135"/>
-<area shape="poly" id="edge43_Node000033_Node000035" title=" " alt="" coords="379,1091,280,1113,279,1107,378,1086"/>
-<area shape="rect" id="Node000036" href="$classCSceneTest.html#af72294d8bca5d127055fdcf296cc1e5c" title=" " alt="" coords="155,962,281,987"/>
-<area shape="poly" id="edge44_Node000033_Node000036" title=" " alt="" coords="416,1056,364,1028,303,1001,270,990,271,985,305,996,366,1024,419,1051"/>
-<area shape="rect" id="Node000037" href="$classSceneTitle.html#a06205b4d192b9d9b9ca9bccbb61af2d2" title=" " alt="" coords="159,1011,277,1037"/>
-<area shape="poly" id="edge45_Node000033_Node000037" title=" " alt="" coords="378,1060,277,1039,278,1034,379,1055"/>
+<area shape="rect" id="Node000001" title="checks the class invariants" alt="" coords="1109,728,1272,768"/>
+<area shape="rect" id="Node000002" href="$classnlohmann_1_1basic__json.html#a642afd9d8886e0dedfc0d5cee2baf57f" title="move constructor" alt="" coords="899,5,1061,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1185,715,1173,574,1150,378,1134,278,1113,187,1088,111,1074,82,1059,59,1046,47,1050,43,1063,56,1079,79,1093,109,1118,185,1139,277,1156,377,1179,573,1190,714"/>
+<area shape="rect" id="Node000003" href="$classnlohmann_1_1basic__json.html#adda5ebaff0503f92c8b3d65cfb610ea5" title="create a JSON value" alt="" coords="899,69,1061,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1184,714,1171,585,1146,409,1130,319,1109,237,1086,170,1059,123,1046,111,1050,107,1063,120,1091,167,1115,236,1135,318,1152,408,1176,585,1189,714"/>
+<area shape="rect" id="Node000004" href="$classnlohmann_1_1basic__json.html#a603be713183ad63dd8c9e1052c606004" title="copy constructor" alt="" coords="899,133,1061,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1183,714,1168,597,1142,440,1125,360,1106,288,1084,228,1059,187,1046,176,1050,172,1063,184,1089,226,1111,286,1131,359,1148,439,1174,597,1188,714"/>
+<area shape="rect" id="Node000005" href="$classnlohmann_1_1basic__json.html#a40738eb9cb8c5a9ca14ae4b697c29f8e" title="create a JSON value from an existing one" alt="" coords="899,197,1061,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1188,714,1185,624,1180,565,1169,501,1153,435,1131,369,1100,307,1059,251,1046,239,1049,235,1063,248,1104,304,1135,367,1158,433,1175,500,1185,565,1191,624,1193,714"/>
+<area shape="rect" id="Node000006" href="$classnlohmann_1_1basic__json.html#a19734fbc9c97d536832892ddacd6b62a" title="create an empty value with a given type" alt="" coords="899,261,1061,301"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1186,715,1178,637,1159,533,1142,477,1121,422,1093,369,1059,322,1037,304,1040,299,1063,318,1098,366,1126,420,1147,475,1164,532,1183,636,1191,714"/>
+<area shape="rect" id="Node000007" href="$classnlohmann_1_1basic__json.html#aeac617faf3448d6d2cb33a020be01d37" title="create a container (array or object) from an initializer list" alt="" coords="666,347,829,387"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1187,715,1183,639,1177,592,1166,542,1150,492,1128,444,1098,401,1060,366,1031,350,1000,339,967,333,934,331,868,337,810,349,809,344,867,331,934,326,968,328,1001,334,1033,345,1063,362,1102,398,1132,441,1155,490,1171,541,1182,591,1189,638,1193,714"/>
+<area shape="rect" id="Node000008" href="$classnlohmann_1_1basic__json.html#a23e540f473d32f1cf5d3243ea3ad495e" title="construct a JSON container given an iterator range" alt="" coords="899,440,1061,480"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1178,715,1163,667,1139,608,1104,547,1083,519,1060,494,1043,482,1046,478,1063,490,1087,516,1109,544,1143,605,1168,665,1184,714"/>
+<area shape="rect" id="Node000009" href="$classnlohmann_1_1basic__json.html#afbccea367512a87b5d76e2bd92c5cc85" title="construct an array with count copies of given value" alt="" coords="899,504,1061,544"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1173,716,1129,638,1097,595,1060,558,1041,546,1044,542,1063,554,1101,592,1133,635,1177,714"/>
+<area shape="rect" id="Node000010" href="$classnlohmann_1_1basic__json.html#ace6fbaf6c64f60b61922b5c9d3e61aa6" title="create a null object" alt="" coords="899,568,1061,608"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="1163,719,1118,670,1060,622,1038,610,1041,606,1063,618,1121,666,1167,715"/>
+<area shape="rect" id="Node000011" href="$classnlohmann_1_1basic__json.html#af244c096197a233edba4c83200ae66ac" title="add an object to an object if key does not exist" alt="" coords="899,376,1061,416"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="1182,715,1170,655,1147,579,1111,499,1088,463,1059,430,1044,418,1047,414,1063,426,1092,460,1116,497,1152,577,1175,653,1187,714"/>
+<area shape="rect" id="Node000012" href="$classnlohmann_1_1basic__json.html#a15c0a5db4fb12d49433801bbe6436bfb" title="add an object to an array" alt="" coords="899,632,1061,672"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="1138,724,1060,686,1032,674,1034,670,1062,682,1140,719"/>
+<area shape="rect" id="Node000013" href="$classnlohmann_1_1basic__json.html#a8ac83750e267e37d5d47591eb44cce42" title="remove elements given an iterator range" alt="" coords="899,696,1061,736"/>
+<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="1095,736,1061,731,1062,726,1096,731"/>
+<area shape="rect" id="Node000014" href="$classnlohmann_1_1basic__json.html#a494632b69bbe1d0153d3bedad0901b8e" title="remove element given an iterator" alt="" coords="899,824,1061,864"/>
+<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="1140,777,1062,814,1034,826,1032,822,1060,810,1138,772"/>
+<area shape="rect" id="Node000017" href="$classnlohmann_1_1basic__json.html#a28f87a769eda285eb4492ac1172d8812" title="copy assignment" alt="" coords="899,952,1061,992"/>
+<area shape="poly" id="edge18_Node000001_Node000017" title=" " alt="" coords="1177,782,1133,861,1101,904,1063,942,1044,954,1041,950,1060,938,1097,901,1129,858,1173,780"/>
+<area shape="rect" id="Node000018" href="$classnlohmann_1_1basic__json.html#a3f45f3820c456ad2e3f3df2926564151" title="access specified object element" alt="" coords="899,1016,1061,1056"/>
+<area shape="poly" id="edge19_Node000001_Node000018" title=" " alt="" coords="1184,782,1168,831,1143,891,1109,952,1087,980,1063,1006,1046,1018,1043,1014,1060,1002,1083,977,1104,949,1139,888,1163,829,1178,781"/>
+<area shape="rect" id="Node000019" href="$classnlohmann_1_1basic__json.html#a9ea67fc1ef0ccc42e1d5388fe0416ae5" title="access specified array element" alt="" coords="899,760,1061,800"/>
+<area shape="poly" id="edge20_Node000001_Node000019" title=" " alt="" coords="1096,765,1062,770,1061,765,1095,760"/>
+<area shape="rect" id="Node000020" href="$classnlohmann_1_1basic__json.html#abc94831476f7b4d3efe6f2e9036c7188" title="access specified object element" alt="" coords="899,1080,1061,1120"/>
+<area shape="poly" id="edge22_Node000001_Node000020" title=" " alt="" coords="1187,782,1175,843,1152,919,1116,999,1092,1036,1063,1070,1047,1082,1044,1078,1059,1066,1088,1033,1111,997,1147,917,1170,841,1182,781"/>
+<area shape="rect" id="Node000021" href="$classnlohmann_1_1basic__json.html#ab9e0253c92736db021840105d374c4c4" title="add an object to an array" alt="" coords="899,888,1061,928"/>
+<area shape="poly" id="edge23_Node000001_Node000021" title=" " alt="" coords="1167,781,1121,830,1063,878,1041,890,1038,886,1060,874,1118,826,1163,777"/>
+<area shape="rect" id="Node000043" href="$classnlohmann_1_1basic__json.html#a3405d38087e13994a5a4556065b0be6d" title="add an object to an array" alt="" coords="899,1144,1061,1184"/>
+<area shape="poly" id="edge56_Node000001_Node000043" title=" " alt="" coords="1190,782,1181,854,1161,947,1144,997,1123,1046,1096,1092,1063,1134,1048,1146,1045,1142,1059,1130,1092,1089,1118,1043,1139,995,1155,946,1176,853,1185,781"/>
+<area shape="rect" id="Node000044" href="$classnlohmann_1_1basic__json.html#ad704839e6a5195e3b76f22e2b9aa63ee" title="add an object to an object" alt="" coords="899,1208,1061,1248"/>
+<area shape="poly" id="edge57_Node000001_Node000044" title=" " alt="" coords="1192,782,1187,865,1168,975,1152,1034,1130,1093,1101,1148,1063,1198,1049,1210,1045,1206,1059,1194,1096,1145,1125,1090,1147,1032,1163,974,1181,864,1187,782"/>
+<area shape="rect" id="Node000045" href="$classnlohmann_1_1basic__json.html#a94295a06e0e7b3867fe83afbee4cb202" title="exchanges the values" alt="" coords="899,1272,1061,1312"/>
+<area shape="poly" id="edge58_Node000001_Node000045" title=" " alt="" coords="1188,782,1171,889,1145,1032,1127,1104,1108,1170,1087,1224,1063,1262,1049,1274,1046,1270,1059,1258,1082,1221,1103,1168,1122,1103,1139,1031,1166,889,1182,781"/>
+<area shape="rect" id="Node000046" href="$classnlohmann_1_1basic__json.html#a9f9e5f668474280acc9bd7f5410b9392" title="updates a JSON object from another object, overwriting existing keys" alt="" coords="899,1336,1061,1376"/>
+<area shape="poly" id="edge59_Node000001_Node000046" title=" " alt="" coords="1189,782,1174,901,1149,1063,1132,1145,1112,1220,1089,1282,1063,1326,1050,1338,1046,1334,1059,1322,1084,1280,1107,1219,1126,1144,1143,1062,1169,900,1183,781"/>
+<area shape="rect" id="Node000047" href="$classnlohmann_1_1basic__json.html#a377819905d567f6f523dcbc592cb6356" title="updates a JSON object from another object, overwriting existing keys" alt="" coords="899,1400,1061,1440"/>
+<area shape="poly" id="edge60_Node000001_Node000047" title=" " alt="" coords="1189,782,1177,914,1153,1094,1136,1187,1115,1271,1091,1341,1078,1368,1063,1390,1050,1402,1046,1398,1059,1386,1073,1366,1086,1339,1110,1269,1130,1185,1147,1094,1172,913,1184,782"/>
+<area shape="rect" id="Node000048" href="$classnlohmann_1_1basic__json.html#a60b643c02a19fa52f99db8215ff58e0f" title="destructor" alt="" coords="899,1464,1061,1504"/>
+<area shape="poly" id="edge61_Node000001_Node000048" title=" " alt="" coords="1190,782,1179,925,1156,1125,1140,1227,1119,1321,1094,1399,1079,1430,1063,1454,1050,1466,1046,1462,1059,1450,1075,1427,1089,1397,1114,1320,1134,1226,1151,1124,1174,924,1185,781"/>
+<area shape="poly" id="edge11_Node000011_Node000007" title=" " alt="" coords="884,387,828,380,829,374,885,381"/>
+<area shape="rect" id="Node000015" href="$classnlohmann_1_1basic__json.html#a844a77cb154752d12118f10af26d54cb" title="applies a JSON Merge Patch" alt="" coords="666,625,829,665"/>
+<area shape="poly" id="edge15_Node000014_Node000015" title=" " alt="" coords="901,818,897,814,884,796,876,778,873,744,869,711,862,695,849,679,828,665,831,660,852,675,866,693,874,710,878,744,882,777,888,794,901,810,904,814"/>
+<area shape="rect" id="Node000016" href="$classnlohmann_1_1basic__json.html#adcc786998f220a5b3083ee8a37c4553e" title="applies a JSON patch" alt="" coords="666,689,829,729"/>
+<area shape="poly" id="edge17_Node000014_Node000016" title=" " alt="" coords="905,819,897,814,881,797,872,781,864,766,849,750,817,732,819,727,852,746,868,762,877,779,885,794,900,810,908,815"/>
+<area shape="poly" id="edge16_Node000015_Node000015" title=" " alt="" coords="787,614,773,607,747,604,725,606,712,611,707,617,709,624,704,626,701,616,708,606,724,601,747,599,774,602,789,609"/>
+<area shape="poly" id="edge21_Node000019_Node000015" title=" " alt="" coords="904,755,897,750,881,732,873,713,865,696,849,679,828,667,831,662,852,675,869,693,877,711,885,729,900,746,907,751"/>
+<area shape="poly" id="edge39_Node000021_Node000016" title=" " alt="" coords="901,882,897,878,884,861,877,844,872,812,868,781,861,765,849,750,823,732,826,727,853,746,866,763,873,779,877,811,882,843,888,858,901,874,905,878"/>
+<area shape="rect" id="Node000022" href="$classRenderPipeline.html#a6e4d7b08fd23cf4a660e99b13c14bddf" title=" " alt="" coords="656,805,839,830"/>
+<area shape="poly" id="edge24_Node000021_Node000022" title=" " alt="" coords="909,885,897,878,873,860,849,844,818,833,820,828,852,839,877,856,900,874,912,880"/>
+<area shape="rect" id="Node000028" href="$classnlohmann_1_1basic__json.html#a1c1f21327df91a4dd6c5f5a107240385" title="creates a diff as a JSON patch" alt="" coords="666,928,829,968"/>
+<area shape="poly" id="edge33_Node000021_Node000028" title=" " alt="" coords="885,927,829,937,828,931,884,922"/>
+<area shape="rect" id="Node000029" href="$classnlohmann_1_1basic__json.html#a40226d9c84fcb9cb948ae0c27b842c57" title="add an object to an array" alt="" coords="666,992,829,1032"/>
+<area shape="poly" id="edge35_Node000021_Node000029" title=" " alt="" coords="911,936,900,942,877,962,852,982,826,994,824,989,849,978,873,958,897,938,908,932"/>
+<area shape="rect" id="Node000030" href="$classnlohmann_1_1basic__json.html#af643a4baa91f484b11af0e4437183115" title="add an object to an array" alt="" coords="666,1056,829,1096"/>
+<area shape="poly" id="edge36_Node000021_Node000030" title=" " alt="" coords="905,938,901,942,890,955,883,967,878,993,872,1019,864,1033,852,1046,830,1060,828,1056,849,1042,860,1030,867,1018,873,992,878,965,885,952,897,938,902,934"/>
+<area shape="rect" id="Node000031" href="$classnlohmann_1_1basic__json.html#ae300819781bce2193369609457f70f30" title="add an object to an object" alt="" coords="666,1120,829,1160"/>
+<area shape="poly" id="edge37_Node000021_Node000031" title=" " alt="" coords="904,938,901,942,886,963,879,983,878,1025,876,1067,869,1088,853,1110,830,1126,827,1121,849,1106,864,1086,871,1066,873,1025,874,982,882,960,897,938,900,934"/>
+<area shape="rect" id="Node000032" href="$classnlohmann_1_1basic__json.html#ac48302a8b4f8c2a6e30c2a7bff6abc49" title="add an object to an object" alt="" coords="666,1184,829,1224"/>
+<area shape="poly" id="edge38_Node000021_Node000032" title=" " alt="" coords="904,938,901,942,883,971,875,1000,875,1028,878,1057,882,1085,881,1115,873,1144,853,1174,831,1190,827,1186,849,1170,868,1142,876,1114,876,1086,873,1057,870,1028,870,999,878,969,897,938,900,935"/>
+<area shape="rect" id="Node000033" href="$classnlohmann_1_1basic__json.html#a4567cf75f19b1efca090f75d7a8a350a" title="add an object to an object" alt="" coords="666,1248,829,1288"/>
+<area shape="poly" id="edge40_Node000021_Node000033" title=" " alt="" coords="903,939,901,942,879,979,871,1016,873,1053,879,1089,885,1125,886,1162,877,1200,853,1238,830,1255,827,1251,849,1234,872,1198,881,1162,880,1126,874,1090,867,1053,866,1016,874,977,896,938,899,935"/>
+<area shape="rect" id="Node000034" href="$classPrefabSerializer.html#aa3597bc9812b9ab53b85b1d3ea637852" title=" " alt="" coords="644,854,851,879"/>
+<area shape="poly" id="edge41_Node000021_Node000034" title=" " alt="" coords="884,894,819,882,820,877,885,889"/>
+<area shape="rect" id="Node000037" href="$classSceneSerializer.html#a1a8588425ab017ee8ff9fb8daede30a8" title=" " alt="" coords="373,1079,575,1105"/>
+<area shape="poly" id="edge47_Node000021_Node000037" title=" " alt="" coords="903,939,901,942,885,965,876,988,870,1012,869,1035,875,1081,886,1127,896,1173,898,1217,894,1239,886,1260,872,1281,852,1302,827,1321,802,1334,777,1340,752,1340,701,1328,643,1302,611,1283,582,1259,534,1203,499,1147,479,1106,483,1104,504,1145,538,1200,585,1255,614,1279,645,1298,702,1323,753,1335,776,1334,800,1329,824,1317,849,1298,868,1278,881,1258,889,1237,893,1217,890,1173,880,1128,869,1082,864,1035,865,1011,871,987,881,963,897,938,899,935"/>
+<area shape="rect" id="Node000042" href="$classRenderPipeline.html#a7473bd2782447dbd390c0b871966370f" title=" " alt="" coords="373,665,575,690"/>
+<area shape="poly" id="edge54_Node000021_Node000042" title=" " alt="" coords="903,883,897,878,880,856,873,834,866,813,849,794,822,778,798,769,751,764,701,762,673,756,643,744,628,734,618,724,609,714,595,705,560,693,562,688,597,700,612,710,622,720,631,730,645,739,675,751,702,756,751,758,799,763,825,773,852,790,870,811,878,832,885,853,901,874,906,878"/>
+<area shape="rect" id="Node000023" href="$classCInspectorUI.html#af7b8c5d7cc17a5cd5fc261b151a1da07" title=" " alt="" coords="145,887,291,913"/>
+<area shape="poly" id="edge25_Node000022_Node000023" title=" " alt="" coords="652,806,585,800,509,799,430,804,353,820,318,834,285,852,235,889,232,885,282,848,315,829,351,815,429,799,509,793,585,795,652,800"/>
+<area shape="rect" id="Node000025" href="$classRenderPipeline.html#a1c7ec1d2f46e9196d113f04555dd77d9" title=" " alt="" coords="365,830,583,855"/>
+<area shape="poly" id="edge27_Node000022_Node000025" title=" " alt="" coords="642,830,584,835,583,830,642,824"/>
+<area shape="rect" id="Node000026" href="$classRenderPipeline.html#a0b5cc8f00a1316d03d99981e907cc8e8" title=" " alt="" coords="352,880,596,920"/>
+<area shape="poly" id="edge29_Node000022_Node000026" title=" " alt="" coords="668,836,645,844,621,856,597,869,558,882,556,877,595,864,619,851,643,839,666,831"/>
+<area shape="rect" id="Node000027" href="$classRenderPipeline.html#aa1c478e80d1e29a1e7e77e49fea0be48" title=" " alt="" coords="369,715,579,755"/>
+<area shape="poly" id="edge31_Node000022_Node000027" title=" " alt="" coords="691,803,541,757,542,752,692,798"/>
+<area shape="rect" id="Node000024" href="$main_8cpp.html#af7c10ff064e89595606222f0641ffade" title=" " alt="" coords="5,934,84,959"/>
+<area shape="poly" id="edge26_Node000023_Node000024" title=" " alt="" coords="158,919,85,939,84,934,156,914"/>
+<area shape="poly" id="edge28_Node000025_Node000023" title=" " alt="" coords="397,861,353,871,272,890,270,885,351,865,396,856"/>
+<area shape="poly" id="edge30_Node000026_Node000023" title=" " alt="" coords="338,903,292,903,292,897,338,897"/>
+<area shape="poly" id="edge32_Node000027_Node000023" title=" " alt="" coords="381,762,353,776,315,803,280,835,231,889,227,885,276,831,311,799,351,771,379,757"/>
+<area shape="poly" id="edge34_Node000028_Node000028" title=" " alt="" coords="787,916,773,909,747,907,725,909,712,913,707,919,709,927,704,928,701,918,708,909,724,903,747,901,774,904,789,911"/>
+<area shape="poly" id="edge42_Node000034_Node000023" title=" " alt="" coords="664,886,645,894,632,904,623,915,613,926,597,934,550,947,502,953,454,953,406,950,320,934,254,915,256,910,321,929,407,944,454,948,502,948,549,942,595,930,609,921,618,911,628,900,643,890,662,881"/>
+<area shape="rect" id="Node000035" href="$classCInspectorUI.html#ac707ab3cad0d06aecf856e43f30ba4b4" title=" " alt="" coords="377,995,571,1035"/>
+<area shape="poly" id="edge43_Node000034_Node000035" title=" " alt="" coords="656,887,646,894,629,914,622,934,615,956,598,978,566,997,564,992,594,974,610,954,617,933,624,911,642,890,653,883"/>
+<area shape="poly" id="edge46_Node000035_Node000023" title=" " alt="" coords="388,993,351,978,288,946,237,915,240,911,290,941,353,974,390,988"/>
+<area shape="rect" id="Node000036" href="$classCEditorToolbarUI.html#a1926db543a9becb976938345ac3e7ff8" title=" " alt="" coords="132,981,304,1006"/>
+<area shape="poly" id="edge44_Node000035_Node000036" title=" " alt="" coords="363,1008,304,1003,304,998,364,1003"/>
+<area shape="poly" id="edge45_Node000036_Node000024" title=" " alt="" coords="156,980,84,960,85,955,158,974"/>
+<area shape="poly" id="edge49_Node000037_Node000023" title=" " alt="" coords="402,1077,375,1065,350,1049,333,1030,324,1011,316,992,302,971,269,939,237,915,240,911,272,935,306,968,321,989,329,1009,337,1027,354,1045,378,1060,405,1072"/>
+<area shape="poly" id="edge48_Node000037_Node000036" title=" " alt="" coords="420,1077,351,1049,327,1035,303,1021,268,1009,270,1004,305,1016,329,1030,353,1044,422,1072"/>
+<area shape="rect" id="Node000038" href="$classSceneClear.html#af940b84babd898d98877d30fdb0ad56c" title=" " alt="" coords="156,1129,280,1154"/>
+<area shape="poly" id="edge50_Node000037_Node000038" title=" " alt="" coords="395,1110,281,1132,279,1127,394,1105"/>
+<area shape="rect" id="Node000039" href="$classSceneFailed.html#a1e540254b1a2bfab52ee4d8af2e8181c" title=" " alt="" coords="154,1178,282,1203"/>
+<area shape="poly" id="edge51_Node000037_Node000039" title=" " alt="" coords="436,1113,375,1141,305,1169,269,1181,268,1175,303,1164,373,1136,434,1108"/>
+<area shape="rect" id="Node000040" href="$classCSceneTest.html#af72294d8bca5d127055fdcf296cc1e5c" title=" " alt="" coords="155,1030,281,1055"/>
+<area shape="poly" id="edge52_Node000037_Node000040" title=" " alt="" coords="394,1079,280,1057,281,1052,395,1074"/>
+<area shape="rect" id="Node000041" href="$classSceneTitle.html#a06205b4d192b9d9b9ca9bccbb61af2d2" title=" " alt="" coords="159,1079,277,1105"/>
+<area shape="poly" id="edge53_Node000037_Node000041" title=" " alt="" coords="360,1095,278,1095,278,1089,360,1089"/>
+<area shape="poly" id="edge55_Node000042_Node000023" title=" " alt="" coords="366,698,354,705,328,725,306,748,269,801,242,851,227,888,222,886,237,849,264,798,302,745,325,721,350,700,363,693"/>
 </map>

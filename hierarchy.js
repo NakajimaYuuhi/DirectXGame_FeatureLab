@@ -426,6 +426,7 @@ var hierarchy =
     [ "nlohmann::detail::internal_iterator< BasicJsonType >", "structnlohmann_1_1detail_1_1internal__iterator.html", null ],
     [ "nlohmann::detail::internal_iterator< typename std::remove_const< BasicJsonType >::type >", "structnlohmann_1_1detail_1_1internal__iterator.html", null ],
     [ "IRenderPass", "classIRenderPass.html", [
+      [ "CompositePass", "classCompositePass.html", null ],
       [ "ForwardRenderPass", "classForwardRenderPass.html", null ],
       [ "GPUParticlePass", "classGPUParticlePass.html", null ],
       [ "PostProcessPass", "classPostProcessPass.html", null ],
@@ -483,6 +484,7 @@ var hierarchy =
     [ "nlohmann::detail::json_sax_acceptor< BasicJsonType >", "classnlohmann_1_1detail_1_1json__sax__acceptor.html", null ],
     [ "nlohmann::detail::json_sax_dom_callback_parser< BasicJsonType >", "classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html", null ],
     [ "nlohmann::detail::json_sax_dom_parser< BasicJsonType >", "classnlohmann_1_1detail_1_1json__sax__dom__parser.html", null ],
+    [ "CompositePass::Layer", "structCompositePass_1_1Layer.html", null ],
     [ "std::less<::nlohmann::detail::value_t >", "structstd_1_1less_3_1_1nlohmann_1_1detail_1_1value__t_01_4.html", null ],
     [ "nlohmann::detail::lexer_base< BasicJsonType >", "classnlohmann_1_1detail_1_1lexer__base.html", [
       [ "nlohmann::detail::lexer< BasicJsonType, InputAdapterType >", "classnlohmann_1_1detail_1_1lexer.html", null ]
@@ -537,6 +539,7 @@ var hierarchy =
     [ "PSOBuilder", "classPSOBuilder.html", null ],
     [ "PSOManager", "classPSOManager.html", null ],
     [ "Ray", "structRay.html", null ],
+    [ "RenderBlackboard", "classRenderBlackboard.html", null ],
     [ "RenderContext", "structRenderContext.html", null ],
     [ "RenderPipeline", "classRenderPipeline.html", null ],
     [ "RenderTexture", "classRenderTexture.html", null ],
@@ -549,6 +552,7 @@ var hierarchy =
     [ "SceneManager", "classSceneManager.html", null ],
     [ "SceneSerializer", "classSceneSerializer.html", null ],
     [ "nlohmann::detail::serializer< BasicJsonType >", "classnlohmann_1_1detail_1_1serializer.html", null ],
+    [ "PostProcessPass::Settings", "structPostProcessPass_1_1Settings.html", null ],
     [ "Shader", "classShader.html", null ],
     [ "ShaderManager", "classShaderManager.html", null ],
     [ "ShadowMap", "classShadowMap.html", null ],

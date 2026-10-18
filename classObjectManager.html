@@ -122,8 +122,10 @@ $(document).ready(function(){initNavTree('classObjectManager.html',''); initResi
 <tr class="separator:a179ee90458deb80834ccbd7432df76a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a852d554df9444454176abeb96d2524b2" id="r_a852d554df9444454176abeb96d2524b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectManager.html#a852d554df9444454176abeb96d2524b2">Draw</a> (<a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275">Scenes::ID</a> _SceneID)</td></tr>
 <tr class="separator:a852d554df9444454176abeb96d2524b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae70e58ca78e40f6d3cf1a7b04a83d18c" id="r_ae70e58ca78e40f6d3cf1a7b04a83d18c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectManager.html#ae70e58ca78e40f6d3cf1a7b04a83d18c">DrawByLayer</a> (<a class="el" href="RenderLayer_8h.html#ad16d91520dd8dbd7a2178564fce5a168">RenderLayer</a> layer)</td></tr>
-<tr class="separator:ae70e58ca78e40f6d3cf1a7b04a83d18c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6f195cfeff8a15cda0935dcbf7145e5" id="r_aa6f195cfeff8a15cda0935dcbf7145e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectManager.html#aa6f195cfeff8a15cda0935dcbf7145e5">DrawByLayer</a> (<a class="el" href="RenderLayer_8h.html#ad16d91520dd8dbd7a2178564fce5a168">RenderLayer</a> layer, uint32_t tagMask=0xFFFFFFFFu)</td></tr>
+<tr class="separator:aa6f195cfeff8a15cda0935dcbf7145e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb9874805810298ed03236dcf7c9386b" id="r_abb9874805810298ed03236dcf7c9386b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectManager.html#abb9874805810298ed03236dcf7c9386b">DrawFiltered</a> (uint32_t tagMask=0xFFFFFFFFu, int layerFilter=-1)</td></tr>
+<tr class="separator:abb9874805810298ed03236dcf7c9386b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf5f2dc33793a8077550bc1aa7add553" id="r_aaf5f2dc33793a8077550bc1aa7add553"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectManager.html#aaf5f2dc33793a8077550bc1aa7add553">DrawShadow</a> (const DirectX::XMMATRIX &amp;lightViewProj)</td></tr>
 <tr class="separator:aaf5f2dc33793a8077550bc1aa7add553"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab16bd9ac9432145857d4e09f1fd9920b" id="r_ab16bd9ac9432145857d4e09f1fd9920b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classObjectManager.html#ab16bd9ac9432145857d4e09f1fd9920b">FlushDestroyedObjects</a> ()</td></tr>
@@ -335,8 +337,8 @@ $(document).ready(function(){initNavTree('classObjectManager.html',''); initResi
 
 </div>
 </div>
-<a id="ae70e58ca78e40f6d3cf1a7b04a83d18c" name="ae70e58ca78e40f6d3cf1a7b04a83d18c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae70e58ca78e40f6d3cf1a7b04a83d18c">&#9670;&#160;</a></span>DrawByLayer()</h2>
+<a id="aa6f195cfeff8a15cda0935dcbf7145e5" name="aa6f195cfeff8a15cda0935dcbf7145e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6f195cfeff8a15cda0935dcbf7145e5">&#9670;&#160;</a></span>DrawByLayer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -345,15 +347,63 @@ $(document).ready(function(){initNavTree('classObjectManager.html',''); initResi
           <td class="memname">void ObjectManager::DrawByLayer </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="RenderLayer_8h.html#ad16d91520dd8dbd7a2178564fce5a168">RenderLayer</a>&#160;</td>
-          <td class="paramname"><em>layer</em></td><td>)</td>
+          <td class="paramname"><em>layer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>tagMask</em> = <code>0xFFFFFFFFu</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classObjectManager_ae70e58ca78e40f6d3cf1a7b04a83d18c_icgraph.svg" width="643" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classObjectManager_aa6f195cfeff8a15cda0935dcbf7145e5_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="abb9874805810298ed03236dcf7c9386b" name="abb9874805810298ed03236dcf7c9386b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb9874805810298ed03236dcf7c9386b">&#9670;&#160;</a></span>DrawFiltered()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ObjectManager::DrawFiltered </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>tagMask</em> = <code>0xFFFFFFFFu</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>layerFilter</em> = <code>-1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classObjectManager_abb9874805810298ed03236dcf7c9386b_cgraph.svg" width="487" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classObjectManager_abb9874805810298ed03236dcf7c9386b_icgraph.svg" width="428" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
