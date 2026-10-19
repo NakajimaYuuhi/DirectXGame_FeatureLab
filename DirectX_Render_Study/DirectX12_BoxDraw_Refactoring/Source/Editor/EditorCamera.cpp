@@ -1,4 +1,4 @@
-ï»¿#include "EditorCamera.h"
+#include "EditorCamera.h"
 #include "InputManager.h"
 #include "ViewportUI.h"
 #include "InspectorUI.h"
@@ -101,7 +101,7 @@ void EditorCamera::Update(float deltaTime)
     bool middleTrigger = CInputManager::GetInstance().IsMouseTrigger(MouseButton::Middle);
     bool leftTrigger = CInputManager::GetInstance().IsMouseTrigger(MouseButton::Left);
 
-    // æ“ä½œé–‹å§‹åˆ¤å®šï¼ˆãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆå†…ã§ã‚¯ãƒªãƒƒã‚¯é–‹å§‹ï¼‰
+    // ‘€ìŠJn”»’èiƒrƒ…[ƒ|[ƒg“à‚ÅƒNƒŠƒbƒNŠJnj
     if (isHovered)
     {
         if (rightTrigger || middleTrigger || (altPress && leftTrigger))
@@ -110,7 +110,7 @@ void EditorCamera::Update(float deltaTime)
         }
     }
 
-    // ãƒœã‚¿ãƒ³ãŒã™ã¹ã¦é›¢ã•ã‚ŒãŸã‚‰ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³çµ‚äº†
+    // ƒ{ƒ^ƒ“‚ª‚·‚×‚Ä—£‚³‚ê‚½‚çƒiƒrƒQ[ƒVƒ‡ƒ“I—¹
     if (!rightPress && !middlePress && !(altPress && leftPress))
     {
         m_isNavigating = false;
@@ -128,16 +128,16 @@ void EditorCamera::Update(float deltaTime)
         if (rightPress)
         {
             // -------------------------------------------------------------
-            // 1. ãƒ•ãƒ©ã‚¤ã‚¹ãƒ«ãƒ¼ç§»å‹•ï¼ˆå³ãƒœã‚¿ãƒ³ãƒ‰ãƒ©ãƒƒã‚° + WASD / QEï¼‰
+            // 1. ƒtƒ‰ƒCƒXƒ‹[ˆÚ“®i‰Eƒ{ƒ^ƒ“ƒhƒ‰ƒbƒO + WASD / QEj
             // -------------------------------------------------------------
             m_yaw -= deltaX * m_mouseSensitivity;
             m_pitch += deltaY * m_mouseSensitivity;
 
-            // ãƒ”ãƒƒãƒè§’ã‚¯ãƒ©ãƒ³ãƒ— (-85åº¦ ~ +85åº¦)
+            // ƒsƒbƒ`ŠpƒNƒ‰ƒ“ƒv (-85“x ~ +85“x)
             const float maxPitch = DirectX::XM_PIDIV2 * 0.94f;
             m_pitch = std::clamp(m_pitch, -maxPitch, maxPitch);
 
-            // ãƒ•ãƒ©ã‚¤é€Ÿåº¦èª¿æ•´ï¼ˆå³ãƒ‰ãƒ©ãƒƒã‚°ä¸­ã«ãƒ›ã‚¤ãƒ¼ãƒ«å›è»¢ï¼‰
+            // ƒtƒ‰ƒC‘¬“x’²®i‰Eƒhƒ‰ƒbƒO’†‚ÉƒzƒC[ƒ‹‰ñ“]j
             float wheel = CInputManager::GetInstance().GetMouseWheel();
             if (wheel != 0.0f)
             {
@@ -146,7 +146,7 @@ void EditorCamera::Update(float deltaTime)
                 if (m_flySpeed > 100.0f) m_flySpeed = 100.0f;
             }
 
-            // ç§»å‹•å…¥åŠ›ï¼ˆWASD / QEï¼‰
+            // ˆÚ“®“ü—ÍiWASD / QEj
             float speed = m_flySpeed;
             if (CInputManager::GetInstance().IsKeyPress(VK_SHIFT))
             {
@@ -172,11 +172,11 @@ void EditorCamera::Update(float deltaTime)
             }
             if (CInputManager::GetInstance().IsKeyPress('E'))
             {
-                move.y += 1.0f; // ä¸Šæ˜‡
+                move.y += 1.0f; // ã¸
             }
             if (CInputManager::GetInstance().IsKeyPress('Q'))
             {
-                move.y -= 1.0f; // ä¸‹é™
+                move.y -= 1.0f; // ‰º~
             }
 
             float lenSq = move.x * move.x + move.y * move.y + move.z * move.z;
@@ -189,7 +189,7 @@ void EditorCamera::Update(float deltaTime)
                 m_position.y += move.y * speed * deltaTime;
                 m_position.z += move.z * speed * deltaTime;
 
-                // æ³¨è¦–ç‚¹ã‚‚ã‚«ãƒ¡ãƒ©ç§»å‹•ã«åˆã‚ã›ã¦è¿½å¾“
+                // ’‹“_‚àƒJƒƒ‰ˆÚ“®‚É‡‚í‚¹‚Ä’Ç]
                 m_focalPoint = {
                     m_position.x + forward.x * m_distance,
                     m_position.y + forward.y * m_distance,
@@ -200,7 +200,7 @@ void EditorCamera::Update(float deltaTime)
         else if (middlePress)
         {
             // -------------------------------------------------------------
-            // 2. ãƒ‘ãƒ³ç§»å‹•ï¼ˆä¸­ãƒœã‚¿ãƒ³ãƒ‰ãƒ©ãƒƒã‚°ï¼‰
+            // 2. ƒpƒ“ˆÚ“®i’†ƒ{ƒ^ƒ“ƒhƒ‰ƒbƒOj
             // -------------------------------------------------------------
             float factor = m_panSpeed * (m_distance * 0.1f + 1.0f);
             float panX = deltaX * factor;
@@ -217,7 +217,7 @@ void EditorCamera::Update(float deltaTime)
         else if (altPress && leftPress)
         {
             // -------------------------------------------------------------
-            // 3. ã‚ªãƒ¼ãƒ“ãƒƒãƒˆå‘¨å›ï¼ˆAlt + å·¦ãƒ‰ãƒ©ãƒƒã‚°ï¼‰
+            // 3. ƒI[ƒrƒbƒgü‰ñiAlt + ¶ƒhƒ‰ƒbƒOj
             // -------------------------------------------------------------
             m_yaw -= deltaX * m_orbitSensitivity;
             m_pitch += deltaY * m_orbitSensitivity;
@@ -235,7 +235,7 @@ void EditorCamera::Update(float deltaTime)
     }
 
     // -------------------------------------------------------------
-    // 4. ãƒã‚¦ã‚¹ãƒ›ã‚¤ãƒ¼ãƒ«ã«ã‚ˆã‚‹ãƒ‰ãƒªãƒ¼ / ã‚ºãƒ¼ãƒ ï¼ˆå˜ä½“æ“ä½œï¼‰
+    // 4. ƒ}ƒEƒXƒzƒC[ƒ‹‚É‚æ‚éƒhƒŠ[ / ƒY[ƒ€i’P‘Ì‘€ìj
     // -------------------------------------------------------------
     if (isHovered && !rightPress)
     {
@@ -255,7 +255,7 @@ void EditorCamera::Update(float deltaTime)
     }
 
     // -------------------------------------------------------------
-    // 5. Fã‚­ãƒ¼ã§é¸æŠä¸­ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¸ã®ãƒ•ã‚©ãƒ¼ã‚«ã‚¹
+    // 5. FƒL[‚Å‘I‘ğ’†ƒIƒuƒWƒFƒNƒg‚Ö‚ÌƒtƒH[ƒJƒX
     // -------------------------------------------------------------
     if (isHovered && !io.WantTextInput && CInputManager::GetInstance().IsKeyTrigger('F'))
     {

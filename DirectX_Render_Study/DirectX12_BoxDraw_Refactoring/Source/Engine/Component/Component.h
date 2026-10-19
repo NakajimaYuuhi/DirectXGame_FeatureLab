@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "RenderLayer.h"
+#include "EngineAPI.h"
 
 using String = std::string;
 
@@ -24,6 +25,10 @@ public:
     CComponent() : m_ComponentName(""), m_ComponentIsValid(true), m_enabled(true), m_Owner(nullptr) {}
     CComponent(String _Name) : m_ComponentName(_Name), m_ComponentIsValid(true), m_enabled(true), m_Owner(nullptr) {}
     virtual ~CComponent() = default;
+
+    // Ensure all CComponent allocations and deallocations occur on the Engine EXE heap across DLL boundaries
+    ENGINE_API static void* operator new(size_t size);
+    ENGINE_API static void operator delete(void* ptr) noexcept;
 
     // Lifecycle methods
     virtual void Init() {}
@@ -56,7 +61,7 @@ public:
     }
 
     // Getter / Setter
-    String GetName() const { return m_ComponentName; }
+    const String& GetName() const { return m_ComponentName; }
     bool GetIsValid() const { return m_ComponentIsValid; }
     bool GetIsVarid() const { return m_ComponentIsValid; } // Backward compatibility
     virtual void SetName(String _Name) { m_ComponentName = _Name; }

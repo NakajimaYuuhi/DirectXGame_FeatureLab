@@ -1,4 +1,4 @@
-ï»¿#pragma once
+#pragma once
 #include <DirectXMath.h>
 #include <Windows.h>
 
@@ -22,7 +22,7 @@ public:
     float GetYaw() const { return m_yaw; }
     float GetPitch() const { return m_pitch; }
 
-    // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ï¼ˆé¸æŠã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç­‰ã®ãƒ¯ãƒ¼ãƒ«ãƒ‰åº§æ¨™ã‚’ä¸­å¿ƒã«ã™ã‚‹ï¼‰
+    // ƒtƒH[ƒJƒXi‘I‘ğƒIƒuƒWƒFƒNƒg“™‚Ìƒ[ƒ‹ƒhÀ•W‚ğ’†S‚É‚·‚éj
     void FocusOn(const DirectX::XMFLOAT3& targetPos, float distance = 5.0f);
 
     void SetFov(float fov) { m_fov = fov; UpdateProjection(); }
@@ -45,7 +45,7 @@ private:
     DirectX::XMFLOAT3 m_focalPoint = { 0.0f, 1.0f, 0.0f };
     float m_distance = 8.0f;
 
-    float m_pitch = 0.35f; // ç´„20åº¦è¦‹ä¸‹ã‚ã—
+    float m_pitch = 0.35f; // –ñ20“xŒ©‰º‚ë‚µ
     float m_yaw = 0.0f;
 
     float m_flySpeed = 10.0f;
@@ -55,7 +55,7 @@ private:
     float m_mouseSensitivity = 0.003f;
     float m_zoomSensitivity = 1.0f;
 
-    float m_fov = DirectX::XM_PIDIV4; // 45åº¦
+    float m_fov = DirectX::XM_PIDIV4; // 45“x
     float m_aspectRatio = 16.0f / 9.0f;
     float m_nearZ = 0.1f;
     float m_farZ = 1000.0f;

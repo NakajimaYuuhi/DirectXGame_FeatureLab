@@ -80,16 +80,8 @@ void PrefabManager::InitDefaultPrefabs()
 		// Core components
 		obj->AddComponent<GravityComponent>(-25.0f, 8.5f);
 		obj->AddComponent<CharacterMovementComponent>(0.1f);
-		HealthComponent* health = obj->AddComponent<HealthComponent>(10, 1.5f, 0.08f);
-		PlayerControllerComponent* controller = obj->AddComponent<PlayerControllerComponent>();
-
-		// Bind health callbacks to controller
-		health->SetOnDamagedCallback([controller](int, int) {
-			if (controller) controller->OnDamaged();
-		});
-		health->SetOnDieCallback([controller]() {
-			if (controller) controller->OnDie();
-		});
+		ComponentFactory::GetInstance().CreateComponent("Health", obj, { {"MaxHP", 10}, {"InvincibleDuration", 1.5f}, {"BlinkInterval", 0.08f} });
+		ComponentFactory::GetInstance().CreateComponent("PlayerController", obj, nlohmann::json::object());
 
 		return obj;
 	});
@@ -121,16 +113,8 @@ void PrefabManager::InitDefaultPrefabs()
 		// Core components
 		obj->AddComponent<GravityComponent>(-25.0f, 0.0f);
 		obj->AddComponent<CharacterMovementComponent>(0.05f);
-		HealthComponent* health = obj->AddComponent<HealthComponent>(3, 0.3f, 0.06f);
-		EnemyAIComponent* ai = obj->AddComponent<EnemyAIComponent>();
-
-		// Bind health callbacks to AI
-		health->SetOnDamagedCallback([ai](int, int) {
-			if (ai) ai->OnDamaged();
-		});
-		health->SetOnDieCallback([ai]() {
-			if (ai) ai->OnDie();
-		});
+		ComponentFactory::GetInstance().CreateComponent("Health", obj, { {"MaxHP", 3}, {"InvincibleDuration", 0.3f}, {"BlinkInterval", 0.06f} });
+		ComponentFactory::GetInstance().CreateComponent("EnemyAI", obj, nlohmann::json::object());
 
 		return obj;
 	});

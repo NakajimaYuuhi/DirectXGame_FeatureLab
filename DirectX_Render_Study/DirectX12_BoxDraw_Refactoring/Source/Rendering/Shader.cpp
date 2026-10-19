@@ -3,8 +3,13 @@
 #include <fstream>
 #include <vector>
 
-bool Shader::CompileFromFile(const std::wstring& filePath, const std::string& entryPoint, const std::string& target)
+bool Shader::CompileFromFile(const std::wstring& filePath, const std::string& entryPoint, const std::string& target, std::string* outError)
 {
+    m_filePath = filePath;
+    m_entryPoint = entryPoint;
+    m_target = target;
+
+    ComPtr<ID3DBlob> newBlob;
     ComPtr<ID3DBlob> errorBlob;
     
     HRESULT hr = D3DCompileFromFile(
@@ -15,19 +20,36 @@ bool Shader::CompileFromFile(const std::wstring& filePath, const std::string& en
         target.c_str(),
         D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION,
         0,
-        &m_blob,
+        &newBlob,
         &errorBlob
     );
 
     if (FAILED(hr))
     {
-        if (errorBlob)
+        if (errorBlob && errorBlob->GetBufferPointer())
         {
-            OutputDebugStringA((char*)errorBlob->GetBufferPointer());
+            std::string errStr(static_cast<const char*>(errorBlob->GetBufferPointer()), errorBlob->GetBufferSize());
+            OutputDebugStringA(errStr.c_str());
+            if (outError) *outError += errStr;
+        }
+        else if (outError)
+        {
+            *outError += "Failed to compile shader entry: " + entryPoint + "\n";
         }
         return false;
     }
+
+    m_blob = newBlob;
     return true;
+}
+
+bool Shader::Recompile(std::string* outError)
+{
+    if (!IsCompiledFromFile())
+    {
+        return true;
+    }
+    return CompileFromFile(m_filePath, m_entryPoint, m_target, outError);
 }
 
 bool Shader::LoadFromCSO(const std::wstring& csoFilePath)

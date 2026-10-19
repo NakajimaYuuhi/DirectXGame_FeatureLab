@@ -27,19 +27,19 @@ public:
 
 	UpdatePhase GetUpdatePhase() const override { return UpdatePhase::AI; }
 
-	// State notifications
-	void OnDamaged();
-	void OnDie();
+	// State notifications (virtual for cross-DLL vtable dispatch)
+	virtual void OnDamaged();
+	virtual void OnDie();
 
 	// State getter
 	EnemyAIState GetCurrentState() const { return m_currentState; }
-	void ChangeState(EnemyAIState newState);
+	virtual void ChangeState(EnemyAIState newState);
 
 	void SetDeathEffectPrefab(const std::string& prefab) { m_deathEffectPrefab = prefab; }
-	std::string GetDeathEffectPrefab() const { return m_deathEffectPrefab; }
+	const std::string& GetDeathEffectPrefab() const { return m_deathEffectPrefab; }
 
 	void SetDamagedEffectPrefab(const std::string& prefab) { m_damagedEffectPrefab = prefab; }
-	std::string GetDamagedEffectPrefab() const { return m_damagedEffectPrefab; }
+	const std::string& GetDamagedEffectPrefab() const { return m_damagedEffectPrefab; }
 
 private:
 	void UpdateState(float deltaTime);

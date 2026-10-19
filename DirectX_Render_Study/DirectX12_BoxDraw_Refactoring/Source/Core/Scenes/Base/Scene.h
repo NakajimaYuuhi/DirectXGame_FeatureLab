@@ -7,7 +7,7 @@ using String = std::string;
 class RenderPipeline;
 class RenderTexture;
 
-//===== 繧ｯ繝ｩ繧ｹ螳夂ｾｩ =====
+//===== クラス定義 =====
 class CScene
 {
 public:
@@ -19,10 +19,10 @@ public:
 	virtual void Update()	= 0;
 	virtual void Draw()		= 0;
 
-	// 繝ｬ繝ｳ繝繝ｪ繝ｳ繧ｰ繝代う繝励Λ繧､繝ｳ縺ｸ縺ｮ繧｢繧ｯ繧ｻ繧ｵ
+	// レンダリングパイプラインへのアクセサ
 	virtual RenderPipeline* GetRenderPipeline() { return nullptr; }
 
-	// 繧ｷ繝ｼ繝ｳ逕ｨ繝ｬ繝ｳ繝繝ｼ繧ｿ繝ｼ繧ｲ繝�繝医∈縺ｮ繧｢繧ｯ繧ｻ繧ｵ
+	// シーン用レンダーターゲットへのアクセサ
 	virtual RenderTexture* GetSceneTexture() { return nullptr; }
 
 	//----- Getter -----

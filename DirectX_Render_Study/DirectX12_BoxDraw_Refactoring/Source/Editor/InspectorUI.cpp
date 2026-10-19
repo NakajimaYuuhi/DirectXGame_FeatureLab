@@ -8,6 +8,7 @@
 #include "ModelManager.h"
 #include "PrefabManager.h"
 #include "PrefabSerializer.h"
+#include "ComponentFactory.h"
 #include "audio.h"
 #include <filesystem>
 #include "imgui.h"
@@ -552,7 +553,7 @@ void CInspectorUI::Draw()
         ImGui::Spacing();
         ImGui::Separator();
 
-        // 3. Chromatic Aberration (è‰²åŽå·®)
+        // 3. Chromatic Aberration (FŽû·)
         ImGui::Text("Chromatic Aberration");
         bool caEnabled = lightMgr.IsChromaticAberrationEnabled();
         if (ImGui::Checkbox("Enable Chromatic Aberration", &caEnabled))
@@ -571,7 +572,7 @@ void CInspectorUI::Draw()
         ImGui::Spacing();
         ImGui::Separator();
 
-        // 4. Outline / Edge Detection (è¼ªéƒ­ç·š)
+        // 4. Outline / Edge Detection (—ÖŠsü)
         ImGui::Text("Outline (Sobel Edge Filter)");
         bool outlineEnabled = lightMgr.IsOutlineEnabled();
         if (ImGui::Checkbox("Enable Outline", &outlineEnabled))
@@ -1416,7 +1417,7 @@ void CInspectorUI::Draw()
                 {
                     if (ImGui::CollapsingHeader("Transform", ImGuiTreeNodeFlags_DefaultOpen))
                     {
-                        // é««ä¸»ï½±ï½¤è« ãƒ»ï¿½ï½±
+                        // éšŽå±¤æƒE?±
                         CTransform* parentTrans = transform->GetParent();
                         if (parentTrans)
                         {
@@ -1444,7 +1445,7 @@ void CInspectorUI::Draw()
 
                         ImGui::Separator();
 
-                        // ç¹ï½­ç¹ï½¼ç¹§ï½«ç¹ï½«èŸ‹ï½¿èœï½¢
+                        // ãƒ­ãƒ¼ã‚«ãƒ«å§¿å‹¢
                         DirectX::XMFLOAT3 pos = transform->GetPos();
                         if (ImGui::DragFloat3("Position", &pos.x, 0.1f))
                         {
@@ -1463,7 +1464,7 @@ void CInspectorUI::Draw()
                             transform->SetScale(scale);
                         }
 
-                        // ç¹ï½¯ç¹ï½¼ç¹ï½«ç¹ç‰™ï½§ï½¿èœï½¢ç¸ºï½®ç¹ãƒ»ãƒ°ç¹ãƒ»ã’é™¦ï½¨é‰ï½º
+                        // ãƒ¯ãƒ¼ãƒ«ãƒ‰å§¿å‹¢ã®ãƒEƒãƒE‚°è¡¨ç¤º
                         if (ImGui::TreeNode("World Transform (Read Only)"))
                         {
                             DirectX::XMFLOAT3 wPos = transform->GetWorldPosition();
@@ -2420,28 +2421,28 @@ void CInspectorUI::Draw()
                     {
                         if (ImGui::Selectable("Health Component"))
                         {
-                            selectedObj->AddComponent<HealthComponent>();
+                            ComponentFactory::GetInstance().CreateComponent("HealthComponent", selectedObj, nlohmann::json::object());
                         }
                     }
                     if (MatchesFilter("Player Controller Component") && !selectedObj->GetComponent<PlayerControllerComponent>())
                     {
                         if (ImGui::Selectable("Player Controller Component"))
                         {
-                            selectedObj->AddComponent<PlayerControllerComponent>();
+                            ComponentFactory::GetInstance().CreateComponent("PlayerControllerComponent", selectedObj, nlohmann::json::object());
                         }
                     }
                     if (MatchesFilter("Enemy AI Component") && !selectedObj->GetComponent<EnemyAIComponent>())
                     {
                         if (ImGui::Selectable("Enemy AI Component"))
                         {
-                            selectedObj->AddComponent<EnemyAIComponent>();
+                            ComponentFactory::GetInstance().CreateComponent("EnemyAIComponent", selectedObj, nlohmann::json::object());
                         }
                     }
                     if (MatchesFilter("Bullet Component") && !selectedObj->GetComponent<BulletComponent>())
                     {
                         if (ImGui::Selectable("Bullet Component"))
                         {
-                            selectedObj->AddComponent<BulletComponent>();
+                            ComponentFactory::GetInstance().CreateComponent("BulletComponent", selectedObj, nlohmann::json::object());
                         }
                     }
                     if (MatchesFilter("Camera Component") && !selectedObj->GetComponent<CameraComponent>())
@@ -2533,7 +2534,7 @@ void CInspectorUI::DrawGizmo(ImDrawList* drawList, const ImVec2& vpPos, const Im
 {
     if (!drawList || vpSize.x <= 0.0f || vpSize.y <= 0.0f) return;
 
-    // EditMode ã¾ãŸã¯ PrefabEditMode ã®ã¨ãã®ã¿ã‚®ã‚ºãƒ¢ã‚’æç”»ãƒ»æ“ä½œã™ã‚‹
+    // EditMode ‚Ü‚½‚Í PrefabEditMode ‚Ì‚Æ‚«‚Ì‚ÝƒMƒYƒ‚‚ð•`‰æE‘€ì‚·‚é
     if (!m_isEditMode && !m_isPrefabEditMode)
     {
         m_isDraggingGizmo = false;
@@ -2615,7 +2616,7 @@ void CInspectorUI::DrawGizmo(ImDrawList* drawList, const ImVec2& vpPos, const Im
     ImGuiIO& io = ImGui::GetIO();
     ImVec2 mousePos = io.MousePos;
 
-    // Viewportã®ç”»åƒç¯„å›²å†…ã«ã‚¯ãƒªãƒƒãƒ”ãƒ³ã‚°ã‚’ã‹ã‘ã‚‹
+    // Viewport‚Ì‰æ‘œ”ÍˆÍ“à‚ÉƒNƒŠƒbƒsƒ“ƒO‚ð‚©‚¯‚é
     drawList->PushClipRect(vpPos, ImVec2(vpPos.x + vpSize.x, vpPos.y + vpSize.y), true);
 
     ImVec2 originScreen = ImVec2(fOrigin.x, fOrigin.y);
@@ -2628,7 +2629,7 @@ void CInspectorUI::DrawGizmo(ImDrawList* drawList, const ImVec2& vpPos, const Im
     int hoverAxis = -1;
     float minHoverDist = 16.0f; // Threshold in pixels
 
-    // ãƒžã‚¦ã‚¹ãŒãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆç”»åƒçŸ©å½¢å†…ã«ã‚ã‚‹ã‹ã€ã¾ãŸã¯ã™ã§ã«ãƒ‰ãƒ©ãƒƒã‚°ä¸­ã§ã‚ã‚‹å ´åˆã®ã¿ãƒ›ãƒãƒ¼/ãƒ‰ãƒ©ãƒƒã‚°åˆ¤å®š
+    // ƒ}ƒEƒX‚ªƒrƒ…[ƒ|[ƒg‰æ‘œ‹éŒ`“à‚É‚ ‚é‚©A‚Ü‚½‚Í‚·‚Å‚Éƒhƒ‰ƒbƒO’†‚Å‚ ‚éê‡‚Ì‚Ýƒzƒo[/ƒhƒ‰ƒbƒO”»’è
     bool mouseInVp = (mousePos.x >= vpPos.x && mousePos.x <= vpPos.x + vpSize.x &&
                       mousePos.y >= vpPos.y && mousePos.y <= vpPos.y + vpSize.y);
 

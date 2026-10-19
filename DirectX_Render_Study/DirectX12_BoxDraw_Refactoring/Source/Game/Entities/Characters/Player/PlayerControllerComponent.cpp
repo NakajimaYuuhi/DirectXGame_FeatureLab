@@ -128,7 +128,7 @@ bool PlayerControllerComponent::HasAttackInput() const
 
 {
 
-	// ãƒã‚¦ã‚¹å·¦ã‚¯ãƒªãƒƒã‚¯æ”»æ’ƒï¼ˆã‚«ãƒ¼ã‚½ãƒ«ãƒ­ãƒƒã‚¯æ™‚ã€ã™ãªã‚ã¡ã‚²ãƒ¼ãƒ ãƒ—ãƒ¬ã‚¤ä¸­ã§UIæ“ä½œæ™‚ã§ãªã„å ´åˆï¼‰
+	// ƒ}ƒEƒX¶ƒNƒŠƒbƒNUŒ‚iƒJ[ƒ\ƒ‹ƒƒbƒNA‚·‚È‚í‚¿ƒQ[ƒ€ƒvƒŒƒC’†‚ÅUI‘€ì‚Å‚È‚¢ê‡j
 
 	if (CInputManager::GetInstance().IsMouseTrigger(MouseButton::Left))
 
@@ -146,7 +146,7 @@ bool PlayerControllerComponent::HasAttackInput() const
 
 
 
-	// ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ 'I' ã‚­ãƒ¼ï¼ˆJã‚­ãƒ¼ã¯é™¤å¤–ï¼‰
+	// ƒL[ƒ{[ƒh 'I' ƒL[iJƒL[‚ÍœŠOj
 
 	if (CInputManager::GetInstance().IsKeyTrigger('I'))
 

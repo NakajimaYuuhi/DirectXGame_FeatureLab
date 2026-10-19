@@ -37,3 +37,19 @@ std::shared_ptr<Shader> ShaderManager::GetShaderFromCSO(const std::wstring& csoF
 
     return nullptr;
 }
+
+bool ShaderManager::ReloadAllShaders(std::string* outErrorLog)
+{
+    bool allSucceeded = true;
+    for (auto& kv : m_shaders)
+    {
+        if (kv.second && kv.second->IsCompiledFromFile())
+        {
+            if (!kv.second->Recompile(outErrorLog))
+            {
+                allSucceeded = false;
+            }
+        }
+    }
+    return allSucceeded;
+}

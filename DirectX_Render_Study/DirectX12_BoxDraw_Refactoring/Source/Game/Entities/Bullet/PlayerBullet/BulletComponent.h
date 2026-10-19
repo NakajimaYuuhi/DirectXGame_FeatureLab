@@ -32,7 +32,7 @@ public:
 	ObjectTag GetTargetTag() const { return m_targetTag; }
 
 	void SetHitEffectPrefab(const std::string& prefab) { m_hitEffectPrefab = prefab; }
-	std::string GetHitEffectPrefab() const { return m_hitEffectPrefab; }
+	const std::string& GetHitEffectPrefab() const { return m_hitEffectPrefab; }
 
 private:
 	DirectX::XMFLOAT3 m_direction = { 1.0f, 0.0f, 0.0f };

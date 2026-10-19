@@ -2,6 +2,7 @@
 #include <DirectXMath.h>
 #include <vector>
 #include <algorithm>
+#include "EngineAPI.h"
 #include "Component.h"
 
 //===== CTransform クラス定義 =====
@@ -28,56 +29,56 @@ private:
 
 public:
     // コンストラクタ
-    CTransform(
+    ENGINE_API CTransform(
         DirectX::XMFLOAT3 _Position = { 0.0f, 0.0f, 0.0f },
         DirectX::XMFLOAT3 _Rotation = { 0.0f, 0.0f, 0.0f },
         DirectX::XMFLOAT3 _Scale    = { 1.0f, 1.0f, 1.0f }
     );
 
     // デストラクタ
-    virtual ~CTransform();
+    ENGINE_API virtual ~CTransform();
 
     // -------------------------------------------------------------
     // 親子関係管理
     // -------------------------------------------------------------
-    void SetParent(CTransform* newParent, bool keepWorldTransform = false);
+    ENGINE_API void SetParent(CTransform* newParent, bool keepWorldTransform = false);
     CTransform* GetParent() const { return m_parent; }
     const std::vector<CTransform*>& GetChildren() const { return m_children; }
-    bool IsChildOf(const CTransform* potentialParent) const;
+    ENGINE_API bool IsChildOf(const CTransform* potentialParent) const;
 
     // -------------------------------------------------------------
     // ローカルプロパティ設定 / 取得（新規API）
     // -------------------------------------------------------------
-    void SetLocalPosition(const DirectX::XMFLOAT3& pos);
-    void SetLocalEulerAngles(const DirectX::XMFLOAT3& eulerRadians);
-    void SetLocalEulerAnglesDegrees(const DirectX::XMFLOAT3& eulerDegrees);
-    void SetLocalRotation(const DirectX::XMFLOAT4& quat);
-    void SetLocalScale(const DirectX::XMFLOAT3& scale);
+    ENGINE_API void SetLocalPosition(const DirectX::XMFLOAT3& pos);
+    ENGINE_API void SetLocalEulerAngles(const DirectX::XMFLOAT3& eulerRadians);
+    ENGINE_API void SetLocalEulerAnglesDegrees(const DirectX::XMFLOAT3& eulerDegrees);
+    ENGINE_API void SetLocalRotation(const DirectX::XMFLOAT4& quat);
+    ENGINE_API void SetLocalScale(const DirectX::XMFLOAT3& scale);
 
     const DirectX::XMFLOAT3& GetLocalPosition() const { return m_localPosition; }
     const DirectX::XMFLOAT3& GetLocalEulerAngles() const { return m_localEulerAngles; }
-    DirectX::XMFLOAT3 GetLocalEulerAnglesDegrees() const;
+    ENGINE_API DirectX::XMFLOAT3 GetLocalEulerAnglesDegrees() const;
     const DirectX::XMFLOAT4& GetLocalRotation() const { return m_localRotation; }
     const DirectX::XMFLOAT3& GetLocalScale() const { return m_localScale; }
 
     // -------------------------------------------------------------
     // ワールド行列・座標取得（遅延評価）
     // -------------------------------------------------------------
-    DirectX::XMMATRIX GetWorldMatrix() const;
-    DirectX::XMFLOAT3 GetWorldPosition() const;
-    DirectX::XMFLOAT4 GetWorldRotation() const;
-    DirectX::XMFLOAT3 GetWorldScale() const;
-    void UpdateWorldMatrix() const;
+    ENGINE_API DirectX::XMMATRIX GetWorldMatrix() const;
+    ENGINE_API DirectX::XMFLOAT3 GetWorldPosition() const;
+    ENGINE_API DirectX::XMFLOAT4 GetWorldRotation() const;
+    ENGINE_API DirectX::XMFLOAT3 GetWorldScale() const;
+    ENGINE_API void UpdateWorldMatrix() const;
 
     // -------------------------------------------------------------
     // 方向ベクトル（親の姿勢も反映したワールド向き）
     // -------------------------------------------------------------
-    DirectX::XMFLOAT3 GetFront() const;
-    DirectX::XMFLOAT3 GetUp() const;
-    DirectX::XMFLOAT3 GetRight() const;
+    ENGINE_API DirectX::XMFLOAT3 GetFront() const;
+    ENGINE_API DirectX::XMFLOAT3 GetUp() const;
+    ENGINE_API DirectX::XMFLOAT3 GetRight() const;
 
     // 上方向と前方向から回転を設定（ビルボード等で使用）
-    void SetRotationFromUpFront(DirectX::XMFLOAT3 _Up, DirectX::XMFLOAT3 _Front);
+    ENGINE_API void SetRotationFromUpFront(DirectX::XMFLOAT3 _Up, DirectX::XMFLOAT3 _Front);
 
     // -------------------------------------------------------------
     // 既存コード互換用メソッド（下位互換レイヤー）
@@ -106,9 +107,9 @@ public:
     void SetUVScale(DirectX::XMFLOAT2 _UVScale) { m_UVScale = _UVScale; }
 
 private:
-    void SetDirty() const;
-    void RemoveChild(CTransform* child);
-    void UpdateEulerFromQuaternion();
+    ENGINE_API void SetDirty() const;
+    ENGINE_API void RemoveChild(CTransform* child);
+    ENGINE_API void UpdateEulerFromQuaternion();
 };
 
 // エイリアス定義

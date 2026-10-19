@@ -1,4 +1,5 @@
 #pragma once
+#include "EngineAPI.h"
 #include "Component.h"
 #include <DirectXMath.h>
 
@@ -8,19 +9,19 @@ class GravityComponent;
 class CharacterMovementComponent : public CComponent
 {
 public:
-	CharacterMovementComponent();
-	CharacterMovementComponent(float speed);
+	ENGINE_API CharacterMovementComponent();
+	ENGINE_API CharacterMovementComponent(float speed);
 	virtual ~CharacterMovementComponent() = default;
 
-	void Start() override;
-	void Update(float deltaTime) override;
+	ENGINE_API void Start() override;
+	ENGINE_API void Update(float deltaTime) override;
 
 	UpdatePhase GetUpdatePhase() const override { return UpdatePhase::Movement; }
 
 	// Movement methods
-	void Move(const DirectX::XMFLOAT3& movement, float deltaTime);
-	void MoveDirection(const DirectX::XMFLOAT3& direction, float deltaTime);
-	void MoveTowards(const DirectX::XMFLOAT3& targetPos, float deltaTime);
+	ENGINE_API void Move(const DirectX::XMFLOAT3& movement, float deltaTime);
+	ENGINE_API void MoveDirection(const DirectX::XMFLOAT3& direction, float deltaTime);
+	ENGINE_API void MoveTowards(const DirectX::XMFLOAT3& targetPos, float deltaTime);
 
 	// Getters and setters
 	float GetSpeed() const { return m_speed; }

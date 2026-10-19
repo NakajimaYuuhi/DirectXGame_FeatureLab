@@ -28,19 +28,19 @@ public:
 	UpdatePhase GetUpdatePhase() const override { return UpdatePhase::Input; }
 
 	// Input checks
-	bool HasMoveInput() const;
-	bool HasAttackInput() const;
+	virtual bool HasMoveInput() const;
+	virtual bool HasAttackInput() const;
 
 	// Actions
-	void PerformAttack();
+	virtual void PerformAttack();
 
-	// State notifications (called by HealthComponent callbacks etc.)
-	void OnDamaged();
-	void OnDie();
+	// State notifications (virtual for cross-DLL vtable dispatch)
+	virtual void OnDamaged();
+	virtual void OnDie();
 
 	// State getter
 	PlayerControllerState GetCurrentState() const { return m_currentState; }
-	void ChangeState(PlayerControllerState newState);
+	virtual void ChangeState(PlayerControllerState newState);
 
 private:
 	void UpdateState(float deltaTime);
@@ -71,7 +71,7 @@ private:
 	const float DEATH_DURATION = 1.2f;
 
 	// Cached components and camera
-		CameraComponent*            m_cameraComp = nullptr;
+	CameraComponent*            m_cameraComp = nullptr;
 	CharacterMovementComponent* m_movementComp = nullptr;
 	GravityComponent*           m_gravityComp = nullptr;
 	HealthComponent*            m_healthComp = nullptr;

@@ -24,7 +24,7 @@ void CViewportUI::Draw()
     ImGui::SetNextWindowSize(ImVec2(centerW, viewportH), ImGuiCond_Always);
     ImGuiWindowFlags flags = ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize;
 
-    // ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°ã‚¼ãƒ­ã«ã—ã¦ç”»é¢ç«¯ã¾ã§ã´ã£ãŸã‚Šåˆã‚ã›ã‚‹
+    // ƒpƒfƒBƒ“ƒOƒ[ƒ‚É‚µ‚Ä‰æ–Ê’[‚Ü‚Å‚Ò‚Á‚½‚è‡‚í‚¹‚é
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
     if (ImGui::Begin("Viewport", &m_isVisible, flags))
     {
@@ -37,7 +37,7 @@ void CViewportUI::Draw()
 
         if (contentSize.x > 0.0f && contentSize.y > 0.0f && m_isTextureAvailable && m_textureSRV.ptr != 0)
         {
-            // 16:9 ã®ã‚¢ã‚¹ãƒšã‚¯ãƒˆæ¯”ã‚’ç¶­æŒ
+            // 16:9 ‚ÌƒAƒXƒyƒNƒg”ä‚ğˆÛ
             const float targetAspect = 16.0f / 9.0f;
             const float currentAspect = contentSize.x / contentSize.y;
 
@@ -46,18 +46,18 @@ void CViewportUI::Draw()
 
             if (currentAspect > targetAspect)
             {
-                // æ¨ªé•·ã®å ´åˆï¼ˆãƒ”ãƒ©ãƒ¼ãƒœãƒƒã‚¯ã‚¹: å·¦å³ã«ä½™ç™½ï¼‰
+                // ‰¡’·‚Ìê‡iƒsƒ‰[ƒ{ƒbƒNƒX: ¶‰E‚É—]”’j
                 renderW = contentSize.y * targetAspect;
                 renderH = contentSize.y;
             }
             else
             {
-                // ç¸¦é•·ã®å ´åˆï¼ˆãƒ¬ã‚¿ãƒ¼ãƒœãƒƒã‚¯ã‚¹: ä¸Šä¸‹ã«ä½™ç™½ï¼‰
+                // c’·‚Ìê‡iƒŒƒ^[ƒ{ƒbƒNƒX: ã‰º‚É—]”’j
                 renderW = contentSize.x;
                 renderH = contentSize.x / targetAspect;
             }
 
-            // ä¸­å¤®æƒãˆã®ãŸã‚ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆè¨ˆç®—
+            // ’†‰›‘µ‚¦‚Ì‚½‚ß‚ÌƒIƒtƒZƒbƒgŒvZ
             float offsetX = (contentSize.x - renderW) * 0.5f;
             float offsetY = (contentSize.y - renderH) * 0.5f;
 
@@ -67,16 +67,16 @@ void CViewportUI::Draw()
             m_imagePos = ImGui::GetCursorScreenPos();
             m_imageSize = ImVec2(renderW, renderH);
 
-            // ImTextureID ã«å¤‰æ›ã—ã¦æç”»
+            // ImTextureID ‚É•ÏŠ·‚µ‚Ä•`‰æ
             ImTextureID texID = static_cast<ImTextureID>(m_textureSRV.ptr);
             ImGui::Image(texID, ImVec2(renderW, renderH));
 
-            // 1. 3Dãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒ ã‚®ã‚ºãƒ¢æç”»ï¼ˆViewportã‚¦ã‚£ãƒ³ãƒ‰ã‚¦å†…DrawListï¼‰
+            // 1. 3Dƒgƒ‰ƒ“ƒXƒtƒH[ƒ€ƒMƒYƒ‚•`‰æiViewportƒEƒBƒ“ƒhƒE“àDrawListj
             CInspectorUI::GetInstance().DrawColliders(ImGui::GetWindowDrawList(), m_imagePos, m_imageSize);
             CInspectorUI::GetInstance().DrawLights(ImGui::GetWindowDrawList(), m_imagePos, m_imageSize);
             CInspectorUI::GetInstance().DrawGizmo(ImGui::GetWindowDrawList(), m_imagePos, m_imageSize);
 
-            // 2. 2Dãƒ†ã‚­ã‚¹ãƒˆã®ã‚ªãƒ¼ãƒãƒ¼ãƒ¬ã‚¤æç”»
+            // 2. 2DƒeƒLƒXƒg‚ÌƒI[ƒo[ƒŒƒC•`‰æ
             const auto& textQueue = D2DTextRenderer::GetInstance().GetTextQueue();
             if (!textQueue.empty())
             {
@@ -90,7 +90,7 @@ void CViewportUI::Draw()
                 {
                     if (info.text.empty()) continue;
 
-                    // UTF-16 -> UTF-8 å¤‰æ›
+                    // UTF-16 -> UTF-8 •ÏŠ·
                     int sizeNeeded = WideCharToMultiByte(CP_UTF8, 0, info.text.c_str(), (int)info.text.length(), nullptr, 0, nullptr, nullptr);
                     if (sizeNeeded <= 0) continue;
 
@@ -114,7 +114,7 @@ void CViewportUI::Draw()
             m_imagePos = m_viewportPos;
             m_imageSize = ImVec2(0.0f, 0.0f);
 
-            // ãƒ•ã‚©ãƒ¼ãƒ«ãƒãƒƒã‚¯è¡¨ç¤ºï¼ˆãƒ†ã‚¯ã‚¹ãƒãƒ£æœªå—ä¿¡æ™‚ï¼‰
+            // ƒtƒH[ƒ‹ƒoƒbƒN•\¦iƒeƒNƒXƒ`ƒƒ–¢óMj
             ImVec2 cursorPos = ImGui::GetCursorPos();
             const char* msg = "No Render Texture Available";
             ImVec2 textSize = ImGui::CalcTextSize(msg);

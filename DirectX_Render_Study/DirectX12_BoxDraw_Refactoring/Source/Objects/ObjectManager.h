@@ -1,4 +1,5 @@
 #pragma once
+#include "EngineAPI.h"
 #include "SceneEnums.h"
 #include "ObjectTag.h"
 
@@ -7,7 +8,6 @@
 
 class CameraComponent;
 #include "CameraComponent.h"
-class CameraComponent;
 class Player;
 class FieldComponent;
 #include "FieldComponent.h"
@@ -15,86 +15,66 @@ class FieldComponent;
 class ObjectManager
 {
 public:
-
-
-
-	//生成処理	// Instantiate with TypeName and unique ObjectName
-	CObject* Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::string _TypeName, std::string _ObjectName);
+	// Instantiate with TypeName and unique ObjectName
+	ENGINE_API CObject* Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::string _TypeName, std::string _ObjectName);
 
 	// Overload: default ObjectName to _TypeName
-	CObject* Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::string _TypeName);
+	ENGINE_API CObject* Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::string _TypeName);
 
 	// Add pre-created object instance
-	void AddObject(ObjectTag _Tag, CObject* _Object);
+	ENGINE_API void AddObject(ObjectTag _Tag, CObject* _Object);
 
-	//初期化処理
-	void Init(Scenes::ID _SceneID);
+	// ����������
+	ENGINE_API void Init(Scenes::ID _SceneID);
 
-	//終了処理
-	void Uninit();
+	// �I������
+	ENGINE_API void Uninit();
 
-	//更新処理
-	void Update(Scenes::ID _SceneID);
-	void UpdatePhaseAll(UpdatePhase phase, float deltaTime);
+	// �X�V����
+	ENGINE_API void Update(Scenes::ID _SceneID);
+	ENGINE_API void UpdatePhaseAll(UpdatePhase phase, float deltaTime);
 
-	void CollisionUpdate(Scenes::ID _SceneID);	//Collisionの更新
+	ENGINE_API void CollisionUpdate(Scenes::ID _SceneID);
 
-	void Draw(Scenes::ID _SceneID);
-	void DrawByLayer(RenderLayer layer, uint32_t tagMask = 0xFFFFFFFFu);
-	void DrawFiltered(uint32_t tagMask = 0xFFFFFFFFu, int layerFilter = -1);
-	void DrawShadow(const DirectX::XMMATRIX& lightViewProj);
+	ENGINE_API void Draw(Scenes::ID _SceneID);
+	ENGINE_API void DrawByLayer(RenderLayer layer, uint32_t tagMask = 0xFFFFFFFFu);
+	ENGINE_API void DrawFiltered(uint32_t tagMask = 0xFFFFFFFFu, int layerFilter = -1);
+	ENGINE_API void DrawShadow(const DirectX::XMMATRIX& lightViewProj);
 
-	void FlushDestroyedObjects();
+	ENGINE_API void FlushDestroyedObjects();
 
 	// Pending additions to prevent iterator invalidation during Update loops
-	void FlushPendingAddObjects();
+	ENGINE_API void FlushPendingAddObjects();
 
 private:
-	//一旦配列は1つ(2次元)
-	Vector <Vector<UniquePtr<CObject>>> vecObject;	//オブジェクトの配列
+	Vector <Vector<UniquePtr<CObject>>> vecObject;
 	Vector<std::pair<ObjectTag, UniquePtr<CObject>>> m_pendingAddObjects;
 
-
 public:
+	// Player
+	ENGINE_API CObject* GetPlayer();
 
-	//Player
-	CObject* GetPlayer();
+	// Camera
+	ENGINE_API CObject* GetCameraObject();
+	ENGINE_API CameraComponent* GetCamera();
+	ENGINE_API CameraComponent* GetCameraComponent();
 
-	//Camera
-	CObject* GetCameraObject();
-	CameraComponent* GetCamera();
-	CameraComponent* GetCameraComponent();
+	// Field
+	ENGINE_API FieldComponent* GetField();
 
-	//Field
-	FieldComponent* GetField();
+	// Manager
+	ENGINE_API CObject* GetManager(String name);
 
-	//Manager
-	CObject* GetManager(String name);
-
-	//All Objects for ImGui Inspector
+	// All Objects for ImGui Inspector
 	const Vector<Vector<UniquePtr<CObject>>>& GetObjectList() const { return vecObject; }
 
-//----- シングルトンの実装に必要 -----
 public:
-	static ObjectManager& GetInstance()
-	{
-		static ObjectManager Instance;
-
-		//インスタンスを返す
-		return Instance;
-	}
+	ENGINE_API static ObjectManager& GetInstance();
 
 private:
-	//コンストラクタ
 	ObjectManager();
-
-	//デストラクタ
 	~ObjectManager();
 
-	//コピー禁止
 	ObjectManager(const ObjectManager&) = delete;
-
-	//代入禁止
 	ObjectManager& operator=(const ObjectManager&) = delete;
 };
-

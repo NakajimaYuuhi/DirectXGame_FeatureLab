@@ -16,7 +16,10 @@ public:
 
     std::shared_ptr<Shader> GetShader(const std::wstring& filePath, const std::string& entryPoint, const std::string& target);
     std::shared_ptr<Shader> GetShaderFromCSO(const std::wstring& csoFilePath);
-    
+
+    // Recompile all cached HLSL shaders (returns false if any shader failed to compile)
+    bool ReloadAllShaders(std::string* outErrorLog = nullptr);
+
     void Clear() { m_shaders.clear(); }
 
 private:

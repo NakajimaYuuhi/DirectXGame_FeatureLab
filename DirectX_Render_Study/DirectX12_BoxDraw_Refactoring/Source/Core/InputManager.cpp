@@ -1,9 +1,9 @@
-ï»¿#include "InputManager.h"
+#include "InputManager.h"
 #include <algorithm>
 #pragma comment(lib, "xinput.lib")
 
 //------------------------------------------------------------------------------
-// ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å–å¾—ï¼ˆã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³ï¼‰
+// ƒCƒ“ƒXƒ^ƒ“ƒXæ“¾iƒVƒ“ƒOƒ‹ƒgƒ“j
 //------------------------------------------------------------------------------
 CInputManager& CInputManager::GetInstance()
 {
@@ -12,7 +12,7 @@ CInputManager& CInputManager::GetInstance()
 }
 
 //------------------------------------------------------------------------------
-// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
 //------------------------------------------------------------------------------
 CInputManager::CInputManager()
 {
@@ -28,7 +28,7 @@ CInputManager::CInputManager()
 }
 
 //------------------------------------------------------------------------------
-// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«è¨­å®š
+// ƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹İ’è
 //------------------------------------------------------------------------------
 void CInputManager::Initialize(HWND hwnd)
 {
@@ -36,18 +36,18 @@ void CInputManager::Initialize(HWND hwnd)
 }
 
 //------------------------------------------------------------------------------
-// æ¯ãƒ•ãƒ¬ãƒ¼ãƒ ã®æ›´æ–°å‡¦ç†
+// –ˆƒtƒŒ[ƒ€‚ÌXVˆ—
 //------------------------------------------------------------------------------
 void CInputManager::Update()
 {
-    //--- ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰æ›´æ–° ---
+    //--- ƒL[ƒ{[ƒhXV ---
     for (int i = 0; i < 256; ++i)
     {
         m_oldKeyTable[i] = m_keyTable[i];
         m_keyTable[i] = (GetAsyncKeyState(i) & 0x8000) ? 1 : 0;
     }
 
-    //--- ãƒã‚¦ã‚¹ãƒœã‚¿ãƒ³æ›´æ–° ---
+    //--- ƒ}ƒEƒXƒ{ƒ^ƒ“XV ---
     for (int i = 0; i < static_cast<int>(MouseButton::Count); ++i)
     {
         m_oldMouseButtons[i] = m_mouseButtons[i];
@@ -56,7 +56,7 @@ void CInputManager::Update()
     m_mouseButtons[static_cast<int>(MouseButton::Right)]  = (GetAsyncKeyState(VK_RBUTTON) & 0x8000) != 0;
     m_mouseButtons[static_cast<int>(MouseButton::Middle)] = (GetAsyncKeyState(VK_MBUTTON) & 0x8000) != 0;
 
-    //--- ãƒã‚¦ã‚¹åº§æ¨™ & ãƒ‡ãƒ«ã‚¿æ›´æ–° ---
+    //--- ƒ}ƒEƒXÀ•W & ƒfƒ‹ƒ^XV ---
     POINT curScreenPos = { 0, 0 };
     GetCursorPos(&curScreenPos);
 
@@ -111,11 +111,11 @@ void CInputManager::Update()
         m_mouseDeltaY = 0.0f;
     }
 
-    //--- ãƒ›ã‚¤ãƒ¼ãƒ«å›è»¢é‡æ›´æ–° ---
+    //--- ƒzƒC[ƒ‹‰ñ“]—ÊXV ---
     m_mouseWheelDelta = m_accumulatedWheelDelta;
     m_accumulatedWheelDelta = 0.0f;
 
-    //--- ã‚²ãƒ¼ãƒ ãƒ‘ãƒƒãƒ‰æ›´æ–° ---
+    //--- ƒQ[ƒ€ƒpƒbƒhXV ---
     m_oldstate = m_state;
     ZeroMemory(&m_state, sizeof(XINPUT_STATE));
     DWORD dwResult = XInputGetState(0, &m_state);
@@ -124,7 +124,7 @@ void CInputManager::Update()
         ZeroMemory(&m_state.Gamepad, sizeof(XINPUT_GAMEPAD));
     }
 
-    // ã‚¢ãƒŠãƒ­ã‚°ã‚¹ãƒ†ã‚£ãƒƒã‚¯ ãƒ‡ãƒƒãƒ‰ã‚¾ãƒ¼ãƒ³å‡¦ç†
+    // ƒAƒiƒƒOƒXƒeƒBƒbƒN ƒfƒbƒhƒ][ƒ“ˆ—
     if ((m_state.Gamepad.sThumbLX < XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE &&
          m_state.Gamepad.sThumbLX > -XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE) &&
         (m_state.Gamepad.sThumbLY < XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE &&
@@ -134,12 +134,12 @@ void CInputManager::Update()
         m_state.Gamepad.sThumbLY = 0;
     }
 
-    // ãƒã‚¤ãƒ–ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ãƒªã‚»ãƒƒãƒˆ
+    // ƒoƒCƒuƒŒ[ƒVƒ‡ƒ“ƒŠƒZƒbƒg
     ZeroMemory(&m_vibration, sizeof(XINPUT_VIBRATION));
 }
 
 //------------------------------------------------------------------------------
-// ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰å…¥åŠ›åˆ¤å®š
+// ƒL[ƒ{[ƒh“ü—Í”»’è
 //------------------------------------------------------------------------------
 bool CInputManager::IsKeyPress(int key) const
 {
@@ -157,7 +157,7 @@ bool CInputManager::IsKeyRelease(int key) const
 }
 
 //------------------------------------------------------------------------------
-// ãƒã‚¦ã‚¹ãƒœã‚¿ãƒ³å…¥åŠ›åˆ¤å®š
+// ƒ}ƒEƒXƒ{ƒ^ƒ““ü—Í”»’è
 //------------------------------------------------------------------------------
 bool CInputManager::IsMousePress(MouseButton button) const
 {
@@ -228,12 +228,12 @@ void CInputManager::SetCursorLocked(bool locked)
 
 void CInputManager::OnMouseWheel(short delta)
 {
-    // 120åˆ»ã¿ã‚’ 1.0f å˜ä½ã«æ­£è¦åŒ–ã—ã¦ç´¯ç©
+    // 120‚İ‚ğ 1.0f ’PˆÊ‚É³‹K‰»‚µ‚Ä—İÏ
     m_accumulatedWheelDelta += static_cast<float>(delta) / 120.0f;
 }
 
 //------------------------------------------------------------------------------
-// ã‚²ãƒ¼ãƒ ãƒ‘ãƒƒãƒ‰å…¥åŠ›åˆ¤å®š
+// ƒQ[ƒ€ƒpƒbƒh“ü—Í”»’è
 //------------------------------------------------------------------------------
 bool CInputManager::IsPadPress(WORD button) const
 {

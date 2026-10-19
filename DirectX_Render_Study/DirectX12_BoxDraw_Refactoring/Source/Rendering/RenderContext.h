@@ -1,4 +1,4 @@
-ï»¿#pragma once
+#pragma once
 #include <d3d12.h>
 #include "SceneEnums.h"
 
@@ -9,12 +9,12 @@ struct RenderContext {
     Scenes::ID sceneID = Scenes::ID::NONE; 
     float deltaTime = 0.0f;
 
-    // æç”»å…ˆãƒ»å‚ç…§ç”¨ãƒ‡ã‚¹ã‚¯ãƒªãƒ—ã‚¿
+    // •`‰ææEQÆ—pƒfƒXƒNƒŠƒvƒ^
     D3D12_CPU_DESCRIPTOR_HANDLE backBufferRTV{};
     D3D12_CPU_DESCRIPTOR_HANDLE mainDSV{};
     UINT screenWidth = 0;
     UINT screenHeight = 0;
 
-    // ãƒ‘ã‚¹é–“ãƒªã‚½ãƒ¼ã‚¹å…±æœ‰ç”¨ãƒ–ãƒ©ãƒƒã‚¯ãƒœãƒ¼ãƒ‰
+    // ƒpƒXŠÔƒŠƒ\[ƒX‹¤—L—pƒuƒ‰ƒbƒNƒ{[ƒh
     RenderBlackboard* blackboard = nullptr;
 };

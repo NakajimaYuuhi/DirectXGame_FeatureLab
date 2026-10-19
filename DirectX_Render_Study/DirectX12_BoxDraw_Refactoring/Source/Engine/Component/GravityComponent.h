@@ -1,4 +1,5 @@
 #pragma once
+#include "EngineAPI.h"
 #include "Component.h"
 #include <DirectXMath.h>
 
@@ -7,21 +8,21 @@ class FieldComponent;
 class GravityComponent : public CComponent
 {
 public:
-	GravityComponent();
-	GravityComponent(float gravity, float jumpPower);
+	ENGINE_API GravityComponent();
+	ENGINE_API GravityComponent(float gravity, float jumpPower);
 	virtual ~GravityComponent() = default;
 
-	void Start() override;
-	void Update(float deltaTime) override;
+	ENGINE_API void Start() override;
+	ENGINE_API void Update(float deltaTime) override;
 
 	UpdatePhase GetUpdatePhase() const override { return UpdatePhase::Physics; }
 
 	// Jump actions
-	void Jump();
-	void Jump(float power);
+	ENGINE_API void Jump();
+	ENGINE_API void Jump(float power);
 
 	// Snap directly to terrain ground
-	void SnapToGround();
+	ENGINE_API void SnapToGround();
 
 	// Getters and setters
 	bool IsGrounded() const { return m_isGrounded; }

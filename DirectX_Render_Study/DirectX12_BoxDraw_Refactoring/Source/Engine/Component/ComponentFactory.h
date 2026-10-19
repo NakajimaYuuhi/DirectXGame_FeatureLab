@@ -1,4 +1,5 @@
 #pragma once
+#include "EngineAPI.h"
 #include "Object.h"
 #include "Component.h"
 #include "Source/External/json.hpp"
@@ -10,24 +11,24 @@ class ComponentFactory
 {
 public:
 	using CreatorFunc = std::function<CComponent*(CObject* owner, const nlohmann::json& params)>;
+	using RawCreatorFunc = CComponent* (*)(CObject* owner, const nlohmann::json& params);
 
-	static ComponentFactory& GetInstance()
-	{
-		static ComponentFactory instance;
-		return instance;
-	}
+	ENGINE_API static ComponentFactory& GetInstance();
 
 	// Register a component creator function by name
-	void RegisterComponent(const std::string& name, CreatorFunc creator);
+	ENGINE_API void RegisterComponent(const std::string& name, CreatorFunc creator);
+
+	// DLL-safe registration using raw C string and function pointer (allocates std::string/map entry on EXE heap)
+	ENGINE_API void RegisterRawComponent(const char* name, RawCreatorFunc creator);
 
 	// Create component on an owner object using registered name and JSON parameters
-	CComponent* CreateComponent(const std::string& name, CObject* owner, const nlohmann::json& params);
+	ENGINE_API CComponent* CreateComponent(const std::string& name, CObject* owner, const nlohmann::json& params);
 
 	// Register all built-in engine components
-	void InitDefaultComponents();
+	ENGINE_API void InitDefaultComponents();
 
 	// Check if a component name is registered
-	bool IsRegistered(const std::string& name) const;
+	ENGINE_API bool IsRegistered(const std::string& name) const;
 
 private:
 	ComponentFactory();

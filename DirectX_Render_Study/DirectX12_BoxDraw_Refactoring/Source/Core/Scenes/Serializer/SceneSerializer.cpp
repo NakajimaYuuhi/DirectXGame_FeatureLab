@@ -41,7 +41,7 @@ static std::wstring StringToWString(const std::string& str)
 	return wstr;
 }
 
-bool SceneSerializer::SaveScene(const std::string& filepath, Scenes::ID sceneID)
+bool SceneSerializer::SerializeToString(std::string& outJsonStr, Scenes::ID sceneID)
 {
 	ObjectManager::GetInstance().FlushDestroyedObjects();
 
@@ -202,6 +202,18 @@ bool SceneSerializer::SaveScene(const std::string& filepath, Scenes::ID sceneID)
 		}
 	}
 
+	outJsonStr = rootJson.dump(4);
+	return true;
+}
+
+bool SceneSerializer::SaveScene(const std::string& filepath, Scenes::ID sceneID)
+{
+	std::string jsonStr;
+	if (!SerializeToString(jsonStr, sceneID))
+	{
+		return false;
+	}
+
 	std::ofstream outFile(filepath);
 	if (!outFile.is_open())
 	{
@@ -209,7 +221,7 @@ bool SceneSerializer::SaveScene(const std::string& filepath, Scenes::ID sceneID)
 		return false;
 	}
 
-	outFile << rootJson.dump(4);
+	outFile << jsonStr;
 	outFile.close();
 
 	if (sceneID == Scenes::ID::TEST)
@@ -236,17 +248,30 @@ bool SceneSerializer::LoadScene(const std::string& filepath, Scenes::ID sceneID)
 		return false;
 	}
 
+	std::string jsonStr((std::istreambuf_iterator<char>(inFile)), std::istreambuf_iterator<char>());
+	inFile.close();
+
+	if (!DeserializeFromString(jsonStr, sceneID))
+	{
+		return false;
+	}
+
+	OutputDebugStringA(("[SceneSerializer] Successfully loaded scene from: " + filepath + "\n").c_str());
+	return true;
+}
+
+bool SceneSerializer::DeserializeFromString(const std::string& jsonStr, Scenes::ID sceneID)
+{
 	json rootJson;
 	try
 	{
-		inFile >> rootJson;
+		rootJson = json::parse(jsonStr);
 	}
 	catch (const std::exception& e)
 	{
 		OutputDebugStringA(("[SceneSerializer] JSON Parse Error: " + std::string(e.what()) + "\n").c_str());
 		return false;
 	}
-	inFile.close();
 
 	if (!rootJson.contains("objects") || !rootJson["objects"].is_array())
 	{
@@ -627,9 +652,6 @@ bool SceneSerializer::LoadScene(const std::string& filepath, Scenes::ID sceneID)
 
 	ButtonEventManager::GetInstance().ApplyFirstSelected();
 
-
-
-	OutputDebugStringA(("[SceneSerializer] Successfully loaded scene from: " + filepath + "\n").c_str());
 	return true;
 }
 

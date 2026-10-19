@@ -4,15 +4,17 @@
 #include "ContentDrawerUI.h"
 #include "ProfilerUI.h"
 #include "AssetSecurityUI.h"
+#include "BuildSettingsUI.h"
 #include "ViewportUI.h"
 #include "imgui.h"
 #include "ObjectManager.h"
 #include "TimeManager.h"
+#include "Source/Core/HotReloadManager.h"
 #include "Source/Core/Scenes/Manager/SceneManager.h"
 #include "Source/Core/Scenes/Serializer/SceneSerializer.h"
 
 // -----------------------------------------------------------------
-// 繝・・繝ｫ繝舌・UI縺ｮ謠冗判譖ｴ譁ｰ蜃ｦ逅・ｼ医ョ繝舌ャ繧ｰ繝薙Ν繝画凾縺ｮ縺ｿ譛牙柑
+// ツールバーUIの描画更新処理（デバッグビルド時のみ有効）
 // -----------------------------------------------------------------
 void CEditorToolbarUI::Draw()
 {
@@ -37,7 +39,6 @@ void CEditorToolbarUI::Draw()
         bool isPrefabMode = CInspectorUI::GetInstance().IsPrefabEditMode();
         if (isPrefabMode)
         {
-            // Prefab edit stage controls
             std::string path = CInspectorUI::GetInstance().GetEditingPrefabPath();
             ImGui::TextColored(ImVec4(1.0f, 0.8f, 0.2f, 1.0f), "[PREFAB STAGE MODE] %s", path.c_str());
             ImGui::SameLine();
@@ -54,8 +55,60 @@ void CEditorToolbarUI::Draw()
             ImGui::Text("|");
             ImGui::SameLine();
         }
+
         // ---------------------------------------------------------
-        // 2. 繧ｮ繧ｺ繝｢謫堺ｽ懊Δ繝ｼ繝牙・繧頑崛縺茨ｼ育ｧｻ蜍・ W / 蝗櫁ｻ｢: E / 諡｡螟ｧ邵ｮ蟆・ R
+        // 2. Play / Pause / Stop Controls (In-Memory Scene Snapshot)
+        // ---------------------------------------------------------
+        HotReloadManager& hr = HotReloadManager::GetInstance();
+        EditorPlayState playState = hr.GetPlayState();
+
+        if (playState == EditorPlayState::Playing)
+        {
+            ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.18f, 0.65f, 0.28f, 1.0f));
+        }
+        if (ImGui::Button("Play"))
+        {
+            hr.Play();
+        }
+        if (playState == EditorPlayState::Playing)
+        {
+            ImGui::PopStyleColor();
+        }
+
+        ImGui::SameLine();
+        if (playState == EditorPlayState::Paused)
+        {
+            ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.75f, 0.55f, 0.15f, 1.0f));
+        }
+        if (ImGui::Button("Pause"))
+        {
+            hr.Pause();
+        }
+        if (playState == EditorPlayState::Paused)
+        {
+            ImGui::PopStyleColor();
+        }
+
+        ImGui::SameLine();
+        if (playState == EditorPlayState::Stopped)
+        {
+            ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.70f, 0.22f, 0.22f, 1.0f));
+        }
+        if (ImGui::Button("Stop"))
+        {
+            hr.StopAndRestoreSnapshot();
+        }
+        if (playState == EditorPlayState::Stopped)
+        {
+            ImGui::PopStyleColor();
+        }
+
+        ImGui::SameLine();
+        ImGui::Text("|");
+        ImGui::SameLine();
+
+        // ---------------------------------------------------------
+        // 3. ギズモ操作モード切り替え（移動: W / 回転: E / 拡大縮小: R）
         // ---------------------------------------------------------
         GizmoMode currentGizmoMode = CInspectorUI::GetInstance().GetGizmoMode();
         if (currentGizmoMode == GizmoMode::Translate) ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.2f, 0.6f, 0.9f, 1.0f));
@@ -76,55 +129,54 @@ void CEditorToolbarUI::Draw()
         ImGui::Text("|");
         ImGui::SameLine();
 
-        // 3. Undo / Redo Controls
+        // ---------------------------------------------------------
+        // 4. Undo / Redo Controls
+        // ---------------------------------------------------------
         bool canUndo = UndoManager::GetInstance().CanUndo();
         if (!canUndo) ImGui::BeginDisabled();
-        if (ImGui::Button("Undo (Ctrl+Z)"))
+        if (ImGui::Button("Undo"))
         {
             UndoManager::GetInstance().Undo();
         }
         if (!canUndo) ImGui::EndDisabled();
         if (canUndo && ImGui::IsItemHovered())
         {
-            ImGui::SetTooltip("Undo: %s", UndoManager::GetInstance().GetUndoName().c_str());
+            ImGui::SetTooltip("Undo (Ctrl+Z): %s", UndoManager::GetInstance().GetUndoName().c_str());
         }
 
         ImGui::SameLine();
 
         bool canRedo = UndoManager::GetInstance().CanRedo();
         if (!canRedo) ImGui::BeginDisabled();
-        if (ImGui::Button("Redo (Ctrl+Y)"))
+        if (ImGui::Button("Redo"))
         {
             UndoManager::GetInstance().Redo();
         }
         if (!canRedo) ImGui::EndDisabled();
         if (canRedo && ImGui::IsItemHovered())
         {
-            ImGui::SetTooltip("Redo: %s", UndoManager::GetInstance().GetRedoName().c_str());
+            ImGui::SetTooltip("Redo (Ctrl+Y): %s", UndoManager::GetInstance().GetRedoName().c_str());
         }
 
         ImGui::SameLine();
         ImGui::Text("|");
         ImGui::SameLine();
 
-        // 4. Save / Reload Scene
-
         // ---------------------------------------------------------
-        // 3. 繧ｷ繝ｼ繝ｳ縺ｮ繧ｷ繝ｪ繧｢繝ｩ繧､繧ｺ謫堺ｽ懶ｼ井ｿ晏ｭ・/ 蜀崎ｪｭ縺ｿ霎ｼ縺ｿ・・        // ---------------------------------------------------------
-        // ---------------------------------------------------------
-        // 3. シーンのシリアライズ操作（保存 / 再読み込み）
+        // 5. シーンのシリアライズ操作（保存 / 再読み込み）
         // ---------------------------------------------------------
         static char scenePathBuf[256] = "Assets/Scene/SceneTest.json";
-        ImGui::SetNextItemWidth(160.0f);
+        ImGui::SetNextItemWidth(140.0f);
         ImGui::InputText("##ScenePath", scenePathBuf, sizeof(scenePathBuf));
 
         ImGui::SameLine();
-        if (ImGui::Button("Save Scene (Ctrl+S)"))
+        if (ImGui::Button("Save Scene"))
         {
             Scenes::ID activeScene = SceneManager::GetInstance().GetActiveSceneID();
             std::string path = scenePathBuf;
             if (SceneSerializer::SaveScene(path, activeScene))
             {
+                hr.CaptureSceneSnapshot();
                 CInspectorUI::GetInstance().SetStatusMessage("Scene saved: " + path, 3.0f);
             }
             else
@@ -140,6 +192,7 @@ void CEditorToolbarUI::Draw()
             std::string path = scenePathBuf;
             if (SceneSerializer::LoadScene(path, activeScene))
             {
+                hr.CaptureSceneSnapshot();
                 CInspectorUI::GetInstance().SetStatusMessage("Scene loaded: " + path, 3.0f);
             }
             else
@@ -153,13 +206,38 @@ void CEditorToolbarUI::Draw()
         ImGui::SameLine();
 
         // ---------------------------------------------------------
-        // 4. UI繧ｵ繝悶え繧｣繝ｳ繝峨え縺ｮ髢矩哩繝医げ繝ｫ・医さ繝ｳ繝・Φ繝・ラ繝ｭ繝ｯ繝ｼ・・        // ---------------------------------------------------------
+        // 6. Hot-Reload & Build Center + UIサブウィンドウの開閉トグル
+        // ---------------------------------------------------------
+        bool isCompiling = hr.IsCompilingGameLogic();
+        if (isCompiling) ImGui::BeginDisabled();
+        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.20f, 0.48f, 0.78f, 1.0f));
+        if (ImGui::Button("Hot Reload C++"))
+        {
+            hr.CompileAndReloadGameLogicAsync();
+            CBuildSettingsUI::GetInstance().SetVisible(true);
+        }
+        ImGui::PopStyleColor();
+        if (isCompiling) ImGui::EndDisabled();
+        if (ImGui::IsItemHovered())
+        {
+            ImGui::SetTooltip("Compile Source/Game/* into GameLogic DLL & hot-reload in-place (Ctrl+Alt+F11)");
+        }
+
+        ImGui::SameLine();
+        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.18f, 0.55f, 0.25f, 1.0f));
+        if (ImGui::Button("Build / Reload"))
+        {
+            CBuildSettingsUI::GetInstance().ToggleVisible();
+        }
+        ImGui::PopStyleColor();
+
+        ImGui::SameLine();
         if (ImGui::Button("Viewport"))
         {
             CViewportUI::GetInstance().ToggleVisible();
         }
         ImGui::SameLine();
-        if (ImGui::Button("Content Drawer (Ctrl+Space)"))
+        if (ImGui::Button("Content Drawer"))
         {
             CContentDrawerUI::GetInstance().ToggleVisible();
         }

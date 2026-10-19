@@ -24,6 +24,12 @@
 #include "LightComponent.h"
 #include <windows.h>
 
+ComponentFactory& ComponentFactory::GetInstance()
+{
+	static ComponentFactory instance;
+	return instance;
+}
+
 ComponentFactory::ComponentFactory()
 {
 	InitDefaultComponents();
@@ -32,6 +38,14 @@ ComponentFactory::ComponentFactory()
 void ComponentFactory::RegisterComponent(const std::string& name, CreatorFunc creator)
 {
 	m_creators[name] = creator;
+}
+
+void ComponentFactory::RegisterRawComponent(const char* name, RawCreatorFunc creator)
+{
+	if (!name || !creator) return;
+	m_creators[std::string(name)] = [creator](CObject* owner, const nlohmann::json& params) -> CComponent* {
+		return creator(owner, params);
+	};
 }
 
 bool ComponentFactory::IsRegistered(const std::string& name) const

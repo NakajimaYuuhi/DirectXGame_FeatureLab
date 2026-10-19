@@ -14,8 +14,8 @@ public:
 
 	UpdatePhase GetUpdatePhase() const override { return UpdatePhase::PostPhysics; }
 
-	// Damage handling
-	void TakeDamage(int damage);
+	// Damage handling (virtual so hot-reloaded DLL vtable is always dispatched)
+	virtual void TakeDamage(int damage);
 
 	// State getters
 	int GetHP() const { return m_hp; }
@@ -25,9 +25,9 @@ public:
 	float GetInvincibleDuration() const { return m_invincibleDuration; }
 	float GetBlinkInterval() const { return m_blinkInterval; }
 
-	// Setters
-	void SetMaxHP(int maxHp, bool resetCurrentHp = true);
-	void SetHP(int hp);
+	// Setters (virtual for safe cross-DLL dispatch)
+	virtual void SetMaxHP(int maxHp, bool resetCurrentHp = true);
+	virtual void SetHP(int hp);
 	void SetInvincibleDuration(float duration) { m_invincibleDuration = duration; }
 	void SetBlinkInterval(float interval) { m_blinkInterval = interval; }
 

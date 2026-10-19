@@ -1,4 +1,5 @@
 #pragma once
+#include "EngineAPI.h"
 #include "../Base/Scene.h"
 #include "SceneEnums.h"
 #include "SmartPtrAlias.h"
@@ -18,27 +19,27 @@ enum class TransitionStep
 class SceneManager
 {
 public:
-	void Init(void);
-	void Uninit(void);
-	void Update(void);
-	void Draw(void);
+	ENGINE_API void Init(void);
+	ENGINE_API void Uninit(void);
+	ENGINE_API void Update(void);
+	ENGINE_API void Draw(void);
 
 	// 並列シーン操作 (Additive Scene API)
-	void LoadSceneAdditive(Scenes::ID _SceneID, bool setAsActive = true);
-	void UnloadScene(Scenes::ID _SceneID);
-	void SetActiveScene(Scenes::ID _SceneID);
-	bool IsSceneLoaded(Scenes::ID _SceneID) const;
+	ENGINE_API void LoadSceneAdditive(Scenes::ID _SceneID, bool setAsActive = true);
+	ENGINE_API void UnloadScene(Scenes::ID _SceneID);
+	ENGINE_API void SetActiveScene(Scenes::ID _SceneID);
+	ENGINE_API bool IsSceneLoaded(Scenes::ID _SceneID) const;
 
 	// フェード付きシーン切り替え
-	void ChangeSceneWithFade(Scenes::ID nextSceneID, float fadeDuration = 0.5f);
-	void ChangeSceneInstant(Scenes::ID _SceneID);
+	ENGINE_API void ChangeSceneWithFade(Scenes::ID nextSceneID, float fadeDuration = 0.5f);
+	ENGINE_API void ChangeSceneInstant(Scenes::ID _SceneID);
 
 	// 互換用シーン切り替え
-	void ChangeScene(Scenes::ID _SceneID);
+	ENGINE_API void ChangeScene(Scenes::ID _SceneID);
 
 	// 旧API互換
-	void PushScene(Scenes::ID _SceneID);
-	void PopScene(void);
+	ENGINE_API void PushScene(Scenes::ID _SceneID);
+	ENGINE_API void PopScene(void);
 
 private:
 	std::vector<std::shared_ptr<CScene>> m_scenes;
@@ -73,11 +74,7 @@ public:
 
 // シングルトン
 public:
-	static SceneManager& GetInstance()
-	{
-		static SceneManager Instance;
-		return Instance;
-	}
+	ENGINE_API static SceneManager& GetInstance();
 
 private:
 	SceneManager();

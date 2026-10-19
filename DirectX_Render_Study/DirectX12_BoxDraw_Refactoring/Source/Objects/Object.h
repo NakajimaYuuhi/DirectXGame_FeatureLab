@@ -13,6 +13,7 @@ using Vector = std::vector<T>;
 using String = std::string;
 
 #include <DirectXMath.h>
+#include "EngineAPI.h"
 #include "Component.h"
 #include "Transform.h"
 #include "ObjectInfo.h"
@@ -21,27 +22,30 @@ class CRectTransform;
 class CObject
 {
 public:
-	CObject();
-	CObject(String _Name);
-	virtual ~CObject();
+	ENGINE_API CObject();
+	ENGINE_API CObject(String _Name);
+	ENGINE_API virtual ~CObject();
 
-	virtual void Init();
-	virtual void Awake();
-	virtual void Start();
-	virtual void Update();
-	virtual void LateUpdate();
-	virtual void Draw();
-	void DrawByLayer(RenderLayer layer);
-	void DrawShadow(const DirectX::XMMATRIX& lightViewProj);
+	ENGINE_API virtual void Init();
+	ENGINE_API virtual void Awake();
+	ENGINE_API virtual void Start();
+	ENGINE_API virtual void Update();
+	ENGINE_API virtual void LateUpdate();
+	ENGINE_API virtual void Draw();
+	ENGINE_API void DrawByLayer(RenderLayer layer);
+	ENGINE_API void DrawShadow(const DirectX::XMMATRIX& lightViewProj);
 
-	virtual void OnCollision(CObject* _Other);
+	ENGINE_API virtual void OnCollision(CObject* _Other);
 
-	void AwakeComponents();
-	void StartComponents();
-	void UpdateComponents(float deltaTime);
-	void UpdateComponentsByPhase(UpdatePhase phase, float deltaTime);
-	void LateUpdateComponents(float deltaTime);
-	void CollisionComponents(CObject* _Other);
+	ENGINE_API void AwakeComponents();
+	ENGINE_API void StartComponents();
+	ENGINE_API void UpdateComponents(float deltaTime);
+	ENGINE_API void UpdateComponentsByPhase(UpdatePhase phase, float deltaTime);
+	ENGINE_API void LateUpdateComponents(float deltaTime);
+	ENGINE_API void CollisionComponents(CObject* _Other);
+
+	// Attach a component instance on the Engine EXE side (safe across DLL boundaries)
+	ENGINE_API void AttachComponentRaw(CComponent* comp);
 
 protected:
 	Vector<UniquePtr<CComponent>> components;
@@ -67,7 +71,7 @@ public:
 	}
 
 	CTransform* GetTransform() { return GetComponent<CTransform>(); }
-	CRectTransform* GetRectTransform();
+	ENGINE_API CRectTransform* GetRectTransform();
 
 	template<class T>
 	Vector<T*> GetComponentsOfType()
@@ -122,11 +126,8 @@ public:
 			}
 		}
 
-		auto comp = std::make_unique<T>(std::forward<Args>(args)...);
-		comp->SetOwner(this);
-
-		T* raw = comp.get();
-		components.push_back(std::move(comp));
+		T* raw = new T(std::forward<Args>(args)...);
+		AttachComponentRaw(raw);
 		return raw;
 	}
 
@@ -148,6 +149,6 @@ public:
 	const Vector<UniquePtr<CComponent>>& GetComponents() const { return components; }
 	void SetIsDestroyed(bool _IsDestroyed) { IsDestroyed = _IsDestroyed; }
 
-	void SetName(String _ObjectName);
-	String GetName() const;
+	ENGINE_API void SetName(String _ObjectName);
+	ENGINE_API String GetName() const;
 };

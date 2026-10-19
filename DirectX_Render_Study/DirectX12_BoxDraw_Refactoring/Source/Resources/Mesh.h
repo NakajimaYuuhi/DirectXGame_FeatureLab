@@ -48,7 +48,7 @@ public:
 	//Initialize??????????K?v?L??
 	CMesh();
 
-	//DX12Manager????ÔøΩÔøΩ????(??)
+	//DX12Manager??????????(??)
 	void Init();
 	void Update();
 	void Draw(class CTransform* transform, class CMaterial* material, BlendMode blendMode, bool isHighlighted = false);
@@ -76,7 +76,7 @@ private:
 	DirectX::XMFLOAT3 m_localAABBMin{ -0.5f, -0.5f, -0.5f };
 	DirectX::XMFLOAT3 m_localAABBMax{  0.5f,  0.5f,  0.5f };
 
-	// È†ÇÁÇπ„Éª„Ç§„É≥„Éá„ÉÉ„ÇØ„Çπ
+	// í∏ì_ÅEÉCÉìÉfÉbÉNÉX
 	std::vector<MeshVertex> m_Vertices;
 	std::vector<uint32_t>	m_Indices;
 
@@ -90,7 +90,7 @@ private:
 
 	//----- Getter,Setter -----
 public:
-	//???_?f?[?^??ÔøΩÔøΩ
+	//???_?f?[?^????
 	void RegisterOwner(CObject* _Owner);
 
 	void SetBoneSRV(D3D12_GPU_DESCRIPTOR_HANDLE handle)

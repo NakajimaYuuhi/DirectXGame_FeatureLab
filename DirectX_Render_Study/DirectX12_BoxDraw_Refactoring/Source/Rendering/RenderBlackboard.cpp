@@ -1,4 +1,4 @@
-﻿#include "RenderBlackboard.h"
+#include "RenderBlackboard.h"
 #include <algorithm>
 
 void RenderBlackboard::RegisterTexture(const std::string& name, std::shared_ptr<RenderTexture> texture)

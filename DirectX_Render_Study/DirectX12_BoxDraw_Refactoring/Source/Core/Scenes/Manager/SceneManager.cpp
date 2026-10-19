@@ -17,6 +17,12 @@
 #include "InspectorUI.h"
 #include <algorithm>
 
+SceneManager& SceneManager::GetInstance()
+{
+	static SceneManager Instance;
+	return Instance;
+}
+
 SceneManager::SceneManager(void)
 {
 	Init();

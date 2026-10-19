@@ -178,3 +178,11 @@ CRectTransform* CObject::GetRectTransform()
 {
 	return GetComponent<CRectTransform>();
 }
+
+void CObject::AttachComponentRaw(CComponent* comp)
+{
+	if (!comp) return;
+	comp->SetOwner(this);
+	components.emplace_back(comp);
+}
+

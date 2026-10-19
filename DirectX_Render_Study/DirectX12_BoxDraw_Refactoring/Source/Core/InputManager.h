@@ -1,9 +1,10 @@
-ï»¿#pragma once
+#pragma once
 #include <windows.h>
 #include <Xinput.h>
+#include "EngineAPI.h"
 #pragma comment(lib, "xinput.lib")
 
-// ãƒã‚¦ã‚¹ãƒœã‚¿ãƒ³åˆ—æŒ™å‹
+// ƒ}ƒEƒXƒ{ƒ^ƒ“—ñ‹“Œ^
 enum class MouseButton
 {
     Left = 0,
@@ -14,71 +15,71 @@ enum class MouseButton
 
 //------------------------------------------------------------------------------
 // CInputManager
-// ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ãƒ»ã‚²ãƒ¼ãƒ ãƒ‘ãƒƒãƒ‰ãƒ»ãƒã‚¦ã‚¹å…¥åŠ›ã‚’ç®¡ç†ã™ã‚‹ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³ã‚¯ãƒ©ã‚¹
+// ƒL[ƒ{[ƒhEƒQ[ƒ€ƒpƒbƒhEƒ}ƒEƒX“ü—Í‚ğŠÇ—‚·‚éƒVƒ“ƒOƒ‹ƒgƒ“ƒNƒ‰ƒX
 //------------------------------------------------------------------------------
 class CInputManager
 {
 public:
-    static CInputManager& GetInstance();
+    ENGINE_API static CInputManager& GetInstance();
 
-    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«ã®åˆæœŸåŒ–
-    void Initialize(HWND hwnd);
+    // ƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹‚Ì‰Šú‰»
+    ENGINE_API void Initialize(HWND hwnd);
 
-    // æ¯ãƒ•ãƒ¬ãƒ¼ãƒ ã®æ›´æ–°å‡¦ç†
-    void Update();
-
-    //--------------------------------------
-    // ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰å…¥åŠ›
-    //--------------------------------------
-    bool IsKeyPress(int key) const;   // æŠ¼ã•ã‚Œã¦ã„ã‚‹ã‹
-    bool IsKeyTrigger(int key) const; // æŠ¼ã•ã‚ŒãŸç¬é–“
-    bool IsKeyRelease(int key) const; // é›¢ã•ã‚ŒãŸç¬é–“
+    // –ˆƒtƒŒ[ƒ€‚ÌXVˆ—
+    ENGINE_API void Update();
 
     //--------------------------------------
-    // ãƒã‚¦ã‚¹å…¥åŠ›
+    // ƒL[ƒ{[ƒh“ü—Í
     //--------------------------------------
-    bool IsMousePress(MouseButton button) const;   // ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚Œã¦ã„ã‚‹ã‹
-    bool IsMouseTrigger(MouseButton button) const; // ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸç¬é–“
-    bool IsMouseRelease(MouseButton button) const; // ãƒœã‚¿ãƒ³ãŒé›¢ã•ã‚ŒãŸç¬é–“
+    ENGINE_API bool IsKeyPress(int key) const;   // ‰Ÿ‚³‚ê‚Ä‚¢‚é‚©
+    ENGINE_API bool IsKeyTrigger(int key) const; // ‰Ÿ‚³‚ê‚½uŠÔ
+    ENGINE_API bool IsKeyRelease(int key) const; // —£‚³‚ê‚½uŠÔ
 
-    // ãƒã‚¦ã‚¹ä½ç½®ï¼ˆã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆé ˜åŸŸåº§æ¨™ï¼‰
-    float GetMouseX() const;
-    float GetMouseY() const;
+    //--------------------------------------
+    // ƒ}ƒEƒX“ü—Í
+    //--------------------------------------
+    ENGINE_API bool IsMousePress(MouseButton button) const;   // ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é‚©
+    ENGINE_API bool IsMouseTrigger(MouseButton button) const; // ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½uŠÔ
+    ENGINE_API bool IsMouseRelease(MouseButton button) const; // ƒ{ƒ^ƒ“‚ª—£‚³‚ê‚½uŠÔ
 
-    // å‰ãƒ•ãƒ¬ãƒ¼ãƒ ã‹ã‚‰ã®ç›¸å¯¾ç§»å‹•é‡
-    float GetMouseDeltaX() const;
-    float GetMouseDeltaY() const;
+    // ƒ}ƒEƒXˆÊ’uiƒNƒ‰ƒCƒAƒ“ƒg—ÌˆæÀ•Wj
+    ENGINE_API float GetMouseX() const;
+    ENGINE_API float GetMouseY() const;
 
-    // ãƒã‚¦ã‚¹ãƒ›ã‚¤ãƒ¼ãƒ«å›è»¢é‡ï¼ˆæ­£: å‰æ–¹/ã‚ºãƒ¼ãƒ ã‚¤ãƒ³, è² : å¾Œæ–¹/ã‚ºãƒ¼ãƒ ã‚¢ã‚¦ãƒˆï¼‰
-    float GetMouseWheel() const;
+    // ‘OƒtƒŒ[ƒ€‚©‚ç‚Ì‘Š‘ÎˆÚ“®—Ê
+    ENGINE_API float GetMouseDeltaX() const;
+    ENGINE_API float GetMouseDeltaY() const;
 
-    // ã‚«ãƒ¼ã‚½ãƒ«ã®è¡¨ç¤º/éè¡¨ç¤ºãŠã‚ˆã³ãƒ­ãƒƒã‚¯åˆ¶å¾¡
-    void SetCursorVisible(bool visible);
+    // ƒ}ƒEƒXƒzƒC[ƒ‹‰ñ“]—Êi³: ‘O•û/ƒY[ƒ€ƒCƒ“, •‰: Œã•û/ƒY[ƒ€ƒAƒEƒgj
+    ENGINE_API float GetMouseWheel() const;
+
+    // ƒJ[ƒ\ƒ‹‚Ì•\¦/”ñ•\¦‚¨‚æ‚ÑƒƒbƒN§Œä
+    ENGINE_API void SetCursorVisible(bool visible);
     bool IsCursorVisible() const { return m_isCursorVisible; }
 
-    void SetCursorLocked(bool locked);
+    ENGINE_API void SetCursorLocked(bool locked);
     bool IsCursorLocked() const { return m_isCursorLocked; }
 
-    // WindowProcã‹ã‚‰ã®ãƒ›ã‚¤ãƒ¼ãƒ«é€šçŸ¥
-    void OnMouseWheel(short delta);
+    // WindowProc‚©‚ç‚ÌƒzƒC[ƒ‹’Ê’m
+    ENGINE_API void OnMouseWheel(short delta);
 
     //--------------------------------------
-    // ã‚²ãƒ¼ãƒ ãƒ‘ãƒƒãƒ‰å…¥åŠ›
+    // ƒQ[ƒ€ƒpƒbƒh“ü—Í
     //--------------------------------------
-    bool IsPadPress(WORD button) const;
-    bool IsPadTrigger(WORD button) const;
-    bool IsPadRelease(WORD button) const;
+    ENGINE_API bool IsPadPress(WORD button) const;
+    ENGINE_API bool IsPadTrigger(WORD button) const;
+    ENGINE_API bool IsPadRelease(WORD button) const;
 
-    // ã‚¢ãƒŠãƒ­ã‚°ã‚¹ãƒ†ã‚£ãƒƒã‚¯ (-1.0f ~ 1.0f)
-    float GetThumbLX() const;
-    float GetThumbLY() const;
+    // ƒAƒiƒƒOƒXƒeƒBƒbƒN (-1.0f ~ 1.0f)
+    ENGINE_API float GetThumbLX() const;
+    ENGINE_API float GetThumbLY() const;
 
-    // ãƒˆãƒªã‚¬ãƒ¼ (0 ~ 255)
-    BYTE GetLeftTrigger() const;
-    BYTE GetRightTrigger() const;
+    // ƒgƒŠƒK[ (0 ~ 255)
+    ENGINE_API BYTE GetLeftTrigger() const;
+    ENGINE_API BYTE GetRightTrigger() const;
 
-    // ãƒã‚¤ãƒ–ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
-    void SetVibration(WORD leftMotor, WORD rightMotor);
+    // ƒoƒCƒuƒŒ[ƒVƒ‡ƒ“
+    ENGINE_API void SetVibration(WORD leftMotor, WORD rightMotor);
 
 private:
     CInputManager();
@@ -89,11 +90,11 @@ private:
 
     HWND m_hwnd = nullptr;
 
-    // ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰
+    // ƒL[ƒ{[ƒh
     BYTE m_keyTable[256];
     BYTE m_oldKeyTable[256];
 
-    // ãƒã‚¦ã‚¹
+    // ƒ}ƒEƒX
     bool m_mouseButtons[static_cast<int>(MouseButton::Count)] = { false, false, false };
     bool m_oldMouseButtons[static_cast<int>(MouseButton::Count)] = { false, false, false };
 
@@ -108,7 +109,7 @@ private:
     bool m_isCursorLocked = false;
     bool m_hasInitialMousePos = false;
 
-    // ã‚²ãƒ¼ãƒ ãƒ‘ãƒƒãƒ‰
+    // ƒQ[ƒ€ƒpƒbƒh
     XINPUT_STATE m_state;
     XINPUT_STATE m_oldstate;
     XINPUT_VIBRATION m_vibration;

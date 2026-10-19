@@ -1,10 +1,10 @@
 #pragma once
 
 #include <xaudio2.h>
+#include "EngineAPI.h"
 #include "Object.h"
 #include "Component.h"
 
-//#pragma comment(lib, "winmm.lib")
 class Audio : public CComponent
 {
 private:
@@ -17,17 +17,13 @@ private:
 	int						_length{};
 	int						_playLength{};
 
-
 public:
-	static void InitMaster();
-	static void UninitMaster();
+	ENGINE_API static void InitMaster();
+	ENGINE_API static void UninitMaster();
 
-	Audio();
-	virtual ~Audio();
+	ENGINE_API Audio();
+	ENGINE_API virtual ~Audio();
 
-	void Load(const char *FileName);
-	void Play(bool Loop = false);
-
-
+	ENGINE_API void Load(const char *FileName);
+	ENGINE_API void Play(bool Loop = false);
 };
-

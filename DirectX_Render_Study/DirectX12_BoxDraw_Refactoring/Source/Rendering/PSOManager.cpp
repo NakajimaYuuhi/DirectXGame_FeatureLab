@@ -1,4 +1,4 @@
-﻿#include "PSOBuilder.h"
+#include "PSOBuilder.h"
 #include "ShaderManager.h"
 #include "PSOManager.h"
 #include "DX12Manager.h"
@@ -9,7 +9,7 @@ void PSOManager::Init(ID3D12Device* device)
 {
     // ===== ????? =====
 
-    // --繧ｨ繝ｩ繝ｼ繝上Φ繝峨Μ繝ｳ繧ｰ逕ｨ
+    // --エラーハンドリング用
 
     // --?V?F?[?_??A
     // ???b?V???p
@@ -22,7 +22,7 @@ void PSOManager::Init(ID3D12Device* device)
     //  2. ???[?g?V?O?l?`????
     // =========================================================
 
-    // ----- 繝｡繝・す繝･逕ｨ繝ｫ繝ｼ繝医す繧ｰ繝阪メ繝｣ -----
+    // ----- メチE��ュ用ルートシグネチャ -----
     {
         RootSignatureBuilder rsBuilder;
         rsBuilder.AddConstants(36, 0, 0, D3D12_SHADER_VISIBILITY_ALL); // 0: WVP(16) + World(16) + UV(4) = 36 DWORD, register(b0)
@@ -56,7 +56,7 @@ void PSOManager::Init(ID3D12Device* device)
         rsBuilder.Build(device, &m_meshRootSignature);
     }
 
-    // ----- 繧ｷ繝｣繝峨え逕ｨ繝ｫ繝ｼ繝医す繧ｰ繝阪メ繝｣ -----
+    // ----- シャドウ用ルートシグネチャ -----
     {
         RootSignatureBuilder rsBuilder;
         rsBuilder.AddConstants(16, 0, 0, D3D12_SHADER_VISIBILITY_VERTEX); // 0: LightWVP (16 DWORD), register(b0)
@@ -141,7 +141,7 @@ void PSOManager::Init(ID3D12Device* device)
         psoBuilder.Build(device, &m_additivePipelineState);
     }
 
-    // ----- 繧ｷ繝｣繝峨え逕ｨ PSO (豺ｱ蠎ｦ縺ｮ縺ｿ謠冗判) -----
+    // ----- シャドウ用 PSO (深度のみ描画) -----
     auto shadowVertexShader = ShaderManager::GetInstance().GetShader(L"Assets/Shader/ShadowMap.hlsl", "VSMain", "vs_5_0");
     if (shadowVertexShader)
     {
@@ -213,7 +213,7 @@ void PSOManager::Init(ID3D12Device* device)
         psoBuilder.Build(device, &m_spritePipelineState);
     }
 
-    // ----- 繝繝溘・繝懊・繝ｳ繝舌ャ繝輔ぃ・医・繝ｼ繝ｳ繧呈戟縺溘↑縺・Γ繝・す繝･縺ｮ螳牙・蟇ｾ遲厄ｼ・-----
+    // ----- ダミ�Eボ�Eンバッファ�E��Eーンを持たなぁE��チE��ュの安�E対策！E-----
     {
         D3D12_HEAP_PROPERTIES heapProp = {};
         heapProp.Type = D3D12_HEAP_TYPE_UPLOAD;
@@ -341,4 +341,139 @@ void PSOManager::Finalize()
     m_spritePipelineState.Reset();
     m_spriteRootSignature.Reset();
     m_dummyBoneBuffer.Reset();
+}
+
+bool PSOManager::RebuildPSOs(ID3D12Device* device, std::string* outError)
+{
+    if (!device) return false;
+
+    if (!ShaderManager::GetInstance().ReloadAllShaders(outError))
+    {
+        return false;
+    }
+
+    // Clear material PSO cache so materials rebuild PSOs with the newly recompiled shaders
+    m_psoCache.clear();
+
+    auto vertexShader = ShaderManager::GetInstance().GetShader(L"Assets/Shader/Triangle.hlsl", "VSMain", "vs_5_0");
+    auto pixelShader = ShaderManager::GetInstance().GetShader(L"Assets/Shader/Triangle.hlsl", "PSMain", "ps_5_0");
+    auto spriteVertexShader = ShaderManager::GetInstance().GetShader(L"Assets/Shader/Sprite.hlsl", "VSMain", "vs_5_0");
+    auto spritePixelShader = ShaderManager::GetInstance().GetShader(L"Assets/Shader/Sprite.hlsl", "PSMain", "ps_5_0");
+
+    D3D12_INPUT_ELEMENT_DESC inputLayout[] =
+    {
+        { "POSITION",     0, DXGI_FORMAT_R32G32B32_FLOAT,    0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+        { "NORMAL",       0, DXGI_FORMAT_R32G32B32_FLOAT,    0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+        { "TEXCOORD",     0, DXGI_FORMAT_R32G32_FLOAT,       0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+        { "BLENDINDICES", 0, DXGI_FORMAT_R32G32B32A32_UINT,  0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+        { "BLENDWEIGHT",  0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+    };
+
+    DXGI_FORMAT rtvFormat = DXGI_FORMAT_R8G8B8A8_UNORM;
+
+    if (vertexShader && pixelShader && m_meshRootSignature)
+    {
+        PSOBuilder psoBuilder;
+        psoBuilder.SetRootSignature(m_meshRootSignature.Get())
+                  .SetInputLayout(inputLayout, _countof(inputLayout))
+                  .SetShaders(vertexShader->GetBytecode(), pixelShader->GetBytecode())
+                  .SetPrimitiveTopologyType(D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE)
+                  .SetRenderTargetFormats(1, &rtvFormat, DXGI_FORMAT_D32_FLOAT);
+        psoBuilder.Build(device, &m_meshPipelineState);
+
+        D3D12_BLEND_DESC blendDesc = {};
+        blendDesc.RenderTarget[0].BlendEnable = TRUE;
+        blendDesc.RenderTarget[0].SrcBlend = D3D12_BLEND_SRC_ALPHA;
+        blendDesc.RenderTarget[0].DestBlend = D3D12_BLEND_ONE;
+        blendDesc.RenderTarget[0].BlendOp = D3D12_BLEND_OP_ADD;
+        blendDesc.RenderTarget[0].SrcBlendAlpha = D3D12_BLEND_ONE;
+        blendDesc.RenderTarget[0].DestBlendAlpha = D3D12_BLEND_ZERO;
+        blendDesc.RenderTarget[0].BlendOpAlpha = D3D12_BLEND_OP_ADD;
+        blendDesc.RenderTarget[0].RenderTargetWriteMask = D3D12_COLOR_WRITE_ENABLE_ALL;
+
+        D3D12_DEPTH_STENCIL_DESC depthDesc = {};
+        depthDesc.DepthEnable = TRUE;
+        depthDesc.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ZERO;
+        depthDesc.DepthFunc = D3D12_COMPARISON_FUNC_LESS;
+
+        PSOBuilder addBuilder;
+        addBuilder.SetRootSignature(m_meshRootSignature.Get())
+                  .SetInputLayout(inputLayout, _countof(inputLayout))
+                  .SetShaders(vertexShader->GetBytecode(), pixelShader->GetBytecode())
+                  .SetPrimitiveTopologyType(D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE)
+                  .SetRenderTargetFormats(1, &rtvFormat, DXGI_FORMAT_D32_FLOAT)
+                  .SetBlendState(blendDesc)
+                  .SetDepthStencilState(depthDesc);
+        addBuilder.Build(device, &m_additivePipelineState);
+    }
+
+    auto shadowVertexShader = ShaderManager::GetInstance().GetShader(L"Assets/Shader/ShadowMap.hlsl", "VSMain", "vs_5_0");
+    if (shadowVertexShader && m_shadowRootSignature)
+    {
+        D3D12_RASTERIZER_DESC rasterDesc = {};
+        rasterDesc.FillMode = D3D12_FILL_MODE_SOLID;
+        rasterDesc.CullMode = D3D12_CULL_MODE_BACK;
+        rasterDesc.FrontCounterClockwise = FALSE;
+        rasterDesc.DepthBias = 500;
+        rasterDesc.DepthBiasClamp = 0.0f;
+        rasterDesc.SlopeScaledDepthBias = 1.5f;
+        rasterDesc.DepthClipEnable = TRUE;
+
+        D3D12_DEPTH_STENCIL_DESC depthDesc = {};
+        depthDesc.DepthEnable = TRUE;
+        depthDesc.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ALL;
+        depthDesc.DepthFunc = D3D12_COMPARISON_FUNC_LESS_EQUAL;
+
+        PSOBuilder psoBuilder;
+        psoBuilder.SetRootSignature(m_shadowRootSignature.Get())
+                  .SetInputLayout(inputLayout, _countof(inputLayout))
+                  .SetShaders(shadowVertexShader->GetBytecode(), { nullptr, 0 })
+                  .SetPrimitiveTopologyType(D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE)
+                  .SetRenderTargetFormats(0, nullptr, DXGI_FORMAT_D32_FLOAT)
+                  .SetRasterizerState(rasterDesc)
+                  .SetDepthStencilState(depthDesc);
+        psoBuilder.Build(device, &m_shadowPipelineState);
+    }
+
+    if (spriteVertexShader && spritePixelShader && m_spriteRootSignature)
+    {
+        D3D12_INPUT_ELEMENT_DESC spriteInputLayout[] =
+        {
+            { "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+            { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT,    0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+        };
+
+        D3D12_RASTERIZER_DESC rasterDesc = {};
+        rasterDesc.FillMode = D3D12_FILL_MODE_SOLID;
+        rasterDesc.CullMode = D3D12_CULL_MODE_NONE;
+        rasterDesc.DepthClipEnable = FALSE;
+
+        D3D12_DEPTH_STENCIL_DESC depthDesc = {};
+        depthDesc.DepthEnable = FALSE;
+        depthDesc.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ZERO;
+        depthDesc.DepthFunc = D3D12_COMPARISON_FUNC_ALWAYS;
+
+        D3D12_BLEND_DESC blendDesc = {};
+        blendDesc.RenderTarget[0].BlendEnable = TRUE;
+        blendDesc.RenderTarget[0].SrcBlend = D3D12_BLEND_SRC_ALPHA;
+        blendDesc.RenderTarget[0].DestBlend = D3D12_BLEND_INV_SRC_ALPHA;
+        blendDesc.RenderTarget[0].BlendOp = D3D12_BLEND_OP_ADD;
+        blendDesc.RenderTarget[0].SrcBlendAlpha = D3D12_BLEND_ZERO;
+        blendDesc.RenderTarget[0].DestBlendAlpha = D3D12_BLEND_ONE;
+        blendDesc.RenderTarget[0].BlendOpAlpha = D3D12_BLEND_OP_ADD;
+        blendDesc.RenderTarget[0].RenderTargetWriteMask = D3D12_COLOR_WRITE_ENABLE_ALL;
+
+        PSOBuilder psoBuilder;
+        psoBuilder.SetRootSignature(m_spriteRootSignature.Get())
+                  .SetInputLayout(spriteInputLayout, _countof(spriteInputLayout))
+                  .SetShaders(spriteVertexShader->GetBytecode(), spritePixelShader->GetBytecode())
+                  .SetPrimitiveTopologyType(D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE)
+                  .SetRenderTargetFormats(1, &rtvFormat, DXGI_FORMAT_UNKNOWN)
+                  .SetRasterizerState(rasterDesc)
+                  .SetDepthStencilState(depthDesc)
+                  .SetBlendState(blendDesc);
+        psoBuilder.Build(device, &m_spritePipelineState);
+    }
+
+    return true;
 }

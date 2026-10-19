@@ -20,13 +20,14 @@ public:
     void Init(ID3D12Device* device);
     void Finalize();
 
-	// 動的PSO生?E
-	ID3D12PipelineState* GetPSO(CMaterial* material, ID3D12RootSignature* rootSig);
+    // Hot-reload all shaders and rebuild PSOs safely
+    bool RebuildPSOs(ID3D12Device* device, std::string* outError = nullptr);
+
+    // ���IPSO����
+    ID3D12PipelineState* GetPSO(CMaterial* material, ID3D12RootSignature* rootSig);
 
 private:
-	// PSOキャチE??ュ: キーは "シェーダーパス_ブレンドモーチE などの一意?E?E???E
-	std::unordered_map<std::wstring, ComPtr<ID3D12PipelineState>> m_psoCache;
-
+    std::unordered_map<std::wstring, ComPtr<ID3D12PipelineState>> m_psoCache;
 
 public:
     ID3D12RootSignature* GetMeshRootSignature() const { return m_meshRootSignature.Get(); }

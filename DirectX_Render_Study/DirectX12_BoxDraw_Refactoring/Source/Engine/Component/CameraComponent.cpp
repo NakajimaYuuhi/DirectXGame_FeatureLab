@@ -1,4 +1,4 @@
-ï»¿#include "CameraComponent.h"
+#include "CameraComponent.h"
 #include "Object.h"
 #include "Transform.h"
 #include "ObjectManager.h"
@@ -80,7 +80,7 @@ void CameraComponent::Update(float deltaTime)
 	bool isEditMode = CInspectorUI::GetInstance().IsEditMode() || CInspectorUI::GetInstance().IsPrefabEditMode();
 	bool isPaused = CInspectorUI::GetInstance().IsPaused();
 
-	// ã‚¨ãƒ‡ã‚£ãƒƒãƒˆãƒ¢ãƒ¼ãƒ‰ã®æ™‚ã¯ã‚²ãƒ¼ãƒ ã‚«ãƒ¡ãƒ©ã®ãƒã‚¦ã‚¹åˆ¶å¾¡ãƒ»ã‚«ãƒ¼ã‚½ãƒ«ãƒ­ãƒƒã‚¯ã‚’è¡Œã‚ãªã„
+	// ƒGƒfƒBƒbƒgƒ‚[ƒh‚Ì‚ÍƒQ[ƒ€ƒJƒƒ‰‚Ìƒ}ƒEƒX§ŒäEƒJ[ƒ\ƒ‹ƒƒbƒN‚ğs‚í‚È‚¢
 	if (isEditMode)
 	{
 		if (CInputManager::GetInstance().IsCursorLocked())
@@ -91,10 +91,10 @@ void CameraComponent::Update(float deltaTime)
 	}
 	else
 	{
-		// ãƒ—ãƒ¬ã‚¤ãƒ¢ãƒ¼ãƒ‰æ™‚
-		// åŸç¥ãƒ©ã‚¤ã‚¯ãªã‚«ãƒ¼ã‚½ãƒ«åˆ¶å¾¡:
-		// Altã‚­ãƒ¼æŠ¼ä¸‹ä¸­ã¾ãŸã¯ãƒãƒ¼ã‚ºæ™‚ã¯ã‚«ãƒ¼ã‚½ãƒ«ã‚’è§£æ”¾ã—ã¦è¡¨ç¤ºã€‚
-		// ãã‚Œä»¥å¤–ã®é€šå¸¸ãƒ—ãƒ¬ã‚¤æ™‚ã¯ã‚«ãƒ¼ã‚½ãƒ«ã‚’ãƒ­ãƒƒã‚¯ï¼†éè¡¨ç¤ºã«ã—ã¦ãƒã‚¦ã‚¹ç›´æ¥è¦–ç‚¹ç§»å‹•ã€‚
+		// ƒvƒŒƒCƒ‚[ƒh
+		// Œ´_ƒ‰ƒCƒN‚ÈƒJ[ƒ\ƒ‹§Œä:
+		// AltƒL[‰Ÿ‰º’†‚Ü‚½‚Íƒ|[ƒY‚ÍƒJ[ƒ\ƒ‹‚ğ‰ğ•ú‚µ‚Ä•\¦B
+		// ‚»‚êˆÈŠO‚Ì’ÊíƒvƒŒƒC‚ÍƒJ[ƒ\ƒ‹‚ğƒƒbƒN•”ñ•\¦‚É‚µ‚Äƒ}ƒEƒX’¼Ú‹“_ˆÚ“®B
 		bool altPressed = CInputManager::GetInstance().IsKeyPress(VK_MENU);
 
 		if (altPressed || isPaused)
@@ -104,7 +104,7 @@ void CameraComponent::Update(float deltaTime)
 		}
 		else
 		{
-			// ViewportãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸã‹ã€ã¾ãŸã¯ãƒ—ãƒ¬ã‚¤ä¸­ã¯ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã«ãƒ­ãƒƒã‚¯
+			// Viewport‚ªƒNƒŠƒbƒN‚³‚ê‚½‚©A‚Ü‚½‚ÍƒvƒŒƒC’†‚ÍƒAƒNƒeƒBƒu‚ÉƒƒbƒN
 			if (CViewportUI::GetInstance().IsHovered() && CInputManager::GetInstance().IsMouseTrigger(MouseButton::Left))
 			{
 				CInputManager::GetInstance().SetCursorLocked(true);
@@ -112,13 +112,13 @@ void CameraComponent::Update(float deltaTime)
 			}
 			else if (!CInputManager::GetInstance().IsCursorLocked() && !ImGui::GetIO().WantCaptureMouse)
 			{
-				// é€šå¸¸ãƒ—ãƒ¬ã‚¤çŠ¶æ…‹ã¸ã®å¾©å¸°
+				// ’ÊíƒvƒŒƒCó‘Ô‚Ö‚Ì•œ‹A
 				CInputManager::GetInstance().SetCursorLocked(true);
 				CInputManager::GetInstance().SetCursorVisible(false);
 			}
 		}
 
-		// ãƒã‚¦ã‚¹è¦–ç‚¹ç§»å‹•ï¼ˆã‚«ãƒ¼ã‚½ãƒ«ãƒ­ãƒƒã‚¯æ™‚ï¼‰
+		// ƒ}ƒEƒX‹“_ˆÚ“®iƒJ[ƒ\ƒ‹ƒƒbƒNj
 		if (m_enableMouseLook && CInputManager::GetInstance().IsCursorLocked())
 		{
 			float deltaX = CInputManager::GetInstance().GetMouseDeltaX();
@@ -128,7 +128,7 @@ void CameraComponent::Update(float deltaTime)
 			m_angleX += (m_invertY ? deltaY : -deltaY) * m_mouseSensitivityY;
 			m_angleX = std::clamp(m_angleX, m_minPitch, m_maxPitch);
 
-			// ãƒã‚¦ã‚¹ãƒ›ã‚¤ãƒ¼ãƒ«ã«ã‚ˆã‚‹è·é›¢ã‚ºãƒ¼ãƒ 
+			// ƒ}ƒEƒXƒzƒC[ƒ‹‚É‚æ‚é‹——£ƒY[ƒ€
 			float wheel = CInputManager::GetInstance().GetMouseWheel();
 			if (wheel != 0.0f)
 			{
@@ -138,7 +138,7 @@ void CameraComponent::Update(float deltaTime)
 		}
 	}
 
-	// ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰æ“ä½œï¼ˆL / J keys ã«ã‚ˆã‚‹äºˆå‚™å›è»¢ï¼‰
+	// ƒL[ƒ{[ƒh‘€ìiL / J keys ‚É‚æ‚é—\”õ‰ñ“]j
 	if (CInputManager::GetInstance().IsKeyPress('L'))
 	{
 		m_angleY -= m_rotationSpeed;
