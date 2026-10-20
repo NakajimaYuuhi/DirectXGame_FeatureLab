@@ -1,0 +1,411 @@
+{
+    "eventSystem": {
+        "firstSelected": "RetryButton"
+    },
+    "objects": [
+        {
+            "name": "Skydome",
+            "prefab": "Skydome",
+            "tag": 0,
+            "transform": {
+                "position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    3.140000104904175,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "type": "Skydome"
+        },
+        {
+            "capsuleCollider": {
+                "collisionMask": 4294967295,
+                "height": 2.0,
+                "isTrigger": false,
+                "layer": 1,
+                "offset": [
+                    0.0,
+                    1.0,
+                    0.0
+                ],
+                "radius": 0.5
+            },
+            "name": "CapsuleColliderTest",
+            "prefab": "Skydome",
+            "tag": 0,
+            "transform": {
+                "position": [
+                    2.0,
+                    0.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "type": "Skydome"
+        },
+        {
+            "boxCollider": {
+                "collisionMask": 4294967295,
+                "isTrigger": false,
+                "layer": 2,
+                "offset": [
+                    0.0,
+                    0.75,
+                    0.0
+                ],
+                "size": [
+                    0.6000000238418579,
+                    1.5,
+                    0.6000000238418579
+                ]
+            },
+            "name": "Player",
+            "prefab": "PlayerPrefab",
+            "tag": 1,
+            "transform": {
+                "position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ]
+            },
+            "type": "Player"
+        },
+        {
+            "boxCollider": {
+                "collisionMask": 4294967295,
+                "isTrigger": false,
+                "layer": 4,
+                "offset": [
+                    0.0,
+                    0.75,
+                    0.0
+                ],
+                "size": [
+                    0.6000000238418579,
+                    1.5,
+                    0.6000000238418579
+                ]
+            },
+            "name": "Enemy",
+            "prefab": "Enemy",
+            "tag": 3,
+            "transform": {
+                "position": [
+                    0.0,
+                    0.0,
+                    10.0
+                ],
+                "rotation": [
+                    0.0,
+                    3.140000104904175,
+                    0.0
+                ],
+                "scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ]
+            },
+            "type": "Enemy"
+        },
+        {
+            "boxCollider": {
+                "collisionMask": 4294967295,
+                "isTrigger": false,
+                "layer": 4,
+                "offset": [
+                    0.0,
+                    0.75,
+                    0.0
+                ],
+                "size": [
+                    0.6000000238418579,
+                    1.5,
+                    0.6000000238418579
+                ]
+            },
+            "name": "Enemy_0",
+            "prefab": "Enemy",
+            "tag": 3,
+            "transform": {
+                "position": [
+                    2.0,
+                    0.0,
+                    5.0
+                ],
+                "rotation": [
+                    0.0,
+                    3.140000104904175,
+                    0.0
+                ],
+                "scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ]
+            },
+            "type": "Enemy"
+        },
+        {
+            "boxCollider": {
+                "collisionMask": 4294967295,
+                "isTrigger": false,
+                "layer": 4,
+                "offset": [
+                    0.0,
+                    0.75,
+                    0.0
+                ],
+                "size": [
+                    0.6000000238418579,
+                    1.5,
+                    0.6000000238418579
+                ]
+            },
+            "name": "Enemy_1",
+            "prefab": "Enemy",
+            "tag": 3,
+            "transform": {
+                "position": [
+                    -2.0,
+                    0.0,
+                    5.0
+                ],
+                "rotation": [
+                    0.0,
+                    3.140000104904175,
+                    0.0
+                ],
+                "scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ]
+            },
+            "type": "Enemy"
+        },
+        {
+            "name": "Field",
+            "prefab": "Field",
+            "tag": 5,
+            "transform": {
+                "position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "type": "Field"
+        },
+        {
+            "name": "EnemyCount",
+            "prefab": "EnemyCount",
+            "tag": 10,
+            "text": {
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "content": "Score : 0",
+                "fontFamily": "Meiryo",
+                "fontSize": 24.0,
+                "position": [
+                    0.0,
+                    0.0
+                ]
+            },
+            "transform": {
+                "position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "type": "CObject"
+        },
+        {
+            "name": "Camera",
+            "prefab": "Camera",
+            "tag": 11,
+            "transform": {
+                "position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "type": "Camera"
+        },
+        {
+            "name": "EnemyCounter",
+            "prefab": "EnemyCounter",
+            "tag": 13,
+            "transform": {
+                "position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "type": "CObject"
+        },
+        {
+            "light": {
+                "ambientColor": [
+                    0.25,
+                    0.2800000011920929,
+                    0.3499999940395355
+                ],
+                "castShadow": true,
+                "color": [
+                    1.0,
+                    0.9800000190734863,
+                    0.9200000166893005
+                ],
+                "intensity": 1.0,
+                "range": 10.0,
+                "shadowBias": 0.001500000013038516,
+                "shadowDarkness": 0.5,
+                "specularPower": 32.0,
+                "spotAngle": 45.0,
+                "type": 0
+            },
+            "name": "DirectionalLight",
+            "prefab": "DirectionalLight",
+            "tag": 14,
+            "transform": {
+                "position": [
+                    0.0,
+                    10.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.7853981852531433,
+                    -0.7853981852531433,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "type": "Light"
+        },
+        {
+            "light": {
+                "ambientColor": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "castShadow": false,
+                "color": [
+                    1.0,
+                    0.6000000238418579,
+                    0.20000000298023224
+                ],
+                "intensity": 2.0,
+                "range": 8.0,
+                "shadowBias": 0.001500000013038516,
+                "shadowDarkness": 0.5,
+                "specularPower": 32.0,
+                "spotAngle": 45.0,
+                "type": 1
+            },
+            "name": "PointLight",
+            "prefab": "PointLight",
+            "tag": 14,
+            "transform": {
+                "position": [
+                    0.0,
+                    2.0,
+                    5.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "type": "Light"
+        }
+    ],
+    "sceneID": 5
+}

@@ -1,0 +1,27 @@
+{
+  "PrefabName": "PlayerBullet",
+  "Tag": "PLAYER_BULLET",
+  "Components": {
+    "Transform": {
+      "Position": [ 0.0, 0.0, 0.0 ],
+      "Rotation": [ 0.0, 0.0, 0.0 ],
+      "Scale": [ 0.15, 0.15, 0.15 ]
+    },
+    "Model": {
+      "ModelPath": "Assets/Model/cube.glb",
+      "RenderLayer": "Opaque"
+    },
+    "BoxCollider3D": {
+      "Size": [ 0.1, 0.1, 0.1 ],
+      "Offset": [ 0.0, 0.0, 0.0 ],
+      "IsTrigger": true,
+      "Layer": 8,
+      "CollisionMask": 4
+    },
+    "BulletComponent": {
+      "Speed": 0.04,
+      "LifeTime": 5.0,
+      "Damage": 1
+    }
+  }
+}

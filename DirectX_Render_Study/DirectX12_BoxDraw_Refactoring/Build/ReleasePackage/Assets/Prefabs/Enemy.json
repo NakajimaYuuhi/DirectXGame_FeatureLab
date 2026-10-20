@@ -1,0 +1,49 @@
+{
+  "Components": {
+    "BoxCollider3D": {
+      "CollisionMask": 4294967295,
+      "IsTrigger": false,
+      "Layer": 4,
+      "Offset": [
+        0.0,
+        0.75,
+        0.0
+      ],
+      "Size": [
+        0.6,
+        1.5,
+        0.6
+      ]
+    },
+    "EnemyAI": {
+      "DeathEffectPrefab": "Explosion",
+      "DamagedEffectPrefab": "RandomParticle"
+    },
+    "Gravity": {
+      "Gravity": -25.0,
+      "JumpPower": 0.0
+    },
+    "Health": {
+      "BlinkInterval": 0.06,
+      "InvincibleDuration": 0.3,
+      "MaxHP": 3
+    },
+    "Model": {
+      "DefaultAnimation": "Idle",
+      "ModelPath": "Assets/Model/Monk.glb",
+      "RenderLayer": "Opaque"
+    },
+    "Movement": {
+      "AutoRotate": true,
+      "MinClimbNormalY": 0.45,
+      "Speed": 0.05
+    },
+    "Transform": {
+      "Position": [ 0.0, 0.0, 0.0 ],
+      "Rotation": [ 0.0, 0.0, 0.0 ],
+      "Scale": [ 0.5, 0.5, 0.5 ]
+    }
+  },
+  "PrefabName": "Enemy",
+  "Tag": "ENEMY"
+}
