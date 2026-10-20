@@ -1,0 +1,902 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: BuildRunner クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classBuildRunner.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">公開型</a> &#124;
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
+<a href="#pri-methods">非公開メンバ関数</a> &#124;
+<a href="#pri-attribs">非公開変数類</a> &#124;
+<a href="classBuildRunner-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">BuildRunner クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="BuildRunner_8h_source.html">BuildRunner.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+公開型</h2></td></tr>
+<tr class="memitem:a685b28ecbc55ee653c57523a2dec91d8" id="r_a685b28ecbc55ee653c57523a2dec91d8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#a685b28ecbc55ee653c57523a2dec91d8">OnBuildCompleteCallback</a> = std::function&lt; void(bool success, int exitCode)&gt;</td></tr>
+<tr class="separator:a685b28ecbc55ee653c57523a2dec91d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a9efbad9452c5cb5f61dea0340eb36208" id="r_a9efbad9452c5cb5f61dea0340eb36208"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#a9efbad9452c5cb5f61dea0340eb36208">FindMSBuildPath</a> () const</td></tr>
+<tr class="separator:a9efbad9452c5cb5f61dea0340eb36208"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9658d5f4973fb48cdf65d9993ebf6be" id="r_ae9658d5f4973fb48cdf65d9993ebf6be"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#ae9658d5f4973fb48cdf65d9993ebf6be">StartCommandAsync</a> (const std::string &amp;commandLine, const std::string &amp;workingDir=&quot;.&quot;, <a class="el" href="classBuildRunner.html#a685b28ecbc55ee653c57523a2dec91d8">OnBuildCompleteCallback</a> onComplete=nullptr)</td></tr>
+<tr class="separator:ae9658d5f4973fb48cdf65d9993ebf6be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c2dcbf58c0e8ab466217d8800be02f7" id="r_a9c2dcbf58c0e8ab466217d8800be02f7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#a9c2dcbf58c0e8ab466217d8800be02f7">StartMSBuildAsync</a> (const std::string &amp;targetFile, const std::string &amp;configuration=&quot;Release&quot;, const std::string &amp;platform=&quot;x64&quot;, const std::string &amp;extraArgs=&quot;/m /v:minimal&quot;, <a class="el" href="classBuildRunner.html#a685b28ecbc55ee653c57523a2dec91d8">OnBuildCompleteCallback</a> onComplete=nullptr)</td></tr>
+<tr class="separator:a9c2dcbf58c0e8ab466217d8800be02f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e32ba91df2b4d7560738e022c063adc" id="r_a9e32ba91df2b4d7560738e022c063adc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#a9e32ba91df2b4d7560738e022c063adc">AppendLog</a> (const std::string &amp;line)</td></tr>
+<tr class="separator:a9e32ba91df2b4d7560738e022c063adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9281e42bb89d132b4d3a7b22f8e3758" id="r_af9281e42bb89d132b4d3a7b22f8e3758"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#af9281e42bb89d132b4d3a7b22f8e3758">ClearLogs</a> ()</td></tr>
+<tr class="separator:af9281e42bb89d132b4d3a7b22f8e3758"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa04e4515833f6c8eead165bc42afd517" id="r_aa04e4515833f6c8eead165bc42afd517"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#aa04e4515833f6c8eead165bc42afd517">IsRunning</a> () const</td></tr>
+<tr class="separator:aa04e4515833f6c8eead165bc42afd517"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d8188e91d3452951c95845976c81aee" id="r_a1d8188e91d3452951c95845976c81aee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599">BuildState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#a1d8188e91d3452951c95845976c81aee">GetState</a> () const</td></tr>
+<tr class="separator:a1d8188e91d3452951c95845976c81aee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8b8818a39bf9a737514f66630e5b788" id="r_ad8b8818a39bf9a737514f66630e5b788"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#ad8b8818a39bf9a737514f66630e5b788">SetState</a> (<a class="el" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599">BuildState</a> state)</td></tr>
+<tr class="separator:ad8b8818a39bf9a737514f66630e5b788"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2398a7e1d644b4ebc174b98a2b04d298" id="r_a2398a7e1d644b4ebc174b98a2b04d298"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#a2398a7e1d644b4ebc174b98a2b04d298">GetLastExitCode</a> () const</td></tr>
+<tr class="separator:a2398a7e1d644b4ebc174b98a2b04d298"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af95169fc83e283e5f393fddd1fbe58ef" id="r_af95169fc83e283e5f393fddd1fbe58ef"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#af95169fc83e283e5f393fddd1fbe58ef">GetElapsedSeconds</a> () const</td></tr>
+<tr class="separator:af95169fc83e283e5f393fddd1fbe58ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4369fdfb73c35ac40dc5678ec47f3c34" id="r_a4369fdfb73c35ac40dc5678ec47f3c34"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#a4369fdfb73c35ac40dc5678ec47f3c34">GetLogsSnapshot</a> () const</td></tr>
+<tr class="separator:a4369fdfb73c35ac40dc5678ec47f3c34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa85b7073715c7c6fc011cffb9e45b254" id="r_aa85b7073715c7c6fc011cffb9e45b254"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#aa85b7073715c7c6fc011cffb9e45b254">Finalize</a> ()</td></tr>
+<tr class="separator:aa85b7073715c7c6fc011cffb9e45b254"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静的公開メンバ関数</h2></td></tr>
+<tr class="memitem:ae39e742eb82b80e4adf6784f64ab262c" id="r_ae39e742eb82b80e4adf6784f64ab262c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classBuildRunner.html">BuildRunner</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#ae39e742eb82b80e4adf6784f64ab262c">GetInstance</a> ()</td></tr>
+<tr class="separator:ae39e742eb82b80e4adf6784f64ab262c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+非公開メンバ関数</h2></td></tr>
+<tr class="memitem:ae5386a58ca2eb4493804776ae9212b96" id="r_ae5386a58ca2eb4493804776ae9212b96"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#ae5386a58ca2eb4493804776ae9212b96">BuildRunner</a> ()=default</td></tr>
+<tr class="separator:ae5386a58ca2eb4493804776ae9212b96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fa43095b5863ce0476e6a42ec103b9d" id="r_a7fa43095b5863ce0476e6a42ec103b9d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#a7fa43095b5863ce0476e6a42ec103b9d">~BuildRunner</a> ()</td></tr>
+<tr class="separator:a7fa43095b5863ce0476e6a42ec103b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87e9ea9e2a8be215112074f19eb47495" id="r_a87e9ea9e2a8be215112074f19eb47495"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#a87e9ea9e2a8be215112074f19eb47495">BuildRunner</a> (const <a class="el" href="classBuildRunner.html">BuildRunner</a> &amp;)=delete</td></tr>
+<tr class="separator:a87e9ea9e2a8be215112074f19eb47495"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24dc4a8783d5831f2bac3db2c71d9ac3" id="r_a24dc4a8783d5831f2bac3db2c71d9ac3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classBuildRunner.html">BuildRunner</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#a24dc4a8783d5831f2bac3db2c71d9ac3">operator=</a> (const <a class="el" href="classBuildRunner.html">BuildRunner</a> &amp;)=delete</td></tr>
+<tr class="separator:a24dc4a8783d5831f2bac3db2c71d9ac3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a6ae3bad3353dcb281b25f207b49f14" id="r_a0a6ae3bad3353dcb281b25f207b49f14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#a0a6ae3bad3353dcb281b25f207b49f14">WorkerThreadMain</a> (std::string commandLine, std::string workingDir, <a class="el" href="classBuildRunner.html#a685b28ecbc55ee653c57523a2dec91d8">OnBuildCompleteCallback</a> onComplete)</td></tr>
+<tr class="separator:a0a6ae3bad3353dcb281b25f207b49f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+非公開変数類</h2></td></tr>
+<tr class="memitem:a533b502d3b44145690af6f328d4896c7" id="r_a533b502d3b44145690af6f328d4896c7"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#a533b502d3b44145690af6f328d4896c7">m_logMutex</a></td></tr>
+<tr class="separator:a533b502d3b44145690af6f328d4896c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0facc9c42ae41e430a9cc2a5b4ba4b9a" id="r_a0facc9c42ae41e430a9cc2a5b4ba4b9a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#a0facc9c42ae41e430a9cc2a5b4ba4b9a">m_logs</a></td></tr>
+<tr class="separator:a0facc9c42ae41e430a9cc2a5b4ba4b9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10deb766a2eb907164b207ebf2cdf642" id="r_a10deb766a2eb907164b207ebf2cdf642"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; <a class="el" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599">BuildState</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#a10deb766a2eb907164b207ebf2cdf642">m_state</a> { <a class="el" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599ae599161956d626eda4cb0a5ffb85271c">BuildState::Idle</a> }</td></tr>
+<tr class="separator:a10deb766a2eb907164b207ebf2cdf642"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2de489c2438908954b63bd7bbac6bd31" id="r_a2de489c2438908954b63bd7bbac6bd31"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#a2de489c2438908954b63bd7bbac6bd31">m_lastExitCode</a> { 0 }</td></tr>
+<tr class="separator:a2de489c2438908954b63bd7bbac6bd31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54afa6150e9c796a0dde13f4551a5694" id="r_a54afa6150e9c796a0dde13f4551a5694"><td class="memItemLeft" align="right" valign="top">std::chrono::steady_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#a54afa6150e9c796a0dde13f4551a5694">m_startTime</a></td></tr>
+<tr class="separator:a54afa6150e9c796a0dde13f4551a5694"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf72f8fc67cb9c60cc99b4b20fc5dd83" id="r_acf72f8fc67cb9c60cc99b4b20fc5dd83"><td class="memItemLeft" align="right" valign="top">std::chrono::steady_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#acf72f8fc67cb9c60cc99b4b20fc5dd83">m_endTime</a></td></tr>
+<tr class="separator:acf72f8fc67cb9c60cc99b4b20fc5dd83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f0d0f6a0eaf488306502ef291b6e204" id="r_a7f0d0f6a0eaf488306502ef291b6e204"><td class="memItemLeft" align="right" valign="top">std::thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuildRunner.html#a7f0d0f6a0eaf488306502ef291b6e204">m_workerThread</a></td></tr>
+<tr class="separator:a7f0d0f6a0eaf488306502ef291b6e204"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">型定義メンバ詳解</h2>
+<a id="a685b28ecbc55ee653c57523a2dec91d8" name="a685b28ecbc55ee653c57523a2dec91d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a685b28ecbc55ee653c57523a2dec91d8">&#9670;&#160;</a></span>OnBuildCompleteCallback</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classBuildRunner.html#a685b28ecbc55ee653c57523a2dec91d8">BuildRunner::OnBuildCompleteCallback</a> =  std::function&lt;void(bool success, int exitCode)&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="ae5386a58ca2eb4493804776ae9212b96" name="ae5386a58ca2eb4493804776ae9212b96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5386a58ca2eb4493804776ae9212b96">&#9670;&#160;</a></span>BuildRunner() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">BuildRunner::BuildRunner </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7fa43095b5863ce0476e6a42ec103b9d" name="a7fa43095b5863ce0476e6a42ec103b9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fa43095b5863ce0476e6a42ec103b9d">&#9670;&#160;</a></span>~BuildRunner()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">BuildRunner::~BuildRunner </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBuildRunner_a7fa43095b5863ce0476e6a42ec103b9d_cgraph.svg" width="416" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a87e9ea9e2a8be215112074f19eb47495" name="a87e9ea9e2a8be215112074f19eb47495"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87e9ea9e2a8be215112074f19eb47495">&#9670;&#160;</a></span>BuildRunner() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">BuildRunner::BuildRunner </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classBuildRunner.html">BuildRunner</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a9e32ba91df2b4d7560738e022c063adc" name="a9e32ba91df2b4d7560738e022c063adc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e32ba91df2b4d7560738e022c063adc">&#9670;&#160;</a></span>AppendLog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BuildRunner::AppendLog </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>line</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classBuildRunner_a9e32ba91df2b4d7560738e022c063adc_icgraph.svg" width="100%" height="553"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="af9281e42bb89d132b4d3a7b22f8e3758" name="af9281e42bb89d132b4d3a7b22f8e3758"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9281e42bb89d132b4d3a7b22f8e3758">&#9670;&#160;</a></span>ClearLogs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BuildRunner::ClearLogs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBuildRunner_af9281e42bb89d132b4d3a7b22f8e3758_cgraph.svg" width="406" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBuildRunner_af9281e42bb89d132b4d3a7b22f8e3758_icgraph.svg" width="532" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa85b7073715c7c6fc011cffb9e45b254" name="aa85b7073715c7c6fc011cffb9e45b254"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa85b7073715c7c6fc011cffb9e45b254">&#9670;&#160;</a></span>Finalize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BuildRunner::Finalize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBuildRunner_aa85b7073715c7c6fc011cffb9e45b254_icgraph.svg" width="416" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a9efbad9452c5cb5f61dea0340eb36208" name="a9efbad9452c5cb5f61dea0340eb36208"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9efbad9452c5cb5f61dea0340eb36208">&#9670;&#160;</a></span>FindMSBuildPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string BuildRunner::FindMSBuildPath </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classBuildRunner_a9efbad9452c5cb5f61dea0340eb36208_icgraph.svg" width="100%" height="429"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="af95169fc83e283e5f393fddd1fbe58ef" name="af95169fc83e283e5f393fddd1fbe58ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af95169fc83e283e5f393fddd1fbe58ef">&#9670;&#160;</a></span>GetElapsedSeconds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float BuildRunner::GetElapsedSeconds </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBuildRunner_af95169fc83e283e5f393fddd1fbe58ef_icgraph.svg" width="596" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ae39e742eb82b80e4adf6784f64ab262c" name="ae39e742eb82b80e4adf6784f64ab262c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae39e742eb82b80e4adf6784f64ab262c">&#9670;&#160;</a></span>GetInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classBuildRunner.html">BuildRunner</a> &amp; BuildRunner::GetInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classBuildRunner_ae39e742eb82b80e4adf6784f64ab262c_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a2398a7e1d644b4ebc174b98a2b04d298" name="a2398a7e1d644b4ebc174b98a2b04d298"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2398a7e1d644b4ebc174b98a2b04d298">&#9670;&#160;</a></span>GetLastExitCode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int BuildRunner::GetLastExitCode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBuildRunner_a2398a7e1d644b4ebc174b98a2b04d298_icgraph.svg" width="576" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a4369fdfb73c35ac40dc5678ec47f3c34" name="a4369fdfb73c35ac40dc5678ec47f3c34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4369fdfb73c35ac40dc5678ec47f3c34">&#9670;&#160;</a></span>GetLogsSnapshot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; BuildRunner::GetLogsSnapshot </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBuildRunner_a4369fdfb73c35ac40dc5678ec47f3c34_icgraph.svg" width="582" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a1d8188e91d3452951c95845976c81aee" name="a1d8188e91d3452951c95845976c81aee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d8188e91d3452951c95845976c81aee">&#9670;&#160;</a></span>GetState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599">BuildState</a> BuildRunner::GetState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBuildRunner_a1d8188e91d3452951c95845976c81aee_icgraph.svg" width="526" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa04e4515833f6c8eead165bc42afd517" name="aa04e4515833f6c8eead165bc42afd517"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa04e4515833f6c8eead165bc42afd517">&#9670;&#160;</a></span>IsRunning()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool BuildRunner::IsRunning </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classBuildRunner_aa04e4515833f6c8eead165bc42afd517_icgraph.svg" width="100%" height="573"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a24dc4a8783d5831f2bac3db2c71d9ac3" name="a24dc4a8783d5831f2bac3db2c71d9ac3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24dc4a8783d5831f2bac3db2c71d9ac3">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classBuildRunner.html">BuildRunner</a> &amp; BuildRunner::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classBuildRunner.html">BuildRunner</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad8b8818a39bf9a737514f66630e5b788" name="ad8b8818a39bf9a737514f66630e5b788"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8b8818a39bf9a737514f66630e5b788">&#9670;&#160;</a></span>SetState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BuildRunner::SetState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599">BuildState</a>&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae9658d5f4973fb48cdf65d9993ebf6be" name="ae9658d5f4973fb48cdf65d9993ebf6be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9658d5f4973fb48cdf65d9993ebf6be">&#9670;&#160;</a></span>StartCommandAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool BuildRunner::StartCommandAsync </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>commandLine</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>workingDir</em> = <code>&quot;.&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classBuildRunner.html#a685b28ecbc55ee653c57523a2dec91d8">OnBuildCompleteCallback</a>&#160;</td>
+          <td class="paramname"><em>onComplete</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classBuildRunner_ae9658d5f4973fb48cdf65d9993ebf6be_cgraph.svg" width="100%" height="364"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classBuildRunner_ae9658d5f4973fb48cdf65d9993ebf6be_icgraph.svg" width="100%" height="492"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a9c2dcbf58c0e8ab466217d8800be02f7" name="a9c2dcbf58c0e8ab466217d8800be02f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c2dcbf58c0e8ab466217d8800be02f7">&#9670;&#160;</a></span>StartMSBuildAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool BuildRunner::StartMSBuildAsync </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>targetFile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>configuration</em> = <code>&quot;Release&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>platform</em> = <code>&quot;x64&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>extraArgs</em> = <code>&quot;/m&#160;/v:minimal&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classBuildRunner.html#a685b28ecbc55ee653c57523a2dec91d8">OnBuildCompleteCallback</a>&#160;</td>
+          <td class="paramname"><em>onComplete</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classBuildRunner_a9c2dcbf58c0e8ab466217d8800be02f7_cgraph.svg" width="100%" height="388"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classBuildRunner_a9c2dcbf58c0e8ab466217d8800be02f7_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a0a6ae3bad3353dcb281b25f207b49f14" name="a0a6ae3bad3353dcb281b25f207b49f14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a6ae3bad3353dcb281b25f207b49f14">&#9670;&#160;</a></span>WorkerThreadMain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BuildRunner::WorkerThreadMain </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>commandLine</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>workingDir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classBuildRunner.html#a685b28ecbc55ee653c57523a2dec91d8">OnBuildCompleteCallback</a>&#160;</td>
+          <td class="paramname"><em>onComplete</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBuildRunner_a0a6ae3bad3353dcb281b25f207b49f14_cgraph.svg" width="471" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classBuildRunner_a0a6ae3bad3353dcb281b25f207b49f14_icgraph.svg" width="100%" height="492"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="acf72f8fc67cb9c60cc99b4b20fc5dd83" name="acf72f8fc67cb9c60cc99b4b20fc5dd83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf72f8fc67cb9c60cc99b4b20fc5dd83">&#9670;&#160;</a></span>m_endTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::chrono::steady_clock::time_point BuildRunner::m_endTime</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2de489c2438908954b63bd7bbac6bd31" name="a2de489c2438908954b63bd7bbac6bd31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2de489c2438908954b63bd7bbac6bd31">&#9670;&#160;</a></span>m_lastExitCode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic&lt;int&gt; BuildRunner::m_lastExitCode { 0 }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a533b502d3b44145690af6f328d4896c7" name="a533b502d3b44145690af6f328d4896c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a533b502d3b44145690af6f328d4896c7">&#9670;&#160;</a></span>m_logMutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex BuildRunner::m_logMutex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0facc9c42ae41e430a9cc2a5b4ba4b9a" name="a0facc9c42ae41e430a9cc2a5b4ba4b9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0facc9c42ae41e430a9cc2a5b4ba4b9a">&#9670;&#160;</a></span>m_logs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt; BuildRunner::m_logs</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a54afa6150e9c796a0dde13f4551a5694" name="a54afa6150e9c796a0dde13f4551a5694"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54afa6150e9c796a0dde13f4551a5694">&#9670;&#160;</a></span>m_startTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::chrono::steady_clock::time_point BuildRunner::m_startTime</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a10deb766a2eb907164b207ebf2cdf642" name="a10deb766a2eb907164b207ebf2cdf642"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10deb766a2eb907164b207ebf2cdf642">&#9670;&#160;</a></span>m_state</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic&lt;<a class="el" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599">BuildState</a>&gt; BuildRunner::m_state { <a class="el" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599ae599161956d626eda4cb0a5ffb85271c">BuildState::Idle</a> }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7f0d0f6a0eaf488306502ef291b6e204" name="a7f0d0f6a0eaf488306502ef291b6e204"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f0d0f6a0eaf488306502ef291b6e204">&#9670;&#160;</a></span>m_workerThread</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::thread BuildRunner::m_workerThread</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/Editor/<a class="el" href="BuildRunner_8h_source.html">BuildRunner.h</a></li>
+<li>Source/Editor/<a class="el" href="BuildRunner_8cpp.html">BuildRunner.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classBuildRunner.html">BuildRunner</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

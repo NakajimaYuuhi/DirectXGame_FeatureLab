@@ -124,7 +124,7 @@ HealthComponent 連携図</div>
 <tr class="separator:a4f77b6825d531194ba11fb343c348213"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8222c48301943b2f2da6e6278609e4b7" id="r_a8222c48301943b2f2da6e6278609e4b7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHealthComponent.html#a8222c48301943b2f2da6e6278609e4b7">GetUpdatePhase</a> () const override</td></tr>
 <tr class="separator:a8222c48301943b2f2da6e6278609e4b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e2183226a56e3e3cc20aafc192d0c4b" id="r_a2e2183226a56e3e3cc20aafc192d0c4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHealthComponent.html#a2e2183226a56e3e3cc20aafc192d0c4b">TakeDamage</a> (int damage)</td></tr>
+<tr class="memitem:a2e2183226a56e3e3cc20aafc192d0c4b" id="r_a2e2183226a56e3e3cc20aafc192d0c4b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHealthComponent.html#a2e2183226a56e3e3cc20aafc192d0c4b">TakeDamage</a> (int damage)</td></tr>
 <tr class="separator:a2e2183226a56e3e3cc20aafc192d0c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d64fc1750ef382e07015890effbb339" id="r_a1d64fc1750ef382e07015890effbb339"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHealthComponent.html#a1d64fc1750ef382e07015890effbb339">GetHP</a> () const</td></tr>
 <tr class="separator:a1d64fc1750ef382e07015890effbb339"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,9 +138,9 @@ HealthComponent 連携図</div>
 <tr class="separator:a6f047bdac8e1166d009ba5a827014f61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9037caa7e36f754dbeeaaec4d7a359ac" id="r_a9037caa7e36f754dbeeaaec4d7a359ac"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHealthComponent.html#a9037caa7e36f754dbeeaaec4d7a359ac">GetBlinkInterval</a> () const</td></tr>
 <tr class="separator:a9037caa7e36f754dbeeaaec4d7a359ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b62aaeb7ddbd7641a26ec7ed5668e9a" id="r_a8b62aaeb7ddbd7641a26ec7ed5668e9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHealthComponent.html#a8b62aaeb7ddbd7641a26ec7ed5668e9a">SetMaxHP</a> (int maxHp, bool resetCurrentHp=true)</td></tr>
+<tr class="memitem:a8b62aaeb7ddbd7641a26ec7ed5668e9a" id="r_a8b62aaeb7ddbd7641a26ec7ed5668e9a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHealthComponent.html#a8b62aaeb7ddbd7641a26ec7ed5668e9a">SetMaxHP</a> (int maxHp, bool resetCurrentHp=true)</td></tr>
 <tr class="separator:a8b62aaeb7ddbd7641a26ec7ed5668e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecf30d7a7d743a8f49afffc1445746c4" id="r_aecf30d7a7d743a8f49afffc1445746c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHealthComponent.html#aecf30d7a7d743a8f49afffc1445746c4">SetHP</a> (int hp)</td></tr>
+<tr class="memitem:aecf30d7a7d743a8f49afffc1445746c4" id="r_aecf30d7a7d743a8f49afffc1445746c4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHealthComponent.html#aecf30d7a7d743a8f49afffc1445746c4">SetHP</a> (int hp)</td></tr>
 <tr class="separator:aecf30d7a7d743a8f49afffc1445746c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1af4ac43277704f24d773c325b227acc" id="r_a1af4ac43277704f24d773c325b227acc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHealthComponent.html#a1af4ac43277704f24d773c325b227acc">SetInvincibleDuration</a> (float duration)</td></tr>
 <tr class="separator:a1af4ac43277704f24d773c325b227acc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -179,8 +179,8 @@ HealthComponent 連携図</div>
 <tr class="separator:a72945a287cdce2b3dd7cd9a33ce022f9 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3588f81b9d893984ece9dfa4cdaf8383 inherit pub_methods_classCComponent" id="r_a3588f81b9d893984ece9dfa4cdaf8383"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a3588f81b9d893984ece9dfa4cdaf8383">SetEnabled</a> (bool enabled)</td></tr>
 <tr class="separator:a3588f81b9d893984ece9dfa4cdaf8383 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a281a46452f6f59625e5488936cd70aa7 inherit pub_methods_classCComponent" id="r_a281a46452f6f59625e5488936cd70aa7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a281a46452f6f59625e5488936cd70aa7">GetName</a> () const</td></tr>
-<tr class="separator:a281a46452f6f59625e5488936cd70aa7 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06f29f30b2566a12617852195ea72fa0 inherit pub_methods_classCComponent" id="r_a06f29f30b2566a12617852195ea72fa0"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a06f29f30b2566a12617852195ea72fa0">GetName</a> () const</td></tr>
+<tr class="separator:a06f29f30b2566a12617852195ea72fa0 inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1df83625aa856f9cc7047da68dce131d inherit pub_methods_classCComponent" id="r_a1df83625aa856f9cc7047da68dce131d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a1df83625aa856f9cc7047da68dce131d">GetIsValid</a> () const</td></tr>
 <tr class="separator:a1df83625aa856f9cc7047da68dce131d inherit pub_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf4188a21189f533eed52041962cafd4 inherit pub_methods_classCComponent" id="r_abf4188a21189f533eed52041962cafd4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#abf4188a21189f533eed52041962cafd4">GetIsVarid</a> () const</td></tr>
@@ -213,6 +213,11 @@ HealthComponent 連携図</div>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 その他の継承メンバ</h2></td></tr>
+<tr class="inherit_header pub_static_methods_classCComponent"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classCComponent')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCComponent.html">CComponent</a> に属する継承静的公開メンバ関数</td></tr>
+<tr class="memitem:ade99c48a292170765129da054d8f04c7 inherit pub_static_methods_classCComponent" id="r_ade99c48a292170765129da054d8f04c7"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ade99c48a292170765129da054d8f04c7">operator new</a> (size_t size)</td></tr>
+<tr class="separator:ade99c48a292170765129da054d8f04c7 inherit pub_static_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c4b4c1bd56575c8dab989f1d3a41464 inherit pub_static_methods_classCComponent" id="r_a7c4b4c1bd56575c8dab989f1d3a41464"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a7c4b4c1bd56575c8dab989f1d3a41464">operator delete</a> (void *ptr) noexcept</td></tr>
+<tr class="separator:a7c4b4c1bd56575c8dab989f1d3a41464 inherit pub_static_methods_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classCComponent"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classCComponent')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classCComponent.html">CComponent</a> に属する継承限定公開変数類</td></tr>
 <tr class="memitem:a76959a9e98ef06163c56858026e9da5b inherit pro_attribs_classCComponent" id="r_a76959a9e98ef06163c56858026e9da5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a76959a9e98ef06163c56858026e9da5b">m_Owner</a> = nullptr</td></tr>
 <tr class="separator:a76959a9e98ef06163c56858026e9da5b inherit pro_attribs_classCComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -544,6 +549,9 @@ HealthComponent 連携図</div>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void HealthComponent::SetHP </td>
@@ -553,6 +561,11 @@ HealthComponent 連携図</div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
@@ -598,6 +611,9 @@ HealthComponent 連携図</div>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void HealthComponent::SetMaxHP </td>
@@ -617,6 +633,11 @@ HealthComponent 連携図</div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
@@ -652,7 +673,7 @@ HealthComponent 連携図</div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classHealthComponent_ad1626f038404c3ce200b65819407fd7a_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classHealthComponent_ad1626f038404c3ce200b65819407fd7a_icgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -683,7 +704,7 @@ HealthComponent 連携図</div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classHealthComponent_a27bd6b76670ce54b48db247cf6f11859_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classHealthComponent_a27bd6b76670ce54b48db247cf6f11859_icgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -725,6 +746,9 @@ HealthComponent 連携図</div>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void HealthComponent::TakeDamage </td>
@@ -734,6 +758,11 @@ HealthComponent 連携図</div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>

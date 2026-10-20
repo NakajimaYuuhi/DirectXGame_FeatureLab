@@ -24,11 +24,13 @@ var hierarchy =
     [ "nlohmann::detail::dtoa_impl::boundaries", "structnlohmann_1_1detail_1_1dtoa__impl_1_1boundaries.html", null ],
     [ "tinygltf::Buffer", "structtinygltf_1_1Buffer.html", null ],
     [ "tinygltf::BufferView", "structtinygltf_1_1BufferView.html", null ],
+    [ "BuildRunner", "classBuildRunner.html", null ],
     [ "ButtonEventManager", "classButtonEventManager.html", null ],
     [ "nlohmann::detail::dtoa_impl::cached_power", "structnlohmann_1_1detail_1_1dtoa__impl_1_1cached__power.html", null ],
     [ "tinygltf::Camera", "structtinygltf_1_1Camera.html", null ],
     [ "CAssetSecurityUI", "classCAssetSecurityUI.html", null ],
     [ "CBone", "classCBone.html", null ],
+    [ "CBuildSettingsUI", "classCBuildSettingsUI.html", null ],
     [ "CComponent", "classCComponent.html", [
       [ "Audio", "classAudio.html", null ],
       [ "BillboardComponent", "classBillboardComponent.html", null ],
@@ -173,6 +175,7 @@ var hierarchy =
     [ "D2DTextRenderer::FrameResources", "structD2DTextRenderer_1_1FrameResources.html", null ],
     [ "nlohmann::detail::from_json_fn", "structnlohmann_1_1detail_1_1from__json__fn.html", null ],
     [ "tinygltf::FsCallbacks", "structtinygltf_1_1FsCallbacks.html", null ],
+    [ "GamePackageBuilder", "classGamePackageBuilder.html", null ],
     [ "GBuffer", "classGBuffer.html", null ],
     [ "nlohmann::detail::utility_internal::Gen< T, N >", "structnlohmann_1_1detail_1_1utility__internal_1_1Gen.html", null ],
     [ "nlohmann::detail::utility_internal::Gen< T, 0 >", "structnlohmann_1_1detail_1_1utility__internal_1_1Gen_3_01T_00_010_01_4.html", null ],
@@ -182,6 +185,7 @@ var hierarchy =
     [ "nlohmann::detail::has_non_default_from_json< BasicJsonType, T, enable_if_t< !is_basic_json< T >::value > >", "structnlohmann_1_1detail_1_1has__non__default__from__json_3_01BasicJsonType_00_01T_00_01enable__b7a8cd863889b54d1139b207b4233111.html", null ],
     [ "nlohmann::detail::has_to_json< BasicJsonType, T, enable_if_t< !is_basic_json< T >::value > >", "structnlohmann_1_1detail_1_1has__to__json_3_01BasicJsonType_00_01T_00_01enable__if__t_3_01_9is__4a8838c1c30336126696a126041e661c.html", null ],
     [ "std::hash< nlohmann::json >", "structstd_1_1hash_3_01nlohmann_1_1json_01_4.html", null ],
+    [ "HotReloadManager", "classHotReloadManager.html", null ],
     [ "IAssetDecryptor", "classIAssetDecryptor.html", [
       [ "RawDecryptor", "classRawDecryptor.html", null ],
       [ "XorDecryptor", "classXorDecryptor.html", null ]
@@ -519,6 +523,7 @@ var hierarchy =
       [ "nlohmann::detail::output_string_adapter< CharType, StringType >", "classnlohmann_1_1detail_1_1output__string__adapter.html", null ],
       [ "nlohmann::detail::output_vector_adapter< CharType, AllocatorType >", "classnlohmann_1_1detail_1_1output__vector__adapter.html", null ]
     ] ],
+    [ "PackageBuildConfig", "structPackageBuildConfig.html", null ],
     [ "tinygltf::Parameter", "structtinygltf_1_1Parameter.html", null ],
     [ "nlohmann::detail::parser< BasicJsonType, InputAdapterType >", "classnlohmann_1_1detail_1_1parser.html", null ],
     [ "tinygltf::PbrMetallicRoughness", "structtinygltf_1_1PbrMetallicRoughness.html", null ],

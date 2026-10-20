@@ -63,12 +63,14 @@ var searchData=
   ['stbtt_5fvline_60',['STBTT_vline',['../imstb__truetype_8h.html#ab04a0655cd1e3bcac5e8f48c18df1a57ade4bb6465c32e56588f35e5120769e2e',1,'imstb_truetype.h']]],
   ['stbtt_5fvmove_61',['STBTT_vmove',['../imstb__truetype_8h.html#ab04a0655cd1e3bcac5e8f48c18df1a57ab335ba97e1798b621313de85a9a6e69d',1,'imstb_truetype.h']]],
   ['step_62',['STEP',['../ModelData_8h.html#a8472f01c511d77bbfb981a46618ea1eaa522f694f92e679d874a1cc2b2616c3d7',1,'ModelData.h']]],
-  ['store_63',['store',['../namespacenlohmann_1_1detail.html#a58bb1ef1a9ad287a9cfaf1855784d9aca8cd892b7b97ef9489ae4479d3f4ef0fc',1,'nlohmann::detail']]],
-  ['stretchall_64',['StretchAll',['../RectTransform_8h.html#a56cc714aebadda3b54e9250d0d35716ea8502011fd0115a7de85a3681a9859751',1,'RectTransform.h']]],
-  ['stretchhorizontal_65',['StretchHorizontal',['../RectTransform_8h.html#a56cc714aebadda3b54e9250d0d35716ea9a2050f7d7f58215bc823dce5e0d985f',1,'RectTransform.h']]],
-  ['stretchvertical_66',['StretchVertical',['../RectTransform_8h.html#a56cc714aebadda3b54e9250d0d35716ea7e63ef52357ab4377721e617da3bd63c',1,'RectTransform.h']]],
-  ['strict_67',['strict',['../namespacenlohmann_1_1detail.html#a5a76b60b26dc8c47256a996d18d967dfa2133fd717402a7966ee88d06f9e0b792',1,'nlohmann::detail::strict'],['../namespacetinygltf.html#a6cec4aed000632cebb63348120bb946fa516e1ea1b0f87e33423972607a704dc4',1,'tinygltf::Strict']]],
-  ['string_68',['string',['../classtinygltf__json.html#a11a49cb2effb4db8b215352d36d33b04ab45cffe084dd3d20d928bee85e7b0f21',1,'tinygltf_json::string'],['../namespacenlohmann_1_1detail.html#a1ed8fc6239da25abcaf681d30ace4985ab45cffe084dd3d20d928bee85e7b0f21',1,'nlohmann::detail::string']]],
-  ['string_5ftype_69',['STRING_TYPE',['../namespacetinygltf.html#a2c1d6e5499b1e1b6618815042fe3bde7a709e1de707fec63fa99b0d03d70839f6',1,'tinygltf']]],
-  ['swapscene_70',['SwapScene',['../SceneManager_8h.html#a8b7171c7ec1f644ad010a7486791d762ad9eb87bb5b6d83f7142c1663673185af',1,'SceneManager.h']]]
+  ['stopped_63',['Stopped',['../HotReloadManager_8h.html#a336cc0958db7d22570ebaad84c8cd7b4ac23e2b09ebe6bf4cb5e2a9abe85c0be2',1,'HotReloadManager.h']]],
+  ['store_64',['store',['../namespacenlohmann_1_1detail.html#a58bb1ef1a9ad287a9cfaf1855784d9aca8cd892b7b97ef9489ae4479d3f4ef0fc',1,'nlohmann::detail']]],
+  ['stretchall_65',['StretchAll',['../RectTransform_8h.html#a56cc714aebadda3b54e9250d0d35716ea8502011fd0115a7de85a3681a9859751',1,'RectTransform.h']]],
+  ['stretchhorizontal_66',['StretchHorizontal',['../RectTransform_8h.html#a56cc714aebadda3b54e9250d0d35716ea9a2050f7d7f58215bc823dce5e0d985f',1,'RectTransform.h']]],
+  ['stretchvertical_67',['StretchVertical',['../RectTransform_8h.html#a56cc714aebadda3b54e9250d0d35716ea7e63ef52357ab4377721e617da3bd63c',1,'RectTransform.h']]],
+  ['strict_68',['strict',['../namespacetinygltf.html#a6cec4aed000632cebb63348120bb946fa516e1ea1b0f87e33423972607a704dc4',1,'tinygltf::Strict'],['../namespacenlohmann_1_1detail.html#a5a76b60b26dc8c47256a996d18d967dfa2133fd717402a7966ee88d06f9e0b792',1,'nlohmann::detail::strict']]],
+  ['string_69',['string',['../classtinygltf__json.html#a11a49cb2effb4db8b215352d36d33b04ab45cffe084dd3d20d928bee85e7b0f21',1,'tinygltf_json::string'],['../namespacenlohmann_1_1detail.html#a1ed8fc6239da25abcaf681d30ace4985ab45cffe084dd3d20d928bee85e7b0f21',1,'nlohmann::detail::string']]],
+  ['string_5ftype_70',['STRING_TYPE',['../namespacetinygltf.html#a2c1d6e5499b1e1b6618815042fe3bde7a709e1de707fec63fa99b0d03d70839f6',1,'tinygltf']]],
+  ['succeeded_71',['Succeeded',['../BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599a66d02c2f8a582446f8dd8752366002b5',1,'BuildRunner.h']]],
+  ['swapscene_72',['SwapScene',['../SceneManager_8h.html#a8b7171c7ec1f644ad010a7486791d762ad9eb87bb5b6d83f7142c1663673185af',1,'SceneManager.h']]]
 ];

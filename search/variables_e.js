@@ -85,7 +85,7 @@ var searchData=
   ['navwindowingtimer_82',['NavWindowingTimer',['../structImGuiContext.html#a412d61294f8c686db6ecc366c845bd08',1,'ImGuiContext']]],
   ['navwindowingtogglekey_83',['NavWindowingToggleKey',['../structImGuiContext.html#ac0a1d7637ce7c285fd6bc512c0542b0f',1,'ImGuiContext']]],
   ['navwindowingtogglelayer_84',['NavWindowingToggleLayer',['../structImGuiContext.html#a324b59dc38e7121a1aef959218d3563a',1,'ImGuiContext']]],
-  ['next_85',['next',['../structstbrp__node.html#a933cb2dd6cddc4fcaf10e3b40634bed4',1,'stbrp_node::next'],['../structImTriangulatorNode.html#a1d8eacc98ab67c7077b4c050d4dd7144',1,'ImTriangulatorNode::Next']]],
+  ['next_85',['next',['../structImTriangulatorNode.html#a1d8eacc98ab67c7077b4c050d4dd7144',1,'ImTriangulatorNode::Next'],['../structstbrp__node.html#a933cb2dd6cddc4fcaf10e3b40634bed4',1,'stbrp_node::next']]],
   ['next_5funget_86',['next_unget',['../classnlohmann_1_1detail_1_1lexer.html#a40b108a0e45a7253f6ad85fbdaa6a262',1,'nlohmann::detail::lexer']]],
   ['nextenabledcolumn_87',['NextEnabledColumn',['../structImGuiTableColumn.html#a716d0d38ad604f8434626cce11e535f3',1,'ImGuiTableColumn']]],
   ['nextentryindex_88',['NextEntryIndex',['../structImGuiKeyRoutingData.html#af068d2021d6a9c47d38b1e853409e3ae',1,'ImGuiKeyRoutingData']]],

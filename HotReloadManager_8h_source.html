@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Core/HotReloadManager.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('HotReloadManager_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">HotReloadManager.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="HotReloadManager_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;mutex&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;atomic&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;filesystem&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;Windows.h&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="HotReloadManager_8h.html#a336cc0958db7d22570ebaad84c8cd7b4">   10</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="HotReloadManager_8h.html#a336cc0958db7d22570ebaad84c8cd7b4">EditorPlayState</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_enumvalue" href="HotReloadManager_8h.html#a336cc0958db7d22570ebaad84c8cd7b4ac9dbb2b7c84159b632d71e512eba8428">Playing</a>,</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_enumvalue" href="HotReloadManager_8h.html#a336cc0958db7d22570ebaad84c8cd7b4ae99180abf47a8b3a856e0bcb2656990a">Paused</a>,</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_enumvalue" href="HotReloadManager_8h.html#a336cc0958db7d22570ebaad84c8cd7b4ac23e2b09ebe6bf4cb5e2a9abe85c0be2">Stopped</a> <span class="comment">// Edit Mode (Game Update paused, Scene restored to snapshot)</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>};</div>
+</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classHotReloadManager.html">   17</a></span><span class="keyword">class </span><a class="code hl_class" href="classHotReloadManager.html">HotReloadManager</a></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="}">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#ace95f5a3d75da95f1d6b269e2bb1444e">   20</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classHotReloadManager.html">HotReloadManager</a>&amp; <a class="code hl_function" href="classHotReloadManager.html#ace95f5a3d75da95f1d6b269e2bb1444e">GetInstance</a>()</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keyword">static</span> <a class="code hl_class" href="classHotReloadManager.html">HotReloadManager</a> instance;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keywordflow">return</span> instance;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    }</div>
+</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="comment">// Initialize file timestamps for watching</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classHotReloadManager.html#adf6c37c404282aa1446a528e6dd2b517">Initialize</a>();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="comment">// Clean up loaded DLL on shutdown (call after SceneManager::Uninit)</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classHotReloadManager.html#a2f5c819f12a3256ba66ca56c86217d76">Finalize</a>();</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="comment">// Called once per frame on the main thread (outside Update/Draw)</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classHotReloadManager.html#a455dbeddbea141497032f0b361fbfed1">ProcessMainThreadTasks</a>(<span class="keywordtype">float</span> deltaTime);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="comment">// -----------------------------------------------------------------</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="comment">// 1. C++ GameLogic DLL Hot Reload</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="comment">// -----------------------------------------------------------------</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classHotReloadManager.html#ad4e96d29a2c1f303a4456607ad5d8347">CompileAndReloadGameLogicAsync</a>();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classHotReloadManager.html#ade540605fc77c488cd9f7b53fc54965d">IsCompilingGameLogic</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#abc6e2247cde9b8e5f11240c4fb44a553">   40</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classHotReloadManager.html#abc6e2247cde9b8e5f11240c4fb44a553">GetReloadVersion</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classHotReloadManager.html#a2a0a573575e47b3b9bffcc5ae44fc6ec">m_reloadVersion</a>.load(); }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#a8a44712756e200f07268c31be7a6b7f2">   41</a></span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classHotReloadManager.html#a8a44712756e200f07268c31be7a6b7f2">GetCurrentLoadedDllName</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classHotReloadManager.html#a6b78f1703d4688f5c1bdd543224312d8">m_loadedDllName</a>; }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="comment">// -----------------------------------------------------------------</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="comment">// 2. Shader (.hlsl) &amp; Prefab (.json) Hot Reload</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="comment">// -----------------------------------------------------------------</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classHotReloadManager.html#aea98993cdbcd90a16c71be7965c59abc">ReloadShadersAndPrefabs</a>(std::string* outMessage = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="comment">// -----------------------------------------------------------------</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="comment">// 3. Auto File Watcher Settings</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment">// -----------------------------------------------------------------</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#adc9bc0e87f6d65cac5abc05f45d6624f">   51</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classHotReloadManager.html#adc9bc0e87f6d65cac5abc05f45d6624f">IsAutoWatchShadersEnabled</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classHotReloadManager.html#accee27dbbfea0ada3ac38e8881d65538">m_autoWatchShaders</a>; }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#a980877d35626a25723c2e175c9d23e7e">   52</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classHotReloadManager.html#a980877d35626a25723c2e175c9d23e7e">SetAutoWatchShadersEnabled</a>(<span class="keywordtype">bool</span> enabled) { <a class="code hl_variable" href="classHotReloadManager.html#accee27dbbfea0ada3ac38e8881d65538">m_autoWatchShaders</a> = enabled; }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#a33f0992839514d5d5d66263d83b75fe9">   54</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classHotReloadManager.html#a33f0992839514d5d5d66263d83b75fe9">IsAutoWatchCppEnabled</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classHotReloadManager.html#aa8e0068a690d0c0fec094a5ef6289261">m_autoWatchCpp</a>; }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#a52a7ce875d807d0bad6b6749f571e6c8">   55</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classHotReloadManager.html#a52a7ce875d807d0bad6b6749f571e6c8">SetAutoWatchCppEnabled</a>(<span class="keywordtype">bool</span> enabled) { <a class="code hl_variable" href="classHotReloadManager.html#aa8e0068a690d0c0fec094a5ef6289261">m_autoWatchCpp</a> = enabled; }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="comment">// -----------------------------------------------------------------</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="comment">// 4. Editor Play / Pause / Stop Mode (In-Memory Scene Snapshot)</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="comment">// -----------------------------------------------------------------</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#ade0dd15f43c2598082b7551bf38e8b5e">   60</a></span>    <a class="code hl_enumeration" href="HotReloadManager_8h.html#a336cc0958db7d22570ebaad84c8cd7b4">EditorPlayState</a> <a class="code hl_function" href="classHotReloadManager.html#ade0dd15f43c2598082b7551bf38e8b5e">GetPlayState</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classHotReloadManager.html#a8b71fce52c10c23d193b56f0ddddfaf8">m_playState</a>; }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#ab70b513d703620d64f416ef14064a65d">   61</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classHotReloadManager.html#ab70b513d703620d64f416ef14064a65d">ShouldUpdateGameLogic</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classHotReloadManager.html#a8b71fce52c10c23d193b56f0ddddfaf8">m_playState</a> == <a class="code hl_enumvalue" href="HotReloadManager_8h.html#a336cc0958db7d22570ebaad84c8cd7b4ac9dbb2b7c84159b632d71e512eba8428">EditorPlayState::Playing</a>; }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classHotReloadManager.html#a61118a35544c631987e06970f933e1fd">Play</a>();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classHotReloadManager.html#a355881e70b607c01f63df10152577a12">Pause</a>();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classHotReloadManager.html#ada06afa6ef7a95de23cf684a1dcfbe39">StopAndRestoreSnapshot</a>();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classHotReloadManager.html#aa17e0dee64803018ca2af15ad18f45a7">CaptureSceneSnapshot</a>();</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#acdee58386c1f9d5d35c1fc77893365e1">   67</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classHotReloadManager.html#acdee58386c1f9d5d35c1fc77893365e1">HasSceneSnapshot</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> !<a class="code hl_variable" href="classHotReloadManager.html#ac758f414b16583579350f14be060ca94">m_playModeSnapshotJson</a>.empty(); }</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#a998216f5b26f5a738d732c61b0518bd4">   69</a></span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classHotReloadManager.html#a998216f5b26f5a738d732c61b0518bd4">GetLastStatusMessage</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classHotReloadManager.html#a025e168896e484a895b462ba527195f8">m_lastStatusMessage</a>; }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#a9410baa5cf311e4d4e861fff3b2362fe">   70</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classHotReloadManager.html#a9410baa5cf311e4d4e861fff3b2362fe">IsLastStatusError</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classHotReloadManager.html#a4a0e34f0272f6f0717dd97d8d18b2d74">m_lastStatusIsError</a>; }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#ac0ef3876c0719b8dd2fbb6ea5f6367db">   73</a></span>    <a class="code hl_function" href="classHotReloadManager.html#ac0ef3876c0719b8dd2fbb6ea5f6367db">HotReloadManager</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_function" href="classHotReloadManager.html#a27eed1b03c015baffd5db836ad4c8e63">~HotReloadManager</a>();</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#aa3878e80e578e32c49b3a6bc6ca96db7">   75</a></span>    <a class="code hl_function" href="classHotReloadManager.html#aa3878e80e578e32c49b3a6bc6ca96db7">HotReloadManager</a>(<span class="keyword">const</span> <a class="code hl_class" href="classHotReloadManager.html">HotReloadManager</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#a1aa3f42bb1f134d76b79a799214fdc12">   76</a></span>    <a class="code hl_class" href="classHotReloadManager.html">HotReloadManager</a>&amp; <a class="code hl_function" href="classHotReloadManager.html#a1aa3f42bb1f134d76b79a799214fdc12">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classHotReloadManager.html">HotReloadManager</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    std::string <a class="code hl_function" href="classHotReloadManager.html#a8d666b3441ec0bc1449ffbc7bab0ad09">FindVcVars64Path</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classHotReloadManager.html#a4f87a6320469725bb604886f39d61de8">PerformDllSwapOnMainThread</a>(<span class="keyword">const</span> std::string&amp; newDllPath);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classHotReloadManager.html#a2a5388f7093ff58d41762a39367888ee">ScanWatchedFiles</a>(<span class="keywordtype">bool</span> triggerReloadOnChange);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#a26b89302f5a70dc51a1c2b24a737d2c7">   83</a></span>    HMODULE <a class="code hl_variable" href="classHotReloadManager.html#a26b89302f5a70dc51a1c2b24a737d2c7">m_hLoadedDll</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#a6b78f1703d4688f5c1bdd543224312d8">   84</a></span>    std::string <a class="code hl_variable" href="classHotReloadManager.html#a6b78f1703d4688f5c1bdd543224312d8">m_loadedDllName</a> = <span class="stringliteral">&quot;(Built-in EXE)&quot;</span>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#a2a0a573575e47b3b9bffcc5ae44fc6ec">   85</a></span>    std::atomic&lt;int&gt; <a class="code hl_variable" href="classHotReloadManager.html#a2a0a573575e47b3b9bffcc5ae44fc6ec">m_reloadVersion</a>{ 0 };</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#a9bdec67a2ae09a616b6fd36b16a06731">   87</a></span>    std::mutex <a class="code hl_variable" href="classHotReloadManager.html#a9bdec67a2ae09a616b6fd36b16a06731">m_pendingMutex</a>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#ab6f19c2ea1733612b6044a5a319913ba">   88</a></span>    std::string <a class="code hl_variable" href="classHotReloadManager.html#ab6f19c2ea1733612b6044a5a319913ba">m_pendingDllPath</a>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#af00fe5118533f512d0762af212e3e0e5">   89</a></span>    std::atomic&lt;bool&gt; <a class="code hl_variable" href="classHotReloadManager.html#af00fe5118533f512d0762af212e3e0e5">m_hasPendingDllSwap</a>{ <span class="keyword">false</span> };</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#a1cfcdd113aca5007a5c1925c8bf93634">   90</a></span>    std::atomic&lt;bool&gt; <a class="code hl_variable" href="classHotReloadManager.html#a1cfcdd113aca5007a5c1925c8bf93634">m_hasPendingShaderReload</a>{ <span class="keyword">false</span> };</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="comment">// File watcher state</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#ab2f06be40f2ced6d72aca34176b4026d">   93</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classHotReloadManager.html#ab2f06be40f2ced6d72aca34176b4026d">m_isInitialized</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#accee27dbbfea0ada3ac38e8881d65538">   94</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classHotReloadManager.html#accee27dbbfea0ada3ac38e8881d65538">m_autoWatchShaders</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#aa8e0068a690d0c0fec094a5ef6289261">   95</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classHotReloadManager.html#aa8e0068a690d0c0fec094a5ef6289261">m_autoWatchCpp</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#ad127170f774eea447240b60378485b13">   96</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classHotReloadManager.html#ad127170f774eea447240b60378485b13">m_watchTimer</a> = 0.0f;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#a33beeb19cb5773c0954720425c1bf0f2">   97</a></span>    <span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classHotReloadManager.html#a33beeb19cb5773c0954720425c1bf0f2">WATCH_INTERVAL</a> = 0.5f;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#a18678f33b04fb78a9294cb0ab7e3dc47">   98</a></span>    std::unordered_map&lt;std::string, std::filesystem::file_time_type&gt; <a class="code hl_variable" href="classHotReloadManager.html#a18678f33b04fb78a9294cb0ab7e3dc47">m_shaderTimestamps</a>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#ae7c623fe3a0880f012b3f993b9f901d6">   99</a></span>    std::unordered_map&lt;std::string, std::filesystem::file_time_type&gt; <a class="code hl_variable" href="classHotReloadManager.html#ae7c623fe3a0880f012b3f993b9f901d6">m_cppTimestamps</a>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="comment">// Editor Play / Stop state &amp; in-memory scene snapshot</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#a8b71fce52c10c23d193b56f0ddddfaf8">  102</a></span>    <a class="code hl_enumeration" href="HotReloadManager_8h.html#a336cc0958db7d22570ebaad84c8cd7b4">EditorPlayState</a> <a class="code hl_variable" href="classHotReloadManager.html#a8b71fce52c10c23d193b56f0ddddfaf8">m_playState</a> = <a class="code hl_enumvalue" href="HotReloadManager_8h.html#a336cc0958db7d22570ebaad84c8cd7b4ac9dbb2b7c84159b632d71e512eba8428">EditorPlayState::Playing</a>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#ac758f414b16583579350f14be060ca94">  103</a></span>    std::string <a class="code hl_variable" href="classHotReloadManager.html#ac758f414b16583579350f14be060ca94">m_playModeSnapshotJson</a>;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#a025e168896e484a895b462ba527195f8">  105</a></span>    std::string <a class="code hl_variable" href="classHotReloadManager.html#a025e168896e484a895b462ba527195f8">m_lastStatusMessage</a> = <span class="stringliteral">&quot;Ready.&quot;</span>;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="classHotReloadManager.html#a4a0e34f0272f6f0717dd97d8d18b2d74">  106</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classHotReloadManager.html#a4a0e34f0272f6f0717dd97d8d18b2d74">m_lastStatusIsError</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>};</div>
+</div>
+<div class="ttc" id="aHotReloadManager_8h_html_a336cc0958db7d22570ebaad84c8cd7b4"><div class="ttname"><a href="HotReloadManager_8h.html#a336cc0958db7d22570ebaad84c8cd7b4">EditorPlayState</a></div><div class="ttdeci">EditorPlayState</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:11</div></div>
+<div class="ttc" id="aHotReloadManager_8h_html_a336cc0958db7d22570ebaad84c8cd7b4ac23e2b09ebe6bf4cb5e2a9abe85c0be2"><div class="ttname"><a href="HotReloadManager_8h.html#a336cc0958db7d22570ebaad84c8cd7b4ac23e2b09ebe6bf4cb5e2a9abe85c0be2">EditorPlayState::Stopped</a></div><div class="ttdeci">@ Stopped</div></div>
+<div class="ttc" id="aHotReloadManager_8h_html_a336cc0958db7d22570ebaad84c8cd7b4ac9dbb2b7c84159b632d71e512eba8428"><div class="ttname"><a href="HotReloadManager_8h.html#a336cc0958db7d22570ebaad84c8cd7b4ac9dbb2b7c84159b632d71e512eba8428">EditorPlayState::Playing</a></div><div class="ttdeci">@ Playing</div></div>
+<div class="ttc" id="aHotReloadManager_8h_html_a336cc0958db7d22570ebaad84c8cd7b4ae99180abf47a8b3a856e0bcb2656990a"><div class="ttname"><a href="HotReloadManager_8h.html#a336cc0958db7d22570ebaad84c8cd7b4ae99180abf47a8b3a856e0bcb2656990a">EditorPlayState::Paused</a></div><div class="ttdeci">@ Paused</div></div>
+<div class="ttc" id="aclassHotReloadManager_html"><div class="ttname"><a href="classHotReloadManager.html">HotReloadManager</a></div><div class="ttdef"><b>Definition</b> HotReloadManager.h:18</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a025e168896e484a895b462ba527195f8"><div class="ttname"><a href="classHotReloadManager.html#a025e168896e484a895b462ba527195f8">HotReloadManager::m_lastStatusMessage</a></div><div class="ttdeci">std::string m_lastStatusMessage</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:105</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a18678f33b04fb78a9294cb0ab7e3dc47"><div class="ttname"><a href="classHotReloadManager.html#a18678f33b04fb78a9294cb0ab7e3dc47">HotReloadManager::m_shaderTimestamps</a></div><div class="ttdeci">std::unordered_map&lt; std::string, std::filesystem::file_time_type &gt; m_shaderTimestamps</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:98</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a1aa3f42bb1f134d76b79a799214fdc12"><div class="ttname"><a href="classHotReloadManager.html#a1aa3f42bb1f134d76b79a799214fdc12">HotReloadManager::operator=</a></div><div class="ttdeci">HotReloadManager &amp; operator=(const HotReloadManager &amp;)=delete</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a1cfcdd113aca5007a5c1925c8bf93634"><div class="ttname"><a href="classHotReloadManager.html#a1cfcdd113aca5007a5c1925c8bf93634">HotReloadManager::m_hasPendingShaderReload</a></div><div class="ttdeci">std::atomic&lt; bool &gt; m_hasPendingShaderReload</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:90</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a26b89302f5a70dc51a1c2b24a737d2c7"><div class="ttname"><a href="classHotReloadManager.html#a26b89302f5a70dc51a1c2b24a737d2c7">HotReloadManager::m_hLoadedDll</a></div><div class="ttdeci">HMODULE m_hLoadedDll</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:83</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a27eed1b03c015baffd5db836ad4c8e63"><div class="ttname"><a href="classHotReloadManager.html#a27eed1b03c015baffd5db836ad4c8e63">HotReloadManager::~HotReloadManager</a></div><div class="ttdeci">~HotReloadManager()</div><div class="ttdef"><b>Definition</b> HotReloadManager.cpp:19</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a2a0a573575e47b3b9bffcc5ae44fc6ec"><div class="ttname"><a href="classHotReloadManager.html#a2a0a573575e47b3b9bffcc5ae44fc6ec">HotReloadManager::m_reloadVersion</a></div><div class="ttdeci">std::atomic&lt; int &gt; m_reloadVersion</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:85</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a2a5388f7093ff58d41762a39367888ee"><div class="ttname"><a href="classHotReloadManager.html#a2a5388f7093ff58d41762a39367888ee">HotReloadManager::ScanWatchedFiles</a></div><div class="ttdeci">void ScanWatchedFiles(bool triggerReloadOnChange)</div><div class="ttdef"><b>Definition</b> HotReloadManager.cpp:349</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a2f5c819f12a3256ba66ca56c86217d76"><div class="ttname"><a href="classHotReloadManager.html#a2f5c819f12a3256ba66ca56c86217d76">HotReloadManager::Finalize</a></div><div class="ttdeci">void Finalize()</div><div class="ttdef"><b>Definition</b> HotReloadManager.cpp:32</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a33beeb19cb5773c0954720425c1bf0f2"><div class="ttname"><a href="classHotReloadManager.html#a33beeb19cb5773c0954720425c1bf0f2">HotReloadManager::WATCH_INTERVAL</a></div><div class="ttdeci">const float WATCH_INTERVAL</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:97</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a33f0992839514d5d5d66263d83b75fe9"><div class="ttname"><a href="classHotReloadManager.html#a33f0992839514d5d5d66263d83b75fe9">HotReloadManager::IsAutoWatchCppEnabled</a></div><div class="ttdeci">bool IsAutoWatchCppEnabled() const</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:54</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a355881e70b607c01f63df10152577a12"><div class="ttname"><a href="classHotReloadManager.html#a355881e70b607c01f63df10152577a12">HotReloadManager::Pause</a></div><div class="ttdeci">void Pause()</div><div class="ttdef"><b>Definition</b> HotReloadManager.cpp:437</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a455dbeddbea141497032f0b361fbfed1"><div class="ttname"><a href="classHotReloadManager.html#a455dbeddbea141497032f0b361fbfed1">HotReloadManager::ProcessMainThreadTasks</a></div><div class="ttdeci">void ProcessMainThreadTasks(float deltaTime)</div><div class="ttdef"><b>Definition</b> HotReloadManager.cpp:41</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a4a0e34f0272f6f0717dd97d8d18b2d74"><div class="ttname"><a href="classHotReloadManager.html#a4a0e34f0272f6f0717dd97d8d18b2d74">HotReloadManager::m_lastStatusIsError</a></div><div class="ttdeci">bool m_lastStatusIsError</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:106</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a4f87a6320469725bb604886f39d61de8"><div class="ttname"><a href="classHotReloadManager.html#a4f87a6320469725bb604886f39d61de8">HotReloadManager::PerformDllSwapOnMainThread</a></div><div class="ttdeci">bool PerformDllSwapOnMainThread(const std::string &amp;newDllPath)</div><div class="ttdef"><b>Definition</b> HotReloadManager.cpp:227</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a52a7ce875d807d0bad6b6749f571e6c8"><div class="ttname"><a href="classHotReloadManager.html#a52a7ce875d807d0bad6b6749f571e6c8">HotReloadManager::SetAutoWatchCppEnabled</a></div><div class="ttdeci">void SetAutoWatchCppEnabled(bool enabled)</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:55</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a61118a35544c631987e06970f933e1fd"><div class="ttname"><a href="classHotReloadManager.html#a61118a35544c631987e06970f933e1fd">HotReloadManager::Play</a></div><div class="ttdeci">void Play()</div><div class="ttdef"><b>Definition</b> HotReloadManager.cpp:426</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a6b78f1703d4688f5c1bdd543224312d8"><div class="ttname"><a href="classHotReloadManager.html#a6b78f1703d4688f5c1bdd543224312d8">HotReloadManager::m_loadedDllName</a></div><div class="ttdeci">std::string m_loadedDllName</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:84</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a8a44712756e200f07268c31be7a6b7f2"><div class="ttname"><a href="classHotReloadManager.html#a8a44712756e200f07268c31be7a6b7f2">HotReloadManager::GetCurrentLoadedDllName</a></div><div class="ttdeci">const std::string &amp; GetCurrentLoadedDllName() const</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:41</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a8b71fce52c10c23d193b56f0ddddfaf8"><div class="ttname"><a href="classHotReloadManager.html#a8b71fce52c10c23d193b56f0ddddfaf8">HotReloadManager::m_playState</a></div><div class="ttdeci">EditorPlayState m_playState</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:102</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a8d666b3441ec0bc1449ffbc7bab0ad09"><div class="ttname"><a href="classHotReloadManager.html#a8d666b3441ec0bc1449ffbc7bab0ad09">HotReloadManager::FindVcVars64Path</a></div><div class="ttdeci">std::string FindVcVars64Path() const</div><div class="ttdef"><b>Definition</b> HotReloadManager.cpp:78</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a9410baa5cf311e4d4e861fff3b2362fe"><div class="ttname"><a href="classHotReloadManager.html#a9410baa5cf311e4d4e861fff3b2362fe">HotReloadManager::IsLastStatusError</a></div><div class="ttdeci">bool IsLastStatusError() const</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:70</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a980877d35626a25723c2e175c9d23e7e"><div class="ttname"><a href="classHotReloadManager.html#a980877d35626a25723c2e175c9d23e7e">HotReloadManager::SetAutoWatchShadersEnabled</a></div><div class="ttdeci">void SetAutoWatchShadersEnabled(bool enabled)</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:52</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a998216f5b26f5a738d732c61b0518bd4"><div class="ttname"><a href="classHotReloadManager.html#a998216f5b26f5a738d732c61b0518bd4">HotReloadManager::GetLastStatusMessage</a></div><div class="ttdeci">const std::string &amp; GetLastStatusMessage() const</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:69</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_a9bdec67a2ae09a616b6fd36b16a06731"><div class="ttname"><a href="classHotReloadManager.html#a9bdec67a2ae09a616b6fd36b16a06731">HotReloadManager::m_pendingMutex</a></div><div class="ttdeci">std::mutex m_pendingMutex</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:87</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_aa17e0dee64803018ca2af15ad18f45a7"><div class="ttname"><a href="classHotReloadManager.html#aa17e0dee64803018ca2af15ad18f45a7">HotReloadManager::CaptureSceneSnapshot</a></div><div class="ttdeci">bool CaptureSceneSnapshot()</div><div class="ttdef"><b>Definition</b> HotReloadManager.cpp:414</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_aa3878e80e578e32c49b3a6bc6ca96db7"><div class="ttname"><a href="classHotReloadManager.html#aa3878e80e578e32c49b3a6bc6ca96db7">HotReloadManager::HotReloadManager</a></div><div class="ttdeci">HotReloadManager(const HotReloadManager &amp;)=delete</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_aa8e0068a690d0c0fec094a5ef6289261"><div class="ttname"><a href="classHotReloadManager.html#aa8e0068a690d0c0fec094a5ef6289261">HotReloadManager::m_autoWatchCpp</a></div><div class="ttdeci">bool m_autoWatchCpp</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:95</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_ab2f06be40f2ced6d72aca34176b4026d"><div class="ttname"><a href="classHotReloadManager.html#ab2f06be40f2ced6d72aca34176b4026d">HotReloadManager::m_isInitialized</a></div><div class="ttdeci">bool m_isInitialized</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:93</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_ab6f19c2ea1733612b6044a5a319913ba"><div class="ttname"><a href="classHotReloadManager.html#ab6f19c2ea1733612b6044a5a319913ba">HotReloadManager::m_pendingDllPath</a></div><div class="ttdeci">std::string m_pendingDllPath</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:88</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_ab70b513d703620d64f416ef14064a65d"><div class="ttname"><a href="classHotReloadManager.html#ab70b513d703620d64f416ef14064a65d">HotReloadManager::ShouldUpdateGameLogic</a></div><div class="ttdeci">bool ShouldUpdateGameLogic() const</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:61</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_abc6e2247cde9b8e5f11240c4fb44a553"><div class="ttname"><a href="classHotReloadManager.html#abc6e2247cde9b8e5f11240c4fb44a553">HotReloadManager::GetReloadVersion</a></div><div class="ttdeci">int GetReloadVersion() const</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:40</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_ac0ef3876c0719b8dd2fbb6ea5f6367db"><div class="ttname"><a href="classHotReloadManager.html#ac0ef3876c0719b8dd2fbb6ea5f6367db">HotReloadManager::HotReloadManager</a></div><div class="ttdeci">HotReloadManager()=default</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_ac758f414b16583579350f14be060ca94"><div class="ttname"><a href="classHotReloadManager.html#ac758f414b16583579350f14be060ca94">HotReloadManager::m_playModeSnapshotJson</a></div><div class="ttdeci">std::string m_playModeSnapshotJson</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:103</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_accee27dbbfea0ada3ac38e8881d65538"><div class="ttname"><a href="classHotReloadManager.html#accee27dbbfea0ada3ac38e8881d65538">HotReloadManager::m_autoWatchShaders</a></div><div class="ttdeci">bool m_autoWatchShaders</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:94</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_acdee58386c1f9d5d35c1fc77893365e1"><div class="ttname"><a href="classHotReloadManager.html#acdee58386c1f9d5d35c1fc77893365e1">HotReloadManager::HasSceneSnapshot</a></div><div class="ttdeci">bool HasSceneSnapshot() const</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:67</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_ace95f5a3d75da95f1d6b269e2bb1444e"><div class="ttname"><a href="classHotReloadManager.html#ace95f5a3d75da95f1d6b269e2bb1444e">HotReloadManager::GetInstance</a></div><div class="ttdeci">static HotReloadManager &amp; GetInstance()</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:20</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_ad127170f774eea447240b60378485b13"><div class="ttname"><a href="classHotReloadManager.html#ad127170f774eea447240b60378485b13">HotReloadManager::m_watchTimer</a></div><div class="ttdeci">float m_watchTimer</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:96</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_ad4e96d29a2c1f303a4456607ad5d8347"><div class="ttname"><a href="classHotReloadManager.html#ad4e96d29a2c1f303a4456607ad5d8347">HotReloadManager::CompileAndReloadGameLogicAsync</a></div><div class="ttdeci">bool CompileAndReloadGameLogicAsync()</div><div class="ttdef"><b>Definition</b> HotReloadManager.cpp:111</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_ada06afa6ef7a95de23cf684a1dcfbe39"><div class="ttname"><a href="classHotReloadManager.html#ada06afa6ef7a95de23cf684a1dcfbe39">HotReloadManager::StopAndRestoreSnapshot</a></div><div class="ttdeci">void StopAndRestoreSnapshot()</div><div class="ttdef"><b>Definition</b> HotReloadManager.cpp:453</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_adc9bc0e87f6d65cac5abc05f45d6624f"><div class="ttname"><a href="classHotReloadManager.html#adc9bc0e87f6d65cac5abc05f45d6624f">HotReloadManager::IsAutoWatchShadersEnabled</a></div><div class="ttdeci">bool IsAutoWatchShadersEnabled() const</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:51</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_ade0dd15f43c2598082b7551bf38e8b5e"><div class="ttname"><a href="classHotReloadManager.html#ade0dd15f43c2598082b7551bf38e8b5e">HotReloadManager::GetPlayState</a></div><div class="ttdeci">EditorPlayState GetPlayState() const</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:60</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_ade540605fc77c488cd9f7b53fc54965d"><div class="ttname"><a href="classHotReloadManager.html#ade540605fc77c488cd9f7b53fc54965d">HotReloadManager::IsCompilingGameLogic</a></div><div class="ttdeci">bool IsCompilingGameLogic() const</div><div class="ttdef"><b>Definition</b> HotReloadManager.cpp:106</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_adf6c37c404282aa1446a528e6dd2b517"><div class="ttname"><a href="classHotReloadManager.html#adf6c37c404282aa1446a528e6dd2b517">HotReloadManager::Initialize</a></div><div class="ttdeci">void Initialize()</div><div class="ttdef"><b>Definition</b> HotReloadManager.cpp:24</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_ae7c623fe3a0880f012b3f993b9f901d6"><div class="ttname"><a href="classHotReloadManager.html#ae7c623fe3a0880f012b3f993b9f901d6">HotReloadManager::m_cppTimestamps</a></div><div class="ttdeci">std::unordered_map&lt; std::string, std::filesystem::file_time_type &gt; m_cppTimestamps</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:99</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_aea98993cdbcd90a16c71be7965c59abc"><div class="ttname"><a href="classHotReloadManager.html#aea98993cdbcd90a16c71be7965c59abc">HotReloadManager::ReloadShadersAndPrefabs</a></div><div class="ttdeci">bool ReloadShadersAndPrefabs(std::string *outMessage=nullptr)</div><div class="ttdef"><b>Definition</b> HotReloadManager.cpp:318</div></div>
+<div class="ttc" id="aclassHotReloadManager_html_af00fe5118533f512d0762af212e3e0e5"><div class="ttname"><a href="classHotReloadManager.html#af00fe5118533f512d0762af212e3e0e5">HotReloadManager::m_hasPendingDllSwap</a></div><div class="ttdeci">std::atomic&lt; bool &gt; m_hasPendingDllSwap</div><div class="ttdef"><b>Definition</b> HotReloadManager.h:89</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_1ad6433457b0067ef8f54a4fa85f5c9a.html">Core</a></li><li class="navelem"><a class="el" href="HotReloadManager_8h.html">HotReloadManager.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

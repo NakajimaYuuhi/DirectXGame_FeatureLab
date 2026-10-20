@@ -8,5 +8,6 @@ var classShaderManager =
     [ "GetShader", "classShaderManager.html#ab9e7b20f25ae7b01cd17f88f7b6a619c", null ],
     [ "GetShaderFromCSO", "classShaderManager.html#ab10852abf4ce5507bb8c3a57484e1a42", null ],
     [ "operator=", "classShaderManager.html#a689b404424a09269cfb39e8c931bfd18", null ],
+    [ "ReloadAllShaders", "classShaderManager.html#a328fa53aed97562f04f457692b68831c", null ],
     [ "m_shaders", "classShaderManager.html#a66ef5537e34121c926f97793978b5e40", null ]
 ];

@@ -16,6 +16,7 @@ var classPSOManager =
     [ "GetSpriteRootSignature", "classPSOManager.html#aea733853ff234be971701040a908c73e", null ],
     [ "Init", "classPSOManager.html#a07102bf5eb04e6ae16611ef7edc64482", null ],
     [ "operator=", "classPSOManager.html#aa18b19afc0f24b2f1ebfe37a65ff3463", null ],
+    [ "RebuildPSOs", "classPSOManager.html#aaf871f5766603f4bc225b7d3f476bdbf", null ],
     [ "m_additivePipelineState", "classPSOManager.html#a1da1a173aadbdf693f26370266f5d600", null ],
     [ "m_dummyBoneBuffer", "classPSOManager.html#aa9192d3e2fd28b5516e628330a753545", null ],
     [ "m_dummyBoneSrvCpuHandle", "classPSOManager.html#aab2fdb5b5382fe2dd4339d6c4af22a6a", null ],

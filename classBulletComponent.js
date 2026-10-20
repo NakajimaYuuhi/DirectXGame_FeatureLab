@@ -4,7 +4,7 @@ var classBulletComponent =
     [ "~BulletComponent", "classBulletComponent.html#ad3d33d1db011b6abf639bf02800fe46a", null ],
     [ "GetDamage", "classBulletComponent.html#a518b42d9984e746e6e41c0bcddf1ed97", null ],
     [ "GetDirection", "classBulletComponent.html#a0a33bf7cdaf62e92e75a110cd4d2457c", null ],
-    [ "GetHitEffectPrefab", "classBulletComponent.html#ad65135f2629abdfe457453363dee24cb", null ],
+    [ "GetHitEffectPrefab", "classBulletComponent.html#a215c4f32299ac37c6d55a53cf5f90291", null ],
     [ "GetLifeTime", "classBulletComponent.html#acc7d112044ce1cbc5732704191d4f449", null ],
     [ "GetSpeed", "classBulletComponent.html#a63eb29a6c0d97e967236cc55bbca39d5", null ],
     [ "GetTargetTag", "classBulletComponent.html#a7d5992886bd09b7891abfe3c04d53f64", null ],

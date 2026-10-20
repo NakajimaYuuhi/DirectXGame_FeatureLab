@@ -107,22 +107,26 @@ $(document).ready(function(){initNavTree('classComponentFactory.html',''); initR
 公開型</h2></td></tr>
 <tr class="memitem:a8577deaefe28b885fc09f9a11569a193" id="r_a8577deaefe28b885fc09f9a11569a193"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentFactory.html#a8577deaefe28b885fc09f9a11569a193">CreatorFunc</a> = std::function&lt; <a class="el" href="classCComponent.html">CComponent</a> *(<a class="el" href="classCObject.html">CObject</a> *owner, const <a class="el" href="namespacenlohmann.html#a2bfd99e845a2e5cd90aeaf1b1431f474">nlohmann::json</a> &amp;params)&gt;</td></tr>
 <tr class="separator:a8577deaefe28b885fc09f9a11569a193"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5154a439c9e06b1cda5779375e4cb50d" id="r_a5154a439c9e06b1cda5779375e4cb50d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentFactory.html#a5154a439c9e06b1cda5779375e4cb50d">RawCreatorFunc</a> = <a class="el" href="classCComponent.html">CComponent</a> *(*)(<a class="el" href="classCObject.html">CObject</a> *owner, const <a class="el" href="namespacenlohmann.html#a2bfd99e845a2e5cd90aeaf1b1431f474">nlohmann::json</a> &amp;params)</td></tr>
+<tr class="separator:a5154a439c9e06b1cda5779375e4cb50d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:addfb5f623949f0fb6786f1c7498c08cd" id="r_addfb5f623949f0fb6786f1c7498c08cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentFactory.html#addfb5f623949f0fb6786f1c7498c08cd">RegisterComponent</a> (const std::string &amp;name, <a class="el" href="classComponentFactory.html#a8577deaefe28b885fc09f9a11569a193">CreatorFunc</a> creator)</td></tr>
+<tr class="memitem:addfb5f623949f0fb6786f1c7498c08cd" id="r_addfb5f623949f0fb6786f1c7498c08cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentFactory.html#addfb5f623949f0fb6786f1c7498c08cd">RegisterComponent</a> (const std::string &amp;name, <a class="el" href="classComponentFactory.html#a8577deaefe28b885fc09f9a11569a193">CreatorFunc</a> creator)</td></tr>
 <tr class="separator:addfb5f623949f0fb6786f1c7498c08cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa33574dbdb522e6a101a7bf793919edc" id="r_aa33574dbdb522e6a101a7bf793919edc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCComponent.html">CComponent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentFactory.html#aa33574dbdb522e6a101a7bf793919edc">CreateComponent</a> (const std::string &amp;name, <a class="el" href="classCObject.html">CObject</a> *owner, const <a class="el" href="namespacenlohmann.html#a2bfd99e845a2e5cd90aeaf1b1431f474">nlohmann::json</a> &amp;params)</td></tr>
+<tr class="memitem:a660bd8c207ec82e161be9db8205678e7" id="r_a660bd8c207ec82e161be9db8205678e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentFactory.html#a660bd8c207ec82e161be9db8205678e7">RegisterRawComponent</a> (const char *name, <a class="el" href="classComponentFactory.html#a5154a439c9e06b1cda5779375e4cb50d">RawCreatorFunc</a> creator)</td></tr>
+<tr class="separator:a660bd8c207ec82e161be9db8205678e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa33574dbdb522e6a101a7bf793919edc" id="r_aa33574dbdb522e6a101a7bf793919edc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> <a class="el" href="classCComponent.html">CComponent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentFactory.html#aa33574dbdb522e6a101a7bf793919edc">CreateComponent</a> (const std::string &amp;name, <a class="el" href="classCObject.html">CObject</a> *owner, const <a class="el" href="namespacenlohmann.html#a2bfd99e845a2e5cd90aeaf1b1431f474">nlohmann::json</a> &amp;params)</td></tr>
 <tr class="separator:aa33574dbdb522e6a101a7bf793919edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70b555bf5ad7d0ed93f26dd63c0f4292" id="r_a70b555bf5ad7d0ed93f26dd63c0f4292"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentFactory.html#a70b555bf5ad7d0ed93f26dd63c0f4292">InitDefaultComponents</a> ()</td></tr>
+<tr class="memitem:a70b555bf5ad7d0ed93f26dd63c0f4292" id="r_a70b555bf5ad7d0ed93f26dd63c0f4292"><td class="memItemLeft" align="right" valign="top"><a class="el" href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentFactory.html#a70b555bf5ad7d0ed93f26dd63c0f4292">InitDefaultComponents</a> ()</td></tr>
 <tr class="separator:a70b555bf5ad7d0ed93f26dd63c0f4292"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af355351589d110134a6d4b80a7f684dd" id="r_af355351589d110134a6d4b80a7f684dd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentFactory.html#af355351589d110134a6d4b80a7f684dd">IsRegistered</a> (const std::string &amp;name) const</td></tr>
+<tr class="memitem:af355351589d110134a6d4b80a7f684dd" id="r_af355351589d110134a6d4b80a7f684dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentFactory.html#af355351589d110134a6d4b80a7f684dd">IsRegistered</a> (const std::string &amp;name) const</td></tr>
 <tr class="separator:af355351589d110134a6d4b80a7f684dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
-<tr class="memitem:a0354ca04d3578655bec6ed174ffacf2e" id="r_a0354ca04d3578655bec6ed174ffacf2e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classComponentFactory.html">ComponentFactory</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentFactory.html#a0354ca04d3578655bec6ed174ffacf2e">GetInstance</a> ()</td></tr>
-<tr class="separator:a0354ca04d3578655bec6ed174ffacf2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99051ee0f9c222256e1bdcf0355666dc" id="r_a99051ee0f9c222256e1bdcf0355666dc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> <a class="el" href="classComponentFactory.html">ComponentFactory</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponentFactory.html#a99051ee0f9c222256e1bdcf0355666dc">GetInstance</a> ()</td></tr>
+<tr class="separator:a99051ee0f9c222256e1bdcf0355666dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 非公開メンバ関数</h2></td></tr>
@@ -149,6 +153,20 @@ $(document).ready(function(){initNavTree('classComponentFactory.html',''); initR
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="classComponentFactory.html#a8577deaefe28b885fc09f9a11569a193">ComponentFactory::CreatorFunc</a> =  std::function&lt;<a class="el" href="classCComponent.html">CComponent</a>*(<a class="el" href="classCObject.html">CObject</a>* owner, const <a class="el" href="namespacenlohmann.html#a2bfd99e845a2e5cd90aeaf1b1431f474">nlohmann::json</a>&amp; params)&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5154a439c9e06b1cda5779375e4cb50d" name="a5154a439c9e06b1cda5779375e4cb50d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5154a439c9e06b1cda5779375e4cb50d">&#9670;&#160;</a></span>RawCreatorFunc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classComponentFactory.html#a5154a439c9e06b1cda5779375e4cb50d">ComponentFactory::RawCreatorFunc</a> =  <a class="el" href="classCComponent.html">CComponent</a>* (*)(<a class="el" href="classCObject.html">CObject</a>* owner, const <a class="el" href="namespacenlohmann.html#a2bfd99e845a2e5cd90aeaf1b1431f474">nlohmann::json</a>&amp; params)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -277,8 +295,8 @@ $(document).ready(function(){initNavTree('classComponentFactory.html',''); initR
 
 </div>
 </div>
-<a id="a0354ca04d3578655bec6ed174ffacf2e" name="a0354ca04d3578655bec6ed174ffacf2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0354ca04d3578655bec6ed174ffacf2e">&#9670;&#160;</a></span>GetInstance()</h2>
+<a id="a99051ee0f9c222256e1bdcf0355666dc" name="a99051ee0f9c222256e1bdcf0355666dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99051ee0f9c222256e1bdcf0355666dc">&#9670;&#160;</a></span>GetInstance()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -287,7 +305,7 @@ $(document).ready(function(){initNavTree('classComponentFactory.html',''); initR
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="classComponentFactory.html">ComponentFactory</a> &amp; ComponentFactory::GetInstance </td>
+          <td class="memname"><a class="el" href="classComponentFactory.html">ComponentFactory</a> &amp; ComponentFactory::GetInstance </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -295,14 +313,14 @@ $(document).ready(function(){initNavTree('classComponentFactory.html',''); initR
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classComponentFactory_a0354ca04d3578655bec6ed174ffacf2e_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classComponentFactory_a99051ee0f9c222256e1bdcf0355666dc_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -324,7 +342,7 @@ $(document).ready(function(){initNavTree('classComponentFactory.html',''); initR
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classComponentFactory_a70b555bf5ad7d0ed93f26dd63c0f4292_icgraph.svg" width="506" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classComponentFactory_a70b555bf5ad7d0ed93f26dd63c0f4292_icgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -401,8 +419,36 @@ $(document).ready(function(){initNavTree('classComponentFactory.html',''); initR
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classComponentFactory_addfb5f623949f0fb6786f1c7498c08cd_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classComponentFactory_addfb5f623949f0fb6786f1c7498c08cd_icgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
+
+</div>
+</div>
+<a id="a660bd8c207ec82e161be9db8205678e7" name="a660bd8c207ec82e161be9db8205678e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a660bd8c207ec82e161be9db8205678e7">&#9670;&#160;</a></span>RegisterRawComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ComponentFactory::RegisterRawComponent </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classComponentFactory.html#a5154a439c9e06b1cda5779375e4cb50d">RawCreatorFunc</a>&#160;</td>
+          <td class="paramname"><em>creator</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

@@ -4,6 +4,7 @@ var classCObject =
     [ "CObject", "classCObject.html#ae7ce5d4294d501b3ae2c118f4d1fc852", null ],
     [ "~CObject", "classCObject.html#a93a3c3bc7d9a6462ef00e25404d9b0eb", null ],
     [ "AddComponent", "classCObject.html#a16ae51f353373a27d0a7c68586005028", null ],
+    [ "AttachComponentRaw", "classCObject.html#a72c796b58c0c410e048d17c995687736", null ],
     [ "Awake", "classCObject.html#a7fac8556ed32df0cb10a221195e9ef35", null ],
     [ "AwakeComponents", "classCObject.html#a0bf230e89ac532ee67217d5b8b514734", null ],
     [ "CollisionComponents", "classCObject.html#ac8855f1f09b337e2c41dad8405098a68", null ],

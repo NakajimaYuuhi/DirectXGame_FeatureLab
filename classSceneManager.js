@@ -10,7 +10,7 @@ var classSceneManager =
     [ "Draw", "classSceneManager.html#a0514cff74bbaa000333587c829891b6c", null ],
     [ "GetActiveScene", "classSceneManager.html#aa8a61f377642e132e5a2490b4c655902", null ],
     [ "GetActiveSceneID", "classSceneManager.html#aa631b99b84e98692826a6700439bceeb", null ],
-    [ "GetInstance", "classSceneManager.html#a2f8148c8b2d4a4f18bdb7309bb32fc45", null ],
+    [ "GetInstance", "classSceneManager.html#a8474422b5025e1120985e56953c4958a", null ],
     [ "GetIsGameEnd", "classSceneManager.html#a91495138b54101e7a72c47c6c58b51d4", null ],
     [ "Init", "classSceneManager.html#a53a4c6b79c01fda81442706f35d90333", null ],
     [ "IsSceneLoaded", "classSceneManager.html#af046472efaa10cec80c54e5e5b69bd4f", null ],

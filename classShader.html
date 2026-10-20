@@ -111,19 +111,35 @@ Shader 連携図</div>
 <tr class="separator:aedc63e240e965b496f246ffc214918b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a7cae5113a3388cd09b669719a48f4f" id="r_a4a7cae5113a3388cd09b669719a48f4f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#a4a7cae5113a3388cd09b669719a48f4f">~Shader</a> ()=default</td></tr>
 <tr class="separator:a4a7cae5113a3388cd09b669719a48f4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a919ead4e6a3d0973f53c89888f004943" id="r_a919ead4e6a3d0973f53c89888f004943"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#a919ead4e6a3d0973f53c89888f004943">CompileFromFile</a> (const std::wstring &amp;filePath, const std::string &amp;entryPoint, const std::string &amp;target)</td></tr>
-<tr class="separator:a919ead4e6a3d0973f53c89888f004943"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0c098204705bc243465920130b01f86" id="r_ac0c098204705bc243465920130b01f86"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#ac0c098204705bc243465920130b01f86">CompileFromFile</a> (const std::wstring &amp;filePath, const std::string &amp;entryPoint, const std::string &amp;target, std::string *outError=nullptr)</td></tr>
+<tr class="separator:ac0c098204705bc243465920130b01f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75e2da5bafeb2db7e63055a10a74f6be" id="r_a75e2da5bafeb2db7e63055a10a74f6be"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#a75e2da5bafeb2db7e63055a10a74f6be">LoadFromCSO</a> (const std::wstring &amp;csoFilePath)</td></tr>
 <tr class="separator:a75e2da5bafeb2db7e63055a10a74f6be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abedcf461f9c1a2da87ad84576b0b74dd" id="r_abedcf461f9c1a2da87ad84576b0b74dd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#abedcf461f9c1a2da87ad84576b0b74dd">Recompile</a> (std::string *outError=nullptr)</td></tr>
+<tr class="separator:abedcf461f9c1a2da87ad84576b0b74dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3c7042eb760710e74f385ccfce926b7" id="r_ad3c7042eb760710e74f385ccfce926b7"><td class="memItemLeft" align="right" valign="top">ID3DBlob *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#ad3c7042eb760710e74f385ccfce926b7">GetBlob</a> () const</td></tr>
 <tr class="separator:ad3c7042eb760710e74f385ccfce926b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a188520f6c6ec9836b455ccb4dca2e035" id="r_a188520f6c6ec9836b455ccb4dca2e035"><td class="memItemLeft" align="right" valign="top">D3D12_SHADER_BYTECODE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#a188520f6c6ec9836b455ccb4dca2e035">GetBytecode</a> () const</td></tr>
 <tr class="separator:a188520f6c6ec9836b455ccb4dca2e035"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a867a082e0b63c374b0ab3cb3be67f937" id="r_a867a082e0b63c374b0ab3cb3be67f937"><td class="memItemLeft" align="right" valign="top">const std::wstring &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#a867a082e0b63c374b0ab3cb3be67f937">GetFilePath</a> () const</td></tr>
+<tr class="separator:a867a082e0b63c374b0ab3cb3be67f937"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e6771e9816d4b6c1aac48026d9aa752" id="r_a6e6771e9816d4b6c1aac48026d9aa752"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#a6e6771e9816d4b6c1aac48026d9aa752">GetEntryPoint</a> () const</td></tr>
+<tr class="separator:a6e6771e9816d4b6c1aac48026d9aa752"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3d63dd42f3167a34d17ca1fb364af67" id="r_af3d63dd42f3167a34d17ca1fb364af67"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#af3d63dd42f3167a34d17ca1fb364af67">GetTarget</a> () const</td></tr>
+<tr class="separator:af3d63dd42f3167a34d17ca1fb364af67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa15c10613619217ef784f3ec1b0f0f2" id="r_afa15c10613619217ef784f3ec1b0f0f2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#afa15c10613619217ef784f3ec1b0f0f2">IsCompiledFromFile</a> () const</td></tr>
+<tr class="separator:afa15c10613619217ef784f3ec1b0f0f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 非公開変数類</h2></td></tr>
 <tr class="memitem:a19f1e743cc42c5694739c0ab81316e8f" id="r_a19f1e743cc42c5694739c0ab81316e8f"><td class="memItemLeft" align="right" valign="top">ComPtr&lt; ID3DBlob &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#a19f1e743cc42c5694739c0ab81316e8f">m_blob</a></td></tr>
 <tr class="separator:a19f1e743cc42c5694739c0ab81316e8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4eb471b3cf9796c882d775f8d309822d" id="r_a4eb471b3cf9796c882d775f8d309822d"><td class="memItemLeft" align="right" valign="top">std::wstring&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#a4eb471b3cf9796c882d775f8d309822d">m_filePath</a></td></tr>
+<tr class="separator:a4eb471b3cf9796c882d775f8d309822d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae92b80007070826a0e22326266e677f2" id="r_ae92b80007070826a0e22326266e677f2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#ae92b80007070826a0e22326266e677f2">m_entryPoint</a></td></tr>
+<tr class="separator:ae92b80007070826a0e22326266e677f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05d98fac63f2abda415396e68c3aac98" id="r_a05d98fac63f2abda415396e68c3aac98"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#a05d98fac63f2abda415396e68c3aac98">m_target</a></td></tr>
+<tr class="separator:a05d98fac63f2abda415396e68c3aac98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">構築子と解体子</h2>
 <a id="aedc63e240e965b496f246ffc214918b4" name="aedc63e240e965b496f246ffc214918b4"></a>
@@ -177,8 +193,8 @@ Shader 連携図</div>
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
-<a id="a919ead4e6a3d0973f53c89888f004943" name="a919ead4e6a3d0973f53c89888f004943"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a919ead4e6a3d0973f53c89888f004943">&#9670;&#160;</a></span>CompileFromFile()</h2>
+<a id="ac0c098204705bc243465920130b01f86" name="ac0c098204705bc243465920130b01f86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0c098204705bc243465920130b01f86">&#9670;&#160;</a></span>CompileFromFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -199,7 +215,13 @@ Shader 連携図</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>target</em>&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>outError</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -211,7 +233,7 @@ Shader 連携図</div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classShader_a919ead4e6a3d0973f53c89888f004943_icgraph.svg" width="100%" height="424"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classShader_ac0c098204705bc243465920130b01f86_icgraph.svg" width="100%" height="461"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -263,6 +285,111 @@ Shader 連携図</div>
 
 </div>
 </div>
+<a id="a6e6771e9816d4b6c1aac48026d9aa752" name="a6e6771e9816d4b6c1aac48026d9aa752"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e6771e9816d4b6c1aac48026d9aa752">&#9670;&#160;</a></span>GetEntryPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; Shader::GetEntryPoint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a867a082e0b63c374b0ab3cb3be67f937" name="a867a082e0b63c374b0ab3cb3be67f937"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a867a082e0b63c374b0ab3cb3be67f937">&#9670;&#160;</a></span>GetFilePath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::wstring &amp; Shader::GetFilePath </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af3d63dd42f3167a34d17ca1fb364af67" name="af3d63dd42f3167a34d17ca1fb364af67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3d63dd42f3167a34d17ca1fb364af67">&#9670;&#160;</a></span>GetTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; Shader::GetTarget </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afa15c10613619217ef784f3ec1b0f0f2" name="afa15c10613619217ef784f3ec1b0f0f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa15c10613619217ef784f3ec1b0f0f2">&#9670;&#160;</a></span>IsCompiledFromFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Shader::IsCompiledFromFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classShader_afa15c10613619217ef784f3ec1b0f0f2_icgraph.svg" width="407" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="a75e2da5bafeb2db7e63055a10a74f6be" name="a75e2da5bafeb2db7e63055a10a74f6be"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a75e2da5bafeb2db7e63055a10a74f6be">&#9670;&#160;</a></span>LoadFromCSO()</h2>
 
@@ -281,6 +408,29 @@ Shader 連携図</div>
 
 </div>
 </div>
+<a id="abedcf461f9c1a2da87ad84576b0b74dd" name="abedcf461f9c1a2da87ad84576b0b74dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abedcf461f9c1a2da87ad84576b0b74dd">&#9670;&#160;</a></span>Recompile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Shader::Recompile </td>
+          <td>(</td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>outError</em> = <code>nullptr</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classShader_abedcf461f9c1a2da87ad84576b0b74dd_cgraph.svg" width="407" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <h2 class="groupheader">メンバ詳解</h2>
 <a id="a19f1e743cc42c5694739c0ab81316e8f" name="a19f1e743cc42c5694739c0ab81316e8f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a19f1e743cc42c5694739c0ab81316e8f">&#9670;&#160;</a></span>m_blob</h2>
@@ -293,6 +443,72 @@ Shader 連携図</div>
       <table class="memname">
         <tr>
           <td class="memname">ComPtr&lt;ID3DBlob&gt; Shader::m_blob</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae92b80007070826a0e22326266e677f2" name="ae92b80007070826a0e22326266e677f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae92b80007070826a0e22326266e677f2">&#9670;&#160;</a></span>m_entryPoint</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Shader::m_entryPoint</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4eb471b3cf9796c882d775f8d309822d" name="a4eb471b3cf9796c882d775f8d309822d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4eb471b3cf9796c882d775f8d309822d">&#9670;&#160;</a></span>m_filePath</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::wstring Shader::m_filePath</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a05d98fac63f2abda415396e68c3aac98" name="a05d98fac63f2abda415396e68c3aac98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05d98fac63f2abda415396e68c3aac98">&#9670;&#160;</a></span>m_target</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Shader::m_target</td>
         </tr>
       </table>
   </td>

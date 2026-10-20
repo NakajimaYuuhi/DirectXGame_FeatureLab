@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Editor/BuildRunner.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('BuildRunner_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">BuildRunner.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="BuildRunner_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;mutex&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;thread&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;atomic&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599">   10</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599">BuildState</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_enumvalue" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599ae599161956d626eda4cb0a5ffb85271c">Idle</a>,</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_enumvalue" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599a5bda814c4aedb126839228f1a3d92f09">Running</a>,</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_enumvalue" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599a66d02c2f8a582446f8dd8752366002b5">Succeeded</a>,</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_enumvalue" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599ad7c8c85bf79bbe1b7188497c32c3b0ca">Failed</a></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>};</div>
+</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classBuildRunner.html">   18</a></span><span class="keyword">class </span><a class="code hl_class" href="classBuildRunner.html">BuildRunner</a></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classBuildRunner.html#a685b28ecbc55ee653c57523a2dec91d8">   21</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="classBuildRunner.html#a685b28ecbc55ee653c57523a2dec91d8">OnBuildCompleteCallback</a> = std::function&lt;void(<span class="keywordtype">bool</span> success, <span class="keywordtype">int</span> exitCode)&gt;;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="}">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classBuildRunner.html#ae39e742eb82b80e4adf6784f64ab262c">   23</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classBuildRunner.html">BuildRunner</a>&amp; <a class="code hl_function" href="classBuildRunner.html#ae39e742eb82b80e4adf6784f64ab262c">GetInstance</a>()</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keyword">static</span> <a class="code hl_class" href="classBuildRunner.html">BuildRunner</a> instance;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keywordflow">return</span> instance;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    }</div>
+</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="comment">// Search for MSBuild.exe using vswhere.exe or standard installation paths</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    std::string <a class="code hl_function" href="classBuildRunner.html#a9efbad9452c5cb5f61dea0340eb36208">FindMSBuildPath</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="comment">// Start an asynchronous build command</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classBuildRunner.html#ae9658d5f4973fb48cdf65d9993ebf6be">StartCommandAsync</a>(</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keyword">const</span> std::string&amp; commandLine,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keyword">const</span> std::string&amp; workingDir = <span class="stringliteral">&quot;.&quot;</span>,</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <a class="code hl_typedef" href="classBuildRunner.html#a685b28ecbc55ee653c57523a2dec91d8">OnBuildCompleteCallback</a> onComplete = <span class="keyword">nullptr</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    );</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="comment">// Start an asynchronous MSBuild for a project or solution</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classBuildRunner.html#a9c2dcbf58c0e8ab466217d8800be02f7">StartMSBuildAsync</a>(</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keyword">const</span> std::string&amp; targetFile,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keyword">const</span> std::string&amp; configuration = <span class="stringliteral">&quot;Release&quot;</span>,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keyword">const</span> std::string&amp; platform = <span class="stringliteral">&quot;x64&quot;</span>,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keyword">const</span> std::string&amp; extraArgs = <span class="stringliteral">&quot;/m /v:minimal&quot;</span>,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <a class="code hl_typedef" href="classBuildRunner.html#a685b28ecbc55ee653c57523a2dec91d8">OnBuildCompleteCallback</a> onComplete = <span class="keyword">nullptr</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    );</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="comment">// Append custom log line (thread-safe)</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBuildRunner.html#a9e32ba91df2b4d7560738e022c063adc">AppendLog</a>(<span class="keyword">const</span> std::string&amp; line);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="comment">// Clear logs (only when not running)</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBuildRunner.html#af9281e42bb89d132b4d3a7b22f8e3758">ClearLogs</a>();</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="comment">// State getters</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classBuildRunner.html#aa04e4515833f6c8eead165bc42afd517">   55</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classBuildRunner.html#aa04e4515833f6c8eead165bc42afd517">IsRunning</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classBuildRunner.html#a10deb766a2eb907164b207ebf2cdf642">m_state</a>.load() == <a class="code hl_enumvalue" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599a5bda814c4aedb126839228f1a3d92f09">BuildState::Running</a>; }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classBuildRunner.html#a1d8188e91d3452951c95845976c81aee">   56</a></span>    <a class="code hl_enumeration" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599">BuildState</a> <a class="code hl_function" href="classBuildRunner.html#a1d8188e91d3452951c95845976c81aee">GetState</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classBuildRunner.html#a10deb766a2eb907164b207ebf2cdf642">m_state</a>.load(); }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classBuildRunner.html#ad8b8818a39bf9a737514f66630e5b788">   57</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBuildRunner.html#ad8b8818a39bf9a737514f66630e5b788">SetState</a>(<a class="code hl_enumeration" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599">BuildState</a> state) { <a class="code hl_variable" href="classBuildRunner.html#a10deb766a2eb907164b207ebf2cdf642">m_state</a>.store(state); }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classBuildRunner.html#a2398a7e1d644b4ebc174b98a2b04d298">   58</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classBuildRunner.html#a2398a7e1d644b4ebc174b98a2b04d298">GetLastExitCode</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classBuildRunner.html#a2de489c2438908954b63bd7bbac6bd31">m_lastExitCode</a>.load(); }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classBuildRunner.html#af95169fc83e283e5f393fddd1fbe58ef">GetElapsedSeconds</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="comment">// Get copy of current logs (thread-safe)</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    std::vector&lt;std::string&gt; <a class="code hl_function" href="classBuildRunner.html#a4369fdfb73c35ac40dc5678ec47f3c34">GetLogsSnapshot</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="comment">// Wait for thread on shutdown</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBuildRunner.html#aa85b7073715c7c6fc011cffb9e45b254">Finalize</a>();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classBuildRunner.html#ae5386a58ca2eb4493804776ae9212b96">   68</a></span>    <a class="code hl_function" href="classBuildRunner.html#ae5386a58ca2eb4493804776ae9212b96">BuildRunner</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_function" href="classBuildRunner.html#a7fa43095b5863ce0476e6a42ec103b9d">~BuildRunner</a>();</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classBuildRunner.html#a87e9ea9e2a8be215112074f19eb47495">   70</a></span>    <a class="code hl_function" href="classBuildRunner.html#a87e9ea9e2a8be215112074f19eb47495">BuildRunner</a>(<span class="keyword">const</span> <a class="code hl_class" href="classBuildRunner.html">BuildRunner</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classBuildRunner.html#a24dc4a8783d5831f2bac3db2c71d9ac3">   71</a></span>    <a class="code hl_class" href="classBuildRunner.html">BuildRunner</a>&amp; <a class="code hl_function" href="classBuildRunner.html#a24dc4a8783d5831f2bac3db2c71d9ac3">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classBuildRunner.html">BuildRunner</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBuildRunner.html#a0a6ae3bad3353dcb281b25f207b49f14">WorkerThreadMain</a>(</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        std::string commandLine,</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        std::string workingDir,</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <a class="code hl_typedef" href="classBuildRunner.html#a685b28ecbc55ee653c57523a2dec91d8">OnBuildCompleteCallback</a> onComplete</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    );</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classBuildRunner.html#a533b502d3b44145690af6f328d4896c7">   80</a></span>    <span class="keyword">mutable</span> std::mutex <a class="code hl_variable" href="classBuildRunner.html#a533b502d3b44145690af6f328d4896c7">m_logMutex</a>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classBuildRunner.html#a0facc9c42ae41e430a9cc2a5b4ba4b9a">   81</a></span>    std::vector&lt;std::string&gt; <a class="code hl_variable" href="classBuildRunner.html#a0facc9c42ae41e430a9cc2a5b4ba4b9a">m_logs</a>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classBuildRunner.html#a10deb766a2eb907164b207ebf2cdf642">   83</a></span>    std::atomic&lt;BuildState&gt; <a class="code hl_variable" href="classBuildRunner.html#a10deb766a2eb907164b207ebf2cdf642">m_state</a>{ <a class="code hl_enumvalue" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599ae599161956d626eda4cb0a5ffb85271c">BuildState::Idle</a> };</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classBuildRunner.html#a2de489c2438908954b63bd7bbac6bd31">   84</a></span>    std::atomic&lt;int&gt; <a class="code hl_variable" href="classBuildRunner.html#a2de489c2438908954b63bd7bbac6bd31">m_lastExitCode</a>{ 0 };</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classBuildRunner.html#a54afa6150e9c796a0dde13f4551a5694">   85</a></span>    std::chrono::steady_clock::time_point <a class="code hl_variable" href="classBuildRunner.html#a54afa6150e9c796a0dde13f4551a5694">m_startTime</a>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="classBuildRunner.html#acf72f8fc67cb9c60cc99b4b20fc5dd83">   86</a></span>    std::chrono::steady_clock::time_point <a class="code hl_variable" href="classBuildRunner.html#acf72f8fc67cb9c60cc99b4b20fc5dd83">m_endTime</a>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classBuildRunner.html#a7f0d0f6a0eaf488306502ef291b6e204">   88</a></span>    std::thread <a class="code hl_variable" href="classBuildRunner.html#a7f0d0f6a0eaf488306502ef291b6e204">m_workerThread</a>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>};</div>
+</div>
+<div class="ttc" id="aBuildRunner_8h_html_aeafb0d76e91d4720da06be61247c7599"><div class="ttname"><a href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599">BuildState</a></div><div class="ttdeci">BuildState</div><div class="ttdef"><b>Definition</b> BuildRunner.h:11</div></div>
+<div class="ttc" id="aBuildRunner_8h_html_aeafb0d76e91d4720da06be61247c7599a5bda814c4aedb126839228f1a3d92f09"><div class="ttname"><a href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599a5bda814c4aedb126839228f1a3d92f09">BuildState::Running</a></div><div class="ttdeci">@ Running</div></div>
+<div class="ttc" id="aBuildRunner_8h_html_aeafb0d76e91d4720da06be61247c7599a66d02c2f8a582446f8dd8752366002b5"><div class="ttname"><a href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599a66d02c2f8a582446f8dd8752366002b5">BuildState::Succeeded</a></div><div class="ttdeci">@ Succeeded</div></div>
+<div class="ttc" id="aBuildRunner_8h_html_aeafb0d76e91d4720da06be61247c7599ad7c8c85bf79bbe1b7188497c32c3b0ca"><div class="ttname"><a href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599ad7c8c85bf79bbe1b7188497c32c3b0ca">BuildState::Failed</a></div><div class="ttdeci">@ Failed</div></div>
+<div class="ttc" id="aBuildRunner_8h_html_aeafb0d76e91d4720da06be61247c7599ae599161956d626eda4cb0a5ffb85271c"><div class="ttname"><a href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599ae599161956d626eda4cb0a5ffb85271c">BuildState::Idle</a></div><div class="ttdeci">@ Idle</div></div>
+<div class="ttc" id="aclassBuildRunner_html"><div class="ttname"><a href="classBuildRunner.html">BuildRunner</a></div><div class="ttdef"><b>Definition</b> BuildRunner.h:19</div></div>
+<div class="ttc" id="aclassBuildRunner_html_a0a6ae3bad3353dcb281b25f207b49f14"><div class="ttname"><a href="classBuildRunner.html#a0a6ae3bad3353dcb281b25f207b49f14">BuildRunner::WorkerThreadMain</a></div><div class="ttdeci">void WorkerThreadMain(std::string commandLine, std::string workingDir, OnBuildCompleteCallback onComplete)</div><div class="ttdef"><b>Definition</b> BuildRunner.cpp:185</div></div>
+<div class="ttc" id="aclassBuildRunner_html_a0facc9c42ae41e430a9cc2a5b4ba4b9a"><div class="ttname"><a href="classBuildRunner.html#a0facc9c42ae41e430a9cc2a5b4ba4b9a">BuildRunner::m_logs</a></div><div class="ttdeci">std::vector&lt; std::string &gt; m_logs</div><div class="ttdef"><b>Definition</b> BuildRunner.h:81</div></div>
+<div class="ttc" id="aclassBuildRunner_html_a10deb766a2eb907164b207ebf2cdf642"><div class="ttname"><a href="classBuildRunner.html#a10deb766a2eb907164b207ebf2cdf642">BuildRunner::m_state</a></div><div class="ttdeci">std::atomic&lt; BuildState &gt; m_state</div><div class="ttdef"><b>Definition</b> BuildRunner.h:83</div></div>
+<div class="ttc" id="aclassBuildRunner_html_a1d8188e91d3452951c95845976c81aee"><div class="ttname"><a href="classBuildRunner.html#a1d8188e91d3452951c95845976c81aee">BuildRunner::GetState</a></div><div class="ttdeci">BuildState GetState() const</div><div class="ttdef"><b>Definition</b> BuildRunner.h:56</div></div>
+<div class="ttc" id="aclassBuildRunner_html_a2398a7e1d644b4ebc174b98a2b04d298"><div class="ttname"><a href="classBuildRunner.html#a2398a7e1d644b4ebc174b98a2b04d298">BuildRunner::GetLastExitCode</a></div><div class="ttdeci">int GetLastExitCode() const</div><div class="ttdef"><b>Definition</b> BuildRunner.h:58</div></div>
+<div class="ttc" id="aclassBuildRunner_html_a24dc4a8783d5831f2bac3db2c71d9ac3"><div class="ttname"><a href="classBuildRunner.html#a24dc4a8783d5831f2bac3db2c71d9ac3">BuildRunner::operator=</a></div><div class="ttdeci">BuildRunner &amp; operator=(const BuildRunner &amp;)=delete</div></div>
+<div class="ttc" id="aclassBuildRunner_html_a2de489c2438908954b63bd7bbac6bd31"><div class="ttname"><a href="classBuildRunner.html#a2de489c2438908954b63bd7bbac6bd31">BuildRunner::m_lastExitCode</a></div><div class="ttdeci">std::atomic&lt; int &gt; m_lastExitCode</div><div class="ttdef"><b>Definition</b> BuildRunner.h:84</div></div>
+<div class="ttc" id="aclassBuildRunner_html_a4369fdfb73c35ac40dc5678ec47f3c34"><div class="ttname"><a href="classBuildRunner.html#a4369fdfb73c35ac40dc5678ec47f3c34">BuildRunner::GetLogsSnapshot</a></div><div class="ttdeci">std::vector&lt; std::string &gt; GetLogsSnapshot() const</div><div class="ttdef"><b>Definition</b> BuildRunner.cpp:124</div></div>
+<div class="ttc" id="aclassBuildRunner_html_a533b502d3b44145690af6f328d4896c7"><div class="ttname"><a href="classBuildRunner.html#a533b502d3b44145690af6f328d4896c7">BuildRunner::m_logMutex</a></div><div class="ttdeci">std::mutex m_logMutex</div><div class="ttdef"><b>Definition</b> BuildRunner.h:80</div></div>
+<div class="ttc" id="aclassBuildRunner_html_a54afa6150e9c796a0dde13f4551a5694"><div class="ttname"><a href="classBuildRunner.html#a54afa6150e9c796a0dde13f4551a5694">BuildRunner::m_startTime</a></div><div class="ttdeci">std::chrono::steady_clock::time_point m_startTime</div><div class="ttdef"><b>Definition</b> BuildRunner.h:85</div></div>
+<div class="ttc" id="aclassBuildRunner_html_a685b28ecbc55ee653c57523a2dec91d8"><div class="ttname"><a href="classBuildRunner.html#a685b28ecbc55ee653c57523a2dec91d8">BuildRunner::OnBuildCompleteCallback</a></div><div class="ttdeci">std::function&lt; void(bool success, int exitCode)&gt; OnBuildCompleteCallback</div><div class="ttdef"><b>Definition</b> BuildRunner.h:21</div></div>
+<div class="ttc" id="aclassBuildRunner_html_a7f0d0f6a0eaf488306502ef291b6e204"><div class="ttname"><a href="classBuildRunner.html#a7f0d0f6a0eaf488306502ef291b6e204">BuildRunner::m_workerThread</a></div><div class="ttdeci">std::thread m_workerThread</div><div class="ttdef"><b>Definition</b> BuildRunner.h:88</div></div>
+<div class="ttc" id="aclassBuildRunner_html_a7fa43095b5863ce0476e6a42ec103b9d"><div class="ttname"><a href="classBuildRunner.html#a7fa43095b5863ce0476e6a42ec103b9d">BuildRunner::~BuildRunner</a></div><div class="ttdeci">~BuildRunner()</div><div class="ttdef"><b>Definition</b> BuildRunner.cpp:6</div></div>
+<div class="ttc" id="aclassBuildRunner_html_a87e9ea9e2a8be215112074f19eb47495"><div class="ttname"><a href="classBuildRunner.html#a87e9ea9e2a8be215112074f19eb47495">BuildRunner::BuildRunner</a></div><div class="ttdeci">BuildRunner(const BuildRunner &amp;)=delete</div></div>
+<div class="ttc" id="aclassBuildRunner_html_a9c2dcbf58c0e8ab466217d8800be02f7"><div class="ttname"><a href="classBuildRunner.html#a9c2dcbf58c0e8ab466217d8800be02f7">BuildRunner::StartMSBuildAsync</a></div><div class="ttdeci">bool StartMSBuildAsync(const std::string &amp;targetFile, const std::string &amp;configuration=&quot;Release&quot;, const std::string &amp;platform=&quot;x64&quot;, const std::string &amp;extraArgs=&quot;/m /v:minimal&quot;, OnBuildCompleteCallback onComplete=nullptr)</div><div class="ttdef"><b>Definition</b> BuildRunner.cpp:139</div></div>
+<div class="ttc" id="aclassBuildRunner_html_a9e32ba91df2b4d7560738e022c063adc"><div class="ttname"><a href="classBuildRunner.html#a9e32ba91df2b4d7560738e022c063adc">BuildRunner::AppendLog</a></div><div class="ttdeci">void AppendLog(const std::string &amp;line)</div><div class="ttdef"><b>Definition</b> BuildRunner.cpp:111</div></div>
+<div class="ttc" id="aclassBuildRunner_html_a9efbad9452c5cb5f61dea0340eb36208"><div class="ttname"><a href="classBuildRunner.html#a9efbad9452c5cb5f61dea0340eb36208">BuildRunner::FindMSBuildPath</a></div><div class="ttdeci">std::string FindMSBuildPath() const</div><div class="ttdef"><b>Definition</b> BuildRunner.cpp:19</div></div>
+<div class="ttc" id="aclassBuildRunner_html_aa04e4515833f6c8eead165bc42afd517"><div class="ttname"><a href="classBuildRunner.html#aa04e4515833f6c8eead165bc42afd517">BuildRunner::IsRunning</a></div><div class="ttdeci">bool IsRunning() const</div><div class="ttdef"><b>Definition</b> BuildRunner.h:55</div></div>
+<div class="ttc" id="aclassBuildRunner_html_aa85b7073715c7c6fc011cffb9e45b254"><div class="ttname"><a href="classBuildRunner.html#aa85b7073715c7c6fc011cffb9e45b254">BuildRunner::Finalize</a></div><div class="ttdeci">void Finalize()</div><div class="ttdef"><b>Definition</b> BuildRunner.cpp:11</div></div>
+<div class="ttc" id="aclassBuildRunner_html_acf72f8fc67cb9c60cc99b4b20fc5dd83"><div class="ttname"><a href="classBuildRunner.html#acf72f8fc67cb9c60cc99b4b20fc5dd83">BuildRunner::m_endTime</a></div><div class="ttdeci">std::chrono::steady_clock::time_point m_endTime</div><div class="ttdef"><b>Definition</b> BuildRunner.h:86</div></div>
+<div class="ttc" id="aclassBuildRunner_html_ad8b8818a39bf9a737514f66630e5b788"><div class="ttname"><a href="classBuildRunner.html#ad8b8818a39bf9a737514f66630e5b788">BuildRunner::SetState</a></div><div class="ttdeci">void SetState(BuildState state)</div><div class="ttdef"><b>Definition</b> BuildRunner.h:57</div></div>
+<div class="ttc" id="aclassBuildRunner_html_ae39e742eb82b80e4adf6784f64ab262c"><div class="ttname"><a href="classBuildRunner.html#ae39e742eb82b80e4adf6784f64ab262c">BuildRunner::GetInstance</a></div><div class="ttdeci">static BuildRunner &amp; GetInstance()</div><div class="ttdef"><b>Definition</b> BuildRunner.h:23</div></div>
+<div class="ttc" id="aclassBuildRunner_html_ae5386a58ca2eb4493804776ae9212b96"><div class="ttname"><a href="classBuildRunner.html#ae5386a58ca2eb4493804776ae9212b96">BuildRunner::BuildRunner</a></div><div class="ttdeci">BuildRunner()=default</div></div>
+<div class="ttc" id="aclassBuildRunner_html_ae9658d5f4973fb48cdf65d9993ebf6be"><div class="ttname"><a href="classBuildRunner.html#ae9658d5f4973fb48cdf65d9993ebf6be">BuildRunner::StartCommandAsync</a></div><div class="ttdeci">bool StartCommandAsync(const std::string &amp;commandLine, const std::string &amp;workingDir=&quot;.&quot;, OnBuildCompleteCallback onComplete=nullptr)</div><div class="ttdef"><b>Definition</b> BuildRunner.cpp:155</div></div>
+<div class="ttc" id="aclassBuildRunner_html_af9281e42bb89d132b4d3a7b22f8e3758"><div class="ttname"><a href="classBuildRunner.html#af9281e42bb89d132b4d3a7b22f8e3758">BuildRunner::ClearLogs</a></div><div class="ttdeci">void ClearLogs()</div><div class="ttdef"><b>Definition</b> BuildRunner.cpp:117</div></div>
+<div class="ttc" id="aclassBuildRunner_html_af95169fc83e283e5f393fddd1fbe58ef"><div class="ttname"><a href="classBuildRunner.html#af95169fc83e283e5f393fddd1fbe58ef">BuildRunner::GetElapsedSeconds</a></div><div class="ttdeci">float GetElapsedSeconds() const</div><div class="ttdef"><b>Definition</b> BuildRunner.cpp:130</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_b26507eead720464ba2ac6bbc6dcec5f.html">Editor</a></li><li class="navelem"><a class="el" href="BuildRunner_8h.html">BuildRunner.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>
