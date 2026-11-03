@@ -11,6 +11,7 @@ enum class ButtonAction
     ChangeScene_Title,
     ChangeScene_Clear,
     ChangeScene_Failed,
+    ChangeScene_Custom,
     ExitGame
 };
 
@@ -22,7 +23,8 @@ inline const char* ButtonActionToString(ButtonAction action)
     case ButtonAction::ChangeScene_Title:  return "ChangeScene_Title";
     case ButtonAction::ChangeScene_Clear:  return "ChangeScene_Clear";
     case ButtonAction::ChangeScene_Failed: return "ChangeScene_Failed";
-    case ButtonAction::ExitGame:          return "ExitGame";
+    case ButtonAction::ChangeScene_Custom: return "ChangeScene_Custom";
+    case ButtonAction::ExitGame:           return "ExitGame";
     default:                               return "None";
     }
 }
@@ -33,11 +35,12 @@ inline ButtonAction StringToButtonAction(const std::string& str)
     if (str == "ChangeScene_Title")  return ButtonAction::ChangeScene_Title;
     if (str == "ChangeScene_Clear")  return ButtonAction::ChangeScene_Clear;
     if (str == "ChangeScene_Failed") return ButtonAction::ChangeScene_Failed;
-    if (str == "ExitGame")          return ButtonAction::ExitGame;
+    if (str == "ChangeScene_Custom") return ButtonAction::ChangeScene_Custom;
+    if (str == "ExitGame")           return ButtonAction::ExitGame;
     return ButtonAction::None;
 }
 
-inline void ExecuteButtonAction(ButtonAction action)
+inline void ExecuteButtonAction(ButtonAction action, const std::string& targetScenePath = "")
 {
     Event event;
     EventData_NextScene* eventData = nullptr;
@@ -45,16 +48,22 @@ inline void ExecuteButtonAction(ButtonAction action)
     switch (action)
     {
     case ButtonAction::ChangeScene_Test:
-        eventData = new EventData_NextScene(Scenes::ID::TEST);
+        eventData = new EventData_NextScene("Assets/Scene/SceneTest.json", Scenes::ID::TEST);
         break;
     case ButtonAction::ChangeScene_Title:
-        eventData = new EventData_NextScene(Scenes::ID::TITLE);
+        eventData = new EventData_NextScene("Assets/Scene/SceneTitle.json", Scenes::ID::TITLE);
         break;
     case ButtonAction::ChangeScene_Clear:
-        eventData = new EventData_NextScene(Scenes::ID::Clear);
+        eventData = new EventData_NextScene("Assets/Scene/SceneClear.json", Scenes::ID::Clear);
         break;
     case ButtonAction::ChangeScene_Failed:
-        eventData = new EventData_NextScene(Scenes::ID::Failed);
+        eventData = new EventData_NextScene("Assets/Scene/SceneFailed.json", Scenes::ID::Failed);
+        break;
+    case ButtonAction::ChangeScene_Custom:
+        if (!targetScenePath.empty())
+        {
+            eventData = new EventData_NextScene(targetScenePath, Scenes::ID::TEST);
+        }
         break;
     case ButtonAction::ExitGame:
         eventData = new EventData_NextScene(Scenes::ID::Exit);

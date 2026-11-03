@@ -11,7 +11,6 @@
 
 //Transform
 #include "Transform.h"
-#include "SceneTest.h"
 
 #include "Material.h"
 #include "LightManager.h"

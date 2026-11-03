@@ -127,6 +127,10 @@ bool SceneSerializer::SerializeToString(std::string& outJsonStr, Scenes::ID scen
 			if (btnComp)
 			{
 				objJson["button"]["action"] = ButtonActionToString(btnComp->GetAction());
+				if (!btnComp->GetTargetScenePath().empty())
+				{
+					objJson["button"]["targetScenePath"] = btnComp->GetTargetScenePath();
+				}
 				objJson["button"]["navigation"]["up"] = btnComp->GetUpName();
 				objJson["button"]["navigation"]["down"] = btnComp->GetDownName();
 				objJson["button"]["navigation"]["left"] = btnComp->GetLeftName();
@@ -224,11 +228,12 @@ bool SceneSerializer::SaveScene(const std::string& filepath, Scenes::ID sceneID)
 	outFile << jsonStr;
 	outFile.close();
 
-	if (sceneID == Scenes::ID::TEST)
+	if (CScene* activeScene = SceneManager::GetInstance().GetActiveScene())
 	{
-		if (CScene* activeScene = SceneManager::GetInstance().GetActiveScene())
+		if (RenderPipeline* pipeline = activeScene->GetRenderPipeline())
 		{
-			if (RenderPipeline* pipeline = activeScene->GetRenderPipeline())
+			// Save 3D render pipeline if the scene uses the 3D multi-pass pipeline (>2 passes)
+			if (pipeline->GetPasses().size() > 2)
 			{
 				pipeline->SaveToJson("Assets/Pipeline/GameScenePipeline.json");
 			}
@@ -471,9 +476,16 @@ bool SceneSerializer::DeserializeFromString(const std::string& jsonStr, Scenes::
 				{
 					btnComp = newObj->AddComponent<ButtonComponent>();
 				}
-				if (btnComp && hasAction)
+				if (btnComp)
 				{
-					btnComp->SetAction(action);
+					if (hasAction)
+					{
+						btnComp->SetAction(action);
+					}
+					if (btnJson.contains("targetScenePath") && btnJson["targetScenePath"].is_string())
+					{
+						btnComp->SetTargetScenePath(btnJson["targetScenePath"].get<std::string>());
+					}
 				}
 
 				if (btnJson.contains("navigation"))

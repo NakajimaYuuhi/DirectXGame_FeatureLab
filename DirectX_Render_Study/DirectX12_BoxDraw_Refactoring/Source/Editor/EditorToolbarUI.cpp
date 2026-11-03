@@ -166,7 +166,14 @@ void CEditorToolbarUI::Draw()
         // 5. シーンのシリアライズ操作（保存 / 再読み込み）
         // ---------------------------------------------------------
         static char scenePathBuf[256] = "Assets/Scene/SceneTest.json";
-        ImGui::SetNextItemWidth(140.0f);
+        static std::string lastSyncedActivePath = "";
+        const std::string& currentActivePath = SceneManager::GetInstance().GetActiveScenePath();
+        if (!currentActivePath.empty() && currentActivePath != lastSyncedActivePath)
+        {
+            strncpy_s(scenePathBuf, sizeof(scenePathBuf), currentActivePath.c_str(), _TRUNCATE);
+            lastSyncedActivePath = currentActivePath;
+        }
+        ImGui::SetNextItemWidth(160.0f);
         ImGui::InputText("##ScenePath", scenePathBuf, sizeof(scenePathBuf));
 
         ImGui::SameLine();

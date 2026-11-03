@@ -161,7 +161,9 @@ void CInspectorUI::SetEditMode(bool editMode)
     else
     {
         // Edit Mode Reload
-        SceneSerializer::LoadScene(m_sceneJsonPath, currentSceneID);
+        std::string activePath = SceneManager::GetInstance().GetActiveScenePath();
+        const char* reloadPath = !activePath.empty() ? activePath.c_str() : m_sceneJsonPath;
+        SceneSerializer::LoadScene(reloadPath, currentSceneID);
     }
 }
 
@@ -202,7 +204,8 @@ void CInspectorUI::Draw()
             else if (ImGui::IsKeyPressed(ImGuiKey_S))
             {
                 Scenes::ID activeScene = SceneManager::GetInstance().GetActiveSceneID();
-                std::string path = "Assets/Scene/SceneTest.json";
+                std::string path = SceneManager::GetInstance().GetActiveScenePath();
+                if (path.empty()) path = m_sceneJsonPath;
                 if (SceneSerializer::SaveScene(path, activeScene))
                 {
                     SetStatusMessage("Scene saved (Ctrl+S): " + path, 3.0f);
@@ -332,38 +335,150 @@ void CInspectorUI::Draw()
     ImGui::Checkbox("Show Box Colliders", &m_showColliders);
     ImGui::Separator();
 
-    // 2. Scene Controls
-    ImGui::Text("Scene Controls");
-    static const char* sceneNames[] = { "Title (TITLE)", "Test/Game (TEST)", "Clear (Clear)", "Failed (Failed)" };
-    static const Scenes::ID sceneIDs[] = { Scenes::ID::TITLE, Scenes::ID::TEST, Scenes::ID::Clear, Scenes::ID::Failed };
-    static const char* sceneJsonPaths[] = { "Assets/Scene/SceneTitle.json", "Assets/Scene/SceneTest.json", "Assets/Scene/SceneClear.json", "Assets/Scene/SceneFailed.json" };
-    static int selectedSceneIndex = 1; // Default to TEST
+    // 2. Data-Driven Scene Manager Controls (JSON Based)
+    ImGui::Text("Scene Controls (Data-Driven JSON)");
+    std::vector<std::string> availableScenePaths = SceneManager::GetInstance().GetAvailableSceneFiles();
+    std::string activeScenePath = SceneManager::GetInstance().GetActiveScenePath();
+    std::string activeSceneName = SceneManager::GetInstance().GetActiveSceneName();
 
-    if (ImGui::Combo("Scene List", &selectedSceneIndex, sceneNames, IM_ARRAYSIZE(sceneNames)))
+    ImGui::TextColored(ImVec4(0.4f, 0.9f, 0.5f, 1.0f), "Active Scene: %s (%s)", activeSceneName.c_str(), activeScenePath.c_str());
+
+    static int selectedSceneIndex = 0;
+    static std::string lastObservedActivePath = "";
+    if (!activeScenePath.empty() && activeScenePath != lastObservedActivePath)
     {
-        strncpy_s(m_sceneJsonPath, sizeof(m_sceneJsonPath), sceneJsonPaths[selectedSceneIndex], _TRUNCATE);
+        for (size_t i = 0; i < availableScenePaths.size(); ++i)
+        {
+            if (availableScenePaths[i] == activeScenePath)
+            {
+                selectedSceneIndex = static_cast<int>(i);
+                break;
+            }
+        }
+        strncpy_s(m_sceneJsonPath, sizeof(m_sceneJsonPath), activeScenePath.c_str(), _TRUNCATE);
+        lastObservedActivePath = activeScenePath;
     }
 
-    if (ImGui::Button("Change Scene"))
+    if (selectedSceneIndex >= static_cast<int>(availableScenePaths.size()))
     {
-        if (m_isEditMode)
-        {
-            SceneManager::GetInstance().ChangeSceneInstant(sceneIDs[selectedSceneIndex]);
-        }
-        else
-        {
-            SceneManager::GetInstance().ChangeSceneWithFade(sceneIDs[selectedSceneIndex], 0.4f);
-        }
+        selectedSceneIndex = 0;
     }
-    ImGui::SameLine();
-    if (ImGui::Button("Load Additive"))
+
+    if (!availableScenePaths.empty())
     {
-        SceneManager::GetInstance().LoadSceneAdditive(sceneIDs[selectedSceneIndex], true);
+        std::vector<std::string> displayLabels;
+        std::vector<const char*> labelPtrs;
+        displayLabels.reserve(availableScenePaths.size());
+        labelPtrs.reserve(availableScenePaths.size());
+
+        for (const auto& sp : availableScenePaths)
+        {
+            std::string stem = std::filesystem::path(sp).stem().string();
+            displayLabels.push_back(stem + " (" + sp + ")");
+        }
+        for (const auto& lbl : displayLabels)
+        {
+            labelPtrs.push_back(lbl.c_str());
+        }
+
+        if (ImGui::Combo("Scene List", &selectedSceneIndex, labelPtrs.data(), static_cast<int>(labelPtrs.size())))
+        {
+            strncpy_s(m_sceneJsonPath, sizeof(m_sceneJsonPath), availableScenePaths[selectedSceneIndex].c_str(), _TRUNCATE);
+        }
+
+        const std::string& selectedPath = availableScenePaths[selectedSceneIndex];
+
+        if (ImGui::Button("Change Scene"))
+        {
+            strncpy_s(m_sceneJsonPath, sizeof(m_sceneJsonPath), selectedPath.c_str(), _TRUNCATE);
+            SceneManager::GetInstance().ChangeSceneByPath(selectedPath, !m_isEditMode, 0.4f);
+            HotReloadManager::GetInstance().CaptureSceneSnapshot();
+            SetStatusMessage("Switched to scene: " + selectedPath, 3.0f);
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Load Additive"))
+        {
+            SceneManager::GetInstance().LoadSceneAdditiveByPath(selectedPath, true);
+            SetStatusMessage("Loaded additive scene: " + selectedPath, 3.0f);
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Unload Selected"))
+        {
+            SceneManager::GetInstance().UnloadSceneByPath(selectedPath);
+            SetStatusMessage("Unloaded scene: " + selectedPath, 3.0f);
+        }
+        ImGui::SameLine();
+        bool canDeleteScene = (availableScenePaths.size() > 1);
+        if (!canDeleteScene) ImGui::BeginDisabled();
+        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.65f, 0.18f, 0.18f, 1.0f));
+        if (ImGui::Button("Delete Scene"))
+        {
+            std::string delPath = selectedPath;
+            if (SceneManager::GetInstance().DeleteSceneFile(delPath))
+            {
+                SetStatusMessage("Deleted scene file: " + delPath, 3.0f);
+                selectedSceneIndex = 0;
+            }
+        }
+        ImGui::PopStyleColor();
+        if (!canDeleteScene) ImGui::EndDisabled();
     }
-    ImGui::SameLine();
-    if (ImGui::Button("Unload Selected"))
+    else
     {
-        SceneManager::GetInstance().UnloadScene(sceneIDs[selectedSceneIndex]);
+        ImGui::TextDisabled("No scene JSON files found in Assets/Scene/");
+    }
+
+    if (ImGui::TreeNodeEx("+ Create / Duplicate Test Scene (No C++ Class Needed)", ImGuiTreeNodeFlags_DefaultOpen))
+    {
+        static char newSceneNameBuf[128] = "SceneShadowLab";
+        static int newSceneTemplateIdx = 1; // Default to Shadow Showcase
+        static const char* templateNames[] = {
+            "Standard 3D Test (Camera + Light + Field + Player + Enemy)",
+            "Shadow Showcase (Camera + Light + Field + Player + 3 Caster Enemies)",
+            "Minimal 3D (Camera + Light + Field + Skydome)",
+            "Empty UI Scene (Camera Only)"
+        };
+
+        ImGui::InputText("New Scene Name", newSceneNameBuf, sizeof(newSceneNameBuf));
+        ImGui::Combo("Template", &newSceneTemplateIdx, templateNames, IM_ARRAYSIZE(templateNames));
+
+        if (ImGui::Button("+ Create & Open Scene"))
+        {
+            std::string createdPath;
+            SceneTemplateType tmpl = static_cast<SceneTemplateType>(newSceneTemplateIdx);
+            if (SceneManager::GetInstance().CreateNewScene(newSceneNameBuf, tmpl, &createdPath))
+            {
+                strncpy_s(m_sceneJsonPath, sizeof(m_sceneJsonPath), createdPath.c_str(), _TRUNCATE);
+                SceneManager::GetInstance().ChangeSceneByPath(createdPath, false);
+                HotReloadManager::GetInstance().CaptureSceneSnapshot();
+                SetStatusMessage("Created & opened new scene: " + createdPath, 4.0f);
+            }
+            else
+            {
+                SetStatusMessage("Failed to create scene.", 3.0f);
+            }
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Duplicate Current Scene"))
+        {
+            std::string srcPath = !activeScenePath.empty() ? activeScenePath : std::string(m_sceneJsonPath);
+            // Save current state before duplicating so recent edits are included
+            SceneSerializer::SaveScene(srcPath, currentSceneID);
+
+            std::string createdPath;
+            if (SceneManager::GetInstance().DuplicateScene(srcPath, newSceneNameBuf, &createdPath))
+            {
+                strncpy_s(m_sceneJsonPath, sizeof(m_sceneJsonPath), createdPath.c_str(), _TRUNCATE);
+                SceneManager::GetInstance().ChangeSceneByPath(createdPath, false);
+                HotReloadManager::GetInstance().CaptureSceneSnapshot();
+                SetStatusMessage("Duplicated scene to: " + createdPath, 4.0f);
+            }
+            else
+            {
+                SetStatusMessage("Failed to duplicate scene.", 3.0f);
+            }
+        }
+        ImGui::TreePop();
     }
     ImGui::Separator();
 
@@ -2225,6 +2340,7 @@ void CInspectorUI::Draw()
                             "ChangeScene_Title",
                             "ChangeScene_Clear",
                             "ChangeScene_Failed",
+                            "ChangeScene_Custom (.json)",
                             "ExitGame"
                         };
                         static const ButtonAction actionEnums[] = {
@@ -2233,6 +2349,7 @@ void CInspectorUI::Draw()
                             ButtonAction::ChangeScene_Title,
                             ButtonAction::ChangeScene_Clear,
                             ButtonAction::ChangeScene_Failed,
+                            ButtonAction::ChangeScene_Custom,
                             ButtonAction::ExitGame
                         };
 
@@ -2250,6 +2367,25 @@ void CInspectorUI::Draw()
                         if (ImGui::Combo("OnClick Action##BtnComp", &currentActionIdx, actionNames, IM_ARRAYSIZE(actionNames)))
                         {
                             btnComp->SetAction(actionEnums[currentActionIdx]);
+                        }
+
+                        if (btnComp->GetAction() == ButtonAction::ChangeScene_Custom)
+                        {
+                            auto sceneFiles = SceneManager::GetInstance().GetAvailableSceneFiles();
+                            std::string curTarget = btnComp->GetTargetScenePath();
+                            if (ImGui::BeginCombo("Target Scene (.json)##BtnComp", curTarget.empty() ? "(Select Scene)" : curTarget.c_str()))
+                            {
+                                for (const auto& sp : sceneFiles)
+                                {
+                                    bool isSelected = (sp == curTarget);
+                                    if (ImGui::Selectable(sp.c_str(), isSelected))
+                                    {
+                                        btnComp->SetTargetScenePath(sp);
+                                    }
+                                    if (isSelected) ImGui::SetItemDefaultFocus();
+                                }
+                                ImGui::EndCombo();
+                            }
                         }
 
                         // Navigation Target Selection

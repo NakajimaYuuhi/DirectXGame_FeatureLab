@@ -24,6 +24,9 @@ public:
     ButtonAction GetAction() const { return m_action; }
     void SetAction(ButtonAction action) { m_action = action; }
 
+    const std::string& GetTargetScenePath() const { return m_targetScenePath; }
+    void SetTargetScenePath(const std::string& path) { m_targetScenePath = path; }
+
     // Navigation target names
     void SetNavigationNames(const std::string& up, const std::string& down, const std::string& left, const std::string& right)
     {
@@ -43,6 +46,7 @@ public:
 private:
     std::function<void()> m_onClickCallback;
     ButtonAction m_action = ButtonAction::None;
+    std::string m_targetScenePath;
 
     std::string m_upName;
     std::string m_downName;

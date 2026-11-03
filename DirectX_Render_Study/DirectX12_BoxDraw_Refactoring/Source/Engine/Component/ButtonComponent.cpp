@@ -74,6 +74,6 @@ void ButtonComponent::OnSubmit()
     }
     if (m_action != ButtonAction::None)
     {
-        ExecuteButtonAction(m_action);
+        ExecuteButtonAction(m_action, m_targetScenePath);
     }
 }
