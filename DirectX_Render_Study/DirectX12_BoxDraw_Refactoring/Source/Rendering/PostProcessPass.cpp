@@ -94,53 +94,77 @@ void PostProcessPass::Init(ID3D12Device* pDevice)
     }
 
     // --------------------------------------------------------
-    // 2. Shader Compilation
+    // 2. Shader Compilation & PSO Build
     // --------------------------------------------------------
+    ReloadShaders(pDevice, nullptr);
+
+    // --------------------------------------------------------
+    // 4. Create Half-Resolution Bloom Textures
+    // --------------------------------------------------------
+    UINT bloomWidth  = SCREEN_WIDTH / 2;
+    UINT bloomHeight = SCREEN_HEIGHT / 2;
+
+    m_pBrightTex   = std::make_unique<RenderTexture>(pDevice, bloomWidth, bloomHeight, DXGI_FORMAT_R8G8B8A8_UNORM);
+    m_pBlurTexTemp = std::make_unique<RenderTexture>(pDevice, bloomWidth, bloomHeight, DXGI_FORMAT_R8G8B8A8_UNORM);
+
+    // --------------------------------------------------------
+    // 5. Create Full-Resolution Output Texture (Transparent clear ready)
+    // --------------------------------------------------------
+    const float finalClear[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
+    m_pFinalTex = std::make_unique<RenderTexture>(pDevice, SCREEN_WIDTH, SCREEN_HEIGHT, DXGI_FORMAT_R8G8B8A8_UNORM, finalClear);
+}
+
+bool PostProcessPass::ReloadShaders(ID3D12Device* pDevice, std::string* outError)
+{
+    if (!pDevice || !m_pRootSignature) return false;
+
     Microsoft::WRL::ComPtr<ID3DBlob> vsBlob;
     Microsoft::WRL::ComPtr<ID3DBlob> psPassThroughBlob;
     Microsoft::WRL::ComPtr<ID3DBlob> psBrightBlob;
     Microsoft::WRL::ComPtr<ID3DBlob> psBlurBlob;
     Microsoft::WRL::ComPtr<ID3DBlob> psCompositeBlob;
 
-    UINT compileFlags = 0;
-#ifdef _DEBUG
-    compileFlags = D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION;
-#endif
+    UINT compileFlags = D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION;
+    std::wstring wShaderPath(m_shaderPath.begin(), m_shaderPath.end());
 
-    auto CompileShader = [&](const char* entryPoint, const char* target, Microsoft::WRL::ComPtr<ID3DBlob>& blob)
+    auto CompileShaderSafe = [&](const char* entryPoint, const char* target, Microsoft::WRL::ComPtr<ID3DBlob>& blob) -> bool
     {
         Microsoft::WRL::ComPtr<ID3DBlob> error;
         HRESULT h = D3DCompileFromFile(
-            L"Assets/Shader/PostProcess.hlsl", nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE,
+            wShaderPath.c_str(), nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE,
             entryPoint, target, compileFlags, 0, &blob, &error
         );
         if (FAILED(h))
         {
-            if (error) OutputDebugStringA((char*)error->GetBufferPointer());
-            throw std::runtime_error(std::string("Failed to compile PostProcess shader: ") + entryPoint);
+            if (error && error->GetBufferPointer())
+            {
+                std::string errStr(static_cast<const char*>(error->GetBufferPointer()), error->GetBufferSize());
+                OutputDebugStringA(errStr.c_str());
+                if (outError) *outError += errStr + "\n";
+            }
+            else if (outError)
+            {
+                *outError += "Failed to compile PostProcess shader: " + m_shaderPath + " (" + entryPoint + ")\n";
+            }
+            return false;
         }
+        return true;
     };
 
-    CompileShader("VSMain",        "vs_5_0", vsBlob);
-    CompileShader("PSPassThrough", "ps_5_0", psPassThroughBlob);
-    CompileShader("PSBrightPass",  "ps_5_0", psBrightBlob);
-    CompileShader("PSBlurPass",    "ps_5_0", psBlurBlob);
-    CompileShader("PSComposite",   "ps_5_0", psCompositeBlob);
+    if (!CompileShaderSafe("VSMain",        "vs_5_0", vsBlob))            return false;
+    if (!CompileShaderSafe("PSPassThrough", "ps_5_0", psPassThroughBlob)) return false;
+    if (!CompileShaderSafe("PSBrightPass",  "ps_5_0", psBrightBlob))      return false;
+    if (!CompileShaderSafe("PSBlurPass",    "ps_5_0", psBlurBlob))        return false;
+    if (!CompileShaderSafe("PSComposite",   "ps_5_0", psCompositeBlob))   return false;
 
-    // --------------------------------------------------------
-    // 3. Build PSOs
-    // --------------------------------------------------------
-    auto BuildPSO = [&](ID3DBlob* ps, Microsoft::WRL::ComPtr<ID3D12PipelineState>& outPSO)
+    auto BuildPSOSafe = [&](ID3DBlob* ps, Microsoft::WRL::ComPtr<ID3D12PipelineState>& outPSO) -> bool
     {
         D3D12_GRAPHICS_PIPELINE_STATE_DESC psoDesc = {};
         psoDesc.pRootSignature = m_pRootSignature.Get();
         psoDesc.VS = CD3DX12_SHADER_BYTECODE(vsBlob.Get());
         psoDesc.PS = CD3DX12_SHADER_BYTECODE(ps);
-
         psoDesc.InputLayout = { nullptr, 0 };
-
-        CD3DX12_BLEND_DESC blendDesc(D3D12_DEFAULT);
-        psoDesc.BlendState = blendDesc;
+        psoDesc.BlendState = CD3DX12_BLEND_DESC(D3D12_DEFAULT);
 
         CD3DX12_RASTERIZER_DESC rastDesc(D3D12_DEFAULT);
         rastDesc.CullMode = D3D12_CULL_MODE_NONE;
@@ -157,32 +181,21 @@ void PostProcessPass::Init(ID3D12Device* pDevice)
         psoDesc.RTVFormats[0] = DXGI_FORMAT_R8G8B8A8_UNORM;
         psoDesc.SampleDesc.Count = 1;
 
-        HRESULT h = pDevice->CreateGraphicsPipelineState(&psoDesc, IID_PPV_ARGS(&outPSO));
-        if (FAILED(h))
+        Microsoft::WRL::ComPtr<ID3D12PipelineState> newPso;
+        if (FAILED(pDevice->CreateGraphicsPipelineState(&psoDesc, IID_PPV_ARGS(&newPso))))
         {
-            throw std::runtime_error("Failed to create PostProcess PSO");
+            return false;
         }
+        outPSO = newPso;
+        return true;
     };
 
-    BuildPSO(psPassThroughBlob.Get(), m_pPassThroughPSO);
-    BuildPSO(psBrightBlob.Get(),      m_pBrightPSO);
-    BuildPSO(psBlurBlob.Get(),        m_pBlurPSO);
-    BuildPSO(psCompositeBlob.Get(),   m_pCompositePSO);
+    if (!BuildPSOSafe(psPassThroughBlob.Get(), m_pPassThroughPSO)) return false;
+    if (!BuildPSOSafe(psBrightBlob.Get(),      m_pBrightPSO))      return false;
+    if (!BuildPSOSafe(psBlurBlob.Get(),        m_pBlurPSO))        return false;
+    if (!BuildPSOSafe(psCompositeBlob.Get(),   m_pCompositePSO))   return false;
 
-    // --------------------------------------------------------
-    // 4. Create Half-Resolution Bloom Textures
-    // --------------------------------------------------------
-    UINT bloomWidth  = SCREEN_WIDTH / 2;
-    UINT bloomHeight = SCREEN_HEIGHT / 2;
-
-    m_pBrightTex   = std::make_unique<RenderTexture>(pDevice, bloomWidth, bloomHeight, DXGI_FORMAT_R8G8B8A8_UNORM);
-    m_pBlurTexTemp = std::make_unique<RenderTexture>(pDevice, bloomWidth, bloomHeight, DXGI_FORMAT_R8G8B8A8_UNORM);
-
-    // --------------------------------------------------------
-    // 5. Create Full-Resolution Output Texture (Transparent clear ready)
-    // --------------------------------------------------------
-    const float finalClear[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
-    m_pFinalTex = std::make_unique<RenderTexture>(pDevice, SCREEN_WIDTH, SCREEN_HEIGHT, DXGI_FORMAT_R8G8B8A8_UNORM, finalClear);
+    return true;
 }
 
 void PostProcessPass::Execute(const RenderContext& ctx)

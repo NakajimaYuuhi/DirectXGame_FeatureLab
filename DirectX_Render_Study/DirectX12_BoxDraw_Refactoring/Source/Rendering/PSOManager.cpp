@@ -260,28 +260,28 @@ ID3D12PipelineState* PSOManager::GetPSO(CMaterial* material, ID3D12RootSignature
 {
     if (!material) return nullptr;
 
-    // ?L???b?V???L?[??? (?V?F?[?_?[?t?@?C?? + ?G???g?? + ?u?????h???[?h)
     const std::string& vsEntry = material->GetVsEntry();
-    std::wstring key = material->GetShaderFile() + L"_" + 
-                       std::wstring(vsEntry.begin(), vsEntry.end()) + L"_" + 
-                       std::to_wstring(static_cast<int>(material->GetBlendMode()));
+    const std::string& psEntry = material->GetPsEntry();
+    std::wstring key = material->GetShaderFile() + L"_" +
+                       std::wstring(vsEntry.begin(), vsEntry.end()) + L"_" +
+                       std::wstring(psEntry.begin(), psEntry.end()) + L"_" +
+                       std::to_wstring(static_cast<int>(material->GetBlendMode())) + L"_" +
+                       std::to_wstring(static_cast<int>(material->GetCullMode()));
 
-    // ?L???b?V???q?b?g
     if (m_psoCache.find(key) != m_psoCache.end())
     {
         return m_psoCache[key].Get();
     }
 
-    // ????????
     ID3D12Device* device = DX12Manager::GetInstance().GetDevice();
-    
+
     auto vs = ShaderManager::GetInstance().GetShader(material->GetShaderFile().c_str(), material->GetVsEntry().c_str(), "vs_5_0");
     auto ps = ShaderManager::GetInstance().GetShader(material->GetShaderFile().c_str(), material->GetPsEntry().c_str(), "ps_5_0");
 
     if (!vs || !ps)
     {
         OutputDebugStringA(("Failed to load shader for material: " + material->GetVsEntry() + " / " + material->GetPsEntry() + "\n").c_str());
-        return nullptr;
+        return m_meshPipelineState.Get();
     }
 
     D3D12_INPUT_ELEMENT_DESC inputLayout[] =
@@ -295,14 +295,23 @@ ID3D12PipelineState* PSOManager::GetPSO(CMaterial* material, ID3D12RootSignature
 
     DXGI_FORMAT rtvFormat = DXGI_FORMAT_R8G8B8A8_UNORM;
 
+    D3D12_RASTERIZER_DESC rasterDesc = {};
+    rasterDesc.FillMode = D3D12_FILL_MODE_SOLID;
+    rasterDesc.CullMode = material->GetCullMode();
+    rasterDesc.FrontCounterClockwise = FALSE;
+    rasterDesc.DepthBias = D3D12_DEFAULT_DEPTH_BIAS;
+    rasterDesc.DepthBiasClamp = D3D12_DEFAULT_DEPTH_BIAS_CLAMP;
+    rasterDesc.SlopeScaledDepthBias = D3D12_DEFAULT_SLOPE_SCALED_DEPTH_BIAS;
+    rasterDesc.DepthClipEnable = TRUE;
+
     PSOBuilder psoBuilder;
     psoBuilder.SetRootSignature(rootSig)
               .SetInputLayout(inputLayout, _countof(inputLayout))
               .SetShaders(vs->GetBytecode(), ps->GetBytecode())
               .SetPrimitiveTopologyType(D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE)
-              .SetRenderTargetFormats(1, &rtvFormat, DXGI_FORMAT_D32_FLOAT);
+              .SetRenderTargetFormats(1, &rtvFormat, DXGI_FORMAT_D32_FLOAT)
+              .SetRasterizerState(rasterDesc);
 
-    // ?u?????h???[?h??????????E
     if (material->GetBlendMode() == BlendMode::Additive)
     {
         D3D12_BLEND_DESC blendDesc = {};
@@ -317,22 +326,107 @@ ID3D12PipelineState* PSOManager::GetPSO(CMaterial* material, ID3D12RootSignature
 
         D3D12_DEPTH_STENCIL_DESC depthDesc = {};
         depthDesc.DepthEnable = TRUE;
-        depthDesc.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ZERO; // Z??????????E
+        depthDesc.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ZERO;
         depthDesc.DepthFunc = D3D12_COMPARISON_FUNC_LESS;
-        
+
+        psoBuilder.SetBlendState(blendDesc).SetDepthStencilState(depthDesc);
+    }
+    else if (material->GetBlendMode() == BlendMode::Alpha)
+    {
+        D3D12_BLEND_DESC blendDesc = {};
+        blendDesc.RenderTarget[0].BlendEnable = TRUE;
+        blendDesc.RenderTarget[0].SrcBlend = D3D12_BLEND_SRC_ALPHA;
+        blendDesc.RenderTarget[0].DestBlend = D3D12_BLEND_INV_SRC_ALPHA;
+        blendDesc.RenderTarget[0].BlendOp = D3D12_BLEND_OP_ADD;
+        blendDesc.RenderTarget[0].SrcBlendAlpha = D3D12_BLEND_ONE;
+        blendDesc.RenderTarget[0].DestBlendAlpha = D3D12_BLEND_INV_SRC_ALPHA;
+        blendDesc.RenderTarget[0].BlendOpAlpha = D3D12_BLEND_OP_ADD;
+        blendDesc.RenderTarget[0].RenderTargetWriteMask = D3D12_COLOR_WRITE_ENABLE_ALL;
+
+        D3D12_DEPTH_STENCIL_DESC depthDesc = {};
+        depthDesc.DepthEnable = TRUE;
+        depthDesc.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ZERO;
+        depthDesc.DepthFunc = D3D12_COMPARISON_FUNC_LESS_EQUAL;
+
         psoBuilder.SetBlendState(blendDesc).SetDepthStencilState(depthDesc);
     }
 
     ComPtr<ID3D12PipelineState> newPso;
     psoBuilder.Build(device, &newPso);
-    
+
     m_psoCache[key] = newPso;
     return newPso.Get();
+}
+
+ID3D12PipelineState* PSOManager::GetCustomShadowPSO(const std::wstring& shaderFile, const std::string& vsEntry, int depthBias, float slopeScaledBias)
+{
+    if (shaderFile.empty() || !m_shadowRootSignature)
+    {
+        return m_shadowPipelineState.Get();
+    }
+
+    std::wstring key = shaderFile + L"_" + std::wstring(vsEntry.begin(), vsEntry.end()) + L"_" +
+                       std::to_wstring(depthBias) + L"_" + std::to_wstring(static_cast<int>(slopeScaledBias * 100.0f));
+
+    auto it = m_shadowPsoCache.find(key);
+    if (it != m_shadowPsoCache.end())
+    {
+        return it->second.Get();
+    }
+
+    auto shadowVS = ShaderManager::GetInstance().GetShader(shaderFile, vsEntry, "vs_5_0");
+    if (!shadowVS)
+    {
+        return m_shadowPipelineState.Get();
+    }
+
+    D3D12_INPUT_ELEMENT_DESC inputLayout[] =
+    {
+        { "POSITION",     0, DXGI_FORMAT_R32G32B32_FLOAT,    0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+        { "NORMAL",       0, DXGI_FORMAT_R32G32B32_FLOAT,    0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+        { "TEXCOORD",     0, DXGI_FORMAT_R32G32_FLOAT,       0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+        { "BLENDINDICES", 0, DXGI_FORMAT_R32G32B32A32_UINT,  0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+        { "BLENDWEIGHT",  0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+    };
+
+    D3D12_RASTERIZER_DESC rasterDesc = {};
+    rasterDesc.FillMode = D3D12_FILL_MODE_SOLID;
+    rasterDesc.CullMode = D3D12_CULL_MODE_BACK;
+    rasterDesc.FrontCounterClockwise = FALSE;
+    rasterDesc.DepthBias = depthBias;
+    rasterDesc.DepthBiasClamp = 0.0f;
+    rasterDesc.SlopeScaledDepthBias = slopeScaledBias;
+    rasterDesc.DepthClipEnable = TRUE;
+
+    D3D12_DEPTH_STENCIL_DESC depthDesc = {};
+    depthDesc.DepthEnable = TRUE;
+    depthDesc.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ALL;
+    depthDesc.DepthFunc = D3D12_COMPARISON_FUNC_LESS_EQUAL;
+
+    PSOBuilder psoBuilder;
+    psoBuilder.SetRootSignature(m_shadowRootSignature.Get())
+              .SetInputLayout(inputLayout, _countof(inputLayout))
+              .SetShaders(shadowVS->GetBytecode(), { nullptr, 0 })
+              .SetPrimitiveTopologyType(D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE)
+              .SetRenderTargetFormats(0, nullptr, DXGI_FORMAT_D32_FLOAT)
+              .SetRasterizerState(rasterDesc)
+              .SetDepthStencilState(depthDesc);
+
+    ComPtr<ID3D12PipelineState> newShadowPso;
+    ID3D12Device* device = DX12Manager::GetInstance().GetDevice();
+    if (psoBuilder.Build(device, &newShadowPso))
+    {
+        m_shadowPsoCache[key] = newShadowPso;
+        return newShadowPso.Get();
+    }
+
+    return m_shadowPipelineState.Get();
 }
 
 void PSOManager::Finalize()
 {
     m_psoCache.clear();
+    m_shadowPsoCache.clear();
     m_meshPipelineState.Reset();
     m_meshRootSignature.Reset();
     m_additivePipelineState.Reset();
@@ -352,8 +446,9 @@ bool PSOManager::RebuildPSOs(ID3D12Device* device, std::string* outError)
         return false;
     }
 
-    // Clear material PSO cache so materials rebuild PSOs with the newly recompiled shaders
+    // Clear material & shadow PSO caches so they rebuild with the newly recompiled shaders
     m_psoCache.clear();
+    m_shadowPsoCache.clear();
 
     auto vertexShader = ShaderManager::GetInstance().GetShader(L"Assets/Shader/Triangle.hlsl", "VSMain", "vs_5_0");
     auto pixelShader = ShaderManager::GetInstance().GetShader(L"Assets/Shader/Triangle.hlsl", "PSMain", "ps_5_0");

@@ -26,8 +26,12 @@ public:
     // 動的PSO生成
     ID3D12PipelineState* GetPSO(CMaterial* material, ID3D12RootSignature* rootSig);
 
+    // カスタムシャドウシェーダ用PSO取得
+    ID3D12PipelineState* GetCustomShadowPSO(const std::wstring& shaderFile, const std::string& vsEntry = "VSMain", int depthBias = 500, float slopeScaledBias = 1.5f);
+
 private:
     std::unordered_map<std::wstring, ComPtr<ID3D12PipelineState>> m_psoCache;
+    std::unordered_map<std::wstring, ComPtr<ID3D12PipelineState>> m_shadowPsoCache;
 
 public:
     ID3D12RootSignature* GetMeshRootSignature() const { return m_meshRootSignature.Get(); }

@@ -49,6 +49,8 @@ using UniquePtr = std::unique_ptr<T>;
 #include "LightManager.h"
 #include "TextureManager.h"
 #include "ModelManager.h"
+#include "MaterialManager.h"
+#include "ShaderManager.h"
 
 //音
 #include <xaudio2.h>
@@ -294,6 +296,8 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 	// 5. 各マネージャーの D3D12 リソースを解放
 	LightManager::GetInstance().Finalize();
 	PSOManager::GetInstance().Finalize();
+	MaterialManager::GetInstance().Clear();
+	ShaderManager::GetInstance().Clear();
 	TextureManager::GetInstance().Clear();
 	ModelManager::GetInstance().Clear();
 

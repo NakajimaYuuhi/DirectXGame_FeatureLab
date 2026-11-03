@@ -43,6 +43,8 @@ class CMaterial : public std::enable_shared_from_this<CMaterial>
 public:
     CMaterial();
     CMaterial(wstring _FilePath, XMFLOAT4 _Color, wstring shaderFile = L"Assets/Shader/Triangle.hlsl", string vsEntry = "VSMain", string psEntry = "PSMain", BlendMode blendMode = BlendMode::Opaque);
+    CMaterial(const CMaterial& other);
+    CMaterial& operator=(const CMaterial& other);
     ~CMaterial();
 
     std::shared_ptr<CMaterial> Clone() const;

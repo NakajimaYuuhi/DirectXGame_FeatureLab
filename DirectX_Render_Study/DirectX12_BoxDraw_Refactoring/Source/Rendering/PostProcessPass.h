@@ -49,9 +49,13 @@ public:
     virtual void Init(ID3D12Device* pDevice) override;
     virtual void Execute(const RenderContext& ctx) override;
     virtual std::string GetName() const override;
+    virtual bool ReloadShaders(ID3D12Device* pDevice, std::string* outError = nullptr) override;
 
     void SetCustomName(const std::string& name) { m_customName = name; }
     const std::string& GetCustomName() const { return m_customName; }
+
+    void SetShaderPath(const std::string& path) { m_shaderPath = path; }
+    const std::string& GetShaderPath() const { return m_shaderPath; }
 
     Settings& GetSettings() { return m_settings; }
     const Settings& GetSettings() const { return m_settings; }
@@ -66,6 +70,7 @@ public:
 private:
     RenderTexture* m_pSourceTex = nullptr;
     std::string m_customName;
+    std::string m_shaderPath = "Assets/Shader/PostProcess.hlsl";
     Settings m_settings;
 
     // Half-resolution buffers for Bloom

@@ -34,6 +34,19 @@ void RenderPipeline::Init(ID3D12Device* pDevice)
     }
 }
 
+bool RenderPipeline::ReloadAllPassShaders(ID3D12Device* pDevice, std::string* outError)
+{
+    bool allOk = true;
+    for (auto& pass : m_passes) {
+        if (pass) {
+            if (!pass->ReloadShaders(pDevice, outError)) {
+                allOk = false;
+            }
+        }
+    }
+    return allOk;
+}
+
 void RenderPipeline::Execute(const RenderContext& ctx)
 {
     RenderContext localCtx = ctx;
@@ -59,7 +72,12 @@ void RenderPipeline::Execute(const RenderContext& ctx)
         }
 
         if (!m_previewTextureName.empty()) {
-            if (RenderTexture* pPreview = m_blackboard.GetTexture(m_previewTextureName)) {
+            if (m_previewTextureName == "ShadowMap") {
+                if (ShadowMap* pShadow = LightManager::GetInstance().GetShadowMap()) {
+                    CViewportUI::GetInstance().SetTextureSRV(pShadow->GetSRV());
+                }
+            }
+            else if (RenderTexture* pPreview = m_blackboard.GetTexture(m_previewTextureName)) {
                 CViewportUI::GetInstance().SetTextureSRV(pPreview->GetSRV());
             }
         }
@@ -319,8 +337,12 @@ bool RenderPipeline::SaveToJson(const std::string& filePath) const
             pj["input"] = pass->GetInputResourceName();
             pj["output"] = pass->GetOutputResourceName();
 
-            if (dynamic_cast<ShadowMapPass*>(pass.get())) {
+            if (auto* sm = dynamic_cast<ShadowMapPass*>(pass.get())) {
                 pj["type"] = "ShadowMapPass";
+                pj["shaderPath"] = sm->GetShaderPath();
+                pj["vsEntry"] = sm->GetVsEntry();
+                pj["depthBias"] = sm->GetDepthBias();
+                pj["slopeScaledBias"] = sm->GetSlopeScaledDepthBias();
             }
             else if (auto* fwd = dynamic_cast<ForwardRenderPass*>(pass.get())) {
                 pj["type"] = "ForwardRenderPass";
@@ -339,6 +361,7 @@ bool RenderPipeline::SaveToJson(const std::string& filePath) const
             else if (auto* pp = dynamic_cast<PostProcessPass*>(pass.get())) {
                 pj["type"] = "PostProcessPass";
                 pj["customName"] = pp->GetCustomName();
+                pj["shaderPath"] = pp->GetShaderPath();
                 const auto& s = pp->GetSettings();
                 json sj;
                 sj["useCustomSettings"] = s.useCustomSettings;
@@ -379,6 +402,8 @@ bool RenderPipeline::SaveToJson(const std::string& filePath) const
             else if (auto* cs = dynamic_cast<SampleComputePass*>(pass.get())) {
                 pj["type"] = "SampleComputePass";
                 pj["customName"] = cs->GetCustomName();
+                pj["shaderPath"] = cs->GetShaderPath();
+                pj["csEntry"] = cs->GetCsEntry();
                 pj["speed"] = cs->GetSpeed();
                 pj["preview"] = cs->IsPreviewEnabled();
             }
@@ -462,7 +487,12 @@ bool RenderPipeline::LoadFromJson(const std::string& filePath, ID3D12Device* pDe
                 std::unique_ptr<IRenderPass> pass = nullptr;
 
                 if (type == "ShadowMapPass") {
-                    pass = std::make_unique<ShadowMapPass>();
+                    auto sm = std::make_unique<ShadowMapPass>();
+                    sm->SetShaderPath(pj.value("shaderPath", "Assets/Shader/ShadowMap.hlsl"));
+                    sm->SetVsEntry(pj.value("vsEntry", "VSMain"));
+                    sm->SetDepthBias(pj.value("depthBias", 500));
+                    sm->SetSlopeScaledDepthBias(pj.value("slopeScaledBias", 1.5f));
+                    pass = std::move(sm);
                 }
                 else if (type == "ForwardRenderPass") {
                     auto fwd = std::make_unique<ForwardRenderPass>(pDefaultSceneTex);
@@ -485,6 +515,7 @@ bool RenderPipeline::LoadFromJson(const std::string& filePath, ID3D12Device* pDe
                 else if (type == "PostProcessPass") {
                     auto pp = std::make_unique<PostProcessPass>(pDefaultSceneTex);
                     pp->SetCustomName(pj.value("customName", ""));
+                    pp->SetShaderPath(pj.value("shaderPath", "Assets/Shader/PostProcess.hlsl"));
                     if (pj.contains("settings") && pj["settings"].is_object()) {
                         const auto& sj = pj["settings"];
                         auto& s = pp->GetSettings();
@@ -534,6 +565,8 @@ bool RenderPipeline::LoadFromJson(const std::string& filePath, ID3D12Device* pDe
                 else if (type == "SampleComputePass") {
                     auto cs = std::make_unique<SampleComputePass>();
                     cs->SetCustomName(pj.value("customName", ""));
+                    cs->SetShaderPath(pj.value("shaderPath", "Assets/Shader/SampleCompute.hlsl"));
+                    cs->SetCsEntry(pj.value("csEntry", "CSMain"));
                     cs->SetSpeed(pj.value("speed", 1.0f));
                     cs->SetPreviewEnabled(pj.value("preview", false));
                     pass = std::move(cs);

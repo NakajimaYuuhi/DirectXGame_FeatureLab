@@ -17,6 +17,9 @@ public:
     // Initialize all registered passes
     void Init(ID3D12Device* pDevice);
 
+    // Reload all pass-specific shaders / PSOs on hot-reload
+    bool ReloadAllPassShaders(ID3D12Device* pDevice, std::string* outError = nullptr);
+
     // Execute active passes in order
     void Execute(const RenderContext& ctx);
 

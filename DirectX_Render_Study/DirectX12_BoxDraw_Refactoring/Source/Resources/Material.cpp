@@ -45,6 +45,45 @@ CMaterial::CMaterial(wstring _FilePath, XMFLOAT4 _Color, wstring shaderFile, str
     }
 }
 
+CMaterial::CMaterial(const CMaterial& other)
+    : m_Texture(other.m_Texture)
+    , m_TextureFilePath(other.m_TextureFilePath)
+    , m_Data(other.m_Data)
+    , m_ShaderFile(other.m_ShaderFile)
+    , m_VsEntry(other.m_VsEntry)
+    , m_PsEntry(other.m_PsEntry)
+    , m_BlendMode(other.m_BlendMode)
+    , m_CullMode(other.m_CullMode)
+    , m_isDirty(true)
+{
+    CreateConstantBuffer();
+}
+
+CMaterial& CMaterial::operator=(const CMaterial& other)
+{
+    if (this != &other)
+    {
+        m_Texture = other.m_Texture;
+        m_TextureFilePath = other.m_TextureFilePath;
+        m_Data = other.m_Data;
+        m_ShaderFile = other.m_ShaderFile;
+        m_VsEntry = other.m_VsEntry;
+        m_PsEntry = other.m_PsEntry;
+        m_BlendMode = other.m_BlendMode;
+        m_CullMode = other.m_CullMode;
+        m_isDirty = true;
+        if (!m_constantBuffer)
+        {
+            CreateConstantBuffer();
+        }
+        else
+        {
+            UpdateBuffer();
+        }
+    }
+    return *this;
+}
+
 CMaterial::~CMaterial()
 {
     if (m_constantBuffer && m_mappedData)

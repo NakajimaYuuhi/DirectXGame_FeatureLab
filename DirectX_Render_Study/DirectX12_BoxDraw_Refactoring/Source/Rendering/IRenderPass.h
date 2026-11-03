@@ -16,6 +16,9 @@ public:
     // Pass name for debugging and profiling
     virtual std::string GetName() const = 0;
 
+    // Recompile pass-specific shaders / PSOs on hot-reload (optional override)
+    virtual bool ReloadShaders(ID3D12Device* pDevice, std::string* outError = nullptr) { return true; }
+
     // Pass enable / disable flag
     bool IsEnabled() const { return m_isEnabled; }
     void SetEnabled(bool enabled) { m_isEnabled = enabled; }

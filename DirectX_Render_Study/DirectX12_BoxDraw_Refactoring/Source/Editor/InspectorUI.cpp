@@ -16,6 +16,8 @@
 #include "Transform.h"
 #include "Model.h"
 #include "MaterialManager.h"
+#include "ShaderManager.h"
+#include "HotReloadManager.h"
 #include "ObjectInfo.h"
 #include "BoxCollider3D.h"
 #include "CapsuleCollider3D.h"
@@ -424,6 +426,161 @@ void CInspectorUI::Draw()
     }
     ImGui::Separator();
 
+    // 4.4 Shader Compile Error Banner & Shader / Material Studio
+    const std::string& shaderErrorLog = ShaderManager::GetInstance().GetLastErrorLog();
+    if (!shaderErrorLog.empty())
+    {
+        ImGui::PushStyleColor(ImGuiCol_ChildBg, ImVec4(0.35f, 0.08f, 0.08f, 0.95f));
+        ImGui::BeginChild("ShaderErrorBanner", ImVec2(0, 125.0f), true);
+        ImGui::TextColored(ImVec4(1.0f, 0.35f, 0.35f, 1.0f), "[!] HLSL Shader Compile Error");
+        ImGui::Separator();
+        ImGui::TextWrapped("%s", shaderErrorLog.c_str());
+
+        // Parse file path and line number if format is: path(line,col): error ...
+        std::string errFile = "";
+        int errLine = 1;
+        size_t parenOpen = shaderErrorLog.find('(');
+        size_t parenClose = shaderErrorLog.find(')', parenOpen != std::string::npos ? parenOpen : 0);
+        if (parenOpen != std::string::npos && parenClose != std::string::npos && parenOpen > 0)
+        {
+            errFile = shaderErrorLog.substr(0, parenOpen);
+            size_t nl = errFile.rfind('\n');
+            if (nl != std::string::npos) errFile = errFile.substr(nl + 1);
+            std::string lineCol = shaderErrorLog.substr(parenOpen + 1, parenClose - parenOpen - 1);
+            try { errLine = std::stoi(lineCol); } catch (...) { errLine = 1; }
+        }
+
+        if (!errFile.empty())
+        {
+            if (ImGui::Button("Open Error Line in VS Code"))
+            {
+                ShaderManager::GetInstance().OpenInVSCode(errFile, errLine);
+            }
+            ImGui::SameLine();
+        }
+        if (ImGui::Button("Retry Hot-Reload (F5)"))
+        {
+            HotReloadManager::GetInstance().ReloadShadersAndPrefabs();
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Dismiss"))
+        {
+            ShaderManager::GetInstance().ClearLastErrorLog();
+        }
+        ImGui::EndChild();
+        ImGui::PopStyleColor();
+        ImGui::Separator();
+    }
+
+    if (ImGui::CollapsingHeader("Shader & Material Studio", ImGuiTreeNodeFlags_DefaultOpen))
+    {
+        if (ImGui::Button("Reload All Shaders (F5)"))
+        {
+            HotReloadManager::GetInstance().ReloadShadersAndPrefabs();
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Open Assets/Shader in VS Code"))
+        {
+            ShaderManager::GetInstance().OpenInVSCode("Assets/Shader/Triangle.hlsl", 1);
+        }
+
+        // 1. Create New Shader (.hlsl) from Template
+        if (ImGui::TreeNode("Create New Shader (.hlsl)"))
+        {
+            static char newShaderName[128] = "CustomShadowShader.hlsl";
+            static int templateIdx = 0;
+            static bool openInCodeAfterCreate = true;
+            const char* templateNames[] = {
+                "Lit & Shadow Mesh (VS + PS)",
+                "Shadow Depth Pass (VS Only)",
+                "Post-Process Fullscreen (VS + PS)",
+                "Compute Shader (CS)"
+            };
+
+            ImGui::InputText("File Name (.hlsl)", newShaderName, sizeof(newShaderName));
+            ImGui::Combo("Template", &templateIdx, templateNames, IM_ARRAYSIZE(templateNames));
+            ImGui::Checkbox("Open in VS Code on Create", &openInCodeAfterCreate);
+
+            if (ImGui::Button("+ Generate HLSL File"))
+            {
+                std::string fileNameStr = newShaderName;
+                if (fileNameStr.find(".hlsl") == std::string::npos)
+                {
+                    fileNameStr += ".hlsl";
+                }
+                std::string fullPath = "Assets/Shader/" + fileNameStr;
+                std::string err;
+                if (ShaderManager::GetInstance().CreateShaderFromTemplate(
+                    fullPath,
+                    static_cast<ShaderTemplateType>(templateIdx),
+                    &err))
+                {
+                    SetStatusMessage("Created shader: " + fullPath);
+                    if (openInCodeAfterCreate)
+                    {
+                        ShaderManager::GetInstance().OpenInVSCode(fullPath, 1);
+                    }
+                }
+                else
+                {
+                    SetStatusMessage("Shader create failed: " + err);
+                }
+            }
+            ImGui::TreePop();
+        }
+
+        // 2. Create New Material (.mat)
+        if (ImGui::TreeNode("Create New Material (.mat)"))
+        {
+            static char newMatName[128] = "NewShadowMat";
+            static int selectedShaderIdx = 0;
+            auto shaderFiles = ShaderManager::GetInstance().GetAvailableShaderFiles();
+
+            ImGui::InputText("Material Name", newMatName, sizeof(newMatName));
+
+            if (!shaderFiles.empty())
+            {
+                if (selectedShaderIdx >= static_cast<int>(shaderFiles.size())) selectedShaderIdx = 0;
+                if (ImGui::BeginCombo("Shader (.hlsl)", shaderFiles[selectedShaderIdx].c_str()))
+                {
+                    for (int si = 0; si < static_cast<int>(shaderFiles.size()); ++si)
+                    {
+                        bool isSel = (selectedShaderIdx == si);
+                        if (ImGui::Selectable(shaderFiles[si].c_str(), isSel))
+                        {
+                            selectedShaderIdx = si;
+                        }
+                    }
+                    ImGui::EndCombo();
+                }
+            }
+
+            if (ImGui::Button("+ Create & Save Material (.mat)"))
+            {
+                std::string matNameStr = newMatName;
+                if (!matNameStr.empty())
+                {
+                    auto mat = std::make_shared<CMaterial>();
+                    if (!shaderFiles.empty() && selectedShaderIdx < static_cast<int>(shaderFiles.size()))
+                    {
+                        std::string sPath = shaderFiles[selectedShaderIdx];
+                        mat->SetShader(std::wstring(sPath.begin(), sPath.end()), "VSMain", "PSMain");
+                    }
+                    std::filesystem::create_directories("Assets/Materials");
+                    std::string savePath = "Assets/Materials/" + matNameStr + ".mat";
+                    if (mat->SaveToFile(savePath))
+                    {
+                        MaterialManager::GetInstance().GetMaterial(savePath);
+                        SetStatusMessage("Saved new material: " + savePath);
+                    }
+                }
+            }
+            ImGui::TreePop();
+        }
+
+        ImGui::Separator();
+    }
+
     // 4.5 Lighting & Environment (Directional Light / Ambient)
     if (ImGui::CollapsingHeader("Lighting & Environment", ImGuiTreeNodeFlags_DefaultOpen))
     {
@@ -703,6 +860,46 @@ void CInspectorUI::Draw()
                         }
                     }
 
+                    // --- Built-in ShadowMap Depth Preview ---
+                    if (ShadowMap* pShadowMap = LightManager::GetInstance().GetShadowMap())
+                    {
+                        if (pShadowMap->GetSRV().ptr != 0)
+                        {
+                            ImGui::PushID("ShadowMap_Preview");
+                            bool isPinned = (pipeline->GetPreviewTextureName() == "ShadowMap");
+                            if (isPinned)
+                            {
+                                ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.15f, 0.65f, 0.85f, 1.0f));
+                            }
+                            if (ImGui::SmallButton(isPinned ? "Pinned" : "View"))
+                            {
+                                pipeline->SetPreviewTextureName(isPinned ? "" : "ShadowMap");
+                            }
+                            if (isPinned)
+                            {
+                                ImGui::PopStyleColor();
+                            }
+                            ImGui::SameLine();
+                            ImGui::TextColored(ImVec4(1.0f, 0.85f, 0.4f, 1.0f), "ShadowMap (%ux%u Depth R32)", pShadowMap->GetWidth(), pShadowMap->GetHeight());
+
+                            if (showThumbnails)
+                            {
+                                ImTextureID shadowTexID = static_cast<ImTextureID>(pShadowMap->GetSRV().ptr);
+                                ImGui::Indent(24.0f);
+                                ImGui::Image(shadowTexID, ImVec2(96.0f, 96.0f));
+                                if (ImGui::IsItemHovered())
+                                {
+                                    ImGui::BeginTooltip();
+                                    ImGui::Text("ShadowMap Depth (%ux%u)", pShadowMap->GetWidth(), pShadowMap->GetHeight());
+                                    ImGui::Image(shadowTexID, ImVec2(256.0f, 256.0f));
+                                    ImGui::EndTooltip();
+                                }
+                                ImGui::Unindent(24.0f);
+                            }
+                            ImGui::PopID();
+                        }
+                    }
+
                     // Dynamically create and register new buffer
                     static char newTexName[64] = "Layer_Custom";
                     static bool newTexTransparent = true;
@@ -848,6 +1045,51 @@ void CInspectorUI::Draw()
                     }
 
                     // --- Pass Specific Parameters ---
+                    if (auto* shadowPass = dynamic_cast<ShadowMapPass*>(passes[i].get()))
+                    {
+                        auto shaderFiles = ShaderManager::GetInstance().GetAvailableShaderFiles();
+                        std::string curShader = shadowPass->GetShaderPath();
+                        ImGui::SetNextItemWidth(175.0f);
+                        if (ImGui::BeginCombo("Shader##ShadowShd", curShader.c_str()))
+                        {
+                            for (const auto& sf : shaderFiles)
+                            {
+                                if (ImGui::Selectable(sf.c_str(), sf == curShader))
+                                {
+                                    shadowPass->SetShaderPath(sf);
+                                }
+                            }
+                            ImGui::EndCombo();
+                        }
+                        ImGui::SameLine();
+                        if (ImGui::SmallButton("VS Code##ShadowCode"))
+                        {
+                            ShaderManager::GetInstance().OpenInVSCode(curShader, 1);
+                        }
+
+                        char vsBuf[64] = "";
+                        strncpy_s(vsBuf, shadowPass->GetVsEntry().c_str(), sizeof(vsBuf) - 1);
+                        ImGui::SetNextItemWidth(120.0f);
+                        if (ImGui::InputText("VS Entry##ShadowVS", vsBuf, sizeof(vsBuf), ImGuiInputTextFlags_EnterReturnsTrue))
+                        {
+                            shadowPass->SetVsEntry(vsBuf);
+                        }
+
+                        int depthBias = shadowPass->GetDepthBias();
+                        ImGui::SetNextItemWidth(100.0f);
+                        if (ImGui::DragInt("Depth Bias##ShadowDB", &depthBias, 10, 0, 50000))
+                        {
+                            shadowPass->SetDepthBias(depthBias);
+                        }
+                        ImGui::SameLine();
+                        float slopeBias = shadowPass->GetSlopeScaledDepthBias();
+                        ImGui::SetNextItemWidth(100.0f);
+                        if (ImGui::SliderFloat("Slope Bias##ShadowSB", &slopeBias, 0.0f, 5.0f, "%.2f"))
+                        {
+                            shadowPass->SetSlopeScaledDepthBias(slopeBias);
+                        }
+                    }
+
                     if (auto* fwdPass = dynamic_cast<ForwardRenderPass*>(passes[i].get()))
                     {
                         const char* presetNames[] = { "All Objects", "Ground & BG", "Characters", "UI Objects", "Custom Mask" };
@@ -883,6 +1125,35 @@ void CInspectorUI::Draw()
 
                     if (auto* ppPass = dynamic_cast<PostProcessPass*>(passes[i].get()))
                     {
+                        auto shaderFiles = ShaderManager::GetInstance().GetAvailableShaderFiles();
+                        std::string curShader = ppPass->GetShaderPath();
+                        ImGui::SetNextItemWidth(175.0f);
+                        if (ImGui::BeginCombo("Shader##PPShd", curShader.c_str()))
+                        {
+                            for (const auto& sf : shaderFiles)
+                            {
+                                if (ImGui::Selectable(sf.c_str(), sf == curShader))
+                                {
+                                    ppPass->SetShaderPath(sf);
+                                    std::string err;
+                                    if (!ppPass->ReloadShaders(DX12Manager::GetInstance().GetDevice(), &err))
+                                    {
+                                        ShaderManager::GetInstance().SetLastErrorLog(err);
+                                    }
+                                    else
+                                    {
+                                        ShaderManager::GetInstance().ClearLastErrorLog();
+                                    }
+                                }
+                            }
+                            ImGui::EndCombo();
+                        }
+                        ImGui::SameLine();
+                        if (ImGui::SmallButton("VS Code##PPCode"))
+                        {
+                            ShaderManager::GetInstance().OpenInVSCode(curShader, 1);
+                        }
+
                         auto& s = ppPass->GetSettings();
                         ImGui::Checkbox("Use Per-Pass Settings##PPCustom", &s.useCustomSettings);
                         if (s.useCustomSettings)
@@ -1002,6 +1273,52 @@ void CInspectorUI::Draw()
 
                     if (auto* csPass = dynamic_cast<SampleComputePass*>(passes[i].get()))
                     {
+                        auto shaderFiles = ShaderManager::GetInstance().GetAvailableShaderFiles();
+                        std::string curShader = csPass->GetShaderPath();
+                        ImGui::SetNextItemWidth(175.0f);
+                        if (ImGui::BeginCombo("Shader##CSShd", curShader.c_str()))
+                        {
+                            for (const auto& sf : shaderFiles)
+                            {
+                                if (ImGui::Selectable(sf.c_str(), sf == curShader))
+                                {
+                                    csPass->SetShaderPath(sf);
+                                    std::string err;
+                                    if (!csPass->ReloadShaders(DX12Manager::GetInstance().GetDevice(), &err))
+                                    {
+                                        ShaderManager::GetInstance().SetLastErrorLog(err);
+                                    }
+                                    else
+                                    {
+                                        ShaderManager::GetInstance().ClearLastErrorLog();
+                                    }
+                                }
+                            }
+                            ImGui::EndCombo();
+                        }
+                        ImGui::SameLine();
+                        if (ImGui::SmallButton("VS Code##CSCode"))
+                        {
+                            ShaderManager::GetInstance().OpenInVSCode(curShader, 1);
+                        }
+
+                        char csEntryBuf[64] = "";
+                        strncpy_s(csEntryBuf, csPass->GetCsEntry().c_str(), sizeof(csEntryBuf) - 1);
+                        ImGui::SetNextItemWidth(110.0f);
+                        if (ImGui::InputText("CS Entry##CSEntry", csEntryBuf, sizeof(csEntryBuf), ImGuiInputTextFlags_EnterReturnsTrue))
+                        {
+                            csPass->SetCsEntry(csEntryBuf);
+                            std::string err;
+                            if (!csPass->ReloadShaders(DX12Manager::GetInstance().GetDevice(), &err))
+                            {
+                                ShaderManager::GetInstance().SetLastErrorLog(err);
+                            }
+                            else
+                            {
+                                ShaderManager::GetInstance().ClearLastErrorLog();
+                            }
+                        }
+
                         bool preview = csPass->IsPreviewEnabled();
                         if (ImGui::Checkbox("Preview in Viewport##CS", &preview))
                         {
@@ -2106,15 +2423,44 @@ void CInspectorUI::Draw()
                                     else mat->SetCullMode(D3D12_CULL_MODE_BACK);
                                 }
 
-                                // Shader File Path
+                                // Shader File Path & Dropdown + VS Code Open
                                 std::wstring shaderWPath = mat->GetShaderFile();
                                 std::string shaderStr(shaderWPath.begin(), shaderWPath.end());
-                                char shaderBuf[260] = "";
-                                strncpy_s(shaderBuf, shaderStr.c_str(), sizeof(shaderBuf) - 1);
-                                if (ImGui::InputText("Shader File (.hlsl)", shaderBuf, sizeof(shaderBuf), ImGuiInputTextFlags_EnterReturnsTrue))
+                                auto availableShaders = ShaderManager::GetInstance().GetAvailableShaderFiles();
+                                ImGui::SetNextItemWidth(200.0f);
+                                if (ImGui::BeginCombo("Shader (.hlsl)", shaderStr.c_str()))
                                 {
-                                    std::string newShader = shaderBuf;
-                                    mat->SetShader(std::wstring(newShader.begin(), newShader.end()), mat->GetVsEntry(), mat->GetPsEntry());
+                                    for (const auto& sf : availableShaders)
+                                    {
+                                        if (ImGui::Selectable(sf.c_str(), sf == shaderStr))
+                                        {
+                                            mat->SetShader(std::wstring(sf.begin(), sf.end()), mat->GetVsEntry(), mat->GetPsEntry());
+                                            shaderStr = sf;
+                                            shaderWPath = mat->GetShaderFile();
+                                        }
+                                    }
+                                    ImGui::EndCombo();
+                                }
+                                ImGui::SameLine();
+                                if (ImGui::Button("Open in VS Code"))
+                                {
+                                    ShaderManager::GetInstance().OpenInVSCode(shaderStr, 1);
+                                }
+
+                                char vsEntryBuf[64] = "";
+                                strncpy_s(vsEntryBuf, mat->GetVsEntry().c_str(), sizeof(vsEntryBuf) - 1);
+                                ImGui::SetNextItemWidth(110.0f);
+                                if (ImGui::InputText("VS Entry", vsEntryBuf, sizeof(vsEntryBuf), ImGuiInputTextFlags_EnterReturnsTrue))
+                                {
+                                    mat->SetShader(mat->GetShaderFile(), vsEntryBuf, mat->GetPsEntry());
+                                }
+                                ImGui::SameLine();
+                                char psEntryBuf[64] = "";
+                                strncpy_s(psEntryBuf, mat->GetPsEntry().c_str(), sizeof(psEntryBuf) - 1);
+                                ImGui::SetNextItemWidth(110.0f);
+                                if (ImGui::InputText("PS Entry", psEntryBuf, sizeof(psEntryBuf), ImGuiInputTextFlags_EnterReturnsTrue))
+                                {
+                                    mat->SetShader(mat->GetShaderFile(), mat->GetVsEntry(), psEntryBuf);
                                 }
 
                                 // Texture File Path & Load
@@ -2130,22 +2476,95 @@ void CInspectorUI::Draw()
                                     mat->LoadTexture(std::wstring(newStr.begin(), newStr.end()));
                                 }
 
-                                // Custom Params (Float4 x 2)
-                                if (ImGui::TreeNode("Custom Shader Parameters"))
+                                // Auto-GUI from HLSL Annotations (@Param / @Color) + Raw Custom Params
+                                auto pPsShader = ShaderManager::GetInstance().GetShader(mat->GetShaderFile(), mat->GetPsEntry(), "ps_5_0");
+                                if (pPsShader && !pPsShader->GetAnnotations().empty())
+                                {
+                                    if (ImGui::TreeNodeEx("Shader Parameters (@Param Auto-GUI)", ImGuiTreeNodeFlags_DefaultOpen))
+                                    {
+                                        for (const auto& ann : pPsShader->GetAnnotations())
+                                        {
+                                            ImGui::PushID(ann.label.c_str());
+                                            if (ann.isColor)
+                                            {
+                                                int vecIdx = (ann.paramIndex >= 4) ? 1 : 0;
+                                                float col[4] = {
+                                                    matData.customParams[vecIdx].x,
+                                                    matData.customParams[vecIdx].y,
+                                                    matData.customParams[vecIdx].z,
+                                                    matData.customParams[vecIdx].w
+                                                };
+                                                if (ImGui::ColorEdit4(ann.label.c_str(), col))
+                                                {
+                                                    mat->SetCustomParam(vecIdx, 0, col[0]);
+                                                    mat->SetCustomParam(vecIdx, 1, col[1]);
+                                                    mat->SetCustomParam(vecIdx, 2, col[2]);
+                                                    mat->SetCustomParam(vecIdx, 3, col[3]);
+                                                }
+                                            }
+                                            else
+                                            {
+                                                int vecIdx = ann.paramIndex / 4;
+                                                int compIdx = ann.paramIndex % 4;
+                                                const float* pVec = &matData.customParams[vecIdx].x;
+                                                float val = pVec[compIdx];
+                                                if (ImGui::SliderFloat(ann.label.c_str(), &val, ann.minVal, ann.maxVal, "%.3f"))
+                                                {
+                                                    mat->SetCustomParam(vecIdx, compIdx, val);
+                                                }
+                                            }
+                                            ImGui::PopID();
+                                        }
+                                        ImGui::TreePop();
+                                    }
+                                }
+
+                                // Custom Params (Raw Float4 x 2)
+                                if (ImGui::TreeNode("Raw Custom Params (matCustomParams[0..1])"))
                                 {
                                     float cp0[4] = { matData.customParams[0].x, matData.customParams[0].y, matData.customParams[0].z, matData.customParams[0].w };
-                                    if (ImGui::DragFloat4("Param[0]", cp0, 0.05f))
+                                    if (ImGui::DragFloat4("Param[0] (0..3)", cp0, 0.05f))
                                     {
                                         mat->SetCustomParam(0, 0, cp0[0]); mat->SetCustomParam(0, 1, cp0[1]);
                                         mat->SetCustomParam(0, 2, cp0[2]); mat->SetCustomParam(0, 3, cp0[3]);
                                     }
                                     float cp1[4] = { matData.customParams[1].x, matData.customParams[1].y, matData.customParams[1].z, matData.customParams[1].w };
-                                    if (ImGui::DragFloat4("Param[1]", cp1, 0.05f))
+                                    if (ImGui::DragFloat4("Param[1] (4..7)", cp1, 0.05f))
                                     {
                                         mat->SetCustomParam(1, 0, cp1[0]); mat->SetCustomParam(1, 1, cp1[1]);
                                         mat->SetCustomParam(1, 2, cp1[2]); mat->SetCustomParam(1, 3, cp1[3]);
                                     }
                                     ImGui::TreePop();
+                                }
+
+                                // D3DReflect Constant Buffer & Binding Inspector
+                                if (pPsShader && pPsShader->GetReflection().isValid)
+                                {
+                                    if (ImGui::TreeNode("Shader Reflection (CBuffers & Bindings)"))
+                                    {
+                                        const auto& refl = pPsShader->GetReflection();
+                                        ImGui::TextDisabled("PS Instructions: %u", refl.instructionCount);
+                                        for (const auto& cb : refl.constantBuffers)
+                                        {
+                                            if (ImGui::TreeNodeEx(cb.name.c_str(), ImGuiTreeNodeFlags_DefaultOpen, "cbuffer %s (b%u, %u bytes)", cb.name.c_str(), cb.bindPoint, cb.size))
+                                            {
+                                                for (const auto& var : cb.variables)
+                                                {
+                                                    ImGui::BulletText("%s (offset: %u, size: %uB)", var.name.c_str(), var.offset, var.size);
+                                                }
+                                                ImGui::TreePop();
+                                            }
+                                        }
+                                        if (!refl.boundResources.empty())
+                                        {
+                                            ImGui::Text("Bound Resources:");
+                                            for (const auto& res : refl.boundResources)
+                                            {
+                                                ImGui::BulletText("%s", res.c_str());
+                                            }
+                                        }
+                                        ImGui::TreePop();
+                                    }
                                 }
 
                                 // Material File Operations (.mat load / assign / export)

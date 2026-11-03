@@ -8,7 +8,9 @@
 #include "Source/Core/DX12Manager.h"
 #include "Source/Rendering/PSOManager.h"
 #include "Source/Rendering/ShaderManager.h"
+#include "Source/Rendering/RenderPipeline.h"
 #include "Source/Core/Scenes/Manager/SceneManager.h"
+#include "Source/Core/Scenes/Base/Scene.h"
 #include "Source/Core/Scenes/Serializer/SceneSerializer.h"
 #include <sstream>
 
@@ -321,7 +323,28 @@ bool HotReloadManager::ReloadShadersAndPrefabs(std::string* outMessage)
     DX12Manager::GetInstance().WaitForPendingOperations();
 
     std::string errLog;
-    bool ok = PSOManager::GetInstance().RebuildPSOs(DX12Manager::GetInstance().GetDevice(), &errLog);
+    ID3D12Device* device = DX12Manager::GetInstance().GetDevice();
+    bool ok = PSOManager::GetInstance().RebuildPSOs(device, &errLog);
+
+    if (CScene* activeScene = SceneManager::GetInstance().GetActiveScene())
+    {
+        if (RenderPipeline* pipeline = activeScene->GetRenderPipeline())
+        {
+            if (!pipeline->ReloadAllPassShaders(device, &errLog))
+            {
+                ok = false;
+            }
+        }
+    }
+
+    if (ok)
+    {
+        ShaderManager::GetInstance().ClearLastErrorLog();
+    }
+    else
+    {
+        ShaderManager::GetInstance().SetLastErrorLog(errLog);
+    }
 
     // Also refresh JSON prefabs in Assets/Prefabs
     PrefabManager::GetInstance().RegisterPrefabsInDirectory("Assets/Prefabs");

@@ -77,7 +77,7 @@ public:
 		m_Materials.clear();
 		for (auto& mat : other->m_Materials) {
 			if (mat) {
-				m_Materials.push_back(std::make_shared<CMaterial>(*mat));
+				m_Materials.push_back(mat->Clone());
 			} else {
 				m_Materials.push_back(nullptr);
 			}

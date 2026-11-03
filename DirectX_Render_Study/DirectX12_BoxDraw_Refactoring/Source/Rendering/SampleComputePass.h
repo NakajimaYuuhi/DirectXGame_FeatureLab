@@ -13,9 +13,16 @@ public:
     virtual void Init(ID3D12Device* pDevice) override;
     virtual void Execute(const RenderContext& ctx) override;
     virtual std::string GetName() const override { return m_customName.empty() ? "Compute Shader Pass" : m_customName; }
+    virtual bool ReloadShaders(ID3D12Device* pDevice, std::string* outError = nullptr) override;
 
     void SetCustomName(const std::string& name) { m_customName = name; }
     const std::string& GetCustomName() const { return m_customName; }
+
+    void SetShaderPath(const std::string& path) { m_shaderPath = path; }
+    const std::string& GetShaderPath() const { return m_shaderPath; }
+
+    void SetCsEntry(const std::string& entry) { m_csEntry = entry; }
+    const std::string& GetCsEntry() const { return m_csEntry; }
 
     RenderTexture* GetOutputTexture() const { return m_pOutputTexture.get(); }
     D3D12_GPU_DESCRIPTOR_HANDLE GetOutputSRV() const {
@@ -29,6 +36,8 @@ public:
 
 private:
     std::string m_customName;
+    std::string m_shaderPath = "Assets/Shader/SampleCompute.hlsl";
+    std::string m_csEntry = "CSMain";
     std::unique_ptr<RenderTexture> m_pOutputTexture;
     Microsoft::WRL::ComPtr<ID3D12RootSignature> m_pRootSignature;
     Microsoft::WRL::ComPtr<ID3D12PipelineState> m_pPipelineState;

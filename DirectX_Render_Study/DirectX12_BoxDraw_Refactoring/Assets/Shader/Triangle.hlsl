@@ -2,6 +2,10 @@
 // Triangle.hlsl - Mesh Rendering with Directional Lighting & PCF Shadow
 // Half-Lambert Diffuse + Blinn-Phong Specular + 3x3 PCF Soft Shadow
 // ==============================================================
+// @Param(0, "Shadow PCF Spread", -0.8, 3.0)
+// @Param(1, "Toon Shadow Step", 0.0, 1.0)
+// @Param(2, "Rim Light Power", 0.0, 4.0)
+// @Color(1, "Shadow Tint Color")
 
 // ================================
 // Constant Buffer (b0) - 36 floats
@@ -153,7 +157,8 @@ float CalculateShadow(float4 shadowPos, float3 N, float3 L)
     float cosTheta = saturate(dot(N, L));
     float bias = max(shadowParams.x * (1.0f - cosTheta), shadowParams.x * 0.25f);
 
-    float texelSize = 1.0f / shadowParams.z;
+    float pcfSpread = max(0.2f, 1.0f + matCustomParams[0].x);
+    float texelSize = (1.0f / shadowParams.z) * pcfSpread;
     float shadow = 0.0f;
 
     [unroll]
@@ -188,10 +193,13 @@ float4 PSMain(PSInput input) : SV_TARGET
     float3 V = normalize(cameraPos.xyz - input.worldPos);
     float3 H = normalize(L + V);
 
-    // 1. Half-Lambert Diffuse Lighting
+    // 1. Half-Lambert Diffuse Lighting (with optional Toon Step via @Param(1))
     float NdotL = dot(N, L);
     float halfLambert = saturate(NdotL * 0.5f + 0.5f);
-    float diffuse = halfLambert * halfLambert;
+    float toonThreshold = matCustomParams[0].y;
+    float diffuse = (toonThreshold > 0.001f)
+        ? smoothstep(toonThreshold - 0.04f, toonThreshold + 0.04f, halfLambert)
+        : (halfLambert * halfLambert);
 
     // 2. Blinn-Phong Specular Highlight (modulated by roughness / metallic)
     float NdotH = saturate(dot(N, H));
@@ -200,14 +208,17 @@ float4 PSMain(PSInput input) : SV_TARGET
     float specPower = max(ambientColor.a * (1.0f / (roughnessFactor * roughnessFactor)), 1.0f);
     float specular = pow(NdotH, specPower) * (NdotL > 0.0f ? 1.0f : 0.0f);
 
-    // 3. Shadow Calculation
+    // 3. Shadow Calculation (with optional Shadow Tint via @Color(1))
     float shadowFactor = CalculateShadow(input.shadowPos, N, L);
+    float3 shadowTint = lerp(float3(1.0f, 1.0f, 1.0f), matCustomParams[1].rgb, (1.0f - shadowFactor) * matCustomParams[1].a);
 
     // 4. Directional Light contribution
     // Direct light (diffuse & specular) is attenuated by shadow; ambient is unaffected
-    float3 lightContribution    = lightColor.rgb * (diffuse * lightDir.w * shadowFactor);
-    float3 ambientContribution  = ambientColor.rgb;
+    float3 lightContribution    = lightColor.rgb * (diffuse * lightDir.w * shadowFactor) * shadowTint;
+    float3 ambientContribution  = ambientColor.rgb * shadowTint;
     float3 specularContribution = lightColor.rgb * (specular * 0.35f * shadowFactor);
+    float  rimFactor            = pow(1.0f - saturate(dot(N, V)), 3.0f) * matCustomParams[0].z;
+    float3 rimContribution      = lightColor.rgb * rimFactor;
 
     // 5. Point Lights (Smooth distance attenuation + Lambert diffuse + Blinn-Phong specular)
     float3 pointLightContribution = float3(0.0f, 0.0f, 0.0f);
@@ -248,7 +259,7 @@ float4 PSMain(PSInput input) : SV_TARGET
         }
     }
 
-    float3 finalColor = texColor.rgb * (lightContribution + ambientContribution + pointLightContribution) + specularContribution + pointSpecularContribution;
+    float3 finalColor = texColor.rgb * (lightContribution + ambientContribution + pointLightContribution) + specularContribution + pointSpecularContribution + rimContribution;
 
     // Mesh Highlight (Editor selection effect): matCustomParams[0].w is highlight intensity (0.0: off, >0.0: highlight)
     if (matCustomParams[0].w > 0.001f)

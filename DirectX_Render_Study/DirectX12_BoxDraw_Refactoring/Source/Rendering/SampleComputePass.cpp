@@ -27,26 +27,10 @@ void SampleComputePass::Init(ID3D12Device* pDevice)
         return;
     }
 
-    // 2. Compile Compute Shader
-    Shader csShader;
-    if (!csShader.CompileFromFile(L"Assets/Shader/SampleCompute.hlsl", "CSMain", "cs_5_0"))
-    {
-        OutputDebugStringA("Failed to compile SampleCompute.hlsl!\n");
-        return;
-    }
+    // 2. Compile Compute Shader & Build PSO
+    ReloadShaders(pDevice, nullptr);
 
-    // 3. Compute PSO
-    ComputePSOBuilder psoBuilder;
-    psoBuilder.SetRootSignature(m_pRootSignature.Get());
-    psoBuilder.SetComputeShader(csShader.GetBytecode());
-
-    if (!psoBuilder.Build(pDevice, m_pPipelineState.ReleaseAndGetAddressOf()))
-    {
-        OutputDebugStringA("Failed to build Compute PSO!\n");
-        return;
-    }
-
-    // 4. Output RenderTexture with UAV enabled
+    // 3. Output RenderTexture with UAV enabled
     m_pOutputTexture = std::make_unique<RenderTexture>(
         pDevice,
         SCREEN_WIDTH,
@@ -55,6 +39,33 @@ void SampleComputePass::Init(ID3D12Device* pDevice)
         nullptr,
         true // allowUAV
     );
+}
+
+bool SampleComputePass::ReloadShaders(ID3D12Device* pDevice, std::string* outError)
+{
+    if (!pDevice || !m_pRootSignature) return false;
+
+    std::wstring wShaderPath(m_shaderPath.begin(), m_shaderPath.end());
+    Shader csShader;
+    if (!csShader.CompileFromFile(wShaderPath, m_csEntry, "cs_5_0", outError))
+    {
+        OutputDebugStringA(("Failed to compile Compute Shader: " + m_shaderPath + "\n").c_str());
+        return false;
+    }
+
+    ComputePSOBuilder psoBuilder;
+    psoBuilder.SetRootSignature(m_pRootSignature.Get());
+    psoBuilder.SetComputeShader(csShader.GetBytecode());
+
+    Microsoft::WRL::ComPtr<ID3D12PipelineState> newPso;
+    if (!psoBuilder.Build(pDevice, newPso.GetAddressOf()))
+    {
+        if (outError) *outError += "Failed to build Compute PSO for " + m_shaderPath + "\n";
+        return false;
+    }
+
+    m_pPipelineState = newPso;
+    return true;
 }
 
 void SampleComputePass::Execute(const RenderContext& ctx)

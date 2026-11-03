@@ -134,6 +134,25 @@ bool DX12Manager::Initialize(HWND hwnd)
 	if (FAILED(hr))
 		return false;
 
+#if defined(_DEBUG)
+	{
+		ComPtr<ID3D12InfoQueue> infoQueue;
+		if (SUCCEEDED(m_device.As(&infoQueue)))
+		{
+			// Windows 11 / 最新D3D12ランタイムにおいて、Upload Buffer作成時に
+			// D3D12_RESOURCE_STATE_GENERIC_READ を指定すると出る情報警告(#1328)を抑制
+			D3D12_MESSAGE_ID hideMessages[] =
+			{
+				static_cast<D3D12_MESSAGE_ID>(1328) // D3D12_MESSAGE_ID_CREATERESOURCE_STATE_IGNORED
+			};
+			D3D12_INFO_QUEUE_FILTER filter = {};
+			filter.DenyList.NumIDs = _countof(hideMessages);
+			filter.DenyList.pIDList = hideMessages;
+			infoQueue->AddStorageFilterEntries(&filter);
+		}
+	}
+#endif
+
 	//?R?}???h?L???[??
 	D3D12_COMMAND_QUEUE_DESC queueDesc = {};
 	queueDesc.Type = D3D12_COMMAND_LIST_TYPE_DIRECT;

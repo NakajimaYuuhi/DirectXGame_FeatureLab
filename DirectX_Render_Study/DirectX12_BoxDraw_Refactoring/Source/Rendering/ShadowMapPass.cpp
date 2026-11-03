@@ -55,8 +55,14 @@ void ShadowMapPass::Execute(const RenderContext& ctx)
     ctx.cmdList->RSSetViewports(1, &vp);
     ctx.cmdList->RSSetScissorRects(1, &scissor);
 
-    // 5. Set Shadow Pipeline State and Root Signature
-    ID3D12PipelineState* shadowPso = PSOManager::GetInstance().GetShadowPSO();
+    // 5. Set Shadow Pipeline State and Root Signature (supports custom shadow shader & rasterizer bias)
+    std::wstring wShaderPath(m_shaderPath.begin(), m_shaderPath.end());
+    ID3D12PipelineState* shadowPso = PSOManager::GetInstance().GetCustomShadowPSO(
+        wShaderPath,
+        m_vsEntry,
+        m_depthBias,
+        m_slopeScaledDepthBias
+    );
     ID3D12RootSignature* shadowRootSig = PSOManager::GetInstance().GetShadowRootSignature();
     if (shadowPso && shadowRootSig)
     {
