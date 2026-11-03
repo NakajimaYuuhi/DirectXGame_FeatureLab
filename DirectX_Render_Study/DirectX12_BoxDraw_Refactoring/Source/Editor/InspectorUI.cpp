@@ -581,15 +581,34 @@ void CInspectorUI::Draw()
         ImGui::Separator();
     }
 
-    // 4.5 Lighting & Environment (Directional Light / Ambient)
+    // 4.5 Lighting & Environment (Directional Light / Ambient / Shadow Assignment Modes)
     if (ImGui::CollapsingHeader("Lighting & Environment", ImGuiTreeNodeFlags_DefaultOpen))
     {
         auto& lightMgr = LightManager::GetInstance();
         auto& dirLight = lightMgr.GetDirectionalLight();
 
+        auto SyncDirectionalLightComponents = [&]()
+        {
+            for (size_t tagIdx = 0; tagIdx < objectList.size(); ++tagIdx)
+            {
+                for (const auto& obj : objectList[tagIdx])
+                {
+                    if (!obj || obj->GetIsDestroyed()) continue;
+                    if (auto* lc = obj->GetComponent<LightComponent>())
+                    {
+                        if (lc->GetLightType() == LightType::Directional)
+                        {
+                            lc->SyncFromLightManager();
+                        }
+                    }
+                }
+            }
+        };
+
         float pitch = lightMgr.GetPitch();
         float yaw = lightMgr.GetYaw();
         bool angleChanged = false;
+        bool lightPropChanged = false;
 
         ImGui::Text("Directional Light (Sun)");
         if (ImGui::SliderFloat("Sun Pitch", &pitch, -90.0f, 90.0f, "%.1f deg")) angleChanged = true;
@@ -597,6 +616,7 @@ void CInspectorUI::Draw()
         if (angleChanged)
         {
             lightMgr.SetAngles(pitch, yaw);
+            lightPropChanged = true;
         }
 
         ImGui::TextDisabled("Light Dir: (%.2f, %.2f, %.2f)", dirLight.direction.x, dirLight.direction.y, dirLight.direction.z);
@@ -607,12 +627,14 @@ void CInspectorUI::Draw()
             dirLight.color.x = lightColor[0];
             dirLight.color.y = lightColor[1];
             dirLight.color.z = lightColor[2];
+            lightPropChanged = true;
         }
 
         float intensity = dirLight.direction.w;
         if (ImGui::SliderFloat("Light Intensity", &intensity, 0.0f, 4.0f, "%.2f"))
         {
             dirLight.direction.w = intensity;
+            lightPropChanged = true;
         }
 
         float ambientColor[3] = { dirLight.ambient.x, dirLight.ambient.y, dirLight.ambient.z };
@@ -621,41 +643,245 @@ void CInspectorUI::Draw()
             dirLight.ambient.x = ambientColor[0];
             dirLight.ambient.y = ambientColor[1];
             dirLight.ambient.z = ambientColor[2];
+            lightPropChanged = true;
         }
 
         float specPower = dirLight.ambient.w;
         if (ImGui::SliderFloat("Specular Power", &specPower, 1.0f, 128.0f, "%.1f"))
         {
             dirLight.ambient.w = specPower;
+            lightPropChanged = true;
         }
 
         ImGui::Separator();
-        ImGui::Text("Real-time Shadows (PCF Soft Shadow)");
-        bool shadowEnabled = lightMgr.IsShadowEnabled();
-        if (ImGui::Checkbox("Enable Shadows", &shadowEnabled))
+        #define IM_U8(s) reinterpret_cast<const char*>(u8##s)
+        ImGui::TextColored(ImVec4(1.0f, 0.85f, 0.35f, 1.0f), IM_U8("Real-time Shadow Techniques (投影 / 深度 / PCF / PCSS / CSM)"));
+
+        const char* shadowModeItems[] = {
+            IM_U8("0: Off (シャドウ無効)"),
+            IM_U8("1: Projective Shadow (投影シャドウ - 深度比較なし)"),
+            IM_U8("2: Hard Depth Shadow (深度シャドウ - 1-tapハード)"),
+            IM_U8("3: PCF Soft Shadow (PCFソフトシャドウ)"),
+            IM_U8("4: PCSS (Contact-Hardening 接地硬化ソフトシャドウ)"),
+            IM_U8("5: Cascaded Shadow Maps (3-Cascade CSM Near/Mid/Far)"),
+            IM_U8("6: Blob Shadow (丸影 - 比較用簡易投影)")
+        };
+        int curMode = static_cast<int>(lightMgr.GetShadowMode());
+        if (ImGui::Combo("Shadow Mode", &curMode, shadowModeItems, IM_ARRAYSIZE(shadowModeItems)))
         {
-            lightMgr.SetShadowEnabled(shadowEnabled);
+            lightMgr.SetShadowMode(static_cast<ShadowMode>(curMode));
+            lightPropChanged = true;
         }
 
-        if (shadowEnabled)
+        ShadowMode activeShadowMode = lightMgr.GetShadowMode();
+        if (activeShadowMode != ShadowMode::Off)
         {
-            float orthoSize = lightMgr.GetOrthoSize();
-            if (ImGui::SliderFloat("Shadow Range (Ortho)", &orthoSize, 10.0f, 100.0f, "%.1f"))
+            // Mode-specific Controls
+            if (activeShadowMode == ShadowMode::Projective)
             {
-                lightMgr.SetOrthoSize(orthoSize);
+                ImGui::TextDisabled("Info: Depth comparison disabled. Projects caster silhouette.");
+                bool groundOnly = lightMgr.IsProjectiveGroundOnly();
+                if (ImGui::Checkbox(IM_U8("Ground Only Receiver (OFFで自己貫通投影を確認)"), &groundOnly))
+                {
+                    lightMgr.SetProjectiveGroundOnly(groundOnly);
+                }
+            }
+            else if (activeShadowMode == ShadowMode::HardDepth)
+            {
+                ImGui::TextDisabled("Info: 1-tap depth comparison. Sharp self-shadow with 1-texel jagged edges.");
+            }
+            else if (activeShadowMode == ShadowMode::PCF)
+            {
+                const char* pcfKernels[] = {
+                    "3x3 Box Filter (9 taps)",
+                    "5x5 Box Filter (25 taps)",
+                    "16-tap Rotated Poisson Disk"
+                };
+                int kMode = lightMgr.GetPCFKernelMode();
+                if (ImGui::Combo("PCF Kernel", &kMode, pcfKernels, IM_ARRAYSIZE(pcfKernels)))
+                {
+                    lightMgr.SetPCFKernelMode(kMode);
+                }
+            }
+            else if (activeShadowMode == ShadowMode::PCSS)
+            {
+                ImGui::TextDisabled("Info: Blocker Search + Penumbra Estimation + Variable Poisson PCF");
+                float lightSize = lightMgr.GetPCSSLightSize();
+                if (ImGui::SliderFloat("Light Source Size (Penumbra)", &lightSize, 0.2f, 5.0f, "%.2f"))
+                {
+                    lightMgr.SetPCSSLightSize(lightSize);
+                }
+            }
+            else if (activeShadowMode == ShadowMode::CSM)
+            {
+                ImGui::TextDisabled("Info: 3 Cascades (t2=Near, t3=Mid, t4=Far) rendered per frame");
+                float c0 = lightMgr.GetCascadeOrthoSize(0);
+                float c1 = lightMgr.GetCascadeOrthoSize(1);
+                float c2 = lightMgr.GetCascadeOrthoSize(2);
+                if (ImGui::SliderFloat("Cascade 0 Near (Ortho)", &c0, 4.0f, 25.0f, "%.1f m")) lightMgr.SetCascadeOrthoSize(0, c0);
+                if (ImGui::SliderFloat("Cascade 1 Mid (Ortho)", &c1, 15.0f, 60.0f, "%.1f m")) lightMgr.SetCascadeOrthoSize(1, c1);
+                if (ImGui::SliderFloat("Cascade 2 Far (Ortho)", &c2, 40.0f, 140.0f, "%.1f m")) lightMgr.SetCascadeOrthoSize(2, c2);
+
+                bool visCascades = lightMgr.IsVisualizeCascadesEnabled();
+                if (ImGui::Checkbox("Visualize Cascade Splits (RGB: Near=Red, Mid=Green, Far=Blue)", &visCascades))
+                {
+                    lightMgr.SetVisualizeCascadesEnabled(visCascades);
+                }
             }
 
-            float shadowBias = lightMgr.GetShadowBias();
-            if (ImGui::SliderFloat("Shadow Bias", &shadowBias, 0.0001f, 0.01f, "%.4f"))
+            if (activeShadowMode != ShadowMode::CSM && activeShadowMode != ShadowMode::Blob)
             {
-                lightMgr.SetShadowBias(shadowBias);
+                float orthoSize = lightMgr.GetOrthoSize();
+                if (ImGui::SliderFloat("Shadow Range (Ortho)", &orthoSize, 6.0f, 80.0f, "%.1f m"))
+                {
+                    lightMgr.SetOrthoSize(orthoSize);
+                }
+            }
+
+            if (activeShadowMode != ShadowMode::Blob)
+            {
+                float shadowBias = lightMgr.GetShadowBias();
+                if (ImGui::SliderFloat("Shadow Depth Bias", &shadowBias, 0.00005f, 0.005f, "%.5f"))
+                {
+                    lightMgr.SetShadowBias(shadowBias);
+                    lightPropChanged = true;
+                }
+
+                float normalBias = lightMgr.GetNormalBias();
+                if (ImGui::SliderFloat(IM_U8("Normal Offset Bias (落ち影補正)"), &normalBias, 0.0f, 0.025f, "%.4f"))
+                {
+                    lightMgr.SetNormalBias(normalBias);
+                }
+
+                float selfShadowStrength = lightMgr.GetSelfShadowStrength();
+                if (ImGui::SliderFloat("3D Model Self-Shadow Contrast", &selfShadowStrength, 0.0f, 1.0f, "%.2f"))
+                {
+                    lightMgr.SetSelfShadowStrength(selfShadowStrength);
+                }
+
+                bool groundCasts = lightMgr.IsGroundCastShadowEnabled();
+                if (ImGui::Checkbox(IM_U8("Ground Casts Shadow (地形もシャドウ描画)"), &groundCasts))
+                {
+                    lightMgr.SetGroundCastShadowEnabled(groundCasts);
+                }
             }
 
             float shadowDarkness = lightMgr.GetShadowDarkness();
             if (ImGui::SliderFloat("Shadow Darkness", &shadowDarkness, 0.0f, 1.0f, "%.2f (0: dark, 1: light)"))
             {
                 lightMgr.SetShadowDarkness(shadowDarkness);
+                lightPropChanged = true;
             }
+
+            ImGui::Spacing();
+            ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.22f, 0.48f, 0.72f, 1.0f));
+            if (ImGui::Button(IM_U8("Arrange Multi-Model Shadow Showcase (複数モデル・落ち影確認配置)")))
+            {
+                // Set optimal sun angle so shadows cast diagonally across adjacent models and self-surfaces
+                lightMgr.SetAngles(42.0f, -45.0f);
+                lightMgr.SetShadowBias(0.00025f);
+                lightMgr.SetNormalBias(0.006f);
+                lightMgr.SetShadowDarkness(0.32f);
+                lightMgr.SetSelfShadowStrength(0.8f);
+                lightPropChanged = true;
+
+                // Position Player and Enemies in a close diagonal line along the light ray (-0.5, -0.67, 0.5)
+                // so Caster 1 casts shadow onto Caster 2's body, and Caster 2 casts shadow onto Caster 3 & Ground!
+                if (CObject* playerObj = ObjectManager::GetInstance().GetPlayer())
+                {
+                    if (CTransform* pt = playerObj->GetComponent<CTransform>())
+                    {
+                        pt->SetPos({ 0.0f, 0.0f, 0.0f });
+                        pt->SetScale({ 0.65f, 0.65f, 0.65f });
+                    }
+                }
+
+                int enemyIdx = 0;
+                const DirectX::XMFLOAT3 showcasePositions[] = {
+                    {  0.75f, 0.45f, -0.75f }, // Slightly elevated upstream in light direction -> casts shadow across Player's body!
+                    { -0.75f, 0.0f,   0.75f }, // Downstream of Player -> receives Player's shadow on its body & casts onto Ground!
+                    { -1.50f, 0.0f,   1.50f }  // Third receiver in the shadow chain
+                };
+                const DirectX::XMFLOAT3 showcaseScales[] = {
+                    { 0.65f, 0.65f, 0.65f },
+                    { 0.60f, 0.60f, 0.60f },
+                    { 0.55f, 0.55f, 0.55f }
+                };
+
+                if (ObjectTag::ENEMY < objectList.size())
+                {
+                    for (auto& obj : objectList[ObjectTag::ENEMY])
+                    {
+                        if (!obj || obj->GetIsDestroyed()) continue;
+                        if (CTransform* et = obj->GetComponent<CTransform>())
+                        {
+                            int slot = (std::min)(enemyIdx, 2);
+                            et->SetPos(showcasePositions[slot]);
+                            et->SetScale(showcaseScales[slot]);
+                            enemyIdx++;
+                        }
+                    }
+                }
+                SetStatusMessage("Arranged Player & Enemies for multi-model shadow & self-shadow showcase!");
+            }
+            ImGui::PopStyleColor();
+
+            if (ImGui::Button(IM_U8("Apply Toon Cel-Shadow to All Models (セルルック色付き落ち影)")))
+            {
+                for (size_t tagIdx = 0; tagIdx < objectList.size(); ++tagIdx)
+                {
+                    if (tagIdx == ObjectTag::FIELD || tagIdx == ObjectTag::BACKGROUND) continue;
+                    for (auto& obj : objectList[tagIdx])
+                    {
+                        if (!obj || obj->GetIsDestroyed()) continue;
+                        if (CModel* m = obj->GetComponent<CModel>())
+                        {
+                            for (const auto& mat : m->GetMaterials())
+                            {
+                                if (mat)
+                                {
+                                    mat->SetCustomParam(0, 1, 0.52f); // Toon Shadow Step
+                                    mat->SetCustomParam(0, 2, 0.65f); // Rim Light Power
+                                    mat->SetCustomParam(1, 0, 0.35f); // Cool indigo shadow tint R
+                                    mat->SetCustomParam(1, 1, 0.42f); // G
+                                    mat->SetCustomParam(1, 2, 0.78f); // B
+                                    mat->SetCustomParam(1, 3, 0.65f); // Tint blend A
+                                }
+                            }
+                        }
+                    }
+                }
+                SetStatusMessage("Applied Stylized Toon Shadow & Cool Shadow Tint to all models!");
+            }
+            ImGui::SameLine();
+            if (ImGui::Button("Reset Standard Shading"))
+            {
+                for (size_t tagIdx = 0; tagIdx < objectList.size(); ++tagIdx)
+                {
+                    for (auto& obj : objectList[tagIdx])
+                    {
+                        if (!obj || obj->GetIsDestroyed()) continue;
+                        if (CModel* m = obj->GetComponent<CModel>())
+                        {
+                            for (const auto& mat : m->GetMaterials())
+                            {
+                                if (mat)
+                                {
+                                    mat->SetCustomParam(0, 1, 0.0f);
+                                    mat->SetCustomParam(0, 2, 0.0f);
+                                    mat->SetCustomParam(1, 3, 0.0f);
+                                }
+                            }
+                        }
+                    }
+                }
+                SetStatusMessage("Reset models to standard realistic Half-Lambert shading.");
+            }
+        }
+
+        if (lightPropChanged)
+        {
+            SyncDirectionalLightComponents();
         }
 
         ImGui::Separator();
@@ -860,43 +1086,53 @@ void CInspectorUI::Draw()
                         }
                     }
 
-                    // --- Built-in ShadowMap Depth Preview ---
-                    if (ShadowMap* pShadowMap = LightManager::GetInstance().GetShadowMap())
+                    // --- Built-in ShadowMap Depth Preview (Single or 3-Cascade CSM) ---
+                    int numShadowCascadesToShow = (LightManager::GetInstance().GetShadowMode() == ShadowMode::CSM) ? 3 : 1;
+                    const char* shadowPreviewKeys[3] = { "ShadowMap", "ShadowMap_C1", "ShadowMap_C2" };
+                    const char* shadowPreviewLabels[3] = {
+                        "ShadowMap C0 Near (%ux%u Depth R32)",
+                        "ShadowMap C1 Mid (%ux%u Depth R32)",
+                        "ShadowMap C2 Far (%ux%u Depth R32)"
+                    };
+                    for (int sc = 0; sc < numShadowCascadesToShow; ++sc)
                     {
-                        if (pShadowMap->GetSRV().ptr != 0)
+                        if (ShadowMap* pShadowMap = LightManager::GetInstance().GetShadowMap(sc))
                         {
-                            ImGui::PushID("ShadowMap_Preview");
-                            bool isPinned = (pipeline->GetPreviewTextureName() == "ShadowMap");
-                            if (isPinned)
+                            if (pShadowMap->GetSRV().ptr != 0)
                             {
-                                ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.15f, 0.65f, 0.85f, 1.0f));
-                            }
-                            if (ImGui::SmallButton(isPinned ? "Pinned" : "View"))
-                            {
-                                pipeline->SetPreviewTextureName(isPinned ? "" : "ShadowMap");
-                            }
-                            if (isPinned)
-                            {
-                                ImGui::PopStyleColor();
-                            }
-                            ImGui::SameLine();
-                            ImGui::TextColored(ImVec4(1.0f, 0.85f, 0.4f, 1.0f), "ShadowMap (%ux%u Depth R32)", pShadowMap->GetWidth(), pShadowMap->GetHeight());
-
-                            if (showThumbnails)
-                            {
-                                ImTextureID shadowTexID = static_cast<ImTextureID>(pShadowMap->GetSRV().ptr);
-                                ImGui::Indent(24.0f);
-                                ImGui::Image(shadowTexID, ImVec2(96.0f, 96.0f));
-                                if (ImGui::IsItemHovered())
+                                ImGui::PushID(shadowPreviewKeys[sc]);
+                                bool isPinned = (pipeline->GetPreviewTextureName() == shadowPreviewKeys[sc]);
+                                if (isPinned)
                                 {
-                                    ImGui::BeginTooltip();
-                                    ImGui::Text("ShadowMap Depth (%ux%u)", pShadowMap->GetWidth(), pShadowMap->GetHeight());
-                                    ImGui::Image(shadowTexID, ImVec2(256.0f, 256.0f));
-                                    ImGui::EndTooltip();
+                                    ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.15f, 0.65f, 0.85f, 1.0f));
                                 }
-                                ImGui::Unindent(24.0f);
+                                if (ImGui::SmallButton(isPinned ? "Pinned" : "View"))
+                                {
+                                    pipeline->SetPreviewTextureName(isPinned ? "" : shadowPreviewKeys[sc]);
+                                }
+                                if (isPinned)
+                                {
+                                    ImGui::PopStyleColor();
+                                }
+                                ImGui::SameLine();
+                                ImGui::TextColored(ImVec4(1.0f, 0.85f, 0.4f, 1.0f), shadowPreviewLabels[sc], pShadowMap->GetWidth(), pShadowMap->GetHeight());
+
+                                if (showThumbnails)
+                                {
+                                    ImTextureID shadowTexID = static_cast<ImTextureID>(pShadowMap->GetSRV().ptr);
+                                    ImGui::Indent(24.0f);
+                                    ImGui::Image(shadowTexID, ImVec2(96.0f, 96.0f));
+                                    if (ImGui::IsItemHovered())
+                                    {
+                                        ImGui::BeginTooltip();
+                                        ImGui::Text(shadowPreviewLabels[sc], pShadowMap->GetWidth(), pShadowMap->GetHeight());
+                                        ImGui::Image(shadowTexID, ImVec2(256.0f, 256.0f));
+                                        ImGui::EndTooltip();
+                                    }
+                                    ImGui::Unindent(24.0f);
+                                }
+                                ImGui::PopID();
                             }
-                            ImGui::PopID();
                         }
                     }
 

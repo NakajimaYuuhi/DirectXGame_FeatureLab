@@ -29,7 +29,7 @@ void PSOManager::Init(ID3D12Device* device)
         rsBuilder.AddDescriptorTable(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 0, 0, D3D12_SHADER_VISIBILITY_PIXEL); // 1: Texture register(t0)
         rsBuilder.AddDescriptorTable(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 1, 0, D3D12_SHADER_VISIBILITY_VERTEX); // 2: Bone register(t1)
         rsBuilder.AddConstantBufferView(1, 0, D3D12_SHADER_VISIBILITY_ALL); // 3: LightBuffer register(b1) (Root CBV)
-        rsBuilder.AddDescriptorTable(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 1, 2, 0, D3D12_SHADER_VISIBILITY_PIXEL); // 4: ShadowMap register(t2)
+        rsBuilder.AddDescriptorTable(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, 3, 2, 0, D3D12_SHADER_VISIBILITY_PIXEL); // 4: ShadowMaps register(t2..t4) (Cascades 0..2)
         rsBuilder.AddConstantBufferView(2, 0, D3D12_SHADER_VISIBILITY_ALL); // 5: MaterialBuffer register(b2) (Root CBV)
 
         // Static Sampler 0: s0 (Material Linear Wrap)
@@ -147,11 +147,11 @@ void PSOManager::Init(ID3D12Device* device)
     {
         D3D12_RASTERIZER_DESC rasterDesc = {};
         rasterDesc.FillMode = D3D12_FILL_MODE_SOLID;
-        rasterDesc.CullMode = D3D12_CULL_MODE_BACK;
+        rasterDesc.CullMode = D3D12_CULL_MODE_NONE;
         rasterDesc.FrontCounterClockwise = FALSE;
-        rasterDesc.DepthBias = 500;
+        rasterDesc.DepthBias = 25;
         rasterDesc.DepthBiasClamp = 0.0f;
-        rasterDesc.SlopeScaledDepthBias = 1.5f;
+        rasterDesc.SlopeScaledDepthBias = 0.35f;
         rasterDesc.DepthClipEnable = TRUE;
 
         D3D12_DEPTH_STENCIL_DESC depthDesc = {};
@@ -391,7 +391,7 @@ ID3D12PipelineState* PSOManager::GetCustomShadowPSO(const std::wstring& shaderFi
 
     D3D12_RASTERIZER_DESC rasterDesc = {};
     rasterDesc.FillMode = D3D12_FILL_MODE_SOLID;
-    rasterDesc.CullMode = D3D12_CULL_MODE_BACK;
+    rasterDesc.CullMode = D3D12_CULL_MODE_NONE;
     rasterDesc.FrontCounterClockwise = FALSE;
     rasterDesc.DepthBias = depthBias;
     rasterDesc.DepthBiasClamp = 0.0f;
@@ -507,11 +507,11 @@ bool PSOManager::RebuildPSOs(ID3D12Device* device, std::string* outError)
     {
         D3D12_RASTERIZER_DESC rasterDesc = {};
         rasterDesc.FillMode = D3D12_FILL_MODE_SOLID;
-        rasterDesc.CullMode = D3D12_CULL_MODE_BACK;
+        rasterDesc.CullMode = D3D12_CULL_MODE_NONE;
         rasterDesc.FrontCounterClockwise = FALSE;
-        rasterDesc.DepthBias = 500;
+        rasterDesc.DepthBias = 25;
         rasterDesc.DepthBiasClamp = 0.0f;
-        rasterDesc.SlopeScaledDepthBias = 1.5f;
+        rasterDesc.SlopeScaledDepthBias = 0.35f;
         rasterDesc.DepthClipEnable = TRUE;
 
         D3D12_DEPTH_STENCIL_DESC depthDesc = {};

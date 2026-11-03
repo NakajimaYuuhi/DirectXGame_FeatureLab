@@ -19,19 +19,36 @@ struct PointLightGPUData
     DirectX::XMFLOAT4 color    = { 1.0f, 1.0f, 1.0f, 1.0f }; // rgb: col, w: intensity
 };
 
-// 512-byte aligned Constant Buffer Data for register(b1)
+enum class ShadowMode : int
+{
+    Off        = 0, // シャドウOFF
+    Projective = 1, // 投影シャドウ (深度比較なし・シルエット投影)
+    HardDepth  = 2, // 深度シャドウ (1-tap ハードシャドウ)
+    PCF        = 3, // PCFソフトシャドウ (3x3 / 5x5 / 16-tap Poisson Disk)
+    PCSS       = 4, // PCSS (Contact-Hardening: 接地硬化・距離ソフトシャドウ)
+    CSM        = 5, // カスケードシャドウマップ (3-Cascade Near/Mid/Far + 分割可視化)
+    Blob       = 6  // 丸影 (Blob Shadow: 比較用簡易足元影)
+};
+
+// 768-byte aligned Constant Buffer Data for register(b1)
 struct LightBufferData
 {
-    DirectX::XMMATRIX lightViewProj;    // 16 floats (0..15)
-    DirectX::XMFLOAT4 cameraPos;        // 4 floats  (16..19)
-    DirectX::XMFLOAT4 lightDir;         // 4 floats  (20..23) xyz: dir, w: intensity
-    DirectX::XMFLOAT4 lightColor;       // 4 floats  (24..27) rgb: col, w: unused
-    DirectX::XMFLOAT4 ambientColor;     // 4 floats  (28..31) rgb: ambient, w: specularPower
-    DirectX::XMFLOAT4 shadowParams;     // 4 floats  (32..35) x: bias, y: darkness, z: mapSize, w: enabled
-    DirectX::XMFLOAT4 lightCounts;      // 4 floats  (36..39) x: active point light count
-    float             reserved[24];     // Pad first block to 256 bytes (64 floats total = 256 bytes)
+    DirectX::XMMATRIX lightViewProj;     // 16 floats (0..15)  Cascade 0 / Single LightViewProj
+    DirectX::XMFLOAT4 cameraPos;         // 4 floats  (16..19)
+    DirectX::XMFLOAT4 lightDir;          // 4 floats  (20..23) xyz: dir, w: intensity
+    DirectX::XMFLOAT4 lightColor;        // 4 floats  (24..27) rgb: col, w: unused
+    DirectX::XMFLOAT4 ambientColor;      // 4 floats  (28..31) rgb: ambient, w: specularPower
+    DirectX::XMFLOAT4 shadowParams;      // 4 floats  (32..35) x: bias, y: darkness, z: mapSize, w: shadowMode (0..6)
+    DirectX::XMFLOAT4 lightCounts;       // 4 floats  (36..39) x: pointLightCount, y: blobCasterCount, z: visualizeCascades, w: projectiveGroundOnly
+    DirectX::XMFLOAT4 shadowExtraParams; // 4 floats  (40..43) x: normalBias, y: pcssLightSize, z: pcfKernelMode, w: selfShadowStrength
+    DirectX::XMFLOAT4 cascadeSplits;     // 4 floats  (44..47) x: split0Dist, y: split1Dist, z: split2Dist, w: orthoSize
+    DirectX::XMFLOAT4 blobCasters[4];    // 16 floats (48..63) xyz: caster world pos, w: radius (completes 256-byte first block)
 
-    PointLightGPUData pointLights[8];   // 8 point lights (32 bytes each = 256 bytes, total 512 bytes)
+    PointLightGPUData pointLights[8];    // 8 point lights (32 bytes each = 256 bytes, total 512 bytes)
+
+    DirectX::XMMATRIX lightViewProjCascade1; // 16 floats (128..143) Cascade 1 (Mid)
+    DirectX::XMMATRIX lightViewProjCascade2; // 16 floats (144..159) Cascade 2 (Far)
+    DirectX::XMFLOAT4 csmPadding[8];         // 32 floats (160..191) Pad to 768 bytes (multiple of 256)
 };
 
 class LightManager
@@ -62,9 +79,24 @@ public:
     void SetAngles(float pitch, float yaw);
 
     // Shadow Settings & Accessors
-    DirectX::XMMATRIX GetLightViewProjMatrix() const { return m_lightViewProj; }
+    DirectX::XMMATRIX GetLightViewProjMatrix(int cascadeIdx = 0) const
+    {
+        if (cascadeIdx < 0 || cascadeIdx >= 3) cascadeIdx = 0;
+        return m_lightViewProjCascades[cascadeIdx];
+    }
     D3D12_GPU_VIRTUAL_ADDRESS GetConstantBufferGPUAddress() const;
-    ShadowMap* GetShadowMap() const { return m_shadowMap.get(); }
+    ShadowMap* GetShadowMap(int cascadeIdx = 0) const
+    {
+        if (cascadeIdx < 0 || cascadeIdx >= 3) cascadeIdx = 0;
+        return m_shadowMaps[cascadeIdx].get();
+    }
+
+    ShadowMode GetShadowMode() const { return m_shadowEnabled ? m_shadowMode : ShadowMode::Off; }
+    void SetShadowMode(ShadowMode mode)
+    {
+        m_shadowMode = mode;
+        m_shadowEnabled = (mode != ShadowMode::Off);
+    }
 
     float GetOrthoSize() const { return m_orthoSize; }
     void SetOrthoSize(float size) { m_orthoSize = size; }
@@ -72,11 +104,43 @@ public:
     float GetShadowBias() const { return m_shadowBias; }
     void SetShadowBias(float bias) { m_shadowBias = bias; }
 
+    float GetNormalBias() const { return m_normalBias; }
+    void SetNormalBias(float bias) { m_normalBias = bias; }
+
     float GetShadowDarkness() const { return m_shadowDarkness; }
     void SetShadowDarkness(float darkness) { m_shadowDarkness = darkness; }
 
-    bool IsShadowEnabled() const { return m_shadowEnabled; }
-    void SetShadowEnabled(bool enabled) { m_shadowEnabled = enabled; }
+    bool IsShadowEnabled() const { return m_shadowEnabled && m_shadowMode != ShadowMode::Off; }
+    void SetShadowEnabled(bool enabled)
+    {
+        m_shadowEnabled = enabled;
+        if (enabled && m_shadowMode == ShadowMode::Off)
+        {
+            m_shadowMode = ShadowMode::PCF;
+        }
+    }
+
+    // Advanced Shadow Settings (PCF / PCSS / CSM / Projective / Ground Caster)
+    int GetPCFKernelMode() const { return m_pcfKernelMode; } // 0: 3x3, 1: 5x5, 2: 16-tap Poisson Disk
+    void SetPCFKernelMode(int mode) { m_pcfKernelMode = mode; }
+
+    float GetPCSSLightSize() const { return m_pcssLightSize; }
+    void SetPCSSLightSize(float size) { m_pcssLightSize = size; }
+
+    float GetSelfShadowStrength() const { return m_selfShadowStrength; }
+    void SetSelfShadowStrength(float s) { m_selfShadowStrength = s; }
+
+    float GetCascadeOrthoSize(int idx) const { return (idx >= 0 && idx < 3) ? m_cascadeOrthoSizes[idx] : m_orthoSize; }
+    void SetCascadeOrthoSize(int idx, float size) { if (idx >= 0 && idx < 3) m_cascadeOrthoSizes[idx] = size; }
+
+    bool IsVisualizeCascadesEnabled() const { return m_visualizeCascades; }
+    void SetVisualizeCascadesEnabled(bool enabled) { m_visualizeCascades = enabled; }
+
+    bool IsProjectiveGroundOnly() const { return m_projectiveGroundOnly; }
+    void SetProjectiveGroundOnly(bool groundOnly) { m_projectiveGroundOnly = groundOnly; }
+
+    bool IsGroundCastShadowEnabled() const { return m_groundCastShadow; }
+    void SetGroundCastShadowEnabled(bool enabled) { m_groundCastShadow = enabled; }
 
     // Bloom Settings & Accessors
     bool IsBloomEnabled() const { return m_bloomEnabled; }
@@ -138,13 +202,22 @@ private:
     float m_yaw   = -45.0f; // Horizontal angle
 
     // Shadow mapping parameters
-    float m_orthoSize       = 35.0f; // Width and height of shadow coverage volume
-    float m_shadowNear      = 1.0f;
-    float m_shadowFar       = 80.0f;
-    float m_shadowDistance  = 35.0f; // Distance from target to light camera
-    float m_shadowBias      = 0.0015f;
-    float m_shadowDarkness  = 0.5f;  // Factor in shadow (0: pitch black, 1: no shadow)
-    bool  m_shadowEnabled   = true;
+    ShadowMode m_shadowMode          = ShadowMode::PCF;
+    float      m_orthoSize           = 22.0f;   // Width and height of single shadow map coverage
+    float      m_cascadeOrthoSizes[3]= { 10.0f, 28.0f, 75.0f }; // Near / Mid / Far CSM coverage
+    float      m_shadowNear          = 1.0f;
+    float      m_shadowFar           = 80.0f;
+    float      m_shadowDistance      = 35.0f;   // Distance from target to light camera
+    float      m_shadowBias          = 0.00025f;// Small depth bias (prevents Peter Panning on character self-shadows)
+    float      m_normalBias          = 0.006f;  // Normal offset bias (prevents shadow acne on curved surfaces)
+    float      m_shadowDarkness      = 0.35f;   // Factor in shadow (0: pitch black, 1: no shadow)
+    bool       m_shadowEnabled       = true;
+    int        m_pcfKernelMode       = 2;       // 0: 3x3, 1: 5x5, 2: 16-tap Poisson Disk
+    float      m_pcssLightSize       = 1.6f;    // Virtual light size for PCSS blocker/penumbra
+    float      m_selfShadowStrength  = 0.75f;   // Contrast enhancement for cast shadows on 3D models
+    bool       m_visualizeCascades   = false;   // Overlay RGB tint for CSM splits
+    bool       m_projectiveGroundOnly= true;    // Projective shadow mode: receiver is ground only vs all
+    bool       m_groundCastShadow    = false;   // Whether ground plane writes to shadow depth map
 
     // Bloom parameters
     bool  m_bloomEnabled    = true;
@@ -165,10 +238,15 @@ private:
     float m_exposure                     = 1.0f;
 
     DirectX::XMMATRIX m_lightViewProj = DirectX::XMMatrixIdentity();
+    DirectX::XMMATRIX m_lightViewProjCascades[3] = {
+        DirectX::XMMatrixIdentity(),
+        DirectX::XMMatrixIdentity(),
+        DirectX::XMMatrixIdentity()
+    };
     bool m_isInitialized = false;
 
-    // GPU Resources
-    std::unique_ptr<ShadowMap> m_shadowMap;
+    // GPU Resources (3 contiguous ShadowMaps for t2, t3, t4)
+    std::unique_ptr<ShadowMap> m_shadowMaps[3];
     Microsoft::WRL::ComPtr<ID3D12Resource> m_constantBuffer;
     LightBufferData* m_mappedBuffer = nullptr;
 

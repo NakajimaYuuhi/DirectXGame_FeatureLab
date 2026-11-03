@@ -79,11 +79,45 @@ void LightComponent::SyncToLightManager()
 			}
 		}
 
+		// Auto-migrate legacy 0.0015f shadowBias that caused Peter Panning on character self-shadows
+		if (std::abs(m_shadowBias - 0.0015f) < 0.00005f)
+		{
+			m_shadowBias = 0.00025f;
+		}
+
 		lightMgr.SetLightColor(m_color.x, m_color.y, m_color.z, m_intensity);
 		lightMgr.SetAmbientColor(m_ambientColor.x, m_ambientColor.y, m_ambientColor.z, m_specularPower);
 		lightMgr.SetShadowEnabled(m_castShadow);
 		lightMgr.SetShadowBias(m_shadowBias);
 		lightMgr.SetShadowDarkness(m_shadowDarkness);
+	}
+}
+
+void LightComponent::SyncFromLightManager()
+{
+	if (m_type == LightType::Directional)
+	{
+		const auto& lightMgr = LightManager::GetInstance();
+		const auto& dirLight = lightMgr.GetDirectionalLight();
+
+		m_color = { dirLight.color.x, dirLight.color.y, dirLight.color.z };
+		m_intensity = dirLight.direction.w;
+		m_ambientColor = { dirLight.ambient.x, dirLight.ambient.y, dirLight.ambient.z };
+		m_specularPower = dirLight.ambient.w;
+		m_castShadow = lightMgr.IsShadowEnabled();
+		m_shadowBias = lightMgr.GetShadowBias();
+		m_shadowDarkness = lightMgr.GetShadowDarkness();
+
+		if (m_Owner)
+		{
+			CTransform* transform = m_Owner->GetComponent<CTransform>();
+			if (transform)
+			{
+				float pitchRad = DirectX::XMConvertToRadians(lightMgr.GetPitch());
+				float yawRad   = DirectX::XMConvertToRadians(lightMgr.GetYaw());
+				transform->SetRotation({ pitchRad, yawRad, 0.0f });
+			}
+		}
 	}
 }
 

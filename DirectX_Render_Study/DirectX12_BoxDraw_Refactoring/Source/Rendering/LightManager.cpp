@@ -2,6 +2,7 @@
 #include "ObjectManager.h"
 #include "Object.h"
 #include "Transform.h"
+#include "Model.h"
 #include "LightComponent.h"
 #include <cmath>
 #include <stdexcept>
@@ -16,10 +17,13 @@ void LightManager::Init(ID3D12Device* device)
 {
     if (!device || m_isInitialized) return;
 
-    // 1. Create Shadow Map Depth Resource (2048 x 2048)
-    m_shadowMap = std::make_unique<ShadowMap>(device, 2048, 2048);
+    // 1. Create 3 Contiguous Shadow Map Depth Resources (2048 x 2048 each) for t2, t3, t4
+    for (int i = 0; i < 3; ++i)
+    {
+        m_shadowMaps[i] = std::make_unique<ShadowMap>(device, 2048, 2048);
+    }
 
-    // 2. Create Constant Buffer Resource (Upload Heap, 256 bytes)
+    // 2. Create Constant Buffer Resource (Upload Heap, 768 bytes)
     D3D12_HEAP_PROPERTIES heapProp = {};
     heapProp.Type = D3D12_HEAP_TYPE_UPLOAD;
 
@@ -67,14 +71,17 @@ void LightManager::Finalize()
         }
         m_constantBuffer.Reset();
     }
-    m_shadowMap.reset();
+    for (int i = 0; i < 3; ++i)
+    {
+        m_shadowMaps[i].reset();
+    }
     m_activePointLights.clear();
     m_isInitialized = false;
 }
 
 void LightManager::UpdateBuffer(const DirectX::XMFLOAT3& targetPos, const DirectX::XMFLOAT3& cameraPos)
 {
-    // 1. Calculate Light View & Orthographic Projection Matrix
+    // 1. Calculate Light View & Orthographic Projection Matrices (Single + 3-Cascade CSM)
     DirectX::XMVECTOR targetV = DirectX::XMLoadFloat3(&targetPos);
     DirectX::XMVECTOR dirV    = DirectX::XMVectorSet(m_dirLight.direction.x, m_dirLight.direction.y, m_dirLight.direction.z, 0.0f);
     dirV = DirectX::XMVector3Normalize(dirV);
@@ -88,28 +95,66 @@ void LightManager::UpdateBuffer(const DirectX::XMFLOAT3& targetPos, const Direct
     }
 
     DirectX::XMMATRIX lightView = DirectX::XMMatrixLookAtLH(lightPosV, targetV, upV);
-    DirectX::XMMATRIX lightProj = DirectX::XMMatrixOrthographicLH(m_orthoSize, m_orthoSize, m_shadowNear, m_shadowFar);
-    m_lightViewProj = lightView * lightProj;
+
+    ShadowMode activeMode = GetShadowMode();
+    if (activeMode == ShadowMode::CSM)
+    {
+        for (int c = 0; c < 3; ++c)
+        {
+            float cSize = (std::max)(2.0f, m_cascadeOrthoSizes[c]);
+            DirectX::XMMATRIX cProj = DirectX::XMMatrixOrthographicLH(cSize, cSize, m_shadowNear, m_shadowFar);
+            m_lightViewProjCascades[c] = lightView * cProj;
+        }
+        m_lightViewProj = m_lightViewProjCascades[0];
+    }
+    else
+    {
+        float ortho = (std::max)(2.0f, m_orthoSize);
+        DirectX::XMMATRIX lightProj = DirectX::XMMatrixOrthographicLH(ortho, ortho, m_shadowNear, m_shadowFar);
+        m_lightViewProj = lightView * lightProj;
+        m_lightViewProjCascades[0] = m_lightViewProj;
+        m_lightViewProjCascades[1] = m_lightViewProj;
+        m_lightViewProjCascades[2] = m_lightViewProj;
+    }
 
     // 2. Write to mapped constant buffer
     if (m_mappedBuffer)
     {
-        m_mappedBuffer->lightViewProj = DirectX::XMMatrixTranspose(m_lightViewProj);
+        m_mappedBuffer->lightViewProj         = DirectX::XMMatrixTranspose(m_lightViewProjCascades[0]);
+        m_mappedBuffer->lightViewProjCascade1 = DirectX::XMMatrixTranspose(m_lightViewProjCascades[1]);
+        m_mappedBuffer->lightViewProjCascade2 = DirectX::XMMatrixTranspose(m_lightViewProjCascades[2]);
+
         m_mappedBuffer->cameraPos     = { cameraPos.x, cameraPos.y, cameraPos.z, 1.0f };
         m_mappedBuffer->lightDir      = m_dirLight.direction;
         m_mappedBuffer->lightColor    = m_dirLight.color;
         m_mappedBuffer->ambientColor  = m_dirLight.ambient;
 
-        float mapSize = m_shadowMap ? static_cast<float>(m_shadowMap->GetWidth()) : 2048.0f;
+        float mapSize = m_shadowMaps[0] ? static_cast<float>(m_shadowMaps[0]->GetWidth()) : 2048.0f;
         m_mappedBuffer->shadowParams  = {
             m_shadowBias,
             m_shadowDarkness,
             mapSize,
-            m_shadowEnabled ? 1.0f : 0.0f
+            static_cast<float>(static_cast<int>(activeMode))
         };
 
-        // 3. Collect active point lights from scene objects
+        m_mappedBuffer->shadowExtraParams = {
+            m_normalBias,
+            m_pcssLightSize,
+            static_cast<float>(m_pcfKernelMode),
+            m_selfShadowStrength
+        };
+
+        m_mappedBuffer->cascadeSplits = {
+            m_cascadeOrthoSizes[0] * 0.45f,
+            m_cascadeOrthoSizes[1] * 0.45f,
+            m_cascadeOrthoSizes[2] * 0.45f,
+            m_orthoSize
+        };
+
+        // 3. Collect active point lights and blob shadow casters from scene objects
         ClearPointLights();
+        std::vector<DirectX::XMFLOAT4> blobList;
+
         const auto& objectList = ObjectManager::GetInstance().GetObjectList();
         for (size_t tagIdx = 0; tagIdx < objectList.size(); ++tagIdx)
         {
@@ -126,12 +171,41 @@ void LightManager::UpdateBuffer(const DirectX::XMFLOAT3& targetPos, const Direct
                         AddPointLight(pos, lightComp->GetColor(), lightComp->GetIntensity(), lightComp->GetRange());
                     }
                 }
+
+                // Collect up to 4 character/object casters for Blob Shadow mode
+                if (blobList.size() < 4 &&
+                    tagIdx != ObjectTag::FIELD && tagIdx != ObjectTag::BACKGROUND &&
+                    tagIdx != ObjectTag::UI && tagIdx != ObjectTag::CAMERA &&
+                    tagIdx != ObjectTag::LIGHT && tagIdx != ObjectTag::EFFECT)
+                {
+                    if (obj->GetComponent<CModel>())
+                    {
+                        CTransform* transform = obj->GetComponent<CTransform>();
+                        if (transform)
+                        {
+                            DirectX::XMFLOAT3 pos = transform->GetWorldPosition();
+                            DirectX::XMFLOAT3 scale = transform->GetScale();
+                            float radius = (std::max)(0.45f, (scale.x + scale.z) * 0.65f);
+                            blobList.push_back({ pos.x, pos.y, pos.z, radius });
+                        }
+                    }
+                }
             }
         }
 
-        // 4. Write Point Lights
+        for (size_t i = 0; i < 4; ++i)
+        {
+            m_mappedBuffer->blobCasters[i] = (i < blobList.size()) ? blobList[i] : DirectX::XMFLOAT4(0.0f, -999.0f, 0.0f, 0.0f);
+        }
+
+        // 4. Write Point Lights & Flags
         size_t numPointLights = (std::min)(m_activePointLights.size(), static_cast<size_t>(8));
-        m_mappedBuffer->lightCounts = { static_cast<float>(numPointLights), 0.0f, 0.0f, 0.0f };
+        m_mappedBuffer->lightCounts = {
+            static_cast<float>(numPointLights),
+            static_cast<float>(blobList.size()),
+            m_visualizeCascades ? 1.0f : 0.0f,
+            m_projectiveGroundOnly ? 1.0f : 0.0f
+        };
 
         for (size_t i = 0; i < numPointLights; ++i)
         {

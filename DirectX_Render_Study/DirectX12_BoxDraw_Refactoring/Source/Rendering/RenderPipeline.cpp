@@ -73,7 +73,17 @@ void RenderPipeline::Execute(const RenderContext& ctx)
 
         if (!m_previewTextureName.empty()) {
             if (m_previewTextureName == "ShadowMap") {
-                if (ShadowMap* pShadow = LightManager::GetInstance().GetShadowMap()) {
+                if (ShadowMap* pShadow = LightManager::GetInstance().GetShadowMap(0)) {
+                    CViewportUI::GetInstance().SetTextureSRV(pShadow->GetSRV());
+                }
+            }
+            else if (m_previewTextureName == "ShadowMap_C1") {
+                if (ShadowMap* pShadow = LightManager::GetInstance().GetShadowMap(1)) {
+                    CViewportUI::GetInstance().SetTextureSRV(pShadow->GetSRV());
+                }
+            }
+            else if (m_previewTextureName == "ShadowMap_C2") {
+                if (ShadowMap* pShadow = LightManager::GetInstance().GetShadowMap(2)) {
                     CViewportUI::GetInstance().SetTextureSRV(pShadow->GetSRV());
                 }
             }
@@ -490,8 +500,8 @@ bool RenderPipeline::LoadFromJson(const std::string& filePath, ID3D12Device* pDe
                     auto sm = std::make_unique<ShadowMapPass>();
                     sm->SetShaderPath(pj.value("shaderPath", "Assets/Shader/ShadowMap.hlsl"));
                     sm->SetVsEntry(pj.value("vsEntry", "VSMain"));
-                    sm->SetDepthBias(pj.value("depthBias", 500));
-                    sm->SetSlopeScaledDepthBias(pj.value("slopeScaledBias", 1.5f));
+                    sm->SetDepthBias(pj.value("depthBias", 25));
+                    sm->SetSlopeScaledDepthBias(pj.value("slopeScaledBias", 0.35f));
                     pass = std::move(sm);
                 }
                 else if (type == "ForwardRenderPass") {

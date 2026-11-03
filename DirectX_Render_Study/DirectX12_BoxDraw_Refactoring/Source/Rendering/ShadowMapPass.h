@@ -28,6 +28,6 @@ public:
 private:
     std::string m_shaderPath = "Assets/Shader/ShadowMap.hlsl";
     std::string m_vsEntry = "VSMain";
-    int m_depthBias = 500;
-    float m_slopeScaledDepthBias = 1.5f;
+    int m_depthBias = 25;
+    float m_slopeScaledDepthBias = 0.35f;
 };

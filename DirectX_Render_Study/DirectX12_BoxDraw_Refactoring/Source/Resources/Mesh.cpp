@@ -16,6 +16,7 @@
 #include "Material.h"
 #include "LightManager.h"
 #include "CameraComponent.h"
+#include "FieldComponent.h"
 #include "ObjectManager.h"
 
 
@@ -192,6 +193,11 @@ void CMesh::Draw(CTransform* transform, CMaterial* material, BlendMode blendMode
     RootConstantsData rcData;
     rcData.wvp = XMMatrixTranspose(wvp);
     rcData.world = XMMatrixTranspose(world);
+    // Encode receiver type in unused World[3][3] (2.0 = Ground/Field, 1.0 = Character/Object)
+    if (m_Owner && m_Owner->GetComponent<FieldComponent>() != nullptr)
+    {
+        rcData.world.r[3].m128_f32[3] = 2.0f;
+    }
     rcData.uvOffset = transform->GetUVOffset();
     rcData.uvScale = transform->GetUVScale();
 

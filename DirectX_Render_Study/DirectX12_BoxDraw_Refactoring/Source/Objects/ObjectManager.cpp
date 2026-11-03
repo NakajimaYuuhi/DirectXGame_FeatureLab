@@ -3,6 +3,7 @@
 #include "Collision.h"
 #include "InspectorUI.h"
 #include "Model.h"
+#include "LightManager.h"
 #include "SpriteRenderer.h"
 #include "TextRenderer.h"
 #include "Source/Util/Profiler.h"
@@ -228,11 +229,18 @@ void ObjectManager::DrawFiltered(uint32_t tagMask, int layerFilter)
 
 void ObjectManager::DrawShadow(const DirectX::XMMATRIX& lightViewProj)
 {
+	bool groundCastsShadow = LightManager::GetInstance().IsGroundCastShadowEnabled();
+
 	for (size_t tagIdx = 0; tagIdx < vecObject.size(); ++tagIdx)
 	{
 		if (tagIdx == ObjectTag::UI || tagIdx == ObjectTag::CAMERA ||
 			tagIdx == ObjectTag::BACKGROUND || tagIdx == ObjectTag::EFFECT ||
 			tagIdx == ObjectTag::LIGHT)
+		{
+			continue;
+		}
+
+		if (tagIdx == ObjectTag::FIELD && !groundCastsShadow)
 		{
 			continue;
 		}

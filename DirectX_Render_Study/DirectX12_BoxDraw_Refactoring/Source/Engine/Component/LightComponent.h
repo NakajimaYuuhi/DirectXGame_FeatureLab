@@ -64,8 +64,9 @@ public:
 	float GetSpotAngle() const { return m_spotAngle; }
 	void SetSpotAngle(float angle) { m_spotAngle = angle; }
 
-	// Synchronize parameters to LightManager
+	// Synchronize parameters to/from LightManager
 	void SyncToLightManager();
+	void SyncFromLightManager();
 
 	// Editor Gizmo Rendering
 	void DrawDebug(CameraComponent* camera, ImDrawList* customDrawList, const ImVec2& vpPos, const ImVec2& vpSize);
@@ -78,8 +79,8 @@ private:
 	float m_specularPower = 32.0f;
 
 	bool m_castShadow = true;
-	float m_shadowBias = 0.0015f;
-	float m_shadowDarkness = 0.5f;
+	float m_shadowBias = 0.00025f;
+	float m_shadowDarkness = 0.35f;
 
 	float m_range = 10.0f;
 	float m_spotAngle = 45.0f; // degrees
