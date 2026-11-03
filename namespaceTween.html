@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: Tween 名前空間</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('namespaceTween.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('namespaceTween.html','',''); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,23 +89,18 @@ $(document).ready(function(){initNavTree('namespaceTween.html',''); initResizabl
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#func-members">関数</a>  </div>
   <div class="headertitle"><div class="title">Tween 名前空間</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 関数</h2></td></tr>
-<tr class="memitem:a5ca923f88d12c72d82c0ff40a060720d" id="r_a5ca923f88d12c72d82c0ff40a060720d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a5ca923f88d12c72d82c0ff40a060720d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classCTween.html">CTween</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceTween.html#a5ca923f88d12c72d82c0ff40a060720d">To</a> (std::function&lt; T()&gt; getter, std::function&lt; void(const T &amp;)&gt; setter, T endValue, float duration, void *target=nullptr)</td></tr>
-<tr class="separator:a5ca923f88d12c72d82c0ff40a060720d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a627b2c7b5146e336e24bbc36b5713346" id="r_a627b2c7b5146e336e24bbc36b5713346"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTween.html#a627b2c7b5146e336e24bbc36b5713346">Kill</a> (void *target)</td></tr>
-<tr class="separator:a627b2c7b5146e336e24bbc36b5713346"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc532f960fa826b0f1b9d446eb7d0f67" id="r_adc532f960fa826b0f1b9d446eb7d0f67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTween.html#adc532f960fa826b0f1b9d446eb7d0f67">KillAll</a> ()</td></tr>
-<tr class="separator:adc532f960fa826b0f1b9d446eb7d0f67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ca923f88d12c72d82c0ff40a060720d" id="r_a5ca923f88d12c72d82c0ff40a060720d"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a5ca923f88d12c72d82c0ff40a060720d template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCTween.html">CTween</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ca923f88d12c72d82c0ff40a060720d">To</a> (std::function&lt; T()&gt; getter, std::function&lt; void(const T &amp;)&gt; setter, T endValue, float duration, void *target=nullptr)</td></tr>
+<tr class="memitem:a627b2c7b5146e336e24bbc36b5713346" id="r_a627b2c7b5146e336e24bbc36b5713346"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a627b2c7b5146e336e24bbc36b5713346">Kill</a> (void *target)</td></tr>
+<tr class="memitem:adc532f960fa826b0f1b9d446eb7d0f67" id="r_adc532f960fa826b0f1b9d446eb7d0f67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc532f960fa826b0f1b9d446eb7d0f67">KillAll</a> ()</td></tr>
 </table>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="a627b2c7b5146e336e24bbc36b5713346" name="a627b2c7b5146e336e24bbc36b5713346"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a627b2c7b5146e336e24bbc36b5713346">&#9670;&#160;</a></span>Kill()</h2>
 
@@ -119,26 +113,25 @@ $(document).ready(function(){initNavTree('namespaceTween.html',''); initResizabl
         <tr>
           <td class="memname">void Tween::Kill </td>
           <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>target</em></td><td>)</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>target</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceTween_a627b2c7b5146e336e24bbc36b5713346_cgraph.svg" width="363" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespaceTween_a627b2c7b5146e336e24bbc36b5713346_cgraph.svg" width="635" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceTween_a627b2c7b5146e336e24bbc36b5713346_icgraph.svg" width="651" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespaceTween_a627b2c7b5146e336e24bbc36b5713346_icgraph.svg" width="650" height="107"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -155,20 +148,20 @@ $(document).ready(function(){initNavTree('namespaceTween.html',''); initResizabl
         <tr>
           <td class="memname">void Tween::KillAll </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceTween_adc532f960fa826b0f1b9d446eb7d0f67_cgraph.svg" width="375" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespaceTween_adc532f960fa826b0f1b9d446eb7d0f67_cgraph.svg" width="646" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -179,7 +172,7 @@ $(document).ready(function(){initNavTree('namespaceTween.html',''); initResizabl
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -187,60 +180,63 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classCTween.html">CTween</a> * Tween::To </td>
           <td>(</td>
-          <td class="paramtype">std::function&lt; T()&gt;&#160;</td>
-          <td class="paramname"><em>getter</em>, </td>
+          <td class="paramtype">std::function&lt; T()&gt;</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; void(const T &amp;)&gt;&#160;</td>
-          <td class="paramname"><em>setter</em>, </td>
+          <td class="paramtype">std::function&lt; void(const T &amp;)&gt;</td>          <td class="paramname"><span class="paramname"><em>setter</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>endValue</em>, </td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>endValue</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>duration</em>, </td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>duration</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>target</em> = <code>nullptr</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>target</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceTween_a5ca923f88d12c72d82c0ff40a060720d_cgraph.svg" width="540" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespaceTween_a5ca923f88d12c72d82c0ff40a060720d_cgraph.svg" width="622" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespaceTween_a5ca923f88d12c72d82c0ff40a060720d_icgraph.svg" width="632" height="299"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespaceTween.html">Tween</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="namespaceTween.html">Tween</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: TweenManager クラス</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classTweenManager.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('classTweenManager.html','','classTweenManager-members'); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,60 +89,40 @@ $(document).ready(function(){initNavTree('classTweenManager.html',''); initResiz
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
-<a href="#pri-methods">非公開メンバ関数</a> &#124;
-<a href="#pri-attribs">非公開変数類</a> &#124;
-<a href="classTweenManager-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">TweenManager クラス</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="TweenManager_8h_source.html">TweenManager.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a37943f8fc5173afdf10c8f4fab0c95f3" id="r_a37943f8fc5173afdf10c8f4fab0c95f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTweenManager.html#a37943f8fc5173afdf10c8f4fab0c95f3">Update</a> (float deltaTime)</td></tr>
-<tr class="separator:a37943f8fc5173afdf10c8f4fab0c95f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acdc7970c0eb5b01cf43fad2c4383684c" id="r_acdc7970c0eb5b01cf43fad2c4383684c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:acdc7970c0eb5b01cf43fad2c4383684c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classCTween.html">CTween</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classTweenManager.html#acdc7970c0eb5b01cf43fad2c4383684c">To</a> (std::function&lt; T()&gt; getter, std::function&lt; void(const T &amp;)&gt; setter, T endValue, float duration, void *target=nullptr)</td></tr>
-<tr class="separator:acdc7970c0eb5b01cf43fad2c4383684c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5e589eaad7d8a2b8669be327400e808" id="r_ac5e589eaad7d8a2b8669be327400e808"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTweenManager.html#ac5e589eaad7d8a2b8669be327400e808">KillTweensOf</a> (void *target)</td></tr>
-<tr class="separator:ac5e589eaad7d8a2b8669be327400e808"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b6abdb79a48f2d8e2f375d9a698a8e5" id="r_a0b6abdb79a48f2d8e2f375d9a698a8e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTweenManager.html#a0b6abdb79a48f2d8e2f375d9a698a8e5">KillAll</a> ()</td></tr>
-<tr class="separator:a0b6abdb79a48f2d8e2f375d9a698a8e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedbdf8a223200f0e10b134eced9bd616" id="r_aedbdf8a223200f0e10b134eced9bd616"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTweenManager.html#aedbdf8a223200f0e10b134eced9bd616">PauseAll</a> ()</td></tr>
-<tr class="separator:aedbdf8a223200f0e10b134eced9bd616"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d8f7bbb3096b5e0e83b64f43f591ccb" id="r_a6d8f7bbb3096b5e0e83b64f43f591ccb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTweenManager.html#a6d8f7bbb3096b5e0e83b64f43f591ccb">ResumeAll</a> ()</td></tr>
-<tr class="separator:a6d8f7bbb3096b5e0e83b64f43f591ccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d26059ccc35705c2e1634c8aa5b8289" id="r_a3d26059ccc35705c2e1634c8aa5b8289"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTweenManager.html#a3d26059ccc35705c2e1634c8aa5b8289">GetActiveTweenCount</a> () const</td></tr>
-<tr class="separator:a3d26059ccc35705c2e1634c8aa5b8289"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37943f8fc5173afdf10c8f4fab0c95f3" id="r_a37943f8fc5173afdf10c8f4fab0c95f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37943f8fc5173afdf10c8f4fab0c95f3">Update</a> (float deltaTime)</td></tr>
+<tr class="memitem:acdc7970c0eb5b01cf43fad2c4383684c" id="r_acdc7970c0eb5b01cf43fad2c4383684c"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:acdc7970c0eb5b01cf43fad2c4383684c template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCTween.html">CTween</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acdc7970c0eb5b01cf43fad2c4383684c">To</a> (std::function&lt; T()&gt; getter, std::function&lt; void(const T &amp;)&gt; setter, T endValue, float duration, void *target=nullptr)</td></tr>
+<tr class="memitem:ac5e589eaad7d8a2b8669be327400e808" id="r_ac5e589eaad7d8a2b8669be327400e808"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5e589eaad7d8a2b8669be327400e808">KillTweensOf</a> (void *target)</td></tr>
+<tr class="memitem:a0b6abdb79a48f2d8e2f375d9a698a8e5" id="r_a0b6abdb79a48f2d8e2f375d9a698a8e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b6abdb79a48f2d8e2f375d9a698a8e5">KillAll</a> ()</td></tr>
+<tr class="memitem:aedbdf8a223200f0e10b134eced9bd616" id="r_aedbdf8a223200f0e10b134eced9bd616"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aedbdf8a223200f0e10b134eced9bd616">PauseAll</a> ()</td></tr>
+<tr class="memitem:a6d8f7bbb3096b5e0e83b64f43f591ccb" id="r_a6d8f7bbb3096b5e0e83b64f43f591ccb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d8f7bbb3096b5e0e83b64f43f591ccb">ResumeAll</a> ()</td></tr>
+<tr class="memitem:a3d26059ccc35705c2e1634c8aa5b8289" id="r_a3d26059ccc35705c2e1634c8aa5b8289"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d26059ccc35705c2e1634c8aa5b8289">GetActiveTweenCount</a> () const</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
-<tr class="memitem:a748dd480e3877c186ed01c51b5f2f24c" id="r_a748dd480e3877c186ed01c51b5f2f24c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classTweenManager.html">TweenManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTweenManager.html#a748dd480e3877c186ed01c51b5f2f24c">GetInstance</a> ()</td></tr>
-<tr class="separator:a748dd480e3877c186ed01c51b5f2f24c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a748dd480e3877c186ed01c51b5f2f24c" id="r_a748dd480e3877c186ed01c51b5f2f24c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classTweenManager.html">TweenManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a748dd480e3877c186ed01c51b5f2f24c">GetInstance</a> ()</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 非公開メンバ関数</h2></td></tr>
-<tr class="memitem:a3001718d15c55673f49757c44a575bcc" id="r_a3001718d15c55673f49757c44a575bcc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTweenManager.html#a3001718d15c55673f49757c44a575bcc">TweenManager</a> ()=default</td></tr>
-<tr class="separator:a3001718d15c55673f49757c44a575bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af705c90268f22b2ddf55e19b6b2bdef1" id="r_af705c90268f22b2ddf55e19b6b2bdef1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTweenManager.html#af705c90268f22b2ddf55e19b6b2bdef1">~TweenManager</a> ()=default</td></tr>
-<tr class="separator:af705c90268f22b2ddf55e19b6b2bdef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d26175263ad0a12caa92e5e5358e66f" id="r_a3d26175263ad0a12caa92e5e5358e66f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTweenManager.html#a3d26175263ad0a12caa92e5e5358e66f">TweenManager</a> (const <a class="el" href="classTweenManager.html">TweenManager</a> &amp;)=delete</td></tr>
-<tr class="separator:a3d26175263ad0a12caa92e5e5358e66f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4212536560393a01b6b4ba4b855fa6f1" id="r_a4212536560393a01b6b4ba4b855fa6f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTweenManager.html">TweenManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTweenManager.html#a4212536560393a01b6b4ba4b855fa6f1">operator=</a> (const <a class="el" href="classTweenManager.html">TweenManager</a> &amp;)=delete</td></tr>
-<tr class="separator:a4212536560393a01b6b4ba4b855fa6f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3001718d15c55673f49757c44a575bcc" id="r_a3001718d15c55673f49757c44a575bcc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3001718d15c55673f49757c44a575bcc">TweenManager</a> ()=default</td></tr>
+<tr class="memitem:af705c90268f22b2ddf55e19b6b2bdef1" id="r_af705c90268f22b2ddf55e19b6b2bdef1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af705c90268f22b2ddf55e19b6b2bdef1">~TweenManager</a> ()=default</td></tr>
+<tr class="memitem:a3d26175263ad0a12caa92e5e5358e66f" id="r_a3d26175263ad0a12caa92e5e5358e66f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d26175263ad0a12caa92e5e5358e66f">TweenManager</a> (const <a class="el" href="classTweenManager.html">TweenManager</a> &amp;)=delete</td></tr>
+<tr class="memitem:a4212536560393a01b6b4ba4b855fa6f1" id="r_a4212536560393a01b6b4ba4b855fa6f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTweenManager.html">TweenManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4212536560393a01b6b4ba4b855fa6f1">operator=</a> (const <a class="el" href="classTweenManager.html">TweenManager</a> &amp;)=delete</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 非公開変数類</h2></td></tr>
-<tr class="memitem:aef71fe4ec9ec61ddf8a7f3095e171cce" id="r_aef71fe4ec9ec61ddf8a7f3095e171cce"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr&lt; <a class="el" href="classCTween.html">CTween</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTweenManager.html#aef71fe4ec9ec61ddf8a7f3095e171cce">m_activeTweens</a></td></tr>
-<tr class="separator:aef71fe4ec9ec61ddf8a7f3095e171cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c065da1f4fc22a527b531c8d6c66f24" id="r_a3c065da1f4fc22a527b531c8d6c66f24"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr&lt; <a class="el" href="classCTween.html">CTween</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTweenManager.html#a3c065da1f4fc22a527b531c8d6c66f24">m_pendingAddTweens</a></td></tr>
-<tr class="separator:a3c065da1f4fc22a527b531c8d6c66f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef71fe4ec9ec61ddf8a7f3095e171cce" id="r_aef71fe4ec9ec61ddf8a7f3095e171cce"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr&lt; <a class="el" href="classCTween.html">CTween</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef71fe4ec9ec61ddf8a7f3095e171cce">m_activeTweens</a></td></tr>
+<tr class="memitem:a3c065da1f4fc22a527b531c8d6c66f24" id="r_a3c065da1f4fc22a527b531c8d6c66f24"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr&lt; <a class="el" href="classCTween.html">CTween</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c065da1f4fc22a527b531c8d6c66f24">m_pendingAddTweens</a></td></tr>
 </table>
-<h2 class="groupheader">構築子と解体子</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">構築子と解体子</h2>
 <a id="a3001718d15c55673f49757c44a575bcc" name="a3001718d15c55673f49757c44a575bcc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3001718d15c55673f49757c44a575bcc">&#9670;&#160;</a></span>TweenManager() <span class="overload">[1/2]</span></h2>
 
@@ -156,16 +135,21 @@ $(document).ready(function(){initNavTree('classTweenManager.html',''); initResiz
         <tr>
           <td class="memname">TweenManager::TweenManager </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classTweenManager_a3001718d15c55673f49757c44a575bcc_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -181,13 +165,13 @@ $(document).ready(function(){initNavTree('classTweenManager.html',''); initResiz
         <tr>
           <td class="memname">TweenManager::~TweenManager </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -206,21 +190,25 @@ $(document).ready(function(){initNavTree('classTweenManager.html',''); initResiz
         <tr>
           <td class="memname">TweenManager::TweenManager </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classTweenManager.html">TweenManager</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classTweenManager.html">TweenManager</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classTweenManager_a3d26175263ad0a12caa92e5e5358e66f_cgraph.svg" width="510" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="a3d26059ccc35705c2e1634c8aa5b8289" name="a3d26059ccc35705c2e1634c8aa5b8289"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3d26059ccc35705c2e1634c8aa5b8289">&#9670;&#160;</a></span>GetActiveTweenCount()</h2>
 
@@ -233,13 +221,13 @@ $(document).ready(function(){initNavTree('classTweenManager.html',''); initResiz
         <tr>
           <td class="memname">size_t TweenManager::GetActiveTweenCount </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -256,22 +244,27 @@ $(document).ready(function(){initNavTree('classTweenManager.html',''); initResiz
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="classTweenManager.html">TweenManager</a> &amp; TweenManager::GetInstance </td>
+          <td class="memname"><a class="el" href="classTweenManager.html">TweenManager</a> &amp; TweenManager::GetInstance </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classTweenManager_a748dd480e3877c186ed01c51b5f2f24c_cgraph.svg" width="490" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classTweenManager_a748dd480e3877c186ed01c51b5f2f24c_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classTweenManager_a748dd480e3877c186ed01c51b5f2f24c_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -285,7 +278,7 @@ $(document).ready(function(){initNavTree('classTweenManager.html',''); initResiz
         <tr>
           <td class="memname">void TweenManager::KillAll </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -293,7 +286,7 @@ $(document).ready(function(){initNavTree('classTweenManager.html',''); initResiz
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classTweenManager_a0b6abdb79a48f2d8e2f375d9a698a8e5_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classTweenManager_a0b6abdb79a48f2d8e2f375d9a698a8e5_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -307,8 +300,7 @@ $(document).ready(function(){initNavTree('classTweenManager.html',''); initResiz
         <tr>
           <td class="memname">void TweenManager::KillTweensOf </td>
           <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>target</em></td><td>)</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>target</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -316,7 +308,7 @@ $(document).ready(function(){initNavTree('classTweenManager.html',''); initResiz
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classTweenManager_ac5e589eaad7d8a2b8669be327400e808_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classTweenManager_ac5e589eaad7d8a2b8669be327400e808_icgraph.svg" width="100%" height="380"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -333,17 +325,21 @@ $(document).ready(function(){initNavTree('classTweenManager.html',''); initResiz
         <tr>
           <td class="memname"><a class="el" href="classTweenManager.html">TweenManager</a> &amp; TweenManager::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classTweenManager.html">TweenManager</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classTweenManager.html">TweenManager</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classTweenManager_a4212536560393a01b6b4ba4b855fa6f1_cgraph.svg" width="478" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -356,7 +352,7 @@ $(document).ready(function(){initNavTree('classTweenManager.html',''); initResiz
         <tr>
           <td class="memname">void TweenManager::PauseAll </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -373,7 +369,7 @@ $(document).ready(function(){initNavTree('classTweenManager.html',''); initResiz
         <tr>
           <td class="memname">void TweenManager::ResumeAll </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -387,7 +383,7 @@ $(document).ready(function(){initNavTree('classTweenManager.html',''); initResiz
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -395,54 +391,39 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classCTween.html">CTween</a> * TweenManager::To </td>
           <td>(</td>
-          <td class="paramtype">std::function&lt; T()&gt;&#160;</td>
-          <td class="paramname"><em>getter</em>, </td>
+          <td class="paramtype">std::function&lt; T()&gt;</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; void(const T &amp;)&gt;&#160;</td>
-          <td class="paramname"><em>setter</em>, </td>
+          <td class="paramtype">std::function&lt; void(const T &amp;)&gt;</td>          <td class="paramname"><span class="paramname"><em>setter</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>endValue</em>, </td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>endValue</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>duration</em>, </td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>duration</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>target</em> = <code>nullptr</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>target</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
-呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classTweenManager_acdc7970c0eb5b01cf43fad2c4383684c_cgraph.svg" width="343" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classTweenManager_acdc7970c0eb5b01cf43fad2c4383684c_icgraph.svg" width="287" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classTweenManager_acdc7970c0eb5b01cf43fad2c4383684c_icgraph.svg" width="100%" height="524"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -456,8 +437,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void TweenManager::Update </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>deltaTime</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -465,12 +445,12 @@ template&lt;typename T &gt; </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classTweenManager_a37943f8fc5173afdf10c8f4fab0c95f3_icgraph.svg" width="612" height="184"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classTweenManager_a37943f8fc5173afdf10c8f4fab0c95f3_icgraph.svg" width="610" height="195"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<h2 class="groupheader">メンバ詳解</h2>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">メンバ詳解</h2>
 <a id="aef71fe4ec9ec61ddf8a7f3095e171cce" name="aef71fe4ec9ec61ddf8a7f3095e171cce"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aef71fe4ec9ec61ddf8a7f3095e171cce">&#9670;&#160;</a></span>m_activeTweens</h2>
 
@@ -486,7 +466,7 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -508,7 +488,7 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -521,11 +501,19 @@ template&lt;typename T &gt; </div>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="classTweenManager.html">TweenManager</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="classTweenManager.html">TweenManager</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

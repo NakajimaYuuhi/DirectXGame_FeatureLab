@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: Source/Engine/Component/ComponentManager.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,28 +35,22 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function() { init_codefold(0); });
-/* @license-end */
-</script>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -68,10 +63,9 @@ $(document).ready(function() { init_codefold(0); });
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('ComponentManager_8h_source.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('ComponentManager_8h_source.html','',''); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -104,13 +98,13 @@ $(document).ready(function(){initNavTree('ComponentManager_8h_source.html',''); 
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="foldopen" id="foldopen00006" data-start="{" data-end="};">
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="classComponentManager.html">    6</a></span><span class="keyword">class </span><a class="code hl_class" href="classComponentManager.html">ComponentManager</a></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="classComponentManager.html">    6</a></span><span class="keyword">class </span><a class="code hl_function" href="classComponentManager.html#a9820170724e8576f391e690781fcd33a">ComponentManager</a></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">public</span>:</div>
 <div class="foldopen" id="foldopen00009" data-start="{" data-end="}">
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classComponentManager.html#ab776bb38015397db80b6238a641cf671">    9</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classComponentManager.html">ComponentManager</a>&amp; <a class="code hl_function" href="classComponentManager.html#ab776bb38015397db80b6238a641cf671">GetInstance</a>()</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classComponentManager.html#ab776bb38015397db80b6238a641cf671">    9</a></span>    <span class="keyword">static</span> <a class="code hl_function" href="classComponentManager.html#a9820170724e8576f391e690781fcd33a">ComponentManager</a>&amp; <a class="code hl_function" href="classComponentManager.html#ab776bb38015397db80b6238a641cf671">GetInstance</a>()</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        <span class="keyword">static</span> <a class="code hl_class" href="classComponentManager.html">ComponentManager</a> instance;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        <span class="keyword">static</span> <a class="code hl_function" href="classComponentManager.html#a9820170724e8576f391e690781fcd33a">ComponentManager</a> instance;</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <span class="keywordflow">return</span> instance;</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    }</div>
 </div>
@@ -142,7 +136,7 @@ $(document).ready(function(){initNavTree('ComponentManager_8h_source.html',''); 
 <div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classComponentManager.html#ad9764444117afed549ba74d5b4271cca">   37</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classComponentManager.html#ad9764444117afed549ba74d5b4271cca">SetComponentsEnabledOfType</a>(<span class="keywordtype">bool</span> enabled)</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    {</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keyword">auto</span> comps = FindComponentsOfType&lt;T&gt;();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keyword">auto</span> comps = <a class="code hl_function" href="classComponentManager.html#a4c2d9a0ff2771ab56ef2885e6d33e258">FindComponentsOfType&lt;T&gt;</a>();</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span>* comp : comps)</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        {</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keywordflow">if</span> (comp)</div>
@@ -157,13 +151,12 @@ $(document).ready(function(){initNavTree('ComponentManager_8h_source.html',''); 
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classComponentManager.html#a9820170724e8576f391e690781fcd33a">   50</a></span>    <a class="code hl_function" href="classComponentManager.html#a9820170724e8576f391e690781fcd33a">ComponentManager</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classComponentManager.html#a7bd525da7cec04018dc148564eaa1c20">   51</a></span>    <a class="code hl_function" href="classComponentManager.html#a7bd525da7cec04018dc148564eaa1c20">~ComponentManager</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classComponentManager.html#ad70abe64ea6a68cbedb1fd5290ad42bf">   53</a></span>    <a class="code hl_function" href="classComponentManager.html#ad70abe64ea6a68cbedb1fd5290ad42bf">ComponentManager</a>(<span class="keyword">const</span> <a class="code hl_class" href="classComponentManager.html">ComponentManager</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classComponentManager.html#a53b77db7eed28a32a344e9df1c376d5e">   54</a></span>    <a class="code hl_class" href="classComponentManager.html">ComponentManager</a>&amp; <a class="code hl_function" href="classComponentManager.html#a53b77db7eed28a32a344e9df1c376d5e">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classComponentManager.html">ComponentManager</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classComponentManager.html#ad70abe64ea6a68cbedb1fd5290ad42bf">   53</a></span>    <a class="code hl_function" href="classComponentManager.html#ad70abe64ea6a68cbedb1fd5290ad42bf">ComponentManager</a>(<span class="keyword">const</span> <a class="code hl_function" href="classComponentManager.html#a9820170724e8576f391e690781fcd33a">ComponentManager</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classComponentManager.html#a53b77db7eed28a32a344e9df1c376d5e">   54</a></span>    <a class="code hl_function" href="classComponentManager.html#a9820170724e8576f391e690781fcd33a">ComponentManager</a>&amp; <a class="code hl_function" href="classComponentManager.html#a53b77db7eed28a32a344e9df1c376d5e">operator=</a>(<span class="keyword">const</span> <a class="code hl_function" href="classComponentManager.html#a9820170724e8576f391e690781fcd33a">ComponentManager</a>&amp;) = <span class="keyword">delete</span>;</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>};</div>
 </div>
 <div class="ttc" id="aComponent_8h_html"><div class="ttname"><a href="Component_8h.html">Component.h</a></div></div>
 <div class="ttc" id="aObjectManager_8h_html"><div class="ttname"><a href="ObjectManager_8h.html">ObjectManager.h</a></div></div>
-<div class="ttc" id="aclassComponentManager_html"><div class="ttname"><a href="classComponentManager.html">ComponentManager</a></div><div class="ttdef"><b>Definition</b> ComponentManager.h:7</div></div>
 <div class="ttc" id="aclassComponentManager_html_a4c2d9a0ff2771ab56ef2885e6d33e258"><div class="ttname"><a href="classComponentManager.html#a4c2d9a0ff2771ab56ef2885e6d33e258">ComponentManager::FindComponentsOfType</a></div><div class="ttdeci">std::vector&lt; T * &gt; FindComponentsOfType()</div><div class="ttdef"><b>Definition</b> ComponentManager.h:17</div></div>
 <div class="ttc" id="aclassComponentManager_html_a53b77db7eed28a32a344e9df1c376d5e"><div class="ttname"><a href="classComponentManager.html#a53b77db7eed28a32a344e9df1c376d5e">ComponentManager::operator=</a></div><div class="ttdeci">ComponentManager &amp; operator=(const ComponentManager &amp;)=delete</div></div>
 <div class="ttc" id="aclassComponentManager_html_a7bd525da7cec04018dc148564eaa1c20"><div class="ttname"><a href="classComponentManager.html#a7bd525da7cec04018dc148564eaa1c20">ComponentManager::~ComponentManager</a></div><div class="ttdeci">~ComponentManager()=default</div></div>
@@ -175,11 +168,12 @@ $(document).ready(function(){initNavTree('ComponentManager_8h_source.html',''); 
 <div class="ttc" id="aclassObjectManager_html_a7d2002e493672e5e15f0a736c053d8d6"><div class="ttname"><a href="classObjectManager.html#a7d2002e493672e5e15f0a736c053d8d6">ObjectManager::GetInstance</a></div><div class="ttdeci">static ENGINE_API ObjectManager &amp; GetInstance()</div><div class="ttdef"><b>Definition</b> ObjectManager.cpp:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_5405398c23c020946029b9f4e6e04094.html">Engine</a></li><li class="navelem"><a class="el" href="dir_5f693e8ad8d60326c758affc3b922e76.html">Component</a></li><li class="navelem"><a class="el" href="ComponentManager_8h.html">ComponentManager.h</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_5405398c23c020946029b9f4e6e04094.html">Engine</a></li><li class="navelem"><a href="dir_5f693e8ad8d60326c758affc3b922e76.html">Component</a></li><li class="navelem"><a href="ComponentManager_8h.html">ComponentManager.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

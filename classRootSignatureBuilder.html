@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: RootSignatureBuilder クラス</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classRootSignatureBuilder.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('classRootSignatureBuilder.html','','classRootSignatureBuilder-members'); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,45 +89,30 @@ $(document).ready(function(){initNavTree('classRootSignatureBuilder.html',''); i
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="#pri-attribs">非公開変数類</a> &#124;
-<a href="classRootSignatureBuilder-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">RootSignatureBuilder クラス</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="PSOBuilder_8h_source.html">PSOBuilder.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a4e549f0f8c54186839cecfb2bc0bb77d" id="r_a4e549f0f8c54186839cecfb2bc0bb77d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootSignatureBuilder.html#a4e549f0f8c54186839cecfb2bc0bb77d">RootSignatureBuilder</a> ()</td></tr>
-<tr class="separator:a4e549f0f8c54186839cecfb2bc0bb77d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d17eeff6c6b3df05a99c17d632c16a7" id="r_a5d17eeff6c6b3df05a99c17d632c16a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootSignatureBuilder.html#a5d17eeff6c6b3df05a99c17d632c16a7">AddConstants</a> (UINT num32BitValues, UINT shaderRegister, UINT registerSpace, D3D12_SHADER_VISIBILITY visibility)</td></tr>
-<tr class="separator:a5d17eeff6c6b3df05a99c17d632c16a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d694876446e39f483fe7c6a3102eb98" id="r_a1d694876446e39f483fe7c6a3102eb98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootSignatureBuilder.html#a1d694876446e39f483fe7c6a3102eb98">AddDescriptorTable</a> (D3D12_DESCRIPTOR_RANGE_TYPE rangeType, UINT numDescriptors, UINT baseShaderRegister, UINT registerSpace, D3D12_SHADER_VISIBILITY visibility)</td></tr>
-<tr class="separator:a1d694876446e39f483fe7c6a3102eb98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ce5b03327e0f9040c654746630c837f" id="r_a1ce5b03327e0f9040c654746630c837f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootSignatureBuilder.html#a1ce5b03327e0f9040c654746630c837f">AddConstantBufferView</a> (UINT shaderRegister, UINT registerSpace, D3D12_SHADER_VISIBILITY visibility)</td></tr>
-<tr class="separator:a1ce5b03327e0f9040c654746630c837f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9e24dba3fa95b1897c18e0961e0a547" id="r_aa9e24dba3fa95b1897c18e0961e0a547"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootSignatureBuilder.html#aa9e24dba3fa95b1897c18e0961e0a547">AddStaticSampler</a> (const D3D12_STATIC_SAMPLER_DESC &amp;sampler)</td></tr>
-<tr class="separator:aa9e24dba3fa95b1897c18e0961e0a547"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a505551dc7403cca37637b2b765c9dfc1" id="r_a505551dc7403cca37637b2b765c9dfc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootSignatureBuilder.html#a505551dc7403cca37637b2b765c9dfc1">SetFlags</a> (D3D12_ROOT_SIGNATURE_FLAGS flags)</td></tr>
-<tr class="separator:a505551dc7403cca37637b2b765c9dfc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:accd44a50cee2575c2da481c9fc790f09" id="r_accd44a50cee2575c2da481c9fc790f09"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootSignatureBuilder.html#accd44a50cee2575c2da481c9fc790f09">Build</a> (ID3D12Device *device, ID3D12RootSignature **ppRootSig)</td></tr>
-<tr class="separator:accd44a50cee2575c2da481c9fc790f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e549f0f8c54186839cecfb2bc0bb77d" id="r_a4e549f0f8c54186839cecfb2bc0bb77d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e549f0f8c54186839cecfb2bc0bb77d">RootSignatureBuilder</a> ()</td></tr>
+<tr class="memitem:a5d17eeff6c6b3df05a99c17d632c16a7" id="r_a5d17eeff6c6b3df05a99c17d632c16a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d17eeff6c6b3df05a99c17d632c16a7">AddConstants</a> (UINT num32BitValues, UINT shaderRegister, UINT registerSpace, D3D12_SHADER_VISIBILITY visibility)</td></tr>
+<tr class="memitem:a1d694876446e39f483fe7c6a3102eb98" id="r_a1d694876446e39f483fe7c6a3102eb98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d694876446e39f483fe7c6a3102eb98">AddDescriptorTable</a> (D3D12_DESCRIPTOR_RANGE_TYPE rangeType, UINT numDescriptors, UINT baseShaderRegister, UINT registerSpace, D3D12_SHADER_VISIBILITY visibility)</td></tr>
+<tr class="memitem:a1ce5b03327e0f9040c654746630c837f" id="r_a1ce5b03327e0f9040c654746630c837f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ce5b03327e0f9040c654746630c837f">AddConstantBufferView</a> (UINT shaderRegister, UINT registerSpace, D3D12_SHADER_VISIBILITY visibility)</td></tr>
+<tr class="memitem:aa9e24dba3fa95b1897c18e0961e0a547" id="r_aa9e24dba3fa95b1897c18e0961e0a547"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9e24dba3fa95b1897c18e0961e0a547">AddStaticSampler</a> (const D3D12_STATIC_SAMPLER_DESC &amp;sampler)</td></tr>
+<tr class="memitem:a505551dc7403cca37637b2b765c9dfc1" id="r_a505551dc7403cca37637b2b765c9dfc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a505551dc7403cca37637b2b765c9dfc1">SetFlags</a> (D3D12_ROOT_SIGNATURE_FLAGS flags)</td></tr>
+<tr class="memitem:accd44a50cee2575c2da481c9fc790f09" id="r_accd44a50cee2575c2da481c9fc790f09"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#accd44a50cee2575c2da481c9fc790f09">Build</a> (ID3D12Device *device, ID3D12RootSignature **ppRootSig)</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 非公開変数類</h2></td></tr>
-<tr class="memitem:a5ea2e454391c7de6bba2f347076780fc" id="r_a5ea2e454391c7de6bba2f347076780fc"><td class="memItemLeft" align="right" valign="top">std::vector&lt; D3D12_ROOT_PARAMETER &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootSignatureBuilder.html#a5ea2e454391c7de6bba2f347076780fc">m_parameters</a></td></tr>
-<tr class="separator:a5ea2e454391c7de6bba2f347076780fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70f29e41193ba6f82cd9a03ea322e427" id="r_a70f29e41193ba6f82cd9a03ea322e427"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; D3D12_DESCRIPTOR_RANGE &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootSignatureBuilder.html#a70f29e41193ba6f82cd9a03ea322e427">m_descriptorRanges</a></td></tr>
-<tr class="separator:a70f29e41193ba6f82cd9a03ea322e427"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adae68c5b7e01af9c69c595b2bf328009" id="r_adae68c5b7e01af9c69c595b2bf328009"><td class="memItemLeft" align="right" valign="top">std::vector&lt; D3D12_STATIC_SAMPLER_DESC &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootSignatureBuilder.html#adae68c5b7e01af9c69c595b2bf328009">m_samplers</a></td></tr>
-<tr class="separator:adae68c5b7e01af9c69c595b2bf328009"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a596cf6c45ff3bc78768bdd8d41369baa" id="r_a596cf6c45ff3bc78768bdd8d41369baa"><td class="memItemLeft" align="right" valign="top">D3D12_ROOT_SIGNATURE_FLAGS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRootSignatureBuilder.html#a596cf6c45ff3bc78768bdd8d41369baa">m_flags</a> = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT</td></tr>
-<tr class="separator:a596cf6c45ff3bc78768bdd8d41369baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ea2e454391c7de6bba2f347076780fc" id="r_a5ea2e454391c7de6bba2f347076780fc"><td class="memItemLeft" align="right" valign="top">std::vector&lt; D3D12_ROOT_PARAMETER &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ea2e454391c7de6bba2f347076780fc">m_parameters</a></td></tr>
+<tr class="memitem:a70f29e41193ba6f82cd9a03ea322e427" id="r_a70f29e41193ba6f82cd9a03ea322e427"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; D3D12_DESCRIPTOR_RANGE &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70f29e41193ba6f82cd9a03ea322e427">m_descriptorRanges</a></td></tr>
+<tr class="memitem:adae68c5b7e01af9c69c595b2bf328009" id="r_adae68c5b7e01af9c69c595b2bf328009"><td class="memItemLeft" align="right" valign="top">std::vector&lt; D3D12_STATIC_SAMPLER_DESC &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adae68c5b7e01af9c69c595b2bf328009">m_samplers</a></td></tr>
+<tr class="memitem:a596cf6c45ff3bc78768bdd8d41369baa" id="r_a596cf6c45ff3bc78768bdd8d41369baa"><td class="memItemLeft" align="right" valign="top">D3D12_ROOT_SIGNATURE_FLAGS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a596cf6c45ff3bc78768bdd8d41369baa">m_flags</a> = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT</td></tr>
 </table>
-<h2 class="groupheader">構築子と解体子</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">構築子と解体子</h2>
 <a id="a4e549f0f8c54186839cecfb2bc0bb77d" name="a4e549f0f8c54186839cecfb2bc0bb77d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4e549f0f8c54186839cecfb2bc0bb77d">&#9670;&#160;</a></span>RootSignatureBuilder()</h2>
 
@@ -138,7 +122,7 @@ $(document).ready(function(){initNavTree('classRootSignatureBuilder.html',''); i
         <tr>
           <td class="memname">RootSignatureBuilder::RootSignatureBuilder </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -146,7 +130,7 @@ $(document).ready(function(){initNavTree('classRootSignatureBuilder.html',''); i
 
 </div>
 </div>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="a1ce5b03327e0f9040c654746630c837f" name="a1ce5b03327e0f9040c654746630c837f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1ce5b03327e0f9040c654746630c837f">&#9670;&#160;</a></span>AddConstantBufferView()</h2>
 
@@ -156,32 +140,24 @@ $(document).ready(function(){initNavTree('classRootSignatureBuilder.html',''); i
         <tr>
           <td class="memname">void RootSignatureBuilder::AddConstantBufferView </td>
           <td>(</td>
-          <td class="paramtype">UINT&#160;</td>
-          <td class="paramname"><em>shaderRegister</em>, </td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>shaderRegister</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">UINT&#160;</td>
-          <td class="paramname"><em>registerSpace</em>, </td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>registerSpace</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">D3D12_SHADER_VISIBILITY&#160;</td>
-          <td class="paramname"><em>visibility</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">D3D12_SHADER_VISIBILITY</td>          <td class="paramname"><span class="paramname"><em>visibility</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classRootSignatureBuilder_a1ce5b03327e0f9040c654746630c837f_icgraph.svg" width="504" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classRootSignatureBuilder_a1ce5b03327e0f9040c654746630c837f_icgraph.svg" width="502" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -195,38 +171,29 @@ $(document).ready(function(){initNavTree('classRootSignatureBuilder.html',''); i
         <tr>
           <td class="memname">void RootSignatureBuilder::AddConstants </td>
           <td>(</td>
-          <td class="paramtype">UINT&#160;</td>
-          <td class="paramname"><em>num32BitValues</em>, </td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>num32BitValues</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">UINT&#160;</td>
-          <td class="paramname"><em>shaderRegister</em>, </td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>shaderRegister</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">UINT&#160;</td>
-          <td class="paramname"><em>registerSpace</em>, </td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>registerSpace</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">D3D12_SHADER_VISIBILITY&#160;</td>
-          <td class="paramname"><em>visibility</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">D3D12_SHADER_VISIBILITY</td>          <td class="paramname"><span class="paramname"><em>visibility</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classRootSignatureBuilder_a5d17eeff6c6b3df05a99c17d632c16a7_icgraph.svg" width="100%" height="461"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classRootSignatureBuilder_a5d17eeff6c6b3df05a99c17d632c16a7_icgraph.svg" width="630" height="228"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -240,44 +207,34 @@ $(document).ready(function(){initNavTree('classRootSignatureBuilder.html',''); i
         <tr>
           <td class="memname">void RootSignatureBuilder::AddDescriptorTable </td>
           <td>(</td>
-          <td class="paramtype">D3D12_DESCRIPTOR_RANGE_TYPE&#160;</td>
-          <td class="paramname"><em>rangeType</em>, </td>
+          <td class="paramtype">D3D12_DESCRIPTOR_RANGE_TYPE</td>          <td class="paramname"><span class="paramname"><em>rangeType</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">UINT&#160;</td>
-          <td class="paramname"><em>numDescriptors</em>, </td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>numDescriptors</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">UINT&#160;</td>
-          <td class="paramname"><em>baseShaderRegister</em>, </td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>baseShaderRegister</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">UINT&#160;</td>
-          <td class="paramname"><em>registerSpace</em>, </td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>registerSpace</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">D3D12_SHADER_VISIBILITY&#160;</td>
-          <td class="paramname"><em>visibility</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">D3D12_SHADER_VISIBILITY</td>          <td class="paramname"><span class="paramname"><em>visibility</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classRootSignatureBuilder_a1d694876446e39f483fe7c6a3102eb98_icgraph.svg" width="100%" height="461"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classRootSignatureBuilder_a1d694876446e39f483fe7c6a3102eb98_icgraph.svg" width="630" height="228"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -291,8 +248,7 @@ $(document).ready(function(){initNavTree('classRootSignatureBuilder.html',''); i
         <tr>
           <td class="memname">void RootSignatureBuilder::AddStaticSampler </td>
           <td>(</td>
-          <td class="paramtype">const D3D12_STATIC_SAMPLER_DESC &amp;&#160;</td>
-          <td class="paramname"><em>sampler</em></td><td>)</td>
+          <td class="paramtype">const D3D12_STATIC_SAMPLER_DESC &amp;</td>          <td class="paramname"><span class="paramname"><em>sampler</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -300,7 +256,7 @@ $(document).ready(function(){initNavTree('classRootSignatureBuilder.html',''); i
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classRootSignatureBuilder_aa9e24dba3fa95b1897c18e0961e0a547_icgraph.svg" width="480" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classRootSignatureBuilder_aa9e24dba3fa95b1897c18e0961e0a547_icgraph.svg" width="478" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -314,26 +270,19 @@ $(document).ready(function(){initNavTree('classRootSignatureBuilder.html',''); i
         <tr>
           <td class="memname">bool RootSignatureBuilder::Build </td>
           <td>(</td>
-          <td class="paramtype">ID3D12Device *&#160;</td>
-          <td class="paramname"><em>device</em>, </td>
+          <td class="paramtype">ID3D12Device *</td>          <td class="paramname"><span class="paramname"><em>device</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">ID3D12RootSignature **&#160;</td>
-          <td class="paramname"><em>ppRootSig</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">ID3D12RootSignature **</td>          <td class="paramname"><span class="paramname"><em>ppRootSig</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classRootSignatureBuilder_accd44a50cee2575c2da481c9fc790f09_icgraph.svg" width="100%" height="461"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classRootSignatureBuilder_accd44a50cee2575c2da481c9fc790f09_icgraph.svg" width="630" height="228"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -350,26 +299,25 @@ $(document).ready(function(){initNavTree('classRootSignatureBuilder.html',''); i
         <tr>
           <td class="memname">void RootSignatureBuilder::SetFlags </td>
           <td>(</td>
-          <td class="paramtype">D3D12_ROOT_SIGNATURE_FLAGS&#160;</td>
-          <td class="paramname"><em>flags</em></td><td>)</td>
+          <td class="paramtype">D3D12_ROOT_SIGNATURE_FLAGS</td>          <td class="paramname"><span class="paramname"><em>flags</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classRootSignatureBuilder_a505551dc7403cca37637b2b765c9dfc1_icgraph.svg" width="100%" height="424"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classRootSignatureBuilder_a505551dc7403cca37637b2b765c9dfc1_icgraph.svg" width="630" height="176"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<h2 class="groupheader">メンバ詳解</h2>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">メンバ詳解</h2>
 <a id="a70f29e41193ba6f82cd9a03ea322e427" name="a70f29e41193ba6f82cd9a03ea322e427"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a70f29e41193ba6f82cd9a03ea322e427">&#9670;&#160;</a></span>m_descriptorRanges</h2>
 
@@ -385,7 +333,7 @@ $(document).ready(function(){initNavTree('classRootSignatureBuilder.html',''); i
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -407,7 +355,7 @@ $(document).ready(function(){initNavTree('classRootSignatureBuilder.html',''); i
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -429,7 +377,7 @@ $(document).ready(function(){initNavTree('classRootSignatureBuilder.html',''); i
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -451,7 +399,7 @@ $(document).ready(function(){initNavTree('classRootSignatureBuilder.html',''); i
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -464,11 +412,19 @@ $(document).ready(function(){initNavTree('classRootSignatureBuilder.html',''); i
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="classRootSignatureBuilder.html">RootSignatureBuilder</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="classRootSignatureBuilder.html">RootSignatureBuilder</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

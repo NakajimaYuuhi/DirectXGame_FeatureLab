@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: ファイルメンバ</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('globals_defs_s.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('globals_defs_s.html','',''); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -92,7 +91,7 @@ $(document).ready(function(){initNavTree('globals_defs_s.html',''); initResizabl
 <div class="contents">
 <div class="textblock">&#160;</div>
 
-<h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
+<h3 class="doxsection"><a id="index_s" name="index_s"></a>- s -</h3><ul>
 <li>SCREEN_HEIGHT&#160;:&#160;<a class="el" href="BasicSettings_8h.html#a6974d08a74da681b3957b2fead2608b8">BasicSettings.h</a></li>
 <li>SCREEN_WIDTH&#160;:&#160;<a class="el" href="BasicSettings_8h.html#a2cd109632a6dcccaa80b43561b1ab700">BasicSettings.h</a></li>
 <li>stb__in2&#160;:&#160;<a class="el" href="imgui__draw_8cpp.html#a8abf98f5e58a4b3dbbdf35bb1d5ee872">imgui_draw.cpp</a></li>
@@ -102,6 +101,7 @@ $(document).ready(function(){initNavTree('globals_defs_s.html',''); initResizabl
 <li>STB_IMAGE_WRITE_IMPLEMENTATION&#160;:&#160;<a class="el" href="gltfLoader_8cpp.html#aefe397a94e8feddc652f92ef40ce9597">gltfLoader.cpp</a></li>
 <li>STB_RECT_PACK_IMPLEMENTATION&#160;:&#160;<a class="el" href="imgui__draw_8cpp.html#a0791e69f0dcd58efa795dd50eb8c6cd0">imgui_draw.cpp</a></li>
 <li>STB_RECT_PACK_VERSION&#160;:&#160;<a class="el" href="imstb__rectpack_8h.html#af2f15dfcc6ad60b1df4f5902e2cc25ce">imstb_rectpack.h</a></li>
+<li>STB_TEXT_HAS_SELECTION&#160;:&#160;<a class="el" href="imgui__widgets_8cpp.html#abceda0f69ec60690c009978a6e24beda">imgui_widgets.cpp</a></li>
 <li>STB_TEXTEDIT_K_BACKSPACE&#160;:&#160;<a class="el" href="imgui__widgets_8cpp.html#a436a147e85256c7a3e2fee4a69e3aa72">imgui_widgets.cpp</a></li>
 <li>STB_TEXTEDIT_K_DELETE&#160;:&#160;<a class="el" href="imgui__widgets_8cpp.html#a1e7e825b3df67f64a15b84c548e51c26">imgui_widgets.cpp</a></li>
 <li>STB_TEXTEDIT_K_DOWN&#160;:&#160;<a class="el" href="imgui__widgets_8cpp.html#a1b0a25c8debb2e6b33d5b9678ff31eb6">imgui_widgets.cpp</a></li>
@@ -119,6 +119,7 @@ $(document).ready(function(){initNavTree('globals_defs_s.html',''); initResizabl
 <li>STB_TEXTEDIT_K_UP&#160;:&#160;<a class="el" href="imgui__widgets_8cpp.html#a579019adb9b5fbb8432121dc10d59755">imgui_widgets.cpp</a></li>
 <li>STB_TEXTEDIT_K_WORDLEFT&#160;:&#160;<a class="el" href="imgui__widgets_8cpp.html#acbb30e32121ef025272892af98f2ac58">imgui_widgets.cpp</a></li>
 <li>STB_TEXTEDIT_K_WORDRIGHT&#160;:&#160;<a class="el" href="imgui__widgets_8cpp.html#a4ac168018b20e53285d76c46aa24a122">imgui_widgets.cpp</a></li>
+<li>STB_TEXTEDIT_KEYTYPE&#160;:&#160;<a class="el" href="imgui__widgets_8cpp.html#a010ea37f20ef02d3c9909c59a87f3639">imgui_widgets.cpp</a></li>
 <li>STB_TEXTEDIT_MOVELINEEND&#160;:&#160;<a class="el" href="imgui__widgets_8cpp.html#addba66b893ab83d395d0a64a8fddc52c">imgui_widgets.cpp</a></li>
 <li>STB_TEXTEDIT_MOVELINESTART&#160;:&#160;<a class="el" href="imgui__widgets_8cpp.html#a26b0390859152c26079afc25387d5ae5">imgui_widgets.cpp</a></li>
 <li>STB_TEXTEDIT_MOVEWORDLEFT&#160;:&#160;<a class="el" href="imgui__widgets_8cpp.html#aee9a4cbd23af66a75c6d41bad2e393d5">imgui_widgets.cpp</a></li>
@@ -154,10 +155,11 @@ $(document).ready(function(){initNavTree('globals_defs_s.html',''); initResizabl
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

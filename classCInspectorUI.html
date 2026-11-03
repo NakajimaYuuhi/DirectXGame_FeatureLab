@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: CInspectorUI クラス</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('classCInspectorUI.html','','classCInspectorUI-members'); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,141 +89,80 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
-<a href="#pri-methods">非公開メンバ関数</a> &#124;
-<a href="#pri-attribs">非公開変数類</a> &#124;
-<a href="classCInspectorUI-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">CInspectorUI クラス</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="InspectorUI_8h_source.html">InspectorUI.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:af7b8c5d7cc17a5cd5fc261b151a1da07" id="r_af7b8c5d7cc17a5cd5fc261b151a1da07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#af7b8c5d7cc17a5cd5fc261b151a1da07">Draw</a> ()</td></tr>
-<tr class="separator:af7b8c5d7cc17a5cd5fc261b151a1da07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43fc4c1121b7092a2ac3cf1094a5e56d" id="r_a43fc4c1121b7092a2ac3cf1094a5e56d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a43fc4c1121b7092a2ac3cf1094a5e56d">IsPaused</a> () const</td></tr>
-<tr class="separator:a43fc4c1121b7092a2ac3cf1094a5e56d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e6b728be6e300a02b032d4c6493db8c" id="r_a1e6b728be6e300a02b032d4c6493db8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a1e6b728be6e300a02b032d4c6493db8c">SetPaused</a> (bool paused)</td></tr>
-<tr class="separator:a1e6b728be6e300a02b032d4c6493db8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af76651761f17afdb470786d2cbaa3b07" id="r_af76651761f17afdb470786d2cbaa3b07"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#af76651761f17afdb470786d2cbaa3b07">IsEditMode</a> () const</td></tr>
-<tr class="separator:af76651761f17afdb470786d2cbaa3b07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9c095d0f85a0882fc42c91bc502b5b2" id="r_ad9c095d0f85a0882fc42c91bc502b5b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#ad9c095d0f85a0882fc42c91bc502b5b2">SetEditMode</a> (bool editMode)</td></tr>
-<tr class="separator:ad9c095d0f85a0882fc42c91bc502b5b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86769b90acd0ae7da92d783310284e07" id="r_a86769b90acd0ae7da92d783310284e07"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a86769b90acd0ae7da92d783310284e07">ShouldShowColliders</a> () const</td></tr>
-<tr class="separator:a86769b90acd0ae7da92d783310284e07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f68dfd483a570c48faee2a6b317f819" id="r_a3f68dfd483a570c48faee2a6b317f819"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a3f68dfd483a570c48faee2a6b317f819">SetShowColliders</a> (bool show)</td></tr>
-<tr class="separator:a3f68dfd483a570c48faee2a6b317f819"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9018f7ce2bdeca9909db3d6c34284e29" id="r_a9018f7ce2bdeca9909db3d6c34284e29"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a9018f7ce2bdeca9909db3d6c34284e29">ShouldShowLights</a> () const</td></tr>
-<tr class="separator:a9018f7ce2bdeca9909db3d6c34284e29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3877a0acb4faf828853f0ed56e52a50d" id="r_a3877a0acb4faf828853f0ed56e52a50d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a3877a0acb4faf828853f0ed56e52a50d">SetShowLights</a> (bool show)</td></tr>
-<tr class="separator:a3877a0acb4faf828853f0ed56e52a50d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a572e690e5d9b15903f72e2aed3e0a785" id="r_a572e690e5d9b15903f72e2aed3e0a785"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a572e690e5d9b15903f72e2aed3e0a785">ShouldUpdateGame</a> ()</td></tr>
-<tr class="separator:a572e690e5d9b15903f72e2aed3e0a785"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a8e2bcb17a361f26f1b2cee07a97d3c" id="r_a4a8e2bcb17a361f26f1b2cee07a97d3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817">GizmoMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a4a8e2bcb17a361f26f1b2cee07a97d3c">GetGizmoMode</a> () const</td></tr>
-<tr class="separator:a4a8e2bcb17a361f26f1b2cee07a97d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3390d42156d33b9f6a5a04be298f9727" id="r_a3390d42156d33b9f6a5a04be298f9727"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a3390d42156d33b9f6a5a04be298f9727">SetGizmoMode</a> (<a class="el" href="InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817">GizmoMode</a> mode)</td></tr>
-<tr class="separator:a3390d42156d33b9f6a5a04be298f9727"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e19c2a6483ce99c5dd19b54311f4a16" id="r_a8e19c2a6483ce99c5dd19b54311f4a16"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a8e19c2a6483ce99c5dd19b54311f4a16">GetSelectedTagIndex</a> () const</td></tr>
-<tr class="separator:a8e19c2a6483ce99c5dd19b54311f4a16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d5cde43e0650c5c26c5835d81ae6a00" id="r_a4d5cde43e0650c5c26c5835d81ae6a00"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a4d5cde43e0650c5c26c5835d81ae6a00">GetSelectedObjectIndex</a> () const</td></tr>
-<tr class="separator:a4d5cde43e0650c5c26c5835d81ae6a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf8e5b4cee2bd608946bf31a556f8ccc" id="r_acf8e5b4cee2bd608946bf31a556f8ccc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#acf8e5b4cee2bd608946bf31a556f8ccc">SetSelectedObject</a> (int tagIdx, int objIdx)</td></tr>
-<tr class="separator:acf8e5b4cee2bd608946bf31a556f8ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f48f01fc6a864ffa282340617858d48" id="r_a5f48f01fc6a864ffa282340617858d48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a5f48f01fc6a864ffa282340617858d48">ClearSelection</a> ()</td></tr>
-<tr class="separator:a5f48f01fc6a864ffa282340617858d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36a157d8e8bd41e83fd44216d978fbfc" id="r_a36a157d8e8bd41e83fd44216d978fbfc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a36a157d8e8bd41e83fd44216d978fbfc">DrawGizmo</a> (<a class="el" href="structImDrawList.html">ImDrawList</a> *drawList, const <a class="el" href="structImVec2.html">ImVec2</a> &amp;vpPos, const <a class="el" href="structImVec2.html">ImVec2</a> &amp;vpSize)</td></tr>
-<tr class="separator:a36a157d8e8bd41e83fd44216d978fbfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa80763ce70e6ea0dd3bfcd38a35fc942" id="r_aa80763ce70e6ea0dd3bfcd38a35fc942"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#aa80763ce70e6ea0dd3bfcd38a35fc942">DrawColliders</a> (<a class="el" href="structImDrawList.html">ImDrawList</a> *drawList, const <a class="el" href="structImVec2.html">ImVec2</a> &amp;vpPos, const <a class="el" href="structImVec2.html">ImVec2</a> &amp;vpSize)</td></tr>
-<tr class="separator:aa80763ce70e6ea0dd3bfcd38a35fc942"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e56a528c4d520b47175dde86444a925" id="r_a5e56a528c4d520b47175dde86444a925"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a5e56a528c4d520b47175dde86444a925">DrawLights</a> (<a class="el" href="structImDrawList.html">ImDrawList</a> *drawList, const <a class="el" href="structImVec2.html">ImVec2</a> &amp;vpPos, const <a class="el" href="structImVec2.html">ImVec2</a> &amp;vpSize)</td></tr>
-<tr class="separator:a5e56a528c4d520b47175dde86444a925"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70e3b8ae5f6141df0238761bca8c9c9c" id="r_a70e3b8ae5f6141df0238761bca8c9c9c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a70e3b8ae5f6141df0238761bca8c9c9c">IsPrefabEditMode</a> () const</td></tr>
-<tr class="separator:a70e3b8ae5f6141df0238761bca8c9c9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6daa9156f64b12efe0e766de4e8051d2" id="r_a6daa9156f64b12efe0e766de4e8051d2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a6daa9156f64b12efe0e766de4e8051d2">GetEditingPrefabPath</a> () const</td></tr>
-<tr class="separator:a6daa9156f64b12efe0e766de4e8051d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d9790f0423476016d3dad785cac5c52" id="r_a1d9790f0423476016d3dad785cac5c52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a1d9790f0423476016d3dad785cac5c52">GetPrefabEditTarget</a> () const</td></tr>
-<tr class="separator:a1d9790f0423476016d3dad785cac5c52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbf9e781731aa2f68cb1a73549616780" id="r_afbf9e781731aa2f68cb1a73549616780"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#afbf9e781731aa2f68cb1a73549616780">OpenPrefabEditMode</a> (const std::string &amp;jsonPath)</td></tr>
-<tr class="separator:afbf9e781731aa2f68cb1a73549616780"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc9fcaf5e012e3ce9b2ae475c5f0e281" id="r_acc9fcaf5e012e3ce9b2ae475c5f0e281"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#acc9fcaf5e012e3ce9b2ae475c5f0e281">ClosePrefabEditMode</a> ()</td></tr>
-<tr class="separator:acc9fcaf5e012e3ce9b2ae475c5f0e281"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac707ab3cad0d06aecf856e43f30ba4b4" id="r_ac707ab3cad0d06aecf856e43f30ba4b4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#ac707ab3cad0d06aecf856e43f30ba4b4">SaveCurrentPrefab</a> ()</td></tr>
-<tr class="separator:ac707ab3cad0d06aecf856e43f30ba4b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7390b4558b44a9e96fcfb1125c544fc" id="r_ad7390b4558b44a9e96fcfb1125c544fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#ad7390b4558b44a9e96fcfb1125c544fc">SetStatusMessage</a> (const std::string &amp;msg, float duration=3.0f)</td></tr>
-<tr class="separator:ad7390b4558b44a9e96fcfb1125c544fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7b8c5d7cc17a5cd5fc261b151a1da07" id="r_af7b8c5d7cc17a5cd5fc261b151a1da07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7b8c5d7cc17a5cd5fc261b151a1da07">Draw</a> ()</td></tr>
+<tr class="memitem:a43fc4c1121b7092a2ac3cf1094a5e56d" id="r_a43fc4c1121b7092a2ac3cf1094a5e56d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43fc4c1121b7092a2ac3cf1094a5e56d">IsPaused</a> () const</td></tr>
+<tr class="memitem:a1e6b728be6e300a02b032d4c6493db8c" id="r_a1e6b728be6e300a02b032d4c6493db8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e6b728be6e300a02b032d4c6493db8c">SetPaused</a> (bool paused)</td></tr>
+<tr class="memitem:af76651761f17afdb470786d2cbaa3b07" id="r_af76651761f17afdb470786d2cbaa3b07"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af76651761f17afdb470786d2cbaa3b07">IsEditMode</a> () const</td></tr>
+<tr class="memitem:ad9c095d0f85a0882fc42c91bc502b5b2" id="r_ad9c095d0f85a0882fc42c91bc502b5b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9c095d0f85a0882fc42c91bc502b5b2">SetEditMode</a> (bool editMode)</td></tr>
+<tr class="memitem:a86769b90acd0ae7da92d783310284e07" id="r_a86769b90acd0ae7da92d783310284e07"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86769b90acd0ae7da92d783310284e07">ShouldShowColliders</a> () const</td></tr>
+<tr class="memitem:a3f68dfd483a570c48faee2a6b317f819" id="r_a3f68dfd483a570c48faee2a6b317f819"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f68dfd483a570c48faee2a6b317f819">SetShowColliders</a> (bool show)</td></tr>
+<tr class="memitem:a9018f7ce2bdeca9909db3d6c34284e29" id="r_a9018f7ce2bdeca9909db3d6c34284e29"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9018f7ce2bdeca9909db3d6c34284e29">ShouldShowLights</a> () const</td></tr>
+<tr class="memitem:a3877a0acb4faf828853f0ed56e52a50d" id="r_a3877a0acb4faf828853f0ed56e52a50d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3877a0acb4faf828853f0ed56e52a50d">SetShowLights</a> (bool show)</td></tr>
+<tr class="memitem:a572e690e5d9b15903f72e2aed3e0a785" id="r_a572e690e5d9b15903f72e2aed3e0a785"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a572e690e5d9b15903f72e2aed3e0a785">ShouldUpdateGame</a> ()</td></tr>
+<tr class="memitem:a4a8e2bcb17a361f26f1b2cee07a97d3c" id="r_a4a8e2bcb17a361f26f1b2cee07a97d3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817">GizmoMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a8e2bcb17a361f26f1b2cee07a97d3c">GetGizmoMode</a> () const</td></tr>
+<tr class="memitem:a3390d42156d33b9f6a5a04be298f9727" id="r_a3390d42156d33b9f6a5a04be298f9727"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3390d42156d33b9f6a5a04be298f9727">SetGizmoMode</a> (<a class="el" href="InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817">GizmoMode</a> mode)</td></tr>
+<tr class="memitem:a8e19c2a6483ce99c5dd19b54311f4a16" id="r_a8e19c2a6483ce99c5dd19b54311f4a16"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e19c2a6483ce99c5dd19b54311f4a16">GetSelectedTagIndex</a> () const</td></tr>
+<tr class="memitem:a4d5cde43e0650c5c26c5835d81ae6a00" id="r_a4d5cde43e0650c5c26c5835d81ae6a00"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d5cde43e0650c5c26c5835d81ae6a00">GetSelectedObjectIndex</a> () const</td></tr>
+<tr class="memitem:acf8e5b4cee2bd608946bf31a556f8ccc" id="r_acf8e5b4cee2bd608946bf31a556f8ccc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf8e5b4cee2bd608946bf31a556f8ccc">SetSelectedObject</a> (int tagIdx, int objIdx)</td></tr>
+<tr class="memitem:a5f48f01fc6a864ffa282340617858d48" id="r_a5f48f01fc6a864ffa282340617858d48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f48f01fc6a864ffa282340617858d48">ClearSelection</a> ()</td></tr>
+<tr class="memitem:a36a157d8e8bd41e83fd44216d978fbfc" id="r_a36a157d8e8bd41e83fd44216d978fbfc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36a157d8e8bd41e83fd44216d978fbfc">DrawGizmo</a> (<a class="el" href="structImDrawList.html">ImDrawList</a> *drawList, const <a class="el" href="structImVec2.html">ImVec2</a> &amp;vpPos, const <a class="el" href="structImVec2.html">ImVec2</a> &amp;vpSize)</td></tr>
+<tr class="memitem:aa80763ce70e6ea0dd3bfcd38a35fc942" id="r_aa80763ce70e6ea0dd3bfcd38a35fc942"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa80763ce70e6ea0dd3bfcd38a35fc942">DrawColliders</a> (<a class="el" href="structImDrawList.html">ImDrawList</a> *drawList, const <a class="el" href="structImVec2.html">ImVec2</a> &amp;vpPos, const <a class="el" href="structImVec2.html">ImVec2</a> &amp;vpSize)</td></tr>
+<tr class="memitem:a5e56a528c4d520b47175dde86444a925" id="r_a5e56a528c4d520b47175dde86444a925"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e56a528c4d520b47175dde86444a925">DrawLights</a> (<a class="el" href="structImDrawList.html">ImDrawList</a> *drawList, const <a class="el" href="structImVec2.html">ImVec2</a> &amp;vpPos, const <a class="el" href="structImVec2.html">ImVec2</a> &amp;vpSize)</td></tr>
+<tr class="memitem:a70e3b8ae5f6141df0238761bca8c9c9c" id="r_a70e3b8ae5f6141df0238761bca8c9c9c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70e3b8ae5f6141df0238761bca8c9c9c">IsPrefabEditMode</a> () const</td></tr>
+<tr class="memitem:a6daa9156f64b12efe0e766de4e8051d2" id="r_a6daa9156f64b12efe0e766de4e8051d2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6daa9156f64b12efe0e766de4e8051d2">GetEditingPrefabPath</a> () const</td></tr>
+<tr class="memitem:a1d9790f0423476016d3dad785cac5c52" id="r_a1d9790f0423476016d3dad785cac5c52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d9790f0423476016d3dad785cac5c52">GetPrefabEditTarget</a> () const</td></tr>
+<tr class="memitem:afbf9e781731aa2f68cb1a73549616780" id="r_afbf9e781731aa2f68cb1a73549616780"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afbf9e781731aa2f68cb1a73549616780">OpenPrefabEditMode</a> (const std::string &amp;jsonPath)</td></tr>
+<tr class="memitem:acc9fcaf5e012e3ce9b2ae475c5f0e281" id="r_acc9fcaf5e012e3ce9b2ae475c5f0e281"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc9fcaf5e012e3ce9b2ae475c5f0e281">ClosePrefabEditMode</a> ()</td></tr>
+<tr class="memitem:ac707ab3cad0d06aecf856e43f30ba4b4" id="r_ac707ab3cad0d06aecf856e43f30ba4b4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac707ab3cad0d06aecf856e43f30ba4b4">SaveCurrentPrefab</a> ()</td></tr>
+<tr class="memitem:ad7390b4558b44a9e96fcfb1125c544fc" id="r_ad7390b4558b44a9e96fcfb1125c544fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7390b4558b44a9e96fcfb1125c544fc">SetStatusMessage</a> (const std::string &amp;msg, float duration=3.0f)</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
-<tr class="memitem:abce0acbca04254ac1d87a98791609f9b" id="r_abce0acbca04254ac1d87a98791609f9b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCInspectorUI.html">CInspectorUI</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#abce0acbca04254ac1d87a98791609f9b">GetInstance</a> ()</td></tr>
-<tr class="separator:abce0acbca04254ac1d87a98791609f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abce0acbca04254ac1d87a98791609f9b" id="r_abce0acbca04254ac1d87a98791609f9b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCInspectorUI.html">CInspectorUI</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abce0acbca04254ac1d87a98791609f9b">GetInstance</a> ()</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 非公開メンバ関数</h2></td></tr>
-<tr class="memitem:ab74fc42707722a37e0cd56bf31580ac0" id="r_ab74fc42707722a37e0cd56bf31580ac0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#ab74fc42707722a37e0cd56bf31580ac0">CInspectorUI</a> ()=default</td></tr>
-<tr class="separator:ab74fc42707722a37e0cd56bf31580ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa27f09d44d76e8746c3fe3d9db38f3b9" id="r_aa27f09d44d76e8746c3fe3d9db38f3b9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#aa27f09d44d76e8746c3fe3d9db38f3b9">~CInspectorUI</a> ()=default</td></tr>
-<tr class="separator:aa27f09d44d76e8746c3fe3d9db38f3b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86c57ca461d07085228b90006057b65f" id="r_a86c57ca461d07085228b90006057b65f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a86c57ca461d07085228b90006057b65f">CInspectorUI</a> (const <a class="el" href="classCInspectorUI.html">CInspectorUI</a> &amp;)=delete</td></tr>
-<tr class="separator:a86c57ca461d07085228b90006057b65f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e3fa7faed8724dd5271568c4de02da0" id="r_a5e3fa7faed8724dd5271568c4de02da0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCInspectorUI.html">CInspectorUI</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a5e3fa7faed8724dd5271568c4de02da0">operator=</a> (const <a class="el" href="classCInspectorUI.html">CInspectorUI</a> &amp;)=delete</td></tr>
-<tr class="separator:a5e3fa7faed8724dd5271568c4de02da0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab74fc42707722a37e0cd56bf31580ac0" id="r_ab74fc42707722a37e0cd56bf31580ac0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab74fc42707722a37e0cd56bf31580ac0">CInspectorUI</a> ()=default</td></tr>
+<tr class="memitem:aa27f09d44d76e8746c3fe3d9db38f3b9" id="r_aa27f09d44d76e8746c3fe3d9db38f3b9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa27f09d44d76e8746c3fe3d9db38f3b9">~CInspectorUI</a> ()=default</td></tr>
+<tr class="memitem:a86c57ca461d07085228b90006057b65f" id="r_a86c57ca461d07085228b90006057b65f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86c57ca461d07085228b90006057b65f">CInspectorUI</a> (const <a class="el" href="classCInspectorUI.html">CInspectorUI</a> &amp;)=delete</td></tr>
+<tr class="memitem:a5e3fa7faed8724dd5271568c4de02da0" id="r_a5e3fa7faed8724dd5271568c4de02da0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCInspectorUI.html">CInspectorUI</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e3fa7faed8724dd5271568c4de02da0">operator=</a> (const <a class="el" href="classCInspectorUI.html">CInspectorUI</a> &amp;)=delete</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 非公開変数類</h2></td></tr>
-<tr class="memitem:af71d66f7cc158db5c82df199e08ba6da" id="r_af71d66f7cc158db5c82df199e08ba6da"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#af71d66f7cc158db5c82df199e08ba6da">m_selectedObjectIndex</a> = -1</td></tr>
-<tr class="separator:af71d66f7cc158db5c82df199e08ba6da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a247c691454fe46541d446e64dc0d0ab9" id="r_a247c691454fe46541d446e64dc0d0ab9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a247c691454fe46541d446e64dc0d0ab9">m_selectedTagIndex</a> = -1</td></tr>
-<tr class="separator:a247c691454fe46541d446e64dc0d0ab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb8abee3d709e4fc284f6db9eb4a1a57" id="r_abb8abee3d709e4fc284f6db9eb4a1a57"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#abb8abee3d709e4fc284f6db9eb4a1a57">m_shaderPathInput</a> [256] = &quot;Assets/<a class="el" href="classShader.html">Shader</a>/Wireframe.hlsl&quot;</td></tr>
-<tr class="separator:abb8abee3d709e4fc284f6db9eb4a1a57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afabc8f08af50dc8e6d09fac33e73b5e2" id="r_afabc8f08af50dc8e6d09fac33e73b5e2"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#afabc8f08af50dc8e6d09fac33e73b5e2">m_sceneJsonPath</a> [256] = &quot;Assets/Scene/SceneTest.json&quot;</td></tr>
-<tr class="separator:afabc8f08af50dc8e6d09fac33e73b5e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7b96a8abbbb09057c8f476c396c79aa" id="r_af7b96a8abbbb09057c8f476c396c79aa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#af7b96a8abbbb09057c8f476c396c79aa">m_showColliders</a> = true</td></tr>
-<tr class="separator:af7b96a8abbbb09057c8f476c396c79aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4492ffaab81a482f7742c2980567738d" id="r_a4492ffaab81a482f7742c2980567738d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a4492ffaab81a482f7742c2980567738d">m_showLights</a> = true</td></tr>
-<tr class="separator:a4492ffaab81a482f7742c2980567738d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a698703b0d55366f02150e087a4b980f2" id="r_a698703b0d55366f02150e087a4b980f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817">GizmoMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a698703b0d55366f02150e087a4b980f2">m_gizmoMode</a> = <a class="el" href="InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817adeccbe4e9083c3b5f7cd2632722765bb">GizmoMode::Translate</a></td></tr>
-<tr class="separator:a698703b0d55366f02150e087a4b980f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7582091f05f4350e2de314fc36fe24cb" id="r_a7582091f05f4350e2de314fc36fe24cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a7582091f05f4350e2de314fc36fe24cb">m_isEditMode</a> = false</td></tr>
-<tr class="separator:a7582091f05f4350e2de314fc36fe24cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16cc5a3fdbe7fa242ceac06c22459767" id="r_a16cc5a3fdbe7fa242ceac06c22459767"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a16cc5a3fdbe7fa242ceac06c22459767">m_isPaused</a> = false</td></tr>
-<tr class="separator:a16cc5a3fdbe7fa242ceac06c22459767"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7004b4ca88e519853064b1577156ae7c" id="r_a7004b4ca88e519853064b1577156ae7c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a7004b4ca88e519853064b1577156ae7c">m_stepNextFrame</a> = false</td></tr>
-<tr class="separator:a7004b4ca88e519853064b1577156ae7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff39dcf6a8aec9fcd5c5c57021758377" id="r_aff39dcf6a8aec9fcd5c5c57021758377"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#aff39dcf6a8aec9fcd5c5c57021758377">m_timeScale</a> = 1.0f</td></tr>
-<tr class="separator:aff39dcf6a8aec9fcd5c5c57021758377"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e35b2f4b8d87c604ecedfe74cdfebae" id="r_a0e35b2f4b8d87c604ecedfe74cdfebae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a0e35b2f4b8d87c604ecedfe74cdfebae">m_isPrefabEditMode</a> = false</td></tr>
-<tr class="separator:a0e35b2f4b8d87c604ecedfe74cdfebae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86a0f885bff073058900b7c7cca35658" id="r_a86a0f885bff073058900b7c7cca35658"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a86a0f885bff073058900b7c7cca35658">m_editingPrefabPath</a> = &quot;&quot;</td></tr>
-<tr class="separator:a86a0f885bff073058900b7c7cca35658"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfda704c19894efffc5707ec47ba1718" id="r_abfda704c19894efffc5707ec47ba1718"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classCObject.html">CObject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#abfda704c19894efffc5707ec47ba1718">m_prefabEditTarget</a> = nullptr</td></tr>
-<tr class="separator:abfda704c19894efffc5707ec47ba1718"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59e872a8b0272db97e4b45696b3e1941" id="r_a59e872a8b0272db97e4b45696b3e1941"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a59e872a8b0272db97e4b45696b3e1941">m_statusMessage</a> = &quot;&quot;</td></tr>
-<tr class="separator:a59e872a8b0272db97e4b45696b3e1941"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a544dde6c9edf42adad21cd528136c665" id="r_a544dde6c9edf42adad21cd528136c665"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a544dde6c9edf42adad21cd528136c665">m_statusTimer</a> = 0.0f</td></tr>
-<tr class="separator:a544dde6c9edf42adad21cd528136c665"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab552a7a59897595e79c58f6920c585ea" id="r_ab552a7a59897595e79c58f6920c585ea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#ab552a7a59897595e79c58f6920c585ea">m_isDraggingGizmo</a> = false</td></tr>
-<tr class="separator:ab552a7a59897595e79c58f6920c585ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abab67c24fe57c11369aa17a9b0126118" id="r_abab67c24fe57c11369aa17a9b0126118"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#abab67c24fe57c11369aa17a9b0126118">m_draggedAxis</a> = -1</td></tr>
-<tr class="separator:abab67c24fe57c11369aa17a9b0126118"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66f9503190181ad03e309665fbb05c8e" id="r_a66f9503190181ad03e309665fbb05c8e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a66f9503190181ad03e309665fbb05c8e">m_dragStartMouseX</a> = 0.0f</td></tr>
-<tr class="separator:a66f9503190181ad03e309665fbb05c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9eef98dff73abe28e8ce47171213d2b" id="r_ad9eef98dff73abe28e8ce47171213d2b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#ad9eef98dff73abe28e8ce47171213d2b">m_dragStartMouseY</a> = 0.0f</td></tr>
-<tr class="separator:ad9eef98dff73abe28e8ce47171213d2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa34c1d8053cdd9055d8e97650d99c7f3" id="r_aa34c1d8053cdd9055d8e97650d99c7f3"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#aa34c1d8053cdd9055d8e97650d99c7f3">m_dragStartVal</a> { 0.0f, 0.0f, 0.0f }</td></tr>
-<tr class="separator:aa34c1d8053cdd9055d8e97650d99c7f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a598cc99df44e62e5dfe00f0660d2f8ae" id="r_a598cc99df44e62e5dfe00f0660d2f8ae"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#a598cc99df44e62e5dfe00f0660d2f8ae">m_dragStartPos</a> { 0.0f, 0.0f, 0.0f }</td></tr>
-<tr class="separator:a598cc99df44e62e5dfe00f0660d2f8ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf3613d22101f1fb48f2f8277b54813b" id="r_abf3613d22101f1fb48f2f8277b54813b"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#abf3613d22101f1fb48f2f8277b54813b">m_dragStartRot</a> { 0.0f, 0.0f, 0.0f }</td></tr>
-<tr class="separator:abf3613d22101f1fb48f2f8277b54813b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa842d40b3426bf597d4c20e1dcbda5cb" id="r_aa842d40b3426bf597d4c20e1dcbda5cb"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCInspectorUI.html#aa842d40b3426bf597d4c20e1dcbda5cb">m_dragStartScale</a> { 1.0f, 1.0f, 1.0f }</td></tr>
-<tr class="separator:aa842d40b3426bf597d4c20e1dcbda5cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af71d66f7cc158db5c82df199e08ba6da" id="r_af71d66f7cc158db5c82df199e08ba6da"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af71d66f7cc158db5c82df199e08ba6da">m_selectedObjectIndex</a> = -1</td></tr>
+<tr class="memitem:a247c691454fe46541d446e64dc0d0ab9" id="r_a247c691454fe46541d446e64dc0d0ab9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a247c691454fe46541d446e64dc0d0ab9">m_selectedTagIndex</a> = -1</td></tr>
+<tr class="memitem:abb8abee3d709e4fc284f6db9eb4a1a57" id="r_abb8abee3d709e4fc284f6db9eb4a1a57"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb8abee3d709e4fc284f6db9eb4a1a57">m_shaderPathInput</a> [256] = &quot;Assets/<a class="el" href="classShader.html">Shader</a>/Wireframe.hlsl&quot;</td></tr>
+<tr class="memitem:afabc8f08af50dc8e6d09fac33e73b5e2" id="r_afabc8f08af50dc8e6d09fac33e73b5e2"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afabc8f08af50dc8e6d09fac33e73b5e2">m_sceneJsonPath</a> [256] = &quot;Assets/Scene/SceneTest.json&quot;</td></tr>
+<tr class="memitem:af7b96a8abbbb09057c8f476c396c79aa" id="r_af7b96a8abbbb09057c8f476c396c79aa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7b96a8abbbb09057c8f476c396c79aa">m_showColliders</a> = true</td></tr>
+<tr class="memitem:a4492ffaab81a482f7742c2980567738d" id="r_a4492ffaab81a482f7742c2980567738d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4492ffaab81a482f7742c2980567738d">m_showLights</a> = true</td></tr>
+<tr class="memitem:a698703b0d55366f02150e087a4b980f2" id="r_a698703b0d55366f02150e087a4b980f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817">GizmoMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a698703b0d55366f02150e087a4b980f2">m_gizmoMode</a> = <a class="el" href="InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817adeccbe4e9083c3b5f7cd2632722765bb">GizmoMode::Translate</a></td></tr>
+<tr class="memitem:a7582091f05f4350e2de314fc36fe24cb" id="r_a7582091f05f4350e2de314fc36fe24cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7582091f05f4350e2de314fc36fe24cb">m_isEditMode</a> = false</td></tr>
+<tr class="memitem:a16cc5a3fdbe7fa242ceac06c22459767" id="r_a16cc5a3fdbe7fa242ceac06c22459767"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16cc5a3fdbe7fa242ceac06c22459767">m_isPaused</a> = false</td></tr>
+<tr class="memitem:a7004b4ca88e519853064b1577156ae7c" id="r_a7004b4ca88e519853064b1577156ae7c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7004b4ca88e519853064b1577156ae7c">m_stepNextFrame</a> = false</td></tr>
+<tr class="memitem:aff39dcf6a8aec9fcd5c5c57021758377" id="r_aff39dcf6a8aec9fcd5c5c57021758377"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff39dcf6a8aec9fcd5c5c57021758377">m_timeScale</a> = 1.0f</td></tr>
+<tr class="memitem:a0e35b2f4b8d87c604ecedfe74cdfebae" id="r_a0e35b2f4b8d87c604ecedfe74cdfebae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e35b2f4b8d87c604ecedfe74cdfebae">m_isPrefabEditMode</a> = false</td></tr>
+<tr class="memitem:a86a0f885bff073058900b7c7cca35658" id="r_a86a0f885bff073058900b7c7cca35658"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86a0f885bff073058900b7c7cca35658">m_editingPrefabPath</a> = &quot;&quot;</td></tr>
+<tr class="memitem:abfda704c19894efffc5707ec47ba1718" id="r_abfda704c19894efffc5707ec47ba1718"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classCObject.html">CObject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfda704c19894efffc5707ec47ba1718">m_prefabEditTarget</a> = nullptr</td></tr>
+<tr class="memitem:a59e872a8b0272db97e4b45696b3e1941" id="r_a59e872a8b0272db97e4b45696b3e1941"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59e872a8b0272db97e4b45696b3e1941">m_statusMessage</a> = &quot;&quot;</td></tr>
+<tr class="memitem:a544dde6c9edf42adad21cd528136c665" id="r_a544dde6c9edf42adad21cd528136c665"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a544dde6c9edf42adad21cd528136c665">m_statusTimer</a> = 0.0f</td></tr>
+<tr class="memitem:ab552a7a59897595e79c58f6920c585ea" id="r_ab552a7a59897595e79c58f6920c585ea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab552a7a59897595e79c58f6920c585ea">m_isDraggingGizmo</a> = false</td></tr>
+<tr class="memitem:abab67c24fe57c11369aa17a9b0126118" id="r_abab67c24fe57c11369aa17a9b0126118"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abab67c24fe57c11369aa17a9b0126118">m_draggedAxis</a> = -1</td></tr>
+<tr class="memitem:a66f9503190181ad03e309665fbb05c8e" id="r_a66f9503190181ad03e309665fbb05c8e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66f9503190181ad03e309665fbb05c8e">m_dragStartMouseX</a> = 0.0f</td></tr>
+<tr class="memitem:ad9eef98dff73abe28e8ce47171213d2b" id="r_ad9eef98dff73abe28e8ce47171213d2b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9eef98dff73abe28e8ce47171213d2b">m_dragStartMouseY</a> = 0.0f</td></tr>
+<tr class="memitem:aa34c1d8053cdd9055d8e97650d99c7f3" id="r_aa34c1d8053cdd9055d8e97650d99c7f3"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa34c1d8053cdd9055d8e97650d99c7f3">m_dragStartVal</a> { 0.0f, 0.0f, 0.0f }</td></tr>
+<tr class="memitem:a598cc99df44e62e5dfe00f0660d2f8ae" id="r_a598cc99df44e62e5dfe00f0660d2f8ae"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a598cc99df44e62e5dfe00f0660d2f8ae">m_dragStartPos</a> { 0.0f, 0.0f, 0.0f }</td></tr>
+<tr class="memitem:abf3613d22101f1fb48f2f8277b54813b" id="r_abf3613d22101f1fb48f2f8277b54813b"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf3613d22101f1fb48f2f8277b54813b">m_dragStartRot</a> { 0.0f, 0.0f, 0.0f }</td></tr>
+<tr class="memitem:aa842d40b3426bf597d4c20e1dcbda5cb" id="r_aa842d40b3426bf597d4c20e1dcbda5cb"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa842d40b3426bf597d4c20e1dcbda5cb">m_dragStartScale</a> { 1.0f, 1.0f, 1.0f }</td></tr>
 </table>
-<h2 class="groupheader">構築子と解体子</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">構築子と解体子</h2>
 <a id="ab74fc42707722a37e0cd56bf31580ac0" name="ab74fc42707722a37e0cd56bf31580ac0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab74fc42707722a37e0cd56bf31580ac0">&#9670;&#160;</a></span>CInspectorUI() <span class="overload">[1/2]</span></h2>
 
@@ -237,16 +175,21 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">CInspectorUI::CInspectorUI </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_ab74fc42707722a37e0cd56bf31580ac0_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -262,13 +205,13 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">CInspectorUI::~CInspectorUI </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -287,21 +230,25 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">CInspectorUI::CInspectorUI </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classCInspectorUI.html">CInspectorUI</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classCInspectorUI.html">CInspectorUI</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_a86c57ca461d07085228b90006057b65f_cgraph.svg" width="450" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="a5f48f01fc6a864ffa282340617858d48" name="a5f48f01fc6a864ffa282340617858d48"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5f48f01fc6a864ffa282340617858d48">&#9670;&#160;</a></span>ClearSelection()</h2>
 
@@ -314,20 +261,20 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">void CInspectorUI::ClearSelection </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_a5f48f01fc6a864ffa282340617858d48_icgraph.svg" width="100%" height="494"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_a5f48f01fc6a864ffa282340617858d48_icgraph.svg" width="100%" height="502"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -341,7 +288,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">void CInspectorUI::ClosePrefabEditMode </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -349,7 +296,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_acc9fcaf5e012e3ce9b2ae475c5f0e281_icgraph.svg" width="548" height="138"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_acc9fcaf5e012e3ce9b2ae475c5f0e281_icgraph.svg" width="547" height="140"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -363,7 +310,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">void CInspectorUI::Draw </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -371,7 +318,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_af7b8c5d7cc17a5cd5fc261b151a1da07_icgraph.svg" width="284" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_af7b8c5d7cc17a5cd5fc261b151a1da07_icgraph.svg" width="284" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -385,37 +332,29 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">void CInspectorUI::DrawColliders </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structImDrawList.html">ImDrawList</a> *&#160;</td>
-          <td class="paramname"><em>drawList</em>, </td>
+          <td class="paramtype"><a class="el" href="structImDrawList.html">ImDrawList</a> *</td>          <td class="paramname"><span class="paramname"><em>drawList</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> &amp;&#160;</td>
-          <td class="paramname"><em>vpPos</em>, </td>
+          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>vpPos</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> &amp;&#160;</td>
-          <td class="paramname"><em>vpSize</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>vpSize</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_aa80763ce70e6ea0dd3bfcd38a35fc942_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_aa80763ce70e6ea0dd3bfcd38a35fc942_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_aa80763ce70e6ea0dd3bfcd38a35fc942_icgraph.svg" width="536" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_aa80763ce70e6ea0dd3bfcd38a35fc942_icgraph.svg" width="535" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -429,37 +368,29 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">void CInspectorUI::DrawGizmo </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structImDrawList.html">ImDrawList</a> *&#160;</td>
-          <td class="paramname"><em>drawList</em>, </td>
+          <td class="paramtype"><a class="el" href="structImDrawList.html">ImDrawList</a> *</td>          <td class="paramname"><span class="paramname"><em>drawList</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> &amp;&#160;</td>
-          <td class="paramname"><em>vpPos</em>, </td>
+          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>vpPos</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> &amp;&#160;</td>
-          <td class="paramname"><em>vpSize</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>vpSize</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_a36a157d8e8bd41e83fd44216d978fbfc_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_a36a157d8e8bd41e83fd44216d978fbfc_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_a36a157d8e8bd41e83fd44216d978fbfc_icgraph.svg" width="522" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_a36a157d8e8bd41e83fd44216d978fbfc_icgraph.svg" width="520" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -473,37 +404,29 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">void CInspectorUI::DrawLights </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structImDrawList.html">ImDrawList</a> *&#160;</td>
-          <td class="paramname"><em>drawList</em>, </td>
+          <td class="paramtype"><a class="el" href="structImDrawList.html">ImDrawList</a> *</td>          <td class="paramname"><span class="paramname"><em>drawList</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> &amp;&#160;</td>
-          <td class="paramname"><em>vpPos</em>, </td>
+          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>vpPos</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> &amp;&#160;</td>
-          <td class="paramname"><em>vpSize</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>vpSize</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_a5e56a528c4d520b47175dde86444a925_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_a5e56a528c4d520b47175dde86444a925_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_a5e56a528c4d520b47175dde86444a925_icgraph.svg" width="519" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_a5e56a528c4d520b47175dde86444a925_icgraph.svg" width="518" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -520,20 +443,20 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">std::string CInspectorUI::GetEditingPrefabPath </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_a6daa9156f64b12efe0e766de4e8051d2_icgraph.svg" width="539" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_a6daa9156f64b12efe0e766de4e8051d2_icgraph.svg" width="538" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -550,20 +473,20 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname"><a class="el" href="InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817">GizmoMode</a> CInspectorUI::GetGizmoMode </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_a4a8e2bcb17a361f26f1b2cee07a97d3c_icgraph.svg" width="572" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_a4a8e2bcb17a361f26f1b2cee07a97d3c_icgraph.svg" width="570" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -578,22 +501,27 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="classCInspectorUI.html">CInspectorUI</a> &amp; CInspectorUI::GetInstance </td>
+          <td class="memname"><a class="el" href="classCInspectorUI.html">CInspectorUI</a> &amp; CInspectorUI::GetInstance </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_abce0acbca04254ac1d87a98791609f9b_cgraph.svg" width="444" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_abce0acbca04254ac1d87a98791609f9b_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_abce0acbca04254ac1d87a98791609f9b_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -610,20 +538,20 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname"><a class="el" href="classCObject.html">CObject</a> * CInspectorUI::GetPrefabEditTarget </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_a1d9790f0423476016d3dad785cac5c52_icgraph.svg" width="555" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_a1d9790f0423476016d3dad785cac5c52_icgraph.svg" width="554" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -640,20 +568,20 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">int CInspectorUI::GetSelectedObjectIndex </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_a4d5cde43e0650c5c26c5835d81ae6a00_icgraph.svg" width="100%" height="475"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_a4d5cde43e0650c5c26c5835d81ae6a00_icgraph.svg" width="100%" height="485"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -670,20 +598,20 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">int CInspectorUI::GetSelectedTagIndex </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_a8e19c2a6483ce99c5dd19b54311f4a16_icgraph.svg" width="100%" height="475"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_a8e19c2a6483ce99c5dd19b54311f4a16_icgraph.svg" width="100%" height="485"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -700,20 +628,20 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">bool CInspectorUI::IsEditMode </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_af76651761f17afdb470786d2cbaa3b07_icgraph.svg" width="574" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_af76651761f17afdb470786d2cbaa3b07_icgraph.svg" width="572" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -730,20 +658,20 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">bool CInspectorUI::IsPaused </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_a43fc4c1121b7092a2ac3cf1094a5e56d_icgraph.svg" width="432" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_a43fc4c1121b7092a2ac3cf1094a5e56d_icgraph.svg" width="431" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -760,20 +688,20 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">bool CInspectorUI::IsPrefabEditMode </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_a70e3b8ae5f6141df0238761bca8c9c9c_icgraph.svg" width="615" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_a70e3b8ae5f6141df0238761bca8c9c9c_icgraph.svg" width="614" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -787,8 +715,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">void CInspectorUI::OpenPrefabEditMode </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>jsonPath</em></td><td>)</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>jsonPath</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -796,12 +723,12 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_afbf9e781731aa2f68cb1a73549616780_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_afbf9e781731aa2f68cb1a73549616780_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_afbf9e781731aa2f68cb1a73549616780_icgraph.svg" width="560" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_afbf9e781731aa2f68cb1a73549616780_icgraph.svg" width="558" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -818,17 +745,21 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname"><a class="el" href="classCInspectorUI.html">CInspectorUI</a> &amp; CInspectorUI::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classCInspectorUI.html">CInspectorUI</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classCInspectorUI.html">CInspectorUI</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_a5e3fa7faed8724dd5271568c4de02da0_cgraph.svg" width="432" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -841,7 +772,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">bool CInspectorUI::SaveCurrentPrefab </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -849,12 +780,12 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_ac707ab3cad0d06aecf856e43f30ba4b4_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_ac707ab3cad0d06aecf856e43f30ba4b4_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_ac707ab3cad0d06aecf856e43f30ba4b4_icgraph.svg" width="551" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_ac707ab3cad0d06aecf856e43f30ba4b4_icgraph.svg" width="550" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -868,8 +799,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">void CInspectorUI::SetEditMode </td>
           <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>editMode</em></td><td>)</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>editMode</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -877,12 +807,12 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_ad9c095d0f85a0882fc42c91bc502b5b2_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_ad9c095d0f85a0882fc42c91bc502b5b2_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_ad9c095d0f85a0882fc42c91bc502b5b2_icgraph.svg" width="527" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_ad9c095d0f85a0882fc42c91bc502b5b2_icgraph.svg" width="526" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -899,21 +829,20 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">void CInspectorUI::SetGizmoMode </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817">GizmoMode</a>&#160;</td>
-          <td class="paramname"><em>mode</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817">GizmoMode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_a3390d42156d33b9f6a5a04be298f9727_icgraph.svg" width="570" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_a3390d42156d33b9f6a5a04be298f9727_icgraph.svg" width="568" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -930,14 +859,13 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">void CInspectorUI::SetPaused </td>
           <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>paused</em></td><td>)</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>paused</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -956,31 +884,24 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">void CInspectorUI::SetSelectedObject </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>tagIdx</em>, </td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>tagIdx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>objIdx</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>objIdx</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_acf8e5b4cee2bd608946bf31a556f8ccc_icgraph.svg" width="100%" height="442"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_acf8e5b4cee2bd608946bf31a556f8ccc_icgraph.svg" width="100%" height="450"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -997,14 +918,13 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">void CInspectorUI::SetShowColliders </td>
           <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>show</em></td><td>)</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>show</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1023,14 +943,13 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">void CInspectorUI::SetShowLights </td>
           <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>show</em></td><td>)</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>show</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1049,31 +968,24 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">void CInspectorUI::SetStatusMessage </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>msg</em>, </td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>msg</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>duration</em> = <code>3.0f</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>duration</em></span><span class="paramdefsep"> = </span><span class="paramdefval">3.0f</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCInspectorUI_ad7390b4558b44a9e96fcfb1125c544fc_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCInspectorUI_ad7390b4558b44a9e96fcfb1125c544fc_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1090,13 +1002,13 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">bool CInspectorUI::ShouldShowColliders </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1115,13 +1027,13 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">bool CInspectorUI::ShouldShowLights </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1137,7 +1049,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
         <tr>
           <td class="memname">bool CInspectorUI::ShouldUpdateGame </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1145,7 +1057,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
 
 </div>
 </div>
-<h2 class="groupheader">メンバ詳解</h2>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">メンバ詳解</h2>
 <a id="abab67c24fe57c11369aa17a9b0126118" name="abab67c24fe57c11369aa17a9b0126118"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abab67c24fe57c11369aa17a9b0126118">&#9670;&#160;</a></span>m_draggedAxis</h2>
 
@@ -1161,7 +1073,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1183,7 +1095,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1205,7 +1117,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1227,7 +1139,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1249,7 +1161,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1271,7 +1183,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1293,7 +1205,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1315,7 +1227,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1337,7 +1249,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1359,7 +1271,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1381,7 +1293,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1403,7 +1315,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1425,7 +1337,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1447,7 +1359,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1469,7 +1381,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1491,7 +1403,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1513,7 +1425,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1535,7 +1447,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1557,7 +1469,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1579,7 +1491,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1601,7 +1513,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1623,7 +1535,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1645,7 +1557,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1667,7 +1579,7 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1680,11 +1592,19 @@ $(document).ready(function(){initNavTree('classCInspectorUI.html',''); initResiz
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="classCInspectorUI.html">CInspectorUI</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="classCInspectorUI.html">CInspectorUI</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

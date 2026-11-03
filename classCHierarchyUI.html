@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: CHierarchyUI クラス</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classCHierarchyUI.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('classCHierarchyUI.html','','classCHierarchyUI-members'); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,51 +89,35 @@ $(document).ready(function(){initNavTree('classCHierarchyUI.html',''); initResiz
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
-<a href="#pri-methods">非公開メンバ関数</a> &#124;
-<a href="#pri-attribs">非公開変数類</a> &#124;
-<a href="classCHierarchyUI-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">CHierarchyUI クラス</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="HierarchyUI_8h_source.html">HierarchyUI.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:ab0523b0b45cb9b78a39ad62741893d55" id="r_ab0523b0b45cb9b78a39ad62741893d55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCHierarchyUI.html#ab0523b0b45cb9b78a39ad62741893d55">Draw</a> ()</td></tr>
-<tr class="separator:ab0523b0b45cb9b78a39ad62741893d55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af769ad2c8e9fa3d81331b9939da61235" id="r_af769ad2c8e9fa3d81331b9939da61235"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCHierarchyUI.html#af769ad2c8e9fa3d81331b9939da61235">IsVisible</a> () const</td></tr>
-<tr class="separator:af769ad2c8e9fa3d81331b9939da61235"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a004e69131cfcfd6eaa751232a1bcc50f" id="r_a004e69131cfcfd6eaa751232a1bcc50f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCHierarchyUI.html#a004e69131cfcfd6eaa751232a1bcc50f">SetVisible</a> (bool visible)</td></tr>
-<tr class="separator:a004e69131cfcfd6eaa751232a1bcc50f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0523b0b45cb9b78a39ad62741893d55" id="r_ab0523b0b45cb9b78a39ad62741893d55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0523b0b45cb9b78a39ad62741893d55">Draw</a> ()</td></tr>
+<tr class="memitem:af769ad2c8e9fa3d81331b9939da61235" id="r_af769ad2c8e9fa3d81331b9939da61235"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af769ad2c8e9fa3d81331b9939da61235">IsVisible</a> () const</td></tr>
+<tr class="memitem:a004e69131cfcfd6eaa751232a1bcc50f" id="r_a004e69131cfcfd6eaa751232a1bcc50f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a004e69131cfcfd6eaa751232a1bcc50f">SetVisible</a> (bool visible)</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
-<tr class="memitem:ac4acc0a71700049ac67915c79d4207cb" id="r_ac4acc0a71700049ac67915c79d4207cb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCHierarchyUI.html">CHierarchyUI</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCHierarchyUI.html#ac4acc0a71700049ac67915c79d4207cb">GetInstance</a> ()</td></tr>
-<tr class="separator:ac4acc0a71700049ac67915c79d4207cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4acc0a71700049ac67915c79d4207cb" id="r_ac4acc0a71700049ac67915c79d4207cb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCHierarchyUI.html">CHierarchyUI</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4acc0a71700049ac67915c79d4207cb">GetInstance</a> ()</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 非公開メンバ関数</h2></td></tr>
-<tr class="memitem:a5161542c605c4248da1d8b725a8499d7" id="r_a5161542c605c4248da1d8b725a8499d7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCHierarchyUI.html#a5161542c605c4248da1d8b725a8499d7">CHierarchyUI</a> ()=default</td></tr>
-<tr class="separator:a5161542c605c4248da1d8b725a8499d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0ed37396abefc7b0b8a8baf728c9ab0" id="r_ab0ed37396abefc7b0b8a8baf728c9ab0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCHierarchyUI.html#ab0ed37396abefc7b0b8a8baf728c9ab0">~CHierarchyUI</a> ()=default</td></tr>
-<tr class="separator:ab0ed37396abefc7b0b8a8baf728c9ab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5790d0ecc9d7899427d759e5dd645ad" id="r_af5790d0ecc9d7899427d759e5dd645ad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCHierarchyUI.html#af5790d0ecc9d7899427d759e5dd645ad">CHierarchyUI</a> (const <a class="el" href="classCHierarchyUI.html">CHierarchyUI</a> &amp;)=delete</td></tr>
-<tr class="separator:af5790d0ecc9d7899427d759e5dd645ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a68797eee816f2596a916634889e905" id="r_a6a68797eee816f2596a916634889e905"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCHierarchyUI.html">CHierarchyUI</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCHierarchyUI.html#a6a68797eee816f2596a916634889e905">operator=</a> (const <a class="el" href="classCHierarchyUI.html">CHierarchyUI</a> &amp;)=delete</td></tr>
-<tr class="separator:a6a68797eee816f2596a916634889e905"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49db0cf2a5a4a7b82467f1b20daae3e2" id="r_a49db0cf2a5a4a7b82467f1b20daae3e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCHierarchyUI.html#a49db0cf2a5a4a7b82467f1b20daae3e2">DrawObjectNode</a> (<a class="el" href="classCObject.html">CObject</a> *obj, int tagIdx, int objIdx, const std::unordered_map&lt; <a class="el" href="classCObject.html">CObject</a> *, std::pair&lt; int, int &gt; &gt; &amp;objIndexMap)</td></tr>
-<tr class="separator:a49db0cf2a5a4a7b82467f1b20daae3e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5161542c605c4248da1d8b725a8499d7" id="r_a5161542c605c4248da1d8b725a8499d7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5161542c605c4248da1d8b725a8499d7">CHierarchyUI</a> ()=default</td></tr>
+<tr class="memitem:ab0ed37396abefc7b0b8a8baf728c9ab0" id="r_ab0ed37396abefc7b0b8a8baf728c9ab0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0ed37396abefc7b0b8a8baf728c9ab0">~CHierarchyUI</a> ()=default</td></tr>
+<tr class="memitem:af5790d0ecc9d7899427d759e5dd645ad" id="r_af5790d0ecc9d7899427d759e5dd645ad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5790d0ecc9d7899427d759e5dd645ad">CHierarchyUI</a> (const <a class="el" href="classCHierarchyUI.html">CHierarchyUI</a> &amp;)=delete</td></tr>
+<tr class="memitem:a6a68797eee816f2596a916634889e905" id="r_a6a68797eee816f2596a916634889e905"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCHierarchyUI.html">CHierarchyUI</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a68797eee816f2596a916634889e905">operator=</a> (const <a class="el" href="classCHierarchyUI.html">CHierarchyUI</a> &amp;)=delete</td></tr>
+<tr class="memitem:a49db0cf2a5a4a7b82467f1b20daae3e2" id="r_a49db0cf2a5a4a7b82467f1b20daae3e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49db0cf2a5a4a7b82467f1b20daae3e2">DrawObjectNode</a> (<a class="el" href="classCObject.html">CObject</a> *obj, int tagIdx, int objIdx, const std::unordered_map&lt; <a class="el" href="classCObject.html">CObject</a> *, std::pair&lt; int, int &gt; &gt; &amp;objIndexMap)</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 非公開変数類</h2></td></tr>
-<tr class="memitem:a7cdee657251f990f9ca42b9e14c9f3d6" id="r_a7cdee657251f990f9ca42b9e14c9f3d6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCHierarchyUI.html#a7cdee657251f990f9ca42b9e14c9f3d6">m_isVisible</a> = true</td></tr>
-<tr class="separator:a7cdee657251f990f9ca42b9e14c9f3d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cdee657251f990f9ca42b9e14c9f3d6" id="r_a7cdee657251f990f9ca42b9e14c9f3d6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cdee657251f990f9ca42b9e14c9f3d6">m_isVisible</a> = true</td></tr>
 </table>
-<h2 class="groupheader">構築子と解体子</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">構築子と解体子</h2>
 <a id="a5161542c605c4248da1d8b725a8499d7" name="a5161542c605c4248da1d8b725a8499d7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5161542c605c4248da1d8b725a8499d7">&#9670;&#160;</a></span>CHierarchyUI() <span class="overload">[1/2]</span></h2>
 
@@ -147,16 +130,21 @@ $(document).ready(function(){initNavTree('classCHierarchyUI.html',''); initResiz
         <tr>
           <td class="memname">CHierarchyUI::CHierarchyUI </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCHierarchyUI_a5161542c605c4248da1d8b725a8499d7_icgraph.svg" width="588" height="143"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -172,13 +160,13 @@ $(document).ready(function(){initNavTree('classCHierarchyUI.html',''); initResiz
         <tr>
           <td class="memname">CHierarchyUI::~CHierarchyUI </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -197,21 +185,25 @@ $(document).ready(function(){initNavTree('classCHierarchyUI.html',''); initResiz
         <tr>
           <td class="memname">CHierarchyUI::CHierarchyUI </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classCHierarchyUI.html">CHierarchyUI</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classCHierarchyUI.html">CHierarchyUI</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCHierarchyUI_af5790d0ecc9d7899427d759e5dd645ad_cgraph.svg" width="462" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="ab0523b0b45cb9b78a39ad62741893d55" name="ab0523b0b45cb9b78a39ad62741893d55"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab0523b0b45cb9b78a39ad62741893d55">&#9670;&#160;</a></span>Draw()</h2>
 
@@ -221,7 +213,7 @@ $(document).ready(function(){initNavTree('classCHierarchyUI.html',''); initResiz
         <tr>
           <td class="memname">void CHierarchyUI::Draw </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -229,12 +221,12 @@ $(document).ready(function(){initNavTree('classCHierarchyUI.html',''); initResiz
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCHierarchyUI_ab0523b0b45cb9b78a39ad62741893d55_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCHierarchyUI_ab0523b0b45cb9b78a39ad62741893d55_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCHierarchyUI_ab0523b0b45cb9b78a39ad62741893d55_icgraph.svg" width="288" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCHierarchyUI_ab0523b0b45cb9b78a39ad62741893d55_icgraph.svg" width="287" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -251,48 +243,39 @@ $(document).ready(function(){initNavTree('classCHierarchyUI.html',''); initResiz
         <tr>
           <td class="memname">void CHierarchyUI::DrawObjectNode </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classCObject.html">CObject</a> *&#160;</td>
-          <td class="paramname"><em>obj</em>, </td>
+          <td class="paramtype"><a class="el" href="classCObject.html">CObject</a> *</td>          <td class="paramname"><span class="paramname"><em>obj</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>tagIdx</em>, </td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>tagIdx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>objIdx</em>, </td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>objIdx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::unordered_map&lt; <a class="el" href="classCObject.html">CObject</a> *, std::pair&lt; int, int &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>objIndexMap</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const std::unordered_map&lt; <a class="el" href="classCObject.html">CObject</a> *, std::pair&lt; int, int &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>objIndexMap</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCHierarchyUI_a49db0cf2a5a4a7b82467f1b20daae3e2_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCHierarchyUI_a49db0cf2a5a4a7b82467f1b20daae3e2_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCHierarchyUI_a49db0cf2a5a4a7b82467f1b20daae3e2_icgraph.svg" width="563" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCHierarchyUI_a49db0cf2a5a4a7b82467f1b20daae3e2_icgraph.svg" width="560" height="63"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -307,22 +290,27 @@ $(document).ready(function(){initNavTree('classCHierarchyUI.html',''); initResiz
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="classCHierarchyUI.html">CHierarchyUI</a> &amp; CHierarchyUI::GetInstance </td>
+          <td class="memname"><a class="el" href="classCHierarchyUI.html">CHierarchyUI</a> &amp; CHierarchyUI::GetInstance </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCHierarchyUI_ac4acc0a71700049ac67915c79d4207cb_cgraph.svg" width="454" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCHierarchyUI_ac4acc0a71700049ac67915c79d4207cb_icgraph.svg" width="332" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCHierarchyUI_ac4acc0a71700049ac67915c79d4207cb_icgraph.svg" width="331" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -339,13 +327,13 @@ $(document).ready(function(){initNavTree('classCHierarchyUI.html',''); initResiz
         <tr>
           <td class="memname">bool CHierarchyUI::IsVisible </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -364,17 +352,21 @@ $(document).ready(function(){initNavTree('classCHierarchyUI.html',''); initResiz
         <tr>
           <td class="memname"><a class="el" href="classCHierarchyUI.html">CHierarchyUI</a> &amp; CHierarchyUI::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classCHierarchyUI.html">CHierarchyUI</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classCHierarchyUI.html">CHierarchyUI</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCHierarchyUI_a6a68797eee816f2596a916634889e905_cgraph.svg" width="442" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -390,21 +382,20 @@ $(document).ready(function(){initNavTree('classCHierarchyUI.html',''); initResiz
         <tr>
           <td class="memname">void CHierarchyUI::SetVisible </td>
           <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>visible</em></td><td>)</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>visible</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">メンバ詳解</h2>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">メンバ詳解</h2>
 <a id="a7cdee657251f990f9ca42b9e14c9f3d6" name="a7cdee657251f990f9ca42b9e14c9f3d6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7cdee657251f990f9ca42b9e14c9f3d6">&#9670;&#160;</a></span>m_isVisible</h2>
 
@@ -420,7 +411,7 @@ $(document).ready(function(){initNavTree('classCHierarchyUI.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -433,11 +424,19 @@ $(document).ready(function(){initNavTree('classCHierarchyUI.html',''); initResiz
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="classCHierarchyUI.html">CHierarchyUI</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="classCHierarchyUI.html">CHierarchyUI</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

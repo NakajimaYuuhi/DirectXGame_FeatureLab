@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: Source/Engine/Component/Transform.h „ÇΩ„Éº„Çπ„Éï„Ç°„Ç§„É´</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,28 +35,22 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- ÊßãÁØâ: Doxygen 1.9.8 -->
+<!-- ÊßãÁØâ: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Ê§úÁ¥¢');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','Ê§úÁ¥¢',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function() { init_codefold(0); });
-/* @license-end */
-</script>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -68,10 +63,9 @@ $(document).ready(function() { init_codefold(0); });
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('Transform_8h_source.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('Transform_8h_source.html','',''); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -107,7 +101,7 @@ $(document).ready(function(){initNavTree('Transform_8h_source.html',''); initRes
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">//===== CTransform ÉNÉâÉXíËã` =====</span></div>
 <div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classCTransform.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="classCTransform.html">CTransform</a> : <span class="keyword">public</span> <a class="code hl_class" href="classCComponent.html">CComponent</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classCTransform.html">    9</a></span><span class="keyword">class </span><a class="code hl_function" href="classCTransform.html#a27c3b0a9b5f6a8ba184402931dc825e9">CTransform</a> : <span class="keyword">public</span> <a class="code hl_function" href="classCComponent.html#ab87a6940be69962c3f4f5a8552643245">CComponent</a></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="comment">// ----- ÉçÅ[ÉJÉãépê®ÅiëÄçÏëŒè€Åj -----</span></div>
@@ -125,12 +119,12 @@ $(document).ready(function(){initNavTree('Transform_8h_source.html',''); initRes
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classCTransform.html#a04ec04f14b74f25cfb763cccb28cd024">   24</a></span>    <span class="keyword">mutable</span> <span class="keywordtype">bool</span> <a class="code hl_variable" href="classCTransform.html#a04ec04f14b74f25cfb763cccb28cd024">m_isDirty</a> = <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="comment">// ----- ÉVÅ[ÉìÉOÉâÉtÅiäKëwç\ë¢Åj -----</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classCTransform.html#a68640e42cd246045e26f43385aa2fa2c">   27</a></span>    <a class="code hl_class" href="classCTransform.html">CTransform</a>* <a class="code hl_variable" href="classCTransform.html#a68640e42cd246045e26f43385aa2fa2c">m_parent</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classCTransform.html#a68640e42cd246045e26f43385aa2fa2c">   27</a></span>    <a class="code hl_function" href="classCTransform.html#a27c3b0a9b5f6a8ba184402931dc825e9">CTransform</a>* <a class="code hl_variable" href="classCTransform.html#a68640e42cd246045e26f43385aa2fa2c">m_parent</a> = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classCTransform.html#a94c7a15d091ab9ed29a77675e5199aec">   28</a></span>    std::vector&lt;CTransform*&gt; <a class="code hl_variable" href="classCTransform.html#a94c7a15d091ab9ed29a77675e5199aec">m_children</a>;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="comment">// ÉRÉìÉXÉgÉâÉNÉ^</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_define" href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> <a class="code hl_class" href="classCTransform.html">CTransform</a>(</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_define" href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> <a class="code hl_function" href="classCTransform.html#a27c3b0a9b5f6a8ba184402931dc825e9">CTransform</a>(</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        DirectX::XMFLOAT3 _Position = { 0.0f, 0.0f, 0.0f },</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        DirectX::XMFLOAT3 _Rotation = { 0.0f, 0.0f, 0.0f },</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        DirectX::XMFLOAT3 _Scale    = { 1.0f, 1.0f, 1.0f }</div>
@@ -142,8 +136,8 @@ $(document).ready(function(){initNavTree('Transform_8h_source.html',''); initRes
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="comment">// -------------------------------------------------------------</span></div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="comment">// êeéqä÷åWä«óù</span></div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="comment">// -------------------------------------------------------------</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_define" href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> <span class="keywordtype">void</span> <a class="code hl_function" href="classCTransform.html#ad2281381e42652d44326551256be922c">SetParent</a>(<a class="code hl_class" href="classCTransform.html">CTransform</a>* newParent, <span class="keywordtype">bool</span> keepWorldTransform = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classCTransform.html#aa0f27a02364f91665bfa47f83cc4931f">   45</a></span>    <a class="code hl_class" href="classCTransform.html">CTransform</a>* <a class="code hl_function" href="classCTransform.html#aa0f27a02364f91665bfa47f83cc4931f">GetParent</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCTransform.html#a68640e42cd246045e26f43385aa2fa2c">m_parent</a>; }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_define" href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> <span class="keywordtype">void</span> <a class="code hl_function" href="classCTransform.html#ad2281381e42652d44326551256be922c">SetParent</a>(<a class="code hl_function" href="classCTransform.html#a27c3b0a9b5f6a8ba184402931dc825e9">CTransform</a>* newParent, <span class="keywordtype">bool</span> keepWorldTransform = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classCTransform.html#aa0f27a02364f91665bfa47f83cc4931f">   45</a></span>    <a class="code hl_function" href="classCTransform.html#a27c3b0a9b5f6a8ba184402931dc825e9">CTransform</a>* <a class="code hl_function" href="classCTransform.html#aa0f27a02364f91665bfa47f83cc4931f">GetParent</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCTransform.html#a68640e42cd246045e26f43385aa2fa2c">m_parent</a>; }</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classCTransform.html#ab05697794de9796beb7a95938c11dfbe">   46</a></span>    <span class="keyword">const</span> std::vector&lt;CTransform*&gt;&amp; <a class="code hl_function" href="classCTransform.html#ab05697794de9796beb7a95938c11dfbe">GetChildren</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCTransform.html#a94c7a15d091ab9ed29a77675e5199aec">m_children</a>; }</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_define" href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> <span class="keywordtype">bool</span> <a class="code hl_function" href="classCTransform.html#a7b1a3a40f04ee1231087c771a5e9279d">IsChildOf</a>(<span class="keyword">const</span> <a class="code hl_class" href="classCTransform.html">CTransform</a>* potentialParent) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
@@ -217,15 +211,17 @@ $(document).ready(function(){initNavTree('Transform_8h_source.html',''); initRes
 </div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment">// ÉGÉCÉäÉAÉXíËã`</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="Transform_8h.html#ab0f997b3dc8bbf9c219de3bd3774677a">  116</a></span><span class="keyword">using </span><a class="code hl_class" href="classCTransform.html">TransformComponent</a> = <a class="code hl_class" href="classCTransform.html">CTransform</a>;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="Transform_8h.html#ab0f997b3dc8bbf9c219de3bd3774677a">  116</a></span><span class="keyword">using </span><a class="code hl_typedef" href="Transform_8h.html#ab0f997b3dc8bbf9c219de3bd3774677a">TransformComponent</a> = <a class="code hl_class" href="classCTransform.html">CTransform</a>;</div>
 <div class="ttc" id="aComponent_8h_html"><div class="ttname"><a href="Component_8h.html">Component.h</a></div></div>
 <div class="ttc" id="aEngineAPI_8h_html"><div class="ttname"><a href="EngineAPI_8h.html">EngineAPI.h</a></div></div>
 <div class="ttc" id="aEngineAPI_8h_html_a0697ee40f69dc5dab56d13131f4c4835"><div class="ttname"><a href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a></div><div class="ttdeci">#define ENGINE_API</div><div class="ttdef"><b>Definition</b> EngineAPI.h:6</div></div>
-<div class="ttc" id="aclassCComponent_html"><div class="ttname"><a href="classCComponent.html">CComponent</a></div><div class="ttdef"><b>Definition</b> Component.h:23</div></div>
+<div class="ttc" id="aTransform_8h_html_ab0f997b3dc8bbf9c219de3bd3774677a"><div class="ttname"><a href="Transform_8h.html#ab0f997b3dc8bbf9c219de3bd3774677a">TransformComponent</a></div><div class="ttdeci">CTransform TransformComponent</div><div class="ttdef"><b>Definition</b> Transform.h:116</div></div>
+<div class="ttc" id="aclassCComponent_html_ab87a6940be69962c3f4f5a8552643245"><div class="ttname"><a href="classCComponent.html#ab87a6940be69962c3f4f5a8552643245">CComponent::CComponent</a></div><div class="ttdeci">CComponent()</div><div class="ttdef"><b>Definition</b> Component.h:25</div></div>
 <div class="ttc" id="aclassCTransform_html"><div class="ttname"><a href="classCTransform.html">CTransform</a></div><div class="ttdef"><b>Definition</b> Transform.h:10</div></div>
 <div class="ttc" id="aclassCTransform_html_a04ec04f14b74f25cfb763cccb28cd024"><div class="ttname"><a href="classCTransform.html#a04ec04f14b74f25cfb763cccb28cd024">CTransform::m_isDirty</a></div><div class="ttdeci">bool m_isDirty</div><div class="ttdef"><b>Definition</b> Transform.h:24</div></div>
 <div class="ttc" id="aclassCTransform_html_a0650ad08b51c08848c5fef75c99649a7"><div class="ttname"><a href="classCTransform.html#a0650ad08b51c08848c5fef75c99649a7">CTransform::GetUVOffset</a></div><div class="ttdeci">DirectX::XMFLOAT2 GetUVOffset() const</div><div class="ttdef"><b>Definition</b> Transform.h:103</div></div>
 <div class="ttc" id="aclassCTransform_html_a06687007493a755bfc0ed8a4feef94fa"><div class="ttname"><a href="classCTransform.html#a06687007493a755bfc0ed8a4feef94fa">CTransform::SetLocalEulerAngles</a></div><div class="ttdeci">ENGINE_API void SetLocalEulerAngles(const DirectX::XMFLOAT3 &amp;eulerRadians)</div><div class="ttdef"><b>Definition</b> Transform.cpp:130</div></div>
+<div class="ttc" id="aclassCTransform_html_a27c3b0a9b5f6a8ba184402931dc825e9"><div class="ttname"><a href="classCTransform.html#a27c3b0a9b5f6a8ba184402931dc825e9">CTransform::CTransform</a></div><div class="ttdeci">ENGINE_API CTransform(DirectX::XMFLOAT3 _Position={ 0.0f, 0.0f, 0.0f }, DirectX::XMFLOAT3 _Rotation={ 0.0f, 0.0f, 0.0f }, DirectX::XMFLOAT3 _Scale={ 1.0f, 1.0f, 1.0f })</div><div class="ttdef"><b>Definition</b> Transform.cpp:6</div></div>
 <div class="ttc" id="aclassCTransform_html_a2db10b6634c983389d0956a5d63a6053"><div class="ttname"><a href="classCTransform.html#a2db10b6634c983389d0956a5d63a6053">CTransform::GetWorldMatrix</a></div><div class="ttdeci">ENGINE_API DirectX::XMMATRIX GetWorldMatrix() const</div><div class="ttdef"><b>Definition</b> Transform.cpp:206</div></div>
 <div class="ttc" id="aclassCTransform_html_a401289fd9be1c800387665c2ee833a95"><div class="ttname"><a href="classCTransform.html#a401289fd9be1c800387665c2ee833a95">CTransform::SetLocalRotation</a></div><div class="ttdeci">ENGINE_API void SetLocalRotation(const DirectX::XMFLOAT4 &amp;quat)</div><div class="ttdef"><b>Definition</b> Transform.cpp:155</div></div>
 <div class="ttc" id="aclassCTransform_html_a49beb153e0a585e5d6f74e663412b653"><div class="ttname"><a href="classCTransform.html#a49beb153e0a585e5d6f74e663412b653">CTransform::GetLocalEulerAnglesDegrees</a></div><div class="ttdeci">ENGINE_API DirectX::XMFLOAT3 GetLocalEulerAnglesDegrees() const</div><div class="ttdef"><b>Definition</b> Transform.cpp:146</div></div>
@@ -274,11 +270,12 @@ $(document).ready(function(){initNavTree('Transform_8h_source.html',''); initRes
 <div class="ttc" id="aclassCTransform_html_af3f6853e8f1ae7a0e6b39e185df775d0"><div class="ttname"><a href="classCTransform.html#af3f6853e8f1ae7a0e6b39e185df775d0">CTransform::SetDirty</a></div><div class="ttdeci">ENGINE_API void SetDirty() const</div><div class="ttdef"><b>Definition</b> Transform.cpp:168</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_5405398c23c020946029b9f4e6e04094.html">Engine</a></li><li class="navelem"><a class="el" href="dir_5f693e8ad8d60326c758affc3b922e76.html">Component</a></li><li class="navelem"><a class="el" href="Transform_8h.html">Transform.h</a></li>
-    <li class="footer">ÊßãÁØâ: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_5405398c23c020946029b9f4e6e04094.html">Engine</a></li><li class="navelem"><a href="dir_5f693e8ad8d60326c758affc3b922e76.html">Component</a></li><li class="navelem"><a href="Transform_8h.html">Transform.h</a></li>
+    <li class="footer">ÊßãÁØâ: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

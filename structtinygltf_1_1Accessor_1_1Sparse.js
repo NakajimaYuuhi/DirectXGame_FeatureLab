@@ -8,7 +8,7 @@ var structtinygltf_1_1Accessor_1_1Sparse =
     [ "extensions_json_string", "structtinygltf_1_1Accessor_1_1Sparse.html#acf687058e3742f759adad51b84ba8883", null ],
     [ "extras", "structtinygltf_1_1Accessor_1_1Sparse.html#a318a08a012a9ad03e49a5675a34a1a7e", null ],
     [ "extras_json_string", "structtinygltf_1_1Accessor_1_1Sparse.html#a643afd903291072e39af8a0ea35a703c", null ],
-    [ "indices", "structtinygltf_1_1Accessor_1_1Sparse.html#a08fbd26155c82a3695479572bc7f2277", null ],
+    [ "indices", "structtinygltf_1_1Accessor_1_1Sparse.html#ae424d2cfdec97c0b1d2d64080276ff9a", null ],
     [ "isSparse", "structtinygltf_1_1Accessor_1_1Sparse.html#a507344497715dd257733175b0a9eb2e7", null ],
-    [ "values", "structtinygltf_1_1Accessor_1_1Sparse.html#a7e074529581031f00ed3619905ee0d65", null ]
+    [ "values", "structtinygltf_1_1Accessor_1_1Sparse.html#a86edff0bd1a59bda48f46c19b6c10dea", null ]
 ];

@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: HotReloadManager クラス</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classHotReloadManager.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('classHotReloadManager.html','','classHotReloadManager-members'); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,125 +89,72 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
-<a href="#pri-methods">非公開メンバ関数</a> &#124;
-<a href="#pri-attribs">非公開変数類</a> &#124;
-<a href="classHotReloadManager-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">HotReloadManager クラス</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="HotReloadManager_8h_source.html">HotReloadManager.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:adf6c37c404282aa1446a528e6dd2b517" id="r_adf6c37c404282aa1446a528e6dd2b517"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#adf6c37c404282aa1446a528e6dd2b517">Initialize</a> ()</td></tr>
-<tr class="separator:adf6c37c404282aa1446a528e6dd2b517"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f5c819f12a3256ba66ca56c86217d76" id="r_a2f5c819f12a3256ba66ca56c86217d76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a2f5c819f12a3256ba66ca56c86217d76">Finalize</a> ()</td></tr>
-<tr class="separator:a2f5c819f12a3256ba66ca56c86217d76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a455dbeddbea141497032f0b361fbfed1" id="r_a455dbeddbea141497032f0b361fbfed1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a455dbeddbea141497032f0b361fbfed1">ProcessMainThreadTasks</a> (float deltaTime)</td></tr>
-<tr class="separator:a455dbeddbea141497032f0b361fbfed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4e96d29a2c1f303a4456607ad5d8347" id="r_ad4e96d29a2c1f303a4456607ad5d8347"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#ad4e96d29a2c1f303a4456607ad5d8347">CompileAndReloadGameLogicAsync</a> ()</td></tr>
-<tr class="separator:ad4e96d29a2c1f303a4456607ad5d8347"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade540605fc77c488cd9f7b53fc54965d" id="r_ade540605fc77c488cd9f7b53fc54965d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#ade540605fc77c488cd9f7b53fc54965d">IsCompilingGameLogic</a> () const</td></tr>
-<tr class="separator:ade540605fc77c488cd9f7b53fc54965d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc6e2247cde9b8e5f11240c4fb44a553" id="r_abc6e2247cde9b8e5f11240c4fb44a553"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#abc6e2247cde9b8e5f11240c4fb44a553">GetReloadVersion</a> () const</td></tr>
-<tr class="separator:abc6e2247cde9b8e5f11240c4fb44a553"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a44712756e200f07268c31be7a6b7f2" id="r_a8a44712756e200f07268c31be7a6b7f2"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a8a44712756e200f07268c31be7a6b7f2">GetCurrentLoadedDllName</a> () const</td></tr>
-<tr class="separator:a8a44712756e200f07268c31be7a6b7f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea98993cdbcd90a16c71be7965c59abc" id="r_aea98993cdbcd90a16c71be7965c59abc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#aea98993cdbcd90a16c71be7965c59abc">ReloadShadersAndPrefabs</a> (std::string *outMessage=nullptr)</td></tr>
-<tr class="separator:aea98993cdbcd90a16c71be7965c59abc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc9bc0e87f6d65cac5abc05f45d6624f" id="r_adc9bc0e87f6d65cac5abc05f45d6624f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#adc9bc0e87f6d65cac5abc05f45d6624f">IsAutoWatchShadersEnabled</a> () const</td></tr>
-<tr class="separator:adc9bc0e87f6d65cac5abc05f45d6624f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a980877d35626a25723c2e175c9d23e7e" id="r_a980877d35626a25723c2e175c9d23e7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a980877d35626a25723c2e175c9d23e7e">SetAutoWatchShadersEnabled</a> (bool enabled)</td></tr>
-<tr class="separator:a980877d35626a25723c2e175c9d23e7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33f0992839514d5d5d66263d83b75fe9" id="r_a33f0992839514d5d5d66263d83b75fe9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a33f0992839514d5d5d66263d83b75fe9">IsAutoWatchCppEnabled</a> () const</td></tr>
-<tr class="separator:a33f0992839514d5d5d66263d83b75fe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52a7ce875d807d0bad6b6749f571e6c8" id="r_a52a7ce875d807d0bad6b6749f571e6c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a52a7ce875d807d0bad6b6749f571e6c8">SetAutoWatchCppEnabled</a> (bool enabled)</td></tr>
-<tr class="separator:a52a7ce875d807d0bad6b6749f571e6c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade0dd15f43c2598082b7551bf38e8b5e" id="r_ade0dd15f43c2598082b7551bf38e8b5e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="HotReloadManager_8h.html#a336cc0958db7d22570ebaad84c8cd7b4">EditorPlayState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#ade0dd15f43c2598082b7551bf38e8b5e">GetPlayState</a> () const</td></tr>
-<tr class="separator:ade0dd15f43c2598082b7551bf38e8b5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab70b513d703620d64f416ef14064a65d" id="r_ab70b513d703620d64f416ef14064a65d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#ab70b513d703620d64f416ef14064a65d">ShouldUpdateGameLogic</a> () const</td></tr>
-<tr class="separator:ab70b513d703620d64f416ef14064a65d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61118a35544c631987e06970f933e1fd" id="r_a61118a35544c631987e06970f933e1fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a61118a35544c631987e06970f933e1fd">Play</a> ()</td></tr>
-<tr class="separator:a61118a35544c631987e06970f933e1fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a355881e70b607c01f63df10152577a12" id="r_a355881e70b607c01f63df10152577a12"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a355881e70b607c01f63df10152577a12">Pause</a> ()</td></tr>
-<tr class="separator:a355881e70b607c01f63df10152577a12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada06afa6ef7a95de23cf684a1dcfbe39" id="r_ada06afa6ef7a95de23cf684a1dcfbe39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#ada06afa6ef7a95de23cf684a1dcfbe39">StopAndRestoreSnapshot</a> ()</td></tr>
-<tr class="separator:ada06afa6ef7a95de23cf684a1dcfbe39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa17e0dee64803018ca2af15ad18f45a7" id="r_aa17e0dee64803018ca2af15ad18f45a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#aa17e0dee64803018ca2af15ad18f45a7">CaptureSceneSnapshot</a> ()</td></tr>
-<tr class="separator:aa17e0dee64803018ca2af15ad18f45a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acdee58386c1f9d5d35c1fc77893365e1" id="r_acdee58386c1f9d5d35c1fc77893365e1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#acdee58386c1f9d5d35c1fc77893365e1">HasSceneSnapshot</a> () const</td></tr>
-<tr class="separator:acdee58386c1f9d5d35c1fc77893365e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a998216f5b26f5a738d732c61b0518bd4" id="r_a998216f5b26f5a738d732c61b0518bd4"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a998216f5b26f5a738d732c61b0518bd4">GetLastStatusMessage</a> () const</td></tr>
-<tr class="separator:a998216f5b26f5a738d732c61b0518bd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9410baa5cf311e4d4e861fff3b2362fe" id="r_a9410baa5cf311e4d4e861fff3b2362fe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a9410baa5cf311e4d4e861fff3b2362fe">IsLastStatusError</a> () const</td></tr>
-<tr class="separator:a9410baa5cf311e4d4e861fff3b2362fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf6c37c404282aa1446a528e6dd2b517" id="r_adf6c37c404282aa1446a528e6dd2b517"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf6c37c404282aa1446a528e6dd2b517">Initialize</a> ()</td></tr>
+<tr class="memitem:a2f5c819f12a3256ba66ca56c86217d76" id="r_a2f5c819f12a3256ba66ca56c86217d76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f5c819f12a3256ba66ca56c86217d76">Finalize</a> ()</td></tr>
+<tr class="memitem:a455dbeddbea141497032f0b361fbfed1" id="r_a455dbeddbea141497032f0b361fbfed1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a455dbeddbea141497032f0b361fbfed1">ProcessMainThreadTasks</a> (float deltaTime)</td></tr>
+<tr class="memitem:ad4e96d29a2c1f303a4456607ad5d8347" id="r_ad4e96d29a2c1f303a4456607ad5d8347"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4e96d29a2c1f303a4456607ad5d8347">CompileAndReloadGameLogicAsync</a> ()</td></tr>
+<tr class="memitem:ade540605fc77c488cd9f7b53fc54965d" id="r_ade540605fc77c488cd9f7b53fc54965d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade540605fc77c488cd9f7b53fc54965d">IsCompilingGameLogic</a> () const</td></tr>
+<tr class="memitem:abc6e2247cde9b8e5f11240c4fb44a553" id="r_abc6e2247cde9b8e5f11240c4fb44a553"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc6e2247cde9b8e5f11240c4fb44a553">GetReloadVersion</a> () const</td></tr>
+<tr class="memitem:a8a44712756e200f07268c31be7a6b7f2" id="r_a8a44712756e200f07268c31be7a6b7f2"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a44712756e200f07268c31be7a6b7f2">GetCurrentLoadedDllName</a> () const</td></tr>
+<tr class="memitem:aea98993cdbcd90a16c71be7965c59abc" id="r_aea98993cdbcd90a16c71be7965c59abc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea98993cdbcd90a16c71be7965c59abc">ReloadShadersAndPrefabs</a> (std::string *outMessage=nullptr)</td></tr>
+<tr class="memitem:adc9bc0e87f6d65cac5abc05f45d6624f" id="r_adc9bc0e87f6d65cac5abc05f45d6624f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc9bc0e87f6d65cac5abc05f45d6624f">IsAutoWatchShadersEnabled</a> () const</td></tr>
+<tr class="memitem:a980877d35626a25723c2e175c9d23e7e" id="r_a980877d35626a25723c2e175c9d23e7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a980877d35626a25723c2e175c9d23e7e">SetAutoWatchShadersEnabled</a> (bool enabled)</td></tr>
+<tr class="memitem:a33f0992839514d5d5d66263d83b75fe9" id="r_a33f0992839514d5d5d66263d83b75fe9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33f0992839514d5d5d66263d83b75fe9">IsAutoWatchCppEnabled</a> () const</td></tr>
+<tr class="memitem:a52a7ce875d807d0bad6b6749f571e6c8" id="r_a52a7ce875d807d0bad6b6749f571e6c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52a7ce875d807d0bad6b6749f571e6c8">SetAutoWatchCppEnabled</a> (bool enabled)</td></tr>
+<tr class="memitem:ade0dd15f43c2598082b7551bf38e8b5e" id="r_ade0dd15f43c2598082b7551bf38e8b5e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="HotReloadManager_8h.html#a336cc0958db7d22570ebaad84c8cd7b4">EditorPlayState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade0dd15f43c2598082b7551bf38e8b5e">GetPlayState</a> () const</td></tr>
+<tr class="memitem:ab70b513d703620d64f416ef14064a65d" id="r_ab70b513d703620d64f416ef14064a65d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab70b513d703620d64f416ef14064a65d">ShouldUpdateGameLogic</a> () const</td></tr>
+<tr class="memitem:a61118a35544c631987e06970f933e1fd" id="r_a61118a35544c631987e06970f933e1fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61118a35544c631987e06970f933e1fd">Play</a> ()</td></tr>
+<tr class="memitem:a355881e70b607c01f63df10152577a12" id="r_a355881e70b607c01f63df10152577a12"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a355881e70b607c01f63df10152577a12">Pause</a> ()</td></tr>
+<tr class="memitem:ada06afa6ef7a95de23cf684a1dcfbe39" id="r_ada06afa6ef7a95de23cf684a1dcfbe39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada06afa6ef7a95de23cf684a1dcfbe39">StopAndRestoreSnapshot</a> ()</td></tr>
+<tr class="memitem:aa17e0dee64803018ca2af15ad18f45a7" id="r_aa17e0dee64803018ca2af15ad18f45a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa17e0dee64803018ca2af15ad18f45a7">CaptureSceneSnapshot</a> ()</td></tr>
+<tr class="memitem:acdee58386c1f9d5d35c1fc77893365e1" id="r_acdee58386c1f9d5d35c1fc77893365e1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acdee58386c1f9d5d35c1fc77893365e1">HasSceneSnapshot</a> () const</td></tr>
+<tr class="memitem:a998216f5b26f5a738d732c61b0518bd4" id="r_a998216f5b26f5a738d732c61b0518bd4"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a998216f5b26f5a738d732c61b0518bd4">GetLastStatusMessage</a> () const</td></tr>
+<tr class="memitem:a9410baa5cf311e4d4e861fff3b2362fe" id="r_a9410baa5cf311e4d4e861fff3b2362fe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9410baa5cf311e4d4e861fff3b2362fe">IsLastStatusError</a> () const</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
-<tr class="memitem:ace95f5a3d75da95f1d6b269e2bb1444e" id="r_ace95f5a3d75da95f1d6b269e2bb1444e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classHotReloadManager.html">HotReloadManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#ace95f5a3d75da95f1d6b269e2bb1444e">GetInstance</a> ()</td></tr>
-<tr class="separator:ace95f5a3d75da95f1d6b269e2bb1444e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace95f5a3d75da95f1d6b269e2bb1444e" id="r_ace95f5a3d75da95f1d6b269e2bb1444e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classHotReloadManager.html">HotReloadManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace95f5a3d75da95f1d6b269e2bb1444e">GetInstance</a> ()</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 非公開メンバ関数</h2></td></tr>
-<tr class="memitem:ac0ef3876c0719b8dd2fbb6ea5f6367db" id="r_ac0ef3876c0719b8dd2fbb6ea5f6367db"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#ac0ef3876c0719b8dd2fbb6ea5f6367db">HotReloadManager</a> ()=default</td></tr>
-<tr class="separator:ac0ef3876c0719b8dd2fbb6ea5f6367db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27eed1b03c015baffd5db836ad4c8e63" id="r_a27eed1b03c015baffd5db836ad4c8e63"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a27eed1b03c015baffd5db836ad4c8e63">~HotReloadManager</a> ()</td></tr>
-<tr class="separator:a27eed1b03c015baffd5db836ad4c8e63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3878e80e578e32c49b3a6bc6ca96db7" id="r_aa3878e80e578e32c49b3a6bc6ca96db7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#aa3878e80e578e32c49b3a6bc6ca96db7">HotReloadManager</a> (const <a class="el" href="classHotReloadManager.html">HotReloadManager</a> &amp;)=delete</td></tr>
-<tr class="separator:aa3878e80e578e32c49b3a6bc6ca96db7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1aa3f42bb1f134d76b79a799214fdc12" id="r_a1aa3f42bb1f134d76b79a799214fdc12"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classHotReloadManager.html">HotReloadManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a1aa3f42bb1f134d76b79a799214fdc12">operator=</a> (const <a class="el" href="classHotReloadManager.html">HotReloadManager</a> &amp;)=delete</td></tr>
-<tr class="separator:a1aa3f42bb1f134d76b79a799214fdc12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d666b3441ec0bc1449ffbc7bab0ad09" id="r_a8d666b3441ec0bc1449ffbc7bab0ad09"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a8d666b3441ec0bc1449ffbc7bab0ad09">FindVcVars64Path</a> () const</td></tr>
-<tr class="separator:a8d666b3441ec0bc1449ffbc7bab0ad09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f87a6320469725bb604886f39d61de8" id="r_a4f87a6320469725bb604886f39d61de8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a4f87a6320469725bb604886f39d61de8">PerformDllSwapOnMainThread</a> (const std::string &amp;newDllPath)</td></tr>
-<tr class="separator:a4f87a6320469725bb604886f39d61de8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a5388f7093ff58d41762a39367888ee" id="r_a2a5388f7093ff58d41762a39367888ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a2a5388f7093ff58d41762a39367888ee">ScanWatchedFiles</a> (bool triggerReloadOnChange)</td></tr>
-<tr class="separator:a2a5388f7093ff58d41762a39367888ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0ef3876c0719b8dd2fbb6ea5f6367db" id="r_ac0ef3876c0719b8dd2fbb6ea5f6367db"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0ef3876c0719b8dd2fbb6ea5f6367db">HotReloadManager</a> ()=default</td></tr>
+<tr class="memitem:a27eed1b03c015baffd5db836ad4c8e63" id="r_a27eed1b03c015baffd5db836ad4c8e63"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27eed1b03c015baffd5db836ad4c8e63">~HotReloadManager</a> ()</td></tr>
+<tr class="memitem:aa3878e80e578e32c49b3a6bc6ca96db7" id="r_aa3878e80e578e32c49b3a6bc6ca96db7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3878e80e578e32c49b3a6bc6ca96db7">HotReloadManager</a> (const <a class="el" href="classHotReloadManager.html">HotReloadManager</a> &amp;)=delete</td></tr>
+<tr class="memitem:a1aa3f42bb1f134d76b79a799214fdc12" id="r_a1aa3f42bb1f134d76b79a799214fdc12"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classHotReloadManager.html">HotReloadManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1aa3f42bb1f134d76b79a799214fdc12">operator=</a> (const <a class="el" href="classHotReloadManager.html">HotReloadManager</a> &amp;)=delete</td></tr>
+<tr class="memitem:a8d666b3441ec0bc1449ffbc7bab0ad09" id="r_a8d666b3441ec0bc1449ffbc7bab0ad09"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d666b3441ec0bc1449ffbc7bab0ad09">FindVcVars64Path</a> () const</td></tr>
+<tr class="memitem:a4f87a6320469725bb604886f39d61de8" id="r_a4f87a6320469725bb604886f39d61de8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f87a6320469725bb604886f39d61de8">PerformDllSwapOnMainThread</a> (const std::string &amp;newDllPath)</td></tr>
+<tr class="memitem:a2a5388f7093ff58d41762a39367888ee" id="r_a2a5388f7093ff58d41762a39367888ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a5388f7093ff58d41762a39367888ee">ScanWatchedFiles</a> (bool triggerReloadOnChange)</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 非公開変数類</h2></td></tr>
-<tr class="memitem:a26b89302f5a70dc51a1c2b24a737d2c7" id="r_a26b89302f5a70dc51a1c2b24a737d2c7"><td class="memItemLeft" align="right" valign="top">HMODULE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a26b89302f5a70dc51a1c2b24a737d2c7">m_hLoadedDll</a> = nullptr</td></tr>
-<tr class="separator:a26b89302f5a70dc51a1c2b24a737d2c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b78f1703d4688f5c1bdd543224312d8" id="r_a6b78f1703d4688f5c1bdd543224312d8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a6b78f1703d4688f5c1bdd543224312d8">m_loadedDllName</a> = &quot;(Built-in EXE)&quot;</td></tr>
-<tr class="separator:a6b78f1703d4688f5c1bdd543224312d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a0a573575e47b3b9bffcc5ae44fc6ec" id="r_a2a0a573575e47b3b9bffcc5ae44fc6ec"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a2a0a573575e47b3b9bffcc5ae44fc6ec">m_reloadVersion</a> { 0 }</td></tr>
-<tr class="separator:a2a0a573575e47b3b9bffcc5ae44fc6ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bdec67a2ae09a616b6fd36b16a06731" id="r_a9bdec67a2ae09a616b6fd36b16a06731"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a9bdec67a2ae09a616b6fd36b16a06731">m_pendingMutex</a></td></tr>
-<tr class="separator:a9bdec67a2ae09a616b6fd36b16a06731"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6f19c2ea1733612b6044a5a319913ba" id="r_ab6f19c2ea1733612b6044a5a319913ba"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#ab6f19c2ea1733612b6044a5a319913ba">m_pendingDllPath</a></td></tr>
-<tr class="separator:ab6f19c2ea1733612b6044a5a319913ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af00fe5118533f512d0762af212e3e0e5" id="r_af00fe5118533f512d0762af212e3e0e5"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#af00fe5118533f512d0762af212e3e0e5">m_hasPendingDllSwap</a> { false }</td></tr>
-<tr class="separator:af00fe5118533f512d0762af212e3e0e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cfcdd113aca5007a5c1925c8bf93634" id="r_a1cfcdd113aca5007a5c1925c8bf93634"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a1cfcdd113aca5007a5c1925c8bf93634">m_hasPendingShaderReload</a> { false }</td></tr>
-<tr class="separator:a1cfcdd113aca5007a5c1925c8bf93634"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2f06be40f2ced6d72aca34176b4026d" id="r_ab2f06be40f2ced6d72aca34176b4026d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#ab2f06be40f2ced6d72aca34176b4026d">m_isInitialized</a> = false</td></tr>
-<tr class="separator:ab2f06be40f2ced6d72aca34176b4026d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:accee27dbbfea0ada3ac38e8881d65538" id="r_accee27dbbfea0ada3ac38e8881d65538"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#accee27dbbfea0ada3ac38e8881d65538">m_autoWatchShaders</a> = true</td></tr>
-<tr class="separator:accee27dbbfea0ada3ac38e8881d65538"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8e0068a690d0c0fec094a5ef6289261" id="r_aa8e0068a690d0c0fec094a5ef6289261"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#aa8e0068a690d0c0fec094a5ef6289261">m_autoWatchCpp</a> = false</td></tr>
-<tr class="separator:aa8e0068a690d0c0fec094a5ef6289261"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad127170f774eea447240b60378485b13" id="r_ad127170f774eea447240b60378485b13"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#ad127170f774eea447240b60378485b13">m_watchTimer</a> = 0.0f</td></tr>
-<tr class="separator:ad127170f774eea447240b60378485b13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33beeb19cb5773c0954720425c1bf0f2" id="r_a33beeb19cb5773c0954720425c1bf0f2"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a33beeb19cb5773c0954720425c1bf0f2">WATCH_INTERVAL</a> = 0.5f</td></tr>
-<tr class="separator:a33beeb19cb5773c0954720425c1bf0f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18678f33b04fb78a9294cb0ab7e3dc47" id="r_a18678f33b04fb78a9294cb0ab7e3dc47"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::filesystem::file_time_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a18678f33b04fb78a9294cb0ab7e3dc47">m_shaderTimestamps</a></td></tr>
-<tr class="separator:a18678f33b04fb78a9294cb0ab7e3dc47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7c623fe3a0880f012b3f993b9f901d6" id="r_ae7c623fe3a0880f012b3f993b9f901d6"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::filesystem::file_time_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#ae7c623fe3a0880f012b3f993b9f901d6">m_cppTimestamps</a></td></tr>
-<tr class="separator:ae7c623fe3a0880f012b3f993b9f901d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b71fce52c10c23d193b56f0ddddfaf8" id="r_a8b71fce52c10c23d193b56f0ddddfaf8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="HotReloadManager_8h.html#a336cc0958db7d22570ebaad84c8cd7b4">EditorPlayState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a8b71fce52c10c23d193b56f0ddddfaf8">m_playState</a> = <a class="el" href="HotReloadManager_8h.html#a336cc0958db7d22570ebaad84c8cd7b4ac9dbb2b7c84159b632d71e512eba8428">EditorPlayState::Playing</a></td></tr>
-<tr class="separator:a8b71fce52c10c23d193b56f0ddddfaf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac758f414b16583579350f14be060ca94" id="r_ac758f414b16583579350f14be060ca94"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#ac758f414b16583579350f14be060ca94">m_playModeSnapshotJson</a></td></tr>
-<tr class="separator:ac758f414b16583579350f14be060ca94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a025e168896e484a895b462ba527195f8" id="r_a025e168896e484a895b462ba527195f8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a025e168896e484a895b462ba527195f8">m_lastStatusMessage</a> = &quot;Ready.&quot;</td></tr>
-<tr class="separator:a025e168896e484a895b462ba527195f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a0e34f0272f6f0717dd97d8d18b2d74" id="r_a4a0e34f0272f6f0717dd97d8d18b2d74"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHotReloadManager.html#a4a0e34f0272f6f0717dd97d8d18b2d74">m_lastStatusIsError</a> = false</td></tr>
-<tr class="separator:a4a0e34f0272f6f0717dd97d8d18b2d74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26b89302f5a70dc51a1c2b24a737d2c7" id="r_a26b89302f5a70dc51a1c2b24a737d2c7"><td class="memItemLeft" align="right" valign="top">HMODULE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26b89302f5a70dc51a1c2b24a737d2c7">m_hLoadedDll</a> = nullptr</td></tr>
+<tr class="memitem:a6b78f1703d4688f5c1bdd543224312d8" id="r_a6b78f1703d4688f5c1bdd543224312d8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b78f1703d4688f5c1bdd543224312d8">m_loadedDllName</a> = &quot;(Built-in EXE)&quot;</td></tr>
+<tr class="memitem:a2a0a573575e47b3b9bffcc5ae44fc6ec" id="r_a2a0a573575e47b3b9bffcc5ae44fc6ec"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a0a573575e47b3b9bffcc5ae44fc6ec">m_reloadVersion</a> { 0 }</td></tr>
+<tr class="memitem:a9bdec67a2ae09a616b6fd36b16a06731" id="r_a9bdec67a2ae09a616b6fd36b16a06731"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bdec67a2ae09a616b6fd36b16a06731">m_pendingMutex</a></td></tr>
+<tr class="memitem:ab6f19c2ea1733612b6044a5a319913ba" id="r_ab6f19c2ea1733612b6044a5a319913ba"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6f19c2ea1733612b6044a5a319913ba">m_pendingDllPath</a></td></tr>
+<tr class="memitem:af00fe5118533f512d0762af212e3e0e5" id="r_af00fe5118533f512d0762af212e3e0e5"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af00fe5118533f512d0762af212e3e0e5">m_hasPendingDllSwap</a> { false }</td></tr>
+<tr class="memitem:a1cfcdd113aca5007a5c1925c8bf93634" id="r_a1cfcdd113aca5007a5c1925c8bf93634"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1cfcdd113aca5007a5c1925c8bf93634">m_hasPendingShaderReload</a> { false }</td></tr>
+<tr class="memitem:ab2f06be40f2ced6d72aca34176b4026d" id="r_ab2f06be40f2ced6d72aca34176b4026d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2f06be40f2ced6d72aca34176b4026d">m_isInitialized</a> = false</td></tr>
+<tr class="memitem:accee27dbbfea0ada3ac38e8881d65538" id="r_accee27dbbfea0ada3ac38e8881d65538"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#accee27dbbfea0ada3ac38e8881d65538">m_autoWatchShaders</a> = true</td></tr>
+<tr class="memitem:aa8e0068a690d0c0fec094a5ef6289261" id="r_aa8e0068a690d0c0fec094a5ef6289261"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8e0068a690d0c0fec094a5ef6289261">m_autoWatchCpp</a> = false</td></tr>
+<tr class="memitem:ad127170f774eea447240b60378485b13" id="r_ad127170f774eea447240b60378485b13"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad127170f774eea447240b60378485b13">m_watchTimer</a> = 0.0f</td></tr>
+<tr class="memitem:a33beeb19cb5773c0954720425c1bf0f2" id="r_a33beeb19cb5773c0954720425c1bf0f2"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33beeb19cb5773c0954720425c1bf0f2">WATCH_INTERVAL</a> = 0.5f</td></tr>
+<tr class="memitem:a18678f33b04fb78a9294cb0ab7e3dc47" id="r_a18678f33b04fb78a9294cb0ab7e3dc47"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::filesystem::file_time_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18678f33b04fb78a9294cb0ab7e3dc47">m_shaderTimestamps</a></td></tr>
+<tr class="memitem:ae7c623fe3a0880f012b3f993b9f901d6" id="r_ae7c623fe3a0880f012b3f993b9f901d6"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::filesystem::file_time_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7c623fe3a0880f012b3f993b9f901d6">m_cppTimestamps</a></td></tr>
+<tr class="memitem:a8b71fce52c10c23d193b56f0ddddfaf8" id="r_a8b71fce52c10c23d193b56f0ddddfaf8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="HotReloadManager_8h.html#a336cc0958db7d22570ebaad84c8cd7b4">EditorPlayState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b71fce52c10c23d193b56f0ddddfaf8">m_playState</a> = <a class="el" href="HotReloadManager_8h.html#a336cc0958db7d22570ebaad84c8cd7b4ac9dbb2b7c84159b632d71e512eba8428">EditorPlayState::Playing</a></td></tr>
+<tr class="memitem:ac758f414b16583579350f14be060ca94" id="r_ac758f414b16583579350f14be060ca94"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac758f414b16583579350f14be060ca94">m_playModeSnapshotJson</a></td></tr>
+<tr class="memitem:a025e168896e484a895b462ba527195f8" id="r_a025e168896e484a895b462ba527195f8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a025e168896e484a895b462ba527195f8">m_lastStatusMessage</a> = &quot;Ready.&quot;</td></tr>
+<tr class="memitem:a4a0e34f0272f6f0717dd97d8d18b2d74" id="r_a4a0e34f0272f6f0717dd97d8d18b2d74"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a0e34f0272f6f0717dd97d8d18b2d74">m_lastStatusIsError</a> = false</td></tr>
 </table>
-<h2 class="groupheader">構築子と解体子</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">構築子と解体子</h2>
 <a id="ac0ef3876c0719b8dd2fbb6ea5f6367db" name="ac0ef3876c0719b8dd2fbb6ea5f6367db"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac0ef3876c0719b8dd2fbb6ea5f6367db">&#9670;&#160;</a></span>HotReloadManager() <span class="overload">[1/2]</span></h2>
 
@@ -221,16 +167,21 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">HotReloadManager::HotReloadManager </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_ac0ef3876c0719b8dd2fbb6ea5f6367db_icgraph.svg" width="100%" height="476"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -246,20 +197,20 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">HotReloadManager::~HotReloadManager </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_a27eed1b03c015baffd5db836ad4c8e63_cgraph.svg" width="423" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_a27eed1b03c015baffd5db836ad4c8e63_cgraph.svg" width="420" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -276,21 +227,25 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">HotReloadManager::HotReloadManager </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classHotReloadManager.html">HotReloadManager</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classHotReloadManager.html">HotReloadManager</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_aa3878e80e578e32c49b3a6bc6ca96db7_cgraph.svg" width="504" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="aa17e0dee64803018ca2af15ad18f45a7" name="aa17e0dee64803018ca2af15ad18f45a7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa17e0dee64803018ca2af15ad18f45a7">&#9670;&#160;</a></span>CaptureSceneSnapshot()</h2>
 
@@ -300,7 +255,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">bool HotReloadManager::CaptureSceneSnapshot </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -308,12 +263,12 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_aa17e0dee64803018ca2af15ad18f45a7_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_aa17e0dee64803018ca2af15ad18f45a7_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_aa17e0dee64803018ca2af15ad18f45a7_icgraph.svg" width="100%" height="383"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_aa17e0dee64803018ca2af15ad18f45a7_icgraph.svg" width="100%" height="387"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -327,7 +282,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">bool HotReloadManager::CompileAndReloadGameLogicAsync </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -335,12 +290,12 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_ad4e96d29a2c1f303a4456607ad5d8347_cgraph.svg" width="100%" height="475"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_ad4e96d29a2c1f303a4456607ad5d8347_cgraph.svg" width="100%" height="502"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_ad4e96d29a2c1f303a4456607ad5d8347_icgraph.svg" width="100%" height="418"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_ad4e96d29a2c1f303a4456607ad5d8347_icgraph.svg" width="100%" height="420"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -354,7 +309,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">void HotReloadManager::Finalize </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -362,7 +317,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_a2f5c819f12a3256ba66ca56c86217d76_icgraph.svg" width="423" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_a2f5c819f12a3256ba66ca56c86217d76_icgraph.svg" width="420" height="107"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -379,25 +334,25 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">std::string HotReloadManager::FindVcVars64Path </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_a8d666b3441ec0bc1449ffbc7bab0ad09_cgraph.svg" width="475" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_a8d666b3441ec0bc1449ffbc7bab0ad09_cgraph.svg" width="100%" height="368"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_a8d666b3441ec0bc1449ffbc7bab0ad09_icgraph.svg" width="100%" height="418"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_a8d666b3441ec0bc1449ffbc7bab0ad09_icgraph.svg" width="100%" height="420"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -414,20 +369,20 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">const std::string &amp; HotReloadManager::GetCurrentLoadedDllName </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_a8a44712756e200f07268c31be7a6b7f2_icgraph.svg" width="586" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_a8a44712756e200f07268c31be7a6b7f2_icgraph.svg" width="583" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -442,22 +397,27 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="classHotReloadManager.html">HotReloadManager</a> &amp; HotReloadManager::GetInstance </td>
+          <td class="memname"><a class="el" href="classHotReloadManager.html">HotReloadManager</a> &amp; HotReloadManager::GetInstance </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_ace95f5a3d75da95f1d6b269e2bb1444e_cgraph.svg" width="514" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_ace95f5a3d75da95f1d6b269e2bb1444e_icgraph.svg" width="592" height="138"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_ace95f5a3d75da95f1d6b269e2bb1444e_icgraph.svg" width="590" height="192"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -474,20 +434,20 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">const std::string &amp; HotReloadManager::GetLastStatusMessage </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_a998216f5b26f5a738d732c61b0518bd4_icgraph.svg" width="564" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_a998216f5b26f5a738d732c61b0518bd4_icgraph.svg" width="562" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -504,20 +464,20 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname"><a class="el" href="HotReloadManager_8h.html#a336cc0958db7d22570ebaad84c8cd7b4">EditorPlayState</a> HotReloadManager::GetPlayState </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_ade0dd15f43c2598082b7551bf38e8b5e_icgraph.svg" width="564" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_ade0dd15f43c2598082b7551bf38e8b5e_icgraph.svg" width="562" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -534,20 +494,20 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">int HotReloadManager::GetReloadVersion </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_abc6e2247cde9b8e5f11240c4fb44a553_icgraph.svg" width="582" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_abc6e2247cde9b8e5f11240c4fb44a553_icgraph.svg" width="580" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -564,13 +524,13 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">bool HotReloadManager::HasSceneSnapshot </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -586,7 +546,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">void HotReloadManager::Initialize </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -594,12 +554,12 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_adf6c37c404282aa1446a528e6dd2b517_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_adf6c37c404282aa1446a528e6dd2b517_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_adf6c37c404282aa1446a528e6dd2b517_icgraph.svg" width="602" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_adf6c37c404282aa1446a528e6dd2b517_icgraph.svg" width="600" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -616,20 +576,20 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">bool HotReloadManager::IsAutoWatchCppEnabled </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_a33f0992839514d5d5d66263d83b75fe9_icgraph.svg" width="555" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_a33f0992839514d5d5d66263d83b75fe9_icgraph.svg" width="554" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -646,20 +606,20 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">bool HotReloadManager::IsAutoWatchShadersEnabled </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_adc9bc0e87f6d65cac5abc05f45d6624f_icgraph.svg" width="555" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_adc9bc0e87f6d65cac5abc05f45d6624f_icgraph.svg" width="554" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -673,7 +633,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">bool HotReloadManager::IsCompilingGameLogic </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -681,12 +641,12 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_ade540605fc77c488cd9f7b53fc54965d_cgraph.svg" width="478" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_ade540605fc77c488cd9f7b53fc54965d_cgraph.svg" width="100%" height="368"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_ade540605fc77c488cd9f7b53fc54965d_icgraph.svg" width="100%" height="380"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_ade540605fc77c488cd9f7b53fc54965d_icgraph.svg" width="100%" height="383"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -703,20 +663,20 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">bool HotReloadManager::IsLastStatusError </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_a9410baa5cf311e4d4e861fff3b2362fe_icgraph.svg" width="552" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_a9410baa5cf311e4d4e861fff3b2362fe_icgraph.svg" width="550" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -733,17 +693,21 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname"><a class="el" href="classHotReloadManager.html">HotReloadManager</a> &amp; HotReloadManager::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classHotReloadManager.html">HotReloadManager</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classHotReloadManager.html">HotReloadManager</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_a1aa3f42bb1f134d76b79a799214fdc12_cgraph.svg" width="502" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -756,7 +720,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">void HotReloadManager::Pause </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -764,7 +728,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_a355881e70b607c01f63df10152577a12_icgraph.svg" width="551" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_a355881e70b607c01f63df10152577a12_icgraph.svg" width="550" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -781,26 +745,25 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">bool HotReloadManager::PerformDllSwapOnMainThread </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>newDllPath</em></td><td>)</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>newDllPath</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_a4f87a6320469725bb604886f39d61de8_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_a4f87a6320469725bb604886f39d61de8_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_a4f87a6320469725bb604886f39d61de8_icgraph.svg" width="598" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_a4f87a6320469725bb604886f39d61de8_icgraph.svg" width="596" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -814,7 +777,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">void HotReloadManager::Play </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -822,12 +785,12 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_a61118a35544c631987e06970f933e1fd_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_a61118a35544c631987e06970f933e1fd_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_a61118a35544c631987e06970f933e1fd_icgraph.svg" width="540" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_a61118a35544c631987e06970f933e1fd_icgraph.svg" width="539" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -841,8 +804,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">void HotReloadManager::ProcessMainThreadTasks </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>deltaTime</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -850,12 +812,12 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_a455dbeddbea141497032f0b361fbfed1_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_a455dbeddbea141497032f0b361fbfed1_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_a455dbeddbea141497032f0b361fbfed1_icgraph.svg" width="343" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_a455dbeddbea141497032f0b361fbfed1_icgraph.svg" width="342" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -869,8 +831,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">bool HotReloadManager::ReloadShadersAndPrefabs </td>
           <td>(</td>
-          <td class="paramtype">std::string *&#160;</td>
-          <td class="paramname"><em>outMessage</em> = <code>nullptr</code></td><td>)</td>
+          <td class="paramtype">std::string *</td>          <td class="paramname"><span class="paramname"><em>outMessage</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -878,12 +839,12 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_aea98993cdbcd90a16c71be7965c59abc_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_aea98993cdbcd90a16c71be7965c59abc_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_aea98993cdbcd90a16c71be7965c59abc_icgraph.svg" width="100%" height="441"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_aea98993cdbcd90a16c71be7965c59abc_icgraph.svg" width="100%" height="481"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -900,26 +861,25 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">void HotReloadManager::ScanWatchedFiles </td>
           <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>triggerReloadOnChange</em></td><td>)</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>triggerReloadOnChange</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_a2a5388f7093ff58d41762a39367888ee_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_a2a5388f7093ff58d41762a39367888ee_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_a2a5388f7093ff58d41762a39367888ee_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_a2a5388f7093ff58d41762a39367888ee_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -936,21 +896,20 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">void HotReloadManager::SetAutoWatchCppEnabled </td>
           <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>enabled</em></td><td>)</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>enabled</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_a52a7ce875d807d0bad6b6749f571e6c8_icgraph.svg" width="566" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_a52a7ce875d807d0bad6b6749f571e6c8_icgraph.svg" width="563" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -967,21 +926,20 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">void HotReloadManager::SetAutoWatchShadersEnabled </td>
           <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>enabled</em></td><td>)</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>enabled</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_a980877d35626a25723c2e175c9d23e7e_icgraph.svg" width="566" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_a980877d35626a25723c2e175c9d23e7e_icgraph.svg" width="563" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -998,13 +956,13 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">bool HotReloadManager::ShouldUpdateGameLogic </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1020,7 +978,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
         <tr>
           <td class="memname">void HotReloadManager::StopAndRestoreSnapshot </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1028,17 +986,17 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_ada06afa6ef7a95de23cf684a1dcfbe39_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_ada06afa6ef7a95de23cf684a1dcfbe39_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classHotReloadManager_ada06afa6ef7a95de23cf684a1dcfbe39_icgraph.svg" width="567" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classHotReloadManager_ada06afa6ef7a95de23cf684a1dcfbe39_icgraph.svg" width="566" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<h2 class="groupheader">メンバ詳解</h2>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">メンバ詳解</h2>
 <a id="aa8e0068a690d0c0fec094a5ef6289261" name="aa8e0068a690d0c0fec094a5ef6289261"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa8e0068a690d0c0fec094a5ef6289261">&#9670;&#160;</a></span>m_autoWatchCpp</h2>
 
@@ -1054,7 +1012,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1076,7 +1034,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1098,7 +1056,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1120,7 +1078,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1142,7 +1100,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1164,7 +1122,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1186,7 +1144,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1208,7 +1166,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1230,7 +1188,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1252,7 +1210,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1274,7 +1232,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1296,7 +1254,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1318,7 +1276,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1340,7 +1298,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1362,7 +1320,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1384,7 +1342,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1406,7 +1364,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1428,7 +1386,7 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1441,11 +1399,19 @@ $(document).ready(function(){initNavTree('classHotReloadManager.html',''); initR
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="classHotReloadManager.html">HotReloadManager</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="classHotReloadManager.html">HotReloadManager</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

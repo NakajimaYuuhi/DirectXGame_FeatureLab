@@ -2,11 +2,8 @@ var classnlohmann_1_1detail_1_1iter__impl =
 [
     [ "array_t", "classnlohmann_1_1detail_1_1iter__impl.html#aef02cf75b1cb199286fd2f666c60e38e", null ],
     [ "difference_type", "classnlohmann_1_1detail_1_1iter__impl.html#a2f7ea9f7022850809c60fc3263775840", null ],
-    [ "iterator_category", "classnlohmann_1_1detail_1_1iter__impl.html#ad9e091f5c70b34b5b1abc1ab15fd9106", null ],
     [ "object_t", "classnlohmann_1_1detail_1_1iter__impl.html#ab9a9598052e83fa14a2288e56d5dda7c", null ],
     [ "other_iter_impl", "classnlohmann_1_1detail_1_1iter__impl.html#ac7c5a1f964aa1c02f7b046029a5c8904", null ],
-    [ "pointer", "classnlohmann_1_1detail_1_1iter__impl.html#a69e52f890ce8c556fd68ce109e24b360", null ],
-    [ "reference", "classnlohmann_1_1detail_1_1iter__impl.html#a5be8001be099c6b82310f4d387b953ce", null ],
     [ "value_type", "classnlohmann_1_1detail_1_1iter__impl.html#ab35586a44f2222272c5346baa3013f67", null ],
     [ "iter_impl", "classnlohmann_1_1detail_1_1iter__impl.html#a31090f248ce10fd7b386027c1a19c16f", null ],
     [ "~iter_impl", "classnlohmann_1_1detail_1_1iter__impl.html#a3fc5c9a782628d91047aa35f40bb7fdc", null ],
@@ -36,6 +33,8 @@ var classnlohmann_1_1detail_1_1iter__impl =
     [ "operator>", "classnlohmann_1_1detail_1_1iter__impl.html#aaf3620b8dfa4bed8a9ac2b51dd55dbd7", null ],
     [ "operator>=", "classnlohmann_1_1detail_1_1iter__impl.html#a634f85da575cb60b012a687efa26e11a", null ],
     [ "operator[]", "classnlohmann_1_1detail_1_1iter__impl.html#ac0b9276f1102ed4b9cd3f5f56287e3ce", null ],
+    [ "over", "classnlohmann_1_1detail_1_1iter__impl.html#aeec6e5349ac6aad8c24ce0b34530d706", null ],
+    [ "over", "classnlohmann_1_1detail_1_1iter__impl.html#a40aaaf906e0dd1bbd5ead392cbe7a971", null ],
     [ "set_end", "classnlohmann_1_1detail_1_1iter__impl.html#a23e50ad4c13aa62d9ac7f60a123823ee", null ],
     [ "switch", "classnlohmann_1_1detail_1_1iter__impl.html#abc2f80067020fae59d7fbccf39f1547a", null ],
     [ "value", "classnlohmann_1_1detail_1_1iter__impl.html#ab447c50354c6611fa2ae0100ac17845c", null ],
@@ -45,6 +44,6 @@ var classnlohmann_1_1detail_1_1iter__impl =
     [ "BasicJsonType", "classnlohmann_1_1detail_1_1iter__impl.html#abf18f18793f84b0222aebb5a2a87da7a", null ],
     [ "iteration_proxy< iter_impl >", "classnlohmann_1_1detail_1_1iter__impl.html#a28328d17a18d9754c89c5c8159677a6f", null ],
     [ "iteration_proxy_value< iter_impl >", "classnlohmann_1_1detail_1_1iter__impl.html#ac501dc2374b4d17a884fc9a656e80d5a", null ],
-    [ "m_it", "classnlohmann_1_1detail_1_1iter__impl.html#a8a86a7c0d4af0cc4ab345b6f0e13cdfa", null ],
-    [ "other_iter_impl", "classnlohmann_1_1detail_1_1iter__impl.html#aba0841e618c77cc65ccfd52164c346b9", null ]
+    [ "m_it", "classnlohmann_1_1detail_1_1iter__impl.html#a26b717da54e4990c63c5f27509bfcc56", null ],
+    [ "other_iter_impl", "classnlohmann_1_1detail_1_1iter__impl.html#adb8b26025fb3832007909e0a9a7c3340", null ]
 ];

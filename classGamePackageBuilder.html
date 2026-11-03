@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: GamePackageBuilder クラス</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classGamePackageBuilder.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('classGamePackageBuilder.html','','classGamePackageBuilder-members'); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,45 +89,31 @@ $(document).ready(function(){initNavTree('classGamePackageBuilder.html',''); ini
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
-<a href="#pri-methods">非公開メンバ関数</a> &#124;
-<a href="classGamePackageBuilder-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">GamePackageBuilder クラス</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="GamePackageBuilder_8h_source.html">GamePackageBuilder.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a31bbbd4c5b3b3778f77ba95431fbe014" id="r_a31bbbd4c5b3b3778f77ba95431fbe014"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGamePackageBuilder.html#a31bbbd4c5b3b3778f77ba95431fbe014">StartPackageBuild</a> (const <a class="el" href="structPackageBuildConfig.html">PackageBuildConfig</a> &amp;config)</td></tr>
-<tr class="separator:a31bbbd4c5b3b3778f77ba95431fbe014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46b6dc95e2d26cfb0d2c1dbfedfada71" id="r_a46b6dc95e2d26cfb0d2c1dbfedfada71"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGamePackageBuilder.html#a46b6dc95e2d26cfb0d2c1dbfedfada71">PackageAssetsAndBinaries</a> (const <a class="el" href="structPackageBuildConfig.html">PackageBuildConfig</a> &amp;config)</td></tr>
-<tr class="separator:a46b6dc95e2d26cfb0d2c1dbfedfada71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab62e1528577bf74f2e45c0cbecda7615" id="r_ab62e1528577bf74f2e45c0cbecda7615"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGamePackageBuilder.html#ab62e1528577bf74f2e45c0cbecda7615">OpenOutputFolder</a> (const std::string &amp;outputDir) const</td></tr>
-<tr class="separator:ab62e1528577bf74f2e45c0cbecda7615"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38d2503f928f1e6a1de902e77ab89778" id="r_a38d2503f928f1e6a1de902e77ab89778"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGamePackageBuilder.html#a38d2503f928f1e6a1de902e77ab89778">LaunchBuiltGame</a> (const <a class="el" href="structPackageBuildConfig.html">PackageBuildConfig</a> &amp;config) const</td></tr>
-<tr class="separator:a38d2503f928f1e6a1de902e77ab89778"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31bbbd4c5b3b3778f77ba95431fbe014" id="r_a31bbbd4c5b3b3778f77ba95431fbe014"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31bbbd4c5b3b3778f77ba95431fbe014">StartPackageBuild</a> (const <a class="el" href="structPackageBuildConfig.html">PackageBuildConfig</a> &amp;config)</td></tr>
+<tr class="memitem:a46b6dc95e2d26cfb0d2c1dbfedfada71" id="r_a46b6dc95e2d26cfb0d2c1dbfedfada71"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46b6dc95e2d26cfb0d2c1dbfedfada71">PackageAssetsAndBinaries</a> (const <a class="el" href="structPackageBuildConfig.html">PackageBuildConfig</a> &amp;config)</td></tr>
+<tr class="memitem:ab62e1528577bf74f2e45c0cbecda7615" id="r_ab62e1528577bf74f2e45c0cbecda7615"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab62e1528577bf74f2e45c0cbecda7615">OpenOutputFolder</a> (const std::string &amp;outputDir) const</td></tr>
+<tr class="memitem:a38d2503f928f1e6a1de902e77ab89778" id="r_a38d2503f928f1e6a1de902e77ab89778"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38d2503f928f1e6a1de902e77ab89778">LaunchBuiltGame</a> (const <a class="el" href="structPackageBuildConfig.html">PackageBuildConfig</a> &amp;config) const</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
-<tr class="memitem:a480c3479fb376abd8caddf7af93a4b3c" id="r_a480c3479fb376abd8caddf7af93a4b3c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classGamePackageBuilder.html">GamePackageBuilder</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGamePackageBuilder.html#a480c3479fb376abd8caddf7af93a4b3c">GetInstance</a> ()</td></tr>
-<tr class="separator:a480c3479fb376abd8caddf7af93a4b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a480c3479fb376abd8caddf7af93a4b3c" id="r_a480c3479fb376abd8caddf7af93a4b3c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classGamePackageBuilder.html">GamePackageBuilder</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a480c3479fb376abd8caddf7af93a4b3c">GetInstance</a> ()</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 非公開メンバ関数</h2></td></tr>
-<tr class="memitem:a851c6a0dd946b8cdb60367d7ae9bb3e7" id="r_a851c6a0dd946b8cdb60367d7ae9bb3e7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGamePackageBuilder.html#a851c6a0dd946b8cdb60367d7ae9bb3e7">GamePackageBuilder</a> ()=default</td></tr>
-<tr class="separator:a851c6a0dd946b8cdb60367d7ae9bb3e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6f6ebe215da74367b9ff86c10fe268a" id="r_ac6f6ebe215da74367b9ff86c10fe268a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGamePackageBuilder.html#ac6f6ebe215da74367b9ff86c10fe268a">~GamePackageBuilder</a> ()=default</td></tr>
-<tr class="separator:ac6f6ebe215da74367b9ff86c10fe268a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78f3747c8dfb931fb4822be68e956aca" id="r_a78f3747c8dfb931fb4822be68e956aca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGamePackageBuilder.html#a78f3747c8dfb931fb4822be68e956aca">GamePackageBuilder</a> (const <a class="el" href="classGamePackageBuilder.html">GamePackageBuilder</a> &amp;)=delete</td></tr>
-<tr class="separator:a78f3747c8dfb931fb4822be68e956aca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a39fffcf5516c1606d55d7dafa278b6" id="r_a8a39fffcf5516c1606d55d7dafa278b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGamePackageBuilder.html">GamePackageBuilder</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGamePackageBuilder.html#a8a39fffcf5516c1606d55d7dafa278b6">operator=</a> (const <a class="el" href="classGamePackageBuilder.html">GamePackageBuilder</a> &amp;)=delete</td></tr>
-<tr class="separator:a8a39fffcf5516c1606d55d7dafa278b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a851c6a0dd946b8cdb60367d7ae9bb3e7" id="r_a851c6a0dd946b8cdb60367d7ae9bb3e7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a851c6a0dd946b8cdb60367d7ae9bb3e7">GamePackageBuilder</a> ()=default</td></tr>
+<tr class="memitem:ac6f6ebe215da74367b9ff86c10fe268a" id="r_ac6f6ebe215da74367b9ff86c10fe268a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6f6ebe215da74367b9ff86c10fe268a">~GamePackageBuilder</a> ()=default</td></tr>
+<tr class="memitem:a78f3747c8dfb931fb4822be68e956aca" id="r_a78f3747c8dfb931fb4822be68e956aca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78f3747c8dfb931fb4822be68e956aca">GamePackageBuilder</a> (const <a class="el" href="classGamePackageBuilder.html">GamePackageBuilder</a> &amp;)=delete</td></tr>
+<tr class="memitem:a8a39fffcf5516c1606d55d7dafa278b6" id="r_a8a39fffcf5516c1606d55d7dafa278b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGamePackageBuilder.html">GamePackageBuilder</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a39fffcf5516c1606d55d7dafa278b6">operator=</a> (const <a class="el" href="classGamePackageBuilder.html">GamePackageBuilder</a> &amp;)=delete</td></tr>
 </table>
-<h2 class="groupheader">構築子と解体子</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">構築子と解体子</h2>
 <a id="a851c6a0dd946b8cdb60367d7ae9bb3e7" name="a851c6a0dd946b8cdb60367d7ae9bb3e7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a851c6a0dd946b8cdb60367d7ae9bb3e7">&#9670;&#160;</a></span>GamePackageBuilder() <span class="overload">[1/2]</span></h2>
 
@@ -141,16 +126,21 @@ $(document).ready(function(){initNavTree('classGamePackageBuilder.html',''); ini
         <tr>
           <td class="memname">GamePackageBuilder::GamePackageBuilder </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classGamePackageBuilder_a851c6a0dd946b8cdb60367d7ae9bb3e7_icgraph.svg" width="100%" height="446"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -166,13 +156,13 @@ $(document).ready(function(){initNavTree('classGamePackageBuilder.html',''); ini
         <tr>
           <td class="memname">GamePackageBuilder::~GamePackageBuilder </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -191,21 +181,25 @@ $(document).ready(function(){initNavTree('classGamePackageBuilder.html',''); ini
         <tr>
           <td class="memname">GamePackageBuilder::GamePackageBuilder </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classGamePackageBuilder.html">GamePackageBuilder</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classGamePackageBuilder.html">GamePackageBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classGamePackageBuilder_a78f3747c8dfb931fb4822be68e956aca_cgraph.svg" width="394" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="a480c3479fb376abd8caddf7af93a4b3c" name="a480c3479fb376abd8caddf7af93a4b3c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a480c3479fb376abd8caddf7af93a4b3c">&#9670;&#160;</a></span>GetInstance()</h2>
 
@@ -216,22 +210,27 @@ $(document).ready(function(){initNavTree('classGamePackageBuilder.html',''); ini
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="classGamePackageBuilder.html">GamePackageBuilder</a> &amp; GamePackageBuilder::GetInstance </td>
+          <td class="memname"><a class="el" href="classGamePackageBuilder.html">GamePackageBuilder</a> &amp; GamePackageBuilder::GetInstance </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classGamePackageBuilder_a480c3479fb376abd8caddf7af93a4b3c_cgraph.svg" width="386" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classGamePackageBuilder_a480c3479fb376abd8caddf7af93a4b3c_icgraph.svg" width="519" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classGamePackageBuilder_a480c3479fb376abd8caddf7af93a4b3c_icgraph.svg" width="518" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -245,8 +244,7 @@ $(document).ready(function(){initNavTree('classGamePackageBuilder.html',''); ini
         <tr>
           <td class="memname">bool GamePackageBuilder::LaunchBuiltGame </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structPackageBuildConfig.html">PackageBuildConfig</a> &amp;&#160;</td>
-          <td class="paramname"><em>config</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="structPackageBuildConfig.html">PackageBuildConfig</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -254,7 +252,7 @@ $(document).ready(function(){initNavTree('classGamePackageBuilder.html',''); ini
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classGamePackageBuilder_a38d2503f928f1e6a1de902e77ab89778_icgraph.svg" width="519" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classGamePackageBuilder_a38d2503f928f1e6a1de902e77ab89778_icgraph.svg" width="518" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -268,8 +266,7 @@ $(document).ready(function(){initNavTree('classGamePackageBuilder.html',''); ini
         <tr>
           <td class="memname">void GamePackageBuilder::OpenOutputFolder </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>outputDir</em></td><td>)</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>outputDir</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -277,7 +274,7 @@ $(document).ready(function(){initNavTree('classGamePackageBuilder.html',''); ini
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classGamePackageBuilder_ab62e1528577bf74f2e45c0cbecda7615_icgraph.svg" width="519" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classGamePackageBuilder_ab62e1528577bf74f2e45c0cbecda7615_icgraph.svg" width="518" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -294,17 +291,21 @@ $(document).ready(function(){initNavTree('classGamePackageBuilder.html',''); ini
         <tr>
           <td class="memname"><a class="el" href="classGamePackageBuilder.html">GamePackageBuilder</a> &amp; GamePackageBuilder::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classGamePackageBuilder.html">GamePackageBuilder</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classGamePackageBuilder.html">GamePackageBuilder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classGamePackageBuilder_a8a39fffcf5516c1606d55d7dafa278b6_cgraph.svg" width="386" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -317,8 +318,7 @@ $(document).ready(function(){initNavTree('classGamePackageBuilder.html',''); ini
         <tr>
           <td class="memname">bool GamePackageBuilder::PackageAssetsAndBinaries </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structPackageBuildConfig.html">PackageBuildConfig</a> &amp;&#160;</td>
-          <td class="paramname"><em>config</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="structPackageBuildConfig.html">PackageBuildConfig</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -326,12 +326,12 @@ $(document).ready(function(){initNavTree('classGamePackageBuilder.html',''); ini
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classGamePackageBuilder_a46b6dc95e2d26cfb0d2c1dbfedfada71_cgraph.svg" width="100%" height="401"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classGamePackageBuilder_a46b6dc95e2d26cfb0d2c1dbfedfada71_cgraph.svg" width="100%" height="407"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classGamePackageBuilder_a46b6dc95e2d26cfb0d2c1dbfedfada71_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classGamePackageBuilder_a46b6dc95e2d26cfb0d2c1dbfedfada71_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -345,8 +345,7 @@ $(document).ready(function(){initNavTree('classGamePackageBuilder.html',''); ini
         <tr>
           <td class="memname">bool GamePackageBuilder::StartPackageBuild </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structPackageBuildConfig.html">PackageBuildConfig</a> &amp;&#160;</td>
-          <td class="paramname"><em>config</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="structPackageBuildConfig.html">PackageBuildConfig</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -354,12 +353,12 @@ $(document).ready(function(){initNavTree('classGamePackageBuilder.html',''); ini
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classGamePackageBuilder_a31bbbd4c5b3b3778f77ba95431fbe014_cgraph.svg" width="100%" height="542"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classGamePackageBuilder_a31bbbd4c5b3b3778f77ba95431fbe014_cgraph.svg" width="100%" height="551"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classGamePackageBuilder_a31bbbd4c5b3b3778f77ba95431fbe014_icgraph.svg" width="519" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classGamePackageBuilder_a31bbbd4c5b3b3778f77ba95431fbe014_icgraph.svg" width="518" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -370,11 +369,19 @@ $(document).ready(function(){initNavTree('classGamePackageBuilder.html',''); ini
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="classGamePackageBuilder.html">GamePackageBuilder</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="classGamePackageBuilder.html">GamePackageBuilder</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

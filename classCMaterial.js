@@ -2,6 +2,7 @@ var classCMaterial =
 [
     [ "CMaterial", "classCMaterial.html#aec5f4576141a2dd3a1ffce6491c34912", null ],
     [ "CMaterial", "classCMaterial.html#ab63eb3abe9435904350cc8bd013a89eb", null ],
+    [ "CMaterial", "classCMaterial.html#a625b5397aaf4720a3683a18d80479fba", null ],
     [ "~CMaterial", "classCMaterial.html#ad4e986a9a628c785b4f0a0684064a2ca", null ],
     [ "Bind", "classCMaterial.html#ad19a93909895810d9ef51c346c06b3c5", null ],
     [ "Clone", "classCMaterial.html#a934cf6581bd9e482a9dbae73ac613d07", null ],
@@ -25,6 +26,7 @@ var classCMaterial =
     [ "GetVsEntry", "classCMaterial.html#aff5232b18c8898bcd6a2e5d7976ae8f9", null ],
     [ "LoadFromFile", "classCMaterial.html#a0b62d65dfde1449b7b788b6089b62d47", null ],
     [ "LoadTexture", "classCMaterial.html#af16b888b2da2a65e8dbe3d62cd008c54", null ],
+    [ "operator=", "classCMaterial.html#a7dea3d4a65ba5165e5080927502d855a", null ],
     [ "SaveToFile", "classCMaterial.html#a0d8910f30b0726ccaa8bb69c1e2afecb", null ],
     [ "SetBlendMode", "classCMaterial.html#a5bd42ae8b076d452755b4795ef810dcd", null ],
     [ "SetColor", "classCMaterial.html#afa41e087bf4ee6c30b6c73f3c6669ad9", null ],

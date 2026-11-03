@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: Source/Core/main.cpp ファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('main_8cpp.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('main_8cpp.html','',''); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,10 +89,6 @@ $(document).ready(function(){initNavTree('main_8cpp.html',''); initResizable(); 
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#typedef-members">型定義</a> &#124;
-<a href="#func-members">関数</a> &#124;
-<a href="#var-members">変数</a>  </div>
   <div class="headertitle"><div class="title">main.cpp ファイル</div></div>
 </div><!--header-->
 <div class="contents">
@@ -122,55 +117,51 @@ $(document).ready(function(){initNavTree('main_8cpp.html',''); initResizable(); 
 <code>#include &quot;<a class="el" href="LightManager_8h_source.html">LightManager.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="TextureManager_8h_source.html">TextureManager.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ModelManager_8h_source.html">ModelManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="MaterialManager_8h_source.html">MaterialManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ShaderManager_8h_source.html">ShaderManager.h</a>&quot;</code><br />
 <code>#include &lt;xaudio2.h&gt;</code><br />
 <code>#include &lt;wrl/client.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="audio_8h_source.html">audio.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 main.cpp の依存先関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="main_8cpp__incl.svg" width="100%" height="503"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="main_8cpp__incl.svg" width="100%" height="512"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 型定義</h2></td></tr>
-<tr class="memitem:a74b90b47b1100dfbcfdf6892a7b2e479" id="r_a74b90b47b1100dfbcfdf6892a7b2e479"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a74b90b47b1100dfbcfdf6892a7b2e479"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a74b90b47b1100dfbcfdf6892a7b2e479">UniquePtr</a> = std::unique_ptr&lt; T &gt;</td></tr>
-<tr class="separator:a74b90b47b1100dfbcfdf6892a7b2e479"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74b90b47b1100dfbcfdf6892a7b2e479" id="r_a74b90b47b1100dfbcfdf6892a7b2e479"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a74b90b47b1100dfbcfdf6892a7b2e479 template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74b90b47b1100dfbcfdf6892a7b2e479">UniquePtr</a> = std::unique_ptr&lt;T&gt;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 関数</h2></td></tr>
-<tr class="memitem:a87a3f9652a75339308cf5fd5699ef1fd" id="r_a87a3f9652a75339308cf5fd5699ef1fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> LRESULT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a87a3f9652a75339308cf5fd5699ef1fd">ImGui_ImplWin32_WndProcHandler</a> (HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)</td></tr>
-<tr class="separator:a87a3f9652a75339308cf5fd5699ef1fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7262b288bad4fd24107f81259ca59b8f" id="r_a7262b288bad4fd24107f81259ca59b8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a7262b288bad4fd24107f81259ca59b8f">DisplaySize</a> ()</td></tr>
-<tr class="separator:a7262b288bad4fd24107f81259ca59b8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8186ad69de1179152cb6d53927f9ab68" id="r_a8186ad69de1179152cb6d53927f9ab68"><td class="memItemLeft" align="right" valign="top">LRESULT CALLBACK&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a8186ad69de1179152cb6d53927f9ab68">WindowProc</a> (HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)</td></tr>
-<tr class="separator:a8186ad69de1179152cb6d53927f9ab68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7c10ff064e89595606222f0641ffade" id="r_af7c10ff064e89595606222f0641ffade"><td class="memItemLeft" align="right" valign="top">int WINAPI&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#af7c10ff064e89595606222f0641ffade">WinMain</a> (HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)</td></tr>
-<tr class="separator:af7c10ff064e89595606222f0641ffade"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87a3f9652a75339308cf5fd5699ef1fd" id="r_a87a3f9652a75339308cf5fd5699ef1fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> LRESULT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87a3f9652a75339308cf5fd5699ef1fd">ImGui_ImplWin32_WndProcHandler</a> (HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)</td></tr>
+<tr class="memitem:a7262b288bad4fd24107f81259ca59b8f" id="r_a7262b288bad4fd24107f81259ca59b8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7262b288bad4fd24107f81259ca59b8f">DisplaySize</a> ()</td></tr>
+<tr class="memitem:a8186ad69de1179152cb6d53927f9ab68" id="r_a8186ad69de1179152cb6d53927f9ab68"><td class="memItemLeft" align="right" valign="top">LRESULT CALLBACK&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8186ad69de1179152cb6d53927f9ab68">WindowProc</a> (HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)</td></tr>
+<tr class="memitem:af7c10ff064e89595606222f0641ffade" id="r_af7c10ff064e89595606222f0641ffade"><td class="memItemLeft" align="right" valign="top">int WINAPI&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7c10ff064e89595606222f0641ffade">WinMain</a> (HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 変数</h2></td></tr>
-<tr class="memitem:aedeffc7d23da25d52b9a50045189fe2b" id="r_aedeffc7d23da25d52b9a50045189fe2b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aedeffc7d23da25d52b9a50045189fe2b">initialized</a> = false</td></tr>
-<tr class="separator:aedeffc7d23da25d52b9a50045189fe2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedeffc7d23da25d52b9a50045189fe2b" id="r_aedeffc7d23da25d52b9a50045189fe2b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aedeffc7d23da25d52b9a50045189fe2b">initialized</a> = false</td></tr>
 </table>
-<h2 class="groupheader">型定義詳解</h2>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">型定義詳解</h2>
 <a id="a74b90b47b1100dfbcfdf6892a7b2e479" name="a74b90b47b1100dfbcfdf6892a7b2e479"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a74b90b47b1100dfbcfdf6892a7b2e479">&#9670;&#160;</a></span>UniquePtr</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="main_8cpp.html#a74b90b47b1100dfbcfdf6892a7b2e479">UniquePtr</a> =  std::unique_ptr&lt;T&gt;</td>
+          <td class="memname">using <a class="el" href="#a74b90b47b1100dfbcfdf6892a7b2e479">UniquePtr</a> = std::unique_ptr&lt;T&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="a7262b288bad4fd24107f81259ca59b8f" name="a7262b288bad4fd24107f81259ca59b8f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7262b288bad4fd24107f81259ca59b8f">&#9670;&#160;</a></span>DisplaySize()</h2>
 
@@ -180,7 +171,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void DisplaySize </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -188,7 +179,7 @@ template&lt;typename T &gt; </div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="main_8cpp_a7262b288bad4fd24107f81259ca59b8f_cgraph.svg" width="264" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="main_8cpp_a7262b288bad4fd24107f81259ca59b8f_cgraph.svg" width="262" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -205,48 +196,39 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> LRESULT ImGui_ImplWin32_WndProcHandler </td>
           <td>(</td>
-          <td class="paramtype">HWND&#160;</td>
-          <td class="paramname"><em>hWnd</em>, </td>
+          <td class="paramtype">HWND</td>          <td class="paramname"><span class="paramname"><em>hWnd</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">UINT&#160;</td>
-          <td class="paramname"><em>msg</em>, </td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>msg</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">WPARAM&#160;</td>
-          <td class="paramname"><em>wParam</em>, </td>
+          <td class="paramtype">WPARAM</td>          <td class="paramname"><span class="paramname"><em>wParam</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">LPARAM&#160;</td>
-          <td class="paramname"><em>lParam</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">LPARAM</td>          <td class="paramname"><span class="paramname"><em>lParam</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="main_8cpp_a87a3f9652a75339308cf5fd5699ef1fd_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="main_8cpp_a87a3f9652a75339308cf5fd5699ef1fd_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="main_8cpp_a87a3f9652a75339308cf5fd5699ef1fd_icgraph.svg" width="542" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="main_8cpp_a87a3f9652a75339308cf5fd5699ef1fd_icgraph.svg" width="539" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -260,43 +242,34 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">LRESULT CALLBACK WindowProc </td>
           <td>(</td>
-          <td class="paramtype">HWND&#160;</td>
-          <td class="paramname"><em>hwnd</em>, </td>
+          <td class="paramtype">HWND</td>          <td class="paramname"><span class="paramname"><em>hwnd</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">UINT&#160;</td>
-          <td class="paramname"><em>msg</em>, </td>
+          <td class="paramtype">UINT</td>          <td class="paramname"><span class="paramname"><em>msg</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">WPARAM&#160;</td>
-          <td class="paramname"><em>wparam</em>, </td>
+          <td class="paramtype">WPARAM</td>          <td class="paramname"><span class="paramname"><em>wparam</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">LPARAM&#160;</td>
-          <td class="paramname"><em>lparam</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">LPARAM</td>          <td class="paramname"><span class="paramname"><em>lparam</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="main_8cpp_a8186ad69de1179152cb6d53927f9ab68_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="main_8cpp_a8186ad69de1179152cb6d53927f9ab68_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="main_8cpp_a8186ad69de1179152cb6d53927f9ab68_icgraph.svg" width="240" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="main_8cpp_a8186ad69de1179152cb6d53927f9ab68_icgraph.svg" width="239" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -310,38 +283,29 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">int WINAPI WinMain </td>
           <td>(</td>
-          <td class="paramtype">HINSTANCE&#160;</td>
-          <td class="paramname"><em>hInst</em>, </td>
+          <td class="paramtype">HINSTANCE</td>          <td class="paramname"><span class="paramname"><em>hInst</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">HINSTANCE&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramtype">HINSTANCE</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">LPSTR&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramtype">LPSTR</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nCmdShow</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>nCmdShow</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">変数詳解</h2>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">変数詳解</h2>
 <a id="aedeffc7d23da25d52b9a50045189fe2b" name="aedeffc7d23da25d52b9a50045189fe2b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aedeffc7d23da25d52b9a50045189fe2b">&#9670;&#160;</a></span>initialized</h2>
 
@@ -358,11 +322,19 @@ template&lt;typename T &gt; </div>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_1ad6433457b0067ef8f54a4fa85f5c9a.html">Core</a></li><li class="navelem"><a class="el" href="main_8cpp.html">main.cpp</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_1ad6433457b0067ef8f54a4fa85f5c9a.html">Core</a></li><li class="navelem"><a href="main_8cpp.html">main.cpp</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

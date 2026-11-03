@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: nlohmann::detail::json_sax_dom_callback_parser&lt; BasicJsonType &gt; クラステンプレート</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html','','classnlohmann_1_1detail_1_1json__sax__dom__callback__parser-members'); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,126 +89,83 @@ $(document).ready(function(){initNavTree('classnlohmann_1_1detail_1_1json__sax__
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-types">公開型</a> &#124;
-<a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="#pri-methods">非公開メンバ関数</a> &#124;
-<a href="#pri-attribs">非公開変数類</a> &#124;
-<a href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">nlohmann::detail::json_sax_dom_callback_parser&lt; BasicJsonType &gt; クラステンプレート</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="json_8hpp_source.html">json.hpp</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 公開型</h2></td></tr>
-<tr class="memitem:a3ba8fc7a8d83c5b0eeb3b543ad844b8d" id="r_a3ba8fc7a8d83c5b0eeb3b543ad844b8d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a3ba8fc7a8d83c5b0eeb3b543ad844b8d">number_integer_t</a> = typename BasicJsonType::number_integer_t</td></tr>
-<tr class="separator:a3ba8fc7a8d83c5b0eeb3b543ad844b8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2406c5125f7128fb9c01921df2903001" id="r_a2406c5125f7128fb9c01921df2903001"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a2406c5125f7128fb9c01921df2903001">number_unsigned_t</a> = typename BasicJsonType::number_unsigned_t</td></tr>
-<tr class="separator:a2406c5125f7128fb9c01921df2903001"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a914ea0555cea5290449fb791ae41c655" id="r_a914ea0555cea5290449fb791ae41c655"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a914ea0555cea5290449fb791ae41c655">number_float_t</a> = typename BasicJsonType::number_float_t</td></tr>
-<tr class="separator:a914ea0555cea5290449fb791ae41c655"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00e7d95d82d5d8a43421526a42a8eabc" id="r_a00e7d95d82d5d8a43421526a42a8eabc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a00e7d95d82d5d8a43421526a42a8eabc">string_t</a> = typename BasicJsonType::string_t</td></tr>
-<tr class="separator:a00e7d95d82d5d8a43421526a42a8eabc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5af8493f830eeb1a79c69fc39ed54ef8" id="r_a5af8493f830eeb1a79c69fc39ed54ef8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a5af8493f830eeb1a79c69fc39ed54ef8">binary_t</a> = typename BasicJsonType::binary_t</td></tr>
-<tr class="separator:a5af8493f830eeb1a79c69fc39ed54ef8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f636086fa8e7cf26c35c8afd50903ce" id="r_a4f636086fa8e7cf26c35c8afd50903ce"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a4f636086fa8e7cf26c35c8afd50903ce">parser_callback_t</a> = typename BasicJsonType::parser_callback_t</td></tr>
-<tr class="separator:a4f636086fa8e7cf26c35c8afd50903ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac6d706967b2ecc2510e172577d8550b" id="r_aac6d706967b2ecc2510e172577d8550b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#aac6d706967b2ecc2510e172577d8550b">parse_event_t</a> = typename BasicJsonType::parse_event_t</td></tr>
-<tr class="separator:aac6d706967b2ecc2510e172577d8550b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ba8fc7a8d83c5b0eeb3b543ad844b8d" id="r_a3ba8fc7a8d83c5b0eeb3b543ad844b8d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ba8fc7a8d83c5b0eeb3b543ad844b8d">number_integer_t</a> = typename BasicJsonType::number_integer_t</td></tr>
+<tr class="memitem:a2406c5125f7128fb9c01921df2903001" id="r_a2406c5125f7128fb9c01921df2903001"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2406c5125f7128fb9c01921df2903001">number_unsigned_t</a> = typename BasicJsonType::number_unsigned_t</td></tr>
+<tr class="memitem:a914ea0555cea5290449fb791ae41c655" id="r_a914ea0555cea5290449fb791ae41c655"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a914ea0555cea5290449fb791ae41c655">number_float_t</a> = typename BasicJsonType::number_float_t</td></tr>
+<tr class="memitem:a00e7d95d82d5d8a43421526a42a8eabc" id="r_a00e7d95d82d5d8a43421526a42a8eabc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00e7d95d82d5d8a43421526a42a8eabc">string_t</a> = typename BasicJsonType::string_t</td></tr>
+<tr class="memitem:a5af8493f830eeb1a79c69fc39ed54ef8" id="r_a5af8493f830eeb1a79c69fc39ed54ef8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5af8493f830eeb1a79c69fc39ed54ef8">binary_t</a> = typename BasicJsonType::binary_t</td></tr>
+<tr class="memitem:a4f636086fa8e7cf26c35c8afd50903ce" id="r_a4f636086fa8e7cf26c35c8afd50903ce"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f636086fa8e7cf26c35c8afd50903ce">parser_callback_t</a> = typename BasicJsonType::parser_callback_t</td></tr>
+<tr class="memitem:aac6d706967b2ecc2510e172577d8550b" id="r_aac6d706967b2ecc2510e172577d8550b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac6d706967b2ecc2510e172577d8550b">parse_event_t</a> = typename BasicJsonType::parse_event_t</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:afec9434e54590f10df51b062973d4daf" id="r_afec9434e54590f10df51b062973d4daf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#afec9434e54590f10df51b062973d4daf">json_sax_dom_callback_parser</a> (BasicJsonType &amp;r, const <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a4f636086fa8e7cf26c35c8afd50903ce">parser_callback_t</a> cb, const bool allow_exceptions_=true)</td></tr>
-<tr class="separator:afec9434e54590f10df51b062973d4daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a589998730e650a425b1b311e2e9f7f09" id="r_a589998730e650a425b1b311e2e9f7f09"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a589998730e650a425b1b311e2e9f7f09">json_sax_dom_callback_parser</a> (const <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">json_sax_dom_callback_parser</a> &amp;)=delete</td></tr>
-<tr class="separator:a589998730e650a425b1b311e2e9f7f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1ce6c746e3ebadb7994170725fcdbb5" id="r_af1ce6c746e3ebadb7994170725fcdbb5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#af1ce6c746e3ebadb7994170725fcdbb5">json_sax_dom_callback_parser</a> (<a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">json_sax_dom_callback_parser</a> &amp;&amp;)=default</td></tr>
-<tr class="separator:af1ce6c746e3ebadb7994170725fcdbb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a033b8110f630613581ce74f6c4b12bad" id="r_a033b8110f630613581ce74f6c4b12bad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">json_sax_dom_callback_parser</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a033b8110f630613581ce74f6c4b12bad">operator=</a> (const <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">json_sax_dom_callback_parser</a> &amp;)=delete</td></tr>
-<tr class="separator:a033b8110f630613581ce74f6c4b12bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acedad160f4ce60b08cd28ad7cf7e145e" id="r_acedad160f4ce60b08cd28ad7cf7e145e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">json_sax_dom_callback_parser</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#acedad160f4ce60b08cd28ad7cf7e145e">operator=</a> (<a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">json_sax_dom_callback_parser</a> &amp;&amp;)=default</td></tr>
-<tr class="separator:acedad160f4ce60b08cd28ad7cf7e145e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54ffcdfb0a8c5c9a876cd003b404ef4b" id="r_a54ffcdfb0a8c5c9a876cd003b404ef4b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a54ffcdfb0a8c5c9a876cd003b404ef4b">~json_sax_dom_callback_parser</a> ()=default</td></tr>
-<tr class="separator:a54ffcdfb0a8c5c9a876cd003b404ef4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a446262b6a75371fe8e0a6218ba2911e6" id="r_a446262b6a75371fe8e0a6218ba2911e6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a446262b6a75371fe8e0a6218ba2911e6">null</a> ()</td></tr>
-<tr class="separator:a446262b6a75371fe8e0a6218ba2911e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7d8db672189164a8c0731e65ada1b45" id="r_ab7d8db672189164a8c0731e65ada1b45"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#ab7d8db672189164a8c0731e65ada1b45">boolean</a> (bool val)</td></tr>
-<tr class="separator:ab7d8db672189164a8c0731e65ada1b45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68d9eddfd572e8687c1c8107e0505aa6" id="r_a68d9eddfd572e8687c1c8107e0505aa6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a68d9eddfd572e8687c1c8107e0505aa6">number_integer</a> (<a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a3ba8fc7a8d83c5b0eeb3b543ad844b8d">number_integer_t</a> val)</td></tr>
-<tr class="separator:a68d9eddfd572e8687c1c8107e0505aa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acabb231463bf669441c22e4ea385a9fb" id="r_acabb231463bf669441c22e4ea385a9fb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#acabb231463bf669441c22e4ea385a9fb">number_unsigned</a> (<a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a2406c5125f7128fb9c01921df2903001">number_unsigned_t</a> val)</td></tr>
-<tr class="separator:acabb231463bf669441c22e4ea385a9fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae21f7872c334c77d03ae033cb0749b1c" id="r_ae21f7872c334c77d03ae033cb0749b1c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#ae21f7872c334c77d03ae033cb0749b1c">number_float</a> (<a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a914ea0555cea5290449fb791ae41c655">number_float_t</a> val, const <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a00e7d95d82d5d8a43421526a42a8eabc">string_t</a> &amp;)</td></tr>
-<tr class="separator:ae21f7872c334c77d03ae033cb0749b1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad94e912a67c7b96158937236805b8b47" id="r_ad94e912a67c7b96158937236805b8b47"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#ad94e912a67c7b96158937236805b8b47">string</a> (<a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a00e7d95d82d5d8a43421526a42a8eabc">string_t</a> &amp;val)</td></tr>
-<tr class="separator:ad94e912a67c7b96158937236805b8b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66f5515cddef5074c9499f21c26ac099" id="r_a66f5515cddef5074c9499f21c26ac099"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a66f5515cddef5074c9499f21c26ac099">binary</a> (<a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a5af8493f830eeb1a79c69fc39ed54ef8">binary_t</a> &amp;val)</td></tr>
-<tr class="separator:a66f5515cddef5074c9499f21c26ac099"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a040e60243cc7c18a6078c6b83cdb4a81" id="r_a040e60243cc7c18a6078c6b83cdb4a81"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a040e60243cc7c18a6078c6b83cdb4a81">start_object</a> (std::size_t len)</td></tr>
-<tr class="separator:a040e60243cc7c18a6078c6b83cdb4a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cc4a5192fe9b803276edb831b6099fa" id="r_a0cc4a5192fe9b803276edb831b6099fa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a0cc4a5192fe9b803276edb831b6099fa">key</a> (<a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a00e7d95d82d5d8a43421526a42a8eabc">string_t</a> &amp;val)</td></tr>
-<tr class="separator:a0cc4a5192fe9b803276edb831b6099fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae75d313d6d1b9c29508e740a10fefa18" id="r_ae75d313d6d1b9c29508e740a10fefa18"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#ae75d313d6d1b9c29508e740a10fefa18">end_object</a> ()</td></tr>
-<tr class="separator:ae75d313d6d1b9c29508e740a10fefa18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5255b98ba8282e3625968f91cff9d3d0" id="r_a5255b98ba8282e3625968f91cff9d3d0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a5255b98ba8282e3625968f91cff9d3d0">start_array</a> (std::size_t len)</td></tr>
-<tr class="separator:a5255b98ba8282e3625968f91cff9d3d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa64e7a650952174037d32028de582c12" id="r_aa64e7a650952174037d32028de582c12"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#aa64e7a650952174037d32028de582c12">end_array</a> ()</td></tr>
-<tr class="separator:aa64e7a650952174037d32028de582c12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb54d6937ee5d5a40e1db94422998aec" id="r_afb54d6937ee5d5a40e1db94422998aec"><td class="memTemplParams" colspan="2">template&lt;class Exception &gt; </td></tr>
-<tr class="memitem:afb54d6937ee5d5a40e1db94422998aec"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#afb54d6937ee5d5a40e1db94422998aec">parse_error</a> (std::size_t, const std::string &amp;, const Exception &amp;ex)</td></tr>
-<tr class="separator:afb54d6937ee5d5a40e1db94422998aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a167fd9bf385d3d08bcbbba8a927c0eff" id="r_a167fd9bf385d3d08bcbbba8a927c0eff"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a167fd9bf385d3d08bcbbba8a927c0eff">is_errored</a> () const</td></tr>
-<tr class="separator:a167fd9bf385d3d08bcbbba8a927c0eff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afec9434e54590f10df51b062973d4daf" id="r_afec9434e54590f10df51b062973d4daf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afec9434e54590f10df51b062973d4daf">json_sax_dom_callback_parser</a> (BasicJsonType &amp;r, const <a class="el" href="#a4f636086fa8e7cf26c35c8afd50903ce">parser_callback_t</a> cb, const bool allow_exceptions_=true)</td></tr>
+<tr class="memitem:a589998730e650a425b1b311e2e9f7f09" id="r_a589998730e650a425b1b311e2e9f7f09"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a589998730e650a425b1b311e2e9f7f09">json_sax_dom_callback_parser</a> (const json_sax_dom_callback_parser &amp;)=delete</td></tr>
+<tr class="memitem:af1ce6c746e3ebadb7994170725fcdbb5" id="r_af1ce6c746e3ebadb7994170725fcdbb5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1ce6c746e3ebadb7994170725fcdbb5">json_sax_dom_callback_parser</a> (json_sax_dom_callback_parser &amp;&amp;)=default</td></tr>
+<tr class="memitem:a033b8110f630613581ce74f6c4b12bad" id="r_a033b8110f630613581ce74f6c4b12bad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#afec9434e54590f10df51b062973d4daf">json_sax_dom_callback_parser</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a033b8110f630613581ce74f6c4b12bad">operator=</a> (const <a class="el" href="#afec9434e54590f10df51b062973d4daf">json_sax_dom_callback_parser</a> &amp;)=delete</td></tr>
+<tr class="memitem:acedad160f4ce60b08cd28ad7cf7e145e" id="r_acedad160f4ce60b08cd28ad7cf7e145e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#afec9434e54590f10df51b062973d4daf">json_sax_dom_callback_parser</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acedad160f4ce60b08cd28ad7cf7e145e">operator=</a> (<a class="el" href="#afec9434e54590f10df51b062973d4daf">json_sax_dom_callback_parser</a> &amp;&amp;)=default</td></tr>
+<tr class="memitem:a54ffcdfb0a8c5c9a876cd003b404ef4b" id="r_a54ffcdfb0a8c5c9a876cd003b404ef4b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54ffcdfb0a8c5c9a876cd003b404ef4b">~json_sax_dom_callback_parser</a> ()=default</td></tr>
+<tr class="memitem:a446262b6a75371fe8e0a6218ba2911e6" id="r_a446262b6a75371fe8e0a6218ba2911e6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a446262b6a75371fe8e0a6218ba2911e6">null</a> ()</td></tr>
+<tr class="memitem:ab7d8db672189164a8c0731e65ada1b45" id="r_ab7d8db672189164a8c0731e65ada1b45"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7d8db672189164a8c0731e65ada1b45">boolean</a> (bool val)</td></tr>
+<tr class="memitem:a68d9eddfd572e8687c1c8107e0505aa6" id="r_a68d9eddfd572e8687c1c8107e0505aa6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68d9eddfd572e8687c1c8107e0505aa6">number_integer</a> (<a class="el" href="#a3ba8fc7a8d83c5b0eeb3b543ad844b8d">number_integer_t</a> val)</td></tr>
+<tr class="memitem:acabb231463bf669441c22e4ea385a9fb" id="r_acabb231463bf669441c22e4ea385a9fb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acabb231463bf669441c22e4ea385a9fb">number_unsigned</a> (<a class="el" href="#a2406c5125f7128fb9c01921df2903001">number_unsigned_t</a> val)</td></tr>
+<tr class="memitem:ae21f7872c334c77d03ae033cb0749b1c" id="r_ae21f7872c334c77d03ae033cb0749b1c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae21f7872c334c77d03ae033cb0749b1c">number_float</a> (<a class="el" href="#a914ea0555cea5290449fb791ae41c655">number_float_t</a> val, const <a class="el" href="#a00e7d95d82d5d8a43421526a42a8eabc">string_t</a> &amp;)</td></tr>
+<tr class="memitem:ad94e912a67c7b96158937236805b8b47" id="r_ad94e912a67c7b96158937236805b8b47"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad94e912a67c7b96158937236805b8b47">string</a> (<a class="el" href="#a00e7d95d82d5d8a43421526a42a8eabc">string_t</a> &amp;val)</td></tr>
+<tr class="memitem:a66f5515cddef5074c9499f21c26ac099" id="r_a66f5515cddef5074c9499f21c26ac099"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66f5515cddef5074c9499f21c26ac099">binary</a> (<a class="el" href="#a5af8493f830eeb1a79c69fc39ed54ef8">binary_t</a> &amp;val)</td></tr>
+<tr class="memitem:a040e60243cc7c18a6078c6b83cdb4a81" id="r_a040e60243cc7c18a6078c6b83cdb4a81"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a040e60243cc7c18a6078c6b83cdb4a81">start_object</a> (std::size_t len)</td></tr>
+<tr class="memitem:a0cc4a5192fe9b803276edb831b6099fa" id="r_a0cc4a5192fe9b803276edb831b6099fa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0cc4a5192fe9b803276edb831b6099fa">key</a> (<a class="el" href="#a00e7d95d82d5d8a43421526a42a8eabc">string_t</a> &amp;val)</td></tr>
+<tr class="memitem:ae75d313d6d1b9c29508e740a10fefa18" id="r_ae75d313d6d1b9c29508e740a10fefa18"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae75d313d6d1b9c29508e740a10fefa18">end_object</a> ()</td></tr>
+<tr class="memitem:a5255b98ba8282e3625968f91cff9d3d0" id="r_a5255b98ba8282e3625968f91cff9d3d0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5255b98ba8282e3625968f91cff9d3d0">start_array</a> (std::size_t len)</td></tr>
+<tr class="memitem:aa64e7a650952174037d32028de582c12" id="r_aa64e7a650952174037d32028de582c12"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa64e7a650952174037d32028de582c12">end_array</a> ()</td></tr>
+<tr class="memitem:afb54d6937ee5d5a40e1db94422998aec" id="r_afb54d6937ee5d5a40e1db94422998aec"><td class="memTemplParams" colspan="2">template&lt;class Exception&gt; </td></tr>
+<tr class="memitem:afb54d6937ee5d5a40e1db94422998aec template"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb54d6937ee5d5a40e1db94422998aec">parse_error</a> (std::size_t, const std::string &amp;, const Exception &amp;ex)</td></tr>
+<tr class="memitem:a167fd9bf385d3d08bcbbba8a927c0eff" id="r_a167fd9bf385d3d08bcbbba8a927c0eff"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a167fd9bf385d3d08bcbbba8a927c0eff">is_errored</a> () const</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 非公開メンバ関数</h2></td></tr>
-<tr class="memitem:a40e8610f988876fc265d207f68a13000" id="r_a40e8610f988876fc265d207f68a13000"><td class="memTemplParams" colspan="2">template&lt;typename Value &gt; </td></tr>
-<tr class="memitem:a40e8610f988876fc265d207f68a13000"><td class="memTemplItemLeft" align="right" valign="top">std::pair&lt; bool, BasicJsonType * &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a40e8610f988876fc265d207f68a13000">handle_value</a> (Value &amp;&amp;v, const bool skip_callback=false)</td></tr>
-<tr class="separator:a40e8610f988876fc265d207f68a13000"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40e8610f988876fc265d207f68a13000" id="r_a40e8610f988876fc265d207f68a13000"><td class="memTemplParams" colspan="2">template&lt;typename Value&gt; </td></tr>
+<tr class="memitem:a40e8610f988876fc265d207f68a13000 template"><td class="memItemLeft" align="right" valign="top">std::pair&lt; bool, BasicJsonType * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40e8610f988876fc265d207f68a13000">handle_value</a> (Value &amp;&amp;v, const bool skip_callback=false)</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 非公開変数類</h2></td></tr>
-<tr class="memitem:a7b12037ca38be3ddec09c42bd71080cc" id="r_a7b12037ca38be3ddec09c42bd71080cc"><td class="memItemLeft" align="right" valign="top">BasicJsonType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a7b12037ca38be3ddec09c42bd71080cc">root</a></td></tr>
+<tr class="memitem:a7b12037ca38be3ddec09c42bd71080cc" id="r_a7b12037ca38be3ddec09c42bd71080cc"><td class="memItemLeft" align="right" valign="top">BasicJsonType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b12037ca38be3ddec09c42bd71080cc">root</a></td></tr>
 <tr class="memdesc:a7b12037ca38be3ddec09c42bd71080cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">the parsed JSON value  <br /></td></tr>
-<tr class="separator:a7b12037ca38be3ddec09c42bd71080cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82a0e49479660b9903597e1ef55c6601" id="r_a82a0e49479660b9903597e1ef55c6601"><td class="memItemLeft" align="right" valign="top">std::vector&lt; BasicJsonType * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a82a0e49479660b9903597e1ef55c6601">ref_stack</a> {}</td></tr>
+<tr class="memitem:a82a0e49479660b9903597e1ef55c6601" id="r_a82a0e49479660b9903597e1ef55c6601"><td class="memItemLeft" align="right" valign="top">std::vector&lt; BasicJsonType * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82a0e49479660b9903597e1ef55c6601">ref_stack</a> {}</td></tr>
 <tr class="memdesc:a82a0e49479660b9903597e1ef55c6601"><td class="mdescLeft">&#160;</td><td class="mdescRight">stack to model hierarchy of values  <br /></td></tr>
-<tr class="separator:a82a0e49479660b9903597e1ef55c6601"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac24fd6c9f1b31b44328c16d65755ae76" id="r_ac24fd6c9f1b31b44328c16d65755ae76"><td class="memItemLeft" align="right" valign="top">std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#ac24fd6c9f1b31b44328c16d65755ae76">keep_stack</a> {}</td></tr>
+<tr class="memitem:ac24fd6c9f1b31b44328c16d65755ae76" id="r_ac24fd6c9f1b31b44328c16d65755ae76"><td class="memItemLeft" align="right" valign="top">std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac24fd6c9f1b31b44328c16d65755ae76">keep_stack</a> {}</td></tr>
 <tr class="memdesc:ac24fd6c9f1b31b44328c16d65755ae76"><td class="mdescLeft">&#160;</td><td class="mdescRight">stack to manage which values to keep  <br /></td></tr>
-<tr class="separator:ac24fd6c9f1b31b44328c16d65755ae76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f0e96e8bc4f692169024105693f5706" id="r_a8f0e96e8bc4f692169024105693f5706"><td class="memItemLeft" align="right" valign="top">std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a8f0e96e8bc4f692169024105693f5706">key_keep_stack</a> {}</td></tr>
+<tr class="memitem:a8f0e96e8bc4f692169024105693f5706" id="r_a8f0e96e8bc4f692169024105693f5706"><td class="memItemLeft" align="right" valign="top">std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f0e96e8bc4f692169024105693f5706">key_keep_stack</a> {}</td></tr>
 <tr class="memdesc:a8f0e96e8bc4f692169024105693f5706"><td class="mdescLeft">&#160;</td><td class="mdescRight">stack to manage which object keys to keep  <br /></td></tr>
-<tr class="separator:a8f0e96e8bc4f692169024105693f5706"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a8adecd936ba6ec187f1216241b508f" id="r_a2a8adecd936ba6ec187f1216241b508f"><td class="memItemLeft" align="right" valign="top">BasicJsonType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a2a8adecd936ba6ec187f1216241b508f">object_element</a> = nullptr</td></tr>
+<tr class="memitem:a2a8adecd936ba6ec187f1216241b508f" id="r_a2a8adecd936ba6ec187f1216241b508f"><td class="memItemLeft" align="right" valign="top">BasicJsonType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a8adecd936ba6ec187f1216241b508f">object_element</a> = nullptr</td></tr>
 <tr class="memdesc:a2a8adecd936ba6ec187f1216241b508f"><td class="mdescLeft">&#160;</td><td class="mdescRight">helper to hold the reference for the next object element  <br /></td></tr>
-<tr class="separator:a2a8adecd936ba6ec187f1216241b508f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab06baaa640cfaae5846daa7c3594b116" id="r_ab06baaa640cfaae5846daa7c3594b116"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#ab06baaa640cfaae5846daa7c3594b116">errored</a> = false</td></tr>
+<tr class="memitem:ab06baaa640cfaae5846daa7c3594b116" id="r_ab06baaa640cfaae5846daa7c3594b116"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab06baaa640cfaae5846daa7c3594b116">errored</a> = false</td></tr>
 <tr class="memdesc:ab06baaa640cfaae5846daa7c3594b116"><td class="mdescLeft">&#160;</td><td class="mdescRight">whether a syntax error occurred  <br /></td></tr>
-<tr class="separator:ab06baaa640cfaae5846daa7c3594b116"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46a72dffd5be4a25602af00f0033c126" id="r_a46a72dffd5be4a25602af00f0033c126"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a4f636086fa8e7cf26c35c8afd50903ce">parser_callback_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a46a72dffd5be4a25602af00f0033c126">callback</a> = nullptr</td></tr>
+<tr class="memitem:a46a72dffd5be4a25602af00f0033c126" id="r_a46a72dffd5be4a25602af00f0033c126"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="#a4f636086fa8e7cf26c35c8afd50903ce">parser_callback_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46a72dffd5be4a25602af00f0033c126">callback</a> = nullptr</td></tr>
 <tr class="memdesc:a46a72dffd5be4a25602af00f0033c126"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback function  <br /></td></tr>
-<tr class="separator:a46a72dffd5be4a25602af00f0033c126"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a1390c23e2a3da774d75c050f9b3f13" id="r_a0a1390c23e2a3da774d75c050f9b3f13"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a0a1390c23e2a3da774d75c050f9b3f13">allow_exceptions</a> = true</td></tr>
+<tr class="memitem:a0a1390c23e2a3da774d75c050f9b3f13" id="r_a0a1390c23e2a3da774d75c050f9b3f13"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a1390c23e2a3da774d75c050f9b3f13">allow_exceptions</a> = true</td></tr>
 <tr class="memdesc:a0a1390c23e2a3da774d75c050f9b3f13"><td class="mdescLeft">&#160;</td><td class="mdescRight">whether to throw exceptions in case of errors  <br /></td></tr>
-<tr class="separator:a0a1390c23e2a3da774d75c050f9b3f13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8997ee6dc3bd39116b951465b946445e" id="r_a8997ee6dc3bd39116b951465b946445e"><td class="memItemLeft" align="right" valign="top">BasicJsonType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a8997ee6dc3bd39116b951465b946445e">discarded</a> = BasicJsonType::value_t::discarded</td></tr>
+<tr class="memitem:a8997ee6dc3bd39116b951465b946445e" id="r_a8997ee6dc3bd39116b951465b946445e"><td class="memItemLeft" align="right" valign="top">BasicJsonType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8997ee6dc3bd39116b951465b946445e">discarded</a> = BasicJsonType::value_t::discarded</td></tr>
 <tr class="memdesc:a8997ee6dc3bd39116b951465b946445e"><td class="mdescLeft">&#160;</td><td class="mdescRight">a discarded value for the callback  <br /></td></tr>
-<tr class="separator:a8997ee6dc3bd39116b951465b946445e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">型定義メンバ詳解</h2>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">型定義メンバ詳解</h2>
 <a id="a5af8493f830eeb1a79c69fc39ed54ef8" name="a5af8493f830eeb1a79c69fc39ed54ef8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5af8493f830eeb1a79c69fc39ed54ef8">&#9670;&#160;</a></span>binary_t</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::binary_t =  typename BasicJsonType::binary_t</td>
+          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::binary_t = typename BasicJsonType::binary_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -222,10 +178,10 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::number_float_t =  typename BasicJsonType::number_float_t</td>
+          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::number_float_t = typename BasicJsonType::number_float_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -238,10 +194,10 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::number_integer_t =  typename BasicJsonType::number_integer_t</td>
+          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::number_integer_t = typename BasicJsonType::number_integer_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -254,10 +210,10 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::number_unsigned_t =  typename BasicJsonType::number_unsigned_t</td>
+          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::number_unsigned_t = typename BasicJsonType::number_unsigned_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -270,10 +226,10 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::parse_event_t =  typename BasicJsonType::parse_event_t</td>
+          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::parse_event_t = typename BasicJsonType::parse_event_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -286,10 +242,10 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::parser_callback_t =  typename BasicJsonType::parser_callback_t</td>
+          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::parser_callback_t = typename BasicJsonType::parser_callback_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -302,24 +258,24 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::string_t =  typename BasicJsonType::string_t</td>
+          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::string_t = typename BasicJsonType::string_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">構築子と解体子</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">構築子と解体子</h2>
 <a id="afec9434e54590f10df51b062973d4daf" name="afec9434e54590f10df51b062973d4daf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afec9434e54590f10df51b062973d4daf">&#9670;&#160;</a></span>json_sax_dom_callback_parser() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -327,33 +283,30 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::json_sax_dom_callback_parser </td>
           <td>(</td>
-          <td class="paramtype">BasicJsonType &amp;&#160;</td>
-          <td class="paramname"><em>r</em>, </td>
+          <td class="paramtype">BasicJsonType &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a4f636086fa8e7cf26c35c8afd50903ce">parser_callback_t</a>&#160;</td>
-          <td class="paramname"><em>cb</em>, </td>
+          <td class="paramtype">const <a class="el" href="#a4f636086fa8e7cf26c35c8afd50903ce">parser_callback_t</a></td>          <td class="paramname"><span class="paramname"><em>cb</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>allow_exceptions_</em> = <code>true</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>allow_exceptions_</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser_afec9434e54590f10df51b062973d4daf_icgraph.svg" width="522" height="328"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -363,7 +316,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -371,17 +324,21 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::json_sax_dom_callback_parser </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt; &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const json_sax_dom_callback_parser&lt; BasicJsonType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser_a589998730e650a425b1b311e2e9f7f09_cgraph.svg" width="522" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -391,7 +348,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -399,17 +356,21 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::json_sax_dom_callback_parser </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">json_sax_dom_callback_parser&lt; BasicJsonType &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser_af1ce6c746e3ebadb7994170725fcdbb5_cgraph.svg" width="522" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -419,35 +380,35 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::~<a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">json_sax_dom_callback_parser</a> </td>
+          <td class="memname"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::~<a class="el" href="#afec9434e54590f10df51b062973d4daf">json_sax_dom_callback_parser</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="a66f5515cddef5074c9499f21c26ac099" name="a66f5515cddef5074c9499f21c26ac099"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a66f5515cddef5074c9499f21c26ac099">&#9670;&#160;</a></span>binary()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -455,17 +416,21 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::binary </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a5af8493f830eeb1a79c69fc39ed54ef8">binary_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a5af8493f830eeb1a79c69fc39ed54ef8">binary_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser_a66f5515cddef5074c9499f21c26ac099_cgraph.svg" width="452" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -475,7 +440,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -483,17 +448,21 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::boolean </td>
           <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser_ab7d8db672189164a8c0731e65ada1b45_cgraph.svg" width="452" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -503,7 +472,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -511,13 +480,13 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::end_array </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -530,7 +499,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -538,13 +507,13 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::end_object </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -557,9 +526,9 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <div class="memtemplate">
-template&lt;typename Value &gt; </div>
+template&lt;typename Value&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -567,31 +536,24 @@ template&lt;typename Value &gt; </div>
         <tr>
           <td class="memname">std::pair&lt; bool, BasicJsonType * &gt; <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::handle_value </td>
           <td>(</td>
-          <td class="paramtype">Value &amp;&amp;&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
+          <td class="paramtype">Value &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>skip_callback</em> = <code>false</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>skip_callback</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">v</td><td>value to add to the JSON value we build during parsing </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">skip_callback</td><td>whether we should skip calling the callback function; this is required after <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a5255b98ba8282e3625968f91cff9d3d0">start_array()</a> and <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a040e60243cc7c18a6078c6b83cdb4a81">start_object()</a> SAX events, because otherwise we would call the callback function with an empty array or object, respectively.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">skip_callback</td><td>whether we should skip calling the callback function; this is required after <a class="el" href="#a5255b98ba8282e3625968f91cff9d3d0">start_array()</a> and <a class="el" href="#a040e60243cc7c18a6078c6b83cdb4a81">start_object()</a> SAX events, because otherwise we would call the callback function with an empty array or object, respectively.</td></tr>
   </table>
   </dd>
 </dl>
@@ -599,6 +561,11 @@ template&lt;typename Value &gt; </div>
 <dd>
 If the ref stack contains a value, then it is an array or an object to which we can add elements</dd></dl>
 <dl class="section return"><dt>戻り値</dt><dd>pair of boolean (whether value should be kept) and pointer (to the passed value in the ref_stack hierarchy; nullptr if not kept) </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser_a40e8610f988876fc265d207f68a13000_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -608,28 +575,28 @@ If the ref stack contains a value, then it is an array or an object to which we 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::is_errored </td>
+          <td class="memname">bool <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::is_errored </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser_a167fd9bf385d3d08bcbbba8a927c0eff_icgraph.svg" width="438" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser_a167fd9bf385d3d08bcbbba8a927c0eff_icgraph.svg" width="436" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -640,7 +607,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -648,14 +615,13 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::key </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a00e7d95d82d5d8a43421526a42a8eabc">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a00e7d95d82d5d8a43421526a42a8eabc">string_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -668,7 +634,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -676,16 +642,21 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::null </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser_a446262b6a75371fe8e0a6218ba2911e6_cgraph.svg" width="484" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -695,7 +666,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -703,27 +674,25 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::number_float </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a914ea0555cea5290449fb791ae41c655">number_float_t</a>&#160;</td>
-          <td class="paramname"><em>val</em>, </td>
+          <td class="paramtype"><a class="el" href="#a914ea0555cea5290449fb791ae41c655">number_float_t</a></td>          <td class="paramname"><span class="paramname"><em>val</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a00e7d95d82d5d8a43421526a42a8eabc">string_t</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const <a class="el" href="#a00e7d95d82d5d8a43421526a42a8eabc">string_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser_ae21f7872c334c77d03ae033cb0749b1c_cgraph.svg" width="452" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -733,7 +702,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -741,17 +710,21 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::number_integer </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a3ba8fc7a8d83c5b0eeb3b543ad844b8d">number_integer_t</a>&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a3ba8fc7a8d83c5b0eeb3b543ad844b8d">number_integer_t</a></td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser_a68d9eddfd572e8687c1c8107e0505aa6_cgraph.svg" width="452" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -761,7 +734,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -769,17 +742,21 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::number_unsigned </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a2406c5125f7128fb9c01921df2903001">number_unsigned_t</a>&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a2406c5125f7128fb9c01921df2903001">number_unsigned_t</a></td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser_acabb231463bf669441c22e4ea385a9fb_cgraph.svg" width="452" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -789,25 +766,29 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">json_sax_dom_callback_parser</a> &amp; <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::operator= </td>
+          <td class="memname"><a class="el" href="#afec9434e54590f10df51b062973d4daf">json_sax_dom_callback_parser</a> &amp; <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt; &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#afec9434e54590f10df51b062973d4daf">json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser_a033b8110f630613581ce74f6c4b12bad_cgraph.svg" width="487" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -817,25 +798,29 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">json_sax_dom_callback_parser</a> &amp; <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::operator= </td>
+          <td class="memname"><a class="el" href="#afec9434e54590f10df51b062973d4daf">json_sax_dom_callback_parser</a> &amp; <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#afec9434e54590f10df51b062973d4daf">json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser_acedad160f4ce60b08cd28ad7cf7e145e_cgraph.svg" width="487" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -845,9 +830,9 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <div class="memtemplate">
-template&lt;class Exception &gt; </div>
+template&lt;class Exception&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -855,37 +840,29 @@ template&lt;class Exception &gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::parse_error </td>
           <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const Exception &amp;&#160;</td>
-          <td class="paramname"><em>ex</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const Exception &amp;</td>          <td class="paramname"><span class="paramname"><em>ex</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser_afb54d6937ee5d5a40e1db94422998aec_icgraph.svg" width="438" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser_afb54d6937ee5d5a40e1db94422998aec_icgraph.svg" width="436" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -896,7 +873,7 @@ template&lt;class Exception &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -904,17 +881,21 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::start_array </td>
           <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>len</em></td><td>)</td>
+          <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em>len</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser_a5255b98ba8282e3625968f91cff9d3d0_cgraph.svg" width="100%" height="464"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -924,7 +905,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -932,17 +913,21 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::start_object </td>
           <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>len</em></td><td>)</td>
+          <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em>len</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser_a040e60243cc7c18a6078c6b83cdb4a81_cgraph.svg" width="100%" height="464"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -952,7 +937,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -960,28 +945,32 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;<a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">::string</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a00e7d95d82d5d8a43421526a42a8eabc">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a00e7d95d82d5d8a43421526a42a8eabc">string_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser_ad94e912a67c7b96158937236805b8b47_cgraph.svg" width="452" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<h2 class="groupheader">メンバ詳解</h2>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">メンバ詳解</h2>
 <a id="a0a1390c23e2a3da774d75c050f9b3f13" name="a0a1390c23e2a3da774d75c050f9b3f13"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0a1390c23e2a3da774d75c050f9b3f13">&#9670;&#160;</a></span>allow_exceptions</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -992,7 +981,7 @@ template&lt;typename BasicJsonType &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1007,18 +996,18 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a4f636086fa8e7cf26c35c8afd50903ce">parser_callback_t</a> <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::callback = nullptr</td>
+          <td class="memname">const <a class="el" href="#a4f636086fa8e7cf26c35c8afd50903ce">parser_callback_t</a> <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">nlohmann::detail::json_sax_dom_callback_parser</a>&lt; BasicJsonType &gt;::callback = nullptr</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1033,7 +1022,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1044,7 +1033,7 @@ template&lt;typename BasicJsonType &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1059,7 +1048,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1070,7 +1059,7 @@ template&lt;typename BasicJsonType &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1085,7 +1074,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1096,7 +1085,7 @@ template&lt;typename BasicJsonType &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1111,7 +1100,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1122,7 +1111,7 @@ template&lt;typename BasicJsonType &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1137,7 +1126,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1148,7 +1137,7 @@ template&lt;typename BasicJsonType &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1163,7 +1152,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1174,7 +1163,7 @@ template&lt;typename BasicJsonType &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1189,7 +1178,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1200,7 +1189,7 @@ template&lt;typename BasicJsonType &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1214,11 +1203,19 @@ template&lt;typename BasicJsonType &gt; </div>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacenlohmann.html">nlohmann</a></li><li class="navelem"><a class="el" href="namespacenlohmann_1_1detail.html">detail</a></li><li class="navelem"><a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">json_sax_dom_callback_parser</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="namespacenlohmann.html">nlohmann</a></li><li class="navelem"><a href="namespacenlohmann_1_1detail.html">detail</a></li><li class="navelem"><a href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html">json_sax_dom_callback_parser</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

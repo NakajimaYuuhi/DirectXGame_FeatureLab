@@ -1,4 +1,4 @@
 var StateMachine_8h =
 [
-    [ "StateMachine< T >", "classStateMachine.html", "classStateMachine" ]
+    [ "StateMachine&lt; T &gt;", "classStateMachine.html", "classStateMachine" ]
 ];

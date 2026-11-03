@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: EditorRaycast クラス</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classEditorRaycast.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('classEditorRaycast.html','','classEditorRaycast-members'); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,27 +89,20 @@ $(document).ready(function(){initNavTree('classEditorRaycast.html',''); initResi
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
-<a href="classEditorRaycast-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">EditorRaycast クラス</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="EditorRaycast_8h_source.html">EditorRaycast.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
-<tr class="memitem:a196945a4cccb2ae2712372a93ef45a39" id="r_a196945a4cccb2ae2712372a93ef45a39"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structRay.html">Ray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorRaycast.html#a196945a4cccb2ae2712372a93ef45a39">CreateRayFromScreen</a> (float screenX, float screenY, float screenWidth, float screenHeight, const DirectX::XMMATRIX &amp;view, const DirectX::XMMATRIX &amp;proj)</td></tr>
-<tr class="separator:a196945a4cccb2ae2712372a93ef45a39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b30dc63fc01d33feac40d310c397a2c" id="r_a2b30dc63fc01d33feac40d310c397a2c"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorRaycast.html#a2b30dc63fc01d33feac40d310c397a2c">RayIntersectAABB</a> (const <a class="el" href="structRay.html">Ray</a> &amp;ray, const DirectX::XMFLOAT3 &amp;boxMin, const DirectX::XMFLOAT3 &amp;boxMax, float &amp;outDistance)</td></tr>
-<tr class="separator:a2b30dc63fc01d33feac40d310c397a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a040dc90dc5cc38abf84eea29d76ecfcc" id="r_a040dc90dc5cc38abf84eea29d76ecfcc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorRaycast.html#a040dc90dc5cc38abf84eea29d76ecfcc">PickObject</a> (float screenX, float screenY, float screenWidth, float screenHeight, const DirectX::XMMATRIX &amp;view, const DirectX::XMMATRIX &amp;proj, const std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="classCObject.html">CObject</a> &gt; &gt; &gt; &amp;objectList, int &amp;outTagIndex, int &amp;outObjectIndex, int *outMeshIndex=nullptr, int *outMaterialSlot=nullptr)</td></tr>
-<tr class="separator:a040dc90dc5cc38abf84eea29d76ecfcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91013ddacaea940c3566929840cde1b1" id="r_a91013ddacaea940c3566929840cde1b1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditorRaycast.html#a91013ddacaea940c3566929840cde1b1">PickObject</a> (float screenX, float screenY, float screenWidth, float screenHeight, <a class="el" href="classCameraComponent.html">CameraComponent</a> *camera, const std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="classCObject.html">CObject</a> &gt; &gt; &gt; &amp;objectList, int &amp;outTagIndex, int &amp;outObjectIndex, int *outMeshIndex=nullptr, int *outMaterialSlot=nullptr)</td></tr>
-<tr class="separator:a91013ddacaea940c3566929840cde1b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a196945a4cccb2ae2712372a93ef45a39" id="r_a196945a4cccb2ae2712372a93ef45a39"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structRay.html">Ray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a196945a4cccb2ae2712372a93ef45a39">CreateRayFromScreen</a> (float screenX, float screenY, float screenWidth, float screenHeight, const DirectX::XMMATRIX &amp;view, const DirectX::XMMATRIX &amp;proj)</td></tr>
+<tr class="memitem:a2b30dc63fc01d33feac40d310c397a2c" id="r_a2b30dc63fc01d33feac40d310c397a2c"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b30dc63fc01d33feac40d310c397a2c">RayIntersectAABB</a> (const <a class="el" href="structRay.html">Ray</a> &amp;ray, const DirectX::XMFLOAT3 &amp;boxMin, const DirectX::XMFLOAT3 &amp;boxMax, float &amp;outDistance)</td></tr>
+<tr class="memitem:a040dc90dc5cc38abf84eea29d76ecfcc" id="r_a040dc90dc5cc38abf84eea29d76ecfcc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a040dc90dc5cc38abf84eea29d76ecfcc">PickObject</a> (float screenX, float screenY, float screenWidth, float screenHeight, const DirectX::XMMATRIX &amp;view, const DirectX::XMMATRIX &amp;proj, const std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="classCObject.html">CObject</a> &gt; &gt; &gt; &amp;objectList, int &amp;outTagIndex, int &amp;outObjectIndex, int *outMeshIndex=nullptr, int *outMaterialSlot=nullptr)</td></tr>
+<tr class="memitem:a91013ddacaea940c3566929840cde1b1" id="r_a91013ddacaea940c3566929840cde1b1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91013ddacaea940c3566929840cde1b1">PickObject</a> (float screenX, float screenY, float screenWidth, float screenHeight, <a class="el" href="classCameraComponent.html">CameraComponent</a> *camera, const std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="classCObject.html">CObject</a> &gt; &gt; &gt; &amp;objectList, int &amp;outTagIndex, int &amp;outObjectIndex, int *outMeshIndex=nullptr, int *outMaterialSlot=nullptr)</td></tr>
 </table>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="a196945a4cccb2ae2712372a93ef45a39" name="a196945a4cccb2ae2712372a93ef45a39"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a196945a4cccb2ae2712372a93ef45a39">&#9670;&#160;</a></span>CreateRayFromScreen()</h2>
 
@@ -123,55 +115,44 @@ $(document).ready(function(){initNavTree('classEditorRaycast.html',''); initResi
         <tr>
           <td class="memname"><a class="el" href="structRay.html">Ray</a> EditorRaycast::CreateRayFromScreen </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>screenX</em>, </td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>screenX</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>screenY</em>, </td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>screenY</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>screenWidth</em>, </td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>screenWidth</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>screenHeight</em>, </td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>screenHeight</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const DirectX::XMMATRIX &amp;&#160;</td>
-          <td class="paramname"><em>view</em>, </td>
+          <td class="paramtype">const DirectX::XMMATRIX &amp;</td>          <td class="paramname"><span class="paramname"><em>view</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const DirectX::XMMATRIX &amp;&#160;</td>
-          <td class="paramname"><em>proj</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const DirectX::XMMATRIX &amp;</td>          <td class="paramname"><span class="paramname"><em>proj</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEditorRaycast_a196945a4cccb2ae2712372a93ef45a39_icgraph.svg" width="100%" height="364"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classEditorRaycast_a196945a4cccb2ae2712372a93ef45a39_icgraph.svg" width="100%" height="368"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -188,79 +169,64 @@ $(document).ready(function(){initNavTree('classEditorRaycast.html',''); initResi
         <tr>
           <td class="memname"><a class="el" href="classCObject.html">CObject</a> * EditorRaycast::PickObject </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>screenX</em>, </td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>screenX</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>screenY</em>, </td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>screenY</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>screenWidth</em>, </td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>screenWidth</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>screenHeight</em>, </td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>screenHeight</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classCameraComponent.html">CameraComponent</a> *&#160;</td>
-          <td class="paramname"><em>camera</em>, </td>
+          <td class="paramtype"><a class="el" href="classCameraComponent.html">CameraComponent</a> *</td>          <td class="paramname"><span class="paramname"><em>camera</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="classCObject.html">CObject</a> &gt; &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>objectList</em>, </td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="classCObject.html">CObject</a> &gt; &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>objectList</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>outTagIndex</em>, </td>
+          <td class="paramtype">int &amp;</td>          <td class="paramname"><span class="paramname"><em>outTagIndex</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>outObjectIndex</em>, </td>
+          <td class="paramtype">int &amp;</td>          <td class="paramname"><span class="paramname"><em>outObjectIndex</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>outMeshIndex</em> = <code>nullptr</code>, </td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>outMeshIndex</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>outMaterialSlot</em> = <code>nullptr</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>outMaterialSlot</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEditorRaycast_a91013ddacaea940c3566929840cde1b1_cgraph.svg" width="100%" height="561"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classEditorRaycast_a91013ddacaea940c3566929840cde1b1_cgraph.svg" width="100%" height="575"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -277,90 +243,74 @@ $(document).ready(function(){initNavTree('classEditorRaycast.html',''); initResi
         <tr>
           <td class="memname"><a class="el" href="classCObject.html">CObject</a> * EditorRaycast::PickObject </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>screenX</em>, </td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>screenX</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>screenY</em>, </td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>screenY</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>screenWidth</em>, </td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>screenWidth</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>screenHeight</em>, </td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>screenHeight</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const DirectX::XMMATRIX &amp;&#160;</td>
-          <td class="paramname"><em>view</em>, </td>
+          <td class="paramtype">const DirectX::XMMATRIX &amp;</td>          <td class="paramname"><span class="paramname"><em>view</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const DirectX::XMMATRIX &amp;&#160;</td>
-          <td class="paramname"><em>proj</em>, </td>
+          <td class="paramtype">const DirectX::XMMATRIX &amp;</td>          <td class="paramname"><span class="paramname"><em>proj</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="classCObject.html">CObject</a> &gt; &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>objectList</em>, </td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; std::unique_ptr&lt; <a class="el" href="classCObject.html">CObject</a> &gt; &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>objectList</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>outTagIndex</em>, </td>
+          <td class="paramtype">int &amp;</td>          <td class="paramname"><span class="paramname"><em>outTagIndex</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>outObjectIndex</em>, </td>
+          <td class="paramtype">int &amp;</td>          <td class="paramname"><span class="paramname"><em>outObjectIndex</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>outMeshIndex</em> = <code>nullptr</code>, </td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>outMeshIndex</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>outMaterialSlot</em> = <code>nullptr</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>outMaterialSlot</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classEditorRaycast_a040dc90dc5cc38abf84eea29d76ecfcc_cgraph.svg" width="487" height="348"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classEditorRaycast_a040dc90dc5cc38abf84eea29d76ecfcc_cgraph.svg" width="484" height="367"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classEditorRaycast_a040dc90dc5cc38abf84eea29d76ecfcc_icgraph.svg" width="564" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classEditorRaycast_a040dc90dc5cc38abf84eea29d76ecfcc_icgraph.svg" width="562" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -377,43 +327,34 @@ $(document).ready(function(){initNavTree('classEditorRaycast.html',''); initResi
         <tr>
           <td class="memname">bool EditorRaycast::RayIntersectAABB </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structRay.html">Ray</a> &amp;&#160;</td>
-          <td class="paramname"><em>ray</em>, </td>
+          <td class="paramtype">const <a class="el" href="structRay.html">Ray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ray</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const DirectX::XMFLOAT3 &amp;&#160;</td>
-          <td class="paramname"><em>boxMin</em>, </td>
+          <td class="paramtype">const DirectX::XMFLOAT3 &amp;</td>          <td class="paramname"><span class="paramname"><em>boxMin</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const DirectX::XMFLOAT3 &amp;&#160;</td>
-          <td class="paramname"><em>boxMax</em>, </td>
+          <td class="paramtype">const DirectX::XMFLOAT3 &amp;</td>          <td class="paramname"><span class="paramname"><em>boxMax</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float &amp;&#160;</td>
-          <td class="paramname"><em>outDistance</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">float &amp;</td>          <td class="paramname"><span class="paramname"><em>outDistance</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEditorRaycast_a2b30dc63fc01d33feac40d310c397a2c_icgraph.svg" width="100%" height="364"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classEditorRaycast_a2b30dc63fc01d33feac40d310c397a2c_icgraph.svg" width="100%" height="368"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -424,11 +365,19 @@ $(document).ready(function(){initNavTree('classEditorRaycast.html',''); initResi
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="classEditorRaycast.html">EditorRaycast</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="classEditorRaycast.html">EditorRaycast</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

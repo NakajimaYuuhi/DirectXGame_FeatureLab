@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: Source/External/imgui_impl_dx12.h ファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('imgui__impl__dx12_8h.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('imgui__impl__dx12_8h.html','',''); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,9 +89,6 @@ $(document).ready(function(){initNavTree('imgui__impl__dx12_8h.html',''); initRe
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">クラス</a> &#124;
-<a href="#func-members">関数</a>  </div>
   <div class="headertitle"><div class="title">imgui_impl_dx12.h ファイル</div></div>
 </div><!--header-->
 <div class="contents">
@@ -102,43 +98,33 @@ $(document).ready(function(){initNavTree('imgui__impl__dx12_8h.html',''); initRe
 </div><div class="textblock"><div class="dynheader">
 imgui_impl_dx12.h の依存先関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8h__incl.svg" width="582" height="198"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="imgui__impl__dx12_8h__incl.svg" width="574" height="207"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 被依存関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8h__dep__incl.svg" width="100%" height="404"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="imgui__impl__dx12_8h__dep__incl.svg" width="100%" height="411"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="imgui__impl__dx12_8h_source.html">[ソースコード]</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 クラス</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImGui__ImplDX12__InitInfo.html">ImGui_ImplDX12_InitInfo</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImGui__ImplDX12__RenderState.html">ImGui_ImplDX12_RenderState</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ImGui_5FImplDX12_5FInitInfo" id="r_ImGui_5FImplDX12_5FInitInfo"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImGui__ImplDX12__InitInfo.html">ImGui_ImplDX12_InitInfo</a></td></tr>
+<tr class="memitem:ImGui_5FImplDX12_5FRenderState" id="r_ImGui_5FImplDX12_5FRenderState"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImGui__ImplDX12__RenderState.html">ImGui_ImplDX12_RenderState</a></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 関数</h2></td></tr>
-<tr class="memitem:a799eeac4f8d3194d1b70f2982233e5cd" id="r_a799eeac4f8d3194d1b70f2982233e5cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8h.html#a799eeac4f8d3194d1b70f2982233e5cd">ImGui_ImplDX12_Init</a> (<a class="el" href="structImGui__ImplDX12__InitInfo.html">ImGui_ImplDX12_InitInfo</a> *info)</td></tr>
-<tr class="separator:a799eeac4f8d3194d1b70f2982233e5cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7aae7738912dbd5dea744193f8d27abc" id="r_a7aae7738912dbd5dea744193f8d27abc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8h.html#a7aae7738912dbd5dea744193f8d27abc">ImGui_ImplDX12_Shutdown</a> ()</td></tr>
-<tr class="separator:a7aae7738912dbd5dea744193f8d27abc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a963ef6f8dfd23858e34f034416c618" id="r_a2a963ef6f8dfd23858e34f034416c618"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8h.html#a2a963ef6f8dfd23858e34f034416c618">ImGui_ImplDX12_NewFrame</a> ()</td></tr>
-<tr class="separator:a2a963ef6f8dfd23858e34f034416c618"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e6a26cdbaaeeca9df86e8373c4a8547" id="r_a7e6a26cdbaaeeca9df86e8373c4a8547"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8h.html#a7e6a26cdbaaeeca9df86e8373c4a8547">ImGui_ImplDX12_RenderDrawData</a> (<a class="el" href="structImDrawData.html">ImDrawData</a> *draw_data, ID3D12GraphicsCommandList *graphics_command_list)</td></tr>
-<tr class="separator:a7e6a26cdbaaeeca9df86e8373c4a8547"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78137837a4a658b502a2fff02c941d8e" id="r_a78137837a4a658b502a2fff02c941d8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8h.html#a78137837a4a658b502a2fff02c941d8e">ImGui_ImplDX12_Init</a> (ID3D12Device *device, int num_frames_in_flight, DXGI_FORMAT rtv_format, ID3D12DescriptorHeap *srv_descriptor_heap, D3D12_CPU_DESCRIPTOR_HANDLE font_srv_cpu_desc_handle, D3D12_GPU_DESCRIPTOR_HANDLE font_srv_gpu_desc_handle)</td></tr>
-<tr class="separator:a78137837a4a658b502a2fff02c941d8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70a3e717bf7a3903b1f231dfc2516f89" id="r_a70a3e717bf7a3903b1f231dfc2516f89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8h.html#a70a3e717bf7a3903b1f231dfc2516f89">ImGui_ImplDX12_CreateDeviceObjects</a> ()</td></tr>
-<tr class="separator:a70a3e717bf7a3903b1f231dfc2516f89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02f397b136e8350977a2192c8ddbd9bd" id="r_a02f397b136e8350977a2192c8ddbd9bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8h.html#a02f397b136e8350977a2192c8ddbd9bd">ImGui_ImplDX12_InvalidateDeviceObjects</a> ()</td></tr>
-<tr class="separator:a02f397b136e8350977a2192c8ddbd9bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe3dcbbc97bc1fed9507f05c292c5e4c" id="r_afe3dcbbc97bc1fed9507f05c292c5e4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imgui__impl__dx12_8h.html#afe3dcbbc97bc1fed9507f05c292c5e4c">ImGui_ImplDX12_UpdateTexture</a> (<a class="el" href="structImTextureData.html">ImTextureData</a> *tex)</td></tr>
-<tr class="separator:afe3dcbbc97bc1fed9507f05c292c5e4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a799eeac4f8d3194d1b70f2982233e5cd" id="r_a799eeac4f8d3194d1b70f2982233e5cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a799eeac4f8d3194d1b70f2982233e5cd">ImGui_ImplDX12_Init</a> (<a class="el" href="structImGui__ImplDX12__InitInfo.html">ImGui_ImplDX12_InitInfo</a> *info)</td></tr>
+<tr class="memitem:a7aae7738912dbd5dea744193f8d27abc" id="r_a7aae7738912dbd5dea744193f8d27abc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7aae7738912dbd5dea744193f8d27abc">ImGui_ImplDX12_Shutdown</a> ()</td></tr>
+<tr class="memitem:a2a963ef6f8dfd23858e34f034416c618" id="r_a2a963ef6f8dfd23858e34f034416c618"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a963ef6f8dfd23858e34f034416c618">ImGui_ImplDX12_NewFrame</a> ()</td></tr>
+<tr class="memitem:a7e6a26cdbaaeeca9df86e8373c4a8547" id="r_a7e6a26cdbaaeeca9df86e8373c4a8547"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e6a26cdbaaeeca9df86e8373c4a8547">ImGui_ImplDX12_RenderDrawData</a> (<a class="el" href="structImDrawData.html">ImDrawData</a> *draw_data, ID3D12GraphicsCommandList *graphics_command_list)</td></tr>
+<tr class="memitem:a78137837a4a658b502a2fff02c941d8e" id="r_a78137837a4a658b502a2fff02c941d8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78137837a4a658b502a2fff02c941d8e">ImGui_ImplDX12_Init</a> (ID3D12Device *device, int num_frames_in_flight, DXGI_FORMAT rtv_format, ID3D12DescriptorHeap *srv_descriptor_heap, D3D12_CPU_DESCRIPTOR_HANDLE font_srv_cpu_desc_handle, D3D12_GPU_DESCRIPTOR_HANDLE font_srv_gpu_desc_handle)</td></tr>
+<tr class="memitem:a70a3e717bf7a3903b1f231dfc2516f89" id="r_a70a3e717bf7a3903b1f231dfc2516f89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70a3e717bf7a3903b1f231dfc2516f89">ImGui_ImplDX12_CreateDeviceObjects</a> ()</td></tr>
+<tr class="memitem:a02f397b136e8350977a2192c8ddbd9bd" id="r_a02f397b136e8350977a2192c8ddbd9bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02f397b136e8350977a2192c8ddbd9bd">ImGui_ImplDX12_InvalidateDeviceObjects</a> ()</td></tr>
+<tr class="memitem:afe3dcbbc97bc1fed9507f05c292c5e4c" id="r_afe3dcbbc97bc1fed9507f05c292c5e4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe3dcbbc97bc1fed9507f05c292c5e4c">ImGui_ImplDX12_UpdateTexture</a> (<a class="el" href="structImTextureData.html">ImTextureData</a> *tex)</td></tr>
 </table>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="a70a3e717bf7a3903b1f231dfc2516f89" name="a70a3e717bf7a3903b1f231dfc2516f89"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a70a3e717bf7a3903b1f231dfc2516f89">&#9670;&#160;</a></span>ImGui_ImplDX12_CreateDeviceObjects()</h2>
 
@@ -148,7 +134,7 @@ imgui_impl_dx12.h の依存先関係図:</div>
         <tr>
           <td class="memname"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> bool ImGui_ImplDX12_CreateDeviceObjects </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -156,12 +142,12 @@ imgui_impl_dx12.h の依存先関係図:</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8h_a70a3e717bf7a3903b1f231dfc2516f89_cgraph.svg" width="100%" height="512"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="imgui__impl__dx12_8h_a70a3e717bf7a3903b1f231dfc2516f89_cgraph.svg" width="100%" height="524"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8h_a70a3e717bf7a3903b1f231dfc2516f89_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="imgui__impl__dx12_8h_a70a3e717bf7a3903b1f231dfc2516f89_icgraph.svg" width="494" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -175,50 +161,39 @@ imgui_impl_dx12.h の依存先関係図:</div>
         <tr>
           <td class="memname"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> bool ImGui_ImplDX12_Init </td>
           <td>(</td>
-          <td class="paramtype">ID3D12Device *&#160;</td>
-          <td class="paramname"><em>device</em>, </td>
+          <td class="paramtype">ID3D12Device *</td>          <td class="paramname"><span class="paramname"><em>device</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>num_frames_in_flight</em>, </td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>num_frames_in_flight</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">DXGI_FORMAT&#160;</td>
-          <td class="paramname"><em>rtv_format</em>, </td>
+          <td class="paramtype">DXGI_FORMAT</td>          <td class="paramname"><span class="paramname"><em>rtv_format</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">ID3D12DescriptorHeap *&#160;</td>
-          <td class="paramname"><em>srv_descriptor_heap</em>, </td>
+          <td class="paramtype">ID3D12DescriptorHeap *</td>          <td class="paramname"><span class="paramname"><em>srv_descriptor_heap</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">D3D12_CPU_DESCRIPTOR_HANDLE&#160;</td>
-          <td class="paramname"><em>font_srv_cpu_desc_handle</em>, </td>
+          <td class="paramtype">D3D12_CPU_DESCRIPTOR_HANDLE</td>          <td class="paramname"><span class="paramname"><em>font_srv_cpu_desc_handle</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">D3D12_GPU_DESCRIPTOR_HANDLE&#160;</td>
-          <td class="paramname"><em>font_srv_gpu_desc_handle</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">D3D12_GPU_DESCRIPTOR_HANDLE</td>          <td class="paramname"><span class="paramname"><em>font_srv_gpu_desc_handle</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8h_a78137837a4a658b502a2fff02c941d8e_cgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="imgui__impl__dx12_8h_a78137837a4a658b502a2fff02c941d8e_cgraph.svg" width="100%" height="398"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -232,8 +207,7 @@ imgui_impl_dx12.h の依存先関係図:</div>
         <tr>
           <td class="memname"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> bool ImGui_ImplDX12_Init </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structImGui__ImplDX12__InitInfo.html">ImGui_ImplDX12_InitInfo</a> *&#160;</td>
-          <td class="paramname"><em>info</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structImGui__ImplDX12__InitInfo.html">ImGui_ImplDX12_InitInfo</a> *</td>          <td class="paramname"><span class="paramname"><em>info</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -241,12 +215,12 @@ imgui_impl_dx12.h の依存先関係図:</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8h_a799eeac4f8d3194d1b70f2982233e5cd_cgraph.svg" width="100%" height="373"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="imgui__impl__dx12_8h_a799eeac4f8d3194d1b70f2982233e5cd_cgraph.svg" width="100%" height="379"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8h_a799eeac4f8d3194d1b70f2982233e5cd_icgraph.svg" width="536" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="imgui__impl__dx12_8h_a799eeac4f8d3194d1b70f2982233e5cd_icgraph.svg" width="378" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -260,7 +234,7 @@ imgui_impl_dx12.h の依存先関係図:</div>
         <tr>
           <td class="memname"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> void ImGui_ImplDX12_InvalidateDeviceObjects </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -268,12 +242,12 @@ imgui_impl_dx12.h の依存先関係図:</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8h_a02f397b136e8350977a2192c8ddbd9bd_cgraph.svg" width="100%" height="493"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="imgui__impl__dx12_8h_a02f397b136e8350977a2192c8ddbd9bd_cgraph.svg" width="100%" height="504"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8h_a02f397b136e8350977a2192c8ddbd9bd_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="imgui__impl__dx12_8h_a02f397b136e8350977a2192c8ddbd9bd_icgraph.svg" width="100%" height="380"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -287,7 +261,7 @@ imgui_impl_dx12.h の依存先関係図:</div>
         <tr>
           <td class="memname"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> void ImGui_ImplDX12_NewFrame </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -295,12 +269,7 @@ imgui_impl_dx12.h の依存先関係図:</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8h_a2a963ef6f8dfd23858e34f034416c618_cgraph.svg" width="100%" height="512"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
-被呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8h_a2a963ef6f8dfd23858e34f034416c618_icgraph.svg" width="567" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="imgui__impl__dx12_8h_a2a963ef6f8dfd23858e34f034416c618_cgraph.svg" width="100%" height="524"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -314,31 +283,19 @@ imgui_impl_dx12.h の依存先関係図:</div>
         <tr>
           <td class="memname"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> void ImGui_ImplDX12_RenderDrawData </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structImDrawData.html">ImDrawData</a> *&#160;</td>
-          <td class="paramname"><em>draw_data</em>, </td>
+          <td class="paramtype"><a class="el" href="structImDrawData.html">ImDrawData</a> *</td>          <td class="paramname"><span class="paramname"><em>draw_data</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">ID3D12GraphicsCommandList *&#160;</td>
-          <td class="paramname"><em>graphics_command_list</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">ID3D12GraphicsCommandList *</td>          <td class="paramname"><span class="paramname"><em>graphics_command_list</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8h_a7e6a26cdbaaeeca9df86e8373c4a8547_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
-被呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8h_a7e6a26cdbaaeeca9df86e8373c4a8547_icgraph.svg" width="595" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="imgui__impl__dx12_8h_a7e6a26cdbaaeeca9df86e8373c4a8547_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -352,7 +309,7 @@ imgui_impl_dx12.h の依存先関係図:</div>
         <tr>
           <td class="memname"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> void ImGui_ImplDX12_Shutdown </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -360,12 +317,7 @@ imgui_impl_dx12.h の依存先関係図:</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8h_a7aae7738912dbd5dea744193f8d27abc_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
-被呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8h_a7aae7738912dbd5dea744193f8d27abc_icgraph.svg" width="574" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="imgui__impl__dx12_8h_a7aae7738912dbd5dea744193f8d27abc_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -379,8 +331,7 @@ imgui_impl_dx12.h の依存先関係図:</div>
         <tr>
           <td class="memname"><a class="el" href="imgui_8h.html#a665f6b404eea9a640b1222a87236fe19">IMGUI_IMPL_API</a> void ImGui_ImplDX12_UpdateTexture </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structImTextureData.html">ImTextureData</a> *&#160;</td>
-          <td class="paramname"><em>tex</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structImTextureData.html">ImTextureData</a> *</td>          <td class="paramname"><span class="paramname"><em>tex</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -388,23 +339,31 @@ imgui_impl_dx12.h の依存先関係図:</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8h_afe3dcbbc97bc1fed9507f05c292c5e4c_cgraph.svg" width="100%" height="516"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="imgui__impl__dx12_8h_afe3dcbbc97bc1fed9507f05c292c5e4c_cgraph.svg" width="100%" height="521"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="imgui__impl__dx12_8h_afe3dcbbc97bc1fed9507f05c292c5e4c_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="imgui__impl__dx12_8h_afe3dcbbc97bc1fed9507f05c292c5e4c_icgraph.svg" width="542" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_7c0aa22dc34fe5ebab8f7beef50f1444.html">External</a></li><li class="navelem"><a class="el" href="imgui__impl__dx12_8h.html">imgui_impl_dx12.h</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_7c0aa22dc34fe5ebab8f7beef50f1444.html">External</a></li><li class="navelem"><a href="imgui__impl__dx12_8h.html">imgui_impl_dx12.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

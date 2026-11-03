@@ -1,8 +1,8 @@
 var namespacenlohmann_1_1detail_1_1dtoa__impl =
 [
+    [ "diyfp", "structnlohmann_1_1detail_1_1dtoa__impl_1_1diyfp.html", "structnlohmann_1_1detail_1_1dtoa__impl_1_1diyfp" ],
     [ "boundaries", "structnlohmann_1_1detail_1_1dtoa__impl_1_1boundaries.html", "structnlohmann_1_1detail_1_1dtoa__impl_1_1boundaries" ],
     [ "cached_power", "structnlohmann_1_1detail_1_1dtoa__impl_1_1cached__power.html", "structnlohmann_1_1detail_1_1dtoa__impl_1_1cached__power" ],
-    [ "diyfp", "structnlohmann_1_1detail_1_1dtoa__impl_1_1diyfp.html", "structnlohmann_1_1detail_1_1dtoa__impl_1_1diyfp" ],
     [ "append_exponent", "namespacenlohmann_1_1detail_1_1dtoa__impl.html#a78ad745d14b79fc65714c9938981faf6", null ],
     [ "compute_boundaries", "namespacenlohmann_1_1detail_1_1dtoa__impl.html#a22b6e37654ac93c6d0d9c06ec1bf5ded", null ],
     [ "find_largest_pow10", "namespacenlohmann_1_1detail_1_1dtoa__impl.html#a36ded358763b5dbcea9867660fbe4e28", null ],

@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: メンバ一覧</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classCMaterial.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('classCMaterial.html','',''); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -100,37 +99,39 @@ $(document).ready(function(){initNavTree('classCMaterial.html',''); initResizabl
   <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#a934cf6581bd9e482a9dbae73ac613d07">Clone</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#aec5f4576141a2dd3a1ffce6491c34912">CMaterial</a>()</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#ab63eb3abe9435904350cc8bd013a89eb">CMaterial</a>(wstring _FilePath, XMFLOAT4 _Color, wstring shaderFile=L&quot;Assets/Shader/Triangle.hlsl&quot;, string vsEntry=&quot;VSMain&quot;, string psEntry=&quot;PSMain&quot;, BlendMode blendMode=BlendMode::Opaque)</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#a50205b6dbb53dca1f2fcc321fc524419">CreateConstantBuffer</a>()</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#af82f9fc7cb487d5ce2085cd4dfac5d67">GetBlendMode</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#af57654bb797f866ab40b440b105bb5d9">GetColor</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#aedd8eee02b1c1d0d247338304eddb4d8">GetConstantBufferGPUAddress</a>()</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#a3fe2ded8e62f5e203596584272529bee">GetCullMode</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#aa8f5d73c457b873b415d65cd8626ad82">GetCustomParam</a>(int vectorIndex, int elementIndex) const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#a67c509780734f973eef4ed4bae03e448">GetData</a>()</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#a32800e4198732d4045d1d7e065e238e2">GetData</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#a963b3fbc9cf1bd42e5805a1782f72b95">GetGpuHandle</a>()</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#a53f8d89b14264f5095ffbf8ad8076097">GetMetallic</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#abd8a9374b7aba1877bf095993973346f">GetPsEntry</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#abf960f8f021bb62c2a4ef3f06a08b76f">GetRoughness</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#a7b0f1135f2487b03a55908c14b204ffa">GetShaderFile</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#a6fca6ae97eca912f7695e9e244a41462">GetTexture</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#ab67fdc4c4718b8381da11b5cb5f7ff7d">GetTextureFilePath</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#aa93ef968009d26f880019bebda3a108b">GetUVOffset</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#a1cec88dc1c5f327ebf5eb3b17625713f">GetUVTiling</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#aff5232b18c8898bcd6a2e5d7976ae8f9">GetVsEntry</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#a0b62d65dfde1449b7b788b6089b62d47">LoadFromFile</a>(const std::string &amp;filePath)</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#af16b888b2da2a65e8dbe3d62cd008c54">LoadTexture</a>(wstring _FilePath)</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#ae8aec0728b71c9916212d9d21a6aa804">m_BlendMode</a></td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#a9538be71f29cb82274c8134f4f90e397">m_constantBuffer</a></td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#aa6ac4539fd7883daca25153d89b8736d">m_CullMode</a></td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#aa541f9500937abdf9ce3e4f50e2ca9b0">m_Data</a></td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#aba9afd689ecf336d240de2f02f146756">m_isDirty</a></td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#a059fad9eb1d3a12a2b65a697ec0742e8">m_mappedData</a></td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#a25ff8455bd259284d26e3408f08ead98">m_PsEntry</a></td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#a7d48d6c5419ac5d5e3fec8b9a4c35c88">m_ShaderFile</a></td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#ab007c0e5d4fb93ef2d74a7f3417b2f6e">m_Texture</a></td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#ab66f4d497b673dc27c53aca3d3283922">m_TextureFilePath</a></td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#ab5070649cfbef6173b87dd47f0339aaf">m_VsEntry</a></td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#a625b5397aaf4720a3683a18d80479fba">CMaterial</a>(const CMaterial &amp;other)</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#a50205b6dbb53dca1f2fcc321fc524419">CreateConstantBuffer</a>()</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#af82f9fc7cb487d5ce2085cd4dfac5d67">GetBlendMode</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#af57654bb797f866ab40b440b105bb5d9">GetColor</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#aedd8eee02b1c1d0d247338304eddb4d8">GetConstantBufferGPUAddress</a>()</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#a3fe2ded8e62f5e203596584272529bee">GetCullMode</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#aa8f5d73c457b873b415d65cd8626ad82">GetCustomParam</a>(int vectorIndex, int elementIndex) const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#a67c509780734f973eef4ed4bae03e448">GetData</a>()</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#a32800e4198732d4045d1d7e065e238e2">GetData</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#a963b3fbc9cf1bd42e5805a1782f72b95">GetGpuHandle</a>()</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#a53f8d89b14264f5095ffbf8ad8076097">GetMetallic</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#abd8a9374b7aba1877bf095993973346f">GetPsEntry</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#abf960f8f021bb62c2a4ef3f06a08b76f">GetRoughness</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#a7b0f1135f2487b03a55908c14b204ffa">GetShaderFile</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#a6fca6ae97eca912f7695e9e244a41462">GetTexture</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#ab67fdc4c4718b8381da11b5cb5f7ff7d">GetTextureFilePath</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#aa93ef968009d26f880019bebda3a108b">GetUVOffset</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#a1cec88dc1c5f327ebf5eb3b17625713f">GetUVTiling</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#aff5232b18c8898bcd6a2e5d7976ae8f9">GetVsEntry</a>() const</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#a0b62d65dfde1449b7b788b6089b62d47">LoadFromFile</a>(const std::string &amp;filePath)</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#af16b888b2da2a65e8dbe3d62cd008c54">LoadTexture</a>(wstring _FilePath)</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#ae8aec0728b71c9916212d9d21a6aa804">m_BlendMode</a></td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#a9538be71f29cb82274c8134f4f90e397">m_constantBuffer</a></td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#aa6ac4539fd7883daca25153d89b8736d">m_CullMode</a></td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#aa541f9500937abdf9ce3e4f50e2ca9b0">m_Data</a></td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#aba9afd689ecf336d240de2f02f146756">m_isDirty</a></td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#a059fad9eb1d3a12a2b65a697ec0742e8">m_mappedData</a></td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#a25ff8455bd259284d26e3408f08ead98">m_PsEntry</a></td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#a7d48d6c5419ac5d5e3fec8b9a4c35c88">m_ShaderFile</a></td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#ab007c0e5d4fb93ef2d74a7f3417b2f6e">m_Texture</a></td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#ab66f4d497b673dc27c53aca3d3283922">m_TextureFilePath</a></td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#ab5070649cfbef6173b87dd47f0339aaf">m_VsEntry</a></td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#a7dea3d4a65ba5165e5080927502d855a">operator=</a>(const CMaterial &amp;other)</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#a0d8910f30b0726ccaa8bb69c1e2afecb">SaveToFile</a>(const std::string &amp;filePath)</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classCMaterial.html#a5bd42ae8b076d452755b4795ef810dcd">SetBlendMode</a>(BlendMode blendMode)</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#afa41e087bf4ee6c30b6c73f3c6669ad9">SetColor</a>(const XMFLOAT4 &amp;color)</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
@@ -146,10 +147,11 @@ $(document).ready(function(){initNavTree('classCMaterial.html',''); initResizabl
   <tr class="odd"><td class="entry"><a class="el" href="classCMaterial.html#ad4e986a9a628c785b4f0a0684064a2ca">~CMaterial</a>()</td><td class="entry"><a class="el" href="classCMaterial.html">CMaterial</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

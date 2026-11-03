@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: nlohmann::detail::binary_writer&lt; BasicJsonType, CharType &gt; クラステンプレート</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classnlohmann_1_1detail_1_1binary__writer.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('classnlohmann_1_1detail_1_1binary__writer.html','','classnlohmann_1_1detail_1_1binary__writer-members'); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,178 +89,124 @@ $(document).ready(function(){initNavTree('classnlohmann_1_1detail_1_1binary__wri
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
-<a href="#pri-types">非公開型</a> &#124;
-<a href="#pri-methods">非公開メンバ関数</a> &#124;
-<a href="#pri-static-methods">静的非公開メンバ関数</a> &#124;
-<a href="#pri-attribs">非公開変数類</a> &#124;
-<a href="classnlohmann_1_1detail_1_1binary__writer-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">nlohmann::detail::binary_writer&lt; BasicJsonType, CharType &gt; クラステンプレート</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>serialization to CBOR and MessagePack values  
- <a href="classnlohmann_1_1detail_1_1binary__writer.html#details">[詳解]</a></p>
+ <a href="#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="json_8hpp_source.html">json.hpp</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a373289af95a946c19bb4a58a5df71a78" id="r_a373289af95a946c19bb4a58a5df71a78"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a373289af95a946c19bb4a58a5df71a78">binary_writer</a> (<a class="el" href="namespacenlohmann_1_1detail.html#a9b680ddfb58f27eb53a67229447fc556">output_adapter_t</a>&lt; CharType &gt; adapter)</td></tr>
+<tr class="memitem:a373289af95a946c19bb4a58a5df71a78" id="r_a373289af95a946c19bb4a58a5df71a78"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a373289af95a946c19bb4a58a5df71a78">binary_writer</a> (<a class="el" href="namespacenlohmann_1_1detail.html#aedc1c64c62b6f40555b12478512e2f4f">output_adapter_t</a>&lt; CharType &gt; adapter)</td></tr>
 <tr class="memdesc:a373289af95a946c19bb4a58a5df71a78"><td class="mdescLeft">&#160;</td><td class="mdescRight">create a binary writer  <br /></td></tr>
-<tr class="separator:a373289af95a946c19bb4a58a5df71a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ffc566db5219b473762462234b47db9" id="r_a9ffc566db5219b473762462234b47db9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a9ffc566db5219b473762462234b47db9">write_bson</a> (const BasicJsonType &amp;j)</td></tr>
-<tr class="separator:a9ffc566db5219b473762462234b47db9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0ab8d27fd88a33a2f801413ac4c7fbc" id="r_aa0ab8d27fd88a33a2f801413ac4c7fbc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#aa0ab8d27fd88a33a2f801413ac4c7fbc">write_cbor</a> (const BasicJsonType &amp;j)</td></tr>
-<tr class="separator:aa0ab8d27fd88a33a2f801413ac4c7fbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4e0852b64102ce4b07d99f08f828b7c" id="r_ae4e0852b64102ce4b07d99f08f828b7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#ae4e0852b64102ce4b07d99f08f828b7c">write_msgpack</a> (const BasicJsonType &amp;j)</td></tr>
-<tr class="separator:ae4e0852b64102ce4b07d99f08f828b7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f6c65053d859269f88eb4ebb0cd7060" id="r_a0f6c65053d859269f88eb4ebb0cd7060"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a0f6c65053d859269f88eb4ebb0cd7060">write_ubjson</a> (const BasicJsonType &amp;j, const bool use_count, const bool use_type, const bool add_prefix=true)</td></tr>
-<tr class="separator:a0f6c65053d859269f88eb4ebb0cd7060"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ffc566db5219b473762462234b47db9" id="r_a9ffc566db5219b473762462234b47db9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ffc566db5219b473762462234b47db9">write_bson</a> (const BasicJsonType &amp;j)</td></tr>
+<tr class="memitem:aa0ab8d27fd88a33a2f801413ac4c7fbc" id="r_aa0ab8d27fd88a33a2f801413ac4c7fbc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0ab8d27fd88a33a2f801413ac4c7fbc">write_cbor</a> (const BasicJsonType &amp;j)</td></tr>
+<tr class="memitem:ae4e0852b64102ce4b07d99f08f828b7c" id="r_ae4e0852b64102ce4b07d99f08f828b7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4e0852b64102ce4b07d99f08f828b7c">write_msgpack</a> (const BasicJsonType &amp;j)</td></tr>
+<tr class="memitem:a0f6c65053d859269f88eb4ebb0cd7060" id="r_a0f6c65053d859269f88eb4ebb0cd7060"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f6c65053d859269f88eb4ebb0cd7060">write_ubjson</a> (const BasicJsonType &amp;j, const bool use_count, const bool use_type, const bool add_prefix=true)</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
-<tr class="memitem:ab77aa48692bd4e64e4f051ce6aeb6d2d" id="r_ab77aa48692bd4e64e4f051ce6aeb6d2d"><td class="memTemplParams" colspan="2">template&lt;typename C  = CharType, <a class="el" href="namespacenlohmann_1_1detail.html#a02bcbc878bee413f25b985ada771aa9c">enable_if_t</a>&lt; std::is_signed&lt; C &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a> &amp;&amp;std::is_signed&lt; char &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a> &gt; *  = nullptr&gt; </td></tr>
-<tr class="memitem:ab77aa48692bd4e64e4f051ce6aeb6d2d"><td class="memTemplItemLeft" align="right" valign="top">static constexpr CharType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#ab77aa48692bd4e64e4f051ce6aeb6d2d">to_char_type</a> (std::uint8_t x) noexcept</td></tr>
-<tr class="separator:ab77aa48692bd4e64e4f051ce6aeb6d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e46f0dd3550901b15cf85265808d1ec" id="r_a5e46f0dd3550901b15cf85265808d1ec"><td class="memTemplParams" colspan="2">template&lt;typename C  = CharType, <a class="el" href="namespacenlohmann_1_1detail.html#a02bcbc878bee413f25b985ada771aa9c">enable_if_t</a>&lt; std::is_signed&lt; C &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a> &amp;&amp;std::is_unsigned&lt; char &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a> &gt; *  = nullptr&gt; </td></tr>
-<tr class="memitem:a5e46f0dd3550901b15cf85265808d1ec"><td class="memTemplItemLeft" align="right" valign="top">static CharType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a5e46f0dd3550901b15cf85265808d1ec">to_char_type</a> (std::uint8_t x) noexcept</td></tr>
-<tr class="separator:a5e46f0dd3550901b15cf85265808d1ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab77aa48692bd4e64e4f051ce6aeb6d2d" id="r_ab77aa48692bd4e64e4f051ce6aeb6d2d"><td class="memTemplParams" colspan="2">template&lt;typename C  = CharType, <a class="el" href="namespacenlohmann_1_1detail.html#a02bcbc878bee413f25b985ada771aa9c">enable_if_t</a>&lt; std::is_unsigned&lt; C &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a> &gt; *  = nullptr&gt; </td></tr>
-<tr class="memitem:ab77aa48692bd4e64e4f051ce6aeb6d2d"><td class="memTemplItemLeft" align="right" valign="top">static constexpr CharType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#ab77aa48692bd4e64e4f051ce6aeb6d2d">to_char_type</a> (std::uint8_t x) noexcept</td></tr>
-<tr class="separator:ab77aa48692bd4e64e4f051ce6aeb6d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c2b2132ce56b3b45593374b622baa67" id="r_a2c2b2132ce56b3b45593374b622baa67"><td class="memTemplParams" colspan="2">template&lt;typename InputCharType , typename C  = CharType, <a class="el" href="namespacenlohmann_1_1detail.html#a02bcbc878bee413f25b985ada771aa9c">enable_if_t</a>&lt; std::is_signed&lt; C &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a> &amp;&amp;std::is_signed&lt; char &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a> &amp;&amp;std::is_same&lt; char, typename std::remove_cv&lt; InputCharType &gt;::type &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a> &gt; *  = nullptr&gt; </td></tr>
-<tr class="memitem:a2c2b2132ce56b3b45593374b622baa67"><td class="memTemplItemLeft" align="right" valign="top">static constexpr CharType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a2c2b2132ce56b3b45593374b622baa67">to_char_type</a> (InputCharType x) noexcept</td></tr>
-<tr class="separator:a2c2b2132ce56b3b45593374b622baa67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab77aa48692bd4e64e4f051ce6aeb6d2d" id="r_ab77aa48692bd4e64e4f051ce6aeb6d2d"><td class="memTemplParams" colspan="2">template&lt;typename C = CharType, <a class="el" href="namespacenlohmann_1_1detail.html#ad3793d4d47b050ad85f90b8f4d90a07c">enable_if_t</a>&lt; std::is_signed&lt; C &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a> &amp;&amp;std::is_signed&lt; char &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a> &gt; * = nullptr&gt; </td></tr>
+<tr class="memitem:ab77aa48692bd4e64e4f051ce6aeb6d2d template"><td class="memItemLeft" align="right" valign="top">static constexpr CharType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab77aa48692bd4e64e4f051ce6aeb6d2d">to_char_type</a> (std::uint8_t x) noexcept</td></tr>
+<tr class="memitem:a5e46f0dd3550901b15cf85265808d1ec" id="r_a5e46f0dd3550901b15cf85265808d1ec"><td class="memTemplParams" colspan="2">template&lt;typename C = CharType, <a class="el" href="namespacenlohmann_1_1detail.html#ad3793d4d47b050ad85f90b8f4d90a07c">enable_if_t</a>&lt; std::is_signed&lt; C &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a> &amp;&amp;std::is_unsigned&lt; char &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a> &gt; * = nullptr&gt; </td></tr>
+<tr class="memitem:a5e46f0dd3550901b15cf85265808d1ec template"><td class="memItemLeft" align="right" valign="top">static CharType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e46f0dd3550901b15cf85265808d1ec">to_char_type</a> (std::uint8_t x) noexcept</td></tr>
+<tr class="memitem:ab77aa48692bd4e64e4f051ce6aeb6d2d" id="r_ab77aa48692bd4e64e4f051ce6aeb6d2d"><td class="memTemplParams" colspan="2">template&lt;typename C = CharType, <a class="el" href="namespacenlohmann_1_1detail.html#ad3793d4d47b050ad85f90b8f4d90a07c">enable_if_t</a>&lt; std::is_unsigned&lt; C &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a> &gt; * = nullptr&gt; </td></tr>
+<tr class="memitem:ab77aa48692bd4e64e4f051ce6aeb6d2d template"><td class="memItemLeft" align="right" valign="top">static constexpr CharType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab77aa48692bd4e64e4f051ce6aeb6d2d">to_char_type</a> (std::uint8_t x) noexcept</td></tr>
+<tr class="memitem:a2c2b2132ce56b3b45593374b622baa67" id="r_a2c2b2132ce56b3b45593374b622baa67"><td class="memTemplParams" colspan="2">template&lt;typename InputCharType, typename C = CharType, <a class="el" href="namespacenlohmann_1_1detail.html#ad3793d4d47b050ad85f90b8f4d90a07c">enable_if_t</a>&lt; std::is_signed&lt; C &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a> &amp;&amp;std::is_signed&lt; char &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a> &amp;&amp;std::is_same&lt; char, typename std::remove_cv&lt; InputCharType &gt;::type &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a> &gt; * = nullptr&gt; </td></tr>
+<tr class="memitem:a2c2b2132ce56b3b45593374b622baa67 template"><td class="memItemLeft" align="right" valign="top">static constexpr CharType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c2b2132ce56b3b45593374b622baa67">to_char_type</a> (InputCharType x) noexcept</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-types" class="groupheader"><a id="pri-types" name="pri-types"></a>
 非公開型</h2></td></tr>
-<tr class="memitem:a29f2ae7a5c4a8c1dae47b3b2310de8a8" id="r_a29f2ae7a5c4a8c1dae47b3b2310de8a8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> = typename BasicJsonType::string_t</td></tr>
-<tr class="separator:a29f2ae7a5c4a8c1dae47b3b2310de8a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3169b4f7abb773ea30348770629c53e8" id="r_a3169b4f7abb773ea30348770629c53e8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a3169b4f7abb773ea30348770629c53e8">binary_t</a> = typename BasicJsonType::binary_t</td></tr>
-<tr class="separator:a3169b4f7abb773ea30348770629c53e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb4b7c621d0cb7633b5806c603f3c51a" id="r_abb4b7c621d0cb7633b5806c603f3c51a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#abb4b7c621d0cb7633b5806c603f3c51a">number_float_t</a> = typename BasicJsonType::number_float_t</td></tr>
-<tr class="separator:abb4b7c621d0cb7633b5806c603f3c51a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29f2ae7a5c4a8c1dae47b3b2310de8a8" id="r_a29f2ae7a5c4a8c1dae47b3b2310de8a8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> = typename BasicJsonType::string_t</td></tr>
+<tr class="memitem:a3169b4f7abb773ea30348770629c53e8" id="r_a3169b4f7abb773ea30348770629c53e8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3169b4f7abb773ea30348770629c53e8">binary_t</a> = typename BasicJsonType::binary_t</td></tr>
+<tr class="memitem:abb4b7c621d0cb7633b5806c603f3c51a" id="r_abb4b7c621d0cb7633b5806c603f3c51a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb4b7c621d0cb7633b5806c603f3c51a">number_float_t</a> = typename BasicJsonType::number_float_t</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 非公開メンバ関数</h2></td></tr>
-<tr class="memitem:a1b5b7f5c03b1f8b1f59ea61db9634108" id="r_a1b5b7f5c03b1f8b1f59ea61db9634108"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a1b5b7f5c03b1f8b1f59ea61db9634108">write_bson_entry_header</a> (const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const std::uint8_t element_type)</td></tr>
-<tr class="memdesc:a1b5b7f5c03b1f8b1f59ea61db9634108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the given <em>element_type</em> and <em>name</em> to the output adapter  <br /></td></tr>
-<tr class="separator:a1b5b7f5c03b1f8b1f59ea61db9634108"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae099435e1df3096e0fc78333282f8f67" id="r_ae099435e1df3096e0fc78333282f8f67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#ae099435e1df3096e0fc78333282f8f67">write_bson_boolean</a> (const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const bool <a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">value</a>)</td></tr>
-<tr class="memdesc:ae099435e1df3096e0fc78333282f8f67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a BSON element with key <em>name</em> and boolean value <em>value</em>  <br /></td></tr>
-<tr class="separator:ae099435e1df3096e0fc78333282f8f67"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a263ec18815467bb9919021ef126919ca" id="r_a263ec18815467bb9919021ef126919ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a263ec18815467bb9919021ef126919ca">write_bson_double</a> (const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const double <a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">value</a>)</td></tr>
-<tr class="memdesc:a263ec18815467bb9919021ef126919ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a BSON element with key <em>name</em> and double value <em>value</em>  <br /></td></tr>
-<tr class="separator:a263ec18815467bb9919021ef126919ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e6574416915208fc035b57338ae3252" id="r_a5e6574416915208fc035b57338ae3252"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a5e6574416915208fc035b57338ae3252">write_bson_string</a> (const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">value</a>)</td></tr>
-<tr class="memdesc:a5e6574416915208fc035b57338ae3252"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a BSON element with key <em>name</em> and string value <em>value</em>  <br /></td></tr>
-<tr class="separator:a5e6574416915208fc035b57338ae3252"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9927c1110b18661e0224a76156e5a7a9" id="r_a9927c1110b18661e0224a76156e5a7a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a9927c1110b18661e0224a76156e5a7a9">write_bson_null</a> (const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name)</td></tr>
-<tr class="memdesc:a9927c1110b18661e0224a76156e5a7a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a BSON element with key <em>name</em> and null value  <br /></td></tr>
-<tr class="separator:a9927c1110b18661e0224a76156e5a7a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a553ad4dbdf27238eef90867e4bf2f3e5" id="r_a553ad4dbdf27238eef90867e4bf2f3e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a553ad4dbdf27238eef90867e4bf2f3e5">write_bson_integer</a> (const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const std::int64_t <a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">value</a>)</td></tr>
-<tr class="memdesc:a553ad4dbdf27238eef90867e4bf2f3e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a BSON element with key <em>name</em> and integer <em>value</em>  <br /></td></tr>
-<tr class="separator:a553ad4dbdf27238eef90867e4bf2f3e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac274e3d7a803e7223bb1a4fcb7cd594c" id="r_ac274e3d7a803e7223bb1a4fcb7cd594c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#ac274e3d7a803e7223bb1a4fcb7cd594c">write_bson_unsigned</a> (const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const BasicJsonType &amp;j)</td></tr>
-<tr class="memdesc:ac274e3d7a803e7223bb1a4fcb7cd594c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a BSON element with key <em>name</em> and unsigned <em>value</em>  <br /></td></tr>
-<tr class="separator:ac274e3d7a803e7223bb1a4fcb7cd594c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6231302930265eccb3f56c378f7b0661" id="r_a6231302930265eccb3f56c378f7b0661"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a6231302930265eccb3f56c378f7b0661">write_bson_object_entry</a> (const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const typename BasicJsonType::object_t &amp;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">value</a>)</td></tr>
-<tr class="memdesc:a6231302930265eccb3f56c378f7b0661"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a BSON element with key <em>name</em> and object <em>value</em>  <br /></td></tr>
-<tr class="separator:a6231302930265eccb3f56c378f7b0661"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a025212bd170253638b9f05b3b6aa5bf9" id="r_a025212bd170253638b9f05b3b6aa5bf9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a025212bd170253638b9f05b3b6aa5bf9">write_bson_array</a> (const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const typename BasicJsonType::array_t &amp;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">value</a>)</td></tr>
-<tr class="memdesc:a025212bd170253638b9f05b3b6aa5bf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a BSON element with key <em>name</em> and array <em>value</em>  <br /></td></tr>
-<tr class="separator:a025212bd170253638b9f05b3b6aa5bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97d34d9a70ddc06ae782c55454df42bc" id="r_a97d34d9a70ddc06ae782c55454df42bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a97d34d9a70ddc06ae782c55454df42bc">write_bson_binary</a> (const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a3169b4f7abb773ea30348770629c53e8">binary_t</a> &amp;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">value</a>)</td></tr>
-<tr class="memdesc:a97d34d9a70ddc06ae782c55454df42bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a BSON element with key <em>name</em> and binary value <em>value</em>  <br /></td></tr>
-<tr class="separator:a97d34d9a70ddc06ae782c55454df42bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ff58bf1a80018148bed860667ffca07" id="r_a7ff58bf1a80018148bed860667ffca07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a7ff58bf1a80018148bed860667ffca07">write_bson_element</a> (const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const BasicJsonType &amp;j)</td></tr>
-<tr class="memdesc:a7ff58bf1a80018148bed860667ffca07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the JSON value <em>j</em> to BSON and associates it with the key <em>name</em>.  <br /></td></tr>
-<tr class="separator:a7ff58bf1a80018148bed860667ffca07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29b3e0f83a8e5f2307804023109ba2c9" id="r_a29b3e0f83a8e5f2307804023109ba2c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29b3e0f83a8e5f2307804023109ba2c9">write_bson_object</a> (const typename BasicJsonType::object_t &amp;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">value</a>)</td></tr>
-<tr class="separator:a29b3e0f83a8e5f2307804023109ba2c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ea6745f944c0c61672146886b4ee90f" id="r_a0ea6745f944c0c61672146886b4ee90f"><td class="memTemplParams" colspan="2">template&lt;typename NumberType , typename std::enable_if&lt; std::is_floating_point&lt; NumberType &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a>, int &gt;::type  = 0&gt; </td></tr>
-<tr class="memitem:a0ea6745f944c0c61672146886b4ee90f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a0ea6745f944c0c61672146886b4ee90f">write_number_with_ubjson_prefix</a> (const NumberType n, const bool add_prefix)</td></tr>
-<tr class="separator:a0ea6745f944c0c61672146886b4ee90f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ea6745f944c0c61672146886b4ee90f" id="r_a0ea6745f944c0c61672146886b4ee90f"><td class="memTemplParams" colspan="2">template&lt;typename NumberType , typename std::enable_if&lt; std::is_unsigned&lt; NumberType &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a>, int &gt;::type  = 0&gt; </td></tr>
-<tr class="memitem:a0ea6745f944c0c61672146886b4ee90f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a0ea6745f944c0c61672146886b4ee90f">write_number_with_ubjson_prefix</a> (const NumberType n, const bool add_prefix)</td></tr>
-<tr class="separator:a0ea6745f944c0c61672146886b4ee90f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ea6745f944c0c61672146886b4ee90f" id="r_a0ea6745f944c0c61672146886b4ee90f"><td class="memTemplParams" colspan="2">template&lt;typename NumberType , typename std::enable_if&lt; std::is_signed&lt; NumberType &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a> &amp;&amp;!std::is_floating_point&lt; NumberType &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a>, int &gt;::type  = 0&gt; </td></tr>
-<tr class="memitem:a0ea6745f944c0c61672146886b4ee90f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a0ea6745f944c0c61672146886b4ee90f">write_number_with_ubjson_prefix</a> (const NumberType n, const bool add_prefix)</td></tr>
-<tr class="separator:a0ea6745f944c0c61672146886b4ee90f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c129249a5aee8e4ec8add6c6184e4f7" id="r_a4c129249a5aee8e4ec8add6c6184e4f7"><td class="memItemLeft" align="right" valign="top">CharType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a4c129249a5aee8e4ec8add6c6184e4f7">ubjson_prefix</a> (const BasicJsonType &amp;j) const noexcept</td></tr>
+<tr class="memitem:a1b5b7f5c03b1f8b1f59ea61db9634108" id="r_a1b5b7f5c03b1f8b1f59ea61db9634108"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b5b7f5c03b1f8b1f59ea61db9634108">write_bson_entry_header</a> (const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const std::uint8_t element_type)</td></tr>
+<tr class="memdesc:a1b5b7f5c03b1f8b1f59ea61db9634108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the given <em class="arg">element_type</em> and <em class="arg">name</em> to the output adapter  <br /></td></tr>
+<tr class="memitem:ae099435e1df3096e0fc78333282f8f67" id="r_ae099435e1df3096e0fc78333282f8f67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae099435e1df3096e0fc78333282f8f67">write_bson_boolean</a> (const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const bool <a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">value</a>)</td></tr>
+<tr class="memdesc:ae099435e1df3096e0fc78333282f8f67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a BSON element with key <em class="arg">name</em> and boolean value <em class="arg">value</em>  <br /></td></tr>
+<tr class="memitem:a263ec18815467bb9919021ef126919ca" id="r_a263ec18815467bb9919021ef126919ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a263ec18815467bb9919021ef126919ca">write_bson_double</a> (const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const double <a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">value</a>)</td></tr>
+<tr class="memdesc:a263ec18815467bb9919021ef126919ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a BSON element with key <em class="arg">name</em> and double value <em class="arg">value</em>  <br /></td></tr>
+<tr class="memitem:a5e6574416915208fc035b57338ae3252" id="r_a5e6574416915208fc035b57338ae3252"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e6574416915208fc035b57338ae3252">write_bson_string</a> (const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">value</a>)</td></tr>
+<tr class="memdesc:a5e6574416915208fc035b57338ae3252"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a BSON element with key <em class="arg">name</em> and string value <em class="arg">value</em>  <br /></td></tr>
+<tr class="memitem:a9927c1110b18661e0224a76156e5a7a9" id="r_a9927c1110b18661e0224a76156e5a7a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9927c1110b18661e0224a76156e5a7a9">write_bson_null</a> (const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name)</td></tr>
+<tr class="memdesc:a9927c1110b18661e0224a76156e5a7a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a BSON element with key <em class="arg">name</em> and null value  <br /></td></tr>
+<tr class="memitem:a553ad4dbdf27238eef90867e4bf2f3e5" id="r_a553ad4dbdf27238eef90867e4bf2f3e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a553ad4dbdf27238eef90867e4bf2f3e5">write_bson_integer</a> (const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const std::int64_t <a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">value</a>)</td></tr>
+<tr class="memdesc:a553ad4dbdf27238eef90867e4bf2f3e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a BSON element with key <em class="arg">name</em> and integer <em class="arg">value</em>  <br /></td></tr>
+<tr class="memitem:ac274e3d7a803e7223bb1a4fcb7cd594c" id="r_ac274e3d7a803e7223bb1a4fcb7cd594c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac274e3d7a803e7223bb1a4fcb7cd594c">write_bson_unsigned</a> (const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const BasicJsonType &amp;j)</td></tr>
+<tr class="memdesc:ac274e3d7a803e7223bb1a4fcb7cd594c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a BSON element with key <em class="arg">name</em> and unsigned <em class="arg">value</em>  <br /></td></tr>
+<tr class="memitem:a6231302930265eccb3f56c378f7b0661" id="r_a6231302930265eccb3f56c378f7b0661"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6231302930265eccb3f56c378f7b0661">write_bson_object_entry</a> (const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const typename BasicJsonType::object_t &amp;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">value</a>)</td></tr>
+<tr class="memdesc:a6231302930265eccb3f56c378f7b0661"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a BSON element with key <em class="arg">name</em> and object <em class="arg">value</em>  <br /></td></tr>
+<tr class="memitem:a025212bd170253638b9f05b3b6aa5bf9" id="r_a025212bd170253638b9f05b3b6aa5bf9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a025212bd170253638b9f05b3b6aa5bf9">write_bson_array</a> (const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const typename BasicJsonType::array_t &amp;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">value</a>)</td></tr>
+<tr class="memdesc:a025212bd170253638b9f05b3b6aa5bf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a BSON element with key <em class="arg">name</em> and array <em class="arg">value</em>  <br /></td></tr>
+<tr class="memitem:a97d34d9a70ddc06ae782c55454df42bc" id="r_a97d34d9a70ddc06ae782c55454df42bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97d34d9a70ddc06ae782c55454df42bc">write_bson_binary</a> (const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const <a class="el" href="#a3169b4f7abb773ea30348770629c53e8">binary_t</a> &amp;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">value</a>)</td></tr>
+<tr class="memdesc:a97d34d9a70ddc06ae782c55454df42bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a BSON element with key <em class="arg">name</em> and binary value <em class="arg">value</em>  <br /></td></tr>
+<tr class="memitem:a7ff58bf1a80018148bed860667ffca07" id="r_a7ff58bf1a80018148bed860667ffca07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ff58bf1a80018148bed860667ffca07">write_bson_element</a> (const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const BasicJsonType &amp;j)</td></tr>
+<tr class="memdesc:a7ff58bf1a80018148bed860667ffca07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the JSON value <em class="arg">j</em> to BSON and associates it with the key <em class="arg">name</em>.  <br /></td></tr>
+<tr class="memitem:a29b3e0f83a8e5f2307804023109ba2c9" id="r_a29b3e0f83a8e5f2307804023109ba2c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29b3e0f83a8e5f2307804023109ba2c9">write_bson_object</a> (const typename BasicJsonType::object_t &amp;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">value</a>)</td></tr>
+<tr class="memitem:a566a8b8e104d3443b9b856fd748192ec" id="r_a566a8b8e104d3443b9b856fd748192ec"><td class="memTemplParams" colspan="2">template&lt;typename NumberType, typename std::enable_if&lt; std::is_floating_point&lt; NumberType &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a>, int &gt;::type = 0&gt; </td></tr>
+<tr class="memitem:a566a8b8e104d3443b9b856fd748192ec template"><td class="memItemLeft" align="right" valign="top">**void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a566a8b8e104d3443b9b856fd748192ec">write_number_with_ubjson_prefix</a> (const NumberType n, const bool add_prefix)</td></tr>
+<tr class="memitem:a0ea6745f944c0c61672146886b4ee90f" id="r_a0ea6745f944c0c61672146886b4ee90f"><td class="memTemplParams" colspan="2">template&lt;typename NumberType, typename std::enable_if&lt; std::is_unsigned&lt; NumberType &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a>, int &gt;::type = 0&gt; </td></tr>
+<tr class="memitem:a0ea6745f944c0c61672146886b4ee90f template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ea6745f944c0c61672146886b4ee90f">write_number_with_ubjson_prefix</a> (const NumberType n, const bool add_prefix)</td></tr>
+<tr class="memitem:a0ea6745f944c0c61672146886b4ee90f" id="r_a0ea6745f944c0c61672146886b4ee90f"><td class="memTemplParams" colspan="2">template&lt;typename NumberType, typename std::enable_if&lt; std::is_signed&lt; NumberType &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a> &amp;&amp;!std::is_floating_point&lt; NumberType &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a>, int &gt;::type = 0&gt; </td></tr>
+<tr class="memitem:a0ea6745f944c0c61672146886b4ee90f template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ea6745f944c0c61672146886b4ee90f">write_number_with_ubjson_prefix</a> (const NumberType n, const bool add_prefix)</td></tr>
+<tr class="memitem:a4c129249a5aee8e4ec8add6c6184e4f7" id="r_a4c129249a5aee8e4ec8add6c6184e4f7"><td class="memItemLeft" align="right" valign="top">CharType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c129249a5aee8e4ec8add6c6184e4f7">ubjson_prefix</a> (const BasicJsonType &amp;j) const noexcept</td></tr>
 <tr class="memdesc:a4c129249a5aee8e4ec8add6c6184e4f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">determine the type prefix of container values  <br /></td></tr>
-<tr class="separator:a4c129249a5aee8e4ec8add6c6184e4f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e11b7227fcecc25a548ed45507b7d1c" id="r_a6e11b7227fcecc25a548ed45507b7d1c"><td class="memTemplParams" colspan="2">template&lt;typename NumberType , bool OutputIsLittleEndian = false&gt; </td></tr>
-<tr class="memitem:a6e11b7227fcecc25a548ed45507b7d1c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a6e11b7227fcecc25a548ed45507b7d1c">write_number</a> (const NumberType n)</td></tr>
-<tr class="separator:a6e11b7227fcecc25a548ed45507b7d1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae69dc3c5b2e8c1c8e461779cddb87436" id="r_ae69dc3c5b2e8c1c8e461779cddb87436"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#ae69dc3c5b2e8c1c8e461779cddb87436">write_compact_float</a> (const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#abb4b7c621d0cb7633b5806c603f3c51a">number_float_t</a> n, <a class="el" href="namespacenlohmann_1_1detail.html#aa554fc6a11519e4f347deb25a9f0db40">detail::input_format_t</a> format)</td></tr>
-<tr class="separator:ae69dc3c5b2e8c1c8e461779cddb87436"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f083e8c501c297d57bea82b38b753c7" id="r_a8f083e8c501c297d57bea82b38b753c7"><td class="memTemplParams" colspan="2">template&lt;typename NumberType, bool OutputIsLittleEndian = false&gt; </td></tr>
+<tr class="memitem:a8f083e8c501c297d57bea82b38b753c7 template"><td class="memItemLeft" align="right" valign="top">**void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f083e8c501c297d57bea82b38b753c7">write_number</a> (const NumberType n)</td></tr>
+<tr class="memitem:ae69dc3c5b2e8c1c8e461779cddb87436" id="r_ae69dc3c5b2e8c1c8e461779cddb87436"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae69dc3c5b2e8c1c8e461779cddb87436">write_compact_float</a> (const <a class="el" href="#abb4b7c621d0cb7633b5806c603f3c51a">number_float_t</a> n, <a class="el" href="namespacenlohmann_1_1detail.html#aa554fc6a11519e4f347deb25a9f0db40">detail::input_format_t</a> format)</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-static-methods" class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
 静的非公開メンバ関数</h2></td></tr>
-<tr class="memitem:a11637a023d22e57a7e7aff3f98b10f84" id="r_a11637a023d22e57a7e7aff3f98b10f84"><td class="memItemLeft" align="right" valign="top">static std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a11637a023d22e57a7e7aff3f98b10f84">calc_bson_entry_header_size</a> (const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const BasicJsonType &amp;j)</td></tr>
-<tr class="separator:a11637a023d22e57a7e7aff3f98b10f84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea44fd97a5cb9b4f175e66e3e4fdf158" id="r_aea44fd97a5cb9b4f175e66e3e4fdf158"><td class="memItemLeft" align="right" valign="top">static std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#aea44fd97a5cb9b4f175e66e3e4fdf158">calc_bson_string_size</a> (const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">value</a>)</td></tr>
-<tr class="separator:aea44fd97a5cb9b4f175e66e3e4fdf158"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeab70c895931b96ea598306b37eca271" id="r_aeab70c895931b96ea598306b37eca271"><td class="memItemLeft" align="right" valign="top">static std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#aeab70c895931b96ea598306b37eca271">calc_bson_integer_size</a> (const std::int64_t <a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">value</a>)</td></tr>
-<tr class="separator:aeab70c895931b96ea598306b37eca271"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1d6bb9f3af16f07ce2440c354b5787b" id="r_aa1d6bb9f3af16f07ce2440c354b5787b"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#aa1d6bb9f3af16f07ce2440c354b5787b">calc_bson_unsigned_size</a> (const std::uint64_t <a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">value</a>) noexcept</td></tr>
-<tr class="separator:aa1d6bb9f3af16f07ce2440c354b5787b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af08f9302a02516ff8cf358a99aaa1ddf" id="r_af08f9302a02516ff8cf358a99aaa1ddf"><td class="memItemLeft" align="right" valign="top">static std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#af08f9302a02516ff8cf358a99aaa1ddf">calc_bson_array_size</a> (const typename BasicJsonType::array_t &amp;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">value</a>)</td></tr>
-<tr class="separator:af08f9302a02516ff8cf358a99aaa1ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dd6062fd249a695e0f93d558dba4685" id="r_a9dd6062fd249a695e0f93d558dba4685"><td class="memItemLeft" align="right" valign="top">static std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a9dd6062fd249a695e0f93d558dba4685">calc_bson_binary_size</a> (const typename BasicJsonType::binary_t &amp;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">value</a>)</td></tr>
-<tr class="separator:a9dd6062fd249a695e0f93d558dba4685"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e4372c5984184eb5bcc09af1fcc2ee0" id="r_a1e4372c5984184eb5bcc09af1fcc2ee0"><td class="memItemLeft" align="right" valign="top">static std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a1e4372c5984184eb5bcc09af1fcc2ee0">calc_bson_element_size</a> (const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const BasicJsonType &amp;j)</td></tr>
-<tr class="memdesc:a1e4372c5984184eb5bcc09af1fcc2ee0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the size necessary to serialize the JSON value <em>j</em> with its <em>name</em>  <br /></td></tr>
-<tr class="separator:a1e4372c5984184eb5bcc09af1fcc2ee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc6f1cc1fd370ee84ebc8cf7b8712840" id="r_acc6f1cc1fd370ee84ebc8cf7b8712840"><td class="memItemLeft" align="right" valign="top">static std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#acc6f1cc1fd370ee84ebc8cf7b8712840">calc_bson_object_size</a> (const typename BasicJsonType::object_t &amp;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">value</a>)</td></tr>
-<tr class="memdesc:acc6f1cc1fd370ee84ebc8cf7b8712840"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the size of the BSON serialization of the given JSON-object <em>j</em>.  <br /></td></tr>
-<tr class="separator:acc6f1cc1fd370ee84ebc8cf7b8712840"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b5cb010077da6241a18bb334736464c" id="r_a2b5cb010077da6241a18bb334736464c"><td class="memItemLeft" align="right" valign="top">static constexpr CharType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a2b5cb010077da6241a18bb334736464c">get_cbor_float_prefix</a> (float)</td></tr>
-<tr class="separator:a2b5cb010077da6241a18bb334736464c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe5ac43e05973ba09ee79227bb589b59" id="r_afe5ac43e05973ba09ee79227bb589b59"><td class="memItemLeft" align="right" valign="top">static constexpr CharType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#afe5ac43e05973ba09ee79227bb589b59">get_cbor_float_prefix</a> (double)</td></tr>
-<tr class="separator:afe5ac43e05973ba09ee79227bb589b59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad452d114696407b98abc69b6001c270e" id="r_ad452d114696407b98abc69b6001c270e"><td class="memItemLeft" align="right" valign="top">static constexpr CharType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#ad452d114696407b98abc69b6001c270e">get_msgpack_float_prefix</a> (float)</td></tr>
-<tr class="separator:ad452d114696407b98abc69b6001c270e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47234a6e7ac9206d43553985f4cacbf2" id="r_a47234a6e7ac9206d43553985f4cacbf2"><td class="memItemLeft" align="right" valign="top">static constexpr CharType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a47234a6e7ac9206d43553985f4cacbf2">get_msgpack_float_prefix</a> (double)</td></tr>
-<tr class="separator:a47234a6e7ac9206d43553985f4cacbf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6837b20574152f7f645d0f6cd9fafdeb" id="r_a6837b20574152f7f645d0f6cd9fafdeb"><td class="memItemLeft" align="right" valign="top">static constexpr CharType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a6837b20574152f7f645d0f6cd9fafdeb">get_ubjson_float_prefix</a> (float)</td></tr>
-<tr class="separator:a6837b20574152f7f645d0f6cd9fafdeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19eb47a53dbbe28f319532bef25d84e6" id="r_a19eb47a53dbbe28f319532bef25d84e6"><td class="memItemLeft" align="right" valign="top">static constexpr CharType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a19eb47a53dbbe28f319532bef25d84e6">get_ubjson_float_prefix</a> (double)</td></tr>
-<tr class="separator:a19eb47a53dbbe28f319532bef25d84e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a837e60af1fb3f58e1e5d74bfca11174e" id="r_a837e60af1fb3f58e1e5d74bfca11174e"><td class="memItemLeft" align="right" valign="top">**static std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a837e60af1fb3f58e1e5d74bfca11174e">calc_bson_entry_header_size</a> (const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const BasicJsonType &amp;j)</td></tr>
+<tr class="memitem:aea44fd97a5cb9b4f175e66e3e4fdf158" id="r_aea44fd97a5cb9b4f175e66e3e4fdf158"><td class="memItemLeft" align="right" valign="top">static std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea44fd97a5cb9b4f175e66e3e4fdf158">calc_bson_string_size</a> (const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">value</a>)</td></tr>
+<tr class="memitem:aeab70c895931b96ea598306b37eca271" id="r_aeab70c895931b96ea598306b37eca271"><td class="memItemLeft" align="right" valign="top">static std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeab70c895931b96ea598306b37eca271">calc_bson_integer_size</a> (const std::int64_t <a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">value</a>)</td></tr>
+<tr class="memitem:aa1d6bb9f3af16f07ce2440c354b5787b" id="r_aa1d6bb9f3af16f07ce2440c354b5787b"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1d6bb9f3af16f07ce2440c354b5787b">calc_bson_unsigned_size</a> (const std::uint64_t <a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">value</a>) noexcept</td></tr>
+<tr class="memitem:af08f9302a02516ff8cf358a99aaa1ddf" id="r_af08f9302a02516ff8cf358a99aaa1ddf"><td class="memItemLeft" align="right" valign="top">static std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af08f9302a02516ff8cf358a99aaa1ddf">calc_bson_array_size</a> (const typename BasicJsonType::array_t &amp;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">value</a>)</td></tr>
+<tr class="memitem:a9dd6062fd249a695e0f93d558dba4685" id="r_a9dd6062fd249a695e0f93d558dba4685"><td class="memItemLeft" align="right" valign="top">static std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9dd6062fd249a695e0f93d558dba4685">calc_bson_binary_size</a> (const typename BasicJsonType::binary_t &amp;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">value</a>)</td></tr>
+<tr class="memitem:a1e4372c5984184eb5bcc09af1fcc2ee0" id="r_a1e4372c5984184eb5bcc09af1fcc2ee0"><td class="memItemLeft" align="right" valign="top">static std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e4372c5984184eb5bcc09af1fcc2ee0">calc_bson_element_size</a> (const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;name, const BasicJsonType &amp;j)</td></tr>
+<tr class="memdesc:a1e4372c5984184eb5bcc09af1fcc2ee0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the size necessary to serialize the JSON value <em class="arg">j</em> with its <em class="arg">name</em>  <br /></td></tr>
+<tr class="memitem:acc6f1cc1fd370ee84ebc8cf7b8712840" id="r_acc6f1cc1fd370ee84ebc8cf7b8712840"><td class="memItemLeft" align="right" valign="top">static std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc6f1cc1fd370ee84ebc8cf7b8712840">calc_bson_object_size</a> (const typename BasicJsonType::object_t &amp;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">value</a>)</td></tr>
+<tr class="memdesc:acc6f1cc1fd370ee84ebc8cf7b8712840"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the size of the BSON serialization of the given JSON-object <em class="arg">j</em>.  <br /></td></tr>
+<tr class="memitem:ac94743a351ba9e5c5f04061da61f6b30" id="r_ac94743a351ba9e5c5f04061da61f6b30"><td class="memItemLeft" align="right" valign="top">**static constexpr CharType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac94743a351ba9e5c5f04061da61f6b30">get_cbor_float_prefix</a> (float)</td></tr>
+<tr class="memitem:afe5ac43e05973ba09ee79227bb589b59" id="r_afe5ac43e05973ba09ee79227bb589b59"><td class="memItemLeft" align="right" valign="top">static constexpr CharType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe5ac43e05973ba09ee79227bb589b59">get_cbor_float_prefix</a> (double)</td></tr>
+<tr class="memitem:adb993500386479789d2632bf579d4f38" id="r_adb993500386479789d2632bf579d4f38"><td class="memItemLeft" align="right" valign="top">**static constexpr CharType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb993500386479789d2632bf579d4f38">get_msgpack_float_prefix</a> (float)</td></tr>
+<tr class="memitem:a47234a6e7ac9206d43553985f4cacbf2" id="r_a47234a6e7ac9206d43553985f4cacbf2"><td class="memItemLeft" align="right" valign="top">static constexpr CharType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47234a6e7ac9206d43553985f4cacbf2">get_msgpack_float_prefix</a> (double)</td></tr>
+<tr class="memitem:a6837b20574152f7f645d0f6cd9fafdeb" id="r_a6837b20574152f7f645d0f6cd9fafdeb"><td class="memItemLeft" align="right" valign="top">static constexpr CharType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6837b20574152f7f645d0f6cd9fafdeb">get_ubjson_float_prefix</a> (float)</td></tr>
+<tr class="memitem:a19eb47a53dbbe28f319532bef25d84e6" id="r_a19eb47a53dbbe28f319532bef25d84e6"><td class="memItemLeft" align="right" valign="top">static constexpr CharType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19eb47a53dbbe28f319532bef25d84e6">get_ubjson_float_prefix</a> (double)</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 非公開変数類</h2></td></tr>
-<tr class="memitem:a048887c907afe39759b777e8c888414c" id="r_a048887c907afe39759b777e8c888414c"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a048887c907afe39759b777e8c888414c">is_little_endian</a> = <a class="el" href="namespacenlohmann_1_1detail.html#ad2860d9bcd96cd7b8258a5b94674508c">little_endianess</a>()</td></tr>
-<tr class="memdesc:a048887c907afe39759b777e8c888414c"><td class="mdescLeft">&#160;</td><td class="mdescRight">whether we can assume little endianess  <br /></td></tr>
-<tr class="separator:a048887c907afe39759b777e8c888414c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f15b782a7900f50ef37d123008e601b" id="r_a6f15b782a7900f50ef37d123008e601b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacenlohmann_1_1detail.html#a9b680ddfb58f27eb53a67229447fc556">output_adapter_t</a>&lt; CharType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a6f15b782a7900f50ef37d123008e601b">oa</a> = nullptr</td></tr>
-<tr class="memdesc:a6f15b782a7900f50ef37d123008e601b"><td class="mdescLeft">&#160;</td><td class="mdescRight">the output  <br /></td></tr>
-<tr class="separator:a6f15b782a7900f50ef37d123008e601b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfc5ac144dbae3b35747a54058917a94" id="r_abfc5ac144dbae3b35747a54058917a94"><td class="memItemLeft" align="right" valign="top">*whether we can assume little endianess const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfc5ac144dbae3b35747a54058917a94">is_little_endian</a> = <a class="el" href="namespacenlohmann_1_1detail.html#ad2860d9bcd96cd7b8258a5b94674508c">little_endianess</a>()</td></tr>
+<tr class="memitem:ae0bb94dd962752e5b0923615e5209dba" id="r_ae0bb94dd962752e5b0923615e5209dba"><td class="memItemLeft" align="right" valign="top">*the output <a class="el" href="namespacenlohmann_1_1detail.html#aedc1c64c62b6f40555b12478512e2f4f">output_adapter_t</a>&lt; CharType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0bb94dd962752e5b0923615e5209dba">oa</a> = nullptr</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">詳解</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename BasicJsonType, typename CharType&gt;<br />
 class nlohmann::detail::binary_writer&lt; BasicJsonType, CharType &gt;</div><p>serialization to CBOR and MessagePack values </p>
-</div><h2 class="groupheader">型定義メンバ詳解</h2>
+</div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">型定義メンバ詳解</h2>
 <a id="a3169b4f7abb773ea30348770629c53e8" name="a3169b4f7abb773ea30348770629c53e8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3169b4f7abb773ea30348770629c53e8">&#9670;&#160;</a></span>binary_t</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::binary_t =  typename BasicJsonType::binary_t</td>
+          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::binary_t = typename BasicJsonType::binary_t</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -274,18 +219,18 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::number_float_t =  typename BasicJsonType::number_float_t</td>
+          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::number_float_t = typename BasicJsonType::number_float_t</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -298,32 +243,32 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::string_t =  typename BasicJsonType::string_t</td>
+          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::string_t = typename BasicJsonType::string_t</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">構築子と解体子</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">構築子と解体子</h2>
 <a id="a373289af95a946c19bb4a58a5df71a78" name="a373289af95a946c19bb4a58a5df71a78"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a373289af95a946c19bb4a58a5df71a78">&#9670;&#160;</a></span>binary_writer()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -331,14 +276,13 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::binary_writer </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacenlohmann_1_1detail.html#a9b680ddfb58f27eb53a67229447fc556">output_adapter_t</a>&lt; CharType &gt;&#160;</td>
-          <td class="paramname"><em>adapter</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="namespacenlohmann_1_1detail.html#aedc1c64c62b6f40555b12478512e2f4f">output_adapter_t</a>&lt; CharType &gt;</td>          <td class="paramname"><span class="paramname"><em>adapter</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -353,33 +297,32 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 
 </div>
 </div>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="af08f9302a02516ff8cf358a99aaa1ddf" name="af08f9302a02516ff8cf358a99aaa1ddf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af08f9302a02516ff8cf358a99aaa1ddf">&#9670;&#160;</a></span>calc_bson_array_size()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::size_t <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::calc_bson_array_size </td>
+          <td class="memname">std::size_t <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::calc_bson_array_size </td>
           <td>(</td>
-          <td class="paramtype">const typename BasicJsonType::array_t &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
+          <td class="paramtype">const typename BasicJsonType::array_t &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>戻り値</dt><dd>The size of the BSON-encoded array <em>value</em> </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>The size of the BSON-encoded array <em class="arg">value</em> </dd></dl>
 
 </div>
 </div>
@@ -389,26 +332,25 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::size_t <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::calc_bson_binary_size </td>
+          <td class="memname">std::size_t <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::calc_bson_binary_size </td>
           <td>(</td>
-          <td class="paramtype">const typename BasicJsonType::binary_t &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
+          <td class="paramtype">const typename BasicJsonType::binary_t &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>戻り値</dt><dd>The size of the BSON-encoded binary array <em>value</em> </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>The size of the BSON-encoded binary array <em class="arg">value</em> </dd></dl>
 
 </div>
 </div>
@@ -418,73 +360,59 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::size_t <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::calc_bson_element_size </td>
+          <td class="memname">std::size_t <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::calc_bson_element_size </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
+          <td class="paramtype">const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const BasicJsonType &amp;&#160;</td>
-          <td class="paramname"><em>j</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const BasicJsonType &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Calculates the size necessary to serialize the JSON value <em>j</em> with its <em>name</em> </p>
-<dl class="section return"><dt>戻り値</dt><dd>The calculated size for the BSON document entry for <em>j</em> with the given <em>name</em>. </dd></dl>
+<p>Calculates the size necessary to serialize the JSON value <em class="arg">j</em> with its <em class="arg">name</em> </p>
+<dl class="section return"><dt>戻り値</dt><dd>The calculated size for the BSON document entry for <em class="arg">j</em> with the given <em class="arg">name</em>. </dd></dl>
 
 </div>
 </div>
-<a id="a11637a023d22e57a7e7aff3f98b10f84" name="a11637a023d22e57a7e7aff3f98b10f84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11637a023d22e57a7e7aff3f98b10f84">&#9670;&#160;</a></span>calc_bson_entry_header_size()</h2>
+<a id="a837e60af1fb3f58e1e5d74bfca11174e" name="a837e60af1fb3f58e1e5d74bfca11174e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a837e60af1fb3f58e1e5d74bfca11174e">&#9670;&#160;</a></span>calc_bson_entry_header_size()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::size_t <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::calc_bson_entry_header_size </td>
+          <td class="memname">**static std::size_t <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::calc_bson_entry_header_size </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
+          <td class="paramtype">const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const BasicJsonType &amp;&#160;</td>
-          <td class="paramname"><em>j</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const BasicJsonType &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -498,26 +426,25 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::size_t <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::calc_bson_integer_size </td>
+          <td class="memname">std::size_t <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::calc_bson_integer_size </td>
           <td>(</td>
-          <td class="paramtype">const std::int64_t&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
+          <td class="paramtype">const std::int64_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>戻り値</dt><dd>The size of the BSON-encoded integer <em>value</em> </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>The size of the BSON-encoded integer <em class="arg">value</em> </dd></dl>
 
 </div>
 </div>
@@ -527,27 +454,26 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::size_t <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::calc_bson_object_size </td>
+          <td class="memname">std::size_t <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::calc_bson_object_size </td>
           <td>(</td>
-          <td class="paramtype">const typename BasicJsonType::object_t &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
+          <td class="paramtype">const typename BasicJsonType::object_t &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Calculates the size of the BSON serialization of the given JSON-object <em>j</em>. </p>
+<p>Calculates the size of the BSON serialization of the given JSON-object <em class="arg">j</em>. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>JSON value to serialize </td></tr>
@@ -564,26 +490,25 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::size_t <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::calc_bson_string_size </td>
+          <td class="memname">std::size_t <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::calc_bson_string_size </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>戻り値</dt><dd>The size of the BSON-encoded string in <em>value</em> </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>The size of the BSON-encoded string in <em class="arg">value</em> </dd></dl>
 
 </div>
 </div>
@@ -593,26 +518,25 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr std::size_t <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::calc_bson_unsigned_size </td>
+          <td class="memname">constexpr std::size_t <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::calc_bson_unsigned_size </td>
           <td>(</td>
-          <td class="paramtype">const std::uint64_t&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
+          <td class="paramtype">const std::uint64_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel private">private</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>戻り値</dt><dd>The size of the BSON-encoded unsigned integer in <em>j</em> </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>The size of the BSON-encoded unsigned integer in <em class="arg">j</em> </dd></dl>
 
 </div>
 </div>
@@ -622,50 +546,48 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr CharType <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::get_cbor_float_prefix </td>
+          <td class="memname">constexpr CharType <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::get_cbor_float_prefix </td>
           <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a2b5cb010077da6241a18bb334736464c" name="a2b5cb010077da6241a18bb334736464c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b5cb010077da6241a18bb334736464c">&#9670;&#160;</a></span>get_cbor_float_prefix() <span class="overload">[2/2]</span></h2>
+<a id="ac94743a351ba9e5c5f04061da61f6b30" name="ac94743a351ba9e5c5f04061da61f6b30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac94743a351ba9e5c5f04061da61f6b30">&#9670;&#160;</a></span>get_cbor_float_prefix() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr CharType <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::get_cbor_float_prefix </td>
+          <td class="memname">**static constexpr CharType <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::get_cbor_float_prefix </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -678,50 +600,48 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr CharType <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::get_msgpack_float_prefix </td>
+          <td class="memname">constexpr CharType <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::get_msgpack_float_prefix </td>
           <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ad452d114696407b98abc69b6001c270e" name="ad452d114696407b98abc69b6001c270e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad452d114696407b98abc69b6001c270e">&#9670;&#160;</a></span>get_msgpack_float_prefix() <span class="overload">[2/2]</span></h2>
+<a id="adb993500386479789d2632bf579d4f38" name="adb993500386479789d2632bf579d4f38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb993500386479789d2632bf579d4f38">&#9670;&#160;</a></span>get_msgpack_float_prefix() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr CharType <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::get_msgpack_float_prefix </td>
+          <td class="memname">**static constexpr CharType <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::get_msgpack_float_prefix </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -734,22 +654,21 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr CharType <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::get_ubjson_float_prefix </td>
+          <td class="memname">constexpr CharType <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::get_ubjson_float_prefix </td>
           <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -762,22 +681,21 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr CharType <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::get_ubjson_float_prefix </td>
+          <td class="memname">constexpr CharType <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::get_ubjson_float_prefix </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -790,24 +708,23 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <div class="memtemplate">
-template&lt;typename InputCharType , typename C  = CharType, <a class="el" href="namespacenlohmann_1_1detail.html#a02bcbc878bee413f25b985ada771aa9c">enable_if_t</a>&lt; std::is_signed&lt; C &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a> &amp;&amp;std::is_signed&lt; char &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a> &amp;&amp;std::is_same&lt; char, typename std::remove_cv&lt; InputCharType &gt;::type &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a> &gt; *  = nullptr&gt; </div>
+template&lt;typename InputCharType, typename C = CharType, <a class="el" href="namespacenlohmann_1_1detail.html#ad3793d4d47b050ad85f90b8f4d90a07c">enable_if_t</a>&lt; std::is_signed&lt; C &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a> &amp;&amp;std::is_signed&lt; char &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a> &amp;&amp;std::is_same&lt; char, typename std::remove_cv&lt; InputCharType &gt;::type &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a> &gt; * = nullptr&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr CharType <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::to_char_type </td>
+          <td class="memname">constexpr CharType <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::to_char_type </td>
           <td>(</td>
-          <td class="paramtype">InputCharType&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramtype">InputCharType</td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -820,32 +737,26 @@ template&lt;typename InputCharType , typename C  = CharType, <a class="el" href=
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <div class="memtemplate">
-template&lt;typename C  = CharType, <a class="el" href="namespacenlohmann_1_1detail.html#a02bcbc878bee413f25b985ada771aa9c">enable_if_t</a>&lt; std::is_signed&lt; C &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a> &amp;&amp;std::is_signed&lt; char &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a> &gt; *  = nullptr&gt; </div>
+template&lt;typename C = CharType, <a class="el" href="namespacenlohmann_1_1detail.html#ad3793d4d47b050ad85f90b8f4d90a07c">enable_if_t</a>&lt; std::is_unsigned&lt; C &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a> &gt; * = nullptr&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr CharType <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::to_char_type </td>
+          <td class="memname">constexpr CharType <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::to_char_type </td>
           <td>(</td>
-          <td class="paramtype">std::uint8_t&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramtype">std::uint8_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="dynheader">
-被呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classnlohmann_1_1detail_1_1binary__writer_ab77aa48692bd4e64e4f051ce6aeb6d2d_icgraph.svg" width="467" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -855,24 +766,23 @@ template&lt;typename C  = CharType, <a class="el" href="namespacenlohmann_1_1det
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <div class="memtemplate">
-template&lt;typename C  = CharType, <a class="el" href="namespacenlohmann_1_1detail.html#a02bcbc878bee413f25b985ada771aa9c">enable_if_t</a>&lt; std::is_signed&lt; C &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a> &amp;&amp;std::is_unsigned&lt; char &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a> &gt; *  = nullptr&gt; </div>
+template&lt;typename C = CharType, <a class="el" href="namespacenlohmann_1_1detail.html#ad3793d4d47b050ad85f90b8f4d90a07c">enable_if_t</a>&lt; std::is_signed&lt; C &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a> &amp;&amp;std::is_unsigned&lt; char &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a> &gt; * = nullptr&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static CharType <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::to_char_type </td>
+          <td class="memname">CharType <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::to_char_type </td>
           <td>(</td>
-          <td class="paramtype">std::uint8_t&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramtype">std::uint8_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -885,27 +795,31 @@ template&lt;typename C  = CharType, <a class="el" href="namespacenlohmann_1_1det
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <div class="memtemplate">
-template&lt;typename C  = CharType, <a class="el" href="namespacenlohmann_1_1detail.html#a02bcbc878bee413f25b985ada771aa9c">enable_if_t</a>&lt; std::is_unsigned&lt; C &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a> &gt; *  = nullptr&gt; </div>
+template&lt;typename C = CharType, <a class="el" href="namespacenlohmann_1_1detail.html#ad3793d4d47b050ad85f90b8f4d90a07c">enable_if_t</a>&lt; std::is_signed&lt; C &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a> &amp;&amp;std::is_signed&lt; char &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a> &gt; * = nullptr&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr CharType <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::to_char_type </td>
+          <td class="memname">constexpr CharType <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::to_char_type </td>
           <td>(</td>
-          <td class="paramtype">std::uint8_t&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramtype">std::uint8_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1binary__writer_ab77aa48692bd4e64e4f051ce6aeb6d2d_icgraph.svg" width="464" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -915,7 +829,7 @@ template&lt;typename C  = CharType, <a class="el" href="namespacenlohmann_1_1det
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -923,14 +837,13 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
         <tr>
           <td class="memname">CharType <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::ubjson_prefix </td>
           <td>(</td>
-          <td class="paramtype">const BasicJsonType &amp;&#160;</td>
-          <td class="paramname"><em>j</em></td><td>)</td>
+          <td class="paramtype">const BasicJsonType &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -945,7 +858,7 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -953,14 +866,13 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::write_bson </td>
           <td>(</td>
-          <td class="paramtype">const BasicJsonType &amp;&#160;</td>
-          <td class="paramname"><em>j</em></td><td>)</td>
+          <td class="paramtype">const BasicJsonType &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -971,11 +883,6 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
   </dd>
 </dl>
 <dl class="section pre"><dt>事前条件</dt><dd>j.type() == <a class="el" href="namespacenlohmann_1_1detail.html#a1ed8fc6239da25abcaf681d30ace4985aa8cfde6331bd59eb2ac96f8911c4b666" title="object (unordered set of name/value pairs)">value_t::object</a> </dd></dl>
-<div class="dynheader">
-被呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classnlohmann_1_1detail_1_1binary__writer_a9ffc566db5219b473762462234b47db9_icgraph.svg" width="403" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -985,7 +892,7 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -993,29 +900,22 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::write_bson_array </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
+          <td class="paramtype">const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const typename BasicJsonType::array_t &amp;&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const typename BasicJsonType::array_t &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Writes a BSON element with key <em>name</em> and array <em>value</em> </p>
+<p>Writes a BSON element with key <em class="arg">name</em> and array <em class="arg">value</em> </p>
 
 </div>
 </div>
@@ -1025,7 +925,7 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1033,29 +933,22 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::write_bson_binary </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
+          <td class="paramtype">const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a3169b4f7abb773ea30348770629c53e8">binary_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const <a class="el" href="#a3169b4f7abb773ea30348770629c53e8">binary_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Writes a BSON element with key <em>name</em> and binary value <em>value</em> </p>
+<p>Writes a BSON element with key <em class="arg">name</em> and binary value <em class="arg">value</em> </p>
 
 </div>
 </div>
@@ -1065,7 +958,7 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1073,29 +966,22 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::write_bson_boolean </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
+          <td class="paramtype">const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Writes a BSON element with key <em>name</em> and boolean value <em>value</em> </p>
+<p>Writes a BSON element with key <em class="arg">name</em> and boolean value <em class="arg">value</em> </p>
 
 </div>
 </div>
@@ -1105,7 +991,7 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1113,29 +999,22 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::write_bson_double </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
+          <td class="paramtype">const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const double&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Writes a BSON element with key <em>name</em> and double value <em>value</em> </p>
+<p>Writes a BSON element with key <em class="arg">name</em> and double value <em class="arg">value</em> </p>
 
 </div>
 </div>
@@ -1145,7 +1024,7 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1153,32 +1032,25 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::write_bson_element </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
+          <td class="paramtype">const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const BasicJsonType &amp;&#160;</td>
-          <td class="paramname"><em>j</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const BasicJsonType &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Serializes the JSON value <em>j</em> to BSON and associates it with the key <em>name</em>. </p>
+<p>Serializes the JSON value <em class="arg">j</em> to BSON and associates it with the key <em class="arg">name</em>. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td>The name to associate with the JSON entity <em>j</em> within the current BSON document </td></tr>
+    <tr><td class="paramname">name</td><td>The name to associate with the JSON entity <em class="arg">j</em> within the current BSON document </td></tr>
   </table>
   </dd>
 </dl>
@@ -1191,7 +1063,7 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1199,29 +1071,22 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::write_bson_entry_header </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
+          <td class="paramtype">const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::uint8_t&#160;</td>
-          <td class="paramname"><em>element_type</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const std::uint8_t</td>          <td class="paramname"><span class="paramname"><em>element_type</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Writes the given <em>element_type</em> and <em>name</em> to the output adapter </p>
+<p>Writes the given <em class="arg">element_type</em> and <em class="arg">name</em> to the output adapter </p>
 
 </div>
 </div>
@@ -1231,7 +1096,7 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1239,29 +1104,22 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::write_bson_integer </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
+          <td class="paramtype">const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::int64_t&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const std::int64_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Writes a BSON element with key <em>name</em> and integer <em>value</em> </p>
+<p>Writes a BSON element with key <em class="arg">name</em> and integer <em class="arg">value</em> </p>
 
 </div>
 </div>
@@ -1271,7 +1129,7 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1279,19 +1137,18 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::write_bson_null </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Writes a BSON element with key <em>name</em> and null value </p>
+<p>Writes a BSON element with key <em class="arg">name</em> and null value </p>
 
 </div>
 </div>
@@ -1301,7 +1158,7 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1309,14 +1166,13 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::write_bson_object </td>
           <td>(</td>
-          <td class="paramtype">const typename BasicJsonType::object_t &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
+          <td class="paramtype">const typename BasicJsonType::object_t &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1336,7 +1192,7 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1344,29 +1200,22 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::write_bson_object_entry </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
+          <td class="paramtype">const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const typename BasicJsonType::object_t &amp;&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const typename BasicJsonType::object_t &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Writes a BSON element with key <em>name</em> and object <em>value</em> </p>
+<p>Writes a BSON element with key <em class="arg">name</em> and object <em class="arg">value</em> </p>
 
 </div>
 </div>
@@ -1376,7 +1225,7 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1384,29 +1233,22 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::write_bson_string </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
+          <td class="paramtype">const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Writes a BSON element with key <em>name</em> and string value <em>value</em> </p>
+<p>Writes a BSON element with key <em class="arg">name</em> and string value <em class="arg">value</em> </p>
 
 </div>
 </div>
@@ -1416,7 +1258,7 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1424,29 +1266,22 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::write_bson_unsigned </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
+          <td class="paramtype">const <a class="el" href="#a29f2ae7a5c4a8c1dae47b3b2310de8a8">string_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const BasicJsonType &amp;&#160;</td>
-          <td class="paramname"><em>j</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const BasicJsonType &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Writes a BSON element with key <em>name</em> and unsigned <em>value</em> </p>
+<p>Writes a BSON element with key <em class="arg">name</em> and unsigned <em class="arg">value</em> </p>
 
 </div>
 </div>
@@ -1456,7 +1291,7 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1464,14 +1299,13 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::write_cbor </td>
           <td>(</td>
-          <td class="paramtype">const BasicJsonType &amp;&#160;</td>
-          <td class="paramname"><em>j</em></td><td>)</td>
+          <td class="paramtype">const BasicJsonType &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1481,11 +1315,6 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
   </table>
   </dd>
 </dl>
-<div class="dynheader">
-被呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classnlohmann_1_1detail_1_1binary__writer_aa0ab8d27fd88a33a2f801413ac4c7fbc_icgraph.svg" width="403" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -1495,7 +1324,7 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1503,24 +1332,17 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::write_compact_float </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html#abb4b7c621d0cb7633b5806c603f3c51a">number_float_t</a>&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
+          <td class="paramtype">const <a class="el" href="#abb4b7c621d0cb7633b5806c603f3c51a">number_float_t</a></td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacenlohmann_1_1detail.html#aa554fc6a11519e4f347deb25a9f0db40">detail::input_format_t</a>&#160;</td>
-          <td class="paramname"><em>format</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype"><a class="el" href="namespacenlohmann_1_1detail.html#aa554fc6a11519e4f347deb25a9f0db40">detail::input_format_t</a></td>          <td class="paramname"><span class="paramname"><em>format</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1533,7 +1355,7 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1541,14 +1363,13 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::write_msgpack </td>
           <td>(</td>
-          <td class="paramtype">const BasicJsonType &amp;&#160;</td>
-          <td class="paramname"><em>j</em></td><td>)</td>
+          <td class="paramtype">const BasicJsonType &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1558,38 +1379,32 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
   </table>
   </dd>
 </dl>
-<div class="dynheader">
-被呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classnlohmann_1_1detail_1_1binary__writer_ae4e0852b64102ce4b07d99f08f828b7c_icgraph.svg" width="403" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
-<a id="a6e11b7227fcecc25a548ed45507b7d1c" name="a6e11b7227fcecc25a548ed45507b7d1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e11b7227fcecc25a548ed45507b7d1c">&#9670;&#160;</a></span>write_number()</h2>
+<a id="a8f083e8c501c297d57bea82b38b753c7" name="a8f083e8c501c297d57bea82b38b753c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f083e8c501c297d57bea82b38b753c7">&#9670;&#160;</a></span>write_number()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <div class="memtemplate">
-template&lt;typename NumberType , bool OutputIsLittleEndian = false&gt; </div>
+template&lt;typename NumberType, bool OutputIsLittleEndian = false&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::write_number </td>
+          <td class="memname">**void <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::write_number </td>
           <td>(</td>
-          <td class="paramtype">const NumberType&#160;</td>
-          <td class="paramname"><em>n</em></td><td>)</td>
+          <td class="paramtype">const NumberType</td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1602,9 +1417,9 @@ template&lt;typename NumberType , bool OutputIsLittleEndian = false&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <div class="memtemplate">
-template&lt;typename NumberType , typename std::enable_if&lt; std::is_floating_point&lt; NumberType &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a>, int &gt;::type  = 0&gt; </div>
+template&lt;typename NumberType, typename std::enable_if&lt; std::is_signed&lt; NumberType &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a> &amp;&amp;!std::is_floating_point&lt; NumberType &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a>, int &gt;::type = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1612,24 +1427,17 @@ template&lt;typename NumberType , typename std::enable_if&lt; std::is_floating_p
         <tr>
           <td class="memname">void <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::write_number_with_ubjson_prefix </td>
           <td>(</td>
-          <td class="paramtype">const NumberType&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
+          <td class="paramtype">const NumberType</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>add_prefix</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>add_prefix</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1642,9 +1450,9 @@ template&lt;typename NumberType , typename std::enable_if&lt; std::is_floating_p
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <div class="memtemplate">
-template&lt;typename NumberType , typename std::enable_if&lt; std::is_unsigned&lt; NumberType &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a>, int &gt;::type  = 0&gt; </div>
+template&lt;typename NumberType, typename std::enable_if&lt; std::is_unsigned&lt; NumberType &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a>, int &gt;::type = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1652,64 +1460,50 @@ template&lt;typename NumberType , typename std::enable_if&lt; std::is_unsigned&l
         <tr>
           <td class="memname">void <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::write_number_with_ubjson_prefix </td>
           <td>(</td>
-          <td class="paramtype">const NumberType&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
+          <td class="paramtype">const NumberType</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>add_prefix</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>add_prefix</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a0ea6745f944c0c61672146886b4ee90f" name="a0ea6745f944c0c61672146886b4ee90f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ea6745f944c0c61672146886b4ee90f">&#9670;&#160;</a></span>write_number_with_ubjson_prefix() <span class="overload">[3/3]</span></h2>
+<a id="a566a8b8e104d3443b9b856fd748192ec" name="a566a8b8e104d3443b9b856fd748192ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a566a8b8e104d3443b9b856fd748192ec">&#9670;&#160;</a></span>write_number_with_ubjson_prefix() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <div class="memtemplate">
-template&lt;typename NumberType , typename std::enable_if&lt; std::is_signed&lt; NumberType &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a> &amp;&amp;!std::is_floating_point&lt; NumberType &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a59e696b1dad6d0d99c172ac4518c2042a2063c1608d6e0baf80249c42e2be5804">::value</a>, int &gt;::type  = 0&gt; </div>
+template&lt;typename NumberType, typename std::enable_if&lt; std::is_floating_point&lt; NumberType &gt;<a class="el" href="namespacenlohmann_1_1detail.html#a3a21d6e7fb3746d89625c58615b54f99">::value</a>, int &gt;::type = 0&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::write_number_with_ubjson_prefix </td>
+          <td class="memname">**void <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::write_number_with_ubjson_prefix </td>
           <td>(</td>
-          <td class="paramtype">const NumberType&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
+          <td class="paramtype">const NumberType</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>add_prefix</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>add_prefix</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1722,7 +1516,7 @@ template&lt;typename NumberType , typename std::enable_if&lt; std::is_signed&lt;
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1730,36 +1524,27 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::write_ubjson </td>
           <td>(</td>
-          <td class="paramtype">const BasicJsonType &amp;&#160;</td>
-          <td class="paramname"><em>j</em>, </td>
+          <td class="paramtype">const BasicJsonType &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>use_count</em>, </td>
+          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>use_count</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>use_type</em>, </td>
+          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>use_type</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>add_prefix</em> = <code>true</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>add_prefix</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1772,64 +1557,55 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
   </table>
   </dd>
 </dl>
-<div class="dynheader">
-被呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classnlohmann_1_1detail_1_1binary__writer_a0f6c65053d859269f88eb4ebb0cd7060_icgraph.svg" width="403" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
-<h2 class="groupheader">メンバ詳解</h2>
-<a id="a048887c907afe39759b777e8c888414c" name="a048887c907afe39759b777e8c888414c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a048887c907afe39759b777e8c888414c">&#9670;&#160;</a></span>is_little_endian</h2>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">メンバ詳解</h2>
+<a id="abfc5ac144dbae3b35747a54058917a94" name="abfc5ac144dbae3b35747a54058917a94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfc5ac144dbae3b35747a54058917a94">&#9670;&#160;</a></span>is_little_endian</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const bool <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::is_little_endian = <a class="el" href="namespacenlohmann_1_1detail.html#ad2860d9bcd96cd7b8258a5b94674508c">little_endianess</a>()</td>
+          <td class="memname">* whether we can assume little endianess const bool <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::is_little_endian = <a class="el" href="namespacenlohmann_1_1detail.html#ad2860d9bcd96cd7b8258a5b94674508c">little_endianess</a>()</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>whether we can assume little endianess </p>
-
 </div>
 </div>
-<a id="a6f15b782a7900f50ef37d123008e601b" name="a6f15b782a7900f50ef37d123008e601b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f15b782a7900f50ef37d123008e601b">&#9670;&#160;</a></span>oa</h2>
+<a id="ae0bb94dd962752e5b0923615e5209dba" name="ae0bb94dd962752e5b0923615e5209dba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0bb94dd962752e5b0923615e5209dba">&#9670;&#160;</a></span>oa</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType , typename CharType &gt; </div>
+template&lt;typename BasicJsonType, typename CharType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacenlohmann_1_1detail.html#a9b680ddfb58f27eb53a67229447fc556">output_adapter_t</a>&lt;CharType&gt; <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::oa = nullptr</td>
+          <td class="memname">* the output <a class="el" href="namespacenlohmann_1_1detail.html#aedc1c64c62b6f40555b12478512e2f4f">output_adapter_t</a>&lt;CharType&gt; <a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">nlohmann::detail::binary_writer</a>&lt; BasicJsonType, CharType &gt;::oa = nullptr</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>the output </p>
 
 </div>
 </div>
@@ -1838,11 +1614,19 @@ template&lt;typename BasicJsonType , typename CharType &gt; </div>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacenlohmann.html">nlohmann</a></li><li class="navelem"><a class="el" href="namespacenlohmann_1_1detail.html">detail</a></li><li class="navelem"><a class="el" href="classnlohmann_1_1detail_1_1binary__writer.html">binary_writer</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="namespacenlohmann.html">nlohmann</a></li><li class="navelem"><a href="namespacenlohmann_1_1detail.html">detail</a></li><li class="navelem"><a href="classnlohmann_1_1detail_1_1binary__writer.html">binary_writer</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

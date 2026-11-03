@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: EventManager クラス</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classEventManager.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('classEventManager.html','','classEventManager-members'); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,59 +89,39 @@ $(document).ready(function(){initNavTree('classEventManager.html',''); initResiz
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
-<a href="#pri-methods">非公開メンバ関数</a> &#124;
-<a href="#pri-attribs">非公開変数類</a> &#124;
-<a href="classEventManager-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">EventManager クラス</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="EventManager_8h_source.html">EventManager.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a58c5823a7e3aade9fae84a961b42950f" id="r_a58c5823a7e3aade9fae84a961b42950f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventManager.html#a58c5823a7e3aade9fae84a961b42950f">Init</a> (void)</td></tr>
-<tr class="separator:a58c5823a7e3aade9fae84a961b42950f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedb06e4fd6f6d9bda0908f75b4007784" id="r_aedb06e4fd6f6d9bda0908f75b4007784"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventManager.html#aedb06e4fd6f6d9bda0908f75b4007784">Uninit</a> (void)</td></tr>
-<tr class="separator:aedb06e4fd6f6d9bda0908f75b4007784"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ee04824181d1a3a1eeba6a7fe9a54bd" id="r_a1ee04824181d1a3a1eeba6a7fe9a54bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventManager.html#a1ee04824181d1a3a1eeba6a7fe9a54bd">Update</a> (void)</td></tr>
-<tr class="separator:a1ee04824181d1a3a1eeba6a7fe9a54bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6eabafdd14ad23f08149c88b3ea48b57" id="r_a6eabafdd14ad23f08149c88b3ea48b57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventManager.html#a6eabafdd14ad23f08149c88b3ea48b57">AddEvent</a> (<a class="el" href="classEvent.html">Event</a> _event)</td></tr>
-<tr class="separator:a6eabafdd14ad23f08149c88b3ea48b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59a625e91afdbc39256fe97c52cd35d3" id="r_a59a625e91afdbc39256fe97c52cd35d3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="Object_8h.html#a81fe4d2f62958ae48f36d6a3beb16bb1">Vector</a>&lt; <a class="el" href="classEvent.html">Event</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventManager.html#a59a625e91afdbc39256fe97c52cd35d3">GetEventList</a> () const</td></tr>
-<tr class="separator:a59a625e91afdbc39256fe97c52cd35d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9889473df2a38a146a27defa1bdd4c55" id="r_a9889473df2a38a146a27defa1bdd4c55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventManager.html#a9889473df2a38a146a27defa1bdd4c55">ClearEvents</a> ()</td></tr>
-<tr class="separator:a9889473df2a38a146a27defa1bdd4c55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a942e9c72a23feffa18e3cdd80bfc52fb" id="r_a942e9c72a23feffa18e3cdd80bfc52fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventManager.html#a942e9c72a23feffa18e3cdd80bfc52fb">RemoveEvent</a> (int _index)</td></tr>
-<tr class="separator:a942e9c72a23feffa18e3cdd80bfc52fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab31d1ce41dcdc83da0bd3250332e15fe" id="r_ab31d1ce41dcdc83da0bd3250332e15fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEvent.html">Event</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventManager.html#ab31d1ce41dcdc83da0bd3250332e15fe">FindEventByID</a> (<a class="el" href="namespaceEvents.html#a07879e410151aabbb30589cfa90d7fa1">Events::ID</a> _ID)</td></tr>
-<tr class="separator:ab31d1ce41dcdc83da0bd3250332e15fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58c5823a7e3aade9fae84a961b42950f" id="r_a58c5823a7e3aade9fae84a961b42950f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58c5823a7e3aade9fae84a961b42950f">Init</a> (void)</td></tr>
+<tr class="memitem:aedb06e4fd6f6d9bda0908f75b4007784" id="r_aedb06e4fd6f6d9bda0908f75b4007784"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aedb06e4fd6f6d9bda0908f75b4007784">Uninit</a> (void)</td></tr>
+<tr class="memitem:a1ee04824181d1a3a1eeba6a7fe9a54bd" id="r_a1ee04824181d1a3a1eeba6a7fe9a54bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ee04824181d1a3a1eeba6a7fe9a54bd">Update</a> (void)</td></tr>
+<tr class="memitem:a6eabafdd14ad23f08149c88b3ea48b57" id="r_a6eabafdd14ad23f08149c88b3ea48b57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6eabafdd14ad23f08149c88b3ea48b57">AddEvent</a> (<a class="el" href="classEvent.html">Event</a> _event)</td></tr>
+<tr class="memitem:a59a625e91afdbc39256fe97c52cd35d3" id="r_a59a625e91afdbc39256fe97c52cd35d3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="Object_8h.html#a81fe4d2f62958ae48f36d6a3beb16bb1">Vector</a>&lt; <a class="el" href="classEvent.html">Event</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59a625e91afdbc39256fe97c52cd35d3">GetEventList</a> () const</td></tr>
+<tr class="memitem:a9889473df2a38a146a27defa1bdd4c55" id="r_a9889473df2a38a146a27defa1bdd4c55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9889473df2a38a146a27defa1bdd4c55">ClearEvents</a> ()</td></tr>
+<tr class="memitem:a942e9c72a23feffa18e3cdd80bfc52fb" id="r_a942e9c72a23feffa18e3cdd80bfc52fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a942e9c72a23feffa18e3cdd80bfc52fb">RemoveEvent</a> (int _index)</td></tr>
+<tr class="memitem:ab31d1ce41dcdc83da0bd3250332e15fe" id="r_ab31d1ce41dcdc83da0bd3250332e15fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEvent.html">Event</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab31d1ce41dcdc83da0bd3250332e15fe">FindEventByID</a> (<a class="el" href="namespaceEvents.html#a07879e410151aabbb30589cfa90d7fa1">Events::ID</a> _ID)</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
-<tr class="memitem:af99c3d53ac240938f8b41b9f9538e36e" id="r_af99c3d53ac240938f8b41b9f9538e36e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classEventManager.html">EventManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventManager.html#af99c3d53ac240938f8b41b9f9538e36e">GetInstance</a> ()</td></tr>
-<tr class="separator:af99c3d53ac240938f8b41b9f9538e36e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af99c3d53ac240938f8b41b9f9538e36e" id="r_af99c3d53ac240938f8b41b9f9538e36e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classEventManager.html">EventManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af99c3d53ac240938f8b41b9f9538e36e">GetInstance</a> ()</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 非公開メンバ関数</h2></td></tr>
-<tr class="memitem:a988bd286bee8d202ac5afd1f4758ec24" id="r_a988bd286bee8d202ac5afd1f4758ec24"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventManager.html#a988bd286bee8d202ac5afd1f4758ec24">EventManager</a> ()=default</td></tr>
-<tr class="separator:a988bd286bee8d202ac5afd1f4758ec24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2405adf011ed07228a56b04c97ada5f1" id="r_a2405adf011ed07228a56b04c97ada5f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventManager.html#a2405adf011ed07228a56b04c97ada5f1">~EventManager</a> ()=default</td></tr>
-<tr class="separator:a2405adf011ed07228a56b04c97ada5f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e802f57b1f9176a95309b17750c5c6c" id="r_a4e802f57b1f9176a95309b17750c5c6c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventManager.html#a4e802f57b1f9176a95309b17750c5c6c">EventManager</a> (const <a class="el" href="classEventManager.html">EventManager</a> &amp;)=delete</td></tr>
-<tr class="separator:a4e802f57b1f9176a95309b17750c5c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27b7ccd6ac588cd2cf519d6d9186735f" id="r_a27b7ccd6ac588cd2cf519d6d9186735f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEventManager.html">EventManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventManager.html#a27b7ccd6ac588cd2cf519d6d9186735f">operator=</a> (const <a class="el" href="classEventManager.html">EventManager</a> &amp;)=delete</td></tr>
-<tr class="separator:a27b7ccd6ac588cd2cf519d6d9186735f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a988bd286bee8d202ac5afd1f4758ec24" id="r_a988bd286bee8d202ac5afd1f4758ec24"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a988bd286bee8d202ac5afd1f4758ec24">EventManager</a> ()=default</td></tr>
+<tr class="memitem:a2405adf011ed07228a56b04c97ada5f1" id="r_a2405adf011ed07228a56b04c97ada5f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2405adf011ed07228a56b04c97ada5f1">~EventManager</a> ()=default</td></tr>
+<tr class="memitem:a4e802f57b1f9176a95309b17750c5c6c" id="r_a4e802f57b1f9176a95309b17750c5c6c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e802f57b1f9176a95309b17750c5c6c">EventManager</a> (const <a class="el" href="classEventManager.html">EventManager</a> &amp;)=delete</td></tr>
+<tr class="memitem:a27b7ccd6ac588cd2cf519d6d9186735f" id="r_a27b7ccd6ac588cd2cf519d6d9186735f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEventManager.html">EventManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27b7ccd6ac588cd2cf519d6d9186735f">operator=</a> (const <a class="el" href="classEventManager.html">EventManager</a> &amp;)=delete</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 非公開変数類</h2></td></tr>
-<tr class="memitem:ab98737b4d1d7ee4d6ea50ae3559a0af9" id="r_ab98737b4d1d7ee4d6ea50ae3559a0af9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Object_8h.html#a81fe4d2f62958ae48f36d6a3beb16bb1">Vector</a>&lt; <a class="el" href="classEvent.html">Event</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventManager.html#ab98737b4d1d7ee4d6ea50ae3559a0af9">eventList</a></td></tr>
-<tr class="separator:ab98737b4d1d7ee4d6ea50ae3559a0af9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab98737b4d1d7ee4d6ea50ae3559a0af9" id="r_ab98737b4d1d7ee4d6ea50ae3559a0af9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Object_8h.html#a81fe4d2f62958ae48f36d6a3beb16bb1">Vector</a>&lt; <a class="el" href="classEvent.html">Event</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab98737b4d1d7ee4d6ea50ae3559a0af9">eventList</a></td></tr>
 </table>
-<h2 class="groupheader">構築子と解体子</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">構築子と解体子</h2>
 <a id="a988bd286bee8d202ac5afd1f4758ec24" name="a988bd286bee8d202ac5afd1f4758ec24"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a988bd286bee8d202ac5afd1f4758ec24">&#9670;&#160;</a></span>EventManager() <span class="overload">[1/2]</span></h2>
 
@@ -155,16 +134,21 @@ $(document).ready(function(){initNavTree('classEventManager.html',''); initResiz
         <tr>
           <td class="memname">EventManager::EventManager </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classEventManager_a988bd286bee8d202ac5afd1f4758ec24_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -180,13 +164,13 @@ $(document).ready(function(){initNavTree('classEventManager.html',''); initResiz
         <tr>
           <td class="memname">EventManager::~EventManager </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -205,21 +189,25 @@ $(document).ready(function(){initNavTree('classEventManager.html',''); initResiz
         <tr>
           <td class="memname">EventManager::EventManager </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classEventManager.html">EventManager</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classEventManager.html">EventManager</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classEventManager_a4e802f57b1f9176a95309b17750c5c6c_cgraph.svg" width="494" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="a6eabafdd14ad23f08149c88b3ea48b57" name="a6eabafdd14ad23f08149c88b3ea48b57"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6eabafdd14ad23f08149c88b3ea48b57">&#9670;&#160;</a></span>AddEvent()</h2>
 
@@ -232,21 +220,20 @@ $(document).ready(function(){initNavTree('classEventManager.html',''); initResiz
         <tr>
           <td class="memname">void EventManager::AddEvent </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classEvent.html">Event</a>&#160;</td>
-          <td class="paramname"><em>_event</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classEvent.html">Event</a></td>          <td class="paramname"><span class="paramname"><em>_event</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEventManager_a6eabafdd14ad23f08149c88b3ea48b57_icgraph.svg" width="100%" height="595"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classEventManager_a6eabafdd14ad23f08149c88b3ea48b57_icgraph.svg" width="100%" height="536"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -263,20 +250,20 @@ $(document).ready(function(){initNavTree('classEventManager.html',''); initResiz
         <tr>
           <td class="memname">void EventManager::ClearEvents </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEventManager_a9889473df2a38a146a27defa1bdd4c55_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classEventManager_a9889473df2a38a146a27defa1bdd4c55_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -290,8 +277,7 @@ $(document).ready(function(){initNavTree('classEventManager.html',''); initResiz
         <tr>
           <td class="memname"><a class="el" href="classEvent.html">Event</a> * EventManager::FindEventByID </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespaceEvents.html#a07879e410151aabbb30589cfa90d7fa1">Events::ID</a>&#160;</td>
-          <td class="paramname"><em>_ID</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="namespaceEvents.html#a07879e410151aabbb30589cfa90d7fa1">Events::ID</a></td>          <td class="paramname"><span class="paramname"><em>_ID</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -299,7 +285,7 @@ $(document).ready(function(){initNavTree('classEventManager.html',''); initResiz
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEventManager_ab31d1ce41dcdc83da0bd3250332e15fe_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classEventManager_ab31d1ce41dcdc83da0bd3250332e15fe_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -316,13 +302,13 @@ $(document).ready(function(){initNavTree('classEventManager.html',''); initResiz
         <tr>
           <td class="memname">const <a class="el" href="Object_8h.html#a81fe4d2f62958ae48f36d6a3beb16bb1">Vector</a>&lt; <a class="el" href="classEvent.html">Event</a> &gt; &amp; EventManager::GetEventList </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -339,22 +325,27 @@ $(document).ready(function(){initNavTree('classEventManager.html',''); initResiz
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="classEventManager.html">EventManager</a> &amp; EventManager::GetInstance </td>
+          <td class="memname"><a class="el" href="classEventManager.html">EventManager</a> &amp; EventManager::GetInstance </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classEventManager_af99c3d53ac240938f8b41b9f9538e36e_cgraph.svg" width="478" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classEventManager_af99c3d53ac240938f8b41b9f9538e36e_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classEventManager_af99c3d53ac240938f8b41b9f9538e36e_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -371,21 +362,20 @@ $(document).ready(function(){initNavTree('classEventManager.html',''); initResiz
         <tr>
           <td class="memname">void EventManager::Init </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classEventManager_a58c5823a7e3aade9fae84a961b42950f_icgraph.svg" width="427" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classEventManager_a58c5823a7e3aade9fae84a961b42950f_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -402,17 +392,21 @@ $(document).ready(function(){initNavTree('classEventManager.html',''); initResiz
         <tr>
           <td class="memname"><a class="el" href="classEventManager.html">EventManager</a> &amp; EventManager::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classEventManager.html">EventManager</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classEventManager.html">EventManager</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classEventManager_a27b7ccd6ac588cd2cf519d6d9186735f_cgraph.svg" width="466" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -428,14 +422,13 @@ $(document).ready(function(){initNavTree('classEventManager.html',''); initResiz
         <tr>
           <td class="memname">void EventManager::RemoveEvent </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>_index</em></td><td>)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>_index</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -454,14 +447,13 @@ $(document).ready(function(){initNavTree('classEventManager.html',''); initResiz
         <tr>
           <td class="memname">void EventManager::Uninit </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -480,21 +472,20 @@ $(document).ready(function(){initNavTree('classEventManager.html',''); initResiz
         <tr>
           <td class="memname">void EventManager::Update </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">メンバ詳解</h2>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">メンバ詳解</h2>
 <a id="ab98737b4d1d7ee4d6ea50ae3559a0af9" name="ab98737b4d1d7ee4d6ea50ae3559a0af9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab98737b4d1d7ee4d6ea50ae3559a0af9">&#9670;&#160;</a></span>eventList</h2>
 
@@ -510,7 +501,7 @@ $(document).ready(function(){initNavTree('classEventManager.html',''); initResiz
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -523,11 +514,19 @@ $(document).ready(function(){initNavTree('classEventManager.html',''); initResiz
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="classEventManager.html">EventManager</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="classEventManager.html">EventManager</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

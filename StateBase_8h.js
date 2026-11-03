@@ -1,4 +1,4 @@
 var StateBase_8h =
 [
-    [ "StateBase< T >", "classStateBase.html", "classStateBase" ]
+    [ "StateBase&lt; T &gt;", "classStateBase.html", "classStateBase" ]
 ];

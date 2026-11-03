@@ -7,6 +7,7 @@ var classIRenderPass =
     [ "GetOutputResourceName", "classIRenderPass.html#a3136f173da785fedf682eaece53253d1", null ],
     [ "Init", "classIRenderPass.html#a1771179659c4abc6e253814080bba19d", null ],
     [ "IsEnabled", "classIRenderPass.html#a7902d9b20ee85fb3a30c6e5555445f51", null ],
+    [ "ReloadShaders", "classIRenderPass.html#a489e62670398c40fb7a0634735af0603", null ],
     [ "SetEnabled", "classIRenderPass.html#adee3ba2abf5a11714da17de66e7d685f", null ],
     [ "SetInputResourceName", "classIRenderPass.html#a18a4eee99f195abf014ce5e6fd4172e6", null ],
     [ "SetOutputResourceName", "classIRenderPass.html#a26673c8aa28b1d943ac68a9417a14a2c", null ],

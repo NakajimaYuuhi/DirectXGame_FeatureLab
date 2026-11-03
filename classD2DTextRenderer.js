@@ -1,7 +1,7 @@
 var classD2DTextRenderer =
 [
-    [ "FrameResources", "structD2DTextRenderer_1_1FrameResources.html", "structD2DTextRenderer_1_1FrameResources" ],
     [ "TextInfo", "structD2DTextRenderer_1_1TextInfo.html", "structD2DTextRenderer_1_1TextInfo" ],
+    [ "FrameResources", "structD2DTextRenderer_1_1FrameResources.html", "structD2DTextRenderer_1_1FrameResources" ],
     [ "D2DTextRenderer", "classD2DTextRenderer.html#a75f89eb9db4da02c58bfa2a724ab0d31", null ],
     [ "~D2DTextRenderer", "classD2DTextRenderer.html#adc604585e125573aac2e21b31d255613", null ],
     [ "D2DTextRenderer", "classD2DTextRenderer.html#a361f3b069caf2c56efc86dd3b5439282", null ],

@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: CProfilerUI クラス</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classCProfilerUI.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('classCProfilerUI.html','','classCProfilerUI-members'); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,51 +89,35 @@ $(document).ready(function(){initNavTree('classCProfilerUI.html',''); initResiza
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
-<a href="#pri-methods">非公開メンバ関数</a> &#124;
-<a href="#pri-attribs">非公開変数類</a> &#124;
-<a href="classCProfilerUI-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">CProfilerUI クラス</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="ProfilerUI_8h_source.html">ProfilerUI.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a099b44b6253f48c9b2e0a9bf87657950" id="r_a099b44b6253f48c9b2e0a9bf87657950"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCProfilerUI.html#a099b44b6253f48c9b2e0a9bf87657950">Draw</a> ()</td></tr>
-<tr class="separator:a099b44b6253f48c9b2e0a9bf87657950"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c97ca06ab438ac75a695b1d9cade83b" id="r_a3c97ca06ab438ac75a695b1d9cade83b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCProfilerUI.html#a3c97ca06ab438ac75a695b1d9cade83b">IsVisible</a> () const</td></tr>
-<tr class="separator:a3c97ca06ab438ac75a695b1d9cade83b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfdb735c60ab947bb8a22afd26d0fe7a" id="r_acfdb735c60ab947bb8a22afd26d0fe7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCProfilerUI.html#acfdb735c60ab947bb8a22afd26d0fe7a">SetVisible</a> (bool visible)</td></tr>
-<tr class="separator:acfdb735c60ab947bb8a22afd26d0fe7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a462b684c54f2b7d2273195c0e30dbc84" id="r_a462b684c54f2b7d2273195c0e30dbc84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCProfilerUI.html#a462b684c54f2b7d2273195c0e30dbc84">ToggleVisible</a> ()</td></tr>
-<tr class="separator:a462b684c54f2b7d2273195c0e30dbc84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a099b44b6253f48c9b2e0a9bf87657950" id="r_a099b44b6253f48c9b2e0a9bf87657950"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a099b44b6253f48c9b2e0a9bf87657950">Draw</a> ()</td></tr>
+<tr class="memitem:a3c97ca06ab438ac75a695b1d9cade83b" id="r_a3c97ca06ab438ac75a695b1d9cade83b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c97ca06ab438ac75a695b1d9cade83b">IsVisible</a> () const</td></tr>
+<tr class="memitem:acfdb735c60ab947bb8a22afd26d0fe7a" id="r_acfdb735c60ab947bb8a22afd26d0fe7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfdb735c60ab947bb8a22afd26d0fe7a">SetVisible</a> (bool visible)</td></tr>
+<tr class="memitem:a462b684c54f2b7d2273195c0e30dbc84" id="r_a462b684c54f2b7d2273195c0e30dbc84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a462b684c54f2b7d2273195c0e30dbc84">ToggleVisible</a> ()</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
-<tr class="memitem:a0a6cfacef2191303e9bfe9ccdd445b26" id="r_a0a6cfacef2191303e9bfe9ccdd445b26"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCProfilerUI.html">CProfilerUI</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCProfilerUI.html#a0a6cfacef2191303e9bfe9ccdd445b26">GetInstance</a> ()</td></tr>
-<tr class="separator:a0a6cfacef2191303e9bfe9ccdd445b26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a6cfacef2191303e9bfe9ccdd445b26" id="r_a0a6cfacef2191303e9bfe9ccdd445b26"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCProfilerUI.html">CProfilerUI</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a6cfacef2191303e9bfe9ccdd445b26">GetInstance</a> ()</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 非公開メンバ関数</h2></td></tr>
-<tr class="memitem:ade638092e441b652ce487916cb88f389" id="r_ade638092e441b652ce487916cb88f389"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCProfilerUI.html#ade638092e441b652ce487916cb88f389">CProfilerUI</a> ()=default</td></tr>
-<tr class="separator:ade638092e441b652ce487916cb88f389"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a881b962743300dfc6845799be7347399" id="r_a881b962743300dfc6845799be7347399"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCProfilerUI.html#a881b962743300dfc6845799be7347399">~CProfilerUI</a> ()=default</td></tr>
-<tr class="separator:a881b962743300dfc6845799be7347399"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16aede6368060d27d1d2c808176a25fc" id="r_a16aede6368060d27d1d2c808176a25fc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCProfilerUI.html#a16aede6368060d27d1d2c808176a25fc">CProfilerUI</a> (const <a class="el" href="classCProfilerUI.html">CProfilerUI</a> &amp;)=delete</td></tr>
-<tr class="separator:a16aede6368060d27d1d2c808176a25fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d4d9a521a685488f01f58880625b3bf" id="r_a5d4d9a521a685488f01f58880625b3bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCProfilerUI.html">CProfilerUI</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCProfilerUI.html#a5d4d9a521a685488f01f58880625b3bf">operator=</a> (const <a class="el" href="classCProfilerUI.html">CProfilerUI</a> &amp;)=delete</td></tr>
-<tr class="separator:a5d4d9a521a685488f01f58880625b3bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade638092e441b652ce487916cb88f389" id="r_ade638092e441b652ce487916cb88f389"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade638092e441b652ce487916cb88f389">CProfilerUI</a> ()=default</td></tr>
+<tr class="memitem:a881b962743300dfc6845799be7347399" id="r_a881b962743300dfc6845799be7347399"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a881b962743300dfc6845799be7347399">~CProfilerUI</a> ()=default</td></tr>
+<tr class="memitem:a16aede6368060d27d1d2c808176a25fc" id="r_a16aede6368060d27d1d2c808176a25fc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16aede6368060d27d1d2c808176a25fc">CProfilerUI</a> (const <a class="el" href="classCProfilerUI.html">CProfilerUI</a> &amp;)=delete</td></tr>
+<tr class="memitem:a5d4d9a521a685488f01f58880625b3bf" id="r_a5d4d9a521a685488f01f58880625b3bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCProfilerUI.html">CProfilerUI</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d4d9a521a685488f01f58880625b3bf">operator=</a> (const <a class="el" href="classCProfilerUI.html">CProfilerUI</a> &amp;)=delete</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 非公開変数類</h2></td></tr>
-<tr class="memitem:a7d077d577b27b333dd68c469758c6d2f" id="r_a7d077d577b27b333dd68c469758c6d2f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCProfilerUI.html#a7d077d577b27b333dd68c469758c6d2f">m_isVisible</a> = false</td></tr>
-<tr class="separator:a7d077d577b27b333dd68c469758c6d2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d077d577b27b333dd68c469758c6d2f" id="r_a7d077d577b27b333dd68c469758c6d2f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d077d577b27b333dd68c469758c6d2f">m_isVisible</a> = false</td></tr>
 </table>
-<h2 class="groupheader">構築子と解体子</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">構築子と解体子</h2>
 <a id="ade638092e441b652ce487916cb88f389" name="ade638092e441b652ce487916cb88f389"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ade638092e441b652ce487916cb88f389">&#9670;&#160;</a></span>CProfilerUI() <span class="overload">[1/2]</span></h2>
 
@@ -147,16 +130,21 @@ $(document).ready(function(){initNavTree('classCProfilerUI.html',''); initResiza
         <tr>
           <td class="memname">CProfilerUI::CProfilerUI </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCProfilerUI_ade638092e441b652ce487916cb88f389_icgraph.svg" width="100%" height="407"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -172,13 +160,13 @@ $(document).ready(function(){initNavTree('classCProfilerUI.html',''); initResiza
         <tr>
           <td class="memname">CProfilerUI::~CProfilerUI </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -197,21 +185,25 @@ $(document).ready(function(){initNavTree('classCProfilerUI.html',''); initResiza
         <tr>
           <td class="memname">CProfilerUI::CProfilerUI </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classCProfilerUI.html">CProfilerUI</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classCProfilerUI.html">CProfilerUI</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCProfilerUI_a16aede6368060d27d1d2c808176a25fc_cgraph.svg" width="394" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="a099b44b6253f48c9b2e0a9bf87657950" name="a099b44b6253f48c9b2e0a9bf87657950"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a099b44b6253f48c9b2e0a9bf87657950">&#9670;&#160;</a></span>Draw()</h2>
 
@@ -221,7 +213,7 @@ $(document).ready(function(){initNavTree('classCProfilerUI.html',''); initResiza
         <tr>
           <td class="memname">void CProfilerUI::Draw </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -229,12 +221,12 @@ $(document).ready(function(){initNavTree('classCProfilerUI.html',''); initResiza
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCProfilerUI_a099b44b6253f48c9b2e0a9bf87657950_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCProfilerUI_a099b44b6253f48c9b2e0a9bf87657950_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCProfilerUI_a099b44b6253f48c9b2e0a9bf87657950_icgraph.svg" width="271" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCProfilerUI_a099b44b6253f48c9b2e0a9bf87657950_icgraph.svg" width="270" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -249,22 +241,27 @@ $(document).ready(function(){initNavTree('classCProfilerUI.html',''); initResiza
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="classCProfilerUI.html">CProfilerUI</a> &amp; CProfilerUI::GetInstance </td>
+          <td class="memname"><a class="el" href="classCProfilerUI.html">CProfilerUI</a> &amp; CProfilerUI::GetInstance </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCProfilerUI_a0a6cfacef2191303e9bfe9ccdd445b26_cgraph.svg" width="403" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCProfilerUI_a0a6cfacef2191303e9bfe9ccdd445b26_icgraph.svg" width="535" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCProfilerUI_a0a6cfacef2191303e9bfe9ccdd445b26_icgraph.svg" width="534" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -281,13 +278,13 @@ $(document).ready(function(){initNavTree('classCProfilerUI.html',''); initResiza
         <tr>
           <td class="memname">bool CProfilerUI::IsVisible </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -306,17 +303,21 @@ $(document).ready(function(){initNavTree('classCProfilerUI.html',''); initResiza
         <tr>
           <td class="memname"><a class="el" href="classCProfilerUI.html">CProfilerUI</a> &amp; CProfilerUI::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classCProfilerUI.html">CProfilerUI</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classCProfilerUI.html">CProfilerUI</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCProfilerUI_a5d4d9a521a685488f01f58880625b3bf_cgraph.svg" width="391" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -332,14 +333,13 @@ $(document).ready(function(){initNavTree('classCProfilerUI.html',''); initResiza
         <tr>
           <td class="memname">void CProfilerUI::SetVisible </td>
           <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>visible</em></td><td>)</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>visible</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -358,25 +358,25 @@ $(document).ready(function(){initNavTree('classCProfilerUI.html',''); initResiza
         <tr>
           <td class="memname">void CProfilerUI::ToggleVisible </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCProfilerUI_a462b684c54f2b7d2273195c0e30dbc84_icgraph.svg" width="543" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCProfilerUI_a462b684c54f2b7d2273195c0e30dbc84_icgraph.svg" width="542" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<h2 class="groupheader">メンバ詳解</h2>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">メンバ詳解</h2>
 <a id="a7d077d577b27b333dd68c469758c6d2f" name="a7d077d577b27b333dd68c469758c6d2f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7d077d577b27b333dd68c469758c6d2f">&#9670;&#160;</a></span>m_isVisible</h2>
 
@@ -392,7 +392,7 @@ $(document).ready(function(){initNavTree('classCProfilerUI.html',''); initResiza
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -405,11 +405,19 @@ $(document).ready(function(){initNavTree('classCProfilerUI.html',''); initResiza
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="classCProfilerUI.html">CProfilerUI</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="classCProfilerUI.html">CProfilerUI</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

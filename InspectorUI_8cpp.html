@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: Source/Editor/InspectorUI.cpp ファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('InspectorUI_8cpp.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('InspectorUI_8cpp.html','',''); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,8 +89,6 @@ $(document).ready(function(){initNavTree('InspectorUI_8cpp.html',''); initResiza
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#func-members">関数</a>  </div>
   <div class="headertitle"><div class="title">InspectorUI.cpp ファイル</div></div>
 </div><!--header-->
 <div class="contents">
@@ -113,6 +110,8 @@ $(document).ready(function(){initNavTree('InspectorUI_8cpp.html',''); initResiza
 <code>#include &quot;<a class="el" href="Transform_8h_source.html">Transform.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Model_8h_source.html">Model.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="MaterialManager_8h_source.html">MaterialManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ShaderManager_8h_source.html">ShaderManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="HotReloadManager_8h_source.html">HotReloadManager.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ObjectInfo_8h_source.html">ObjectInfo.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="BoxCollider3D_8h_source.html">BoxCollider3D.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="CapsuleCollider3D_8h_source.html">CapsuleCollider3D.h</a>&quot;</code><br />
@@ -155,18 +154,14 @@ $(document).ready(function(){initNavTree('InspectorUI_8cpp.html',''); initResiza
 <code>#include &lt;windows.h&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 関数</h2></td></tr>
-<tr class="memitem:a818451273d4f42ec1c1503bb28a4f868" id="r_a818451273d4f42ec1c1503bb28a4f868"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InspectorUI_8cpp.html#a818451273d4f42ec1c1503bb28a4f868">GetCleanComponentName</a> (<a class="el" href="classCComponent.html">CComponent</a> *comp)</td></tr>
-<tr class="separator:a818451273d4f42ec1c1503bb28a4f868"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aceba04366e686bf767f8ed32f1682833" id="r_aceba04366e686bf767f8ed32f1682833"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InspectorUI_8cpp.html#aceba04366e686bf767f8ed32f1682833">GetUpdatePhaseName</a> (<a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a> phase)</td></tr>
-<tr class="separator:aceba04366e686bf767f8ed32f1682833"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bf579657470d623e3be4507a13bf453" id="r_a4bf579657470d623e3be4507a13bf453"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InspectorUI_8cpp.html#a4bf579657470d623e3be4507a13bf453">WStringToString</a> (const <a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">std::wstring</a> &amp;wstr)</td></tr>
-<tr class="separator:a4bf579657470d623e3be4507a13bf453"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29e1aeadb805e9d91533a2be6b183d10" id="r_a29e1aeadb805e9d91533a2be6b183d10"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">std::wstring</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="InspectorUI_8cpp.html#a29e1aeadb805e9d91533a2be6b183d10">StringToWString</a> (const <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;str)</td></tr>
-<tr class="separator:a29e1aeadb805e9d91533a2be6b183d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a818451273d4f42ec1c1503bb28a4f868" id="r_a818451273d4f42ec1c1503bb28a4f868"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a818451273d4f42ec1c1503bb28a4f868">GetCleanComponentName</a> (<a class="el" href="classCComponent.html">CComponent</a> *comp)</td></tr>
+<tr class="memitem:aceba04366e686bf767f8ed32f1682833" id="r_aceba04366e686bf767f8ed32f1682833"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aceba04366e686bf767f8ed32f1682833">GetUpdatePhaseName</a> (<a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a> phase)</td></tr>
+<tr class="memitem:a4bf579657470d623e3be4507a13bf453" id="r_a4bf579657470d623e3be4507a13bf453"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bf579657470d623e3be4507a13bf453">WStringToString</a> (const <a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">std::wstring</a> &amp;wstr)</td></tr>
+<tr class="memitem:a29e1aeadb805e9d91533a2be6b183d10" id="r_a29e1aeadb805e9d91533a2be6b183d10"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">std::wstring</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29e1aeadb805e9d91533a2be6b183d10">StringToWString</a> (const <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;str)</td></tr>
 </table>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="a818451273d4f42ec1c1503bb28a4f868" name="a818451273d4f42ec1c1503bb28a4f868"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a818451273d4f42ec1c1503bb28a4f868">&#9670;&#160;</a></span>GetCleanComponentName()</h2>
 
@@ -177,28 +172,27 @@ $(document).ready(function(){initNavTree('InspectorUI_8cpp.html',''); initResiza
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> GetCleanComponentName </td>
+          <td class="memname"><a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> GetCleanComponentName </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classCComponent.html">CComponent</a> *&#160;</td>
-          <td class="paramname"><em>comp</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classCComponent.html">CComponent</a> *</td>          <td class="paramname"><span class="paramname"><em>comp</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="InspectorUI_8cpp_a818451273d4f42ec1c1503bb28a4f868_cgraph.svg" width="431" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="InspectorUI_8cpp_a818451273d4f42ec1c1503bb28a4f868_cgraph.svg" width="430" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="InspectorUI_8cpp_a818451273d4f42ec1c1503bb28a4f868_icgraph.svg" width="528" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="InspectorUI_8cpp_a818451273d4f42ec1c1503bb28a4f868_icgraph.svg" width="527" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -213,23 +207,22 @@ $(document).ready(function(){initNavTree('InspectorUI_8cpp.html',''); initResiza
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static const char * GetUpdatePhaseName </td>
+          <td class="memname">const char * GetUpdatePhaseName </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a>&#160;</td>
-          <td class="paramname"><em>phase</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a></td>          <td class="paramname"><span class="paramname"><em>phase</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="InspectorUI_8cpp_aceba04366e686bf767f8ed32f1682833_icgraph.svg" width="503" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="InspectorUI_8cpp_aceba04366e686bf767f8ed32f1682833_icgraph.svg" width="502" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -244,16 +237,15 @@ $(document).ready(function(){initNavTree('InspectorUI_8cpp.html',''); initResiza
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">std::wstring</a> StringToWString </td>
+          <td class="memname"><a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">std::wstring</a> StringToWString </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>str</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -270,16 +262,15 @@ $(document).ready(function(){initNavTree('InspectorUI_8cpp.html',''); initResiza
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> WStringToString </td>
+          <td class="memname"><a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> WStringToString </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">std::wstring</a> &amp;&#160;</td>
-          <td class="paramname"><em>wstr</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">std::wstring</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>wstr</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -288,11 +279,19 @@ $(document).ready(function(){initNavTree('InspectorUI_8cpp.html',''); initResiza
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_b26507eead720464ba2ac6bbc6dcec5f.html">Editor</a></li><li class="navelem"><a class="el" href="InspectorUI_8cpp.html">InspectorUI.cpp</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_b26507eead720464ba2ac6bbc6dcec5f.html">Editor</a></li><li class="navelem"><a href="InspectorUI_8cpp.html">InspectorUI.cpp</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

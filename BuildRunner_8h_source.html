@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: Source/Editor/BuildRunner.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,28 +35,22 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function() { init_codefold(0); });
-/* @license-end */
-</script>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -68,10 +63,9 @@ $(document).ready(function() { init_codefold(0); });
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('BuildRunner_8h_source.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('BuildRunner_8h_source.html','',''); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -110,23 +104,23 @@ $(document).ready(function(){initNavTree('BuildRunner_8h_source.html',''); initR
 <div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599">   10</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599">BuildState</a></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_enumvalue" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599ae599161956d626eda4cb0a5ffb85271c">Idle</a>,</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_enumvalue" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599a5bda814c4aedb126839228f1a3d92f09">Running</a>,</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_enumvalue" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599a66d02c2f8a582446f8dd8752366002b5">Succeeded</a>,</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_enumvalue" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599ad7c8c85bf79bbe1b7188497c32c3b0ca">Failed</a></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599ae599161956d626eda4cb0a5ffb85271c">   12</a></span>    <a class="code hl_enumvalue" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599ae599161956d626eda4cb0a5ffb85271c">Idle</a>,</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599a5bda814c4aedb126839228f1a3d92f09">   13</a></span>    <a class="code hl_enumvalue" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599a5bda814c4aedb126839228f1a3d92f09">Running</a>,</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599a66d02c2f8a582446f8dd8752366002b5">   14</a></span>    <a class="code hl_enumvalue" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599a66d02c2f8a582446f8dd8752366002b5">Succeeded</a>,</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599ad7c8c85bf79bbe1b7188497c32c3b0ca">   15</a></span>    <a class="code hl_enumvalue" href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599ad7c8c85bf79bbe1b7188497c32c3b0ca">Failed</a></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>};</div>
 </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classBuildRunner.html">   18</a></span><span class="keyword">class </span><a class="code hl_class" href="classBuildRunner.html">BuildRunner</a></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classBuildRunner.html">   18</a></span><span class="keyword">class </span><a class="code hl_function" href="classBuildRunner.html#ae5386a58ca2eb4493804776ae9212b96">BuildRunner</a></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classBuildRunner.html#a685b28ecbc55ee653c57523a2dec91d8">   21</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="classBuildRunner.html#a685b28ecbc55ee653c57523a2dec91d8">OnBuildCompleteCallback</a> = std::function&lt;void(<span class="keywordtype">bool</span> success, <span class="keywordtype">int</span> exitCode)&gt;;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="foldopen" id="foldopen00023" data-start="{" data-end="}">
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classBuildRunner.html#ae39e742eb82b80e4adf6784f64ab262c">   23</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classBuildRunner.html">BuildRunner</a>&amp; <a class="code hl_function" href="classBuildRunner.html#ae39e742eb82b80e4adf6784f64ab262c">GetInstance</a>()</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classBuildRunner.html#ae39e742eb82b80e4adf6784f64ab262c">   23</a></span>    <span class="keyword">static</span> <a class="code hl_function" href="classBuildRunner.html#ae5386a58ca2eb4493804776ae9212b96">BuildRunner</a>&amp; <a class="code hl_function" href="classBuildRunner.html#ae39e742eb82b80e4adf6784f64ab262c">GetInstance</a>()</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keyword">static</span> <a class="code hl_class" href="classBuildRunner.html">BuildRunner</a> instance;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keyword">static</span> <a class="code hl_function" href="classBuildRunner.html#ae5386a58ca2eb4493804776ae9212b96">BuildRunner</a> instance;</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keywordflow">return</span> instance;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    }</div>
 </div>
@@ -172,8 +166,8 @@ $(document).ready(function(){initNavTree('BuildRunner_8h_source.html',''); initR
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classBuildRunner.html#ae5386a58ca2eb4493804776ae9212b96">   68</a></span>    <a class="code hl_function" href="classBuildRunner.html#ae5386a58ca2eb4493804776ae9212b96">BuildRunner</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_function" href="classBuildRunner.html#a7fa43095b5863ce0476e6a42ec103b9d">~BuildRunner</a>();</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classBuildRunner.html#a87e9ea9e2a8be215112074f19eb47495">   70</a></span>    <a class="code hl_function" href="classBuildRunner.html#a87e9ea9e2a8be215112074f19eb47495">BuildRunner</a>(<span class="keyword">const</span> <a class="code hl_class" href="classBuildRunner.html">BuildRunner</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classBuildRunner.html#a24dc4a8783d5831f2bac3db2c71d9ac3">   71</a></span>    <a class="code hl_class" href="classBuildRunner.html">BuildRunner</a>&amp; <a class="code hl_function" href="classBuildRunner.html#a24dc4a8783d5831f2bac3db2c71d9ac3">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classBuildRunner.html">BuildRunner</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classBuildRunner.html#a87e9ea9e2a8be215112074f19eb47495">   70</a></span>    <a class="code hl_function" href="classBuildRunner.html#a87e9ea9e2a8be215112074f19eb47495">BuildRunner</a>(<span class="keyword">const</span> <a class="code hl_function" href="classBuildRunner.html#ae5386a58ca2eb4493804776ae9212b96">BuildRunner</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classBuildRunner.html#a24dc4a8783d5831f2bac3db2c71d9ac3">   71</a></span>    <a class="code hl_function" href="classBuildRunner.html#ae5386a58ca2eb4493804776ae9212b96">BuildRunner</a>&amp; <a class="code hl_function" href="classBuildRunner.html#a24dc4a8783d5831f2bac3db2c71d9ac3">operator=</a>(<span class="keyword">const</span> <a class="code hl_function" href="classBuildRunner.html#ae5386a58ca2eb4493804776ae9212b96">BuildRunner</a>&amp;) = <span class="keyword">delete</span>;</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBuildRunner.html#a0a6ae3bad3353dcb281b25f207b49f14">WorkerThreadMain</a>(</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        std::string commandLine,</div>
@@ -194,11 +188,10 @@ $(document).ready(function(){initNavTree('BuildRunner_8h_source.html',''); initR
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>};</div>
 </div>
 <div class="ttc" id="aBuildRunner_8h_html_aeafb0d76e91d4720da06be61247c7599"><div class="ttname"><a href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599">BuildState</a></div><div class="ttdeci">BuildState</div><div class="ttdef"><b>Definition</b> BuildRunner.h:11</div></div>
-<div class="ttc" id="aBuildRunner_8h_html_aeafb0d76e91d4720da06be61247c7599a5bda814c4aedb126839228f1a3d92f09"><div class="ttname"><a href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599a5bda814c4aedb126839228f1a3d92f09">BuildState::Running</a></div><div class="ttdeci">@ Running</div></div>
-<div class="ttc" id="aBuildRunner_8h_html_aeafb0d76e91d4720da06be61247c7599a66d02c2f8a582446f8dd8752366002b5"><div class="ttname"><a href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599a66d02c2f8a582446f8dd8752366002b5">BuildState::Succeeded</a></div><div class="ttdeci">@ Succeeded</div></div>
-<div class="ttc" id="aBuildRunner_8h_html_aeafb0d76e91d4720da06be61247c7599ad7c8c85bf79bbe1b7188497c32c3b0ca"><div class="ttname"><a href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599ad7c8c85bf79bbe1b7188497c32c3b0ca">BuildState::Failed</a></div><div class="ttdeci">@ Failed</div></div>
-<div class="ttc" id="aBuildRunner_8h_html_aeafb0d76e91d4720da06be61247c7599ae599161956d626eda4cb0a5ffb85271c"><div class="ttname"><a href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599ae599161956d626eda4cb0a5ffb85271c">BuildState::Idle</a></div><div class="ttdeci">@ Idle</div></div>
-<div class="ttc" id="aclassBuildRunner_html"><div class="ttname"><a href="classBuildRunner.html">BuildRunner</a></div><div class="ttdef"><b>Definition</b> BuildRunner.h:19</div></div>
+<div class="ttc" id="aBuildRunner_8h_html_aeafb0d76e91d4720da06be61247c7599a5bda814c4aedb126839228f1a3d92f09"><div class="ttname"><a href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599a5bda814c4aedb126839228f1a3d92f09">BuildState::Running</a></div><div class="ttdeci">@ Running</div><div class="ttdef"><b>Definition</b> BuildRunner.h:13</div></div>
+<div class="ttc" id="aBuildRunner_8h_html_aeafb0d76e91d4720da06be61247c7599a66d02c2f8a582446f8dd8752366002b5"><div class="ttname"><a href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599a66d02c2f8a582446f8dd8752366002b5">BuildState::Succeeded</a></div><div class="ttdeci">@ Succeeded</div><div class="ttdef"><b>Definition</b> BuildRunner.h:14</div></div>
+<div class="ttc" id="aBuildRunner_8h_html_aeafb0d76e91d4720da06be61247c7599ad7c8c85bf79bbe1b7188497c32c3b0ca"><div class="ttname"><a href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599ad7c8c85bf79bbe1b7188497c32c3b0ca">BuildState::Failed</a></div><div class="ttdeci">@ Failed</div><div class="ttdef"><b>Definition</b> BuildRunner.h:15</div></div>
+<div class="ttc" id="aBuildRunner_8h_html_aeafb0d76e91d4720da06be61247c7599ae599161956d626eda4cb0a5ffb85271c"><div class="ttname"><a href="BuildRunner_8h.html#aeafb0d76e91d4720da06be61247c7599ae599161956d626eda4cb0a5ffb85271c">BuildState::Idle</a></div><div class="ttdeci">@ Idle</div><div class="ttdef"><b>Definition</b> BuildRunner.h:12</div></div>
 <div class="ttc" id="aclassBuildRunner_html_a0a6ae3bad3353dcb281b25f207b49f14"><div class="ttname"><a href="classBuildRunner.html#a0a6ae3bad3353dcb281b25f207b49f14">BuildRunner::WorkerThreadMain</a></div><div class="ttdeci">void WorkerThreadMain(std::string commandLine, std::string workingDir, OnBuildCompleteCallback onComplete)</div><div class="ttdef"><b>Definition</b> BuildRunner.cpp:185</div></div>
 <div class="ttc" id="aclassBuildRunner_html_a0facc9c42ae41e430a9cc2a5b4ba4b9a"><div class="ttname"><a href="classBuildRunner.html#a0facc9c42ae41e430a9cc2a5b4ba4b9a">BuildRunner::m_logs</a></div><div class="ttdeci">std::vector&lt; std::string &gt; m_logs</div><div class="ttdef"><b>Definition</b> BuildRunner.h:81</div></div>
 <div class="ttc" id="aclassBuildRunner_html_a10deb766a2eb907164b207ebf2cdf642"><div class="ttname"><a href="classBuildRunner.html#a10deb766a2eb907164b207ebf2cdf642">BuildRunner::m_state</a></div><div class="ttdeci">std::atomic&lt; BuildState &gt; m_state</div><div class="ttdef"><b>Definition</b> BuildRunner.h:83</div></div>
@@ -227,11 +220,12 @@ $(document).ready(function(){initNavTree('BuildRunner_8h_source.html',''); initR
 <div class="ttc" id="aclassBuildRunner_html_af95169fc83e283e5f393fddd1fbe58ef"><div class="ttname"><a href="classBuildRunner.html#af95169fc83e283e5f393fddd1fbe58ef">BuildRunner::GetElapsedSeconds</a></div><div class="ttdeci">float GetElapsedSeconds() const</div><div class="ttdef"><b>Definition</b> BuildRunner.cpp:130</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_b26507eead720464ba2ac6bbc6dcec5f.html">Editor</a></li><li class="navelem"><a class="el" href="BuildRunner_8h.html">BuildRunner.h</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_b26507eead720464ba2ac6bbc6dcec5f.html">Editor</a></li><li class="navelem"><a href="BuildRunner_8h.html">BuildRunner.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

@@ -20,7 +20,7 @@ var imgui__demo_8cpp =
     [ "IMGUI_DEMO_MARKER", "imgui__demo_8cpp.html#af2fd5c4683ae4fa9c9369f68c5960d77", null ],
     [ "PRId64", "imgui__demo_8cpp.html#ae372e90b62c1e8b51dc5d95bf7f5ba48", null ],
     [ "PRIu64", "imgui__demo_8cpp.html#ac582131d7a7c8ee57e73180d1714f9d5", null ],
-    [ "DemoMarker", "imgui__demo_8cpp.html#a278f8a3ea599294debc10050abe9d4f3", null ],
+    [ "ImGui::DemoMarker", "namespaceImGui.html#a278f8a3ea599294debc10050abe9d4f3", null ],
     [ "DemoWindowColumns", "imgui__demo_8cpp.html#a44073de6c693fc18ca337f9c198cc1e8", null ],
     [ "DemoWindowInputs", "imgui__demo_8cpp.html#adf2993e9589d795c69c5eb70daa92cdd", null ],
     [ "DemoWindowLayout", "imgui__demo_8cpp.html#acdabfa47af2ef5ba0a22b98a4368cc7d", null ],
@@ -79,9 +79,9 @@ var imgui__demo_8cpp =
     [ "ShowExampleAppSimpleOverlay", "imgui__demo_8cpp.html#a41a6cb36f6ad91f80eba61b0053d17a5", null ],
     [ "ShowExampleAppWindowTitles", "imgui__demo_8cpp.html#aa93cc0d732db176bbffaf106faaa0ca1", null ],
     [ "ShowExampleMenuFile", "imgui__demo_8cpp.html#af6ff107f662e23ad39345a8192d782eb", null ],
-    [ "ShowFontAtlas", "imgui__demo_8cpp.html#acab51ec2b39577845309f24535381038", null ],
+    [ "ImGui::ShowFontAtlas", "namespaceImGui.html#acab51ec2b39577845309f24535381038", null ],
     [ "ShowTableColumnsStatusFlags", "imgui__demo_8cpp.html#a336bfa768f26ed719f0dc126c7b0e741", null ],
-    [ "TreeNodeSetOpen", "imgui__demo_8cpp.html#ad9889a2edcc502894ce31caf00cd4dc8", null ],
+    [ "ImGui::TreeNodeSetOpen", "namespaceImGui.html#ad9889a2edcc502894ce31caf00cd4dc8", null ],
     [ "ExampleNames", "imgui__demo_8cpp.html#a97ab35c8c24ca76e7e46f05e82f8e74a", null ],
     [ "ExampleTreeNodeMemberInfos", "imgui__demo_8cpp.html#abe612ad7d1cf2629a652bfa9396a89a8", null ]
 ];

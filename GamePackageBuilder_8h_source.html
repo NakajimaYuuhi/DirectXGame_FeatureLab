@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: Source/Editor/GamePackageBuilder.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,28 +35,22 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function() { init_codefold(0); });
-/* @license-end */
-</script>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -68,10 +63,9 @@ $(document).ready(function() { init_codefold(0); });
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('GamePackageBuilder_8h_source.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('GamePackageBuilder_8h_source.html','',''); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -115,13 +109,13 @@ $(document).ready(function(){initNavTree('GamePackageBuilder_8h_source.html','')
 </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classGamePackageBuilder.html">   15</a></span><span class="keyword">class </span><a class="code hl_class" href="classGamePackageBuilder.html">GamePackageBuilder</a></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classGamePackageBuilder.html">   15</a></span><span class="keyword">class </span><a class="code hl_function" href="classGamePackageBuilder.html#a851c6a0dd946b8cdb60367d7ae9bb3e7">GamePackageBuilder</a></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">public</span>:</div>
 <div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classGamePackageBuilder.html#a480c3479fb376abd8caddf7af93a4b3c">   18</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classGamePackageBuilder.html">GamePackageBuilder</a>&amp; <a class="code hl_function" href="classGamePackageBuilder.html#a480c3479fb376abd8caddf7af93a4b3c">GetInstance</a>()</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classGamePackageBuilder.html#a480c3479fb376abd8caddf7af93a4b3c">   18</a></span>    <span class="keyword">static</span> <a class="code hl_function" href="classGamePackageBuilder.html#a851c6a0dd946b8cdb60367d7ae9bb3e7">GamePackageBuilder</a>&amp; <a class="code hl_function" href="classGamePackageBuilder.html#a480c3479fb376abd8caddf7af93a4b3c">GetInstance</a>()</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    {</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keyword">static</span> <a class="code hl_class" href="classGamePackageBuilder.html">GamePackageBuilder</a> instance;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keyword">static</span> <a class="code hl_function" href="classGamePackageBuilder.html#a851c6a0dd946b8cdb60367d7ae9bb3e7">GamePackageBuilder</a> instance;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordflow">return</span> instance;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    }</div>
 </div>
@@ -141,11 +135,10 @@ $(document).ready(function(){initNavTree('GamePackageBuilder_8h_source.html','')
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classGamePackageBuilder.html#a851c6a0dd946b8cdb60367d7ae9bb3e7">   37</a></span>    <a class="code hl_function" href="classGamePackageBuilder.html#a851c6a0dd946b8cdb60367d7ae9bb3e7">GamePackageBuilder</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classGamePackageBuilder.html#ac6f6ebe215da74367b9ff86c10fe268a">   38</a></span>    <a class="code hl_function" href="classGamePackageBuilder.html#ac6f6ebe215da74367b9ff86c10fe268a">~GamePackageBuilder</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classGamePackageBuilder.html#a78f3747c8dfb931fb4822be68e956aca">   39</a></span>    <a class="code hl_function" href="classGamePackageBuilder.html#a78f3747c8dfb931fb4822be68e956aca">GamePackageBuilder</a>(<span class="keyword">const</span> <a class="code hl_class" href="classGamePackageBuilder.html">GamePackageBuilder</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classGamePackageBuilder.html#a8a39fffcf5516c1606d55d7dafa278b6">   40</a></span>    <a class="code hl_class" href="classGamePackageBuilder.html">GamePackageBuilder</a>&amp; <a class="code hl_function" href="classGamePackageBuilder.html#a8a39fffcf5516c1606d55d7dafa278b6">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classGamePackageBuilder.html">GamePackageBuilder</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classGamePackageBuilder.html#a78f3747c8dfb931fb4822be68e956aca">   39</a></span>    <a class="code hl_function" href="classGamePackageBuilder.html#a78f3747c8dfb931fb4822be68e956aca">GamePackageBuilder</a>(<span class="keyword">const</span> <a class="code hl_function" href="classGamePackageBuilder.html#a851c6a0dd946b8cdb60367d7ae9bb3e7">GamePackageBuilder</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classGamePackageBuilder.html#a8a39fffcf5516c1606d55d7dafa278b6">   40</a></span>    <a class="code hl_function" href="classGamePackageBuilder.html#a851c6a0dd946b8cdb60367d7ae9bb3e7">GamePackageBuilder</a>&amp; <a class="code hl_function" href="classGamePackageBuilder.html#a8a39fffcf5516c1606d55d7dafa278b6">operator=</a>(<span class="keyword">const</span> <a class="code hl_function" href="classGamePackageBuilder.html#a851c6a0dd946b8cdb60367d7ae9bb3e7">GamePackageBuilder</a>&amp;) = <span class="keyword">delete</span>;</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
 </div>
-<div class="ttc" id="aclassGamePackageBuilder_html"><div class="ttname"><a href="classGamePackageBuilder.html">GamePackageBuilder</a></div><div class="ttdef"><b>Definition</b> GamePackageBuilder.h:16</div></div>
 <div class="ttc" id="aclassGamePackageBuilder_html_a31bbbd4c5b3b3778f77ba95431fbe014"><div class="ttname"><a href="classGamePackageBuilder.html#a31bbbd4c5b3b3778f77ba95431fbe014">GamePackageBuilder::StartPackageBuild</a></div><div class="ttdeci">bool StartPackageBuild(const PackageBuildConfig &amp;config)</div><div class="ttdef"><b>Definition</b> GamePackageBuilder.cpp:10</div></div>
 <div class="ttc" id="aclassGamePackageBuilder_html_a38d2503f928f1e6a1de902e77ab89778"><div class="ttname"><a href="classGamePackageBuilder.html#a38d2503f928f1e6a1de902e77ab89778">GamePackageBuilder::LaunchBuiltGame</a></div><div class="ttdeci">bool LaunchBuiltGame(const PackageBuildConfig &amp;config) const</div><div class="ttdef"><b>Definition</b> GamePackageBuilder.cpp:203</div></div>
 <div class="ttc" id="aclassGamePackageBuilder_html_a46b6dc95e2d26cfb0d2c1dbfedfada71"><div class="ttname"><a href="classGamePackageBuilder.html#a46b6dc95e2d26cfb0d2c1dbfedfada71">GamePackageBuilder::PackageAssetsAndBinaries</a></div><div class="ttdeci">bool PackageAssetsAndBinaries(const PackageBuildConfig &amp;config)</div><div class="ttdef"><b>Definition</b> GamePackageBuilder.cpp:58</div></div>
@@ -164,11 +157,12 @@ $(document).ready(function(){initNavTree('GamePackageBuilder_8h_source.html','')
 <div class="ttc" id="astructPackageBuildConfig_html_aeb00c486c555368ce17dfe18c83fd050"><div class="ttname"><a href="structPackageBuildConfig.html#aeb00c486c555368ce17dfe18c83fd050">PackageBuildConfig::appName</a></div><div class="ttdeci">std::string appName</div><div class="ttdef"><b>Definition</b> GamePackageBuilder.h:8</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_b26507eead720464ba2ac6bbc6dcec5f.html">Editor</a></li><li class="navelem"><a class="el" href="GamePackageBuilder_8h.html">GamePackageBuilder.h</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_b26507eead720464ba2ac6bbc6dcec5f.html">Editor</a></li><li class="navelem"><a href="GamePackageBuilder_8h.html">GamePackageBuilder.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

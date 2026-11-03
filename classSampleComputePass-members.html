@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: メンバ一覧</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classSampleComputePass.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('classSampleComputePass.html','',''); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -97,41 +96,49 @@ $(document).ready(function(){initNavTree('classSampleComputePass.html',''); init
 <p>継承メンバを含む <a class="el" href="classSampleComputePass.html">SampleComputePass</a> の全メンバ一覧です。</p>
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="classSampleComputePass.html#a47d336ffcd34e93eb2c8982f77940502">Execute</a>(const RenderContext &amp;ctx) override</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classSampleComputePass.html#ad3021c5a7f3cd8434fe0ce8c31f13c61">GetCustomName</a>() const</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classIRenderPass.html#ad813139ca32b2c09417906637c1ac704">GetInputResourceName</a>() const</td><td class="entry"><a class="el" href="classIRenderPass.html">IRenderPass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classSampleComputePass.html#a5ec6de0e72635c65d57fbd89676423e5">GetName</a>() const override</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classIRenderPass.html#a3136f173da785fedf682eaece53253d1">GetOutputResourceName</a>() const</td><td class="entry"><a class="el" href="classIRenderPass.html">IRenderPass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classSampleComputePass.html#a3f3b441ecf22f826d37eb922fe0eb874">GetOutputSRV</a>() const</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classSampleComputePass.html#a8c7f374e98489a0fd291ac2049b2d724">GetOutputTexture</a>() const</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classSampleComputePass.html#a66af07b227b1f5f5b57cde222581ca51">GetCsEntry</a>() const</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSampleComputePass.html#ad3021c5a7f3cd8434fe0ce8c31f13c61">GetCustomName</a>() const</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classIRenderPass.html#ad813139ca32b2c09417906637c1ac704">GetInputResourceName</a>() const</td><td class="entry"><a class="el" href="classIRenderPass.html">IRenderPass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSampleComputePass.html#a5ec6de0e72635c65d57fbd89676423e5">GetName</a>() const override</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classIRenderPass.html#a3136f173da785fedf682eaece53253d1">GetOutputResourceName</a>() const</td><td class="entry"><a class="el" href="classIRenderPass.html">IRenderPass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSampleComputePass.html#a3f3b441ecf22f826d37eb922fe0eb874">GetOutputSRV</a>() const</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classSampleComputePass.html#a8c7f374e98489a0fd291ac2049b2d724">GetOutputTexture</a>() const</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSampleComputePass.html#a6ffbbd82e1d914be3c438e5e7914165c">GetShaderPath</a>() const</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classSampleComputePass.html#ab2515d0ba8e1f0474edd4585af07b5c6">GetSpeed</a>() const</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classSampleComputePass.html#ad1cba6c12edcd7e926f36ebae4a26e24">Init</a>(ID3D12Device *pDevice) override</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classIRenderPass.html#a7902d9b20ee85fb3a30c6e5555445f51">IsEnabled</a>() const</td><td class="entry"><a class="el" href="classIRenderPass.html">IRenderPass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classSampleComputePass.html#ad922672cbb4b43dc988d5992f314af35">IsPreviewEnabled</a>() const</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classSampleComputePass.html#a7e2efb169a97d236716784313a18d6c9">m_customName</a></td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classIRenderPass.html#a79e84b5631daa2e8e417b7d1be5f620a">m_inputResourceName</a></td><td class="entry"><a class="el" href="classIRenderPass.html">IRenderPass</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classIRenderPass.html#a4786d22e2938e223a6c611f98a26577d">m_isEnabled</a></td><td class="entry"><a class="el" href="classIRenderPass.html">IRenderPass</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classIRenderPass.html#a1d84cbda025bbefe4b35aeae4a82d2f3">m_outputResourceName</a></td><td class="entry"><a class="el" href="classIRenderPass.html">IRenderPass</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classSampleComputePass.html#a0ee8a8d7cccbdc677d62c892bac1603a">m_pOutputTexture</a></td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classSampleComputePass.html#a2fa87771f13db87d21729386c5c85e4d">m_pPipelineState</a></td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classSampleComputePass.html#a214d7ddc965ca70215297018ebd4ef1c">m_previewInViewport</a></td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classSampleComputePass.html#ac11e0b446f8060e133ec87df3f968448">m_pRootSignature</a></td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classSampleComputePass.html#a9f8c2306718bafb5abc9c8344e8fd2ef">m_csEntry</a></td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSampleComputePass.html#a7e2efb169a97d236716784313a18d6c9">m_customName</a></td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classIRenderPass.html#a79e84b5631daa2e8e417b7d1be5f620a">m_inputResourceName</a></td><td class="entry"><a class="el" href="classIRenderPass.html">IRenderPass</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classIRenderPass.html#a4786d22e2938e223a6c611f98a26577d">m_isEnabled</a></td><td class="entry"><a class="el" href="classIRenderPass.html">IRenderPass</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classIRenderPass.html#a1d84cbda025bbefe4b35aeae4a82d2f3">m_outputResourceName</a></td><td class="entry"><a class="el" href="classIRenderPass.html">IRenderPass</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSampleComputePass.html#a0ee8a8d7cccbdc677d62c892bac1603a">m_pOutputTexture</a></td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classSampleComputePass.html#a2fa87771f13db87d21729386c5c85e4d">m_pPipelineState</a></td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSampleComputePass.html#a214d7ddc965ca70215297018ebd4ef1c">m_previewInViewport</a></td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classSampleComputePass.html#ac11e0b446f8060e133ec87df3f968448">m_pRootSignature</a></td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSampleComputePass.html#a5c63ee1b7a9f2b7b878ddcfedc7c6aa8">m_shaderPath</a></td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classSampleComputePass.html#a4ed97122858078506c8a645a13037240">m_speed</a></td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classSampleComputePass.html#a64a5a96fbb189eaad0c945a385ec7337">m_totalTime</a></td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classSampleComputePass.html#a3ee1a9890286ae83fe76391be7117c42">SampleComputePass</a>()</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classSampleComputePass.html#a493ab5b0bec820a4dd29a6304ffa407e">ReloadShaders</a>(ID3D12Device *pDevice, std::string *outError=nullptr) override</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSampleComputePass.html#a3ee1a9890286ae83fe76391be7117c42">SampleComputePass</a>()</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classSampleComputePass.html#a183caf20e62704909e7a0b2d877148f5">SetCsEntry</a>(const std::string &amp;entry)</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classSampleComputePass.html#a547f9e92516693acb26c51bd5bc67dc7">SetCustomName</a>(const std::string &amp;name)</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classIRenderPass.html#adee3ba2abf5a11714da17de66e7d685f">SetEnabled</a>(bool enabled)</td><td class="entry"><a class="el" href="classIRenderPass.html">IRenderPass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classIRenderPass.html#a18a4eee99f195abf014ce5e6fd4172e6">SetInputResourceName</a>(const std::string &amp;name)</td><td class="entry"><a class="el" href="classIRenderPass.html">IRenderPass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classIRenderPass.html#a26673c8aa28b1d943ac68a9417a14a2c">SetOutputResourceName</a>(const std::string &amp;name)</td><td class="entry"><a class="el" href="classIRenderPass.html">IRenderPass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classSampleComputePass.html#a6bda2cdddf4772ab99a8f5e641d228d3">SetPreviewEnabled</a>(bool enabled)</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classSampleComputePass.html#a78e0f360824e013f3df21a1a368d4018">SetSpeed</a>(float speed)</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classIRenderPass.html#a52c6a9a8b5ae4b98d6c9d9d6899998e0">~IRenderPass</a>()=default</td><td class="entry"><a class="el" href="classIRenderPass.html">IRenderPass</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classSampleComputePass.html#a7261a0d67eddc6bb35d2823f77db00b9">~SampleComputePass</a>()=default</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classSampleComputePass.html#a9ddfb05a0960ae95e0a93ca558a1d186">SetShaderPath</a>(const std::string &amp;path)</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSampleComputePass.html#a78e0f360824e013f3df21a1a368d4018">SetSpeed</a>(float speed)</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classIRenderPass.html#a52c6a9a8b5ae4b98d6c9d9d6899998e0">~IRenderPass</a>()=default</td><td class="entry"><a class="el" href="classIRenderPass.html">IRenderPass</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSampleComputePass.html#a7261a0d67eddc6bb35d2823f77db00b9">~SampleComputePass</a>()=default</td><td class="entry"><a class="el" href="classSampleComputePass.html">SampleComputePass</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

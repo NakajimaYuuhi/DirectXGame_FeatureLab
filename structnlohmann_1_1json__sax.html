@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: nlohmann::json_sax&lt; BasicJsonType &gt; 構造体テンプレート</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('structnlohmann_1_1json__sax.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('structnlohmann_1_1json__sax.html','','structnlohmann_1_1json__sax-members'); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,99 +89,73 @@ $(document).ready(function(){initNavTree('structnlohmann_1_1json__sax.html','');
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-types">公開型</a> &#124;
-<a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="structnlohmann_1_1json__sax-members.html">全メンバ一覧</a>  </div>
-  <div class="headertitle"><div class="title">nlohmann::json_sax&lt; BasicJsonType &gt; 構造体テンプレート<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+  <div class="headertitle"><div class="title">nlohmann::json_sax&lt; BasicJsonType &gt; 構造体テンプレート<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>SAX interface  
- <a href="structnlohmann_1_1json__sax.html#details">[詳解]</a></p>
+ <a href="#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="json_8hpp_source.html">json.hpp</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 公開型</h2></td></tr>
-<tr class="memitem:a0cef30121f02b7fee85e9708148ea0aa" id="r_a0cef30121f02b7fee85e9708148ea0aa"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#a0cef30121f02b7fee85e9708148ea0aa">number_integer_t</a> = typename BasicJsonType::number_integer_t</td></tr>
-<tr class="separator:a0cef30121f02b7fee85e9708148ea0aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32028cc056ae0f43aaae331cdbbbf856" id="r_a32028cc056ae0f43aaae331cdbbbf856"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#a32028cc056ae0f43aaae331cdbbbf856">number_unsigned_t</a> = typename BasicJsonType::number_unsigned_t</td></tr>
-<tr class="separator:a32028cc056ae0f43aaae331cdbbbf856"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a390c209bffd8c4800c8f3076dc465a20" id="r_a390c209bffd8c4800c8f3076dc465a20"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#a390c209bffd8c4800c8f3076dc465a20">number_float_t</a> = typename BasicJsonType::number_float_t</td></tr>
-<tr class="separator:a390c209bffd8c4800c8f3076dc465a20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae01977a9f3c5b3667b7a2929ed91061e" id="r_ae01977a9f3c5b3667b7a2929ed91061e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#ae01977a9f3c5b3667b7a2929ed91061e">string_t</a> = typename BasicJsonType::string_t</td></tr>
-<tr class="separator:ae01977a9f3c5b3667b7a2929ed91061e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ef406ba81eef08aadf4a9ef48d742bd" id="r_a0ef406ba81eef08aadf4a9ef48d742bd"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#a0ef406ba81eef08aadf4a9ef48d742bd">binary_t</a> = typename BasicJsonType::binary_t</td></tr>
-<tr class="separator:a0ef406ba81eef08aadf4a9ef48d742bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cef30121f02b7fee85e9708148ea0aa" id="r_a0cef30121f02b7fee85e9708148ea0aa"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0cef30121f02b7fee85e9708148ea0aa">number_integer_t</a> = typename BasicJsonType::number_integer_t</td></tr>
+<tr class="memitem:a32028cc056ae0f43aaae331cdbbbf856" id="r_a32028cc056ae0f43aaae331cdbbbf856"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32028cc056ae0f43aaae331cdbbbf856">number_unsigned_t</a> = typename BasicJsonType::number_unsigned_t</td></tr>
+<tr class="memitem:a390c209bffd8c4800c8f3076dc465a20" id="r_a390c209bffd8c4800c8f3076dc465a20"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a390c209bffd8c4800c8f3076dc465a20">number_float_t</a> = typename BasicJsonType::number_float_t</td></tr>
+<tr class="memitem:ae01977a9f3c5b3667b7a2929ed91061e" id="r_ae01977a9f3c5b3667b7a2929ed91061e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae01977a9f3c5b3667b7a2929ed91061e">string_t</a> = typename BasicJsonType::string_t</td></tr>
+<tr class="memitem:a0ef406ba81eef08aadf4a9ef48d742bd" id="r_a0ef406ba81eef08aadf4a9ef48d742bd"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ef406ba81eef08aadf4a9ef48d742bd">binary_t</a> = typename BasicJsonType::binary_t</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a0ad26edef3f8d530dcec3192bba82df6" id="r_a0ad26edef3f8d530dcec3192bba82df6"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#a0ad26edef3f8d530dcec3192bba82df6">null</a> ()=0</td></tr>
+<tr class="memitem:a0ad26edef3f8d530dcec3192bba82df6" id="r_a0ad26edef3f8d530dcec3192bba82df6"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ad26edef3f8d530dcec3192bba82df6">null</a> ()=0</td></tr>
 <tr class="memdesc:a0ad26edef3f8d530dcec3192bba82df6"><td class="mdescLeft">&#160;</td><td class="mdescRight">a null value was read  <br /></td></tr>
-<tr class="separator:a0ad26edef3f8d530dcec3192bba82df6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82ed080814fa656191a537284bb0c575" id="r_a82ed080814fa656191a537284bb0c575"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#a82ed080814fa656191a537284bb0c575">boolean</a> (bool val)=0</td></tr>
+<tr class="memitem:a82ed080814fa656191a537284bb0c575" id="r_a82ed080814fa656191a537284bb0c575"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82ed080814fa656191a537284bb0c575">boolean</a> (bool val)=0</td></tr>
 <tr class="memdesc:a82ed080814fa656191a537284bb0c575"><td class="mdescLeft">&#160;</td><td class="mdescRight">a boolean value was read  <br /></td></tr>
-<tr class="separator:a82ed080814fa656191a537284bb0c575"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affa7a78b8e9cc9cc3ac99927143142a5" id="r_affa7a78b8e9cc9cc3ac99927143142a5"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#affa7a78b8e9cc9cc3ac99927143142a5">number_integer</a> (<a class="el" href="structnlohmann_1_1json__sax.html#a0cef30121f02b7fee85e9708148ea0aa">number_integer_t</a> val)=0</td></tr>
+<tr class="memitem:affa7a78b8e9cc9cc3ac99927143142a5" id="r_affa7a78b8e9cc9cc3ac99927143142a5"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#affa7a78b8e9cc9cc3ac99927143142a5">number_integer</a> (<a class="el" href="#a0cef30121f02b7fee85e9708148ea0aa">number_integer_t</a> val)=0</td></tr>
 <tr class="memdesc:affa7a78b8e9cc9cc3ac99927143142a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">an integer number was read  <br /></td></tr>
-<tr class="separator:affa7a78b8e9cc9cc3ac99927143142a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9b253083e0509923ba195136f49face" id="r_ad9b253083e0509923ba195136f49face"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#ad9b253083e0509923ba195136f49face">number_unsigned</a> (<a class="el" href="structnlohmann_1_1json__sax.html#a32028cc056ae0f43aaae331cdbbbf856">number_unsigned_t</a> val)=0</td></tr>
+<tr class="memitem:ad9b253083e0509923ba195136f49face" id="r_ad9b253083e0509923ba195136f49face"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9b253083e0509923ba195136f49face">number_unsigned</a> (<a class="el" href="#a32028cc056ae0f43aaae331cdbbbf856">number_unsigned_t</a> val)=0</td></tr>
 <tr class="memdesc:ad9b253083e0509923ba195136f49face"><td class="mdescLeft">&#160;</td><td class="mdescRight">an unsigned integer number was read  <br /></td></tr>
-<tr class="separator:ad9b253083e0509923ba195136f49face"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7c31614e8a82164d2d7f8dbf4671b25" id="r_ae7c31614e8a82164d2d7f8dbf4671b25"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#ae7c31614e8a82164d2d7f8dbf4671b25">number_float</a> (<a class="el" href="structnlohmann_1_1json__sax.html#a390c209bffd8c4800c8f3076dc465a20">number_float_t</a> val, const <a class="el" href="structnlohmann_1_1json__sax.html#ae01977a9f3c5b3667b7a2929ed91061e">string_t</a> &amp;s)=0</td></tr>
+<tr class="memitem:ae7c31614e8a82164d2d7f8dbf4671b25" id="r_ae7c31614e8a82164d2d7f8dbf4671b25"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7c31614e8a82164d2d7f8dbf4671b25">number_float</a> (<a class="el" href="#a390c209bffd8c4800c8f3076dc465a20">number_float_t</a> val, const <a class="el" href="#ae01977a9f3c5b3667b7a2929ed91061e">string_t</a> &amp;s)=0</td></tr>
 <tr class="memdesc:ae7c31614e8a82164d2d7f8dbf4671b25"><td class="mdescLeft">&#160;</td><td class="mdescRight">an floating-point number was read  <br /></td></tr>
-<tr class="separator:ae7c31614e8a82164d2d7f8dbf4671b25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07eab82f6c82d606787eee9ad73d2bda" id="r_a07eab82f6c82d606787eee9ad73d2bda"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#a07eab82f6c82d606787eee9ad73d2bda">string</a> (<a class="el" href="structnlohmann_1_1json__sax.html#ae01977a9f3c5b3667b7a2929ed91061e">string_t</a> &amp;val)=0</td></tr>
+<tr class="memitem:a07eab82f6c82d606787eee9ad73d2bda" id="r_a07eab82f6c82d606787eee9ad73d2bda"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07eab82f6c82d606787eee9ad73d2bda">string</a> (<a class="el" href="#ae01977a9f3c5b3667b7a2929ed91061e">string_t</a> &amp;val)=0</td></tr>
 <tr class="memdesc:a07eab82f6c82d606787eee9ad73d2bda"><td class="mdescLeft">&#160;</td><td class="mdescRight">a string was read  <br /></td></tr>
-<tr class="separator:a07eab82f6c82d606787eee9ad73d2bda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38c2dbde07138cc436ea7fbf22c1e92d" id="r_a38c2dbde07138cc436ea7fbf22c1e92d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#a38c2dbde07138cc436ea7fbf22c1e92d">binary</a> (<a class="el" href="structnlohmann_1_1json__sax.html#a0ef406ba81eef08aadf4a9ef48d742bd">binary_t</a> &amp;val)=0</td></tr>
+<tr class="memitem:a38c2dbde07138cc436ea7fbf22c1e92d" id="r_a38c2dbde07138cc436ea7fbf22c1e92d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38c2dbde07138cc436ea7fbf22c1e92d">binary</a> (<a class="el" href="#a0ef406ba81eef08aadf4a9ef48d742bd">binary_t</a> &amp;val)=0</td></tr>
 <tr class="memdesc:a38c2dbde07138cc436ea7fbf22c1e92d"><td class="mdescLeft">&#160;</td><td class="mdescRight">a binary string was read  <br /></td></tr>
-<tr class="separator:a38c2dbde07138cc436ea7fbf22c1e92d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0671528b0debb5a348169d61f0382a0f" id="r_a0671528b0debb5a348169d61f0382a0f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#a0671528b0debb5a348169d61f0382a0f">start_object</a> (std::size_t elements)=0</td></tr>
+<tr class="memitem:a0671528b0debb5a348169d61f0382a0f" id="r_a0671528b0debb5a348169d61f0382a0f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0671528b0debb5a348169d61f0382a0f">start_object</a> (std::size_t elements)=0</td></tr>
 <tr class="memdesc:a0671528b0debb5a348169d61f0382a0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">the beginning of an object was read  <br /></td></tr>
-<tr class="separator:a0671528b0debb5a348169d61f0382a0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e0c7ecd80b18d18a8cc76f71cfc2028" id="r_a2e0c7ecd80b18d18a8cc76f71cfc2028"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#a2e0c7ecd80b18d18a8cc76f71cfc2028">key</a> (<a class="el" href="structnlohmann_1_1json__sax.html#ae01977a9f3c5b3667b7a2929ed91061e">string_t</a> &amp;val)=0</td></tr>
+<tr class="memitem:a2e0c7ecd80b18d18a8cc76f71cfc2028" id="r_a2e0c7ecd80b18d18a8cc76f71cfc2028"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e0c7ecd80b18d18a8cc76f71cfc2028">key</a> (<a class="el" href="#ae01977a9f3c5b3667b7a2929ed91061e">string_t</a> &amp;val)=0</td></tr>
 <tr class="memdesc:a2e0c7ecd80b18d18a8cc76f71cfc2028"><td class="mdescLeft">&#160;</td><td class="mdescRight">an object key was read  <br /></td></tr>
-<tr class="separator:a2e0c7ecd80b18d18a8cc76f71cfc2028"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0c722d53ff97be700ccf6a9468bd456" id="r_ad0c722d53ff97be700ccf6a9468bd456"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#ad0c722d53ff97be700ccf6a9468bd456">end_object</a> ()=0</td></tr>
+<tr class="memitem:ad0c722d53ff97be700ccf6a9468bd456" id="r_ad0c722d53ff97be700ccf6a9468bd456"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0c722d53ff97be700ccf6a9468bd456">end_object</a> ()=0</td></tr>
 <tr class="memdesc:ad0c722d53ff97be700ccf6a9468bd456"><td class="mdescLeft">&#160;</td><td class="mdescRight">the end of an object was read  <br /></td></tr>
-<tr class="separator:ad0c722d53ff97be700ccf6a9468bd456"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c53878cf08d463eb4e7ca0270532572" id="r_a5c53878cf08d463eb4e7ca0270532572"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#a5c53878cf08d463eb4e7ca0270532572">start_array</a> (std::size_t elements)=0</td></tr>
+<tr class="memitem:a5c53878cf08d463eb4e7ca0270532572" id="r_a5c53878cf08d463eb4e7ca0270532572"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c53878cf08d463eb4e7ca0270532572">start_array</a> (std::size_t elements)=0</td></tr>
 <tr class="memdesc:a5c53878cf08d463eb4e7ca0270532572"><td class="mdescLeft">&#160;</td><td class="mdescRight">the beginning of an array was read  <br /></td></tr>
-<tr class="separator:a5c53878cf08d463eb4e7ca0270532572"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a235ee975617f28e6a996d1e36a282312" id="r_a235ee975617f28e6a996d1e36a282312"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#a235ee975617f28e6a996d1e36a282312">end_array</a> ()=0</td></tr>
+<tr class="memitem:a235ee975617f28e6a996d1e36a282312" id="r_a235ee975617f28e6a996d1e36a282312"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a235ee975617f28e6a996d1e36a282312">end_array</a> ()=0</td></tr>
 <tr class="memdesc:a235ee975617f28e6a996d1e36a282312"><td class="mdescLeft">&#160;</td><td class="mdescRight">the end of an array was read  <br /></td></tr>
-<tr class="separator:a235ee975617f28e6a996d1e36a282312"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60287e3bd85f489e04c83f7e3b76e613" id="r_a60287e3bd85f489e04c83f7e3b76e613"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#a60287e3bd85f489e04c83f7e3b76e613">parse_error</a> (std::size_t position, const std::string &amp;last_token, const <a class="el" href="classnlohmann_1_1detail_1_1exception.html">detail::exception</a> &amp;ex)=0</td></tr>
+<tr class="memitem:a60287e3bd85f489e04c83f7e3b76e613" id="r_a60287e3bd85f489e04c83f7e3b76e613"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60287e3bd85f489e04c83f7e3b76e613">parse_error</a> (std::size_t position, const std::string &amp;last_token, const <a class="el" href="classnlohmann_1_1detail_1_1exception.html">detail::exception</a> &amp;ex)=0</td></tr>
 <tr class="memdesc:a60287e3bd85f489e04c83f7e3b76e613"><td class="mdescLeft">&#160;</td><td class="mdescRight">a parse error occurred  <br /></td></tr>
-<tr class="separator:a60287e3bd85f489e04c83f7e3b76e613"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac0f445c1173fa731104d93496a7e780" id="r_aac0f445c1173fa731104d93496a7e780"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#aac0f445c1173fa731104d93496a7e780">json_sax</a> ()=default</td></tr>
-<tr class="separator:aac0f445c1173fa731104d93496a7e780"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8358c063b2d7222b3aafa62fded04403" id="r_a8358c063b2d7222b3aafa62fded04403"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#a8358c063b2d7222b3aafa62fded04403">json_sax</a> (const <a class="el" href="structnlohmann_1_1json__sax.html">json_sax</a> &amp;)=default</td></tr>
-<tr class="separator:a8358c063b2d7222b3aafa62fded04403"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62dae3713ca4914265904e30cd6b6347" id="r_a62dae3713ca4914265904e30cd6b6347"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#a62dae3713ca4914265904e30cd6b6347">json_sax</a> (<a class="el" href="structnlohmann_1_1json__sax.html">json_sax</a> &amp;&amp;) noexcept=default</td></tr>
-<tr class="separator:a62dae3713ca4914265904e30cd6b6347"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95e54074d399458a3d7df52a0f223ec2" id="r_a95e54074d399458a3d7df52a0f223ec2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structnlohmann_1_1json__sax.html">json_sax</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#a95e54074d399458a3d7df52a0f223ec2">operator=</a> (const <a class="el" href="structnlohmann_1_1json__sax.html">json_sax</a> &amp;)=default</td></tr>
-<tr class="separator:a95e54074d399458a3d7df52a0f223ec2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f99777c4dabf23fef29f6a81672b7da" id="r_a0f99777c4dabf23fef29f6a81672b7da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structnlohmann_1_1json__sax.html">json_sax</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#a0f99777c4dabf23fef29f6a81672b7da">operator=</a> (<a class="el" href="structnlohmann_1_1json__sax.html">json_sax</a> &amp;&amp;) noexcept=default</td></tr>
-<tr class="separator:a0f99777c4dabf23fef29f6a81672b7da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af31bacfa81aa7818d8639d1da65c8eb5" id="r_af31bacfa81aa7818d8639d1da65c8eb5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnlohmann_1_1json__sax.html#af31bacfa81aa7818d8639d1da65c8eb5">~json_sax</a> ()=default</td></tr>
-<tr class="separator:af31bacfa81aa7818d8639d1da65c8eb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac0f445c1173fa731104d93496a7e780" id="r_aac0f445c1173fa731104d93496a7e780"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac0f445c1173fa731104d93496a7e780">json_sax</a> ()=default</td></tr>
+<tr class="memitem:a8358c063b2d7222b3aafa62fded04403" id="r_a8358c063b2d7222b3aafa62fded04403"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8358c063b2d7222b3aafa62fded04403">json_sax</a> (const json_sax &amp;)=default</td></tr>
+<tr class="memitem:a62dae3713ca4914265904e30cd6b6347" id="r_a62dae3713ca4914265904e30cd6b6347"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62dae3713ca4914265904e30cd6b6347">json_sax</a> (json_sax &amp;&amp;) noexcept=default</td></tr>
+<tr class="memitem:a95e54074d399458a3d7df52a0f223ec2" id="r_a95e54074d399458a3d7df52a0f223ec2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#aac0f445c1173fa731104d93496a7e780">json_sax</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95e54074d399458a3d7df52a0f223ec2">operator=</a> (const <a class="el" href="#aac0f445c1173fa731104d93496a7e780">json_sax</a> &amp;)=default</td></tr>
+<tr class="memitem:a0f99777c4dabf23fef29f6a81672b7da" id="r_a0f99777c4dabf23fef29f6a81672b7da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#aac0f445c1173fa731104d93496a7e780">json_sax</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f99777c4dabf23fef29f6a81672b7da">operator=</a> (<a class="el" href="#aac0f445c1173fa731104d93496a7e780">json_sax</a> &amp;&amp;) noexcept=default</td></tr>
+<tr class="memitem:af31bacfa81aa7818d8639d1da65c8eb5" id="r_af31bacfa81aa7818d8639d1da65c8eb5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af31bacfa81aa7818d8639d1da65c8eb5">~json_sax</a> ()=default</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">詳解</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename BasicJsonType&gt;<br />
 struct nlohmann::json_sax&lt; BasicJsonType &gt;</div><p>SAX interface </p>
-<p>This class describes the SAX interface used by <a class="el" href="classnlohmann_1_1basic__json.html#a12b382c6407da5543827ce4b24bb5008">nlohmann::json::sax_parse</a>. Each function is called in different situations while the input is parsed. The boolean return value informs the parser whether to continue processing the input. </p>
-</div><h2 class="groupheader">型定義メンバ詳解</h2>
+<p>This class describes the SAX interface used by nlohmann::json::sax_parse. Each function is called in different situations while the input is parsed. The boolean return value informs the parser whether to continue processing the input. </p>
+</div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">型定義メンバ詳解</h2>
 <a id="a0ef406ba81eef08aadf4a9ef48d742bd" name="a0ef406ba81eef08aadf4a9ef48d742bd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0ef406ba81eef08aadf4a9ef48d742bd">&#9670;&#160;</a></span>binary_t</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::binary_t =  typename BasicJsonType::binary_t</td>
+          <td class="memname">using <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::binary_t = typename BasicJsonType::binary_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -195,10 +168,10 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::number_float_t =  typename BasicJsonType::number_float_t</td>
+          <td class="memname">using <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::number_float_t = typename BasicJsonType::number_float_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -211,10 +184,10 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::number_integer_t =  typename BasicJsonType::number_integer_t</td>
+          <td class="memname">using <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::number_integer_t = typename BasicJsonType::number_integer_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -227,10 +200,10 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::number_unsigned_t =  typename BasicJsonType::number_unsigned_t</td>
+          <td class="memname">using <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::number_unsigned_t = typename BasicJsonType::number_unsigned_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -243,24 +216,24 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::string_t =  typename BasicJsonType::string_t</td>
+          <td class="memname">using <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::string_t = typename BasicJsonType::string_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">構築子と解体子</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">構築子と解体子</h2>
 <a id="aac0f445c1173fa731104d93496a7e780" name="aac0f445c1173fa731104d93496a7e780"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aac0f445c1173fa731104d93496a7e780">&#9670;&#160;</a></span>json_sax() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -268,13 +241,13 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::json_sax </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -287,7 +260,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -295,14 +268,13 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::json_sax </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structnlohmann_1_1json__sax.html">json_sax</a>&lt; BasicJsonType &gt; &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const json_sax&lt; BasicJsonType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -315,7 +287,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -323,14 +295,13 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::json_sax </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structnlohmann_1_1json__sax.html">json_sax</a>&lt; BasicJsonType &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">json_sax&lt; BasicJsonType &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -343,35 +314,35 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::~<a class="el" href="structnlohmann_1_1json__sax.html">json_sax</a> </td>
+          <td class="memname">virtual <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::~<a class="el" href="#aac0f445c1173fa731104d93496a7e780">json_sax</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="a38c2dbde07138cc436ea7fbf22c1e92d" name="a38c2dbde07138cc436ea7fbf22c1e92d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a38c2dbde07138cc436ea7fbf22c1e92d">&#9670;&#160;</a></span>binary()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -379,14 +350,13 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">virtual bool <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::binary </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structnlohmann_1_1json__sax.html#a0ef406ba81eef08aadf4a9ef48d742bd">binary_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a0ef406ba81eef08aadf4a9ef48d742bd">binary_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -409,7 +379,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -417,14 +387,13 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">virtual bool <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::boolean </td>
           <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -446,7 +415,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -454,13 +423,13 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">virtual bool <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::end_array </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -476,7 +445,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -484,13 +453,13 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">virtual bool <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::end_object </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -506,7 +475,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -514,14 +483,13 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">virtual bool <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::key </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structnlohmann_1_1json__sax.html#ae01977a9f3c5b3667b7a2929ed91061e">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#ae01977a9f3c5b3667b7a2929ed91061e">string_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -544,7 +512,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -552,13 +520,13 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">virtual bool <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::null </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -574,7 +542,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -582,24 +550,17 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">virtual bool <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::number_float </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structnlohmann_1_1json__sax.html#a390c209bffd8c4800c8f3076dc465a20">number_float_t</a>&#160;</td>
-          <td class="paramname"><em>val</em>, </td>
+          <td class="paramtype"><a class="el" href="#a390c209bffd8c4800c8f3076dc465a20">number_float_t</a></td>          <td class="paramname"><span class="paramname"><em>val</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structnlohmann_1_1json__sax.html#ae01977a9f3c5b3667b7a2929ed91061e">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>s</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const <a class="el" href="#ae01977a9f3c5b3667b7a2929ed91061e">string_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>s</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -622,7 +583,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -630,14 +591,13 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">virtual bool <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::number_integer </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structnlohmann_1_1json__sax.html#a0cef30121f02b7fee85e9708148ea0aa">number_integer_t</a>&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a0cef30121f02b7fee85e9708148ea0aa">number_integer_t</a></td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -659,7 +619,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -667,14 +627,13 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">virtual bool <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::number_unsigned </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structnlohmann_1_1json__sax.html#a32028cc056ae0f43aaae331cdbbbf856">number_unsigned_t</a>&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a32028cc056ae0f43aaae331cdbbbf856">number_unsigned_t</a></td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -696,22 +655,21 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structnlohmann_1_1json__sax.html">json_sax</a> &amp; <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::operator= </td>
+          <td class="memname"><a class="el" href="#aac0f445c1173fa731104d93496a7e780">json_sax</a> &amp; <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structnlohmann_1_1json__sax.html">json_sax</a>&lt; BasicJsonType &gt; &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#aac0f445c1173fa731104d93496a7e780">json_sax</a>&lt; BasicJsonType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -724,22 +682,21 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structnlohmann_1_1json__sax.html">json_sax</a> &amp; <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::operator= </td>
+          <td class="memname"><a class="el" href="#aac0f445c1173fa731104d93496a7e780">json_sax</a> &amp; <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structnlohmann_1_1json__sax.html">json_sax</a>&lt; BasicJsonType &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#aac0f445c1173fa731104d93496a7e780">json_sax</a>&lt; BasicJsonType &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -752,7 +709,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -760,30 +717,22 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">virtual bool <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::parse_error </td>
           <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>position</em>, </td>
+          <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em>position</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>last_token</em>, </td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>last_token</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1exception.html">detail::exception</a> &amp;&#160;</td>
-          <td class="paramname"><em>ex</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1exception.html">detail::exception</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ex</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -807,7 +756,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -815,14 +764,13 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">virtual bool <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::start_array </td>
           <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>elements</em></td><td>)</td>
+          <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em>elements</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -845,7 +793,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -853,14 +801,13 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">virtual bool <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;::start_object </td>
           <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>elements</em></td><td>)</td>
+          <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em>elements</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -883,7 +830,7 @@ template&lt;typename BasicJsonType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename BasicJsonType &gt; </div>
+template&lt;typename BasicJsonType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -891,14 +838,13 @@ template&lt;typename BasicJsonType &gt; </div>
         <tr>
           <td class="memname">virtual bool <a class="el" href="structnlohmann_1_1json__sax.html">nlohmann::json_sax</a>&lt; BasicJsonType &gt;<a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">::string</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structnlohmann_1_1json__sax.html#ae01977a9f3c5b3667b7a2929ed91061e">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#ae01977a9f3c5b3667b7a2929ed91061e">string_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -920,11 +866,19 @@ template&lt;typename BasicJsonType &gt; </div>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacenlohmann.html">nlohmann</a></li><li class="navelem"><a class="el" href="structnlohmann_1_1json__sax.html">json_sax</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="namespacenlohmann.html">nlohmann</a></li><li class="navelem"><a href="structnlohmann_1_1json__sax.html">json_sax</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

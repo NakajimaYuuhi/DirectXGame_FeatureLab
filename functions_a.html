@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: クラスメンバ</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('functions_a.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('functions_a.html','',''); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -92,12 +91,12 @@ $(document).ready(function(){initNavTree('functions_a.html',''); initResizable()
 <div class="contents">
 <div class="textblock">全クラスメンバ一覧です。各メンバが属するクラスへのリンクがあります。</div>
 
-<h3><a id="index_a" name="index_a"></a>- a -</h3><ul>
-<li>accept()&#160;:&#160;<a class="el" href="classnlohmann_1_1basic__json.html#a32872afe5bfd040777e3e2bb85f0ca55">nlohmann::basic_json&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType, JSONSerializer, BinaryType &gt;</a>, <a class="el" href="classnlohmann_1_1detail_1_1parser.html#a39784a586867c05388cb0adca0fd72b5">nlohmann::detail::parser&lt; BasicJsonType, InputAdapterType &gt;</a></li>
+<h3 class="doxsection"><a id="index_a" name="index_a"></a>- a -</h3><ul>
+<li>accept()&#160;:&#160;<a class="el" href="classnlohmann_1_1detail_1_1parser.html#a39784a586867c05388cb0adca0fd72b5">nlohmann::detail::parser&lt; BasicJsonType, InputAdapterType &gt;</a></li>
 <li>Accessor()&#160;:&#160;<a class="el" href="structtinygltf_1_1Accessor.html#a5a6cde4e462c70f419d359a019abda11">tinygltf::Accessor</a></li>
 <li>accessors&#160;:&#160;<a class="el" href="classtinygltf_1_1Model.html#a34b3e78d9c6877fcec950260cd1d8a73">tinygltf::Model</a></li>
-<li>active&#160;:&#160;<a class="el" href="structGPUParticle.html#aeb161c5f1b152ea8f66acc5864a2d3d0">GPUParticle</a></li>
 <li>Active&#160;:&#160;<a class="el" href="structImGuiDebugItemPathQuery.html#aca722f19c820cf6bcbd76920ad0c33ae">ImGuiDebugItemPathQuery</a>, <a class="el" href="structImGuiWindow.html#a42f141fa0eed059176cb4360df1b1eb2">ImGuiWindow</a></li>
+<li>active&#160;:&#160;<a class="el" href="structGPUParticle.html#aeb161c5f1b152ea8f66acc5864a2d3d0">GPUParticle</a></li>
 <li>active_head&#160;:&#160;<a class="el" href="structstbrp__context.html#a13277239636803aff28f00b0a0376120">stbrp_context</a></li>
 <li>ActiveId&#160;:&#160;<a class="el" href="structImGuiContext.html#a11c874eb6cf74ba9162bd1d01c4ccbcc">ImGuiContext</a></li>
 <li>ActiveIdAllowOverlap&#160;:&#160;<a class="el" href="structImGuiContext.html#ab3234556023eabcfed157b79ba4c5869">ImGuiContext</a></li>
@@ -197,7 +196,7 @@ $(document).ready(function(){initNavTree('functions_a.html',''); initResizable()
 <li>alloc_chunk()&#160;:&#160;<a class="el" href="structImChunkStream.html#a29ced7ee3e9a2ae8123a92b110b4b0bd">ImChunkStream&lt; T &gt;</a></li>
 <li>allocator_type&#160;:&#160;<a class="el" href="classnlohmann_1_1basic__json.html#ad38ae80f1e99d4b1f33c99fea4611457">nlohmann::basic_json&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType, JSONSerializer, BinaryType &gt;</a></li>
 <li>AllocCount&#160;:&#160;<a class="el" href="structImGuiDebugAllocEntry.html#ac2dd133bbfe0ab6d8f446d05444bd583">ImGuiDebugAllocEntry</a></li>
-<li>allow_exceptions&#160;:&#160;<a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a0a1390c23e2a3da774d75c050f9b3f13">nlohmann::detail::json_sax_dom_callback_parser&lt; BasicJsonType &gt;</a>, <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__parser.html#ad0953e8d888339421d909d9016bc6e2c">nlohmann::detail::json_sax_dom_parser&lt; BasicJsonType &gt;</a>, <a class="el" href="classnlohmann_1_1detail_1_1parser.html#ab0dbaeaa6df00631072f902068c57750">nlohmann::detail::parser&lt; BasicJsonType, InputAdapterType &gt;</a></li>
+<li>allow_exceptions&#160;:&#160;<a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a0a1390c23e2a3da774d75c050f9b3f13">nlohmann::detail::json_sax_dom_callback_parser&lt; BasicJsonType &gt;</a>, <a class="el" href="classnlohmann_1_1detail_1_1json__sax__dom__parser.html#ad0953e8d888339421d909d9016bc6e2c">nlohmann::detail::json_sax_dom_parser&lt; BasicJsonType &gt;</a>, <a class="el" href="classnlohmann_1_1detail_1_1parser.html#af1bebbef509568a7f9f2c14ca7905821">nlohmann::detail::parser&lt; BasicJsonType, InputAdapterType &gt;</a></li>
 <li>AllowBoxSelect&#160;:&#160;<a class="el" href="structExampleAssetsBrowser.html#a0d086443d4134995b272351b85e1c721">ExampleAssetsBrowser</a></li>
 <li>AllowDragUnselected&#160;:&#160;<a class="el" href="structExampleAssetsBrowser.html#a0da737c053f5db2ee8ee8f73773554bc">ExampleAssetsBrowser</a></li>
 <li>AllowSorting&#160;:&#160;<a class="el" href="structExampleAssetsBrowser.html#a9a20d664c5e923e41f088b916bb0706c">ExampleAssetsBrowser</a></li>
@@ -244,24 +243,25 @@ $(document).ready(function(){initNavTree('functions_a.html',''); initResizable()
 <li>arr_ptr_&#160;:&#160;<a class="el" href="classtinygltf__json_1_1iterator.html#ab6e65a4fc13ae60a909103ad9ca87070">tinygltf_json::iterator</a></li>
 <li>arr_reserve_()&#160;:&#160;<a class="el" href="classtinygltf__json.html#a313d0ec2e6e7e07b31e8daa948d3eb9b">tinygltf_json</a></li>
 <li>arr_size_&#160;:&#160;<a class="el" href="classtinygltf__json.html#ab1d53dfef9786ff507bd6e633f946947">tinygltf_json</a></li>
-<li>array&#160;:&#160;<a class="el" href="classnlohmann_1_1basic__json.html#ad2b075c694e4564c9742d2c8db7c7c5f">nlohmann::basic_json&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType, JSONSerializer, BinaryType &gt;</a></li>
 <li>Array&#160;:&#160;<a class="el" href="classtinygltf_1_1Value.html#ad09a2238eb07711579ce6dfd88e7c4e0">tinygltf::Value</a></li>
+<li>array()&#160;:&#160;<a class="el" href="classnlohmann_1_1basic__json.html#a2b98d74f590c64e6b87a4508272d5574">nlohmann::basic_json&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType, JSONSerializer, BinaryType &gt;</a></li>
 <li>array_index&#160;:&#160;<a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#ad3d18c83aff5e9f4bdbf99385b29a39a">nlohmann::detail::iteration_proxy_value&lt; IteratorType &gt;</a>, <a class="el" href="classnlohmann_1_1json__pointer.html#ae28e4b79b9d4fac9e6dca29f47f946fa">nlohmann::json_pointer&lt; BasicJsonType &gt;</a></li>
 <li>array_index_last&#160;:&#160;<a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#aac6e7cc0c17242a0a42c14d1e714747c">nlohmann::detail::iteration_proxy_value&lt; IteratorType &gt;</a></li>
 <li>array_index_str&#160;:&#160;<a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#ab0b34133f45a3610070492d32978f2ea">nlohmann::detail::iteration_proxy_value&lt; IteratorType &gt;</a></li>
-<li>array_iterator&#160;:&#160;<a class="el" href="structnlohmann_1_1detail_1_1internal__iterator.html#a8294a6e6f01b58e1cce8fbae66a50b5d">nlohmann::detail::internal_iterator&lt; BasicJsonType &gt;</a></li>
+<li>array_iterator&#160;:&#160;<a class="el" href="structnlohmann_1_1detail_1_1internal__iterator.html#a5733d0e5d1757f7e9c22e2d0d96a6ae7">nlohmann::detail::internal_iterator&lt; BasicJsonType &gt;</a></li>
 <li>array_of_unicode_codepoints&#160;:&#160;<a class="el" href="structstbtt__pack__range.html#a1567aa5455e1251529a91b46261368cf">stbtt_pack_range</a></li>
-<li>array_t&#160;:&#160;<a class="el" href="classnlohmann_1_1basic__json.html#a858c1cf8407bc06494e3a1114a3b73e7">nlohmann::basic_json&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType, JSONSerializer, BinaryType &gt;</a>, <a class="el" href="classnlohmann_1_1detail_1_1iter__impl.html#aef02cf75b1cb199286fd2f666c60e38e">nlohmann::detail::iter_impl&lt; BasicJsonType &gt;</a></li>
+<li>array_t&#160;:&#160;<a class="el" href="classnlohmann_1_1basic__json.html#a53700c308d804f84aea5ff05abb2ac4e">nlohmann::basic_json&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType, JSONSerializer, BinaryType &gt;</a>, <a class="el" href="classnlohmann_1_1detail_1_1iter__impl.html#aef02cf75b1cb199286fd2f666c60e38e">nlohmann::detail::iter_impl&lt; BasicJsonType &gt;</a></li>
 <li>array_value_&#160;:&#160;<a class="el" href="classtinygltf_1_1Value.html#a4e7674babd934c04d53d149e0bd3d2c0">tinygltf::Value</a></li>
 <li>ArrayLen()&#160;:&#160;<a class="el" href="classtinygltf_1_1Value.html#a6622ae4eb21a3305b1758563f091bd7d">tinygltf::Value</a></li>
+<li>arrays()&#160;:&#160;<a class="el" href="classnlohmann_1_1basic__json.html#a4cfdbbc72577073190bf584696399f52">nlohmann::basic_json&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType, JSONSerializer, BinaryType &gt;</a></li>
 <li>as_is&#160;:&#160;<a class="el" href="structtinygltf_1_1Image.html#a8e2d9f442e61d14328d91aa134ed8d96">tinygltf::Image</a></li>
 <li>Ascent&#160;:&#160;<a class="el" href="structImFontBaked.html#a691d399162e486390e24fbd27bb9739e">ImFontBaked</a></li>
 <li>aspectRatio&#160;:&#160;<a class="el" href="structtinygltf_1_1PerspectiveCamera.html#af49871cd220ee6d9b7d5ccb9e28eaff2">tinygltf::PerspectiveCamera</a></li>
 <li>assert_invariant()&#160;:&#160;<a class="el" href="classnlohmann_1_1basic__json.html#a2ef98c6797810a551296191fc72e2b9e">nlohmann::basic_json&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType, JSONSerializer, BinaryType &gt;</a></li>
 <li>Asset()&#160;:&#160;<a class="el" href="structtinygltf_1_1Asset.html#af5615f782f31cd1895c52676080d00e5">tinygltf::Asset</a></li>
 <li>asset&#160;:&#160;<a class="el" href="classtinygltf_1_1Model.html#a0f9d99790420170af35650b5597ac740">tinygltf::Model</a></li>
+<li>assignment&#160;:&#160;<a class="el" href="classnlohmann_1_1basic__json.html#a1059d83ad8689f67873f174a2730c54f">nlohmann::basic_json&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType, JSONSerializer, BinaryType &gt;</a></li>
 <li>AsVec4()&#160;:&#160;<a class="el" href="structImRect.html#a848039e6c07771d4ae76786c58c02f64">ImRect</a></li>
-<li>at()&#160;:&#160;<a class="el" href="classnlohmann_1_1basic__json.html#a8284b9c1d4d0830151eaa000f907b2e6">nlohmann::basic_json&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType, JSONSerializer, BinaryType &gt;</a>, <a class="el" href="structnlohmann_1_1ordered__map.html#a20d0c541bd54ea70648bb5efd5a4aaa9">nlohmann::ordered_map&lt; Key, T, IgnoredLess, Allocator &gt;</a></li>
 <li>AttachComponentRaw()&#160;:&#160;<a class="el" href="classCObject.html#a72c796b58c0c410e048d17c995687736">CObject</a></li>
 <li>ATTACK_DURATION&#160;:&#160;<a class="el" href="classEnemyAIComponent.html#a9388379d4e15cdfff7af19db91be5881">EnemyAIComponent</a>, <a class="el" href="classPlayerControllerComponent.html#a412b11650eaa4777c69b05d1e2c275e7">PlayerControllerComponent</a></li>
 <li>ATTACK_RANGE&#160;:&#160;<a class="el" href="classEnemyAIComponent.html#a8dc6501d05aa14c0e7ee3dea3d332e84">EnemyAIComponent</a></li>
@@ -283,10 +283,11 @@ $(document).ready(function(){initNavTree('functions_a.html',''); initResizable()
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

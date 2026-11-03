@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: Source/Engine/Component/Component.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,28 +35,22 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function() { init_codefold(0); });
-/* @license-end */
-</script>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -68,10 +63,9 @@ $(document).ready(function() { init_codefold(0); });
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('Component_8h_source.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('Component_8h_source.html','',''); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -103,7 +97,7 @@ $(document).ready(function(){initNavTree('Component_8h_source.html',''); initRes
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="RenderLayer_8h.html">RenderLayer.h</a>&quot;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="EngineAPI_8h.html">EngineAPI.h</a>&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">    6</a></span><span class="keyword">using </span><a class="code hl_typedef" href="Scene_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> = std::string;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">using </span><a class="code hl_typedef" href="Scene_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> = std::string;</div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">class </span><a class="code hl_class" href="classCObject.html">CObject</a>;</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
@@ -111,22 +105,22 @@ $(document).ready(function(){initNavTree('Component_8h_source.html',''); initRes
 <div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">   11</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa324118a6721dd6b8a9b9f4e327df2bf5">Input</a> = 0,       <span class="comment">// Player input reading, controller logic</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa0a40e3c91a3a55c9a37428c6d194d0e5">AI</a> = 1,          <span class="comment">// Enemy AI decision making, state transitions</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa4642e767f9251fa40afadbc963f80b7a">Movement</a> = 2,    <span class="comment">// Horizontal velocity calculation, slope checking</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa50ae99e9c35446c2580e4b540b0fd104">Physics</a> = 3,     <span class="comment">// Gravity application, ground collision, snap-to-ground</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fad6b6b668dbca9d4fe774bb654226ebe3">Animation</a> = 4,   <span class="comment">// Model animation updates, bone matrices</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa8f94c0495202ed76c429ac546efcbc0b">PostPhysics</a> = 5, <span class="comment">// Camera following, post-movement adjustments</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa4905ac9d6a22bdfc1ae096094ce6248d">COUNT</a> = 6</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa324118a6721dd6b8a9b9f4e327df2bf5">   13</a></span>    <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa324118a6721dd6b8a9b9f4e327df2bf5">Input</a> = 0,       <span class="comment">// Player input reading, controller logic</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa0a40e3c91a3a55c9a37428c6d194d0e5">   14</a></span>    <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa0a40e3c91a3a55c9a37428c6d194d0e5">AI</a> = 1,          <span class="comment">// Enemy AI decision making, state transitions</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa4642e767f9251fa40afadbc963f80b7a">   15</a></span>    <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa4642e767f9251fa40afadbc963f80b7a">Movement</a> = 2,    <span class="comment">// Horizontal velocity calculation, slope checking</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa50ae99e9c35446c2580e4b540b0fd104">   16</a></span>    <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa50ae99e9c35446c2580e4b540b0fd104">Physics</a> = 3,     <span class="comment">// Gravity application, ground collision, snap-to-ground</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fad6b6b668dbca9d4fe774bb654226ebe3">   17</a></span>    <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fad6b6b668dbca9d4fe774bb654226ebe3">Animation</a> = 4,   <span class="comment">// Model animation updates, bone matrices</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa8f94c0495202ed76c429ac546efcbc0b">   18</a></span>    <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa8f94c0495202ed76c429ac546efcbc0b">PostPhysics</a> = 5, <span class="comment">// Camera following, post-movement adjustments</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa4905ac9d6a22bdfc1ae096094ce6248d">   19</a></span>    <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa4905ac9d6a22bdfc1ae096094ce6248d">COUNT</a> = 6</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>};</div>
 </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classCComponent.html">   22</a></span><span class="keyword">class </span><a class="code hl_class" href="classCComponent.html">CComponent</a></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classCComponent.html">   22</a></span><span class="keyword">class </span><a class="code hl_function" href="classCComponent.html#ab87a6940be69962c3f4f5a8552643245">CComponent</a></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classCComponent.html#ab87a6940be69962c3f4f5a8552643245">   25</a></span>    <a class="code hl_function" href="classCComponent.html#ab87a6940be69962c3f4f5a8552643245">CComponent</a>() : <a class="code hl_variable" href="classCComponent.html#a4918d7f95edb1a545724dab2be500e75">m_ComponentName</a>(<span class="stringliteral">&quot;&quot;</span>), <a class="code hl_variable" href="classCComponent.html#a8f8c7080b1f9972952ceda4e155568cb">m_ComponentIsValid</a>(true), <a class="code hl_variable" href="classCComponent.html#af9d3c1123f1a477922084a25423b2579">m_enabled</a>(true), <a class="code hl_variable" href="classCComponent.html#a76959a9e98ef06163c56858026e9da5b">m_Owner</a>(nullptr) {}</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classCComponent.html#accf17908f97e4d07d7f04fbde292dcda">   26</a></span>    <a class="code hl_function" href="classCComponent.html#accf17908f97e4d07d7f04fbde292dcda">CComponent</a>(<a class="code hl_typedef" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name) : <a class="code hl_variable" href="classCComponent.html#a4918d7f95edb1a545724dab2be500e75">m_ComponentName</a>(_Name), <a class="code hl_variable" href="classCComponent.html#a8f8c7080b1f9972952ceda4e155568cb">m_ComponentIsValid</a>(true), <a class="code hl_variable" href="classCComponent.html#af9d3c1123f1a477922084a25423b2579">m_enabled</a>(true), <a class="code hl_variable" href="classCComponent.html#a76959a9e98ef06163c56858026e9da5b">m_Owner</a>(nullptr) {}</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classCComponent.html#accf17908f97e4d07d7f04fbde292dcda">   26</a></span>    <a class="code hl_function" href="classCComponent.html#accf17908f97e4d07d7f04fbde292dcda">CComponent</a>(<a class="code hl_typedef" href="Scene_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name) : <a class="code hl_variable" href="classCComponent.html#a4918d7f95edb1a545724dab2be500e75">m_ComponentName</a>(_Name), <a class="code hl_variable" href="classCComponent.html#a8f8c7080b1f9972952ceda4e155568cb">m_ComponentIsValid</a>(true), <a class="code hl_variable" href="classCComponent.html#af9d3c1123f1a477922084a25423b2579">m_enabled</a>(true), <a class="code hl_variable" href="classCComponent.html#a76959a9e98ef06163c56858026e9da5b">m_Owner</a>(nullptr) {}</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classCComponent.html#af2ad4d80f616aedbf6b08f33bdd9d2d5">   27</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classCComponent.html#af2ad4d80f616aedbf6b08f33bdd9d2d5">~CComponent</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="comment">// Ensure all CComponent allocations and deallocations occur on the Engine EXE heap across DLL boundaries</span></div>
@@ -166,37 +160,35 @@ $(document).ready(function(){initNavTree('Component_8h_source.html',''); initRes
 </div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="comment">// Getter / Setter</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classCComponent.html#a06f29f30b2566a12617852195ea72fa0">   64</a></span>    <span class="keyword">const</span> <a class="code hl_typedef" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&amp; <a class="code hl_function" href="classCComponent.html#a06f29f30b2566a12617852195ea72fa0">GetName</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCComponent.html#a4918d7f95edb1a545724dab2be500e75">m_ComponentName</a>; }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classCComponent.html#a06f29f30b2566a12617852195ea72fa0">   64</a></span>    <span class="keyword">const</span> <a class="code hl_typedef" href="Scene_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&amp; <a class="code hl_function" href="classCComponent.html#a06f29f30b2566a12617852195ea72fa0">GetName</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCComponent.html#a4918d7f95edb1a545724dab2be500e75">m_ComponentName</a>; }</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classCComponent.html#a1df83625aa856f9cc7047da68dce131d">   65</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classCComponent.html#a1df83625aa856f9cc7047da68dce131d">GetIsValid</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCComponent.html#a8f8c7080b1f9972952ceda4e155568cb">m_ComponentIsValid</a>; }</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classCComponent.html#abf4188a21189f533eed52041962cafd4">   66</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classCComponent.html#abf4188a21189f533eed52041962cafd4">GetIsVarid</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCComponent.html#a8f8c7080b1f9972952ceda4e155568cb">m_ComponentIsValid</a>; } <span class="comment">// Backward compatibility</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classCComponent.html#ad5bf6fd967c58b6784aa399a27ce0eaa">   67</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classCComponent.html#ad5bf6fd967c58b6784aa399a27ce0eaa">SetName</a>(<a class="code hl_typedef" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name) { <a class="code hl_variable" href="classCComponent.html#a4918d7f95edb1a545724dab2be500e75">m_ComponentName</a> = _Name; }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classCComponent.html#ad5bf6fd967c58b6784aa399a27ce0eaa">   67</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classCComponent.html#ad5bf6fd967c58b6784aa399a27ce0eaa">SetName</a>(<a class="code hl_typedef" href="Scene_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name) { <a class="code hl_variable" href="classCComponent.html#a4918d7f95edb1a545724dab2be500e75">m_ComponentName</a> = _Name; }</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classCComponent.html#a96b82c9108e83190f29a5dd8bafe59fe">   68</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classCComponent.html#a96b82c9108e83190f29a5dd8bafe59fe">SetIsValid</a>(<span class="keywordtype">bool</span> _IsValid) { <a class="code hl_variable" href="classCComponent.html#a8f8c7080b1f9972952ceda4e155568cb">m_ComponentIsValid</a> = _IsValid; }</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classCComponent.html#ababe3aca6f026b146eb458dab2a57587">   69</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classCComponent.html#ababe3aca6f026b146eb458dab2a57587">SetOwner</a>(<a class="code hl_class" href="classCObject.html">CObject</a>* _Object) { <a class="code hl_variable" href="classCComponent.html#a76959a9e98ef06163c56858026e9da5b">m_Owner</a> = _Object; }</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classCComponent.html#aa05b48a46eeaff9527c00de7547edd32">   70</a></span>    <a class="code hl_class" href="classCObject.html">CObject</a>* <a class="code hl_function" href="classCComponent.html#aa05b48a46eeaff9527c00de7547edd32">GetOwner</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classCComponent.html#a76959a9e98ef06163c56858026e9da5b">m_Owner</a>; }</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keyword">protected</span>:</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classCComponent.html#a76959a9e98ef06163c56858026e9da5b">   73</a></span>    <a class="code hl_class" href="classCObject.html">CObject</a>* <a class="code hl_variable" href="classCComponent.html#a76959a9e98ef06163c56858026e9da5b">m_Owner</a> = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classCComponent.html#a4918d7f95edb1a545724dab2be500e75">   74</a></span>    <a class="code hl_typedef" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>   <a class="code hl_variable" href="classCComponent.html#a4918d7f95edb1a545724dab2be500e75">m_ComponentName</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classCComponent.html#a4918d7f95edb1a545724dab2be500e75">   74</a></span>    <a class="code hl_typedef" href="Scene_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>   <a class="code hl_variable" href="classCComponent.html#a4918d7f95edb1a545724dab2be500e75">m_ComponentName</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classCComponent.html#a8f8c7080b1f9972952ceda4e155568cb">   75</a></span>    <span class="keywordtype">bool</span>     <a class="code hl_variable" href="classCComponent.html#a8f8c7080b1f9972952ceda4e155568cb">m_ComponentIsValid</a> = <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classCComponent.html#af9d3c1123f1a477922084a25423b2579">   76</a></span>    <span class="keywordtype">bool</span>     <a class="code hl_variable" href="classCComponent.html#af9d3c1123f1a477922084a25423b2579">m_enabled</a> = <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>};</div>
 </div>
 <div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93f"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a></div><div class="ttdeci">UpdatePhase</div><div class="ttdef"><b>Definition</b> Component.h:12</div></div>
-<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fa0a40e3c91a3a55c9a37428c6d194d0e5"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa0a40e3c91a3a55c9a37428c6d194d0e5">UpdatePhase::AI</a></div><div class="ttdeci">@ AI</div></div>
-<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fa324118a6721dd6b8a9b9f4e327df2bf5"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa324118a6721dd6b8a9b9f4e327df2bf5">UpdatePhase::Input</a></div><div class="ttdeci">@ Input</div></div>
-<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fa4642e767f9251fa40afadbc963f80b7a"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa4642e767f9251fa40afadbc963f80b7a">UpdatePhase::Movement</a></div><div class="ttdeci">@ Movement</div></div>
-<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fa4905ac9d6a22bdfc1ae096094ce6248d"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa4905ac9d6a22bdfc1ae096094ce6248d">UpdatePhase::COUNT</a></div><div class="ttdeci">@ COUNT</div></div>
-<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fa50ae99e9c35446c2580e4b540b0fd104"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa50ae99e9c35446c2580e4b540b0fd104">UpdatePhase::Physics</a></div><div class="ttdeci">@ Physics</div></div>
-<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fa8f94c0495202ed76c429ac546efcbc0b"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa8f94c0495202ed76c429ac546efcbc0b">UpdatePhase::PostPhysics</a></div><div class="ttdeci">@ PostPhysics</div></div>
-<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fad6b6b668dbca9d4fe774bb654226ebe3"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fad6b6b668dbca9d4fe774bb654226ebe3">UpdatePhase::Animation</a></div><div class="ttdeci">@ Animation</div></div>
-<div class="ttc" id="aComponent_8h_html_a5573b97b9e5129f61d289e037d7e806c"><div class="ttname"><a href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a></div><div class="ttdeci">std::string String</div><div class="ttdef"><b>Definition</b> Component.h:6</div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fa0a40e3c91a3a55c9a37428c6d194d0e5"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa0a40e3c91a3a55c9a37428c6d194d0e5">UpdatePhase::AI</a></div><div class="ttdeci">@ AI</div><div class="ttdef"><b>Definition</b> Component.h:14</div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fa324118a6721dd6b8a9b9f4e327df2bf5"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa324118a6721dd6b8a9b9f4e327df2bf5">UpdatePhase::Input</a></div><div class="ttdeci">@ Input</div><div class="ttdef"><b>Definition</b> Component.h:13</div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fa4642e767f9251fa40afadbc963f80b7a"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa4642e767f9251fa40afadbc963f80b7a">UpdatePhase::Movement</a></div><div class="ttdeci">@ Movement</div><div class="ttdef"><b>Definition</b> Component.h:15</div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fa4905ac9d6a22bdfc1ae096094ce6248d"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa4905ac9d6a22bdfc1ae096094ce6248d">UpdatePhase::COUNT</a></div><div class="ttdeci">@ COUNT</div><div class="ttdef"><b>Definition</b> Component.h:19</div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fa50ae99e9c35446c2580e4b540b0fd104"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa50ae99e9c35446c2580e4b540b0fd104">UpdatePhase::Physics</a></div><div class="ttdeci">@ Physics</div><div class="ttdef"><b>Definition</b> Component.h:16</div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fa8f94c0495202ed76c429ac546efcbc0b"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa8f94c0495202ed76c429ac546efcbc0b">UpdatePhase::PostPhysics</a></div><div class="ttdeci">@ PostPhysics</div><div class="ttdef"><b>Definition</b> Component.h:18</div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fad6b6b668dbca9d4fe774bb654226ebe3"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fad6b6b668dbca9d4fe774bb654226ebe3">UpdatePhase::Animation</a></div><div class="ttdeci">@ Animation</div><div class="ttdef"><b>Definition</b> Component.h:17</div></div>
 <div class="ttc" id="aEngineAPI_8h_html"><div class="ttname"><a href="EngineAPI_8h.html">EngineAPI.h</a></div></div>
 <div class="ttc" id="aEngineAPI_8h_html_a0697ee40f69dc5dab56d13131f4c4835"><div class="ttname"><a href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a></div><div class="ttdeci">#define ENGINE_API</div><div class="ttdef"><b>Definition</b> EngineAPI.h:6</div></div>
 <div class="ttc" id="aRenderLayer_8h_html"><div class="ttname"><a href="RenderLayer_8h.html">RenderLayer.h</a></div></div>
 <div class="ttc" id="aRenderLayer_8h_html_ad16d91520dd8dbd7a2178564fce5a168"><div class="ttname"><a href="RenderLayer_8h.html#ad16d91520dd8dbd7a2178564fce5a168">RenderLayer</a></div><div class="ttdeci">RenderLayer</div><div class="ttdef"><b>Definition</b> RenderLayer.h:4</div></div>
-<div class="ttc" id="aRenderLayer_8h_html_ad16d91520dd8dbd7a2178564fce5a168afaa90538de35640e4b1e31ccf35b6eb5"><div class="ttname"><a href="RenderLayer_8h.html#ad16d91520dd8dbd7a2178564fce5a168afaa90538de35640e4b1e31ccf35b6eb5">RenderLayer::Opaque</a></div><div class="ttdeci">@ Opaque</div></div>
+<div class="ttc" id="aRenderLayer_8h_html_ad16d91520dd8dbd7a2178564fce5a168afaa90538de35640e4b1e31ccf35b6eb5"><div class="ttname"><a href="RenderLayer_8h.html#ad16d91520dd8dbd7a2178564fce5a168afaa90538de35640e4b1e31ccf35b6eb5">RenderLayer::Opaque</a></div><div class="ttdeci">@ Opaque</div><div class="ttdef"><b>Definition</b> RenderLayer.h:5</div></div>
 <div class="ttc" id="aScene_8h_html_a5573b97b9e5129f61d289e037d7e806c"><div class="ttname"><a href="Scene_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a></div><div class="ttdeci">std::string String</div><div class="ttdef"><b>Definition</b> Scene.h:5</div></div>
-<div class="ttc" id="aclassCComponent_html"><div class="ttname"><a href="classCComponent.html">CComponent</a></div><div class="ttdef"><b>Definition</b> Component.h:23</div></div>
 <div class="ttc" id="aclassCComponent_html_a06f29f30b2566a12617852195ea72fa0"><div class="ttname"><a href="classCComponent.html#a06f29f30b2566a12617852195ea72fa0">CComponent::GetName</a></div><div class="ttdeci">const String &amp; GetName() const</div><div class="ttdef"><b>Definition</b> Component.h:64</div></div>
 <div class="ttc" id="aclassCComponent_html_a0a4d61758b48e83685c1ffe002dc1b41"><div class="ttname"><a href="classCComponent.html#a0a4d61758b48e83685c1ffe002dc1b41">CComponent::OnDisable</a></div><div class="ttdeci">virtual void OnDisable()</div><div class="ttdef"><b>Definition</b> Component.h:38</div></div>
 <div class="ttc" id="aclassCComponent_html_a1df83625aa856f9cc7047da68dce131d"><div class="ttname"><a href="classCComponent.html#a1df83625aa856f9cc7047da68dce131d">CComponent::GetIsValid</a></div><div class="ttdeci">bool GetIsValid() const</div><div class="ttdef"><b>Definition</b> Component.h:65</div></div>
@@ -228,11 +220,12 @@ $(document).ready(function(){initNavTree('Component_8h_source.html',''); initRes
 <div class="ttc" id="aclassCObject_html"><div class="ttname"><a href="classCObject.html">CObject</a></div><div class="ttdef"><b>Definition</b> Object.h:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_5405398c23c020946029b9f4e6e04094.html">Engine</a></li><li class="navelem"><a class="el" href="dir_5f693e8ad8d60326c758affc3b922e76.html">Component</a></li><li class="navelem"><a class="el" href="Component_8h.html">Component.h</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_5405398c23c020946029b9f4e6e04094.html">Engine</a></li><li class="navelem"><a href="dir_5f693e8ad8d60326c758affc3b922e76.html">Component</a></li><li class="navelem"><a href="Component_8h.html">Component.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

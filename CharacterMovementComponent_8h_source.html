@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: Source/Engine/Component/CharacterMovementComponent.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,28 +35,22 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function() { init_codefold(0); });
-/* @license-end */
-</script>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -68,10 +63,9 @@ $(document).ready(function() { init_codefold(0); });
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('CharacterMovementComponent_8h_source.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('CharacterMovementComponent_8h_source.html','',''); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -107,7 +101,7 @@ $(document).ready(function(){initNavTree('CharacterMovementComponent_8h_source.h
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">class </span><a class="code hl_class" href="classGravityComponent.html">GravityComponent</a>;</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classCharacterMovementComponent.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="classCharacterMovementComponent.html">CharacterMovementComponent</a> : <span class="keyword">public</span> <a class="code hl_class" href="classCComponent.html">CComponent</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classCharacterMovementComponent.html">    9</a></span><span class="keyword">class </span><a class="code hl_function" href="classCharacterMovementComponent.html#a3b46719028da4715fcb1aa41000ef690">CharacterMovementComponent</a> : <span class="keyword">public</span> <a class="code hl_function" href="classCComponent.html#ab87a6940be69962c3f4f5a8552643245">CComponent</a></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_define" href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> <a class="code hl_function" href="classCharacterMovementComponent.html#a3b46719028da4715fcb1aa41000ef690">CharacterMovementComponent</a>();</div>
@@ -120,7 +114,7 @@ $(document).ready(function(){initNavTree('CharacterMovementComponent_8h_source.h
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classCharacterMovementComponent.html#a7db69c93ae15396a39c2657c03d5019c">   19</a></span>    <a class="code hl_enumeration" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a> <a class="code hl_function" href="classCharacterMovementComponent.html#a7db69c93ae15396a39c2657c03d5019c">GetUpdatePhase</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa4642e767f9251fa40afadbc963f80b7a">UpdatePhase::Movement</a>; }</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="comment">// Movement methods</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_define" href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> <span class="keywordtype">void</span> <a class="code hl_enumvalue" href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2a6bc362dbf494c61ea117fe3c71ca48a5">Move</a>(<span class="keyword">const</span> DirectX::XMFLOAT3&amp; movement, <span class="keywordtype">float</span> deltaTime);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_define" href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> <span class="keywordtype">void</span> <a class="code hl_function" href="classCharacterMovementComponent.html#a913711b42e0c158b9c79c6e31821051a">Move</a>(<span class="keyword">const</span> DirectX::XMFLOAT3&amp; movement, <span class="keywordtype">float</span> deltaTime);</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_define" href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> <span class="keywordtype">void</span> <a class="code hl_function" href="classCharacterMovementComponent.html#a3d4d4fcd269ff0c1149b8ac4f9942ef5">MoveDirection</a>(<span class="keyword">const</span> DirectX::XMFLOAT3&amp; direction, <span class="keywordtype">float</span> deltaTime);</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_define" href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> <span class="keywordtype">void</span> <a class="code hl_function" href="classCharacterMovementComponent.html#ad1cb335c072da2f307c11f4508df21c8">MoveTowards</a>(<span class="keyword">const</span> DirectX::XMFLOAT3&amp; targetPos, <span class="keywordtype">float</span> deltaTime);</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
@@ -149,12 +143,10 @@ $(document).ready(function(){initNavTree('CharacterMovementComponent_8h_source.h
 </div>
 <div class="ttc" id="aComponent_8h_html"><div class="ttname"><a href="Component_8h.html">Component.h</a></div></div>
 <div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93f"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a></div><div class="ttdeci">UpdatePhase</div><div class="ttdef"><b>Definition</b> Component.h:12</div></div>
-<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fa4642e767f9251fa40afadbc963f80b7a"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa4642e767f9251fa40afadbc963f80b7a">UpdatePhase::Movement</a></div><div class="ttdeci">@ Movement</div></div>
+<div class="ttc" id="aComponent_8h_html_a521f7dfb81de0f94728bc79a0600d93fa4642e767f9251fa40afadbc963f80b7a"><div class="ttname"><a href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93fa4642e767f9251fa40afadbc963f80b7a">UpdatePhase::Movement</a></div><div class="ttdeci">@ Movement</div><div class="ttdef"><b>Definition</b> Component.h:15</div></div>
 <div class="ttc" id="aEngineAPI_8h_html"><div class="ttname"><a href="EngineAPI_8h.html">EngineAPI.h</a></div></div>
 <div class="ttc" id="aEngineAPI_8h_html_a0697ee40f69dc5dab56d13131f4c4835"><div class="ttname"><a href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a></div><div class="ttdeci">#define ENGINE_API</div><div class="ttdef"><b>Definition</b> EngineAPI.h:6</div></div>
-<div class="ttc" id="aPlayerControllerComponent_8h_html_ae7ab06f4c9ae7ab1a4432e2f2644f5a2a6bc362dbf494c61ea117fe3c71ca48a5"><div class="ttname"><a href="PlayerControllerComponent_8h.html#ae7ab06f4c9ae7ab1a4432e2f2644f5a2a6bc362dbf494c61ea117fe3c71ca48a5">PlayerControllerState::Move</a></div><div class="ttdeci">@ Move</div></div>
-<div class="ttc" id="aclassCComponent_html"><div class="ttname"><a href="classCComponent.html">CComponent</a></div><div class="ttdef"><b>Definition</b> Component.h:23</div></div>
-<div class="ttc" id="aclassCharacterMovementComponent_html"><div class="ttname"><a href="classCharacterMovementComponent.html">CharacterMovementComponent</a></div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:10</div></div>
+<div class="ttc" id="aclassCComponent_html_ab87a6940be69962c3f4f5a8552643245"><div class="ttname"><a href="classCComponent.html#ab87a6940be69962c3f4f5a8552643245">CComponent::CComponent</a></div><div class="ttdeci">CComponent()</div><div class="ttdef"><b>Definition</b> Component.h:25</div></div>
 <div class="ttc" id="aclassCharacterMovementComponent_html_a18117e611b9fe558151e8a9ab4905540"><div class="ttname"><a href="classCharacterMovementComponent.html#a18117e611b9fe558151e8a9ab4905540">CharacterMovementComponent::m_speed</a></div><div class="ttdeci">float m_speed</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:39</div></div>
 <div class="ttc" id="aclassCharacterMovementComponent_html_a1c66d4c3343ab0880e0820ce894ee6b8"><div class="ttname"><a href="classCharacterMovementComponent.html#a1c66d4c3343ab0880e0820ce894ee6b8">CharacterMovementComponent::Start</a></div><div class="ttdeci">ENGINE_API void Start() override</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.cpp:19</div></div>
 <div class="ttc" id="aclassCharacterMovementComponent_html_a3657b292954362cbf5b1745ecbdc592a"><div class="ttname"><a href="classCharacterMovementComponent.html#a3657b292954362cbf5b1745ecbdc592a">CharacterMovementComponent::~CharacterMovementComponent</a></div><div class="ttdeci">virtual ~CharacterMovementComponent()=default</div></div>
@@ -165,6 +157,7 @@ $(document).ready(function(){initNavTree('CharacterMovementComponent_8h_source.h
 <div class="ttc" id="aclassCharacterMovementComponent_html_a6e20695b366c155095127cde59dd616d"><div class="ttname"><a href="classCharacterMovementComponent.html#a6e20695b366c155095127cde59dd616d">CharacterMovementComponent::m_lastMovement</a></div><div class="ttdeci">DirectX::XMFLOAT3 m_lastMovement</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:43</div></div>
 <div class="ttc" id="aclassCharacterMovementComponent_html_a7575b61e2fbbb86ddea6ce37fbaf6b7d"><div class="ttname"><a href="classCharacterMovementComponent.html#a7575b61e2fbbb86ddea6ce37fbaf6b7d">CharacterMovementComponent::m_autoRotate</a></div><div class="ttdeci">bool m_autoRotate</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:41</div></div>
 <div class="ttc" id="aclassCharacterMovementComponent_html_a7db69c93ae15396a39c2657c03d5019c"><div class="ttname"><a href="classCharacterMovementComponent.html#a7db69c93ae15396a39c2657c03d5019c">CharacterMovementComponent::GetUpdatePhase</a></div><div class="ttdeci">UpdatePhase GetUpdatePhase() const override</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:19</div></div>
+<div class="ttc" id="aclassCharacterMovementComponent_html_a913711b42e0c158b9c79c6e31821051a"><div class="ttname"><a href="classCharacterMovementComponent.html#a913711b42e0c158b9c79c6e31821051a">CharacterMovementComponent::Move</a></div><div class="ttdeci">ENGINE_API void Move(const DirectX::XMFLOAT3 &amp;movement, float deltaTime)</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.cpp:32</div></div>
 <div class="ttc" id="aclassCharacterMovementComponent_html_a9dac3cd8621f9d38c04f093e311e0469"><div class="ttname"><a href="classCharacterMovementComponent.html#a9dac3cd8621f9d38c04f093e311e0469">CharacterMovementComponent::SetAutoRotate</a></div><div class="ttdeci">void SetAutoRotate(bool autoRotate)</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:34</div></div>
 <div class="ttc" id="aclassCharacterMovementComponent_html_aa70e6557fddfb93a6e6b614cfd3d2ea0"><div class="ttname"><a href="classCharacterMovementComponent.html#aa70e6557fddfb93a6e6b614cfd3d2ea0">CharacterMovementComponent::GetSpeed</a></div><div class="ttdeci">float GetSpeed() const</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:27</div></div>
 <div class="ttc" id="aclassCharacterMovementComponent_html_aadc4ecc88dd2f8bc0fcd97fb665a2370"><div class="ttname"><a href="classCharacterMovementComponent.html#aadc4ecc88dd2f8bc0fcd97fb665a2370">CharacterMovementComponent::GetMinClimbNormalY</a></div><div class="ttdeci">float GetMinClimbNormalY() const</div><div class="ttdef"><b>Definition</b> CharacterMovementComponent.h:30</div></div>
@@ -179,11 +172,12 @@ $(document).ready(function(){initNavTree('CharacterMovementComponent_8h_source.h
 <div class="ttc" id="aclassGravityComponent_html"><div class="ttname"><a href="classGravityComponent.html">GravityComponent</a></div><div class="ttdef"><b>Definition</b> GravityComponent.h:9</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_5405398c23c020946029b9f4e6e04094.html">Engine</a></li><li class="navelem"><a class="el" href="dir_5f693e8ad8d60326c758affc3b922e76.html">Component</a></li><li class="navelem"><a class="el" href="CharacterMovementComponent_8h.html">CharacterMovementComponent.h</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_5405398c23c020946029b9f4e6e04094.html">Engine</a></li><li class="navelem"><a href="dir_5f693e8ad8d60326c758affc3b922e76.html">Component</a></li><li class="navelem"><a href="CharacterMovementComponent_8h.html">CharacterMovementComponent.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

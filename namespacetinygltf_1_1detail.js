@@ -1,11 +1,11 @@
 var namespacetinygltf_1_1detail =
 [
     [ "CJ_NoAllocator", "structtinygltf_1_1detail_1_1CJ__NoAllocator.html", null ],
-    [ "json", "namespacetinygltf_1_1detail.html#ae05483ae326b8d715a32738f0e48c1b1", null ],
-    [ "json_const_array_iterator", "namespacetinygltf_1_1detail.html#a7a968e37dfc278ec59a150b638ebf490", null ],
-    [ "json_const_iterator", "namespacetinygltf_1_1detail.html#aadf4468516bcc2e03c4e109f46a048af", null ],
-    [ "json_iterator", "namespacetinygltf_1_1detail.html#a6cb159633f5289b2cf18ee97463e37c1", null ],
-    [ "JsonDocument", "namespacetinygltf_1_1detail.html#a61b815ecaba21427fcfdedec179b5fbb", null ],
+    [ "json", "namespacetinygltf_1_1detail.html#a88e90901c874591292979b86303adf1b", null ],
+    [ "json_const_array_iterator", "namespacetinygltf_1_1detail.html#a80b715a5c5b1f5396b94bf1bbfa8cd8f", null ],
+    [ "json_const_iterator", "namespacetinygltf_1_1detail.html#a9cdfbe0a7a1328c3b6411736d53b007a", null ],
+    [ "json_iterator", "namespacetinygltf_1_1detail.html#a10548176b94a51c63a8c9ef94faa12ba", null ],
+    [ "JsonDocument", "namespacetinygltf_1_1detail.html#a0329381ab639e65a37f8700d38e91b50", null ],
     [ "ArrayBegin", "namespacetinygltf_1_1detail.html#a6248f204a3e210749722c722ad397acc", null ],
     [ "ArrayEnd", "namespacetinygltf_1_1detail.html#a57ae16119b539d3a9f7d86a6057e572b", null ],
     [ "Erase", "namespacetinygltf_1_1detail.html#a57a922a1096821edbc6baea2bb066dd1", null ],

@@ -14,6 +14,7 @@ var classRenderPipeline =
     [ "Init", "classRenderPipeline.html#ac850ebd2a1e379e5b43c7cfc20bb1efb", null ],
     [ "LoadFromJson", "classRenderPipeline.html#a1c7ec1d2f46e9196d113f04555dd77d9", null ],
     [ "MovePass", "classRenderPipeline.html#a0baa855cb0ab26382e6a46672b4de62a", null ],
+    [ "ReloadAllPassShaders", "classRenderPipeline.html#aaca282a59ef3298495c297b4a3fb73b1", null ],
     [ "RemovePass", "classRenderPipeline.html#abc474dce58c54ca29eb75fcd46a89478", null ],
     [ "SaveToJson", "classRenderPipeline.html#a7473bd2782447dbd390c0b871966370f", null ],
     [ "SetPreviewTextureName", "classRenderPipeline.html#a4876c1a6aa82d1809367caf508c20ee4", null ],

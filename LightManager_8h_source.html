@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: Source/Rendering/LightManager.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,28 +35,22 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function() { init_codefold(0); });
-/* @license-end */
-</script>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -68,10 +63,9 @@ $(document).ready(function() { init_codefold(0); });
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('LightManager_8h_source.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('LightManager_8h_source.html','',''); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -141,13 +135,13 @@ $(document).ready(function(){initNavTree('LightManager_8h_source.html',''); init
 </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
 <div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classLightManager.html">   37</a></span><span class="keyword">class </span><a class="code hl_class" href="classLightManager.html">LightManager</a></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classLightManager.html">   37</a></span><span class="keyword">class </span><a class="code hl_function" href="classLightManager.html#a1eee8eb276ec7f041d961a567389754a">LightManager</a></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">public</span>:</div>
 <div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classLightManager.html#a0a4931745ec0e8c5c14f4371d66a4ba0">   40</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classLightManager.html">LightManager</a>&amp; <a class="code hl_function" href="classLightManager.html#a0a4931745ec0e8c5c14f4371d66a4ba0">GetInstance</a>()</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classLightManager.html#a0a4931745ec0e8c5c14f4371d66a4ba0">   40</a></span>    <span class="keyword">static</span> <a class="code hl_function" href="classLightManager.html#a1eee8eb276ec7f041d961a567389754a">LightManager</a>&amp; <a class="code hl_function" href="classLightManager.html#a0a4931745ec0e8c5c14f4371d66a4ba0">GetInstance</a>()</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keyword">static</span> <a class="code hl_class" href="classLightManager.html">LightManager</a> instance;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keyword">static</span> <a class="code hl_function" href="classLightManager.html#a1eee8eb276ec7f041d961a567389754a">LightManager</a> instance;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordflow">return</span> instance;</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    }</div>
 </div>
@@ -237,8 +231,8 @@ $(document).ready(function(){initNavTree('LightManager_8h_source.html',''); init
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <a class="code hl_function" href="classLightManager.html#a1eee8eb276ec7f041d961a567389754a">LightManager</a>();</div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="classLightManager.html#ad80e309cda81b1af74db39e45410c37d">  130</a></span>    <a class="code hl_function" href="classLightManager.html#ad80e309cda81b1af74db39e45410c37d">~LightManager</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="classLightManager.html#ab7f041947e8a1d0635528c0993853494">  131</a></span>    <a class="code hl_function" href="classLightManager.html#ab7f041947e8a1d0635528c0993853494">LightManager</a>(<span class="keyword">const</span> <a class="code hl_class" href="classLightManager.html">LightManager</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="classLightManager.html#a72b1f4bb90088a748e08550f6087cb57">  132</a></span>    <a class="code hl_class" href="classLightManager.html">LightManager</a>&amp; <a class="code hl_function" href="classLightManager.html#a72b1f4bb90088a748e08550f6087cb57">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classLightManager.html">LightManager</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="classLightManager.html#ab7f041947e8a1d0635528c0993853494">  131</a></span>    <a class="code hl_function" href="classLightManager.html#ab7f041947e8a1d0635528c0993853494">LightManager</a>(<span class="keyword">const</span> <a class="code hl_function" href="classLightManager.html#a1eee8eb276ec7f041d961a567389754a">LightManager</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="classLightManager.html#a72b1f4bb90088a748e08550f6087cb57">  132</a></span>    <a class="code hl_function" href="classLightManager.html#a1eee8eb276ec7f041d961a567389754a">LightManager</a>&amp; <a class="code hl_function" href="classLightManager.html#a72b1f4bb90088a748e08550f6087cb57">operator=</a>(<span class="keyword">const</span> <a class="code hl_function" href="classLightManager.html#a1eee8eb276ec7f041d961a567389754a">LightManager</a>&amp;) = <span class="keyword">delete</span>;</div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLightManager.html#aa27a7c92a352d79abbde199ef505aabc">UpdateDirectionFromAngles</a>();</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
@@ -285,7 +279,6 @@ $(document).ready(function(){initNavTree('LightManager_8h_source.html',''); init
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>};</div>
 </div>
 <div class="ttc" id="aShadowMap_8h_html"><div class="ttname"><a href="ShadowMap_8h.html">ShadowMap.h</a></div></div>
-<div class="ttc" id="aclassLightManager_html"><div class="ttname"><a href="classLightManager.html">LightManager</a></div><div class="ttdef"><b>Definition</b> LightManager.h:38</div></div>
 <div class="ttc" id="aclassLightManager_html_a043b8ceef50e70c4b7cf4cb748a9a94f"><div class="ttname"><a href="classLightManager.html#a043b8ceef50e70c4b7cf4cb748a9a94f">LightManager::m_shadowNear</a></div><div class="ttdeci">float m_shadowNear</div><div class="ttdef"><b>Definition</b> LightManager.h:142</div></div>
 <div class="ttc" id="aclassLightManager_html_a056580396a9729606a0fa06a0216c45d"><div class="ttname"><a href="classLightManager.html#a056580396a9729606a0fa06a0216c45d">LightManager::m_shadowMap</a></div><div class="ttdeci">std::unique_ptr&lt; ShadowMap &gt; m_shadowMap</div><div class="ttdef"><b>Definition</b> LightManager.h:171</div></div>
 <div class="ttc" id="aclassLightManager_html_a056c5d73be55c07c77dbd2ce1c4e1310"><div class="ttname"><a href="classLightManager.html#a056c5d73be55c07c77dbd2ce1c4e1310">LightManager::SetAmbientColor</a></div><div class="ttdeci">void SetAmbientColor(float r, float g, float b, float specularPower=32.0f)</div><div class="ttdef"><b>Definition</b> LightManager.cpp:191</div></div>
@@ -396,11 +389,12 @@ $(document).ready(function(){initNavTree('LightManager_8h_source.html',''); init
 <div class="ttc" id="astructPointLightGPUData_html_a82412c28d13473f212253a15ca3d84f0"><div class="ttname"><a href="structPointLightGPUData.html#a82412c28d13473f212253a15ca3d84f0">PointLightGPUData::color</a></div><div class="ttdeci">DirectX::XMFLOAT4 color</div><div class="ttdef"><b>Definition</b> LightManager.h:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_e350ea9347b5bfd16d4777c6b135cca8.html">Rendering</a></li><li class="navelem"><a class="el" href="LightManager_8h.html">LightManager.h</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_e350ea9347b5bfd16d4777c6b135cca8.html">Rendering</a></li><li class="navelem"><a href="LightManager_8h.html">LightManager.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

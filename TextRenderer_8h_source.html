@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: Source/UI/TextRenderer.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,28 +35,22 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function() { init_codefold(0); });
-/* @license-end */
-</script>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -68,10 +63,9 @@ $(document).ready(function() { init_codefold(0); });
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('TextRenderer_8h_source.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('TextRenderer_8h_source.html','',''); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -105,10 +99,10 @@ $(document).ready(function(){initNavTree('TextRenderer_8h_source.html',''); init
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;d2d1.h&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="classCTextRenderer.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="classCTextRenderer.html">CTextRenderer</a> : <span class="keyword">public</span> <a class="code hl_class" href="classCComponent.html">CComponent</a></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="classCTextRenderer.html">    7</a></span><span class="keyword">class </span><a class="code hl_function" href="classCTextRenderer.html#a92bd453d1b2667d54afbc072ee419376">CTextRenderer</a> : <span class="keyword">public</span> <a class="code hl_function" href="classCComponent.html#ab87a6940be69962c3f4f5a8552643245">CComponent</a></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_class" href="classCTextRenderer.html">CTextRenderer</a>(<span class="keyword">const</span> std::string&amp; name = <span class="stringliteral">&quot;TextRenderer&quot;</span>);</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_function" href="classCTextRenderer.html#a92bd453d1b2667d54afbc072ee419376">CTextRenderer</a>(<span class="keyword">const</span> std::string&amp; name = <span class="stringliteral">&quot;TextRenderer&quot;</span>);</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classCTextRenderer.html#a80453a9177f117136a44591d36c02bf4">   11</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classCTextRenderer.html#a80453a9177f117136a44591d36c02bf4">~CTextRenderer</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classCTextRenderer.html#a2619d2f9af23efac9a6cedd7b09e0260">Init</a>() <span class="keyword">override</span>;</div>
@@ -147,9 +141,8 @@ $(document).ready(function(){initNavTree('TextRenderer_8h_source.html',''); init
 <div class="ttc" id="aComponent_8h_html"><div class="ttname"><a href="Component_8h.html">Component.h</a></div></div>
 <div class="ttc" id="aRenderLayer_8h_html"><div class="ttname"><a href="RenderLayer_8h.html">RenderLayer.h</a></div></div>
 <div class="ttc" id="aRenderLayer_8h_html_ad16d91520dd8dbd7a2178564fce5a168"><div class="ttname"><a href="RenderLayer_8h.html#ad16d91520dd8dbd7a2178564fce5a168">RenderLayer</a></div><div class="ttdeci">RenderLayer</div><div class="ttdef"><b>Definition</b> RenderLayer.h:4</div></div>
-<div class="ttc" id="aRenderLayer_8h_html_ad16d91520dd8dbd7a2178564fce5a168a71ff71526d15db86eb50fcac245d183b"><div class="ttname"><a href="RenderLayer_8h.html#ad16d91520dd8dbd7a2178564fce5a168a71ff71526d15db86eb50fcac245d183b">RenderLayer::UI</a></div><div class="ttdeci">@ UI</div></div>
-<div class="ttc" id="aclassCComponent_html"><div class="ttname"><a href="classCComponent.html">CComponent</a></div><div class="ttdef"><b>Definition</b> Component.h:23</div></div>
-<div class="ttc" id="aclassCTextRenderer_html"><div class="ttname"><a href="classCTextRenderer.html">CTextRenderer</a></div><div class="ttdef"><b>Definition</b> TextRenderer.h:8</div></div>
+<div class="ttc" id="aRenderLayer_8h_html_ad16d91520dd8dbd7a2178564fce5a168a71ff71526d15db86eb50fcac245d183b"><div class="ttname"><a href="RenderLayer_8h.html#ad16d91520dd8dbd7a2178564fce5a168a71ff71526d15db86eb50fcac245d183b">RenderLayer::UI</a></div><div class="ttdeci">@ UI</div><div class="ttdef"><b>Definition</b> RenderLayer.h:8</div></div>
+<div class="ttc" id="aclassCComponent_html_ab87a6940be69962c3f4f5a8552643245"><div class="ttname"><a href="classCComponent.html#ab87a6940be69962c3f4f5a8552643245">CComponent::CComponent</a></div><div class="ttdeci">CComponent()</div><div class="ttdef"><b>Definition</b> Component.h:25</div></div>
 <div class="ttc" id="aclassCTextRenderer_html_a03568141d58c1836f104b897367d93e8"><div class="ttname"><a href="classCTextRenderer.html#a03568141d58c1836f104b897367d93e8">CTextRenderer::m_fontSize</a></div><div class="ttdeci">float m_fontSize</div><div class="ttdef"><b>Definition</b> TextRenderer.h:40</div></div>
 <div class="ttc" id="aclassCTextRenderer_html_a0ceb0745ceb7a65cd25c9df9728fa4b0"><div class="ttname"><a href="classCTextRenderer.html#a0ceb0745ceb7a65cd25c9df9728fa4b0">CTextRenderer::Draw</a></div><div class="ttdeci">void Draw()</div><div class="ttdef"><b>Definition</b> TextRenderer.cpp:15</div></div>
 <div class="ttc" id="aclassCTextRenderer_html_a0ee5e5d70c99f4060987494fdc9fcc3e"><div class="ttname"><a href="classCTextRenderer.html#a0ee5e5d70c99f4060987494fdc9fcc3e">CTextRenderer::GetFontFamily</a></div><div class="ttdeci">const std::wstring &amp; GetFontFamily() const</div><div class="ttdef"><b>Definition</b> TextRenderer.h:34</div></div>
@@ -165,6 +158,7 @@ $(document).ready(function(){initNavTree('TextRenderer_8h_source.html',''); init
 <div class="ttc" id="aclassCTextRenderer_html_a84490a52cbb91f004ceb0840562a8384"><div class="ttname"><a href="classCTextRenderer.html#a84490a52cbb91f004ceb0840562a8384">CTextRenderer::GetText</a></div><div class="ttdeci">const std::wstring &amp; GetText() const</div><div class="ttdef"><b>Definition</b> TextRenderer.h:29</div></div>
 <div class="ttc" id="aclassCTextRenderer_html_a8a7086086ea18650a953003ac8b90d72"><div class="ttname"><a href="classCTextRenderer.html#a8a7086086ea18650a953003ac8b90d72">CTextRenderer::SetRenderLayer</a></div><div class="ttdeci">void SetRenderLayer(RenderLayer layer)</div><div class="ttdef"><b>Definition</b> TextRenderer.h:20</div></div>
 <div class="ttc" id="aclassCTextRenderer_html_a904c29224cc6e18884b3c6ae56951c97"><div class="ttname"><a href="classCTextRenderer.html#a904c29224cc6e18884b3c6ae56951c97">CTextRenderer::m_y</a></div><div class="ttdeci">float m_y</div><div class="ttdef"><b>Definition</b> TextRenderer.h:39</div></div>
+<div class="ttc" id="aclassCTextRenderer_html_a92bd453d1b2667d54afbc072ee419376"><div class="ttname"><a href="classCTextRenderer.html#a92bd453d1b2667d54afbc072ee419376">CTextRenderer::CTextRenderer</a></div><div class="ttdeci">CTextRenderer(const std::string &amp;name=&quot;TextRenderer&quot;)</div><div class="ttdef"><b>Definition</b> TextRenderer.cpp:6</div></div>
 <div class="ttc" id="aclassCTextRenderer_html_ac1a8c410eb93032d2a9c4b4993966d3e"><div class="ttname"><a href="classCTextRenderer.html#ac1a8c410eb93032d2a9c4b4993966d3e">CTextRenderer::GetFontSize</a></div><div class="ttdeci">float GetFontSize() const</div><div class="ttdef"><b>Definition</b> TextRenderer.h:32</div></div>
 <div class="ttc" id="aclassCTextRenderer_html_acc64b353604721aeb05db8acdd61965a"><div class="ttname"><a href="classCTextRenderer.html#acc64b353604721aeb05db8acdd61965a">CTextRenderer::SetPosition</a></div><div class="ttdeci">void SetPosition(float x, float y)</div><div class="ttdef"><b>Definition</b> TextRenderer.h:24</div></div>
 <div class="ttc" id="aclassCTextRenderer_html_add945cefc06129c73049758e41f41db4"><div class="ttname"><a href="classCTextRenderer.html#add945cefc06129c73049758e41f41db4">CTextRenderer::m_renderLayer</a></div><div class="ttdeci">RenderLayer m_renderLayer</div><div class="ttdef"><b>Definition</b> TextRenderer.h:43</div></div>
@@ -175,11 +169,12 @@ $(document).ready(function(){initNavTree('TextRenderer_8h_source.html',''); init
 <div class="ttc" id="aclassCTextRenderer_html_afb42de376fce2635a247d89327a4f247"><div class="ttname"><a href="classCTextRenderer.html#afb42de376fce2635a247d89327a4f247">CTextRenderer::GetY</a></div><div class="ttdeci">float GetY() const</div><div class="ttdef"><b>Definition</b> TextRenderer.h:31</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_ad68fd99ee46e73a145661c4c85612bf.html">UI</a></li><li class="navelem"><a class="el" href="TextRenderer_8h.html">TextRenderer.h</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_ad68fd99ee46e73a145661c4c85612bf.html">UI</a></li><li class="navelem"><a href="TextRenderer_8h.html">TextRenderer.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

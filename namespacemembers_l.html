@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: 名前空間メンバ</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('namespacemembers_l.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('namespacemembers_l.html','',''); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -92,7 +91,7 @@ $(document).ready(function(){initNavTree('namespacemembers_l.html',''); initResi
 <div class="contents">
 <div class="textblock">これは名前空間の一覧です。それぞれの名前空間へリンクしています。</div>
 
-<h3><a id="index_l" name="index_l"></a>- l -</h3><ul>
+<h3 class="doxsection"><a id="index_l" name="index_l"></a>- l -</h3><ul>
 <li>LabelText()&#160;:&#160;<a class="el" href="namespaceImGui.html#ad92ccfbc33d448ff40cfcf9219177344">ImGui</a></li>
 <li>LabelTextV()&#160;:&#160;<a class="el" href="namespaceImGui.html#a55e5a7edb676a8f5cd7f65443138a8a0">ImGui</a></li>
 <li>Lerp()&#160;:&#160;<a class="el" href="namespaceTweenMath.html#a315d3bf5e5b746afa015463e41456990">TweenMath</a></li>
@@ -100,7 +99,7 @@ $(document).ready(function(){initNavTree('namespacemembers_l.html',''); initResi
 <li>ListBox()&#160;:&#160;<a class="el" href="namespaceImGui.html#a44379fe654f54ae8bd8cc1b88bf7c822">ImGui</a></li>
 <li>little_endianess()&#160;:&#160;<a class="el" href="namespacenlohmann_1_1detail.html#ad2860d9bcd96cd7b8258a5b94674508c">nlohmann::detail</a></li>
 <li>LoadImageData()&#160;:&#160;<a class="el" href="namespacetinygltf.html#aee35a1a1bc4b90c187f18bcc00a5904c">tinygltf</a></li>
-<li>LoadImageDataFunction&#160;:&#160;<a class="el" href="namespacetinygltf.html#a78dd9e1dfb0b7d1f38bc0dd00ebd3786">tinygltf</a></li>
+<li>LoadImageDataFunction&#160;:&#160;<a class="el" href="namespacetinygltf.html#aeb69eb3f148ddba2c6fe080f6d9a0b3b">tinygltf</a></li>
 <li>LoadIniSettingsFromDisk()&#160;:&#160;<a class="el" href="namespaceImGui.html#a4bf22fb84ba768fc18383af50e8c217f">ImGui</a></li>
 <li>LoadIniSettingsFromMemory()&#160;:&#160;<a class="el" href="namespaceImGui.html#a8e37b6a0b2feb6cd6ac61a4259392861">ImGui</a></li>
 <li>LocalizeGetMsg()&#160;:&#160;<a class="el" href="namespaceImGui.html#a0560d8edbeb9985eda5334d2f01a6fad">ImGui</a></li>
@@ -119,10 +118,11 @@ $(document).ready(function(){initNavTree('namespacemembers_l.html',''); initResi
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

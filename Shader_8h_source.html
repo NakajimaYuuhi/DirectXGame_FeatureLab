@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: Source/Rendering/Shader.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,28 +35,22 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function() { init_codefold(0); });
-/* @license-end */
-</script>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -68,10 +63,9 @@ $(document).ready(function() { init_codefold(0); });
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('Shader_8h_source.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('Shader_8h_source.html','',''); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -103,60 +97,139 @@ $(document).ready(function(){initNavTree('Shader_8h_source.html',''); initResiza
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;d3d12.h&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;wrl.h&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">using </span>Microsoft::WRL::ComPtr;</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classShader.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="classShader.html">Shader</a></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classShader.html#aedc63e240e965b496f246ffc214918b4">   12</a></span>    <a class="code hl_function" href="classShader.html#aedc63e240e965b496f246ffc214918b4">Shader</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classShader.html#a4a7cae5113a3388cd09b669719a48f4f">   13</a></span>    <a class="code hl_function" href="classShader.html#a4a7cae5113a3388cd09b669719a48f4f">~Shader</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classShader.html#ac0c098204705bc243465920130b01f86">CompileFromFile</a>(<span class="keyword">const</span> std::wstring&amp; filePath, <span class="keyword">const</span> std::string&amp; entryPoint, <span class="keyword">const</span> std::string&amp; target, std::string* outError = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classShader.html#a75e2da5bafeb2db7e63055a10a74f6be">LoadFromCSO</a>(<span class="keyword">const</span> std::wstring&amp; csoFilePath);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="comment">// Recompile from the original file path/entryPoint/target; keeps old blob on failure</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classShader.html#abedcf461f9c1a2da87ad84576b0b74dd">Recompile</a>(std::string* outError = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classShader.html#ad3c7042eb760710e74f385ccfce926b7">   21</a></span>    ID3DBlob* <a class="code hl_function" href="classShader.html#ad3c7042eb760710e74f385ccfce926b7">GetBlob</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classShader.html#a19f1e743cc42c5694739c0ab81316e8f">m_blob</a>.Get(); }</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    D3D12_SHADER_BYTECODE <a class="code hl_function" href="classShader.html#a188520f6c6ec9836b455ccb4dca2e035">GetBytecode</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classShader.html#a867a082e0b63c374b0ab3cb3be67f937">   24</a></span>    <span class="keyword">const</span> std::wstring&amp; <a class="code hl_function" href="classShader.html#a867a082e0b63c374b0ab3cb3be67f937">GetFilePath</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classShader.html#a4eb471b3cf9796c882d775f8d309822d">m_filePath</a>; }</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classShader.html#a6e6771e9816d4b6c1aac48026d9aa752">   25</a></span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classShader.html#a6e6771e9816d4b6c1aac48026d9aa752">GetEntryPoint</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classShader.html#ae92b80007070826a0e22326266e677f2">m_entryPoint</a>; }</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classShader.html#af3d63dd42f3167a34d17ca1fb364af67">   26</a></span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classShader.html#af3d63dd42f3167a34d17ca1fb364af67">GetTarget</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classShader.html#a05d98fac63f2abda415396e68c3aac98">m_target</a>; }</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classShader.html#afa15c10613619217ef784f3ec1b0f0f2">   27</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classShader.html#afa15c10613619217ef784f3ec1b0f0f2">IsCompiledFromFile</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> !<a class="code hl_variable" href="classShader.html#a4eb471b3cf9796c882d775f8d309822d">m_filePath</a>.empty() &amp;&amp; !<a class="code hl_variable" href="classShader.html#ae92b80007070826a0e22326266e677f2">m_entryPoint</a>.empty(); }</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classShader.html#a19f1e743cc42c5694739c0ab81316e8f">   30</a></span>    ComPtr&lt;ID3DBlob&gt; <a class="code hl_variable" href="classShader.html#a19f1e743cc42c5694739c0ab81316e8f">m_blob</a>;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classShader.html#a4eb471b3cf9796c882d775f8d309822d">   31</a></span>    std::wstring <a class="code hl_variable" href="classShader.html#a4eb471b3cf9796c882d775f8d309822d">m_filePath</a>;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classShader.html#ae92b80007070826a0e22326266e677f2">   32</a></span>    std::string <a class="code hl_variable" href="classShader.html#ae92b80007070826a0e22326266e677f2">m_entryPoint</a>;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classShader.html#a05d98fac63f2abda415396e68c3aac98">   33</a></span>    std::string <a class="code hl_variable" href="classShader.html#a05d98fac63f2abda415396e68c3aac98">m_target</a>;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>};</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">using </span>Microsoft::WRL::ComPtr;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">// Metadata parsed from HLSL comments (e.g. // @Param(0, &quot;Shadow Softness&quot;, 0.0, 4.0))</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">// Maps directly to MaterialBuffer::matCustomParams[0..1] (indices 0..7)</span></div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="structShaderParamAnnotation.html">   12</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structShaderParamAnnotation.html">ShaderParamAnnotation</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structShaderParamAnnotation.html#a849dcf3d63749df5a9217ee372500630">   14</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structShaderParamAnnotation.html#a849dcf3d63749df5a9217ee372500630">paramIndex</a> = 0;       <span class="comment">// 0..7 (0..3 = matCustomParams[0].xyzw, 4..7 = matCustomParams[1].xyzw)</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="structShaderParamAnnotation.html#aade2d55a88f99f41768857b8c098c52e">   15</a></span>    std::string <a class="code hl_variable" href="structShaderParamAnnotation.html#aade2d55a88f99f41768857b8c098c52e">label</a>;        <span class="comment">// Display name in Inspector</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="structShaderParamAnnotation.html#a2150d229da2260cfc67cf56b7dafe0e2">   16</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structShaderParamAnnotation.html#a2150d229da2260cfc67cf56b7dafe0e2">minVal</a> = 0.0f;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="structShaderParamAnnotation.html#a25d1acc7a4971895579036fef7cf3ab5">   17</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structShaderParamAnnotation.html#a25d1acc7a4971895579036fef7cf3ab5">maxVal</a> = 1.0f;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="structShaderParamAnnotation.html#a03b55c7dfcd54134cedbb609fe5e51db">   18</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structShaderParamAnnotation.html#a03b55c7dfcd54134cedbb609fe5e51db">isColor</a> = <span class="keyword">false</span>;     <span class="comment">// If true, uses ColorEdit4 on matCustomParams[0] (idx=0) or [1] (idx=4)</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>};</div>
 </div>
-<div class="ttc" id="aclassShader_html"><div class="ttname"><a href="classShader.html">Shader</a></div><div class="ttdef"><b>Definition</b> Shader.h:10</div></div>
-<div class="ttc" id="aclassShader_html_a05d98fac63f2abda415396e68c3aac98"><div class="ttname"><a href="classShader.html#a05d98fac63f2abda415396e68c3aac98">Shader::m_target</a></div><div class="ttdeci">std::string m_target</div><div class="ttdef"><b>Definition</b> Shader.h:33</div></div>
-<div class="ttc" id="aclassShader_html_a188520f6c6ec9836b455ccb4dca2e035"><div class="ttname"><a href="classShader.html#a188520f6c6ec9836b455ccb4dca2e035">Shader::GetBytecode</a></div><div class="ttdeci">D3D12_SHADER_BYTECODE GetBytecode() const</div><div class="ttdef"><b>Definition</b> Shader.cpp:82</div></div>
-<div class="ttc" id="aclassShader_html_a19f1e743cc42c5694739c0ab81316e8f"><div class="ttname"><a href="classShader.html#a19f1e743cc42c5694739c0ab81316e8f">Shader::m_blob</a></div><div class="ttdeci">ComPtr&lt; ID3DBlob &gt; m_blob</div><div class="ttdef"><b>Definition</b> Shader.h:30</div></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">// Reflection info extracted via D3DReflect</span></div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="structReflectedVariable.html">   22</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structReflectedVariable.html">ReflectedVariable</a></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structReflectedVariable.html#a747af42412a4acfb79868f4e5f57172c">   24</a></span>    std::string <a class="code hl_variable" href="structReflectedVariable.html#a747af42412a4acfb79868f4e5f57172c">name</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structReflectedVariable.html#ac8574782c6a39e8ece8366c610d4caeb">   25</a></span>    UINT <a class="code hl_variable" href="structReflectedVariable.html#ac8574782c6a39e8ece8366c610d4caeb">offset</a> = 0;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="structReflectedVariable.html#a8982d47f200123f0ee69a84c82d7b7ab">   26</a></span>    UINT <a class="code hl_variable" href="structReflectedVariable.html#a8982d47f200123f0ee69a84c82d7b7ab">size</a> = 0;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>};</div>
+</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="structReflectedCBuffer.html">   29</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structReflectedCBuffer.html">ReflectedCBuffer</a></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structReflectedCBuffer.html#abf95e584bf35c419f02f71b004b9f3a7">   31</a></span>    std::string <a class="code hl_variable" href="structReflectedCBuffer.html#abf95e584bf35c419f02f71b004b9f3a7">name</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="structReflectedCBuffer.html#aee00e938a1b355879c3e9b2bccd14e08">   32</a></span>    UINT <a class="code hl_variable" href="structReflectedCBuffer.html#aee00e938a1b355879c3e9b2bccd14e08">bindPoint</a> = 0;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="structReflectedCBuffer.html#a4cda3ba9505e550a5d64bcf937060abc">   33</a></span>    UINT <a class="code hl_variable" href="structReflectedCBuffer.html#a4cda3ba9505e550a5d64bcf937060abc">size</a> = 0;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structReflectedCBuffer.html#af47fa87f0a2fa631e4c8cfe680ae6080">   34</a></span>    std::vector&lt;ReflectedVariable&gt; <a class="code hl_variable" href="structReflectedCBuffer.html#af47fa87f0a2fa631e4c8cfe680ae6080">variables</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>};</div>
+</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="structShaderReflectionData.html">   37</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structShaderReflectionData.html">ShaderReflectionData</a></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="structShaderReflectionData.html#a7bef882495964ebf94556d15dba637a8">   39</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structShaderReflectionData.html#a7bef882495964ebf94556d15dba637a8">isValid</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="structShaderReflectionData.html#a6556d5db4a0a79b5c8d19718b3256000">   40</a></span>    UINT <a class="code hl_variable" href="structShaderReflectionData.html#a6556d5db4a0a79b5c8d19718b3256000">instructionCount</a> = 0;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="structShaderReflectionData.html#a5d4a5046d61f620132aa8157f8596106">   41</a></span>    std::vector&lt;ReflectedCBuffer&gt; <a class="code hl_variable" href="structShaderReflectionData.html#a5d4a5046d61f620132aa8157f8596106">constantBuffers</a>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="structShaderReflectionData.html#ab4d4771116b7d85d1def5c1c44ac94b7">   42</a></span>    std::vector&lt;std::string&gt; <a class="code hl_variable" href="structShaderReflectionData.html#ab4d4771116b7d85d1def5c1c44ac94b7">boundResources</a>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>};</div>
+</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="};">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classShader.html">   45</a></span><span class="keyword">class </span><a class="code hl_function" href="classShader.html#aedc63e240e965b496f246ffc214918b4">Shader</a></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>{</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classShader.html#aedc63e240e965b496f246ffc214918b4">   48</a></span>    <a class="code hl_function" href="classShader.html#aedc63e240e965b496f246ffc214918b4">Shader</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classShader.html#a4a7cae5113a3388cd09b669719a48f4f">   49</a></span>    <a class="code hl_function" href="classShader.html#a4a7cae5113a3388cd09b669719a48f4f">~Shader</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classShader.html#ac0c098204705bc243465920130b01f86">CompileFromFile</a>(<span class="keyword">const</span> std::wstring&amp; filePath, <span class="keyword">const</span> std::string&amp; entryPoint, <span class="keyword">const</span> std::string&amp; target, std::string* outError = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classShader.html#a75e2da5bafeb2db7e63055a10a74f6be">LoadFromCSO</a>(<span class="keyword">const</span> std::wstring&amp; csoFilePath);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="comment">// Recompile from the original file path/entryPoint/target; keeps old blob on failure</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classShader.html#abedcf461f9c1a2da87ad84576b0b74dd">Recompile</a>(std::string* outError = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classShader.html#ad3c7042eb760710e74f385ccfce926b7">   57</a></span>    ID3DBlob* <a class="code hl_function" href="classShader.html#ad3c7042eb760710e74f385ccfce926b7">GetBlob</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classShader.html#a19f1e743cc42c5694739c0ab81316e8f">m_blob</a>.Get(); }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    D3D12_SHADER_BYTECODE <a class="code hl_function" href="classShader.html#a188520f6c6ec9836b455ccb4dca2e035">GetBytecode</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classShader.html#a867a082e0b63c374b0ab3cb3be67f937">   60</a></span>    <span class="keyword">const</span> std::wstring&amp; <a class="code hl_function" href="classShader.html#a867a082e0b63c374b0ab3cb3be67f937">GetFilePath</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classShader.html#a4eb471b3cf9796c882d775f8d309822d">m_filePath</a>; }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classShader.html#a6e6771e9816d4b6c1aac48026d9aa752">   61</a></span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classShader.html#a6e6771e9816d4b6c1aac48026d9aa752">GetEntryPoint</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classShader.html#ae92b80007070826a0e22326266e677f2">m_entryPoint</a>; }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classShader.html#af3d63dd42f3167a34d17ca1fb364af67">   62</a></span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classShader.html#af3d63dd42f3167a34d17ca1fb364af67">GetTarget</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classShader.html#a05d98fac63f2abda415396e68c3aac98">m_target</a>; }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classShader.html#afa15c10613619217ef784f3ec1b0f0f2">   63</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classShader.html#afa15c10613619217ef784f3ec1b0f0f2">IsCompiledFromFile</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> !<a class="code hl_variable" href="classShader.html#a4eb471b3cf9796c882d775f8d309822d">m_filePath</a>.empty() &amp;&amp; !<a class="code hl_variable" href="classShader.html#ae92b80007070826a0e22326266e677f2">m_entryPoint</a>.empty(); }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classShader.html#a570bc51b402800928420f61fec332998">   65</a></span>    <span class="keyword">const</span> <a class="code hl_struct" href="structShaderReflectionData.html">ShaderReflectionData</a>&amp; <a class="code hl_function" href="classShader.html#a570bc51b402800928420f61fec332998">GetReflection</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classShader.html#afc52dd67dbc04cad0e3697145761730a">m_reflection</a>; }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classShader.html#af483a974937195c5ddd0c79cd8a303dc">   66</a></span>    <span class="keyword">const</span> std::vector&lt;ShaderParamAnnotation&gt;&amp; <a class="code hl_function" href="classShader.html#af483a974937195c5ddd0c79cd8a303dc">GetAnnotations</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classShader.html#a59d807ff701f9f163acccd30fab65e13">m_annotations</a>; }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classShader.html#a8b3082791d97db06c6e550ed2e661d08">ExtractReflection</a>();</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classShader.html#a7643a357fa3b0f953c644ca189c9777a">ParseAnnotationsFromFile</a>(<span class="keyword">const</span> std::wstring&amp; filePath);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classShader.html#a19f1e743cc42c5694739c0ab81316e8f">   72</a></span>    ComPtr&lt;ID3DBlob&gt; <a class="code hl_variable" href="classShader.html#a19f1e743cc42c5694739c0ab81316e8f">m_blob</a>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classShader.html#a4eb471b3cf9796c882d775f8d309822d">   73</a></span>    std::wstring <a class="code hl_variable" href="classShader.html#a4eb471b3cf9796c882d775f8d309822d">m_filePath</a>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classShader.html#ae92b80007070826a0e22326266e677f2">   74</a></span>    std::string <a class="code hl_variable" href="classShader.html#ae92b80007070826a0e22326266e677f2">m_entryPoint</a>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classShader.html#a05d98fac63f2abda415396e68c3aac98">   75</a></span>    std::string <a class="code hl_variable" href="classShader.html#a05d98fac63f2abda415396e68c3aac98">m_target</a>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classShader.html#afc52dd67dbc04cad0e3697145761730a">   77</a></span>    <a class="code hl_struct" href="structShaderReflectionData.html">ShaderReflectionData</a> <a class="code hl_variable" href="classShader.html#afc52dd67dbc04cad0e3697145761730a">m_reflection</a>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classShader.html#a59d807ff701f9f163acccd30fab65e13">   78</a></span>    std::vector&lt;ShaderParamAnnotation&gt; <a class="code hl_variable" href="classShader.html#a59d807ff701f9f163acccd30fab65e13">m_annotations</a>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>};</div>
+</div>
+<div class="ttc" id="aclassShader_html_a05d98fac63f2abda415396e68c3aac98"><div class="ttname"><a href="classShader.html#a05d98fac63f2abda415396e68c3aac98">Shader::m_target</a></div><div class="ttdeci">std::string m_target</div><div class="ttdef"><b>Definition</b> Shader.h:75</div></div>
+<div class="ttc" id="aclassShader_html_a188520f6c6ec9836b455ccb4dca2e035"><div class="ttname"><a href="classShader.html#a188520f6c6ec9836b455ccb4dca2e035">Shader::GetBytecode</a></div><div class="ttdeci">D3D12_SHADER_BYTECODE GetBytecode() const</div><div class="ttdef"><b>Definition</b> Shader.cpp:89</div></div>
+<div class="ttc" id="aclassShader_html_a19f1e743cc42c5694739c0ab81316e8f"><div class="ttname"><a href="classShader.html#a19f1e743cc42c5694739c0ab81316e8f">Shader::m_blob</a></div><div class="ttdeci">ComPtr&lt; ID3DBlob &gt; m_blob</div><div class="ttdef"><b>Definition</b> Shader.h:72</div></div>
 <div class="ttc" id="aclassShader_html_a4a7cae5113a3388cd09b669719a48f4f"><div class="ttname"><a href="classShader.html#a4a7cae5113a3388cd09b669719a48f4f">Shader::~Shader</a></div><div class="ttdeci">~Shader()=default</div></div>
-<div class="ttc" id="aclassShader_html_a4eb471b3cf9796c882d775f8d309822d"><div class="ttname"><a href="classShader.html#a4eb471b3cf9796c882d775f8d309822d">Shader::m_filePath</a></div><div class="ttdeci">std::wstring m_filePath</div><div class="ttdef"><b>Definition</b> Shader.h:31</div></div>
-<div class="ttc" id="aclassShader_html_a6e6771e9816d4b6c1aac48026d9aa752"><div class="ttname"><a href="classShader.html#a6e6771e9816d4b6c1aac48026d9aa752">Shader::GetEntryPoint</a></div><div class="ttdeci">const std::string &amp; GetEntryPoint() const</div><div class="ttdef"><b>Definition</b> Shader.h:25</div></div>
-<div class="ttc" id="aclassShader_html_a75e2da5bafeb2db7e63055a10a74f6be"><div class="ttname"><a href="classShader.html#a75e2da5bafeb2db7e63055a10a74f6be">Shader::LoadFromCSO</a></div><div class="ttdeci">bool LoadFromCSO(const std::wstring &amp;csoFilePath)</div><div class="ttdef"><b>Definition</b> Shader.cpp:55</div></div>
-<div class="ttc" id="aclassShader_html_a867a082e0b63c374b0ab3cb3be67f937"><div class="ttname"><a href="classShader.html#a867a082e0b63c374b0ab3cb3be67f937">Shader::GetFilePath</a></div><div class="ttdeci">const std::wstring &amp; GetFilePath() const</div><div class="ttdef"><b>Definition</b> Shader.h:24</div></div>
-<div class="ttc" id="aclassShader_html_abedcf461f9c1a2da87ad84576b0b74dd"><div class="ttname"><a href="classShader.html#abedcf461f9c1a2da87ad84576b0b74dd">Shader::Recompile</a></div><div class="ttdeci">bool Recompile(std::string *outError=nullptr)</div><div class="ttdef"><b>Definition</b> Shader.cpp:46</div></div>
-<div class="ttc" id="aclassShader_html_ac0c098204705bc243465920130b01f86"><div class="ttname"><a href="classShader.html#ac0c098204705bc243465920130b01f86">Shader::CompileFromFile</a></div><div class="ttdeci">bool CompileFromFile(const std::wstring &amp;filePath, const std::string &amp;entryPoint, const std::string &amp;target, std::string *outError=nullptr)</div><div class="ttdef"><b>Definition</b> Shader.cpp:6</div></div>
-<div class="ttc" id="aclassShader_html_ad3c7042eb760710e74f385ccfce926b7"><div class="ttname"><a href="classShader.html#ad3c7042eb760710e74f385ccfce926b7">Shader::GetBlob</a></div><div class="ttdeci">ID3DBlob * GetBlob() const</div><div class="ttdef"><b>Definition</b> Shader.h:21</div></div>
-<div class="ttc" id="aclassShader_html_ae92b80007070826a0e22326266e677f2"><div class="ttname"><a href="classShader.html#ae92b80007070826a0e22326266e677f2">Shader::m_entryPoint</a></div><div class="ttdeci">std::string m_entryPoint</div><div class="ttdef"><b>Definition</b> Shader.h:32</div></div>
+<div class="ttc" id="aclassShader_html_a4eb471b3cf9796c882d775f8d309822d"><div class="ttname"><a href="classShader.html#a4eb471b3cf9796c882d775f8d309822d">Shader::m_filePath</a></div><div class="ttdeci">std::wstring m_filePath</div><div class="ttdef"><b>Definition</b> Shader.h:73</div></div>
+<div class="ttc" id="aclassShader_html_a570bc51b402800928420f61fec332998"><div class="ttname"><a href="classShader.html#a570bc51b402800928420f61fec332998">Shader::GetReflection</a></div><div class="ttdeci">const ShaderReflectionData &amp; GetReflection() const</div><div class="ttdef"><b>Definition</b> Shader.h:65</div></div>
+<div class="ttc" id="aclassShader_html_a59d807ff701f9f163acccd30fab65e13"><div class="ttname"><a href="classShader.html#a59d807ff701f9f163acccd30fab65e13">Shader::m_annotations</a></div><div class="ttdeci">std::vector&lt; ShaderParamAnnotation &gt; m_annotations</div><div class="ttdef"><b>Definition</b> Shader.h:78</div></div>
+<div class="ttc" id="aclassShader_html_a6e6771e9816d4b6c1aac48026d9aa752"><div class="ttname"><a href="classShader.html#a6e6771e9816d4b6c1aac48026d9aa752">Shader::GetEntryPoint</a></div><div class="ttdeci">const std::string &amp; GetEntryPoint() const</div><div class="ttdef"><b>Definition</b> Shader.h:61</div></div>
+<div class="ttc" id="aclassShader_html_a75e2da5bafeb2db7e63055a10a74f6be"><div class="ttname"><a href="classShader.html#a75e2da5bafeb2db7e63055a10a74f6be">Shader::LoadFromCSO</a></div><div class="ttdeci">bool LoadFromCSO(const std::wstring &amp;csoFilePath)</div><div class="ttdef"><b>Definition</b> Shader.cpp:61</div></div>
+<div class="ttc" id="aclassShader_html_a7643a357fa3b0f953c644ca189c9777a"><div class="ttname"><a href="classShader.html#a7643a357fa3b0f953c644ca189c9777a">Shader::ParseAnnotationsFromFile</a></div><div class="ttdeci">void ParseAnnotationsFromFile(const std::wstring &amp;filePath)</div><div class="ttdef"><b>Definition</b> Shader.cpp:177</div></div>
+<div class="ttc" id="aclassShader_html_a867a082e0b63c374b0ab3cb3be67f937"><div class="ttname"><a href="classShader.html#a867a082e0b63c374b0ab3cb3be67f937">Shader::GetFilePath</a></div><div class="ttdeci">const std::wstring &amp; GetFilePath() const</div><div class="ttdef"><b>Definition</b> Shader.h:60</div></div>
+<div class="ttc" id="aclassShader_html_a8b3082791d97db06c6e550ed2e661d08"><div class="ttname"><a href="classShader.html#a8b3082791d97db06c6e550ed2e661d08">Shader::ExtractReflection</a></div><div class="ttdeci">void ExtractReflection()</div><div class="ttdef"><b>Definition</b> Shader.cpp:100</div></div>
+<div class="ttc" id="aclassShader_html_abedcf461f9c1a2da87ad84576b0b74dd"><div class="ttname"><a href="classShader.html#abedcf461f9c1a2da87ad84576b0b74dd">Shader::Recompile</a></div><div class="ttdeci">bool Recompile(std::string *outError=nullptr)</div><div class="ttdef"><b>Definition</b> Shader.cpp:52</div></div>
+<div class="ttc" id="aclassShader_html_ac0c098204705bc243465920130b01f86"><div class="ttname"><a href="classShader.html#ac0c098204705bc243465920130b01f86">Shader::CompileFromFile</a></div><div class="ttdeci">bool CompileFromFile(const std::wstring &amp;filePath, const std::string &amp;entryPoint, const std::string &amp;target, std::string *outError=nullptr)</div><div class="ttdef"><b>Definition</b> Shader.cpp:9</div></div>
+<div class="ttc" id="aclassShader_html_ad3c7042eb760710e74f385ccfce926b7"><div class="ttname"><a href="classShader.html#ad3c7042eb760710e74f385ccfce926b7">Shader::GetBlob</a></div><div class="ttdeci">ID3DBlob * GetBlob() const</div><div class="ttdef"><b>Definition</b> Shader.h:57</div></div>
+<div class="ttc" id="aclassShader_html_ae92b80007070826a0e22326266e677f2"><div class="ttname"><a href="classShader.html#ae92b80007070826a0e22326266e677f2">Shader::m_entryPoint</a></div><div class="ttdeci">std::string m_entryPoint</div><div class="ttdef"><b>Definition</b> Shader.h:74</div></div>
 <div class="ttc" id="aclassShader_html_aedc63e240e965b496f246ffc214918b4"><div class="ttname"><a href="classShader.html#aedc63e240e965b496f246ffc214918b4">Shader::Shader</a></div><div class="ttdeci">Shader()=default</div></div>
-<div class="ttc" id="aclassShader_html_af3d63dd42f3167a34d17ca1fb364af67"><div class="ttname"><a href="classShader.html#af3d63dd42f3167a34d17ca1fb364af67">Shader::GetTarget</a></div><div class="ttdeci">const std::string &amp; GetTarget() const</div><div class="ttdef"><b>Definition</b> Shader.h:26</div></div>
-<div class="ttc" id="aclassShader_html_afa15c10613619217ef784f3ec1b0f0f2"><div class="ttname"><a href="classShader.html#afa15c10613619217ef784f3ec1b0f0f2">Shader::IsCompiledFromFile</a></div><div class="ttdeci">bool IsCompiledFromFile() const</div><div class="ttdef"><b>Definition</b> Shader.h:27</div></div>
+<div class="ttc" id="aclassShader_html_af3d63dd42f3167a34d17ca1fb364af67"><div class="ttname"><a href="classShader.html#af3d63dd42f3167a34d17ca1fb364af67">Shader::GetTarget</a></div><div class="ttdeci">const std::string &amp; GetTarget() const</div><div class="ttdef"><b>Definition</b> Shader.h:62</div></div>
+<div class="ttc" id="aclassShader_html_af483a974937195c5ddd0c79cd8a303dc"><div class="ttname"><a href="classShader.html#af483a974937195c5ddd0c79cd8a303dc">Shader::GetAnnotations</a></div><div class="ttdeci">const std::vector&lt; ShaderParamAnnotation &gt; &amp; GetAnnotations() const</div><div class="ttdef"><b>Definition</b> Shader.h:66</div></div>
+<div class="ttc" id="aclassShader_html_afa15c10613619217ef784f3ec1b0f0f2"><div class="ttname"><a href="classShader.html#afa15c10613619217ef784f3ec1b0f0f2">Shader::IsCompiledFromFile</a></div><div class="ttdeci">bool IsCompiledFromFile() const</div><div class="ttdef"><b>Definition</b> Shader.h:63</div></div>
+<div class="ttc" id="aclassShader_html_afc52dd67dbc04cad0e3697145761730a"><div class="ttname"><a href="classShader.html#afc52dd67dbc04cad0e3697145761730a">Shader::m_reflection</a></div><div class="ttdeci">ShaderReflectionData m_reflection</div><div class="ttdef"><b>Definition</b> Shader.h:77</div></div>
+<div class="ttc" id="astructReflectedCBuffer_html"><div class="ttname"><a href="structReflectedCBuffer.html">ReflectedCBuffer</a></div><div class="ttdef"><b>Definition</b> Shader.h:30</div></div>
+<div class="ttc" id="astructReflectedCBuffer_html_a4cda3ba9505e550a5d64bcf937060abc"><div class="ttname"><a href="structReflectedCBuffer.html#a4cda3ba9505e550a5d64bcf937060abc">ReflectedCBuffer::size</a></div><div class="ttdeci">UINT size</div><div class="ttdef"><b>Definition</b> Shader.h:33</div></div>
+<div class="ttc" id="astructReflectedCBuffer_html_abf95e584bf35c419f02f71b004b9f3a7"><div class="ttname"><a href="structReflectedCBuffer.html#abf95e584bf35c419f02f71b004b9f3a7">ReflectedCBuffer::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition</b> Shader.h:31</div></div>
+<div class="ttc" id="astructReflectedCBuffer_html_aee00e938a1b355879c3e9b2bccd14e08"><div class="ttname"><a href="structReflectedCBuffer.html#aee00e938a1b355879c3e9b2bccd14e08">ReflectedCBuffer::bindPoint</a></div><div class="ttdeci">UINT bindPoint</div><div class="ttdef"><b>Definition</b> Shader.h:32</div></div>
+<div class="ttc" id="astructReflectedCBuffer_html_af47fa87f0a2fa631e4c8cfe680ae6080"><div class="ttname"><a href="structReflectedCBuffer.html#af47fa87f0a2fa631e4c8cfe680ae6080">ReflectedCBuffer::variables</a></div><div class="ttdeci">std::vector&lt; ReflectedVariable &gt; variables</div><div class="ttdef"><b>Definition</b> Shader.h:34</div></div>
+<div class="ttc" id="astructReflectedVariable_html"><div class="ttname"><a href="structReflectedVariable.html">ReflectedVariable</a></div><div class="ttdef"><b>Definition</b> Shader.h:23</div></div>
+<div class="ttc" id="astructReflectedVariable_html_a747af42412a4acfb79868f4e5f57172c"><div class="ttname"><a href="structReflectedVariable.html#a747af42412a4acfb79868f4e5f57172c">ReflectedVariable::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition</b> Shader.h:24</div></div>
+<div class="ttc" id="astructReflectedVariable_html_a8982d47f200123f0ee69a84c82d7b7ab"><div class="ttname"><a href="structReflectedVariable.html#a8982d47f200123f0ee69a84c82d7b7ab">ReflectedVariable::size</a></div><div class="ttdeci">UINT size</div><div class="ttdef"><b>Definition</b> Shader.h:26</div></div>
+<div class="ttc" id="astructReflectedVariable_html_ac8574782c6a39e8ece8366c610d4caeb"><div class="ttname"><a href="structReflectedVariable.html#ac8574782c6a39e8ece8366c610d4caeb">ReflectedVariable::offset</a></div><div class="ttdeci">UINT offset</div><div class="ttdef"><b>Definition</b> Shader.h:25</div></div>
+<div class="ttc" id="astructShaderParamAnnotation_html"><div class="ttname"><a href="structShaderParamAnnotation.html">ShaderParamAnnotation</a></div><div class="ttdef"><b>Definition</b> Shader.h:13</div></div>
+<div class="ttc" id="astructShaderParamAnnotation_html_a03b55c7dfcd54134cedbb609fe5e51db"><div class="ttname"><a href="structShaderParamAnnotation.html#a03b55c7dfcd54134cedbb609fe5e51db">ShaderParamAnnotation::isColor</a></div><div class="ttdeci">bool isColor</div><div class="ttdef"><b>Definition</b> Shader.h:18</div></div>
+<div class="ttc" id="astructShaderParamAnnotation_html_a2150d229da2260cfc67cf56b7dafe0e2"><div class="ttname"><a href="structShaderParamAnnotation.html#a2150d229da2260cfc67cf56b7dafe0e2">ShaderParamAnnotation::minVal</a></div><div class="ttdeci">float minVal</div><div class="ttdef"><b>Definition</b> Shader.h:16</div></div>
+<div class="ttc" id="astructShaderParamAnnotation_html_a25d1acc7a4971895579036fef7cf3ab5"><div class="ttname"><a href="structShaderParamAnnotation.html#a25d1acc7a4971895579036fef7cf3ab5">ShaderParamAnnotation::maxVal</a></div><div class="ttdeci">float maxVal</div><div class="ttdef"><b>Definition</b> Shader.h:17</div></div>
+<div class="ttc" id="astructShaderParamAnnotation_html_a849dcf3d63749df5a9217ee372500630"><div class="ttname"><a href="structShaderParamAnnotation.html#a849dcf3d63749df5a9217ee372500630">ShaderParamAnnotation::paramIndex</a></div><div class="ttdeci">int paramIndex</div><div class="ttdef"><b>Definition</b> Shader.h:14</div></div>
+<div class="ttc" id="astructShaderParamAnnotation_html_aade2d55a88f99f41768857b8c098c52e"><div class="ttname"><a href="structShaderParamAnnotation.html#aade2d55a88f99f41768857b8c098c52e">ShaderParamAnnotation::label</a></div><div class="ttdeci">std::string label</div><div class="ttdef"><b>Definition</b> Shader.h:15</div></div>
+<div class="ttc" id="astructShaderReflectionData_html"><div class="ttname"><a href="structShaderReflectionData.html">ShaderReflectionData</a></div><div class="ttdef"><b>Definition</b> Shader.h:38</div></div>
+<div class="ttc" id="astructShaderReflectionData_html_a5d4a5046d61f620132aa8157f8596106"><div class="ttname"><a href="structShaderReflectionData.html#a5d4a5046d61f620132aa8157f8596106">ShaderReflectionData::constantBuffers</a></div><div class="ttdeci">std::vector&lt; ReflectedCBuffer &gt; constantBuffers</div><div class="ttdef"><b>Definition</b> Shader.h:41</div></div>
+<div class="ttc" id="astructShaderReflectionData_html_a6556d5db4a0a79b5c8d19718b3256000"><div class="ttname"><a href="structShaderReflectionData.html#a6556d5db4a0a79b5c8d19718b3256000">ShaderReflectionData::instructionCount</a></div><div class="ttdeci">UINT instructionCount</div><div class="ttdef"><b>Definition</b> Shader.h:40</div></div>
+<div class="ttc" id="astructShaderReflectionData_html_a7bef882495964ebf94556d15dba637a8"><div class="ttname"><a href="structShaderReflectionData.html#a7bef882495964ebf94556d15dba637a8">ShaderReflectionData::isValid</a></div><div class="ttdeci">bool isValid</div><div class="ttdef"><b>Definition</b> Shader.h:39</div></div>
+<div class="ttc" id="astructShaderReflectionData_html_ab4d4771116b7d85d1def5c1c44ac94b7"><div class="ttname"><a href="structShaderReflectionData.html#ab4d4771116b7d85d1def5c1c44ac94b7">ShaderReflectionData::boundResources</a></div><div class="ttdeci">std::vector&lt; std::string &gt; boundResources</div><div class="ttdef"><b>Definition</b> Shader.h:42</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_e350ea9347b5bfd16d4777c6b135cca8.html">Rendering</a></li><li class="navelem"><a class="el" href="Shader_8h.html">Shader.h</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_e350ea9347b5bfd16d4777c6b135cca8.html">Rendering</a></li><li class="navelem"><a href="Shader_8h.html">Shader.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

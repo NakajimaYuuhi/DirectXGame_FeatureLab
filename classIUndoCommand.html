@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: IUndoCommand クラス</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classIUndoCommand.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('classIUndoCommand.html','','classIUndoCommand-members'); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,10 +89,7 @@ $(document).ready(function(){initNavTree('classIUndoCommand.html',''); initResiz
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="classIUndoCommand-members.html">全メンバ一覧</a>  </div>
-  <div class="headertitle"><div class="title">IUndoCommand クラス<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+  <div class="headertitle"><div class="title">IUndoCommand クラス<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -101,21 +97,17 @@ $(document).ready(function(){initNavTree('classIUndoCommand.html',''); initResiz
 <div class="dynheader">
 IUndoCommand の継承関係図</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classIUndoCommand__inherit__graph.svg" width="432" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classIUndoCommand__inherit__graph.svg" width="430" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:ab8ecf4cf39f3a1a2fdd2a09916bee509" id="r_ab8ecf4cf39f3a1a2fdd2a09916bee509"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIUndoCommand.html#ab8ecf4cf39f3a1a2fdd2a09916bee509">~IUndoCommand</a> ()=default</td></tr>
-<tr class="separator:ab8ecf4cf39f3a1a2fdd2a09916bee509"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af626e75748867a390e7bec3406284599" id="r_af626e75748867a390e7bec3406284599"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIUndoCommand.html#af626e75748867a390e7bec3406284599">Execute</a> ()=0</td></tr>
-<tr class="separator:af626e75748867a390e7bec3406284599"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6b4e4966306fbe2be9a968b394d4edc" id="r_af6b4e4966306fbe2be9a968b394d4edc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIUndoCommand.html#af6b4e4966306fbe2be9a968b394d4edc">Undo</a> ()=0</td></tr>
-<tr class="separator:af6b4e4966306fbe2be9a968b394d4edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d65748e43b68517f2c06cd0ca31b8e4" id="r_a0d65748e43b68517f2c06cd0ca31b8e4"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIUndoCommand.html#a0d65748e43b68517f2c06cd0ca31b8e4">GetName</a> () const =0</td></tr>
-<tr class="separator:a0d65748e43b68517f2c06cd0ca31b8e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8ecf4cf39f3a1a2fdd2a09916bee509" id="r_ab8ecf4cf39f3a1a2fdd2a09916bee509"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8ecf4cf39f3a1a2fdd2a09916bee509">~IUndoCommand</a> ()=default</td></tr>
+<tr class="memitem:af626e75748867a390e7bec3406284599" id="r_af626e75748867a390e7bec3406284599"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af626e75748867a390e7bec3406284599">Execute</a> ()=0</td></tr>
+<tr class="memitem:af6b4e4966306fbe2be9a968b394d4edc" id="r_af6b4e4966306fbe2be9a968b394d4edc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6b4e4966306fbe2be9a968b394d4edc">Undo</a> ()=0</td></tr>
+<tr class="memitem:a0d65748e43b68517f2c06cd0ca31b8e4" id="r_a0d65748e43b68517f2c06cd0ca31b8e4"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d65748e43b68517f2c06cd0ca31b8e4">GetName</a> () const =0</td></tr>
 </table>
-<h2 class="groupheader">構築子と解体子</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">構築子と解体子</h2>
 <a id="ab8ecf4cf39f3a1a2fdd2a09916bee509" name="ab8ecf4cf39f3a1a2fdd2a09916bee509"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab8ecf4cf39f3a1a2fdd2a09916bee509">&#9670;&#160;</a></span>~IUndoCommand()</h2>
 
@@ -128,20 +120,20 @@ IUndoCommand の継承関係図</div>
         <tr>
           <td class="memname">virtual IUndoCommand::~IUndoCommand </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="af626e75748867a390e7bec3406284599" name="af626e75748867a390e7bec3406284599"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af626e75748867a390e7bec3406284599">&#9670;&#160;</a></span>Execute()</h2>
 
@@ -154,18 +146,18 @@ IUndoCommand の継承関係図</div>
         <tr>
           <td class="memname">virtual void IUndoCommand::Execute </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classTransformUndoCommand.html#aeccf124ed136ef2ec2f0d185133ec41b">TransformUndoCommand</a>, <a class="el" href="classDeleteObjectUndoCommand.html#a8a1c8215acfb37f833cee4c03c007af3">DeleteObjectUndoCommand</a>で実装されています。</p>
+<p><a class="el" href="classDeleteObjectUndoCommand.html#a8a1c8215acfb37f833cee4c03c007af3">DeleteObjectUndoCommand</a>, <a class="el" href="classTransformUndoCommand.html#aeccf124ed136ef2ec2f0d185133ec41b">TransformUndoCommand</a>で実装されています。</p>
 
 </div>
 </div>
@@ -181,18 +173,18 @@ IUndoCommand の継承関係図</div>
         <tr>
           <td class="memname">virtual std::string IUndoCommand::GetName </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classTransformUndoCommand.html#a60336120f9ac96f94ad6df4368f3903c">TransformUndoCommand</a>, <a class="el" href="classDeleteObjectUndoCommand.html#a4a07b75768d6e92c2a9925f0a40bc2e1">DeleteObjectUndoCommand</a>で実装されています。</p>
+<p><a class="el" href="classDeleteObjectUndoCommand.html#a4a07b75768d6e92c2a9925f0a40bc2e1">DeleteObjectUndoCommand</a>, <a class="el" href="classTransformUndoCommand.html#a60336120f9ac96f94ad6df4368f3903c">TransformUndoCommand</a>で実装されています。</p>
 
 </div>
 </div>
@@ -208,18 +200,18 @@ IUndoCommand の継承関係図</div>
         <tr>
           <td class="memname">virtual void IUndoCommand::Undo </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classTransformUndoCommand.html#aac4102009abdbeb28dbea7d477603e63">TransformUndoCommand</a>, <a class="el" href="classDeleteObjectUndoCommand.html#a126cd7cb0b6e41f64b08819ffc16c4d3">DeleteObjectUndoCommand</a>で実装されています。</p>
+<p><a class="el" href="classDeleteObjectUndoCommand.html#a126cd7cb0b6e41f64b08819ffc16c4d3">DeleteObjectUndoCommand</a>, <a class="el" href="classTransformUndoCommand.html#aac4102009abdbeb28dbea7d477603e63">TransformUndoCommand</a>で実装されています。</p>
 
 </div>
 </div>
@@ -228,11 +220,19 @@ IUndoCommand の継承関係図</div>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="classIUndoCommand.html">IUndoCommand</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="classIUndoCommand.html">IUndoCommand</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

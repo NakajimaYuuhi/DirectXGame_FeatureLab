@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: nlohmann::detail::iteration_proxy_value&lt; IteratorType &gt; クラステンプレート</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classnlohmann_1_1detail_1_1iteration__proxy__value.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('classnlohmann_1_1detail_1_1iteration__proxy__value.html','','classnlohmann_1_1detail_1_1iteration__proxy__value-members'); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,84 +89,61 @@ $(document).ready(function(){initNavTree('classnlohmann_1_1detail_1_1iteration__
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-types">公開型</a> &#124;
-<a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="#pri-attribs">非公開変数類</a> &#124;
-<a href="classnlohmann_1_1detail_1_1iteration__proxy__value-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">nlohmann::detail::iteration_proxy_value&lt; IteratorType &gt; クラステンプレート</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="json_8hpp_source.html">json.hpp</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 公開型</h2></td></tr>
-<tr class="memitem:ada6b4e6d55d8ed7ac79e49a03e9d1fe2" id="r_ada6b4e6d55d8ed7ac79e49a03e9d1fe2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#ada6b4e6d55d8ed7ac79e49a03e9d1fe2">difference_type</a> = std::ptrdiff_t</td></tr>
-<tr class="separator:ada6b4e6d55d8ed7ac79e49a03e9d1fe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e90a5810cc1bb6c1000eabbfdfe7b9e" id="r_a5e90a5810cc1bb6c1000eabbfdfe7b9e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#a5e90a5810cc1bb6c1000eabbfdfe7b9e">value_type</a> = <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">iteration_proxy_value</a></td></tr>
-<tr class="separator:a5e90a5810cc1bb6c1000eabbfdfe7b9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44c64feee85b8e7164a05310e6418a4b" id="r_a44c64feee85b8e7164a05310e6418a4b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#a44c64feee85b8e7164a05310e6418a4b">pointer</a> = <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#a5e90a5810cc1bb6c1000eabbfdfe7b9e">value_type</a> *</td></tr>
-<tr class="separator:a44c64feee85b8e7164a05310e6418a4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bc7d3133daab5ec4797f3132e093af8" id="r_a5bc7d3133daab5ec4797f3132e093af8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#a5bc7d3133daab5ec4797f3132e093af8">reference</a> = <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#a5e90a5810cc1bb6c1000eabbfdfe7b9e">value_type</a> &amp;</td></tr>
-<tr class="separator:a5bc7d3133daab5ec4797f3132e093af8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ab8c44e3772c03651b5ad07216043cf" id="r_a1ab8c44e3772c03651b5ad07216043cf"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#a1ab8c44e3772c03651b5ad07216043cf">iterator_category</a> = std::input_iterator_tag</td></tr>
-<tr class="separator:a1ab8c44e3772c03651b5ad07216043cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fc63b88a585fa39942007aab69a74e6" id="r_a1fc63b88a585fa39942007aab69a74e6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#a1fc63b88a585fa39942007aab69a74e6">string_type</a> = typename std::remove_cv&lt; typename std::remove_reference&lt; decltype(std::declval&lt; IteratorType &gt;().<a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#ae0b4338b87dee323606fb51777343cfd">key</a>()) &gt;::type &gt;::type</td></tr>
-<tr class="separator:a1fc63b88a585fa39942007aab69a74e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada6b4e6d55d8ed7ac79e49a03e9d1fe2" id="r_ada6b4e6d55d8ed7ac79e49a03e9d1fe2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada6b4e6d55d8ed7ac79e49a03e9d1fe2">difference_type</a> = std::ptrdiff_t</td></tr>
+<tr class="memitem:a5e90a5810cc1bb6c1000eabbfdfe7b9e" id="r_a5e90a5810cc1bb6c1000eabbfdfe7b9e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e90a5810cc1bb6c1000eabbfdfe7b9e">value_type</a> = <a class="el" href="#a459dd8961b80b2089d8161c9aa466581">iteration_proxy_value</a></td></tr>
+<tr class="memitem:a44c64feee85b8e7164a05310e6418a4b" id="r_a44c64feee85b8e7164a05310e6418a4b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44c64feee85b8e7164a05310e6418a4b">pointer</a> = <a class="el" href="#a5e90a5810cc1bb6c1000eabbfdfe7b9e">value_type</a> *</td></tr>
+<tr class="memitem:a5bc7d3133daab5ec4797f3132e093af8" id="r_a5bc7d3133daab5ec4797f3132e093af8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bc7d3133daab5ec4797f3132e093af8">reference</a> = <a class="el" href="#a5e90a5810cc1bb6c1000eabbfdfe7b9e">value_type</a> &amp;</td></tr>
+<tr class="memitem:a1ab8c44e3772c03651b5ad07216043cf" id="r_a1ab8c44e3772c03651b5ad07216043cf"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ab8c44e3772c03651b5ad07216043cf">iterator_category</a> = std::input_iterator_tag</td></tr>
+<tr class="memitem:a1fc63b88a585fa39942007aab69a74e6" id="r_a1fc63b88a585fa39942007aab69a74e6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fc63b88a585fa39942007aab69a74e6">string_type</a> = typename std::remove_cv&lt; typename std::remove_reference&lt;decltype( std::declval&lt;IteratorType&gt;().<a class="el" href="#ae0b4338b87dee323606fb51777343cfd">key</a>() ) &gt;::type &gt;::type</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a459dd8961b80b2089d8161c9aa466581" id="r_a459dd8961b80b2089d8161c9aa466581"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#a459dd8961b80b2089d8161c9aa466581">iteration_proxy_value</a> (IteratorType it) noexcept</td></tr>
-<tr class="separator:a459dd8961b80b2089d8161c9aa466581"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9cb6ee1e28e3bb4351a399e39e3b0b1" id="r_ad9cb6ee1e28e3bb4351a399e39e3b0b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">iteration_proxy_value</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#ad9cb6ee1e28e3bb4351a399e39e3b0b1">operator*</a> ()</td></tr>
+<tr class="memitem:a459dd8961b80b2089d8161c9aa466581" id="r_a459dd8961b80b2089d8161c9aa466581"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a459dd8961b80b2089d8161c9aa466581">iteration_proxy_value</a> (IteratorType it) noexcept</td></tr>
+<tr class="memitem:ad9cb6ee1e28e3bb4351a399e39e3b0b1" id="r_ad9cb6ee1e28e3bb4351a399e39e3b0b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a459dd8961b80b2089d8161c9aa466581">iteration_proxy_value</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9cb6ee1e28e3bb4351a399e39e3b0b1">operator*</a> ()</td></tr>
 <tr class="memdesc:ad9cb6ee1e28e3bb4351a399e39e3b0b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">dereference operator (needed for range-based for)  <br /></td></tr>
-<tr class="separator:ad9cb6ee1e28e3bb4351a399e39e3b0b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf858ddcacf2ce58abb956a14298984b" id="r_abf858ddcacf2ce58abb956a14298984b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">iteration_proxy_value</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#abf858ddcacf2ce58abb956a14298984b">operator++</a> ()</td></tr>
+<tr class="memitem:abf858ddcacf2ce58abb956a14298984b" id="r_abf858ddcacf2ce58abb956a14298984b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a459dd8961b80b2089d8161c9aa466581">iteration_proxy_value</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf858ddcacf2ce58abb956a14298984b">operator++</a> ()</td></tr>
 <tr class="memdesc:abf858ddcacf2ce58abb956a14298984b"><td class="mdescLeft">&#160;</td><td class="mdescRight">increment operator (needed for range-based for)  <br /></td></tr>
-<tr class="separator:abf858ddcacf2ce58abb956a14298984b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2b78a8b9c9276b07c928b21bb1e2d54" id="r_af2b78a8b9c9276b07c928b21bb1e2d54"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#af2b78a8b9c9276b07c928b21bb1e2d54">operator==</a> (const <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">iteration_proxy_value</a> &amp;o) const</td></tr>
+<tr class="memitem:af2b78a8b9c9276b07c928b21bb1e2d54" id="r_af2b78a8b9c9276b07c928b21bb1e2d54"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2b78a8b9c9276b07c928b21bb1e2d54">operator==</a> (const <a class="el" href="#a459dd8961b80b2089d8161c9aa466581">iteration_proxy_value</a> &amp;o) const</td></tr>
 <tr class="memdesc:af2b78a8b9c9276b07c928b21bb1e2d54"><td class="mdescLeft">&#160;</td><td class="mdescRight">equality operator (needed for InputIterator)  <br /></td></tr>
-<tr class="separator:af2b78a8b9c9276b07c928b21bb1e2d54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a646dbb2b1842f44f42ee1e14245b8595" id="r_a646dbb2b1842f44f42ee1e14245b8595"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#a646dbb2b1842f44f42ee1e14245b8595">operator!=</a> (const <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">iteration_proxy_value</a> &amp;o) const</td></tr>
+<tr class="memitem:a646dbb2b1842f44f42ee1e14245b8595" id="r_a646dbb2b1842f44f42ee1e14245b8595"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a646dbb2b1842f44f42ee1e14245b8595">operator!=</a> (const <a class="el" href="#a459dd8961b80b2089d8161c9aa466581">iteration_proxy_value</a> &amp;o) const</td></tr>
 <tr class="memdesc:a646dbb2b1842f44f42ee1e14245b8595"><td class="mdescLeft">&#160;</td><td class="mdescRight">inequality operator (needed for range-based for)  <br /></td></tr>
-<tr class="separator:a646dbb2b1842f44f42ee1e14245b8595"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0b4338b87dee323606fb51777343cfd" id="r_ae0b4338b87dee323606fb51777343cfd"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#a1fc63b88a585fa39942007aab69a74e6">string_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#ae0b4338b87dee323606fb51777343cfd">key</a> () const</td></tr>
+<tr class="memitem:ae0b4338b87dee323606fb51777343cfd" id="r_ae0b4338b87dee323606fb51777343cfd"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="#a1fc63b88a585fa39942007aab69a74e6">string_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0b4338b87dee323606fb51777343cfd">key</a> () const</td></tr>
 <tr class="memdesc:ae0b4338b87dee323606fb51777343cfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">return key of the iterator  <br /></td></tr>
-<tr class="separator:ae0b4338b87dee323606fb51777343cfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8e33bd01c285a1a80b737a1905ceb97" id="r_ab8e33bd01c285a1a80b737a1905ceb97"><td class="memItemLeft" align="right" valign="top">IteratorType::reference&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#ab8e33bd01c285a1a80b737a1905ceb97">value</a> () const</td></tr>
+<tr class="memitem:ab8e33bd01c285a1a80b737a1905ceb97" id="r_ab8e33bd01c285a1a80b737a1905ceb97"><td class="memItemLeft" align="right" valign="top">IteratorType::reference&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8e33bd01c285a1a80b737a1905ceb97">value</a> () const</td></tr>
 <tr class="memdesc:ab8e33bd01c285a1a80b737a1905ceb97"><td class="mdescLeft">&#160;</td><td class="mdescRight">return value of the iterator  <br /></td></tr>
-<tr class="separator:ab8e33bd01c285a1a80b737a1905ceb97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 非公開変数類</h2></td></tr>
-<tr class="memitem:a073741b6536b7a5166467a5515bc59cb" id="r_a073741b6536b7a5166467a5515bc59cb"><td class="memItemLeft" align="right" valign="top">IteratorType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#a073741b6536b7a5166467a5515bc59cb">anchor</a></td></tr>
+<tr class="memitem:a073741b6536b7a5166467a5515bc59cb" id="r_a073741b6536b7a5166467a5515bc59cb"><td class="memItemLeft" align="right" valign="top">IteratorType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a073741b6536b7a5166467a5515bc59cb">anchor</a></td></tr>
 <tr class="memdesc:a073741b6536b7a5166467a5515bc59cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">the iterator  <br /></td></tr>
-<tr class="separator:a073741b6536b7a5166467a5515bc59cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3d18c83aff5e9f4bdbf99385b29a39a" id="r_ad3d18c83aff5e9f4bdbf99385b29a39a"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#ad3d18c83aff5e9f4bdbf99385b29a39a">array_index</a> = 0</td></tr>
+<tr class="memitem:ad3d18c83aff5e9f4bdbf99385b29a39a" id="r_ad3d18c83aff5e9f4bdbf99385b29a39a"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3d18c83aff5e9f4bdbf99385b29a39a">array_index</a> = 0</td></tr>
 <tr class="memdesc:ad3d18c83aff5e9f4bdbf99385b29a39a"><td class="mdescLeft">&#160;</td><td class="mdescRight">an index for arrays (used to create key names)  <br /></td></tr>
-<tr class="separator:ad3d18c83aff5e9f4bdbf99385b29a39a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac6e7cc0c17242a0a42c14d1e714747c" id="r_aac6e7cc0c17242a0a42c14d1e714747c"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#aac6e7cc0c17242a0a42c14d1e714747c">array_index_last</a> = 0</td></tr>
+<tr class="memitem:aac6e7cc0c17242a0a42c14d1e714747c" id="r_aac6e7cc0c17242a0a42c14d1e714747c"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac6e7cc0c17242a0a42c14d1e714747c">array_index_last</a> = 0</td></tr>
 <tr class="memdesc:aac6e7cc0c17242a0a42c14d1e714747c"><td class="mdescLeft">&#160;</td><td class="mdescRight">last stringified array index  <br /></td></tr>
-<tr class="separator:aac6e7cc0c17242a0a42c14d1e714747c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0b34133f45a3610070492d32978f2ea" id="r_ab0b34133f45a3610070492d32978f2ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#a1fc63b88a585fa39942007aab69a74e6">string_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#ab0b34133f45a3610070492d32978f2ea">array_index_str</a> = &quot;0&quot;</td></tr>
+<tr class="memitem:ab0b34133f45a3610070492d32978f2ea" id="r_ab0b34133f45a3610070492d32978f2ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a1fc63b88a585fa39942007aab69a74e6">string_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0b34133f45a3610070492d32978f2ea">array_index_str</a> = &quot;0&quot;</td></tr>
 <tr class="memdesc:ab0b34133f45a3610070492d32978f2ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">a string representation of the array index  <br /></td></tr>
-<tr class="separator:ab0b34133f45a3610070492d32978f2ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a298dae04e3c0a64719752c16754d1d71" id="r_a298dae04e3c0a64719752c16754d1d71"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#a1fc63b88a585fa39942007aab69a74e6">string_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#a298dae04e3c0a64719752c16754d1d71">empty_str</a> {}</td></tr>
+<tr class="memitem:a298dae04e3c0a64719752c16754d1d71" id="r_a298dae04e3c0a64719752c16754d1d71"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="#a1fc63b88a585fa39942007aab69a74e6">string_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a298dae04e3c0a64719752c16754d1d71">empty_str</a> {}</td></tr>
 <tr class="memdesc:a298dae04e3c0a64719752c16754d1d71"><td class="mdescLeft">&#160;</td><td class="mdescRight">an empty string (to return a reference for primitive values)  <br /></td></tr>
-<tr class="separator:a298dae04e3c0a64719752c16754d1d71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">型定義メンバ詳解</h2>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">型定義メンバ詳解</h2>
 <a id="ada6b4e6d55d8ed7ac79e49a03e9d1fe2" name="ada6b4e6d55d8ed7ac79e49a03e9d1fe2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ada6b4e6d55d8ed7ac79e49a03e9d1fe2">&#9670;&#160;</a></span>difference_type</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorType &gt; </div>
+template&lt;typename IteratorType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::difference_type =  std::ptrdiff_t</td>
+          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::difference_type = std::ptrdiff_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -180,10 +156,10 @@ template&lt;typename IteratorType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorType &gt; </div>
+template&lt;typename IteratorType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::iterator_category =  std::input_iterator_tag</td>
+          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::iterator_category = std::input_iterator_tag</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -196,10 +172,10 @@ template&lt;typename IteratorType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorType &gt; </div>
+template&lt;typename IteratorType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::pointer =  <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#a5e90a5810cc1bb6c1000eabbfdfe7b9e">value_type</a> *</td>
+          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::pointer = <a class="el" href="#a5e90a5810cc1bb6c1000eabbfdfe7b9e">value_type</a> *</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -212,10 +188,10 @@ template&lt;typename IteratorType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorType &gt; </div>
+template&lt;typename IteratorType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::reference =  <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#a5e90a5810cc1bb6c1000eabbfdfe7b9e">value_type</a> &amp;</td>
+          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::reference = <a class="el" href="#a5e90a5810cc1bb6c1000eabbfdfe7b9e">value_type</a> &amp;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -228,10 +204,10 @@ template&lt;typename IteratorType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorType &gt; </div>
+template&lt;typename IteratorType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::string_type =  typename std::remove_cv&lt; typename std::remove_reference&lt;decltype( std::declval&lt;IteratorType&gt;().<a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#ae0b4338b87dee323606fb51777343cfd">key</a>() ) &gt;::type &gt;::type</td>
+          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::string_type = typename std::remove_cv&lt; typename std::remove_reference&lt;decltype( std::declval&lt;IteratorType&gt;().<a class="el" href="#ae0b4338b87dee323606fb51777343cfd">key</a>() ) &gt;::type &gt;::type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -244,24 +220,24 @@ template&lt;typename IteratorType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorType &gt; </div>
+template&lt;typename IteratorType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::value_type =  <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">iteration_proxy_value</a></td>
+          <td class="memname">using <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::value_type = <a class="el" href="#a459dd8961b80b2089d8161c9aa466581">iteration_proxy_value</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">構築子と解体子</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">構築子と解体子</h2>
 <a id="a459dd8961b80b2089d8161c9aa466581" name="a459dd8961b80b2089d8161c9aa466581"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a459dd8961b80b2089d8161c9aa466581">&#9670;&#160;</a></span>iteration_proxy_value()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorType &gt; </div>
+template&lt;typename IteratorType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -269,42 +245,46 @@ template&lt;typename IteratorType &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::iteration_proxy_value </td>
           <td>(</td>
-          <td class="paramtype">IteratorType&#160;</td>
-          <td class="paramname"><em>it</em></td><td>)</td>
+          <td class="paramtype">IteratorType</td>          <td class="paramname"><span class="paramname"><em>it</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1iteration__proxy__value_a459dd8961b80b2089d8161c9aa466581_icgraph.svg" width="448" height="264"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="ae0b4338b87dee323606fb51777343cfd" name="ae0b4338b87dee323606fb51777343cfd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae0b4338b87dee323606fb51777343cfd">&#9670;&#160;</a></span>key()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorType &gt; </div>
+template&lt;typename IteratorType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#a1fc63b88a585fa39942007aab69a74e6">string_type</a> &amp; <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::key </td>
+          <td class="memname">const <a class="el" href="#a1fc63b88a585fa39942007aab69a74e6">string_type</a> &amp; <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::key </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -313,7 +293,7 @@ template&lt;typename IteratorType &gt; </div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classnlohmann_1_1detail_1_1iteration__proxy__value_ae0b4338b87dee323606fb51777343cfd_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1iteration__proxy__value_ae0b4338b87dee323606fb51777343cfd_cgraph.svg" width="610" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -324,7 +304,7 @@ template&lt;typename IteratorType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorType &gt; </div>
+template&lt;typename IteratorType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -332,19 +312,23 @@ template&lt;typename IteratorType &gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::operator!= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">iteration_proxy_value</a>&lt; IteratorType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#a459dd8961b80b2089d8161c9aa466581">iteration_proxy_value</a>&lt; IteratorType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>o</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>inequality operator (needed for range-based for) </p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1iteration__proxy__value_a646dbb2b1842f44f42ee1e14245b8595_cgraph.svg" width="448" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -354,26 +338,31 @@ template&lt;typename IteratorType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorType &gt; </div>
+template&lt;typename IteratorType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">iteration_proxy_value</a> &amp; <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::operator* </td>
+          <td class="memname"><a class="el" href="#a459dd8961b80b2089d8161c9aa466581">iteration_proxy_value</a> &amp; <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::operator* </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>dereference operator (needed for range-based for) </p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1iteration__proxy__value_ad9cb6ee1e28e3bb4351a399e39e3b0b1_cgraph.svg" width="448" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -383,26 +372,31 @@ template&lt;typename IteratorType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorType &gt; </div>
+template&lt;typename IteratorType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">iteration_proxy_value</a> &amp; <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::operator++ </td>
+          <td class="memname"><a class="el" href="#a459dd8961b80b2089d8161c9aa466581">iteration_proxy_value</a> &amp; <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::operator++ </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>increment operator (needed for range-based for) </p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1iteration__proxy__value_abf858ddcacf2ce58abb956a14298984b_cgraph.svg" width="448" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -412,7 +406,7 @@ template&lt;typename IteratorType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorType &gt; </div>
+template&lt;typename IteratorType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -420,19 +414,23 @@ template&lt;typename IteratorType &gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::operator== </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">iteration_proxy_value</a>&lt; IteratorType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#a459dd8961b80b2089d8161c9aa466581">iteration_proxy_value</a>&lt; IteratorType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>o</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>equality operator (needed for InputIterator) </p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classnlohmann_1_1detail_1_1iteration__proxy__value_af2b78a8b9c9276b07c928b21bb1e2d54_cgraph.svg" width="448" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -442,7 +440,7 @@ template&lt;typename IteratorType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorType &gt; </div>
+template&lt;typename IteratorType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -450,13 +448,13 @@ template&lt;typename IteratorType &gt; </div>
         <tr>
           <td class="memname">IteratorType::reference <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::value </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -465,14 +463,14 @@ template&lt;typename IteratorType &gt; </div>
 
 </div>
 </div>
-<h2 class="groupheader">メンバ詳解</h2>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">メンバ詳解</h2>
 <a id="a073741b6536b7a5166467a5515bc59cb" name="a073741b6536b7a5166467a5515bc59cb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a073741b6536b7a5166467a5515bc59cb">&#9670;&#160;</a></span>anchor</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorType &gt; </div>
+template&lt;typename IteratorType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -483,7 +481,7 @@ template&lt;typename IteratorType &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -498,7 +496,7 @@ template&lt;typename IteratorType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorType &gt; </div>
+template&lt;typename IteratorType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -509,7 +507,7 @@ template&lt;typename IteratorType &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -524,7 +522,7 @@ template&lt;typename IteratorType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorType &gt; </div>
+template&lt;typename IteratorType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -535,7 +533,7 @@ template&lt;typename IteratorType &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel mutable">mutable</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -550,18 +548,18 @@ template&lt;typename IteratorType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorType &gt; </div>
+template&lt;typename IteratorType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#a1fc63b88a585fa39942007aab69a74e6">string_type</a> <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::array_index_str = &quot;0&quot;</td>
+          <td class="memname"><a class="el" href="#a1fc63b88a585fa39942007aab69a74e6">string_type</a> <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::array_index_str = &quot;0&quot;</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel mutable">mutable</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -576,18 +574,18 @@ template&lt;typename IteratorType &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IteratorType &gt; </div>
+template&lt;typename IteratorType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html#a1fc63b88a585fa39942007aab69a74e6">string_type</a> <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::empty_str {}</td>
+          <td class="memname">const <a class="el" href="#a1fc63b88a585fa39942007aab69a74e6">string_type</a> <a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">nlohmann::detail::iteration_proxy_value</a>&lt; IteratorType &gt;::empty_str {}</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -601,11 +599,19 @@ template&lt;typename IteratorType &gt; </div>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacenlohmann.html">nlohmann</a></li><li class="navelem"><a class="el" href="namespacenlohmann_1_1detail.html">detail</a></li><li class="navelem"><a class="el" href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">iteration_proxy_value</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="namespacenlohmann.html">nlohmann</a></li><li class="navelem"><a href="namespacenlohmann_1_1detail.html">detail</a></li><li class="navelem"><a href="classnlohmann_1_1detail_1_1iteration__proxy__value.html">iteration_proxy_value</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

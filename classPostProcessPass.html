@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: PostProcessPass クラス</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classPostProcessPass.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('classPostProcessPass.html','','classPostProcessPass-members'); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,11 +89,6 @@ $(document).ready(function(){initNavTree('classPostProcessPass.html',''); initRe
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">クラス</a> &#124;
-<a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="#pri-attribs">非公開変数類</a> &#124;
-<a href="classPostProcessPass-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">PostProcessPass クラス</div></div>
 </div><!--header-->
 <div class="contents">
@@ -103,101 +97,69 @@ $(document).ready(function(){initNavTree('classPostProcessPass.html',''); initRe
 <div class="dynheader">
 PostProcessPass の継承関係図</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classPostProcessPass__inherit__graph.svg" width="140" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classPostProcessPass__inherit__graph.svg" width="139" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <div class="dynheader">
 PostProcessPass 連携図</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classPostProcessPass__coll__graph.svg" width="468" height="124"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classPostProcessPass__coll__graph.svg" width="464" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 クラス</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structPostProcessPass_1_1Settings.html">Settings</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:Settings" id="r_Settings"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structPostProcessPass_1_1Settings.html">Settings</a></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:ae508db8b77c155cb31b8bb3142de111b" id="r_ae508db8b77c155cb31b8bb3142de111b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#ae508db8b77c155cb31b8bb3142de111b">PostProcessPass</a> (<a class="el" href="classRenderTexture.html">RenderTexture</a> *pSourceTex=nullptr)</td></tr>
-<tr class="separator:ae508db8b77c155cb31b8bb3142de111b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5d6b0dc29e44644bc54408a44b38381" id="r_ad5d6b0dc29e44644bc54408a44b38381"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#ad5d6b0dc29e44644bc54408a44b38381">~PostProcessPass</a> ()=default</td></tr>
-<tr class="separator:ad5d6b0dc29e44644bc54408a44b38381"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28abf6b07cb94aca17a662d90b10720b" id="r_a28abf6b07cb94aca17a662d90b10720b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#a28abf6b07cb94aca17a662d90b10720b">Init</a> (ID3D12Device *pDevice) override</td></tr>
-<tr class="separator:a28abf6b07cb94aca17a662d90b10720b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5cb96984d04f6e2c38efa93b9db52d7" id="r_ad5cb96984d04f6e2c38efa93b9db52d7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#ad5cb96984d04f6e2c38efa93b9db52d7">Execute</a> (const <a class="el" href="structRenderContext.html">RenderContext</a> &amp;ctx) override</td></tr>
-<tr class="separator:ad5cb96984d04f6e2c38efa93b9db52d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b447e341c0e6e9a9f9b608f27358414" id="r_a4b447e341c0e6e9a9f9b608f27358414"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#a4b447e341c0e6e9a9f9b608f27358414">GetName</a> () const override</td></tr>
-<tr class="separator:a4b447e341c0e6e9a9f9b608f27358414"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0d5fcc5388ebb6f1aee8e04596e5a0b" id="r_ac0d5fcc5388ebb6f1aee8e04596e5a0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#ac0d5fcc5388ebb6f1aee8e04596e5a0b">SetCustomName</a> (const std::string &amp;name)</td></tr>
-<tr class="separator:ac0d5fcc5388ebb6f1aee8e04596e5a0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2870aa01e12626fc648d316ddd1845c4" id="r_a2870aa01e12626fc648d316ddd1845c4"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#a2870aa01e12626fc648d316ddd1845c4">GetCustomName</a> () const</td></tr>
-<tr class="separator:a2870aa01e12626fc648d316ddd1845c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebd91818fa0ec754a064558200bf41ca" id="r_aebd91818fa0ec754a064558200bf41ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPostProcessPass_1_1Settings.html">Settings</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#aebd91818fa0ec754a064558200bf41ca">GetSettings</a> ()</td></tr>
-<tr class="separator:aebd91818fa0ec754a064558200bf41ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44e7521b03471fd5daec07ea29e3ed68" id="r_a44e7521b03471fd5daec07ea29e3ed68"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structPostProcessPass_1_1Settings.html">Settings</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#a44e7521b03471fd5daec07ea29e3ed68">GetSettings</a> () const</td></tr>
-<tr class="separator:a44e7521b03471fd5daec07ea29e3ed68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d2e840f48ccb2c70a89ac03093c476d" id="r_a9d2e840f48ccb2c70a89ac03093c476d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#a9d2e840f48ccb2c70a89ac03093c476d">SetSettings</a> (const <a class="el" href="structPostProcessPass_1_1Settings.html">Settings</a> &amp;settings)</td></tr>
-<tr class="separator:a9d2e840f48ccb2c70a89ac03093c476d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa64a9b6412ee04558b0374f2009dccd3" id="r_aa64a9b6412ee04558b0374f2009dccd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#aa64a9b6412ee04558b0374f2009dccd3">SetSourceTexture</a> (<a class="el" href="classRenderTexture.html">RenderTexture</a> *pSourceTex)</td></tr>
-<tr class="separator:aa64a9b6412ee04558b0374f2009dccd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dd7cfb21d3b4da6c98a5fbcc06244c0" id="r_a9dd7cfb21d3b4da6c98a5fbcc06244c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRenderTexture.html">RenderTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#a9dd7cfb21d3b4da6c98a5fbcc06244c0">GetSourceTexture</a> () const</td></tr>
-<tr class="separator:a9dd7cfb21d3b4da6c98a5fbcc06244c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4dee09d99410d3f964b73cb038553fc4" id="r_a4dee09d99410d3f964b73cb038553fc4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRenderTexture.html">RenderTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#a4dee09d99410d3f964b73cb038553fc4">GetFinalTexture</a> () const</td></tr>
-<tr class="separator:a4dee09d99410d3f964b73cb038553fc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36e74ad2666974591b6b8a03ca2cf067" id="r_a36e74ad2666974591b6b8a03ca2cf067"><td class="memItemLeft" align="right" valign="top">D3D12_GPU_DESCRIPTOR_HANDLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#a36e74ad2666974591b6b8a03ca2cf067">GetFinalSRV</a> () const</td></tr>
-<tr class="separator:a36e74ad2666974591b6b8a03ca2cf067"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classIRenderPass"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classIRenderPass')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classIRenderPass.html">IRenderPass</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:ae508db8b77c155cb31b8bb3142de111b" id="r_ae508db8b77c155cb31b8bb3142de111b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae508db8b77c155cb31b8bb3142de111b">PostProcessPass</a> (<a class="el" href="classRenderTexture.html">RenderTexture</a> *pSourceTex=nullptr)</td></tr>
+<tr class="memitem:ad5d6b0dc29e44644bc54408a44b38381" id="r_ad5d6b0dc29e44644bc54408a44b38381"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5d6b0dc29e44644bc54408a44b38381">~PostProcessPass</a> ()=default</td></tr>
+<tr class="memitem:a28abf6b07cb94aca17a662d90b10720b" id="r_a28abf6b07cb94aca17a662d90b10720b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28abf6b07cb94aca17a662d90b10720b">Init</a> (ID3D12Device *pDevice) override</td></tr>
+<tr class="memitem:ad5cb96984d04f6e2c38efa93b9db52d7" id="r_ad5cb96984d04f6e2c38efa93b9db52d7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5cb96984d04f6e2c38efa93b9db52d7">Execute</a> (const <a class="el" href="structRenderContext.html">RenderContext</a> &amp;ctx) override</td></tr>
+<tr class="memitem:a4b447e341c0e6e9a9f9b608f27358414" id="r_a4b447e341c0e6e9a9f9b608f27358414"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b447e341c0e6e9a9f9b608f27358414">GetName</a> () const override</td></tr>
+<tr class="memitem:a3d238a895ea9b530ec4b5a6c0147b506" id="r_a3d238a895ea9b530ec4b5a6c0147b506"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d238a895ea9b530ec4b5a6c0147b506">ReloadShaders</a> (ID3D12Device *pDevice, std::string *outError=nullptr) override</td></tr>
+<tr class="memitem:ac0d5fcc5388ebb6f1aee8e04596e5a0b" id="r_ac0d5fcc5388ebb6f1aee8e04596e5a0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0d5fcc5388ebb6f1aee8e04596e5a0b">SetCustomName</a> (const std::string &amp;name)</td></tr>
+<tr class="memitem:a2870aa01e12626fc648d316ddd1845c4" id="r_a2870aa01e12626fc648d316ddd1845c4"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2870aa01e12626fc648d316ddd1845c4">GetCustomName</a> () const</td></tr>
+<tr class="memitem:ad4e8eb0a5d066410c71b67c83b0bfc7a" id="r_ad4e8eb0a5d066410c71b67c83b0bfc7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4e8eb0a5d066410c71b67c83b0bfc7a">SetShaderPath</a> (const std::string &amp;path)</td></tr>
+<tr class="memitem:a3385e76ca5f24bc7f66bba05792b0648" id="r_a3385e76ca5f24bc7f66bba05792b0648"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3385e76ca5f24bc7f66bba05792b0648">GetShaderPath</a> () const</td></tr>
+<tr class="memitem:aebd91818fa0ec754a064558200bf41ca" id="r_aebd91818fa0ec754a064558200bf41ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPostProcessPass_1_1Settings.html">Settings</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aebd91818fa0ec754a064558200bf41ca">GetSettings</a> ()</td></tr>
+<tr class="memitem:a44e7521b03471fd5daec07ea29e3ed68" id="r_a44e7521b03471fd5daec07ea29e3ed68"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structPostProcessPass_1_1Settings.html">Settings</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44e7521b03471fd5daec07ea29e3ed68">GetSettings</a> () const</td></tr>
+<tr class="memitem:a9d2e840f48ccb2c70a89ac03093c476d" id="r_a9d2e840f48ccb2c70a89ac03093c476d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d2e840f48ccb2c70a89ac03093c476d">SetSettings</a> (const <a class="el" href="structPostProcessPass_1_1Settings.html">Settings</a> &amp;settings)</td></tr>
+<tr class="memitem:aa64a9b6412ee04558b0374f2009dccd3" id="r_aa64a9b6412ee04558b0374f2009dccd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa64a9b6412ee04558b0374f2009dccd3">SetSourceTexture</a> (<a class="el" href="classRenderTexture.html">RenderTexture</a> *pSourceTex)</td></tr>
+<tr class="memitem:a9dd7cfb21d3b4da6c98a5fbcc06244c0" id="r_a9dd7cfb21d3b4da6c98a5fbcc06244c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRenderTexture.html">RenderTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9dd7cfb21d3b4da6c98a5fbcc06244c0">GetSourceTexture</a> () const</td></tr>
+<tr class="memitem:a4dee09d99410d3f964b73cb038553fc4" id="r_a4dee09d99410d3f964b73cb038553fc4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRenderTexture.html">RenderTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4dee09d99410d3f964b73cb038553fc4">GetFinalTexture</a> () const</td></tr>
+<tr class="memitem:a36e74ad2666974591b6b8a03ca2cf067" id="r_a36e74ad2666974591b6b8a03ca2cf067"><td class="memItemLeft" align="right" valign="top">D3D12_GPU_DESCRIPTOR_HANDLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36e74ad2666974591b6b8a03ca2cf067">GetFinalSRV</a> () const</td></tr>
+<tr class="inherit_header pub_methods_classIRenderPass"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classIRenderPass')"><span class="dynarrow"><span class="arrowhead closed"></span></span>基底クラス <a class="el" href="classIRenderPass.html">IRenderPass</a> に属する継承公開メンバ関数</td></tr>
 <tr class="memitem:a52c6a9a8b5ae4b98d6c9d9d6899998e0 inherit pub_methods_classIRenderPass" id="r_a52c6a9a8b5ae4b98d6c9d9d6899998e0"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a52c6a9a8b5ae4b98d6c9d9d6899998e0">~IRenderPass</a> ()=default</td></tr>
-<tr class="separator:a52c6a9a8b5ae4b98d6c9d9d6899998e0 inherit pub_methods_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7902d9b20ee85fb3a30c6e5555445f51 inherit pub_methods_classIRenderPass" id="r_a7902d9b20ee85fb3a30c6e5555445f51"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a7902d9b20ee85fb3a30c6e5555445f51">IsEnabled</a> () const</td></tr>
-<tr class="separator:a7902d9b20ee85fb3a30c6e5555445f51 inherit pub_methods_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adee3ba2abf5a11714da17de66e7d685f inherit pub_methods_classIRenderPass" id="r_adee3ba2abf5a11714da17de66e7d685f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#adee3ba2abf5a11714da17de66e7d685f">SetEnabled</a> (bool enabled)</td></tr>
-<tr class="separator:adee3ba2abf5a11714da17de66e7d685f inherit pub_methods_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad813139ca32b2c09417906637c1ac704 inherit pub_methods_classIRenderPass" id="r_ad813139ca32b2c09417906637c1ac704"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#ad813139ca32b2c09417906637c1ac704">GetInputResourceName</a> () const</td></tr>
-<tr class="separator:ad813139ca32b2c09417906637c1ac704 inherit pub_methods_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18a4eee99f195abf014ce5e6fd4172e6 inherit pub_methods_classIRenderPass" id="r_a18a4eee99f195abf014ce5e6fd4172e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a18a4eee99f195abf014ce5e6fd4172e6">SetInputResourceName</a> (const std::string &amp;name)</td></tr>
-<tr class="separator:a18a4eee99f195abf014ce5e6fd4172e6 inherit pub_methods_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3136f173da785fedf682eaece53253d1 inherit pub_methods_classIRenderPass" id="r_a3136f173da785fedf682eaece53253d1"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a3136f173da785fedf682eaece53253d1">GetOutputResourceName</a> () const</td></tr>
-<tr class="separator:a3136f173da785fedf682eaece53253d1 inherit pub_methods_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26673c8aa28b1d943ac68a9417a14a2c inherit pub_methods_classIRenderPass" id="r_a26673c8aa28b1d943ac68a9417a14a2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a26673c8aa28b1d943ac68a9417a14a2c">SetOutputResourceName</a> (const std::string &amp;name)</td></tr>
-<tr class="separator:a26673c8aa28b1d943ac68a9417a14a2c inherit pub_methods_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 非公開変数類</h2></td></tr>
-<tr class="memitem:acd09dbac9b9d9e8f702afe630697fc01" id="r_acd09dbac9b9d9e8f702afe630697fc01"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRenderTexture.html">RenderTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#acd09dbac9b9d9e8f702afe630697fc01">m_pSourceTex</a> = nullptr</td></tr>
-<tr class="separator:acd09dbac9b9d9e8f702afe630697fc01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4227456e3ada9cd7b3afe87bfb405cbf" id="r_a4227456e3ada9cd7b3afe87bfb405cbf"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#a4227456e3ada9cd7b3afe87bfb405cbf">m_customName</a></td></tr>
-<tr class="separator:a4227456e3ada9cd7b3afe87bfb405cbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf17c8a670438ad4937fd13b9785b44d" id="r_adf17c8a670438ad4937fd13b9785b44d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPostProcessPass_1_1Settings.html">Settings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#adf17c8a670438ad4937fd13b9785b44d">m_settings</a></td></tr>
-<tr class="separator:adf17c8a670438ad4937fd13b9785b44d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8621038858733a6558d44c7de15279ca" id="r_a8621038858733a6558d44c7de15279ca"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classRenderTexture.html">RenderTexture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#a8621038858733a6558d44c7de15279ca">m_pBrightTex</a></td></tr>
-<tr class="separator:a8621038858733a6558d44c7de15279ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67db09a67bdd91b50ba2aeff5318df0b" id="r_a67db09a67bdd91b50ba2aeff5318df0b"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classRenderTexture.html">RenderTexture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#a67db09a67bdd91b50ba2aeff5318df0b">m_pBlurTexTemp</a></td></tr>
-<tr class="separator:a67db09a67bdd91b50ba2aeff5318df0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f57906f9c9543d1741731c4d7b7c528" id="r_a4f57906f9c9543d1741731c4d7b7c528"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classRenderTexture.html">RenderTexture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#a4f57906f9c9543d1741731c4d7b7c528">m_pFinalTex</a></td></tr>
-<tr class="separator:a4f57906f9c9543d1741731c4d7b7c528"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8fc56cadd3e2719c12d19b02d7c1cf6" id="r_ae8fc56cadd3e2719c12d19b02d7c1cf6"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12RootSignature &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#ae8fc56cadd3e2719c12d19b02d7c1cf6">m_pRootSignature</a></td></tr>
-<tr class="separator:ae8fc56cadd3e2719c12d19b02d7c1cf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c31d6fc205004173a0a827dc0fe2912" id="r_a5c31d6fc205004173a0a827dc0fe2912"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#a5c31d6fc205004173a0a827dc0fe2912">m_pPassThroughPSO</a></td></tr>
-<tr class="separator:a5c31d6fc205004173a0a827dc0fe2912"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab57e00fea57d0848f2f57e758e939ae9" id="r_ab57e00fea57d0848f2f57e758e939ae9"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#ab57e00fea57d0848f2f57e758e939ae9">m_pBrightPSO</a></td></tr>
-<tr class="separator:ab57e00fea57d0848f2f57e758e939ae9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f6a31d3d8375fe882ce40564082437c" id="r_a9f6a31d3d8375fe882ce40564082437c"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#a9f6a31d3d8375fe882ce40564082437c">m_pBlurPSO</a></td></tr>
-<tr class="separator:a9f6a31d3d8375fe882ce40564082437c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac90e0ef6de7ed2eb18681dd02908996b" id="r_ac90e0ef6de7ed2eb18681dd02908996b"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessPass.html#ac90e0ef6de7ed2eb18681dd02908996b">m_pCompositePSO</a></td></tr>
-<tr class="separator:ac90e0ef6de7ed2eb18681dd02908996b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd09dbac9b9d9e8f702afe630697fc01" id="r_acd09dbac9b9d9e8f702afe630697fc01"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRenderTexture.html">RenderTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd09dbac9b9d9e8f702afe630697fc01">m_pSourceTex</a> = nullptr</td></tr>
+<tr class="memitem:a4227456e3ada9cd7b3afe87bfb405cbf" id="r_a4227456e3ada9cd7b3afe87bfb405cbf"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4227456e3ada9cd7b3afe87bfb405cbf">m_customName</a></td></tr>
+<tr class="memitem:a464bed84a1a22b776f3336c055d67d12" id="r_a464bed84a1a22b776f3336c055d67d12"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a464bed84a1a22b776f3336c055d67d12">m_shaderPath</a> = &quot;Assets/<a class="el" href="classShader.html">Shader</a>/PostProcess.hlsl&quot;</td></tr>
+<tr class="memitem:adf17c8a670438ad4937fd13b9785b44d" id="r_adf17c8a670438ad4937fd13b9785b44d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPostProcessPass_1_1Settings.html">Settings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf17c8a670438ad4937fd13b9785b44d">m_settings</a></td></tr>
+<tr class="memitem:a8621038858733a6558d44c7de15279ca" id="r_a8621038858733a6558d44c7de15279ca"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classRenderTexture.html">RenderTexture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8621038858733a6558d44c7de15279ca">m_pBrightTex</a></td></tr>
+<tr class="memitem:a67db09a67bdd91b50ba2aeff5318df0b" id="r_a67db09a67bdd91b50ba2aeff5318df0b"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classRenderTexture.html">RenderTexture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67db09a67bdd91b50ba2aeff5318df0b">m_pBlurTexTemp</a></td></tr>
+<tr class="memitem:a4f57906f9c9543d1741731c4d7b7c528" id="r_a4f57906f9c9543d1741731c4d7b7c528"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classRenderTexture.html">RenderTexture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f57906f9c9543d1741731c4d7b7c528">m_pFinalTex</a></td></tr>
+<tr class="memitem:ae8fc56cadd3e2719c12d19b02d7c1cf6" id="r_ae8fc56cadd3e2719c12d19b02d7c1cf6"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12RootSignature &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8fc56cadd3e2719c12d19b02d7c1cf6">m_pRootSignature</a></td></tr>
+<tr class="memitem:a5c31d6fc205004173a0a827dc0fe2912" id="r_a5c31d6fc205004173a0a827dc0fe2912"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c31d6fc205004173a0a827dc0fe2912">m_pPassThroughPSO</a></td></tr>
+<tr class="memitem:ab57e00fea57d0848f2f57e758e939ae9" id="r_ab57e00fea57d0848f2f57e758e939ae9"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab57e00fea57d0848f2f57e758e939ae9">m_pBrightPSO</a></td></tr>
+<tr class="memitem:a9f6a31d3d8375fe882ce40564082437c" id="r_a9f6a31d3d8375fe882ce40564082437c"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f6a31d3d8375fe882ce40564082437c">m_pBlurPSO</a></td></tr>
+<tr class="memitem:ac90e0ef6de7ed2eb18681dd02908996b" id="r_ac90e0ef6de7ed2eb18681dd02908996b"><td class="memItemLeft" align="right" valign="top">Microsoft::WRL::ComPtr&lt; ID3D12PipelineState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac90e0ef6de7ed2eb18681dd02908996b">m_pCompositePSO</a></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
 その他の継承メンバ</h2></td></tr>
-<tr class="inherit_header pro_attribs_classIRenderPass"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classIRenderPass')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classIRenderPass.html">IRenderPass</a> に属する継承限定公開変数類</td></tr>
+<tr class="inherit_header pro_attribs_classIRenderPass"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classIRenderPass')"><span class="dynarrow"><span class="arrowhead closed"></span></span>基底クラス <a class="el" href="classIRenderPass.html">IRenderPass</a> に属する継承限定公開変数類</td></tr>
 <tr class="memitem:a4786d22e2938e223a6c611f98a26577d inherit pro_attribs_classIRenderPass" id="r_a4786d22e2938e223a6c611f98a26577d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a4786d22e2938e223a6c611f98a26577d">m_isEnabled</a> = true</td></tr>
-<tr class="separator:a4786d22e2938e223a6c611f98a26577d inherit pro_attribs_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79e84b5631daa2e8e417b7d1be5f620a inherit pro_attribs_classIRenderPass" id="r_a79e84b5631daa2e8e417b7d1be5f620a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a79e84b5631daa2e8e417b7d1be5f620a">m_inputResourceName</a></td></tr>
-<tr class="separator:a79e84b5631daa2e8e417b7d1be5f620a inherit pro_attribs_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d84cbda025bbefe4b35aeae4a82d2f3 inherit pro_attribs_classIRenderPass" id="r_a1d84cbda025bbefe4b35aeae4a82d2f3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a1d84cbda025bbefe4b35aeae4a82d2f3">m_outputResourceName</a></td></tr>
-<tr class="separator:a1d84cbda025bbefe4b35aeae4a82d2f3 inherit pro_attribs_classIRenderPass"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">構築子と解体子</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">構築子と解体子</h2>
 <a id="ae508db8b77c155cb31b8bb3142de111b" name="ae508db8b77c155cb31b8bb3142de111b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae508db8b77c155cb31b8bb3142de111b">&#9670;&#160;</a></span>PostProcessPass()</h2>
 
@@ -207,8 +169,7 @@ PostProcessPass 連携図</div>
         <tr>
           <td class="memname">PostProcessPass::PostProcessPass </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classRenderTexture.html">RenderTexture</a> *&#160;</td>
-          <td class="paramname"><em>pSourceTex</em> = <code>nullptr</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classRenderTexture.html">RenderTexture</a> *</td>          <td class="paramname"><span class="paramname"><em>pSourceTex</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -228,20 +189,20 @@ PostProcessPass 連携図</div>
         <tr>
           <td class="memname">virtual PostProcessPass::~PostProcessPass </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="ad5cb96984d04f6e2c38efa93b9db52d7" name="ad5cb96984d04f6e2c38efa93b9db52d7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad5cb96984d04f6e2c38efa93b9db52d7">&#9670;&#160;</a></span>Execute()</h2>
 
@@ -254,14 +215,13 @@ PostProcessPass 連携図</div>
         <tr>
           <td class="memname">void PostProcessPass::Execute </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structRenderContext.html">RenderContext</a> &amp;&#160;</td>
-          <td class="paramname"><em>ctx</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="structRenderContext.html">RenderContext</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -270,7 +230,7 @@ PostProcessPass 連携図</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classPostProcessPass_ad5cb96984d04f6e2c38efa93b9db52d7_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classPostProcessPass_ad5cb96984d04f6e2c38efa93b9db52d7_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -287,13 +247,13 @@ PostProcessPass 連携図</div>
         <tr>
           <td class="memname">const std::string &amp; PostProcessPass::GetCustomName </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -312,13 +272,13 @@ PostProcessPass 連携図</div>
         <tr>
           <td class="memname">D3D12_GPU_DESCRIPTOR_HANDLE PostProcessPass::GetFinalSRV </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -337,13 +297,13 @@ PostProcessPass 連携図</div>
         <tr>
           <td class="memname"><a class="el" href="classRenderTexture.html">RenderTexture</a> * PostProcessPass::GetFinalTexture </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -362,13 +322,13 @@ PostProcessPass 連携図</div>
         <tr>
           <td class="memname">std::string PostProcessPass::GetName </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -389,13 +349,13 @@ PostProcessPass 連携図</div>
         <tr>
           <td class="memname"><a class="el" href="structPostProcessPass_1_1Settings.html">Settings</a> &amp; PostProcessPass::GetSettings </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -414,13 +374,38 @@ PostProcessPass 連携図</div>
         <tr>
           <td class="memname">const <a class="el" href="structPostProcessPass_1_1Settings.html">Settings</a> &amp; PostProcessPass::GetSettings </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3385e76ca5f24bc7f66bba05792b0648" name="a3385e76ca5f24bc7f66bba05792b0648"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3385e76ca5f24bc7f66bba05792b0648">&#9670;&#160;</a></span>GetShaderPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; PostProcessPass::GetShaderPath </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -439,13 +424,13 @@ PostProcessPass 連携図</div>
         <tr>
           <td class="memname"><a class="el" href="classRenderTexture.html">RenderTexture</a> * PostProcessPass::GetSourceTexture </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -464,19 +449,59 @@ PostProcessPass 連携図</div>
         <tr>
           <td class="memname">void PostProcessPass::Init </td>
           <td>(</td>
-          <td class="paramtype">ID3D12Device *&#160;</td>
-          <td class="paramname"><em>pDevice</em></td><td>)</td>
+          <td class="paramtype">ID3D12Device *</td>          <td class="paramname"><span class="paramname"><em>pDevice</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p><a class="el" href="classIRenderPass.html#a1771179659c4abc6e253814080bba19d">IRenderPass</a>を実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classPostProcessPass_a28abf6b07cb94aca17a662d90b10720b_cgraph.svg" width="450" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3d238a895ea9b530ec4b5a6c0147b506" name="a3d238a895ea9b530ec4b5a6c0147b506"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d238a895ea9b530ec4b5a6c0147b506">&#9670;&#160;</a></span>ReloadShaders()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PostProcessPass::ReloadShaders </td>
+          <td>(</td>
+          <td class="paramtype">ID3D12Device *</td>          <td class="paramname"><span class="paramname"><em>pDevice</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *</td>          <td class="paramname"><span class="paramname"><em>outError</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classIRenderPass.html#a489e62670398c40fb7a0634735af0603">IRenderPass</a>を再実装しています。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classPostProcessPass_a3d238a895ea9b530ec4b5a6c0147b506_icgraph.svg" width="450" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -492,14 +517,13 @@ PostProcessPass 連携図</div>
         <tr>
           <td class="memname">void PostProcessPass::SetCustomName </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -518,14 +542,38 @@ PostProcessPass 連携図</div>
         <tr>
           <td class="memname">void PostProcessPass::SetSettings </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structPostProcessPass_1_1Settings.html">Settings</a> &amp;&#160;</td>
-          <td class="paramname"><em>settings</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="structPostProcessPass_1_1Settings.html">Settings</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>settings</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad4e8eb0a5d066410c71b67c83b0bfc7a" name="ad4e8eb0a5d066410c71b67c83b0bfc7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4e8eb0a5d066410c71b67c83b0bfc7a">&#9670;&#160;</a></span>SetShaderPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PostProcessPass::SetShaderPath </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -544,21 +592,20 @@ PostProcessPass 連携図</div>
         <tr>
           <td class="memname">void PostProcessPass::SetSourceTexture </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classRenderTexture.html">RenderTexture</a> *&#160;</td>
-          <td class="paramname"><em>pSourceTex</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classRenderTexture.html">RenderTexture</a> *</td>          <td class="paramname"><span class="paramname"><em>pSourceTex</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">メンバ詳解</h2>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">メンバ詳解</h2>
 <a id="a4227456e3ada9cd7b3afe87bfb405cbf" name="a4227456e3ada9cd7b3afe87bfb405cbf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4227456e3ada9cd7b3afe87bfb405cbf">&#9670;&#160;</a></span>m_customName</h2>
 
@@ -574,7 +621,7 @@ PostProcessPass 連携図</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -596,7 +643,7 @@ PostProcessPass 連携図</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -618,7 +665,7 @@ PostProcessPass 連携図</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -640,7 +687,7 @@ PostProcessPass 連携図</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -662,7 +709,7 @@ PostProcessPass 連携図</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -684,7 +731,7 @@ PostProcessPass 連携図</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -706,7 +753,7 @@ PostProcessPass 連携図</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -728,7 +775,7 @@ PostProcessPass 連携図</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -750,7 +797,7 @@ PostProcessPass 連携図</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -772,7 +819,7 @@ PostProcessPass 連携図</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -794,7 +841,29 @@ PostProcessPass 連携図</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a464bed84a1a22b776f3336c055d67d12" name="a464bed84a1a22b776f3336c055d67d12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a464bed84a1a22b776f3336c055d67d12">&#9670;&#160;</a></span>m_shaderPath</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string PostProcessPass::m_shaderPath = &quot;Assets/<a class="el" href="classShader.html">Shader</a>/PostProcess.hlsl&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -807,11 +876,19 @@ PostProcessPass 連携図</div>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="classPostProcessPass.html">PostProcessPass</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="classPostProcessPass.html">PostProcessPass</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

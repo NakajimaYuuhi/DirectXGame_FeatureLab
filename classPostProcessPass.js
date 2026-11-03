@@ -10,10 +10,13 @@ var classPostProcessPass =
     [ "GetName", "classPostProcessPass.html#a4b447e341c0e6e9a9f9b608f27358414", null ],
     [ "GetSettings", "classPostProcessPass.html#aebd91818fa0ec754a064558200bf41ca", null ],
     [ "GetSettings", "classPostProcessPass.html#a44e7521b03471fd5daec07ea29e3ed68", null ],
+    [ "GetShaderPath", "classPostProcessPass.html#a3385e76ca5f24bc7f66bba05792b0648", null ],
     [ "GetSourceTexture", "classPostProcessPass.html#a9dd7cfb21d3b4da6c98a5fbcc06244c0", null ],
     [ "Init", "classPostProcessPass.html#a28abf6b07cb94aca17a662d90b10720b", null ],
+    [ "ReloadShaders", "classPostProcessPass.html#a3d238a895ea9b530ec4b5a6c0147b506", null ],
     [ "SetCustomName", "classPostProcessPass.html#ac0d5fcc5388ebb6f1aee8e04596e5a0b", null ],
     [ "SetSettings", "classPostProcessPass.html#a9d2e840f48ccb2c70a89ac03093c476d", null ],
+    [ "SetShaderPath", "classPostProcessPass.html#ad4e8eb0a5d066410c71b67c83b0bfc7a", null ],
     [ "SetSourceTexture", "classPostProcessPass.html#aa64a9b6412ee04558b0374f2009dccd3", null ],
     [ "m_customName", "classPostProcessPass.html#a4227456e3ada9cd7b3afe87bfb405cbf", null ],
     [ "m_pBlurPSO", "classPostProcessPass.html#a9f6a31d3d8375fe882ce40564082437c", null ],
@@ -25,5 +28,6 @@ var classPostProcessPass =
     [ "m_pPassThroughPSO", "classPostProcessPass.html#a5c31d6fc205004173a0a827dc0fe2912", null ],
     [ "m_pRootSignature", "classPostProcessPass.html#ae8fc56cadd3e2719c12d19b02d7c1cf6", null ],
     [ "m_pSourceTex", "classPostProcessPass.html#acd09dbac9b9d9e8f702afe630697fc01", null ],
-    [ "m_settings", "classPostProcessPass.html#adf17c8a670438ad4937fd13b9785b44d", null ]
+    [ "m_settings", "classPostProcessPass.html#adf17c8a670438ad4937fd13b9785b44d", null ],
+    [ "m_shaderPath", "classPostProcessPass.html#a464bed84a1a22b776f3336c055d67d12", null ]
 ];

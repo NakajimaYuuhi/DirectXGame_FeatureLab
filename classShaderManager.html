@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: ShaderManager クラス</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classShaderManager.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('classShaderManager.html','','classShaderManager-members'); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,51 +89,43 @@ $(document).ready(function(){initNavTree('classShaderManager.html',''); initResi
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
-<a href="#pri-methods">非公開メンバ関数</a> &#124;
-<a href="#pri-attribs">非公開変数類</a> &#124;
-<a href="classShaderManager-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">ShaderManager クラス</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="ShaderManager_8h_source.html">ShaderManager.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:ab9e7b20f25ae7b01cd17f88f7b6a619c" id="r_ab9e7b20f25ae7b01cd17f88f7b6a619c"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classShader.html">Shader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShaderManager.html#ab9e7b20f25ae7b01cd17f88f7b6a619c">GetShader</a> (const std::wstring &amp;filePath, const std::string &amp;entryPoint, const std::string &amp;target)</td></tr>
-<tr class="separator:ab9e7b20f25ae7b01cd17f88f7b6a619c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab10852abf4ce5507bb8c3a57484e1a42" id="r_ab10852abf4ce5507bb8c3a57484e1a42"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classShader.html">Shader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShaderManager.html#ab10852abf4ce5507bb8c3a57484e1a42">GetShaderFromCSO</a> (const std::wstring &amp;csoFilePath)</td></tr>
-<tr class="separator:ab10852abf4ce5507bb8c3a57484e1a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a328fa53aed97562f04f457692b68831c" id="r_a328fa53aed97562f04f457692b68831c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShaderManager.html#a328fa53aed97562f04f457692b68831c">ReloadAllShaders</a> (std::string *outErrorLog=nullptr)</td></tr>
-<tr class="separator:a328fa53aed97562f04f457692b68831c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9322a8fcfc59c214e5bb4ebe10b65be0" id="r_a9322a8fcfc59c214e5bb4ebe10b65be0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShaderManager.html#a9322a8fcfc59c214e5bb4ebe10b65be0">Clear</a> ()</td></tr>
-<tr class="separator:a9322a8fcfc59c214e5bb4ebe10b65be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9e7b20f25ae7b01cd17f88f7b6a619c" id="r_ab9e7b20f25ae7b01cd17f88f7b6a619c"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classShader.html">Shader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9e7b20f25ae7b01cd17f88f7b6a619c">GetShader</a> (const std::wstring &amp;filePath, const std::string &amp;entryPoint, const std::string &amp;target)</td></tr>
+<tr class="memitem:ab10852abf4ce5507bb8c3a57484e1a42" id="r_ab10852abf4ce5507bb8c3a57484e1a42"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classShader.html">Shader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab10852abf4ce5507bb8c3a57484e1a42">GetShaderFromCSO</a> (const std::wstring &amp;csoFilePath)</td></tr>
+<tr class="memitem:a328fa53aed97562f04f457692b68831c" id="r_a328fa53aed97562f04f457692b68831c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a328fa53aed97562f04f457692b68831c">ReloadAllShaders</a> (std::string *outErrorLog=nullptr)</td></tr>
+<tr class="memitem:af3c11f2df44f4ca0717bcecc093558de" id="r_af3c11f2df44f4ca0717bcecc093558de"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3c11f2df44f4ca0717bcecc093558de">GetAvailableShaderFiles</a> () const</td></tr>
+<tr class="memitem:a29fdc57468d93ab6b30003b531fcc831" id="r_a29fdc57468d93ab6b30003b531fcc831"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29fdc57468d93ab6b30003b531fcc831">CreateShaderFromTemplate</a> (const std::string &amp;filePath, <a class="el" href="ShaderManager_8h.html#ade9dfec65fd6dd62729bb5de9e8401a4">ShaderTemplateType</a> templateType, std::string *outError=nullptr)</td></tr>
+<tr class="memitem:a106005476e5fffe36a841e929cd6db69" id="r_a106005476e5fffe36a841e929cd6db69"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a106005476e5fffe36a841e929cd6db69">OpenInVSCode</a> (const std::string &amp;filePath, int line=1) const</td></tr>
+<tr class="memitem:ab302ccfd48e79ba88d3741b052054159" id="r_ab302ccfd48e79ba88d3741b052054159"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab302ccfd48e79ba88d3741b052054159">GetLastErrorLog</a> () const</td></tr>
+<tr class="memitem:a99a7bc6342d44f8e496f8a54b1258311" id="r_a99a7bc6342d44f8e496f8a54b1258311"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99a7bc6342d44f8e496f8a54b1258311">SetLastErrorLog</a> (const std::string &amp;err)</td></tr>
+<tr class="memitem:aaebe3c5aa5de272eb9bfa1698152520b" id="r_aaebe3c5aa5de272eb9bfa1698152520b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaebe3c5aa5de272eb9bfa1698152520b">ClearLastErrorLog</a> ()</td></tr>
+<tr class="memitem:a9caf802437397c3eb45c712c109f004b" id="r_a9caf802437397c3eb45c712c109f004b"><td class="memItemLeft" align="right" valign="top">const std::unordered_map&lt; std::wstring, std::shared_ptr&lt; <a class="el" href="classShader.html">Shader</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9caf802437397c3eb45c712c109f004b">GetLoadedShaders</a> () const</td></tr>
+<tr class="memitem:a9322a8fcfc59c214e5bb4ebe10b65be0" id="r_a9322a8fcfc59c214e5bb4ebe10b65be0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9322a8fcfc59c214e5bb4ebe10b65be0">Clear</a> ()</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
-<tr class="memitem:a0a832de62bb853194718cd878e2ce511" id="r_a0a832de62bb853194718cd878e2ce511"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classShaderManager.html">ShaderManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShaderManager.html#a0a832de62bb853194718cd878e2ce511">GetInstance</a> ()</td></tr>
-<tr class="separator:a0a832de62bb853194718cd878e2ce511"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a832de62bb853194718cd878e2ce511" id="r_a0a832de62bb853194718cd878e2ce511"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classShaderManager.html">ShaderManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a832de62bb853194718cd878e2ce511">GetInstance</a> ()</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 非公開メンバ関数</h2></td></tr>
-<tr class="memitem:a24e6624418d548bad255a9f9e1eae165" id="r_a24e6624418d548bad255a9f9e1eae165"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShaderManager.html#a24e6624418d548bad255a9f9e1eae165">ShaderManager</a> ()=default</td></tr>
-<tr class="separator:a24e6624418d548bad255a9f9e1eae165"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23b053748b963e10cb17ae768467942a" id="r_a23b053748b963e10cb17ae768467942a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShaderManager.html#a23b053748b963e10cb17ae768467942a">~ShaderManager</a> ()=default</td></tr>
-<tr class="separator:a23b053748b963e10cb17ae768467942a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7107f141de4148e9870d3870027337cd" id="r_a7107f141de4148e9870d3870027337cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShaderManager.html#a7107f141de4148e9870d3870027337cd">ShaderManager</a> (const <a class="el" href="classShaderManager.html">ShaderManager</a> &amp;)=delete</td></tr>
-<tr class="separator:a7107f141de4148e9870d3870027337cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a689b404424a09269cfb39e8c931bfd18" id="r_a689b404424a09269cfb39e8c931bfd18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classShaderManager.html">ShaderManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShaderManager.html#a689b404424a09269cfb39e8c931bfd18">operator=</a> (const <a class="el" href="classShaderManager.html">ShaderManager</a> &amp;)=delete</td></tr>
-<tr class="separator:a689b404424a09269cfb39e8c931bfd18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24e6624418d548bad255a9f9e1eae165" id="r_a24e6624418d548bad255a9f9e1eae165"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24e6624418d548bad255a9f9e1eae165">ShaderManager</a> ()=default</td></tr>
+<tr class="memitem:a23b053748b963e10cb17ae768467942a" id="r_a23b053748b963e10cb17ae768467942a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23b053748b963e10cb17ae768467942a">~ShaderManager</a> ()=default</td></tr>
+<tr class="memitem:a7107f141de4148e9870d3870027337cd" id="r_a7107f141de4148e9870d3870027337cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7107f141de4148e9870d3870027337cd">ShaderManager</a> (const <a class="el" href="classShaderManager.html">ShaderManager</a> &amp;)=delete</td></tr>
+<tr class="memitem:a689b404424a09269cfb39e8c931bfd18" id="r_a689b404424a09269cfb39e8c931bfd18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classShaderManager.html">ShaderManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a689b404424a09269cfb39e8c931bfd18">operator=</a> (const <a class="el" href="classShaderManager.html">ShaderManager</a> &amp;)=delete</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 非公開変数類</h2></td></tr>
-<tr class="memitem:a66ef5537e34121c926f97793978b5e40" id="r_a66ef5537e34121c926f97793978b5e40"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::wstring, std::shared_ptr&lt; <a class="el" href="classShader.html">Shader</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShaderManager.html#a66ef5537e34121c926f97793978b5e40">m_shaders</a></td></tr>
-<tr class="separator:a66ef5537e34121c926f97793978b5e40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66ef5537e34121c926f97793978b5e40" id="r_a66ef5537e34121c926f97793978b5e40"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::wstring, std::shared_ptr&lt; <a class="el" href="classShader.html">Shader</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66ef5537e34121c926f97793978b5e40">m_shaders</a></td></tr>
+<tr class="memitem:a814968c2a9b27210705e80e60f555983" id="r_a814968c2a9b27210705e80e60f555983"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a814968c2a9b27210705e80e60f555983">m_lastErrorLog</a></td></tr>
 </table>
-<h2 class="groupheader">構築子と解体子</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">構築子と解体子</h2>
 <a id="a24e6624418d548bad255a9f9e1eae165" name="a24e6624418d548bad255a9f9e1eae165"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a24e6624418d548bad255a9f9e1eae165">&#9670;&#160;</a></span>ShaderManager() <span class="overload">[1/2]</span></h2>
 
@@ -147,16 +138,21 @@ $(document).ready(function(){initNavTree('classShaderManager.html',''); initResi
         <tr>
           <td class="memname">ShaderManager::ShaderManager </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classShaderManager_a24e6624418d548bad255a9f9e1eae165_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -172,13 +168,13 @@ $(document).ready(function(){initNavTree('classShaderManager.html',''); initResi
         <tr>
           <td class="memname">ShaderManager::~ShaderManager </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -197,21 +193,25 @@ $(document).ready(function(){initNavTree('classShaderManager.html',''); initResi
         <tr>
           <td class="memname">ShaderManager::ShaderManager </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classShaderManager.html">ShaderManager</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classShaderManager.html">ShaderManager</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classShaderManager_a7107f141de4148e9870d3870027337cd_cgraph.svg" width="526" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="a9322a8fcfc59c214e5bb4ebe10b65be0" name="a9322a8fcfc59c214e5bb4ebe10b65be0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9322a8fcfc59c214e5bb4ebe10b65be0">&#9670;&#160;</a></span>Clear()</h2>
 
@@ -224,16 +224,99 @@ $(document).ready(function(){initNavTree('classShaderManager.html',''); initResi
         <tr>
           <td class="memname">void ShaderManager::Clear </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classShaderManager_a9322a8fcfc59c214e5bb4ebe10b65be0_icgraph.svg" width="303" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aaebe3c5aa5de272eb9bfa1698152520b" name="aaebe3c5aa5de272eb9bfa1698152520b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaebe3c5aa5de272eb9bfa1698152520b">&#9670;&#160;</a></span>ClearLastErrorLog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ShaderManager::ClearLastErrorLog </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classShaderManager_aaebe3c5aa5de272eb9bfa1698152520b_icgraph.svg" width="100%" height="481"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a29fdc57468d93ab6b30003b531fcc831" name="a29fdc57468d93ab6b30003b531fcc831"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29fdc57468d93ab6b30003b531fcc831">&#9670;&#160;</a></span>CreateShaderFromTemplate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ShaderManager::CreateShaderFromTemplate </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>filePath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="ShaderManager_8h.html#ade9dfec65fd6dd62729bb5de9e8401a4">ShaderTemplateType</a></td>          <td class="paramname"><span class="paramname"><em>templateType</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *</td>          <td class="paramname"><span class="paramname"><em>outError</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af3c11f2df44f4ca0717bcecc093558de" name="af3c11f2df44f4ca0717bcecc093558de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3c11f2df44f4ca0717bcecc093558de">&#9670;&#160;</a></span>GetAvailableShaderFiles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; ShaderManager::GetAvailableShaderFiles </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classShaderManager_af3c11f2df44f4ca0717bcecc093558de_icgraph.svg" width="546" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -247,23 +330,83 @@ $(document).ready(function(){initNavTree('classShaderManager.html',''); initResi
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="classShaderManager.html">ShaderManager</a> &amp; ShaderManager::GetInstance </td>
+          <td class="memname"><a class="el" href="classShaderManager.html">ShaderManager</a> &amp; ShaderManager::GetInstance </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classShaderManager_a0a832de62bb853194718cd878e2ce511_cgraph.svg" width="502" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classShaderManager_a0a832de62bb853194718cd878e2ce511_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ab302ccfd48e79ba88d3741b052054159" name="ab302ccfd48e79ba88d3741b052054159"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab302ccfd48e79ba88d3741b052054159">&#9670;&#160;</a></span>GetLastErrorLog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; ShaderManager::GetLastErrorLog </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classShaderManager_a0a832de62bb853194718cd878e2ce511_icgraph.svg" width="100%" height="517"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classShaderManager_ab302ccfd48e79ba88d3741b052054159_icgraph.svg" width="567" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="a9caf802437397c3eb45c712c109f004b" name="a9caf802437397c3eb45c712c109f004b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9caf802437397c3eb45c712c109f004b">&#9670;&#160;</a></span>GetLoadedShaders()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::unordered_map&lt; std::wstring, std::shared_ptr&lt; <a class="el" href="classShader.html">Shader</a> &gt; &gt; &amp; ShaderManager::GetLoadedShaders </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -276,32 +419,24 @@ $(document).ready(function(){initNavTree('classShaderManager.html',''); initResi
         <tr>
           <td class="memname">std::shared_ptr&lt; <a class="el" href="classShader.html">Shader</a> &gt; ShaderManager::GetShader </td>
           <td>(</td>
-          <td class="paramtype">const std::wstring &amp;&#160;</td>
-          <td class="paramname"><em>filePath</em>, </td>
+          <td class="paramtype">const std::wstring &amp;</td>          <td class="paramname"><span class="paramname"><em>filePath</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>entryPoint</em>, </td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>entryPoint</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>target</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>target</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classShaderManager_ab9e7b20f25ae7b01cd17f88f7b6a619c_icgraph.svg" width="100%" height="517"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classShaderManager_ab9e7b20f25ae7b01cd17f88f7b6a619c_icgraph.svg" width="100%" height="512"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -315,12 +450,37 @@ $(document).ready(function(){initNavTree('classShaderManager.html',''); initResi
         <tr>
           <td class="memname">std::shared_ptr&lt; <a class="el" href="classShader.html">Shader</a> &gt; ShaderManager::GetShaderFromCSO </td>
           <td>(</td>
-          <td class="paramtype">const std::wstring &amp;&#160;</td>
-          <td class="paramname"><em>csoFilePath</em></td><td>)</td>
+          <td class="paramtype">const std::wstring &amp;</td>          <td class="paramname"><span class="paramname"><em>csoFilePath</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a106005476e5fffe36a841e929cd6db69" name="a106005476e5fffe36a841e929cd6db69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a106005476e5fffe36a841e929cd6db69">&#9670;&#160;</a></span>OpenInVSCode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ShaderManager::OpenInVSCode </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>filePath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>line</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classShaderManager_a106005476e5fffe36a841e929cd6db69_icgraph.svg" width="559" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -336,17 +496,21 @@ $(document).ready(function(){initNavTree('classShaderManager.html',''); initResi
         <tr>
           <td class="memname"><a class="el" href="classShaderManager.html">ShaderManager</a> &amp; ShaderManager::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classShaderManager.html">ShaderManager</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classShaderManager.html">ShaderManager</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classShaderManager_a689b404424a09269cfb39e8c931bfd18_cgraph.svg" width="490" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -359,8 +523,7 @@ $(document).ready(function(){initNavTree('classShaderManager.html',''); initResi
         <tr>
           <td class="memname">bool ShaderManager::ReloadAllShaders </td>
           <td>(</td>
-          <td class="paramtype">std::string *&#160;</td>
-          <td class="paramname"><em>outErrorLog</em> = <code>nullptr</code></td><td>)</td>
+          <td class="paramtype">std::string *</td>          <td class="paramname"><span class="paramname"><em>outErrorLog</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -368,7 +531,59 @@ $(document).ready(function(){initNavTree('classShaderManager.html',''); initResi
 
 </div>
 </div>
-<h2 class="groupheader">メンバ詳解</h2>
+<a id="a99a7bc6342d44f8e496f8a54b1258311" name="a99a7bc6342d44f8e496f8a54b1258311"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99a7bc6342d44f8e496f8a54b1258311">&#9670;&#160;</a></span>SetLastErrorLog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ShaderManager::SetLastErrorLog </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>err</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classShaderManager_a99a7bc6342d44f8e496f8a54b1258311_icgraph.svg" width="100%" height="481"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">メンバ詳解</h2>
+<a id="a814968c2a9b27210705e80e60f555983" name="a814968c2a9b27210705e80e60f555983"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a814968c2a9b27210705e80e60f555983">&#9670;&#160;</a></span>m_lastErrorLog</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ShaderManager::m_lastErrorLog</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a66ef5537e34121c926f97793978b5e40" name="a66ef5537e34121c926f97793978b5e40"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a66ef5537e34121c926f97793978b5e40">&#9670;&#160;</a></span>m_shaders</h2>
 
@@ -384,7 +599,7 @@ $(document).ready(function(){initNavTree('classShaderManager.html',''); initResi
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -397,11 +612,19 @@ $(document).ready(function(){initNavTree('classShaderManager.html',''); initResi
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="classShaderManager.html">ShaderManager</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="classShaderManager.html">ShaderManager</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

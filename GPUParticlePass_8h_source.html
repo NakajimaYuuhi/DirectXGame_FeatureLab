@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: Source/Rendering/GPUParticlePass.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,28 +35,22 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function() { init_codefold(0); });
-/* @license-end */
-</script>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -68,10 +63,9 @@ $(document).ready(function() { init_codefold(0); });
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('GPUParticlePass_8h_source.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('GPUParticlePass_8h_source.html','',''); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -107,10 +101,10 @@ $(document).ready(function(){initNavTree('GPUParticlePass_8h_source.html',''); i
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classGPUParticlePass.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="classGPUParticlePass.html">GPUParticlePass</a> : <span class="keyword">public</span> <a class="code hl_class" href="classIRenderPass.html">IRenderPass</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classGPUParticlePass.html">    9</a></span><span class="keyword">class </span><a class="code hl_function" href="classGPUParticlePass.html#a5d26d23db931947766427bf54494b7b9">GPUParticlePass</a> : <span class="keyword">public</span> <a class="code hl_class" href="classIRenderPass.html">IRenderPass</a></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_class" href="classGPUParticlePass.html">GPUParticlePass</a>(<a class="code hl_class" href="classRenderTexture.html">RenderTexture</a>* pRenderTarget = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_function" href="classGPUParticlePass.html#a5d26d23db931947766427bf54494b7b9">GPUParticlePass</a>(<a class="code hl_class" href="classRenderTexture.html">RenderTexture</a>* pRenderTarget = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classGPUParticlePass.html#ab603f51cb914f478dc385ee7642d4575">   13</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classGPUParticlePass.html#ab603f51cb914f478dc385ee7642d4575">~GPUParticlePass</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classGPUParticlePass.html#a3cf47c2618cd13546ee98574d314d9f1">Init</a>(ID3D12Device* pDevice) <span class="keyword">override</span>;</div>
@@ -139,13 +133,13 @@ $(document).ready(function(){initNavTree('GPUParticlePass_8h_source.html',''); i
 <div class="ttc" id="aGPUParticleSystem_8h_html"><div class="ttname"><a href="GPUParticleSystem_8h.html">GPUParticleSystem.h</a></div></div>
 <div class="ttc" id="aIRenderPass_8h_html"><div class="ttname"><a href="IRenderPass_8h.html">IRenderPass.h</a></div></div>
 <div class="ttc" id="aRenderTexture_8h_html"><div class="ttname"><a href="RenderTexture_8h.html">RenderTexture.h</a></div></div>
-<div class="ttc" id="aclassGPUParticlePass_html"><div class="ttname"><a href="classGPUParticlePass.html">GPUParticlePass</a></div><div class="ttdef"><b>Definition</b> GPUParticlePass.h:10</div></div>
 <div class="ttc" id="aclassGPUParticlePass_html_a00f8e3a22f236e0aa90a5f7c2d681579"><div class="ttname"><a href="classGPUParticlePass.html#a00f8e3a22f236e0aa90a5f7c2d681579">GPUParticlePass::SetRenderTarget</a></div><div class="ttdeci">void SetRenderTarget(RenderTexture *pRenderTarget)</div><div class="ttdef"><b>Definition</b> GPUParticlePass.h:22</div></div>
 <div class="ttc" id="aclassGPUParticlePass_html_a04e26678b4a54a2c06f2a25b2721ff47"><div class="ttname"><a href="classGPUParticlePass.html#a04e26678b4a54a2c06f2a25b2721ff47">GPUParticlePass::GetParticleSystem</a></div><div class="ttdeci">const GPUParticleSystem &amp; GetParticleSystem() const</div><div class="ttdef"><b>Definition</b> GPUParticlePass.h:29</div></div>
 <div class="ttc" id="aclassGPUParticlePass_html_a3c12482126cddc8b74554b8a1695cdc2"><div class="ttname"><a href="classGPUParticlePass.html#a3c12482126cddc8b74554b8a1695cdc2">GPUParticlePass::SetCustomName</a></div><div class="ttdeci">void SetCustomName(const std::string &amp;name)</div><div class="ttdef"><b>Definition</b> GPUParticlePass.h:19</div></div>
 <div class="ttc" id="aclassGPUParticlePass_html_a3cf47c2618cd13546ee98574d314d9f1"><div class="ttname"><a href="classGPUParticlePass.html#a3cf47c2618cd13546ee98574d314d9f1">GPUParticlePass::Init</a></div><div class="ttdeci">virtual void Init(ID3D12Device *pDevice) override</div><div class="ttdef"><b>Definition</b> GPUParticlePass.cpp:12</div></div>
 <div class="ttc" id="aclassGPUParticlePass_html_a48369495b4345494fe0242de9dfaf95b"><div class="ttname"><a href="classGPUParticlePass.html#a48369495b4345494fe0242de9dfaf95b">GPUParticlePass::GetCustomName</a></div><div class="ttdeci">const std::string &amp; GetCustomName() const</div><div class="ttdef"><b>Definition</b> GPUParticlePass.h:20</div></div>
 <div class="ttc" id="aclassGPUParticlePass_html_a49c8f8454cd4ee05245350d9f6cc3be0"><div class="ttname"><a href="classGPUParticlePass.html#a49c8f8454cd4ee05245350d9f6cc3be0">GPUParticlePass::m_clearColorEnabled</a></div><div class="ttdeci">bool m_clearColorEnabled</div><div class="ttdef"><b>Definition</b> GPUParticlePass.h:34</div></div>
+<div class="ttc" id="aclassGPUParticlePass_html_a5d26d23db931947766427bf54494b7b9"><div class="ttname"><a href="classGPUParticlePass.html#a5d26d23db931947766427bf54494b7b9">GPUParticlePass::GPUParticlePass</a></div><div class="ttdeci">GPUParticlePass(RenderTexture *pRenderTarget=nullptr)</div><div class="ttdef"><b>Definition</b> GPUParticlePass.cpp:6</div></div>
 <div class="ttc" id="aclassGPUParticlePass_html_a5f265bb633ed0ae356829043dfa46027"><div class="ttname"><a href="classGPUParticlePass.html#a5f265bb633ed0ae356829043dfa46027">GPUParticlePass::SetClearColorEnabled</a></div><div class="ttdeci">void SetClearColorEnabled(bool enabled)</div><div class="ttdef"><b>Definition</b> GPUParticlePass.h:25</div></div>
 <div class="ttc" id="aclassGPUParticlePass_html_a70d6fdf34c72d7318604e29339692451"><div class="ttname"><a href="classGPUParticlePass.html#a70d6fdf34c72d7318604e29339692451">GPUParticlePass::Execute</a></div><div class="ttdeci">virtual void Execute(const RenderContext &amp;ctx) override</div><div class="ttdef"><b>Definition</b> GPUParticlePass.cpp:17</div></div>
 <div class="ttc" id="aclassGPUParticlePass_html_a75211c2cadf8ed8e7790067a86a9b3ca"><div class="ttname"><a href="classGPUParticlePass.html#a75211c2cadf8ed8e7790067a86a9b3ca">GPUParticlePass::m_particleSystem</a></div><div class="ttdeci">GPUParticleSystem m_particleSystem</div><div class="ttdef"><b>Definition</b> GPUParticlePass.h:35</div></div>
@@ -162,11 +156,12 @@ $(document).ready(function(){initNavTree('GPUParticlePass_8h_source.html',''); i
 <div class="ttc" id="astructRenderContext_html"><div class="ttname"><a href="structRenderContext.html">RenderContext</a></div><div class="ttdef"><b>Definition</b> RenderContext.h:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_e350ea9347b5bfd16d4777c6b135cca8.html">Rendering</a></li><li class="navelem"><a class="el" href="GPUParticlePass_8h.html">GPUParticlePass.h</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_e350ea9347b5bfd16d4777c6b135cca8.html">Rendering</a></li><li class="navelem"><a href="GPUParticlePass_8h.html">GPUParticlePass.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

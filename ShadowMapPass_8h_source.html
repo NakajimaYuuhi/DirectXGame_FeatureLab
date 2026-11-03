@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: Source/Rendering/ShadowMapPass.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,28 +35,22 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function() { init_codefold(0); });
-/* @license-end */
-</script>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -68,10 +63,9 @@ $(document).ready(function() { init_codefold(0); });
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('ShadowMapPass_8h_source.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('ShadowMapPass_8h_source.html','',''); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -100,35 +94,67 @@ $(document).ready(function(){initNavTree('ShadowMapPass_8h_source.html',''); ini
 <div class="contents">
 <a href="ShadowMapPass_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="IRenderPass_8h.html">IRenderPass.h</a>&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="foldopen" id="foldopen00004" data-start="{" data-end="};">
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="classShadowMapPass.html">    4</a></span><span class="keyword">class </span><a class="code hl_class" href="classShadowMapPass.html">ShadowMapPass</a> : <span class="keyword">public</span> <a class="code hl_class" href="classIRenderPass.html">IRenderPass</a></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="classShadowMapPass.html#a33a5d7e49840c6fec823234061bc6982">    7</a></span>    <a class="code hl_function" href="classShadowMapPass.html#a33a5d7e49840c6fec823234061bc6982">ShadowMapPass</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="classShadowMapPass.html#ab36143c2312b60d239aa6394367b1e93">    8</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classShadowMapPass.html#ab36143c2312b60d239aa6394367b1e93">~ShadowMapPass</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classShadowMapPass.html#a9411d702ab83f2f7b91eb78bc4c56786">Init</a>(ID3D12Device* pDevice) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classShadowMapPass.html#a15b1e30806151a975d67c0ce936a45cd">Execute</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structRenderContext.html">RenderContext</a>&amp; ctx) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classShadowMapPass.html#a49c138a4598056ca29244cb2239cf8f9">   12</a></span>    <span class="keyword">virtual</span> std::string <a class="code hl_function" href="classShadowMapPass.html#a49c138a4598056ca29244cb2239cf8f9">GetName</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;Shadow Map Pass&quot;</span>; }</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>};</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="classShadowMapPass.html">    5</a></span><span class="keyword">class </span><a class="code hl_function" href="classShadowMapPass.html#a33a5d7e49840c6fec823234061bc6982">ShadowMapPass</a> : <span class="keyword">public</span> <a class="code hl_class" href="classIRenderPass.html">IRenderPass</a></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="classShadowMapPass.html#a33a5d7e49840c6fec823234061bc6982">    8</a></span>    <a class="code hl_function" href="classShadowMapPass.html#a33a5d7e49840c6fec823234061bc6982">ShadowMapPass</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classShadowMapPass.html#ab36143c2312b60d239aa6394367b1e93">    9</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classShadowMapPass.html#ab36143c2312b60d239aa6394367b1e93">~ShadowMapPass</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classShadowMapPass.html#a9411d702ab83f2f7b91eb78bc4c56786">Init</a>(ID3D12Device* pDevice) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classShadowMapPass.html#a15b1e30806151a975d67c0ce936a45cd">Execute</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structRenderContext.html">RenderContext</a>&amp; ctx) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classShadowMapPass.html#a49c138a4598056ca29244cb2239cf8f9">   13</a></span>    <span class="keyword">virtual</span> std::string <a class="code hl_function" href="classShadowMapPass.html#a49c138a4598056ca29244cb2239cf8f9">GetName</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;Shadow Map Pass&quot;</span>; }</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="comment">// Custom shadow shader &amp; rasterizer depth bias settings</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classShadowMapPass.html#ade941e5bc4bdaf14cdffd6911c92e4cb">   16</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classShadowMapPass.html#ade941e5bc4bdaf14cdffd6911c92e4cb">SetShaderPath</a>(<span class="keyword">const</span> std::string&amp; path) { <a class="code hl_variable" href="classShadowMapPass.html#a167ed8352e164921be0ca1f73989e17c">m_shaderPath</a> = path; }</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classShadowMapPass.html#a069b068625f9034f67e4df1b9354ec57">   17</a></span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classShadowMapPass.html#a069b068625f9034f67e4df1b9354ec57">GetShaderPath</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classShadowMapPass.html#a167ed8352e164921be0ca1f73989e17c">m_shaderPath</a>; }</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classShadowMapPass.html#a35d9a044d236dd4fcc639fbb6788731f">   19</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classShadowMapPass.html#a35d9a044d236dd4fcc639fbb6788731f">SetVsEntry</a>(<span class="keyword">const</span> std::string&amp; entry) { <a class="code hl_variable" href="classShadowMapPass.html#a4021b410e09043f0bcbd8d2815226163">m_vsEntry</a> = entry; }</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classShadowMapPass.html#aaa8df0cc393b42c56e8933b7b79ffaac">   20</a></span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="classShadowMapPass.html#aaa8df0cc393b42c56e8933b7b79ffaac">GetVsEntry</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classShadowMapPass.html#a4021b410e09043f0bcbd8d2815226163">m_vsEntry</a>; }</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classShadowMapPass.html#a3e3e26e5bca6aeaee0cedad0f11eecae">   22</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classShadowMapPass.html#a3e3e26e5bca6aeaee0cedad0f11eecae">SetDepthBias</a>(<span class="keywordtype">int</span> bias) { <a class="code hl_variable" href="classShadowMapPass.html#ab2531f64b2c9e47eea0cb49a3eb37dfb">m_depthBias</a> = bias; }</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classShadowMapPass.html#a49069f33764bc7417946e54feac2e7c6">   23</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classShadowMapPass.html#a49069f33764bc7417946e54feac2e7c6">GetDepthBias</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classShadowMapPass.html#ab2531f64b2c9e47eea0cb49a3eb37dfb">m_depthBias</a>; }</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classShadowMapPass.html#aa422d66fb02482b538f81a44c261dfae">   25</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classShadowMapPass.html#aa422d66fb02482b538f81a44c261dfae">SetSlopeScaledDepthBias</a>(<span class="keywordtype">float</span> slopeBias) { <a class="code hl_variable" href="classShadowMapPass.html#a975c37cfcb0bdbe6e66d9810cd0f36a2">m_slopeScaledDepthBias</a> = slopeBias; }</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classShadowMapPass.html#a4aa999a153aff67967344f9d915cb024">   26</a></span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classShadowMapPass.html#a4aa999a153aff67967344f9d915cb024">GetSlopeScaledDepthBias</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classShadowMapPass.html#a975c37cfcb0bdbe6e66d9810cd0f36a2">m_slopeScaledDepthBias</a>; }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classShadowMapPass.html#a167ed8352e164921be0ca1f73989e17c">   29</a></span>    std::string <a class="code hl_variable" href="classShadowMapPass.html#a167ed8352e164921be0ca1f73989e17c">m_shaderPath</a> = <span class="stringliteral">&quot;Assets/Shader/ShadowMap.hlsl&quot;</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classShadowMapPass.html#a4021b410e09043f0bcbd8d2815226163">   30</a></span>    std::string <a class="code hl_variable" href="classShadowMapPass.html#a4021b410e09043f0bcbd8d2815226163">m_vsEntry</a> = <span class="stringliteral">&quot;VSMain&quot;</span>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classShadowMapPass.html#ab2531f64b2c9e47eea0cb49a3eb37dfb">   31</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classShadowMapPass.html#ab2531f64b2c9e47eea0cb49a3eb37dfb">m_depthBias</a> = 500;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classShadowMapPass.html#a975c37cfcb0bdbe6e66d9810cd0f36a2">   32</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classShadowMapPass.html#a975c37cfcb0bdbe6e66d9810cd0f36a2">m_slopeScaledDepthBias</a> = 1.5f;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
 </div>
 <div class="ttc" id="aIRenderPass_8h_html"><div class="ttname"><a href="IRenderPass_8h.html">IRenderPass.h</a></div></div>
 <div class="ttc" id="aclassIRenderPass_html"><div class="ttname"><a href="classIRenderPass.html">IRenderPass</a></div><div class="ttdef"><b>Definition</b> IRenderPass.h:6</div></div>
-<div class="ttc" id="aclassShadowMapPass_html"><div class="ttname"><a href="classShadowMapPass.html">ShadowMapPass</a></div><div class="ttdef"><b>Definition</b> ShadowMapPass.h:5</div></div>
+<div class="ttc" id="aclassShadowMapPass_html_a069b068625f9034f67e4df1b9354ec57"><div class="ttname"><a href="classShadowMapPass.html#a069b068625f9034f67e4df1b9354ec57">ShadowMapPass::GetShaderPath</a></div><div class="ttdeci">const std::string &amp; GetShaderPath() const</div><div class="ttdef"><b>Definition</b> ShadowMapPass.h:17</div></div>
 <div class="ttc" id="aclassShadowMapPass_html_a15b1e30806151a975d67c0ce936a45cd"><div class="ttname"><a href="classShadowMapPass.html#a15b1e30806151a975d67c0ce936a45cd">ShadowMapPass::Execute</a></div><div class="ttdeci">virtual void Execute(const RenderContext &amp;ctx) override</div><div class="ttdef"><b>Definition</b> ShadowMapPass.cpp:14</div></div>
+<div class="ttc" id="aclassShadowMapPass_html_a167ed8352e164921be0ca1f73989e17c"><div class="ttname"><a href="classShadowMapPass.html#a167ed8352e164921be0ca1f73989e17c">ShadowMapPass::m_shaderPath</a></div><div class="ttdeci">std::string m_shaderPath</div><div class="ttdef"><b>Definition</b> ShadowMapPass.h:29</div></div>
 <div class="ttc" id="aclassShadowMapPass_html_a33a5d7e49840c6fec823234061bc6982"><div class="ttname"><a href="classShadowMapPass.html#a33a5d7e49840c6fec823234061bc6982">ShadowMapPass::ShadowMapPass</a></div><div class="ttdeci">ShadowMapPass()=default</div></div>
-<div class="ttc" id="aclassShadowMapPass_html_a49c138a4598056ca29244cb2239cf8f9"><div class="ttname"><a href="classShadowMapPass.html#a49c138a4598056ca29244cb2239cf8f9">ShadowMapPass::GetName</a></div><div class="ttdeci">virtual std::string GetName() const override</div><div class="ttdef"><b>Definition</b> ShadowMapPass.h:12</div></div>
+<div class="ttc" id="aclassShadowMapPass_html_a35d9a044d236dd4fcc639fbb6788731f"><div class="ttname"><a href="classShadowMapPass.html#a35d9a044d236dd4fcc639fbb6788731f">ShadowMapPass::SetVsEntry</a></div><div class="ttdeci">void SetVsEntry(const std::string &amp;entry)</div><div class="ttdef"><b>Definition</b> ShadowMapPass.h:19</div></div>
+<div class="ttc" id="aclassShadowMapPass_html_a3e3e26e5bca6aeaee0cedad0f11eecae"><div class="ttname"><a href="classShadowMapPass.html#a3e3e26e5bca6aeaee0cedad0f11eecae">ShadowMapPass::SetDepthBias</a></div><div class="ttdeci">void SetDepthBias(int bias)</div><div class="ttdef"><b>Definition</b> ShadowMapPass.h:22</div></div>
+<div class="ttc" id="aclassShadowMapPass_html_a4021b410e09043f0bcbd8d2815226163"><div class="ttname"><a href="classShadowMapPass.html#a4021b410e09043f0bcbd8d2815226163">ShadowMapPass::m_vsEntry</a></div><div class="ttdeci">std::string m_vsEntry</div><div class="ttdef"><b>Definition</b> ShadowMapPass.h:30</div></div>
+<div class="ttc" id="aclassShadowMapPass_html_a49069f33764bc7417946e54feac2e7c6"><div class="ttname"><a href="classShadowMapPass.html#a49069f33764bc7417946e54feac2e7c6">ShadowMapPass::GetDepthBias</a></div><div class="ttdeci">int GetDepthBias() const</div><div class="ttdef"><b>Definition</b> ShadowMapPass.h:23</div></div>
+<div class="ttc" id="aclassShadowMapPass_html_a49c138a4598056ca29244cb2239cf8f9"><div class="ttname"><a href="classShadowMapPass.html#a49c138a4598056ca29244cb2239cf8f9">ShadowMapPass::GetName</a></div><div class="ttdeci">virtual std::string GetName() const override</div><div class="ttdef"><b>Definition</b> ShadowMapPass.h:13</div></div>
+<div class="ttc" id="aclassShadowMapPass_html_a4aa999a153aff67967344f9d915cb024"><div class="ttname"><a href="classShadowMapPass.html#a4aa999a153aff67967344f9d915cb024">ShadowMapPass::GetSlopeScaledDepthBias</a></div><div class="ttdeci">float GetSlopeScaledDepthBias() const</div><div class="ttdef"><b>Definition</b> ShadowMapPass.h:26</div></div>
 <div class="ttc" id="aclassShadowMapPass_html_a9411d702ab83f2f7b91eb78bc4c56786"><div class="ttname"><a href="classShadowMapPass.html#a9411d702ab83f2f7b91eb78bc4c56786">ShadowMapPass::Init</a></div><div class="ttdeci">virtual void Init(ID3D12Device *pDevice) override</div><div class="ttdef"><b>Definition</b> ShadowMapPass.cpp:9</div></div>
+<div class="ttc" id="aclassShadowMapPass_html_a975c37cfcb0bdbe6e66d9810cd0f36a2"><div class="ttname"><a href="classShadowMapPass.html#a975c37cfcb0bdbe6e66d9810cd0f36a2">ShadowMapPass::m_slopeScaledDepthBias</a></div><div class="ttdeci">float m_slopeScaledDepthBias</div><div class="ttdef"><b>Definition</b> ShadowMapPass.h:32</div></div>
+<div class="ttc" id="aclassShadowMapPass_html_aa422d66fb02482b538f81a44c261dfae"><div class="ttname"><a href="classShadowMapPass.html#aa422d66fb02482b538f81a44c261dfae">ShadowMapPass::SetSlopeScaledDepthBias</a></div><div class="ttdeci">void SetSlopeScaledDepthBias(float slopeBias)</div><div class="ttdef"><b>Definition</b> ShadowMapPass.h:25</div></div>
+<div class="ttc" id="aclassShadowMapPass_html_aaa8df0cc393b42c56e8933b7b79ffaac"><div class="ttname"><a href="classShadowMapPass.html#aaa8df0cc393b42c56e8933b7b79ffaac">ShadowMapPass::GetVsEntry</a></div><div class="ttdeci">const std::string &amp; GetVsEntry() const</div><div class="ttdef"><b>Definition</b> ShadowMapPass.h:20</div></div>
+<div class="ttc" id="aclassShadowMapPass_html_ab2531f64b2c9e47eea0cb49a3eb37dfb"><div class="ttname"><a href="classShadowMapPass.html#ab2531f64b2c9e47eea0cb49a3eb37dfb">ShadowMapPass::m_depthBias</a></div><div class="ttdeci">int m_depthBias</div><div class="ttdef"><b>Definition</b> ShadowMapPass.h:31</div></div>
 <div class="ttc" id="aclassShadowMapPass_html_ab36143c2312b60d239aa6394367b1e93"><div class="ttname"><a href="classShadowMapPass.html#ab36143c2312b60d239aa6394367b1e93">ShadowMapPass::~ShadowMapPass</a></div><div class="ttdeci">virtual ~ShadowMapPass()=default</div></div>
+<div class="ttc" id="aclassShadowMapPass_html_ade941e5bc4bdaf14cdffd6911c92e4cb"><div class="ttname"><a href="classShadowMapPass.html#ade941e5bc4bdaf14cdffd6911c92e4cb">ShadowMapPass::SetShaderPath</a></div><div class="ttdeci">void SetShaderPath(const std::string &amp;path)</div><div class="ttdef"><b>Definition</b> ShadowMapPass.h:16</div></div>
 <div class="ttc" id="astructRenderContext_html"><div class="ttname"><a href="structRenderContext.html">RenderContext</a></div><div class="ttdef"><b>Definition</b> RenderContext.h:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_e350ea9347b5bfd16d4777c6b135cca8.html">Rendering</a></li><li class="navelem"><a class="el" href="ShadowMapPass_8h.html">ShadowMapPass.h</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_e350ea9347b5bfd16d4777c6b135cca8.html">Rendering</a></li><li class="navelem"><a href="ShadowMapPass_8h.html">ShadowMapPass.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

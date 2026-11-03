@@ -5,6 +5,7 @@ var classPSOManager =
     [ "PSOManager", "classPSOManager.html#a8af8dbbcac57fa2a45d243d8fd161c45", null ],
     [ "Finalize", "classPSOManager.html#a0e10937a2c5689bbc002965d1ff0bc64", null ],
     [ "GetAdditivePSO", "classPSOManager.html#af6a5d8da89d123e456ab3726257fea91", null ],
+    [ "GetCustomShadowPSO", "classPSOManager.html#a8d100717e854417c7eb904d083c8bf9f", null ],
     [ "GetDummyBoneSRV", "classPSOManager.html#a893ddc1fa215c135815342f8ce90b986", null ],
     [ "GetInstance", "classPSOManager.html#a359f046382fe2e8c49f8d0e6407765c1", null ],
     [ "GetMeshPSO", "classPSOManager.html#a961a07373aae5e0200a2543f22cf004c", null ],
@@ -25,6 +26,7 @@ var classPSOManager =
     [ "m_meshRootSignature", "classPSOManager.html#a31377a1cff36d44ca6323bbd602dce10", null ],
     [ "m_psoCache", "classPSOManager.html#aeb51977243b3c4525fe3cd8dc3369879", null ],
     [ "m_shadowPipelineState", "classPSOManager.html#aad6452811a522051c526c5f86ee8c323", null ],
+    [ "m_shadowPsoCache", "classPSOManager.html#acb1c451b28ae2456f1ec19d9fdefee97", null ],
     [ "m_shadowRootSignature", "classPSOManager.html#a403efe3fe2b4ab78546d180277c4837f", null ],
     [ "m_spritePipelineState", "classPSOManager.html#aae7f5c086a2c5adc1d6607c32d997f2b", null ],
     [ "m_spriteRootSignature", "classPSOManager.html#abab2a25f504b6215a001dd362c905fc6", null ]

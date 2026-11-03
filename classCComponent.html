@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: CComponent クラス</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classCComponent.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('classCComponent.html','','classCComponent-members'); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,11 +89,6 @@ $(document).ready(function(){initNavTree('classCComponent.html',''); initResizab
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
-<a href="#pro-attribs">限定公開変数類</a> &#124;
-<a href="classCComponent-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">CComponent クラス</div></div>
 </div><!--header-->
 <div class="contents">
@@ -103,84 +97,54 @@ $(document).ready(function(){initNavTree('classCComponent.html',''); initResizab
 <div class="dynheader">
 CComponent の継承関係図</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCComponent__inherit__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCComponent__inherit__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <div class="dynheader">
 CComponent 連携図</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCComponent__coll__graph.svg" width="131" height="124"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCComponent__coll__graph.svg" width="134" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:ab87a6940be69962c3f4f5a8552643245" id="r_ab87a6940be69962c3f4f5a8552643245"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ab87a6940be69962c3f4f5a8552643245">CComponent</a> ()</td></tr>
-<tr class="separator:ab87a6940be69962c3f4f5a8552643245"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:accf17908f97e4d07d7f04fbde292dcda" id="r_accf17908f97e4d07d7f04fbde292dcda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#accf17908f97e4d07d7f04fbde292dcda">CComponent</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
-<tr class="separator:accf17908f97e4d07d7f04fbde292dcda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2ad4d80f616aedbf6b08f33bdd9d2d5" id="r_af2ad4d80f616aedbf6b08f33bdd9d2d5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#af2ad4d80f616aedbf6b08f33bdd9d2d5">~CComponent</a> ()=default</td></tr>
-<tr class="separator:af2ad4d80f616aedbf6b08f33bdd9d2d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9bf36b35de54f49a3d604da091228a4" id="r_ac9bf36b35de54f49a3d604da091228a4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ac9bf36b35de54f49a3d604da091228a4">Init</a> ()</td></tr>
-<tr class="separator:ac9bf36b35de54f49a3d604da091228a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf3ad4406a744d3fa20d83cc704345cf" id="r_adf3ad4406a744d3fa20d83cc704345cf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#adf3ad4406a744d3fa20d83cc704345cf">Awake</a> ()</td></tr>
-<tr class="separator:adf3ad4406a744d3fa20d83cc704345cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcee296a2416501cf52755038d4f27eb" id="r_adcee296a2416501cf52755038d4f27eb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#adcee296a2416501cf52755038d4f27eb">Start</a> ()</td></tr>
-<tr class="separator:adcee296a2416501cf52755038d4f27eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a760d6a0423bc53cb943410926a0d1c65" id="r_a760d6a0423bc53cb943410926a0d1c65"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a760d6a0423bc53cb943410926a0d1c65">OnEnable</a> ()</td></tr>
-<tr class="separator:a760d6a0423bc53cb943410926a0d1c65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a4d61758b48e83685c1ffe002dc1b41" id="r_a0a4d61758b48e83685c1ffe002dc1b41"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a0a4d61758b48e83685c1ffe002dc1b41">OnDisable</a> ()</td></tr>
-<tr class="separator:a0a4d61758b48e83685c1ffe002dc1b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae575194dbb8c5f6ad344bb8c17fa778b" id="r_ae575194dbb8c5f6ad344bb8c17fa778b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ae575194dbb8c5f6ad344bb8c17fa778b">Update</a> (float deltaTime)</td></tr>
-<tr class="separator:ae575194dbb8c5f6ad344bb8c17fa778b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad72e93375519950fa4cbc176ede60db1" id="r_ad72e93375519950fa4cbc176ede60db1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ad72e93375519950fa4cbc176ede60db1">LateUpdate</a> (float deltaTime)</td></tr>
-<tr class="separator:ad72e93375519950fa4cbc176ede60db1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cce55e18bd5fff318f8448bf260540d" id="r_a2cce55e18bd5fff318f8448bf260540d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a2cce55e18bd5fff318f8448bf260540d">Draw</a> ()</td></tr>
-<tr class="separator:a2cce55e18bd5fff318f8448bf260540d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26e97bcceac386d951092ade96512283" id="r_a26e97bcceac386d951092ade96512283"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a26e97bcceac386d951092ade96512283">OnCollision</a> (<a class="el" href="classCObject.html">CObject</a> *_Other)</td></tr>
-<tr class="separator:a26e97bcceac386d951092ade96512283"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cb4ec11d3210b5f3278d8e55b7308bd" id="r_a8cb4ec11d3210b5f3278d8e55b7308bd"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a8cb4ec11d3210b5f3278d8e55b7308bd">GetUpdatePhase</a> () const</td></tr>
-<tr class="separator:a8cb4ec11d3210b5f3278d8e55b7308bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a800d2a962717b13577b17b7264a91da8" id="r_a800d2a962717b13577b17b7264a91da8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="RenderLayer_8h.html#ad16d91520dd8dbd7a2178564fce5a168">RenderLayer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a800d2a962717b13577b17b7264a91da8">GetRenderLayer</a> () const</td></tr>
-<tr class="separator:a800d2a962717b13577b17b7264a91da8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9de9cd78a132d68bdb0977b7d9272df8" id="r_a9de9cd78a132d68bdb0977b7d9272df8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a9de9cd78a132d68bdb0977b7d9272df8">IsEnabled</a> () const</td></tr>
-<tr class="separator:a9de9cd78a132d68bdb0977b7d9272df8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72945a287cdce2b3dd7cd9a33ce022f9" id="r_a72945a287cdce2b3dd7cd9a33ce022f9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a72945a287cdce2b3dd7cd9a33ce022f9">GetEnabled</a> () const</td></tr>
-<tr class="separator:a72945a287cdce2b3dd7cd9a33ce022f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3588f81b9d893984ece9dfa4cdaf8383" id="r_a3588f81b9d893984ece9dfa4cdaf8383"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a3588f81b9d893984ece9dfa4cdaf8383">SetEnabled</a> (bool enabled)</td></tr>
-<tr class="separator:a3588f81b9d893984ece9dfa4cdaf8383"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06f29f30b2566a12617852195ea72fa0" id="r_a06f29f30b2566a12617852195ea72fa0"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a06f29f30b2566a12617852195ea72fa0">GetName</a> () const</td></tr>
-<tr class="separator:a06f29f30b2566a12617852195ea72fa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1df83625aa856f9cc7047da68dce131d" id="r_a1df83625aa856f9cc7047da68dce131d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a1df83625aa856f9cc7047da68dce131d">GetIsValid</a> () const</td></tr>
-<tr class="separator:a1df83625aa856f9cc7047da68dce131d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf4188a21189f533eed52041962cafd4" id="r_abf4188a21189f533eed52041962cafd4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#abf4188a21189f533eed52041962cafd4">GetIsVarid</a> () const</td></tr>
-<tr class="separator:abf4188a21189f533eed52041962cafd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5bf6fd967c58b6784aa399a27ce0eaa" id="r_ad5bf6fd967c58b6784aa399a27ce0eaa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ad5bf6fd967c58b6784aa399a27ce0eaa">SetName</a> (<a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
-<tr class="separator:ad5bf6fd967c58b6784aa399a27ce0eaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96b82c9108e83190f29a5dd8bafe59fe" id="r_a96b82c9108e83190f29a5dd8bafe59fe"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a96b82c9108e83190f29a5dd8bafe59fe">SetIsValid</a> (bool _IsValid)</td></tr>
-<tr class="separator:a96b82c9108e83190f29a5dd8bafe59fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ababe3aca6f026b146eb458dab2a57587" id="r_ababe3aca6f026b146eb458dab2a57587"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ababe3aca6f026b146eb458dab2a57587">SetOwner</a> (<a class="el" href="classCObject.html">CObject</a> *_Object)</td></tr>
-<tr class="separator:ababe3aca6f026b146eb458dab2a57587"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa05b48a46eeaff9527c00de7547edd32" id="r_aa05b48a46eeaff9527c00de7547edd32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#aa05b48a46eeaff9527c00de7547edd32">GetOwner</a> () const</td></tr>
-<tr class="separator:aa05b48a46eeaff9527c00de7547edd32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab87a6940be69962c3f4f5a8552643245" id="r_ab87a6940be69962c3f4f5a8552643245"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab87a6940be69962c3f4f5a8552643245">CComponent</a> ()</td></tr>
+<tr class="memitem:accf17908f97e4d07d7f04fbde292dcda" id="r_accf17908f97e4d07d7f04fbde292dcda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#accf17908f97e4d07d7f04fbde292dcda">CComponent</a> (<a class="el" href="Scene_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="memitem:af2ad4d80f616aedbf6b08f33bdd9d2d5" id="r_af2ad4d80f616aedbf6b08f33bdd9d2d5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2ad4d80f616aedbf6b08f33bdd9d2d5">~CComponent</a> ()=default</td></tr>
+<tr class="memitem:ac9bf36b35de54f49a3d604da091228a4" id="r_ac9bf36b35de54f49a3d604da091228a4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9bf36b35de54f49a3d604da091228a4">Init</a> ()</td></tr>
+<tr class="memitem:adf3ad4406a744d3fa20d83cc704345cf" id="r_adf3ad4406a744d3fa20d83cc704345cf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf3ad4406a744d3fa20d83cc704345cf">Awake</a> ()</td></tr>
+<tr class="memitem:adcee296a2416501cf52755038d4f27eb" id="r_adcee296a2416501cf52755038d4f27eb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adcee296a2416501cf52755038d4f27eb">Start</a> ()</td></tr>
+<tr class="memitem:a760d6a0423bc53cb943410926a0d1c65" id="r_a760d6a0423bc53cb943410926a0d1c65"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a760d6a0423bc53cb943410926a0d1c65">OnEnable</a> ()</td></tr>
+<tr class="memitem:a0a4d61758b48e83685c1ffe002dc1b41" id="r_a0a4d61758b48e83685c1ffe002dc1b41"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a4d61758b48e83685c1ffe002dc1b41">OnDisable</a> ()</td></tr>
+<tr class="memitem:ae575194dbb8c5f6ad344bb8c17fa778b" id="r_ae575194dbb8c5f6ad344bb8c17fa778b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae575194dbb8c5f6ad344bb8c17fa778b">Update</a> (float deltaTime)</td></tr>
+<tr class="memitem:ad72e93375519950fa4cbc176ede60db1" id="r_ad72e93375519950fa4cbc176ede60db1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad72e93375519950fa4cbc176ede60db1">LateUpdate</a> (float deltaTime)</td></tr>
+<tr class="memitem:a2cce55e18bd5fff318f8448bf260540d" id="r_a2cce55e18bd5fff318f8448bf260540d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2cce55e18bd5fff318f8448bf260540d">Draw</a> ()</td></tr>
+<tr class="memitem:a26e97bcceac386d951092ade96512283" id="r_a26e97bcceac386d951092ade96512283"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26e97bcceac386d951092ade96512283">OnCollision</a> (<a class="el" href="classCObject.html">CObject</a> *_Other)</td></tr>
+<tr class="memitem:a8cb4ec11d3210b5f3278d8e55b7308bd" id="r_a8cb4ec11d3210b5f3278d8e55b7308bd"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8cb4ec11d3210b5f3278d8e55b7308bd">GetUpdatePhase</a> () const</td></tr>
+<tr class="memitem:a800d2a962717b13577b17b7264a91da8" id="r_a800d2a962717b13577b17b7264a91da8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="RenderLayer_8h.html#ad16d91520dd8dbd7a2178564fce5a168">RenderLayer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a800d2a962717b13577b17b7264a91da8">GetRenderLayer</a> () const</td></tr>
+<tr class="memitem:a9de9cd78a132d68bdb0977b7d9272df8" id="r_a9de9cd78a132d68bdb0977b7d9272df8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9de9cd78a132d68bdb0977b7d9272df8">IsEnabled</a> () const</td></tr>
+<tr class="memitem:a72945a287cdce2b3dd7cd9a33ce022f9" id="r_a72945a287cdce2b3dd7cd9a33ce022f9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72945a287cdce2b3dd7cd9a33ce022f9">GetEnabled</a> () const</td></tr>
+<tr class="memitem:a3588f81b9d893984ece9dfa4cdaf8383" id="r_a3588f81b9d893984ece9dfa4cdaf8383"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3588f81b9d893984ece9dfa4cdaf8383">SetEnabled</a> (bool enabled)</td></tr>
+<tr class="memitem:a06f29f30b2566a12617852195ea72fa0" id="r_a06f29f30b2566a12617852195ea72fa0"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="Scene_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06f29f30b2566a12617852195ea72fa0">GetName</a> () const</td></tr>
+<tr class="memitem:a1df83625aa856f9cc7047da68dce131d" id="r_a1df83625aa856f9cc7047da68dce131d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1df83625aa856f9cc7047da68dce131d">GetIsValid</a> () const</td></tr>
+<tr class="memitem:abf4188a21189f533eed52041962cafd4" id="r_abf4188a21189f533eed52041962cafd4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf4188a21189f533eed52041962cafd4">GetIsVarid</a> () const</td></tr>
+<tr class="memitem:ad5bf6fd967c58b6784aa399a27ce0eaa" id="r_ad5bf6fd967c58b6784aa399a27ce0eaa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5bf6fd967c58b6784aa399a27ce0eaa">SetName</a> (<a class="el" href="Scene_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> _Name)</td></tr>
+<tr class="memitem:a96b82c9108e83190f29a5dd8bafe59fe" id="r_a96b82c9108e83190f29a5dd8bafe59fe"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96b82c9108e83190f29a5dd8bafe59fe">SetIsValid</a> (bool _IsValid)</td></tr>
+<tr class="memitem:ababe3aca6f026b146eb458dab2a57587" id="r_ababe3aca6f026b146eb458dab2a57587"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ababe3aca6f026b146eb458dab2a57587">SetOwner</a> (<a class="el" href="classCObject.html">CObject</a> *_Object)</td></tr>
+<tr class="memitem:aa05b48a46eeaff9527c00de7547edd32" id="r_aa05b48a46eeaff9527c00de7547edd32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa05b48a46eeaff9527c00de7547edd32">GetOwner</a> () const</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
-<tr class="memitem:ade99c48a292170765129da054d8f04c7" id="r_ade99c48a292170765129da054d8f04c7"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#ade99c48a292170765129da054d8f04c7">operator new</a> (size_t size)</td></tr>
-<tr class="separator:ade99c48a292170765129da054d8f04c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c4b4c1bd56575c8dab989f1d3a41464" id="r_a7c4b4c1bd56575c8dab989f1d3a41464"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a7c4b4c1bd56575c8dab989f1d3a41464">operator delete</a> (void *ptr) noexcept</td></tr>
-<tr class="separator:a7c4b4c1bd56575c8dab989f1d3a41464"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade99c48a292170765129da054d8f04c7" id="r_ade99c48a292170765129da054d8f04c7"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade99c48a292170765129da054d8f04c7">operator new</a> (size_t size)</td></tr>
+<tr class="memitem:a7c4b4c1bd56575c8dab989f1d3a41464" id="r_a7c4b4c1bd56575c8dab989f1d3a41464"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="EngineAPI_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c4b4c1bd56575c8dab989f1d3a41464">operator delete</a> (void *ptr) noexcept</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 限定公開変数類</h2></td></tr>
-<tr class="memitem:a76959a9e98ef06163c56858026e9da5b" id="r_a76959a9e98ef06163c56858026e9da5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a76959a9e98ef06163c56858026e9da5b">m_Owner</a> = nullptr</td></tr>
-<tr class="separator:a76959a9e98ef06163c56858026e9da5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4918d7f95edb1a545724dab2be500e75" id="r_a4918d7f95edb1a545724dab2be500e75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a4918d7f95edb1a545724dab2be500e75">m_ComponentName</a> = &quot;&quot;</td></tr>
-<tr class="separator:a4918d7f95edb1a545724dab2be500e75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f8c7080b1f9972952ceda4e155568cb" id="r_a8f8c7080b1f9972952ceda4e155568cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#a8f8c7080b1f9972952ceda4e155568cb">m_ComponentIsValid</a> = true</td></tr>
-<tr class="separator:a8f8c7080b1f9972952ceda4e155568cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9d3c1123f1a477922084a25423b2579" id="r_af9d3c1123f1a477922084a25423b2579"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCComponent.html#af9d3c1123f1a477922084a25423b2579">m_enabled</a> = true</td></tr>
-<tr class="separator:af9d3c1123f1a477922084a25423b2579"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76959a9e98ef06163c56858026e9da5b" id="r_a76959a9e98ef06163c56858026e9da5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76959a9e98ef06163c56858026e9da5b">m_Owner</a> = nullptr</td></tr>
+<tr class="memitem:a4918d7f95edb1a545724dab2be500e75" id="r_a4918d7f95edb1a545724dab2be500e75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Scene_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4918d7f95edb1a545724dab2be500e75">m_ComponentName</a> = &quot;&quot;</td></tr>
+<tr class="memitem:a8f8c7080b1f9972952ceda4e155568cb" id="r_a8f8c7080b1f9972952ceda4e155568cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f8c7080b1f9972952ceda4e155568cb">m_ComponentIsValid</a> = true</td></tr>
+<tr class="memitem:af9d3c1123f1a477922084a25423b2579" id="r_af9d3c1123f1a477922084a25423b2579"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9d3c1123f1a477922084a25423b2579">m_enabled</a> = true</td></tr>
 </table>
-<h2 class="groupheader">構築子と解体子</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">構築子と解体子</h2>
 <a id="ab87a6940be69962c3f4f5a8552643245" name="ab87a6940be69962c3f4f5a8552643245"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab87a6940be69962c3f4f5a8552643245">&#9670;&#160;</a></span>CComponent() <span class="overload">[1/2]</span></h2>
 
@@ -193,16 +157,21 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">CComponent::CComponent </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCComponent_ab87a6940be69962c3f4f5a8552643245_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -218,14 +187,13 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">CComponent::CComponent </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td>
-          <td class="paramname"><em>_Name</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="Scene_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a></td>          <td class="paramname"><span class="paramname"><em>_Name</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -244,20 +212,20 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">virtual CComponent::~CComponent </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="adf3ad4406a744d3fa20d83cc704345cf" name="adf3ad4406a744d3fa20d83cc704345cf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adf3ad4406a744d3fa20d83cc704345cf">&#9670;&#160;</a></span>Awake()</h2>
 
@@ -270,13 +238,13 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">virtual void CComponent::Awake </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -297,18 +265,18 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">virtual void CComponent::Draw </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classCSpriteRenderer.html#a3d5be9cbf966750032c2f4b19eabd793">CSpriteRenderer</a>, <a class="el" href="classCTextRenderer.html#a0ceb0745ceb7a65cd25c9df9728fa4b0">CTextRenderer</a>, <a class="el" href="classCModel.html#a05ed148aaef251c3d326c7f57efeb634">CModel</a>で再実装されています。</p>
+<p><a class="el" href="classCModel.html#a05ed148aaef251c3d326c7f57efeb634">CModel</a>, <a class="el" href="classCSpriteRenderer.html#a3d5be9cbf966750032c2f4b19eabd793">CSpriteRenderer</a>, <a class="el" href="classCTextRenderer.html#a0ceb0745ceb7a65cd25c9df9728fa4b0">CTextRenderer</a>で再実装されています。</p>
 
 </div>
 </div>
@@ -324,20 +292,20 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">bool CComponent::GetEnabled </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCComponent_a72945a287cdce2b3dd7cd9a33ce022f9_cgraph.svg" width="426" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCComponent_a72945a287cdce2b3dd7cd9a33ce022f9_cgraph.svg" width="424" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -354,20 +322,20 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">bool CComponent::GetIsValid </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCComponent_a1df83625aa856f9cc7047da68dce131d_icgraph.svg" width="100%" height="438"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCComponent_a1df83625aa856f9cc7047da68dce131d_icgraph.svg" width="100%" height="446"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -384,20 +352,20 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">bool CComponent::GetIsVarid </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCComponent_abf4188a21189f533eed52041962cafd4_icgraph.svg" width="399" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCComponent_abf4188a21189f533eed52041962cafd4_icgraph.svg" width="398" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -412,22 +380,22 @@ CComponent 連携図</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> &amp; CComponent::GetName </td>
+          <td class="memname">const <a class="el" href="Scene_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> &amp; CComponent::GetName </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCComponent_a06f29f30b2566a12617852195ea72fa0_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCComponent_a06f29f30b2566a12617852195ea72fa0_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -444,20 +412,20 @@ CComponent 連携図</div>
         <tr>
           <td class="memname"><a class="el" href="classCObject.html">CObject</a> * CComponent::GetOwner </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCComponent_aa05b48a46eeaff9527c00de7547edd32_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCComponent_aa05b48a46eeaff9527c00de7547edd32_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -474,13 +442,13 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">virtual <a class="el" href="RenderLayer_8h.html#ad16d91520dd8dbd7a2178564fce5a168">RenderLayer</a> CComponent::GetRenderLayer </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -501,18 +469,18 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">virtual <a class="el" href="Component_8h.html#a521f7dfb81de0f94728bc79a0600d93f">UpdatePhase</a> CComponent::GetUpdatePhase </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classBillboardComponent.html#a6a96c71a99a7eb066719c1c1d03c81ec">BillboardComponent</a>, <a class="el" href="classCameraComponent.html#aa136250b3f266364a37bde2061fc6a11">CameraComponent</a>, <a class="el" href="classCharacterMovementComponent.html#a7db69c93ae15396a39c2657c03d5019c">CharacterMovementComponent</a>, <a class="el" href="classGravityComponent.html#a96d5283550ee6c922848535861446680">GravityComponent</a>, <a class="el" href="classLightComponent.html#ac481f85302e8ab451fb4ddfa81172b7c">LightComponent</a>, <a class="el" href="classParticleComponent.html#a53aab1c6a2f6ead918ef1da0b674a103">ParticleComponent</a>, <a class="el" href="classParticleEmitterComponent.html#ae71b9c9e7bdf2e8b145f97ab3af5d010">ParticleEmitterComponent</a>, <a class="el" href="classUVAnimationComponent.html#a90a2b0adaa37e23c141c0b7374c5d14c">UVAnimationComponent</a>, <a class="el" href="classBulletComponent.html#a87803cad72651b466f2620fe09285864">BulletComponent</a>, <a class="el" href="classEnemyAIComponent.html#a661d0fd59e233b39d909f6841ae5eb7f">EnemyAIComponent</a>, <a class="el" href="classPlayerControllerComponent.html#aa2782a5959f4bf035498060c1bde8950">PlayerControllerComponent</a>, <a class="el" href="classHealthComponent.html#a8222c48301943b2f2da6e6278609e4b7">HealthComponent</a>, <a class="el" href="classCModel.html#afa61483b7284de03fd0b4d1a903da734">CModel</a>で再実装されています。</p>
+<p><a class="el" href="classBillboardComponent.html#a6a96c71a99a7eb066719c1c1d03c81ec">BillboardComponent</a>, <a class="el" href="classBulletComponent.html#a87803cad72651b466f2620fe09285864">BulletComponent</a>, <a class="el" href="classCameraComponent.html#aa136250b3f266364a37bde2061fc6a11">CameraComponent</a>, <a class="el" href="classCharacterMovementComponent.html#a7db69c93ae15396a39c2657c03d5019c">CharacterMovementComponent</a>, <a class="el" href="classCModel.html#afa61483b7284de03fd0b4d1a903da734">CModel</a>, <a class="el" href="classEnemyAIComponent.html#a661d0fd59e233b39d909f6841ae5eb7f">EnemyAIComponent</a>, <a class="el" href="classGravityComponent.html#a96d5283550ee6c922848535861446680">GravityComponent</a>, <a class="el" href="classHealthComponent.html#a8222c48301943b2f2da6e6278609e4b7">HealthComponent</a>, <a class="el" href="classLightComponent.html#ac481f85302e8ab451fb4ddfa81172b7c">LightComponent</a>, <a class="el" href="classParticleComponent.html#a53aab1c6a2f6ead918ef1da0b674a103">ParticleComponent</a>, <a class="el" href="classParticleEmitterComponent.html#ae71b9c9e7bdf2e8b145f97ab3af5d010">ParticleEmitterComponent</a>, <a class="el" href="classPlayerControllerComponent.html#aa2782a5959f4bf035498060c1bde8950">PlayerControllerComponent</a>, <a class="el" href="classUVAnimationComponent.html#a90a2b0adaa37e23c141c0b7374c5d14c">UVAnimationComponent</a>で再実装されています。</p>
 
 </div>
 </div>
@@ -528,18 +496,18 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">virtual void CComponent::Init </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classButtonComponent.html#aa5b55c4b3dffb49c5e9e4da14bcf0d0b">ButtonComponent</a>, <a class="el" href="classCameraComponent.html#a52d56401b088da4fa3cab5d7468905d2">CameraComponent</a>, <a class="el" href="classEnemyCounterComponent.html#a7addddc835a96523b61104ffb1ef1379">EnemyCounterComponent</a>, <a class="el" href="classFieldComponent.html#a0701f7db023c654f59d0561e1149b380">FieldComponent</a>, <a class="el" href="classLightComponent.html#a0b1665343cfa0b449590f61af8430f76">LightComponent</a>, <a class="el" href="classBulletComponent.html#add19907a8d0a914d01c697cca20b56da">BulletComponent</a>, <a class="el" href="classCModel.html#a6f449354d7781ee751d84f332c646d01">CModel</a>, <a class="el" href="classCSpriteRenderer.html#a4f4123344b82a22517fbd54f14f0c2c2">CSpriteRenderer</a>, <a class="el" href="classCTextRenderer.html#a2619d2f9af23efac9a6cedd7b09e0260">CTextRenderer</a>で再実装されています。</p>
+<p><a class="el" href="classBulletComponent.html#add19907a8d0a914d01c697cca20b56da">BulletComponent</a>, <a class="el" href="classButtonComponent.html#aa5b55c4b3dffb49c5e9e4da14bcf0d0b">ButtonComponent</a>, <a class="el" href="classCameraComponent.html#a52d56401b088da4fa3cab5d7468905d2">CameraComponent</a>, <a class="el" href="classCModel.html#a6f449354d7781ee751d84f332c646d01">CModel</a>, <a class="el" href="classCSpriteRenderer.html#a4f4123344b82a22517fbd54f14f0c2c2">CSpriteRenderer</a>, <a class="el" href="classCTextRenderer.html#a2619d2f9af23efac9a6cedd7b09e0260">CTextRenderer</a>, <a class="el" href="classEnemyCounterComponent.html#a7addddc835a96523b61104ffb1ef1379">EnemyCounterComponent</a>, <a class="el" href="classFieldComponent.html#a0701f7db023c654f59d0561e1149b380">FieldComponent</a>, <a class="el" href="classLightComponent.html#a0b1665343cfa0b449590f61af8430f76">LightComponent</a>で再実装されています。</p>
 
 </div>
 </div>
@@ -555,20 +523,20 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">bool CComponent::IsEnabled </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCComponent_a9de9cd78a132d68bdb0977b7d9272df8_icgraph.svg" width="100%" height="401"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCComponent_a9de9cd78a132d68bdb0977b7d9272df8_icgraph.svg" width="100%" height="407"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -585,14 +553,13 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">virtual void CComponent::LateUpdate </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>deltaTime</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -613,14 +580,13 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">virtual void CComponent::OnCollision </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classCObject.html">CObject</a> *&#160;</td>
-          <td class="paramname"><em>_Other</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classCObject.html">CObject</a> *</td>          <td class="paramname"><span class="paramname"><em>_Other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -641,20 +607,20 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">virtual void CComponent::OnDisable </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCComponent_a0a4d61758b48e83685c1ffe002dc1b41_icgraph.svg" width="427" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCComponent_a0a4d61758b48e83685c1ffe002dc1b41_icgraph.svg" width="426" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -671,20 +637,20 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">virtual void CComponent::OnEnable </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCComponent_a760d6a0423bc53cb943410926a0d1c65_icgraph.svg" width="422" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCComponent_a760d6a0423bc53cb943410926a0d1c65_icgraph.svg" width="420" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -701,14 +667,13 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">void CComponent::operator delete </td>
           <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>ptr</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -727,14 +692,13 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">void * CComponent::operator new </td>
           <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>size</em></td><td>)</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -753,21 +717,20 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">void CComponent::SetEnabled </td>
           <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>enabled</em></td><td>)</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>enabled</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCComponent_a3588f81b9d893984ece9dfa4cdaf8383_cgraph.svg" width="427" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCComponent_a3588f81b9d893984ece9dfa4cdaf8383_cgraph.svg" width="426" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -784,14 +747,13 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">virtual void CComponent::SetIsValid </td>
           <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>_IsValid</em></td><td>)</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>_IsValid</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -812,21 +774,20 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">virtual void CComponent::SetName </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a>&#160;</td>
-          <td class="paramname"><em>_Name</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="Scene_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a></td>          <td class="paramname"><span class="paramname"><em>_Name</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCComponent_ad5bf6fd967c58b6784aa399a27ce0eaa_icgraph.svg" width="450" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCComponent_ad5bf6fd967c58b6784aa399a27ce0eaa_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -843,21 +804,20 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">void CComponent::SetOwner </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classCObject.html">CObject</a> *&#160;</td>
-          <td class="paramname"><em>_Object</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classCObject.html">CObject</a> *</td>          <td class="paramname"><span class="paramname"><em>_Object</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classCComponent_ababe3aca6f026b146eb458dab2a57587_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCComponent_ababe3aca6f026b146eb458dab2a57587_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -874,18 +834,18 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">virtual void CComponent::Start </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classCameraComponent.html#aa181187764b65cdd763c66477e51a9c3">CameraComponent</a>, <a class="el" href="classCharacterMovementComponent.html#a1c66d4c3343ab0880e0820ce894ee6b8">CharacterMovementComponent</a>, <a class="el" href="classEnemyCounterComponent.html#ad00002aaa1e27cf3c95dc32e14b9ee9e">EnemyCounterComponent</a>, <a class="el" href="classFieldComponent.html#a20e544ddc8b101d72a9ec24aeebf8410">FieldComponent</a>, <a class="el" href="classGravityComponent.html#a37dfdd9d2d2aa01f23f6d57e01a46acf">GravityComponent</a>, <a class="el" href="classLightComponent.html#aed757ffed29ffd8c646af7edde21814f">LightComponent</a>, <a class="el" href="classParticleEmitterComponent.html#a33acbdbd5a27a222ef67593644532204">ParticleEmitterComponent</a>, <a class="el" href="classEnemyAIComponent.html#a0eced541100d449f18fce8041dd72df5">EnemyAIComponent</a>, <a class="el" href="classPlayerControllerComponent.html#a70896251b2d9061b3dd8ccb7fbfb73e8">PlayerControllerComponent</a>, <a class="el" href="classHealthComponent.html#a32486318d78eec98a8ba678d3a68038a">HealthComponent</a>で再実装されています。</p>
+<p><a class="el" href="classCameraComponent.html#aa181187764b65cdd763c66477e51a9c3">CameraComponent</a>, <a class="el" href="classCharacterMovementComponent.html#a1c66d4c3343ab0880e0820ce894ee6b8">CharacterMovementComponent</a>, <a class="el" href="classEnemyAIComponent.html#a0eced541100d449f18fce8041dd72df5">EnemyAIComponent</a>, <a class="el" href="classEnemyCounterComponent.html#ad00002aaa1e27cf3c95dc32e14b9ee9e">EnemyCounterComponent</a>, <a class="el" href="classFieldComponent.html#a20e544ddc8b101d72a9ec24aeebf8410">FieldComponent</a>, <a class="el" href="classGravityComponent.html#a37dfdd9d2d2aa01f23f6d57e01a46acf">GravityComponent</a>, <a class="el" href="classHealthComponent.html#a32486318d78eec98a8ba678d3a68038a">HealthComponent</a>, <a class="el" href="classLightComponent.html#aed757ffed29ffd8c646af7edde21814f">LightComponent</a>, <a class="el" href="classParticleEmitterComponent.html#a33acbdbd5a27a222ef67593644532204">ParticleEmitterComponent</a>, <a class="el" href="classPlayerControllerComponent.html#a70896251b2d9061b3dd8ccb7fbfb73e8">PlayerControllerComponent</a>で再実装されています。</p>
 
 </div>
 </div>
@@ -901,23 +861,22 @@ CComponent 連携図</div>
         <tr>
           <td class="memname">virtual void CComponent::Update </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>deltaTime</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classButtonComponent.html#a774eedf9bb1856074de23727ba14e358">ButtonComponent</a>, <a class="el" href="classCameraComponent.html#a937f5fa962b7f9bb7212a7bd94f12657">CameraComponent</a>, <a class="el" href="classCharacterMovementComponent.html#af6a7e4c5ef0bf6533a71e833d53de597">CharacterMovementComponent</a>, <a class="el" href="classEnemyCounterComponent.html#a2277f89812a3f4e51163c682243a7c56">EnemyCounterComponent</a>, <a class="el" href="classFieldComponent.html#abcf2aee7ca50302dffe41765a6f1ac42">FieldComponent</a>, <a class="el" href="classGravityComponent.html#a81ff57e7f4d2e467bbe9f56b26fd5043">GravityComponent</a>, <a class="el" href="classLightComponent.html#a5d01e74fa66f889185d9be2bb392b03e">LightComponent</a>, <a class="el" href="classParticleComponent.html#a7adb5f6f9e9c6c0fc412f89d4735fe96">ParticleComponent</a>, <a class="el" href="classParticleEmitterComponent.html#a42bcf0f582a416b32b23a556a8df78da">ParticleEmitterComponent</a>, <a class="el" href="classUVAnimationComponent.html#a0c9a3b0e9024c1aa9855102a60b44fe4">UVAnimationComponent</a>, <a class="el" href="classBulletComponent.html#a632e48e0c9af0142ad5bf607b8e51f70">BulletComponent</a>, <a class="el" href="classEnemyAIComponent.html#aeae8e1e0c98164829ef1bb5053e6ae9f">EnemyAIComponent</a>, <a class="el" href="classPlayerControllerComponent.html#a15d832b810e7cde8289632ad4c6eb479">PlayerControllerComponent</a>, <a class="el" href="classHealthComponent.html#a4f77b6825d531194ba11fb343c348213">HealthComponent</a>, <a class="el" href="classCModel.html#a6755ce90cfec16147f78241cac352ad0">CModel</a> (計15項目)で再実装されています。</p>
+<p><a class="el" href="classBulletComponent.html#a632e48e0c9af0142ad5bf607b8e51f70">BulletComponent</a>, <a class="el" href="classButtonComponent.html#a774eedf9bb1856074de23727ba14e358">ButtonComponent</a>, <a class="el" href="classCameraComponent.html#a937f5fa962b7f9bb7212a7bd94f12657">CameraComponent</a>, <a class="el" href="classCharacterMovementComponent.html#af6a7e4c5ef0bf6533a71e833d53de597">CharacterMovementComponent</a>, <a class="el" href="classCModel.html#a6755ce90cfec16147f78241cac352ad0">CModel</a>, <a class="el" href="classEnemyAIComponent.html#aeae8e1e0c98164829ef1bb5053e6ae9f">EnemyAIComponent</a>, <a class="el" href="classEnemyCounterComponent.html#a2277f89812a3f4e51163c682243a7c56">EnemyCounterComponent</a>, <a class="el" href="classFieldComponent.html#abcf2aee7ca50302dffe41765a6f1ac42">FieldComponent</a>, <a class="el" href="classGravityComponent.html#a81ff57e7f4d2e467bbe9f56b26fd5043">GravityComponent</a>, <a class="el" href="classHealthComponent.html#a4f77b6825d531194ba11fb343c348213">HealthComponent</a>, <a class="el" href="classLightComponent.html#a5d01e74fa66f889185d9be2bb392b03e">LightComponent</a>, <a class="el" href="classParticleComponent.html#a7adb5f6f9e9c6c0fc412f89d4735fe96">ParticleComponent</a>, <a class="el" href="classParticleEmitterComponent.html#a42bcf0f582a416b32b23a556a8df78da">ParticleEmitterComponent</a>, <a class="el" href="classPlayerControllerComponent.html#a15d832b810e7cde8289632ad4c6eb479">PlayerControllerComponent</a>, <a class="el" href="classUVAnimationComponent.html#a0c9a3b0e9024c1aa9855102a60b44fe4">UVAnimationComponent</a> (計15項目)で再実装されています。</p>
 
 </div>
 </div>
-<h2 class="groupheader">メンバ詳解</h2>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">メンバ詳解</h2>
 <a id="a8f8c7080b1f9972952ceda4e155568cb" name="a8f8c7080b1f9972952ceda4e155568cb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8f8c7080b1f9972952ceda4e155568cb">&#9670;&#160;</a></span>m_ComponentIsValid</h2>
 
@@ -933,7 +892,7 @@ CComponent 連携図</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -950,12 +909,12 @@ CComponent 連携図</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="Component_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> CComponent::m_ComponentName = &quot;&quot;</td>
+          <td class="memname"><a class="el" href="Scene_8h.html#a5573b97b9e5129f61d289e037d7e806c">String</a> CComponent::m_ComponentName = &quot;&quot;</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -977,7 +936,7 @@ CComponent 連携図</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -999,7 +958,7 @@ CComponent 連携図</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1012,11 +971,19 @@ CComponent 連携図</div>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="classCComponent.html">CComponent</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="classCComponent.html">CComponent</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

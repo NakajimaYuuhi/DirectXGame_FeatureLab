@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: Source/Rendering/RenderTexture.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,28 +35,22 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function() { init_codefold(0); });
-/* @license-end */
-</script>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -68,10 +63,9 @@ $(document).ready(function() { init_codefold(0); });
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('RenderTexture_8h_source.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('RenderTexture_8h_source.html','',''); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -103,13 +97,13 @@ $(document).ready(function(){initNavTree('RenderTexture_8h_source.html',''); ini
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;wrl/client.h&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="classRenderTexture.html">    5</a></span><span class="keyword">class </span><a class="code hl_class" href="classRenderTexture.html">RenderTexture</a> {</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="classRenderTexture.html">    5</a></span><span class="keyword">class </span><a class="code hl_function" href="classRenderTexture.html#ae597dd0783768016c3c75844b06d3d85">RenderTexture</a> {</div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <a class="code hl_class" href="classRenderTexture.html">RenderTexture</a>(ID3D12Device* pDevice, UINT width, UINT height, DXGI_FORMAT format, <span class="keyword">const</span> <span class="keywordtype">float</span> clearColor[4] = <span class="keyword">nullptr</span>, <span class="keywordtype">bool</span> allowUAV = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <a class="code hl_function" href="classRenderTexture.html#ae597dd0783768016c3c75844b06d3d85">RenderTexture</a>(ID3D12Device* pDevice, UINT width, UINT height, DXGI_FORMAT format, <span class="keyword">const</span> <span class="keywordtype">float</span> clearColor[4] = <span class="keyword">nullptr</span>, <span class="keywordtype">bool</span> allowUAV = <span class="keyword">false</span>);</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <a class="code hl_function" href="classRenderTexture.html#a09968448696504585c6dd61203f2c5b9">~RenderTexture</a>();</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classRenderTexture.html#a61195eb544cf9de97ec0aa45787e84c9">   10</a></span>    <a class="code hl_function" href="classRenderTexture.html#a61195eb544cf9de97ec0aa45787e84c9">RenderTexture</a>(<span class="keyword">const</span> <a class="code hl_class" href="classRenderTexture.html">RenderTexture</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classRenderTexture.html#a01c37d603eff3f1676fd0c54efb644eb">   11</a></span>    <a class="code hl_class" href="classRenderTexture.html">RenderTexture</a>&amp; <a class="code hl_function" href="classRenderTexture.html#a01c37d603eff3f1676fd0c54efb644eb">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classRenderTexture.html">RenderTexture</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classRenderTexture.html#a61195eb544cf9de97ec0aa45787e84c9">   10</a></span>    <a class="code hl_function" href="classRenderTexture.html#a61195eb544cf9de97ec0aa45787e84c9">RenderTexture</a>(<span class="keyword">const</span> <a class="code hl_function" href="classRenderTexture.html#ae597dd0783768016c3c75844b06d3d85">RenderTexture</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classRenderTexture.html#a01c37d603eff3f1676fd0c54efb644eb">   11</a></span>    <a class="code hl_function" href="classRenderTexture.html#ae597dd0783768016c3c75844b06d3d85">RenderTexture</a>&amp; <a class="code hl_function" href="classRenderTexture.html#a01c37d603eff3f1676fd0c54efb644eb">operator=</a>(<span class="keyword">const</span> <a class="code hl_function" href="classRenderTexture.html#ae597dd0783768016c3c75844b06d3d85">RenderTexture</a>&amp;) = <span class="keyword">delete</span>;</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classRenderTexture.html#aa490e51502e484466a31c41912878b34">Transition</a>(ID3D12GraphicsCommandList* cmdList, D3D12_RESOURCE_STATES nextState);</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classRenderTexture.html#aadc9a7820889e43adc2cae5731a307b3">Clear</a>(ID3D12GraphicsCommandList* cmdList, <span class="keyword">const</span> <span class="keywordtype">float</span> clearColor[4] = <span class="keyword">nullptr</span>);</div>
@@ -152,7 +146,6 @@ $(document).ready(function(){initNavTree('RenderTexture_8h_source.html',''); ini
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classRenderTexture.html#aed8079d862735b59261b8813ddd7d049">   51</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classRenderTexture.html#aed8079d862735b59261b8813ddd7d049">m_uavAllocated</a> = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>};</div>
 </div>
-<div class="ttc" id="aclassRenderTexture_html"><div class="ttname"><a href="classRenderTexture.html">RenderTexture</a></div><div class="ttdef"><b>Definition</b> RenderTexture.h:5</div></div>
 <div class="ttc" id="aclassRenderTexture_html_a01c37d603eff3f1676fd0c54efb644eb"><div class="ttname"><a href="classRenderTexture.html#a01c37d603eff3f1676fd0c54efb644eb">RenderTexture::operator=</a></div><div class="ttdeci">RenderTexture &amp; operator=(const RenderTexture &amp;)=delete</div></div>
 <div class="ttc" id="aclassRenderTexture_html_a032269da2b34e5815241da4f677bf4c0"><div class="ttname"><a href="classRenderTexture.html#a032269da2b34e5815241da4f677bf4c0">RenderTexture::m_height</a></div><div class="ttdeci">UINT m_height</div><div class="ttdef"><b>Definition</b> RenderTexture.h:35</div></div>
 <div class="ttc" id="aclassRenderTexture_html_a09968448696504585c6dd61203f2c5b9"><div class="ttname"><a href="classRenderTexture.html#a09968448696504585c6dd61203f2c5b9">RenderTexture::~RenderTexture</a></div><div class="ttdeci">~RenderTexture()</div><div class="ttdef"><b>Definition</b> RenderTexture.cpp:100</div></div>
@@ -179,6 +172,7 @@ $(document).ready(function(){initNavTree('RenderTexture_8h_source.html',''); ini
 <div class="ttc" id="aclassRenderTexture_html_abb159893169767035ae2aa171f79efc9"><div class="ttname"><a href="classRenderTexture.html#abb159893169767035ae2aa171f79efc9">RenderTexture::UAVBarrier</a></div><div class="ttdeci">void UAVBarrier(ID3D12GraphicsCommandList *cmdList)</div><div class="ttdef"><b>Definition</b> RenderTexture.cpp:114</div></div>
 <div class="ttc" id="aclassRenderTexture_html_ad4579ad8fc5b82259d4b7956f2036e8b"><div class="ttname"><a href="classRenderTexture.html#ad4579ad8fc5b82259d4b7956f2036e8b">RenderTexture::m_format</a></div><div class="ttdeci">DXGI_FORMAT m_format</div><div class="ttdef"><b>Definition</b> RenderTexture.h:36</div></div>
 <div class="ttc" id="aclassRenderTexture_html_ae38f5e7ea49c2574f58b4c0188366d84"><div class="ttname"><a href="classRenderTexture.html#ae38f5e7ea49c2574f58b4c0188366d84">RenderTexture::m_uavHandleCPU</a></div><div class="ttdeci">D3D12_CPU_DESCRIPTOR_HANDLE m_uavHandleCPU</div><div class="ttdef"><b>Definition</b> RenderTexture.h:49</div></div>
+<div class="ttc" id="aclassRenderTexture_html_ae597dd0783768016c3c75844b06d3d85"><div class="ttname"><a href="classRenderTexture.html#ae597dd0783768016c3c75844b06d3d85">RenderTexture::RenderTexture</a></div><div class="ttdeci">RenderTexture(ID3D12Device *pDevice, UINT width, UINT height, DXGI_FORMAT format, const float clearColor[4]=nullptr, bool allowUAV=false)</div><div class="ttdef"><b>Definition</b> RenderTexture.cpp:6</div></div>
 <div class="ttc" id="aclassRenderTexture_html_ae70489a9e0c45dcef7091b6338e2f7c7"><div class="ttname"><a href="classRenderTexture.html#ae70489a9e0c45dcef7091b6338e2f7c7">RenderTexture::GetWidth</a></div><div class="ttdeci">UINT GetWidth() const</div><div class="ttdef"><b>Definition</b> RenderTexture.h:25</div></div>
 <div class="ttc" id="aclassRenderTexture_html_aec40bd383f308624d534571369aeb202"><div class="ttname"><a href="classRenderTexture.html#aec40bd383f308624d534571369aeb202">RenderTexture::m_currentState</a></div><div class="ttdeci">D3D12_RESOURCE_STATES m_currentState</div><div class="ttdef"><b>Definition</b> RenderTexture.h:32</div></div>
 <div class="ttc" id="aclassRenderTexture_html_aed8079d862735b59261b8813ddd7d049"><div class="ttname"><a href="classRenderTexture.html#aed8079d862735b59261b8813ddd7d049">RenderTexture::m_uavAllocated</a></div><div class="ttdeci">bool m_uavAllocated</div><div class="ttdef"><b>Definition</b> RenderTexture.h:51</div></div>
@@ -186,11 +180,12 @@ $(document).ready(function(){initNavTree('RenderTexture_8h_source.html',''); ini
 <div class="ttc" id="aclassRenderTexture_html_afbb24327ad25b881b51f43119385c424"><div class="ttname"><a href="classRenderTexture.html#afbb24327ad25b881b51f43119385c424">RenderTexture::GetRTV</a></div><div class="ttdeci">D3D12_CPU_DESCRIPTOR_HANDLE GetRTV() const</div><div class="ttdef"><b>Definition</b> RenderTexture.h:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_e350ea9347b5bfd16d4777c6b135cca8.html">Rendering</a></li><li class="navelem"><a class="el" href="RenderTexture_8h.html">RenderTexture.h</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_e350ea9347b5bfd16d4777c6b135cca8.html">Rendering</a></li><li class="navelem"><a href="RenderTexture_8h.html">RenderTexture.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: ImVector&lt; T &gt; 構造体テンプレート</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('structImVector.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('structImVector.html','','structImVector-members'); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,135 +89,81 @@ $(document).ready(function(){initNavTree('structImVector.html',''); initResizabl
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-types">公開型</a> &#124;
-<a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="#pub-attribs">公開変数類</a> &#124;
-<a href="structImVector-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">ImVector&lt; T &gt; 構造体テンプレート</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="imgui_8h_source.html">imgui.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 公開型</h2></td></tr>
-<tr class="memitem:a8bd77e4e7581d8e5f9e98d7c2f3c2a80" id="r_a8bd77e4e7581d8e5f9e98d7c2f3c2a80"><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a8bd77e4e7581d8e5f9e98d7c2f3c2a80">value_type</a></td></tr>
-<tr class="separator:a8bd77e4e7581d8e5f9e98d7c2f3c2a80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74b5478f1f6fd471cc71219bce483db6" id="r_a74b5478f1f6fd471cc71219bce483db6"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="structImVector.html#a8bd77e4e7581d8e5f9e98d7c2f3c2a80">value_type</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a74b5478f1f6fd471cc71219bce483db6">iterator</a></td></tr>
-<tr class="separator:a74b5478f1f6fd471cc71219bce483db6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedeac9c5080f9d6ce96ae837768ee4c4" id="r_aedeac9c5080f9d6ce96ae837768ee4c4"><td class="memItemLeft" align="right" valign="top">typedef const <a class="el" href="structImVector.html#a8bd77e4e7581d8e5f9e98d7c2f3c2a80">value_type</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#aedeac9c5080f9d6ce96ae837768ee4c4">const_iterator</a></td></tr>
-<tr class="separator:aedeac9c5080f9d6ce96ae837768ee4c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bd77e4e7581d8e5f9e98d7c2f3c2a80" id="r_a8bd77e4e7581d8e5f9e98d7c2f3c2a80"><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bd77e4e7581d8e5f9e98d7c2f3c2a80">value_type</a></td></tr>
+<tr class="memitem:a74b5478f1f6fd471cc71219bce483db6" id="r_a74b5478f1f6fd471cc71219bce483db6"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="#a8bd77e4e7581d8e5f9e98d7c2f3c2a80">value_type</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74b5478f1f6fd471cc71219bce483db6">iterator</a></td></tr>
+<tr class="memitem:aedeac9c5080f9d6ce96ae837768ee4c4" id="r_aedeac9c5080f9d6ce96ae837768ee4c4"><td class="memItemLeft" align="right" valign="top">typedef const <a class="el" href="#a8bd77e4e7581d8e5f9e98d7c2f3c2a80">value_type</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aedeac9c5080f9d6ce96ae837768ee4c4">const_iterator</a></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a547fff373659fd848c3ecc6b25a83f25" id="r_a547fff373659fd848c3ecc6b25a83f25"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a547fff373659fd848c3ecc6b25a83f25">ImVector</a> ()</td></tr>
-<tr class="separator:a547fff373659fd848c3ecc6b25a83f25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e2ee59d8b2fa1583617a2110a56aed4" id="r_a6e2ee59d8b2fa1583617a2110a56aed4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a6e2ee59d8b2fa1583617a2110a56aed4">ImVector</a> (const <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt; &amp;src)</td></tr>
-<tr class="separator:a6e2ee59d8b2fa1583617a2110a56aed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa616055e1c04b4b1026ecdb67ce839e7" id="r_aa616055e1c04b4b1026ecdb67ce839e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structImVector.html">ImVector</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#aa616055e1c04b4b1026ecdb67ce839e7">operator=</a> (const <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt; &amp;src)</td></tr>
-<tr class="separator:aa616055e1c04b4b1026ecdb67ce839e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b782359ca26eaa1a6a6138fcf341c54" id="r_a9b782359ca26eaa1a6a6138fcf341c54"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a9b782359ca26eaa1a6a6138fcf341c54">~ImVector</a> ()</td></tr>
-<tr class="separator:a9b782359ca26eaa1a6a6138fcf341c54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2d401b4ec5f1113cdb8edb5a61a38f7" id="r_ae2d401b4ec5f1113cdb8edb5a61a38f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#ae2d401b4ec5f1113cdb8edb5a61a38f7">clear</a> ()</td></tr>
-<tr class="separator:ae2d401b4ec5f1113cdb8edb5a61a38f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed9c986ef3cd59fabbd89355d0023122" id="r_aed9c986ef3cd59fabbd89355d0023122"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#aed9c986ef3cd59fabbd89355d0023122">clear_delete</a> ()</td></tr>
-<tr class="separator:aed9c986ef3cd59fabbd89355d0023122"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1ed34eac753156e87e8a92f78dbbe3f" id="r_ac1ed34eac753156e87e8a92f78dbbe3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#ac1ed34eac753156e87e8a92f78dbbe3f">clear_destruct</a> ()</td></tr>
-<tr class="separator:ac1ed34eac753156e87e8a92f78dbbe3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa53e48a5272f4bad1099368769514ff1" id="r_aa53e48a5272f4bad1099368769514ff1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#aa53e48a5272f4bad1099368769514ff1">empty</a> () const</td></tr>
-<tr class="separator:aa53e48a5272f4bad1099368769514ff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c903ecb1aaee0601b6a8ad835a4a435" id="r_a8c903ecb1aaee0601b6a8ad835a4a435"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a8c903ecb1aaee0601b6a8ad835a4a435">size</a> () const</td></tr>
-<tr class="separator:a8c903ecb1aaee0601b6a8ad835a4a435"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade9f2e937e47b0e0f9970dcfba038204" id="r_ade9f2e937e47b0e0f9970dcfba038204"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#ade9f2e937e47b0e0f9970dcfba038204">size_in_bytes</a> () const</td></tr>
-<tr class="separator:ade9f2e937e47b0e0f9970dcfba038204"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6df36345c5943c83cf11b8e827584bf9" id="r_a6df36345c5943c83cf11b8e827584bf9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a6df36345c5943c83cf11b8e827584bf9">max_size</a> () const</td></tr>
-<tr class="separator:a6df36345c5943c83cf11b8e827584bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac17681baa8b9b5cd97e556da29f9ef73" id="r_ac17681baa8b9b5cd97e556da29f9ef73"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#ac17681baa8b9b5cd97e556da29f9ef73">capacity</a> () const</td></tr>
-<tr class="separator:ac17681baa8b9b5cd97e556da29f9ef73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec87a57a48b7c07e636f338b6113935b" id="r_aec87a57a48b7c07e636f338b6113935b"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#aec87a57a48b7c07e636f338b6113935b">operator[]</a> (int i)</td></tr>
-<tr class="separator:aec87a57a48b7c07e636f338b6113935b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1aac88ee8dded24c94801a41ed41b793" id="r_a1aac88ee8dded24c94801a41ed41b793"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a1aac88ee8dded24c94801a41ed41b793">operator[]</a> (int i) const</td></tr>
-<tr class="separator:a1aac88ee8dded24c94801a41ed41b793"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab48ae48675fa779e29c9ae5892bb99f4" id="r_ab48ae48675fa779e29c9ae5892bb99f4"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#ab48ae48675fa779e29c9ae5892bb99f4">begin</a> ()</td></tr>
-<tr class="separator:ab48ae48675fa779e29c9ae5892bb99f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e10cf9afeb244d7d42131682531f865" id="r_a1e10cf9afeb244d7d42131682531f865"><td class="memItemLeft" align="right" valign="top">const T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a1e10cf9afeb244d7d42131682531f865">begin</a> () const</td></tr>
-<tr class="separator:a1e10cf9afeb244d7d42131682531f865"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a278ca772697b2b2139d3b8add336a249" id="r_a278ca772697b2b2139d3b8add336a249"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a278ca772697b2b2139d3b8add336a249">end</a> ()</td></tr>
-<tr class="separator:a278ca772697b2b2139d3b8add336a249"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a457ca3fb7345e1b21c59fc196dd08607" id="r_a457ca3fb7345e1b21c59fc196dd08607"><td class="memItemLeft" align="right" valign="top">const T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a457ca3fb7345e1b21c59fc196dd08607">end</a> () const</td></tr>
-<tr class="separator:a457ca3fb7345e1b21c59fc196dd08607"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a21f508086337de2f6739701d22f721" id="r_a5a21f508086337de2f6739701d22f721"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a5a21f508086337de2f6739701d22f721">front</a> ()</td></tr>
-<tr class="separator:a5a21f508086337de2f6739701d22f721"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f55b8b7351295c06eeb4f4f28af14ae" id="r_a6f55b8b7351295c06eeb4f4f28af14ae"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a6f55b8b7351295c06eeb4f4f28af14ae">front</a> () const</td></tr>
-<tr class="separator:a6f55b8b7351295c06eeb4f4f28af14ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d80e87e81b1b01143c8d8be93e6fde1" id="r_a2d80e87e81b1b01143c8d8be93e6fde1"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a2d80e87e81b1b01143c8d8be93e6fde1">back</a> ()</td></tr>
-<tr class="separator:a2d80e87e81b1b01143c8d8be93e6fde1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab46e61c71932385c2ee96d1dfc94546a" id="r_ab46e61c71932385c2ee96d1dfc94546a"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#ab46e61c71932385c2ee96d1dfc94546a">back</a> () const</td></tr>
-<tr class="separator:ab46e61c71932385c2ee96d1dfc94546a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcec0d2a1e28aebe412b6efd06f0a77a" id="r_afcec0d2a1e28aebe412b6efd06f0a77a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#afcec0d2a1e28aebe412b6efd06f0a77a">swap</a> (<a class="el" href="structImVector.html">ImVector</a>&lt; T &gt; &amp;rhs)</td></tr>
-<tr class="separator:afcec0d2a1e28aebe412b6efd06f0a77a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a097635d464b1b70dc7d59996a88b28" id="r_a3a097635d464b1b70dc7d59996a88b28"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a3a097635d464b1b70dc7d59996a88b28">_grow_capacity</a> (int sz) const</td></tr>
-<tr class="separator:a3a097635d464b1b70dc7d59996a88b28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac371dd62e56ae486b1a5038cf07eee56" id="r_ac371dd62e56ae486b1a5038cf07eee56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#ac371dd62e56ae486b1a5038cf07eee56">resize</a> (int new_size)</td></tr>
-<tr class="separator:ac371dd62e56ae486b1a5038cf07eee56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe7f21776ecfb7d0214963fd8c0689f0" id="r_abe7f21776ecfb7d0214963fd8c0689f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#abe7f21776ecfb7d0214963fd8c0689f0">resize</a> (int new_size, const T &amp;v)</td></tr>
-<tr class="separator:abe7f21776ecfb7d0214963fd8c0689f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8dafcce1e393244890f52ef1aa490876" id="r_a8dafcce1e393244890f52ef1aa490876"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a8dafcce1e393244890f52ef1aa490876">shrink</a> (int new_size)</td></tr>
-<tr class="separator:a8dafcce1e393244890f52ef1aa490876"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f14f5736c3372157856eebb67123b75" id="r_a0f14f5736c3372157856eebb67123b75"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a0f14f5736c3372157856eebb67123b75">reserve</a> (int new_capacity)</td></tr>
-<tr class="separator:a0f14f5736c3372157856eebb67123b75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4120d4da7804ae0a34aa521dbb8e1994" id="r_a4120d4da7804ae0a34aa521dbb8e1994"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a4120d4da7804ae0a34aa521dbb8e1994">reserve_discard</a> (int new_capacity)</td></tr>
-<tr class="separator:a4120d4da7804ae0a34aa521dbb8e1994"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab5df48e0711a48bd12f3206e08c4108" id="r_aab5df48e0711a48bd12f3206e08c4108"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#aab5df48e0711a48bd12f3206e08c4108">push_back</a> (const T &amp;v)</td></tr>
-<tr class="separator:aab5df48e0711a48bd12f3206e08c4108"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3db7ce62d3c429effdb893fbf7148c1c" id="r_a3db7ce62d3c429effdb893fbf7148c1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a3db7ce62d3c429effdb893fbf7148c1c">pop_back</a> ()</td></tr>
-<tr class="separator:a3db7ce62d3c429effdb893fbf7148c1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a168658df8e0e1df5698ebe7a69946389" id="r_a168658df8e0e1df5698ebe7a69946389"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a168658df8e0e1df5698ebe7a69946389">push_front</a> (const T &amp;v)</td></tr>
-<tr class="separator:a168658df8e0e1df5698ebe7a69946389"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f88ac70791f2da6d4168d7b29f38f1e" id="r_a2f88ac70791f2da6d4168d7b29f38f1e"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a2f88ac70791f2da6d4168d7b29f38f1e">erase</a> (const T *it)</td></tr>
-<tr class="separator:a2f88ac70791f2da6d4168d7b29f38f1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8feb96da4eb8ef13a48dbd2e18cb641d" id="r_a8feb96da4eb8ef13a48dbd2e18cb641d"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a8feb96da4eb8ef13a48dbd2e18cb641d">erase</a> (const T *it, const T *it_last)</td></tr>
-<tr class="separator:a8feb96da4eb8ef13a48dbd2e18cb641d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87a4cae517c156b73823c5cd5e86378a" id="r_a87a4cae517c156b73823c5cd5e86378a"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a87a4cae517c156b73823c5cd5e86378a">erase_unsorted</a> (const T *it)</td></tr>
-<tr class="separator:a87a4cae517c156b73823c5cd5e86378a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a541c8cd4b844f5276f10d160cb500533" id="r_a541c8cd4b844f5276f10d160cb500533"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a541c8cd4b844f5276f10d160cb500533">insert</a> (const T *it, const T &amp;v)</td></tr>
-<tr class="separator:a541c8cd4b844f5276f10d160cb500533"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e7860fbde1c721f168b6262d8f14aec" id="r_a2e7860fbde1c721f168b6262d8f14aec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a2e7860fbde1c721f168b6262d8f14aec">contains</a> (const T &amp;v) const</td></tr>
-<tr class="separator:a2e7860fbde1c721f168b6262d8f14aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a406417c3efef769d4bee47df2188831a" id="r_a406417c3efef769d4bee47df2188831a"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a406417c3efef769d4bee47df2188831a">find</a> (const T &amp;v)</td></tr>
-<tr class="separator:a406417c3efef769d4bee47df2188831a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fb6def3d26d7efeae0881e8dffb3f79" id="r_a1fb6def3d26d7efeae0881e8dffb3f79"><td class="memItemLeft" align="right" valign="top">const T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a1fb6def3d26d7efeae0881e8dffb3f79">find</a> (const T &amp;v) const</td></tr>
-<tr class="separator:a1fb6def3d26d7efeae0881e8dffb3f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a374b32265297839b0cd8e2b4c827112a" id="r_a374b32265297839b0cd8e2b4c827112a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a374b32265297839b0cd8e2b4c827112a">find_index</a> (const T &amp;v) const</td></tr>
-<tr class="separator:a374b32265297839b0cd8e2b4c827112a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e9214ecaa413240f76223500dbed912" id="r_a4e9214ecaa413240f76223500dbed912"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a4e9214ecaa413240f76223500dbed912">find_erase</a> (const T &amp;v)</td></tr>
-<tr class="separator:a4e9214ecaa413240f76223500dbed912"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07f501e40783436616156682ec668327" id="r_a07f501e40783436616156682ec668327"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a07f501e40783436616156682ec668327">find_erase_unsorted</a> (const T &amp;v)</td></tr>
-<tr class="separator:a07f501e40783436616156682ec668327"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3fd48379f807eeb01fb9da39afa30dc7" id="r_a3fd48379f807eeb01fb9da39afa30dc7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#a3fd48379f807eeb01fb9da39afa30dc7">index_from_ptr</a> (const T *it) const</td></tr>
-<tr class="separator:a3fd48379f807eeb01fb9da39afa30dc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a547fff373659fd848c3ecc6b25a83f25" id="r_a547fff373659fd848c3ecc6b25a83f25"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a547fff373659fd848c3ecc6b25a83f25">ImVector</a> ()</td></tr>
+<tr class="memitem:a6e2ee59d8b2fa1583617a2110a56aed4" id="r_a6e2ee59d8b2fa1583617a2110a56aed4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e2ee59d8b2fa1583617a2110a56aed4">ImVector</a> (const <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt; &amp;src)</td></tr>
+<tr class="memitem:aa616055e1c04b4b1026ecdb67ce839e7" id="r_aa616055e1c04b4b1026ecdb67ce839e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structImVector.html">ImVector</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa616055e1c04b4b1026ecdb67ce839e7">operator=</a> (const <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt; &amp;src)</td></tr>
+<tr class="memitem:a9b782359ca26eaa1a6a6138fcf341c54" id="r_a9b782359ca26eaa1a6a6138fcf341c54"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b782359ca26eaa1a6a6138fcf341c54">~ImVector</a> ()</td></tr>
+<tr class="memitem:ae2d401b4ec5f1113cdb8edb5a61a38f7" id="r_ae2d401b4ec5f1113cdb8edb5a61a38f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2d401b4ec5f1113cdb8edb5a61a38f7">clear</a> ()</td></tr>
+<tr class="memitem:aed9c986ef3cd59fabbd89355d0023122" id="r_aed9c986ef3cd59fabbd89355d0023122"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed9c986ef3cd59fabbd89355d0023122">clear_delete</a> ()</td></tr>
+<tr class="memitem:ac1ed34eac753156e87e8a92f78dbbe3f" id="r_ac1ed34eac753156e87e8a92f78dbbe3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac1ed34eac753156e87e8a92f78dbbe3f">clear_destruct</a> ()</td></tr>
+<tr class="memitem:aa53e48a5272f4bad1099368769514ff1" id="r_aa53e48a5272f4bad1099368769514ff1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa53e48a5272f4bad1099368769514ff1">empty</a> () const</td></tr>
+<tr class="memitem:a8c903ecb1aaee0601b6a8ad835a4a435" id="r_a8c903ecb1aaee0601b6a8ad835a4a435"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c903ecb1aaee0601b6a8ad835a4a435">size</a> () const</td></tr>
+<tr class="memitem:ade9f2e937e47b0e0f9970dcfba038204" id="r_ade9f2e937e47b0e0f9970dcfba038204"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade9f2e937e47b0e0f9970dcfba038204">size_in_bytes</a> () const</td></tr>
+<tr class="memitem:a6df36345c5943c83cf11b8e827584bf9" id="r_a6df36345c5943c83cf11b8e827584bf9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6df36345c5943c83cf11b8e827584bf9">max_size</a> () const</td></tr>
+<tr class="memitem:ac17681baa8b9b5cd97e556da29f9ef73" id="r_ac17681baa8b9b5cd97e556da29f9ef73"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac17681baa8b9b5cd97e556da29f9ef73">capacity</a> () const</td></tr>
+<tr class="memitem:aec87a57a48b7c07e636f338b6113935b" id="r_aec87a57a48b7c07e636f338b6113935b"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec87a57a48b7c07e636f338b6113935b">operator[]</a> (int i)</td></tr>
+<tr class="memitem:a1aac88ee8dded24c94801a41ed41b793" id="r_a1aac88ee8dded24c94801a41ed41b793"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1aac88ee8dded24c94801a41ed41b793">operator[]</a> (int i) const</td></tr>
+<tr class="memitem:ab48ae48675fa779e29c9ae5892bb99f4" id="r_ab48ae48675fa779e29c9ae5892bb99f4"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab48ae48675fa779e29c9ae5892bb99f4">begin</a> ()</td></tr>
+<tr class="memitem:a1e10cf9afeb244d7d42131682531f865" id="r_a1e10cf9afeb244d7d42131682531f865"><td class="memItemLeft" align="right" valign="top">const T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e10cf9afeb244d7d42131682531f865">begin</a> () const</td></tr>
+<tr class="memitem:a278ca772697b2b2139d3b8add336a249" id="r_a278ca772697b2b2139d3b8add336a249"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a278ca772697b2b2139d3b8add336a249">end</a> ()</td></tr>
+<tr class="memitem:a457ca3fb7345e1b21c59fc196dd08607" id="r_a457ca3fb7345e1b21c59fc196dd08607"><td class="memItemLeft" align="right" valign="top">const T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a457ca3fb7345e1b21c59fc196dd08607">end</a> () const</td></tr>
+<tr class="memitem:a5a21f508086337de2f6739701d22f721" id="r_a5a21f508086337de2f6739701d22f721"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a21f508086337de2f6739701d22f721">front</a> ()</td></tr>
+<tr class="memitem:a6f55b8b7351295c06eeb4f4f28af14ae" id="r_a6f55b8b7351295c06eeb4f4f28af14ae"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f55b8b7351295c06eeb4f4f28af14ae">front</a> () const</td></tr>
+<tr class="memitem:a2d80e87e81b1b01143c8d8be93e6fde1" id="r_a2d80e87e81b1b01143c8d8be93e6fde1"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d80e87e81b1b01143c8d8be93e6fde1">back</a> ()</td></tr>
+<tr class="memitem:ab46e61c71932385c2ee96d1dfc94546a" id="r_ab46e61c71932385c2ee96d1dfc94546a"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab46e61c71932385c2ee96d1dfc94546a">back</a> () const</td></tr>
+<tr class="memitem:afcec0d2a1e28aebe412b6efd06f0a77a" id="r_afcec0d2a1e28aebe412b6efd06f0a77a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afcec0d2a1e28aebe412b6efd06f0a77a">swap</a> (<a class="el" href="structImVector.html">ImVector</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="memitem:a3a097635d464b1b70dc7d59996a88b28" id="r_a3a097635d464b1b70dc7d59996a88b28"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a097635d464b1b70dc7d59996a88b28">_grow_capacity</a> (int sz) const</td></tr>
+<tr class="memitem:ac371dd62e56ae486b1a5038cf07eee56" id="r_ac371dd62e56ae486b1a5038cf07eee56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac371dd62e56ae486b1a5038cf07eee56">resize</a> (int new_size)</td></tr>
+<tr class="memitem:abe7f21776ecfb7d0214963fd8c0689f0" id="r_abe7f21776ecfb7d0214963fd8c0689f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe7f21776ecfb7d0214963fd8c0689f0">resize</a> (int new_size, const T &amp;v)</td></tr>
+<tr class="memitem:a8dafcce1e393244890f52ef1aa490876" id="r_a8dafcce1e393244890f52ef1aa490876"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8dafcce1e393244890f52ef1aa490876">shrink</a> (int new_size)</td></tr>
+<tr class="memitem:a0f14f5736c3372157856eebb67123b75" id="r_a0f14f5736c3372157856eebb67123b75"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f14f5736c3372157856eebb67123b75">reserve</a> (int new_capacity)</td></tr>
+<tr class="memitem:a4120d4da7804ae0a34aa521dbb8e1994" id="r_a4120d4da7804ae0a34aa521dbb8e1994"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4120d4da7804ae0a34aa521dbb8e1994">reserve_discard</a> (int new_capacity)</td></tr>
+<tr class="memitem:aab5df48e0711a48bd12f3206e08c4108" id="r_aab5df48e0711a48bd12f3206e08c4108"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab5df48e0711a48bd12f3206e08c4108">push_back</a> (const T &amp;v)</td></tr>
+<tr class="memitem:a3db7ce62d3c429effdb893fbf7148c1c" id="r_a3db7ce62d3c429effdb893fbf7148c1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3db7ce62d3c429effdb893fbf7148c1c">pop_back</a> ()</td></tr>
+<tr class="memitem:a168658df8e0e1df5698ebe7a69946389" id="r_a168658df8e0e1df5698ebe7a69946389"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a168658df8e0e1df5698ebe7a69946389">push_front</a> (const T &amp;v)</td></tr>
+<tr class="memitem:a2f88ac70791f2da6d4168d7b29f38f1e" id="r_a2f88ac70791f2da6d4168d7b29f38f1e"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f88ac70791f2da6d4168d7b29f38f1e">erase</a> (const T *it)</td></tr>
+<tr class="memitem:a8feb96da4eb8ef13a48dbd2e18cb641d" id="r_a8feb96da4eb8ef13a48dbd2e18cb641d"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8feb96da4eb8ef13a48dbd2e18cb641d">erase</a> (const T *it, const T *it_last)</td></tr>
+<tr class="memitem:a87a4cae517c156b73823c5cd5e86378a" id="r_a87a4cae517c156b73823c5cd5e86378a"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87a4cae517c156b73823c5cd5e86378a">erase_unsorted</a> (const T *it)</td></tr>
+<tr class="memitem:a541c8cd4b844f5276f10d160cb500533" id="r_a541c8cd4b844f5276f10d160cb500533"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a541c8cd4b844f5276f10d160cb500533">insert</a> (const T *it, const T &amp;v)</td></tr>
+<tr class="memitem:a2e7860fbde1c721f168b6262d8f14aec" id="r_a2e7860fbde1c721f168b6262d8f14aec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e7860fbde1c721f168b6262d8f14aec">contains</a> (const T &amp;v) const</td></tr>
+<tr class="memitem:a406417c3efef769d4bee47df2188831a" id="r_a406417c3efef769d4bee47df2188831a"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a406417c3efef769d4bee47df2188831a">find</a> (const T &amp;v)</td></tr>
+<tr class="memitem:a1fb6def3d26d7efeae0881e8dffb3f79" id="r_a1fb6def3d26d7efeae0881e8dffb3f79"><td class="memItemLeft" align="right" valign="top">const T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fb6def3d26d7efeae0881e8dffb3f79">find</a> (const T &amp;v) const</td></tr>
+<tr class="memitem:a374b32265297839b0cd8e2b4c827112a" id="r_a374b32265297839b0cd8e2b4c827112a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a374b32265297839b0cd8e2b4c827112a">find_index</a> (const T &amp;v) const</td></tr>
+<tr class="memitem:a4e9214ecaa413240f76223500dbed912" id="r_a4e9214ecaa413240f76223500dbed912"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e9214ecaa413240f76223500dbed912">find_erase</a> (const T &amp;v)</td></tr>
+<tr class="memitem:a07f501e40783436616156682ec668327" id="r_a07f501e40783436616156682ec668327"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07f501e40783436616156682ec668327">find_erase_unsorted</a> (const T &amp;v)</td></tr>
+<tr class="memitem:a3fd48379f807eeb01fb9da39afa30dc7" id="r_a3fd48379f807eeb01fb9da39afa30dc7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fd48379f807eeb01fb9da39afa30dc7">index_from_ptr</a> (const T *it) const</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 公開変数類</h2></td></tr>
-<tr class="memitem:abbfd157947f66280d27b21d70a16df8d" id="r_abbfd157947f66280d27b21d70a16df8d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#abbfd157947f66280d27b21d70a16df8d">Size</a></td></tr>
-<tr class="separator:abbfd157947f66280d27b21d70a16df8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd24482b4d30d22e37582e521e5bfb33" id="r_abd24482b4d30d22e37582e521e5bfb33"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#abd24482b4d30d22e37582e521e5bfb33">Capacity</a></td></tr>
-<tr class="separator:abd24482b4d30d22e37582e521e5bfb33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0e46e8b30cb079d93c8f0aad7d7cbd0" id="r_ac0e46e8b30cb079d93c8f0aad7d7cbd0"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImVector.html#ac0e46e8b30cb079d93c8f0aad7d7cbd0">Data</a></td></tr>
-<tr class="separator:ac0e46e8b30cb079d93c8f0aad7d7cbd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbfd157947f66280d27b21d70a16df8d" id="r_abbfd157947f66280d27b21d70a16df8d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abbfd157947f66280d27b21d70a16df8d">Size</a></td></tr>
+<tr class="memitem:abd24482b4d30d22e37582e521e5bfb33" id="r_abd24482b4d30d22e37582e521e5bfb33"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd24482b4d30d22e37582e521e5bfb33">Capacity</a></td></tr>
+<tr class="memitem:ac0e46e8b30cb079d93c8f0aad7d7cbd0" id="r_ac0e46e8b30cb079d93c8f0aad7d7cbd0"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0e46e8b30cb079d93c8f0aad7d7cbd0">Data</a></td></tr>
 </table>
-<h2 class="groupheader">型定義メンバ詳解</h2>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">型定義メンバ詳解</h2>
 <a id="aedeac9c5080f9d6ce96ae837768ee4c4" name="aedeac9c5080f9d6ce96ae837768ee4c4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aedeac9c5080f9d6ce96ae837768ee4c4">&#9670;&#160;</a></span>const_iterator</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef const <a class="el" href="structImVector.html#a8bd77e4e7581d8e5f9e98d7c2f3c2a80">value_type</a>* <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::const_iterator</td>
+          <td class="memname">typedef const <a class="el" href="#a8bd77e4e7581d8e5f9e98d7c2f3c2a80">value_type</a>* <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::const_iterator</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -231,10 +176,10 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="structImVector.html#a8bd77e4e7581d8e5f9e98d7c2f3c2a80">value_type</a>* <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::iterator</td>
+          <td class="memname">typedef <a class="el" href="#a8bd77e4e7581d8e5f9e98d7c2f3c2a80">value_type</a>* <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::iterator</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -247,7 +192,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">typedef T <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::value_type</td>
@@ -257,31 +202,36 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<h2 class="groupheader">構築子と解体子</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">構築子と解体子</h2>
 <a id="a547fff373659fd848c3ecc6b25a83f25" name="a547fff373659fd848c3ecc6b25a83f25"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a547fff373659fd848c3ecc6b25a83f25">&#9670;&#160;</a></span>ImVector() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;<a class="el" href="structImVector.html">::ImVector</a> </td>
+          <td class="memname"><a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::ImVector </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_a547fff373659fd848c3ecc6b25a83f25_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -291,29 +241,28 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;<a class="el" href="structImVector.html">::ImVector</a> </td>
+          <td class="memname"><a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::ImVector </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>src</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>src</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_a6e2ee59d8b2fa1583617a2110a56aed4_cgraph.svg" width="100%" height="382"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_a6e2ee59d8b2fa1583617a2110a56aed4_cgraph.svg" width="100%" height="426"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -324,7 +273,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -332,27 +281,27 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::~<a class="el" href="structImVector.html">ImVector</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="a3a097635d464b1b70dc7d59996a88b28" name="a3a097635d464b1b70dc7d59996a88b28"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3a097635d464b1b70dc7d59996a88b28">&#9670;&#160;</a></span>_grow_capacity()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -360,21 +309,20 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">int <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::_grow_capacity </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>sz</em></td><td>)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>sz</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_a3a097635d464b1b70dc7d59996a88b28_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_a3a097635d464b1b70dc7d59996a88b28_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -385,7 +333,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -393,16 +341,21 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">T &amp; <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::back </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_a2d80e87e81b1b01143c8d8be93e6fde1_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -412,7 +365,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -420,13 +373,13 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">const T &amp; <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::back </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -439,7 +392,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -447,20 +400,20 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">T * <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::begin </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_ab48ae48675fa779e29c9ae5892bb99f4_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_ab48ae48675fa779e29c9ae5892bb99f4_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -471,7 +424,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -479,13 +432,13 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">const T * <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::begin </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -498,7 +451,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -506,20 +459,20 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">int <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::capacity </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_ac17681baa8b9b5cd97e556da29f9ef73_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_ac17681baa8b9b5cd97e556da29f9ef73_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -530,7 +483,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -538,20 +491,20 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::clear </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_ae2d401b4ec5f1113cdb8edb5a61a38f7_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_ae2d401b4ec5f1113cdb8edb5a61a38f7_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -562,7 +515,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -570,25 +523,25 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::clear_delete </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_aed9c986ef3cd59fabbd89355d0023122_cgraph.svg" width="100%" height="364"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_aed9c986ef3cd59fabbd89355d0023122_cgraph.svg" width="100%" height="368"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_aed9c986ef3cd59fabbd89355d0023122_icgraph.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_aed9c986ef3cd59fabbd89355d0023122_icgraph.svg" width="578" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -599,7 +552,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -607,25 +560,25 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::clear_destruct </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structImVector_ac1ed34eac753156e87e8a92f78dbbe3f_cgraph.svg" width="359" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_ac1ed34eac753156e87e8a92f78dbbe3f_cgraph.svg" width="358" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_ac1ed34eac753156e87e8a92f78dbbe3f_icgraph.svg" width="100%" height="413"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_ac1ed34eac753156e87e8a92f78dbbe3f_icgraph.svg" width="659" height="107"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -636,7 +589,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -644,21 +597,20 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::contains </td>
           <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_a2e7860fbde1c721f168b6262d8f14aec_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_a2e7860fbde1c721f168b6262d8f14aec_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -669,7 +621,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -677,20 +629,20 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::empty </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_aa53e48a5272f4bad1099368769514ff1_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_aa53e48a5272f4bad1099368769514ff1_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -701,7 +653,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -709,20 +661,20 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">T * <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::end </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_a278ca772697b2b2139d3b8add336a249_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_a278ca772697b2b2139d3b8add336a249_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -733,7 +685,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -741,13 +693,13 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">const T * <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::end </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -760,7 +712,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -768,21 +720,20 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">T * <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::erase </td>
           <td>(</td>
-          <td class="paramtype">const T *&#160;</td>
-          <td class="paramname"><em>it</em></td><td>)</td>
+          <td class="paramtype">const T *</td>          <td class="paramname"><span class="paramname"><em>it</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_a2f88ac70791f2da6d4168d7b29f38f1e_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_a2f88ac70791f2da6d4168d7b29f38f1e_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -793,7 +744,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -801,24 +752,17 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">T * <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::erase </td>
           <td>(</td>
-          <td class="paramtype">const T *&#160;</td>
-          <td class="paramname"><em>it</em>, </td>
+          <td class="paramtype">const T *</td>          <td class="paramname"><span class="paramname"><em>it</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const T *&#160;</td>
-          <td class="paramname"><em>it_last</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const T *</td>          <td class="paramname"><span class="paramname"><em>it_last</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -831,7 +775,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -839,21 +783,20 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">T * <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::erase_unsorted </td>
           <td>(</td>
-          <td class="paramtype">const T *&#160;</td>
-          <td class="paramname"><em>it</em></td><td>)</td>
+          <td class="paramtype">const T *</td>          <td class="paramname"><span class="paramname"><em>it</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_a87a4cae517c156b73823c5cd5e86378a_icgraph.svg" width="100%" height="438"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_a87a4cae517c156b73823c5cd5e86378a_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -864,7 +807,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -872,21 +815,20 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">T * <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::find </td>
           <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_a406417c3efef769d4bee47df2188831a_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_a406417c3efef769d4bee47df2188831a_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -897,7 +839,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -905,14 +847,13 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">const T * <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::find </td>
           <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -925,7 +866,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -933,26 +874,25 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::find_erase </td>
           <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structImVector_a4e9214ecaa413240f76223500dbed912_cgraph.svg" width="338" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_a4e9214ecaa413240f76223500dbed912_cgraph.svg" width="336" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_a4e9214ecaa413240f76223500dbed912_icgraph.svg" width="100%" height="452"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_a4e9214ecaa413240f76223500dbed912_icgraph.svg" width="100%" height="418"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -963,7 +903,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -971,26 +911,25 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::find_erase_unsorted </td>
           <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structImVector_a07f501e40783436616156682ec668327_cgraph.svg" width="402" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_a07f501e40783436616156682ec668327_cgraph.svg" width="400" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structImVector_a07f501e40783436616156682ec668327_icgraph.svg" width="662" height="184"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_a07f501e40783436616156682ec668327_icgraph.svg" width="610" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -1001,7 +940,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1009,21 +948,20 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">int <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::find_index </td>
           <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structImVector_a374b32265297839b0cd8e2b4c827112a_cgraph.svg" width="326" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_a374b32265297839b0cd8e2b4c827112a_cgraph.svg" width="324" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -1034,7 +972,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1042,21 +980,16 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">T &amp; <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::front </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="dynheader">
-被呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_a5a21f508086337de2f6739701d22f721_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
 
 </div>
 </div>
@@ -1066,7 +999,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1074,13 +1007,13 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">const T &amp; <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::front </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1093,7 +1026,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1101,21 +1034,20 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">int <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::index_from_ptr </td>
           <td>(</td>
-          <td class="paramtype">const T *&#160;</td>
-          <td class="paramname"><em>it</em></td><td>)</td>
+          <td class="paramtype">const T *</td>          <td class="paramname"><span class="paramname"><em>it</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_a3fd48379f807eeb01fb9da39afa30dc7_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_a3fd48379f807eeb01fb9da39afa30dc7_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1126,7 +1058,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1134,36 +1066,29 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">T * <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::insert </td>
           <td>(</td>
-          <td class="paramtype">const T *&#160;</td>
-          <td class="paramname"><em>it</em>, </td>
+          <td class="paramtype">const T *</td>          <td class="paramname"><span class="paramname"><em>it</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>v</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structImVector_a541c8cd4b844f5276f10d160cb500533_cgraph.svg" width="374" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_a541c8cd4b844f5276f10d160cb500533_cgraph.svg" width="372" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_a541c8cd4b844f5276f10d160cb500533_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_a541c8cd4b844f5276f10d160cb500533_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1174,7 +1099,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1182,13 +1107,13 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">int <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::max_size </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1201,7 +1126,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1209,26 +1134,25 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="structImVector.html">ImVector</a>&lt; T &gt; &amp; <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>src</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>src</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structImVector_aa616055e1c04b4b1026ecdb67ce839e7_cgraph.svg" width="578" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_aa616055e1c04b4b1026ecdb67ce839e7_cgraph.svg" width="594" height="168"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structImVector_aa616055e1c04b4b1026ecdb67ce839e7_icgraph.svg" width="360" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_aa616055e1c04b4b1026ecdb67ce839e7_icgraph.svg" width="358" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -1239,7 +1163,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1247,14 +1171,13 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">T &amp; <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::operator[] </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1267,7 +1190,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1275,14 +1198,13 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">const T &amp; <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::operator[] </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1295,7 +1217,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1303,20 +1225,20 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::pop_back </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_a3db7ce62d3c429effdb893fbf7148c1c_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_a3db7ce62d3c429effdb893fbf7148c1c_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1327,7 +1249,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1335,21 +1257,20 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::push_back </td>
           <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structImVector_aab5df48e0711a48bd12f3206e08c4108_cgraph.svg" width="406" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_aab5df48e0711a48bd12f3206e08c4108_cgraph.svg" width="404" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -1360,7 +1281,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1368,26 +1289,25 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::push_front </td>
           <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structImVector_a168658df8e0e1df5698ebe7a69946389_cgraph.svg" width="611" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_a168658df8e0e1df5698ebe7a69946389_cgraph.svg" width="608" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_a168658df8e0e1df5698ebe7a69946389_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_a168658df8e0e1df5698ebe7a69946389_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1398,7 +1318,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1406,21 +1326,20 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::reserve </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>new_capacity</em></td><td>)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>new_capacity</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_a0f14f5736c3372157856eebb67123b75_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_a0f14f5736c3372157856eebb67123b75_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1431,7 +1350,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1439,22 +1358,16 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::reserve_discard </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>new_capacity</em></td><td>)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>new_capacity</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="dynheader">
-被呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_a4120d4da7804ae0a34aa521dbb8e1994_icgraph.svg" width="100%" height="528"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
 
 </div>
 </div>
@@ -1464,7 +1377,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1472,21 +1385,20 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::resize </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>new_size</em></td><td>)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>new_size</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structImVector_ac371dd62e56ae486b1a5038cf07eee56_cgraph.svg" width="375" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_ac371dd62e56ae486b1a5038cf07eee56_cgraph.svg" width="374" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -1497,7 +1409,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1505,31 +1417,24 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::resize </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>new_size</em>, </td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>new_size</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>v</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structImVector_abe7f21776ecfb7d0214963fd8c0689f0_cgraph.svg" width="375" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_abe7f21776ecfb7d0214963fd8c0689f0_cgraph.svg" width="374" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -1540,7 +1445,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1548,22 +1453,16 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::shrink </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>new_size</em></td><td>)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>new_size</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="dynheader">
-被呼び出し関係図:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_a8dafcce1e393244890f52ef1aa490876_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
 
 </div>
 </div>
@@ -1573,7 +1472,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1581,20 +1480,20 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">int <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::size </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_a8c903ecb1aaee0601b6a8ad835a4a435_icgraph.svg" width="100%" height="365"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_a8c903ecb1aaee0601b6a8ad835a4a435_icgraph.svg" width="100%" height="368"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1605,7 +1504,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1613,20 +1512,20 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">int <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::size_in_bytes </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_ade9f2e937e47b0e0f9970dcfba038204_icgraph.svg" width="100%" height="480"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_ade9f2e937e47b0e0f9970dcfba038204_icgraph.svg" width="100%" height="486"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1637,7 +1536,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1645,33 +1544,37 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::swap </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structImVector.html">ImVector</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structImVector.html">ImVector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>rhs</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_afcec0d2a1e28aebe412b6efd06f0a77a_cgraph.svg" width="326" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImVector_afcec0d2a1e28aebe412b6efd06f0a77a_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImVector_afcec0d2a1e28aebe412b6efd06f0a77a_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<h2 class="groupheader">メンバ詳解</h2>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">メンバ詳解</h2>
 <a id="abd24482b4d30d22e37582e521e5bfb33" name="abd24482b4d30d22e37582e521e5bfb33"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abd24482b4d30d22e37582e521e5bfb33">&#9670;&#160;</a></span>Capacity</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">int <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::Capacity</td>
@@ -1687,7 +1590,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">T* <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::Data</td>
@@ -1703,7 +1606,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">int <a class="el" href="structImVector.html">ImVector</a>&lt; T &gt;::Size</td>
@@ -1718,11 +1621,19 @@ template&lt;typename T &gt; </div>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="structImVector.html">ImVector</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="structImVector.html">ImVector</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: ImTriangulator 構造体</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('structImTriangulator.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('structImTriangulator.html','','structImTriangulator-members'); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,58 +89,39 @@ $(document).ready(function(){initNavTree('structImTriangulator.html',''); initRe
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
-<a href="#pub-attribs">公開変数類</a> &#124;
-<a href="structImTriangulator-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">ImTriangulator 構造体</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="dynheader">
 ImTriangulator 連携図</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structImTriangulator__coll__graph.svg" width="326" height="319"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImTriangulator__coll__graph.svg" width="326" height="383"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:ad04a4a686a69d19bc246aa81209599bf" id="r_ad04a4a686a69d19bc246aa81209599bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImTriangulator.html#ad04a4a686a69d19bc246aa81209599bf">Init</a> (const <a class="el" href="structImVec2.html">ImVec2</a> *points, int points_count, void *scratch_buffer)</td></tr>
-<tr class="separator:ad04a4a686a69d19bc246aa81209599bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf26cdf6f488de52f187d383cfbe87ec" id="r_adf26cdf6f488de52f187d383cfbe87ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImTriangulator.html#adf26cdf6f488de52f187d383cfbe87ec">GetNextTriangle</a> (unsigned int out_triangle[3])</td></tr>
-<tr class="separator:adf26cdf6f488de52f187d383cfbe87ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37073b879c2a1a264495d49435d1ae11" id="r_a37073b879c2a1a264495d49435d1ae11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImTriangulator.html#a37073b879c2a1a264495d49435d1ae11">BuildNodes</a> (const <a class="el" href="structImVec2.html">ImVec2</a> *points, int points_count)</td></tr>
-<tr class="separator:a37073b879c2a1a264495d49435d1ae11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9acf0c6964688f3e99e90ebf2360bb92" id="r_a9acf0c6964688f3e99e90ebf2360bb92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImTriangulator.html#a9acf0c6964688f3e99e90ebf2360bb92">BuildReflexes</a> ()</td></tr>
-<tr class="separator:a9acf0c6964688f3e99e90ebf2360bb92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4018182289f66a6a993688a979146903" id="r_a4018182289f66a6a993688a979146903"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImTriangulator.html#a4018182289f66a6a993688a979146903">BuildEars</a> ()</td></tr>
-<tr class="separator:a4018182289f66a6a993688a979146903"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ebecaeed8a6b7b972466b0f46605b1e" id="r_a6ebecaeed8a6b7b972466b0f46605b1e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImTriangulator.html#a6ebecaeed8a6b7b972466b0f46605b1e">FlipNodeList</a> ()</td></tr>
-<tr class="separator:a6ebecaeed8a6b7b972466b0f46605b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fae6ba9afe9322843a93c7511985fc8" id="r_a2fae6ba9afe9322843a93c7511985fc8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImTriangulator.html#a2fae6ba9afe9322843a93c7511985fc8">IsEar</a> (int i0, int i1, int i2, const <a class="el" href="structImVec2.html">ImVec2</a> &amp;v0, const <a class="el" href="structImVec2.html">ImVec2</a> &amp;v1, const <a class="el" href="structImVec2.html">ImVec2</a> &amp;v2) const</td></tr>
-<tr class="separator:a2fae6ba9afe9322843a93c7511985fc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4acbba844b5b7241d1efbb61fefb895a" id="r_a4acbba844b5b7241d1efbb61fefb895a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImTriangulator.html#a4acbba844b5b7241d1efbb61fefb895a">ReclassifyNode</a> (<a class="el" href="structImTriangulatorNode.html">ImTriangulatorNode</a> *node)</td></tr>
-<tr class="separator:a4acbba844b5b7241d1efbb61fefb895a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad04a4a686a69d19bc246aa81209599bf" id="r_ad04a4a686a69d19bc246aa81209599bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad04a4a686a69d19bc246aa81209599bf">Init</a> (const <a class="el" href="structImVec2.html">ImVec2</a> *points, int points_count, void *scratch_buffer)</td></tr>
+<tr class="memitem:adf26cdf6f488de52f187d383cfbe87ec" id="r_adf26cdf6f488de52f187d383cfbe87ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf26cdf6f488de52f187d383cfbe87ec">GetNextTriangle</a> (unsigned int out_triangle[3])</td></tr>
+<tr class="memitem:a37073b879c2a1a264495d49435d1ae11" id="r_a37073b879c2a1a264495d49435d1ae11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37073b879c2a1a264495d49435d1ae11">BuildNodes</a> (const <a class="el" href="structImVec2.html">ImVec2</a> *points, int points_count)</td></tr>
+<tr class="memitem:a9acf0c6964688f3e99e90ebf2360bb92" id="r_a9acf0c6964688f3e99e90ebf2360bb92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9acf0c6964688f3e99e90ebf2360bb92">BuildReflexes</a> ()</td></tr>
+<tr class="memitem:a4018182289f66a6a993688a979146903" id="r_a4018182289f66a6a993688a979146903"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4018182289f66a6a993688a979146903">BuildEars</a> ()</td></tr>
+<tr class="memitem:a6ebecaeed8a6b7b972466b0f46605b1e" id="r_a6ebecaeed8a6b7b972466b0f46605b1e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ebecaeed8a6b7b972466b0f46605b1e">FlipNodeList</a> ()</td></tr>
+<tr class="memitem:a2fae6ba9afe9322843a93c7511985fc8" id="r_a2fae6ba9afe9322843a93c7511985fc8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2fae6ba9afe9322843a93c7511985fc8">IsEar</a> (int i0, int i1, int i2, const <a class="el" href="structImVec2.html">ImVec2</a> &amp;v0, const <a class="el" href="structImVec2.html">ImVec2</a> &amp;v1, const <a class="el" href="structImVec2.html">ImVec2</a> &amp;v2) const</td></tr>
+<tr class="memitem:a4acbba844b5b7241d1efbb61fefb895a" id="r_a4acbba844b5b7241d1efbb61fefb895a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4acbba844b5b7241d1efbb61fefb895a">ReclassifyNode</a> (<a class="el" href="structImTriangulatorNode.html">ImTriangulatorNode</a> *node)</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
-<tr class="memitem:a312243c00365f0af2b1488daeaea8bdb" id="r_a312243c00365f0af2b1488daeaea8bdb"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImTriangulator.html#a312243c00365f0af2b1488daeaea8bdb">EstimateTriangleCount</a> (int points_count)</td></tr>
-<tr class="separator:a312243c00365f0af2b1488daeaea8bdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5416f991bdc975e672f78f7ce09075e7" id="r_a5416f991bdc975e672f78f7ce09075e7"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImTriangulator.html#a5416f991bdc975e672f78f7ce09075e7">EstimateScratchBufferSize</a> (int points_count)</td></tr>
-<tr class="separator:a5416f991bdc975e672f78f7ce09075e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a312243c00365f0af2b1488daeaea8bdb" id="r_a312243c00365f0af2b1488daeaea8bdb"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a312243c00365f0af2b1488daeaea8bdb">EstimateTriangleCount</a> (int points_count)</td></tr>
+<tr class="memitem:a5416f991bdc975e672f78f7ce09075e7" id="r_a5416f991bdc975e672f78f7ce09075e7"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5416f991bdc975e672f78f7ce09075e7">EstimateScratchBufferSize</a> (int points_count)</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 公開変数類</h2></td></tr>
-<tr class="memitem:ada070a1b9bf5641714dfb4cf69200625" id="r_ada070a1b9bf5641714dfb4cf69200625"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImTriangulator.html#ada070a1b9bf5641714dfb4cf69200625">_TrianglesLeft</a> = 0</td></tr>
-<tr class="separator:ada070a1b9bf5641714dfb4cf69200625"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05c05caa6fc9d87c0b6036d223a5b998" id="r_a05c05caa6fc9d87c0b6036d223a5b998"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structImTriangulatorNode.html">ImTriangulatorNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImTriangulator.html#a05c05caa6fc9d87c0b6036d223a5b998">_Nodes</a> = NULL</td></tr>
-<tr class="separator:a05c05caa6fc9d87c0b6036d223a5b998"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac347ef75d88cbf545d50ad85e77cbe3d" id="r_ac347ef75d88cbf545d50ad85e77cbe3d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structImTriangulatorNodeSpan.html">ImTriangulatorNodeSpan</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImTriangulator.html#ac347ef75d88cbf545d50ad85e77cbe3d">_Ears</a></td></tr>
-<tr class="separator:ac347ef75d88cbf545d50ad85e77cbe3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a017362849997e8a99b4b48c9f9d850bb" id="r_a017362849997e8a99b4b48c9f9d850bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structImTriangulatorNodeSpan.html">ImTriangulatorNodeSpan</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structImTriangulator.html#a017362849997e8a99b4b48c9f9d850bb">_Reflexes</a></td></tr>
-<tr class="separator:a017362849997e8a99b4b48c9f9d850bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada070a1b9bf5641714dfb4cf69200625" id="r_ada070a1b9bf5641714dfb4cf69200625"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada070a1b9bf5641714dfb4cf69200625">_TrianglesLeft</a> = 0</td></tr>
+<tr class="memitem:a05c05caa6fc9d87c0b6036d223a5b998" id="r_a05c05caa6fc9d87c0b6036d223a5b998"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structImTriangulatorNode.html">ImTriangulatorNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05c05caa6fc9d87c0b6036d223a5b998">_Nodes</a> = NULL</td></tr>
+<tr class="memitem:ac347ef75d88cbf545d50ad85e77cbe3d" id="r_ac347ef75d88cbf545d50ad85e77cbe3d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structImTriangulatorNodeSpan.html">ImTriangulatorNodeSpan</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac347ef75d88cbf545d50ad85e77cbe3d">_Ears</a></td></tr>
+<tr class="memitem:a017362849997e8a99b4b48c9f9d850bb" id="r_a017362849997e8a99b4b48c9f9d850bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structImTriangulatorNodeSpan.html">ImTriangulatorNodeSpan</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a017362849997e8a99b4b48c9f9d850bb">_Reflexes</a></td></tr>
 </table>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="a4018182289f66a6a993688a979146903" name="a4018182289f66a6a993688a979146903"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4018182289f66a6a993688a979146903">&#9670;&#160;</a></span>BuildEars()</h2>
 
@@ -151,7 +131,7 @@ ImTriangulator 連携図</div>
         <tr>
           <td class="memname">void ImTriangulator::BuildEars </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -159,12 +139,12 @@ ImTriangulator 連携図</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structImTriangulator_a4018182289f66a6a993688a979146903_cgraph.svg" width="655" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImTriangulator_a4018182289f66a6a993688a979146903_cgraph.svg" width="626" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImTriangulator_a4018182289f66a6a993688a979146903_icgraph.svg" width="100%" height="364"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImTriangulator_a4018182289f66a6a993688a979146903_icgraph.svg" width="100%" height="368"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -178,26 +158,19 @@ ImTriangulator 連携図</div>
         <tr>
           <td class="memname">void ImTriangulator::BuildNodes </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> *&#160;</td>
-          <td class="paramname"><em>points</em>, </td>
+          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> *</td>          <td class="paramname"><span class="paramname"><em>points</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>points_count</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>points_count</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structImTriangulator_a37073b879c2a1a264495d49435d1ae11_icgraph.svg" width="664" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImTriangulator_a37073b879c2a1a264495d49435d1ae11_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -211,7 +184,7 @@ ImTriangulator 連携図</div>
         <tr>
           <td class="memname">void ImTriangulator::BuildReflexes </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -219,12 +192,12 @@ ImTriangulator 連携図</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structImTriangulator_a9acf0c6964688f3e99e90ebf2360bb92_cgraph.svg" width="454" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImTriangulator_a9acf0c6964688f3e99e90ebf2360bb92_cgraph.svg" width="436" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImTriangulator_a9acf0c6964688f3e99e90ebf2360bb92_icgraph.svg" width="100%" height="364"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImTriangulator_a9acf0c6964688f3e99e90ebf2360bb92_icgraph.svg" width="100%" height="368"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -239,23 +212,22 @@ ImTriangulator 連携図</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static int ImTriangulator::EstimateScratchBufferSize </td>
+          <td class="memname">int ImTriangulator::EstimateScratchBufferSize </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>points_count</em></td><td>)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>points_count</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structImTriangulator_a5416f991bdc975e672f78f7ce09075e7_icgraph.svg" width="455" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImTriangulator_a5416f991bdc975e672f78f7ce09075e7_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -270,23 +242,22 @@ ImTriangulator 連携図</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static int ImTriangulator::EstimateTriangleCount </td>
+          <td class="memname">int ImTriangulator::EstimateTriangleCount </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>points_count</em></td><td>)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>points_count</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structImTriangulator_a312243c00365f0af2b1488daeaea8bdb_icgraph.svg" width="648" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImTriangulator_a312243c00365f0af2b1488daeaea8bdb_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -300,7 +271,7 @@ ImTriangulator 連携図</div>
         <tr>
           <td class="memname">void ImTriangulator::FlipNodeList </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -308,7 +279,7 @@ ImTriangulator 連携図</div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImTriangulator_a6ebecaeed8a6b7b972466b0f46605b1e_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImTriangulator_a6ebecaeed8a6b7b972466b0f46605b1e_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -322,8 +293,7 @@ ImTriangulator 連携図</div>
         <tr>
           <td class="memname">void ImTriangulator::GetNextTriangle </td>
           <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>out_triangle</em>[3]</td><td>)</td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>out_triangle</em></span>[3]</td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -331,12 +301,12 @@ ImTriangulator 連携図</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImTriangulator_adf26cdf6f488de52f187d383cfbe87ec_cgraph.svg" width="100%" height="511"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImTriangulator_adf26cdf6f488de52f187d383cfbe87ec_cgraph.svg" width="100%" height="497"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structImTriangulator_adf26cdf6f488de52f187d383cfbe87ec_icgraph.svg" width="502" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImTriangulator_adf26cdf6f488de52f187d383cfbe87ec_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -350,37 +320,29 @@ ImTriangulator 連携図</div>
         <tr>
           <td class="memname">void ImTriangulator::Init </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> *&#160;</td>
-          <td class="paramname"><em>points</em>, </td>
+          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> *</td>          <td class="paramname"><span class="paramname"><em>points</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>points_count</em>, </td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>points_count</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>scratch_buffer</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>scratch_buffer</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImTriangulator_ad04a4a686a69d19bc246aa81209599bf_cgraph.svg" width="100%" height="456"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImTriangulator_ad04a4a686a69d19bc246aa81209599bf_cgraph.svg" width="100%" height="458"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structImTriangulator_ad04a4a686a69d19bc246aa81209599bf_icgraph.svg" width="418" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImTriangulator_ad04a4a686a69d19bc246aa81209599bf_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -394,55 +356,44 @@ ImTriangulator 連携図</div>
         <tr>
           <td class="memname">bool ImTriangulator::IsEar </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i0</em>, </td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i0</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i1</em>, </td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i1</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i2</em>, </td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i2</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> &amp;&#160;</td>
-          <td class="paramname"><em>v0</em>, </td>
+          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>v0</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> &amp;&#160;</td>
-          <td class="paramname"><em>v1</em>, </td>
+          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>v1</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> &amp;&#160;</td>
-          <td class="paramname"><em>v2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
+          <td class="paramtype">const <a class="el" href="structImVec2.html">ImVec2</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>v2</em></span>&#160;) const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structImTriangulator_a2fae6ba9afe9322843a93c7511985fc8_cgraph.svg" width="395" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImTriangulator_a2fae6ba9afe9322843a93c7511985fc8_cgraph.svg" width="394" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImTriangulator_a2fae6ba9afe9322843a93c7511985fc8_icgraph.svg" width="100%" height="364"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImTriangulator_a2fae6ba9afe9322843a93c7511985fc8_icgraph.svg" width="100%" height="368"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -456,8 +407,7 @@ ImTriangulator 連携図</div>
         <tr>
           <td class="memname">void ImTriangulator::ReclassifyNode </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structImTriangulatorNode.html">ImTriangulatorNode</a> *&#160;</td>
-          <td class="paramname"><em>node</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structImTriangulatorNode.html">ImTriangulatorNode</a> *</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -465,17 +415,17 @@ ImTriangulator 連携図</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImTriangulator_a4acbba844b5b7241d1efbb61fefb895a_cgraph.svg" width="100%" height="461"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImTriangulator_a4acbba844b5b7241d1efbb61fefb895a_cgraph.svg" width="100%" height="368"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structImTriangulator_a4acbba844b5b7241d1efbb61fefb895a_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="structImTriangulator_a4acbba844b5b7241d1efbb61fefb895a_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<h2 class="groupheader">メンバ詳解</h2>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">メンバ詳解</h2>
 <a id="ac347ef75d88cbf545d50ad85e77cbe3d" name="ac347ef75d88cbf545d50ad85e77cbe3d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac347ef75d88cbf545d50ad85e77cbe3d">&#9670;&#160;</a></span>_Ears</h2>
 
@@ -537,11 +487,19 @@ ImTriangulator 連携図</div>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="structImTriangulator.html">ImTriangulator</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="structImTriangulator.html">ImTriangulator</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

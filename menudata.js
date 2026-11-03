@@ -24,7 +24,6 @@
 */
 var menudata={children:[
 {text:"総合概要",url:"index.html"},
-{text:"諸情報",url:"pages.html"},
 {text:"名前空間",url:"namespaces.html",children:[
 {text:"名前空間一覧",url:"namespaces.html"},
 {text:"名前空間メンバ",url:"namespacemembers.html",children:[
@@ -120,7 +119,7 @@ var menudata={children:[
 {text:"クラス階層",url:"inherits.html"},
 {text:"クラスメンバ",url:"functions.html",children:[
 {text:"全て",url:"functions.html",children:[
-{text:":",url:"functions.html#index_:"},
+{text:":",url:"functions.html#index__3A"},
 {text:"_",url:"functions__.html#index__5F"},
 {text:"a",url:"functions_a.html#index_a"},
 {text:"b",url:"functions_b.html#index_b"},
@@ -212,9 +211,7 @@ var menudata={children:[
 {text:"g",url:"functions_type.html#index_g"},
 {text:"i",url:"functions_type.html#index_i"},
 {text:"j",url:"functions_type.html#index_j"},
-{text:"k",url:"functions_type.html#index_k"},
 {text:"l",url:"functions_type.html#index_l"},
-{text:"m",url:"functions_type.html#index_m"},
 {text:"n",url:"functions_type.html#index_n"},
 {text:"o",url:"functions_type.html#index_o"},
 {text:"p",url:"functions_type.html#index_p"},
@@ -224,13 +221,7 @@ var menudata={children:[
 {text:"v",url:"functions_type.html#index_v"}]},
 {text:"列挙型",url:"functions_enum.html"},
 {text:"列挙値",url:"functions_eval.html"},
-{text:"関連関数",url:"functions_rela.html",children:[
-{text:":",url:"functions_rela.html#index_:"},
-{text:"b",url:"functions_rela.html#index_b"},
-{text:"d",url:"functions_rela.html#index_d"},
-{text:"o",url:"functions_rela.html#index_o"},
-{text:"s",url:"functions_rela.html#index_s"},
-{text:"w",url:"functions_rela.html#index_w"}]}]}]},
+{text:"関連関数",url:"functions_rela.html"}]}]},
 {text:"ファイル",url:"files.html",children:[
 {text:"ファイル一覧",url:"files.html"},
 {text:"ファイルメンバ",url:"globals.html",children:[
@@ -322,6 +313,7 @@ var menudata={children:[
 {text:"m",url:"globals_enum.html#index_m"},
 {text:"p",url:"globals_enum.html#index_p"},
 {text:"r",url:"globals_enum.html#index_r"},
+{text:"s",url:"globals_enum.html#index_s"},
 {text:"t",url:"globals_enum.html#index_t"},
 {text:"u",url:"globals_enum.html#index_u"}]},
 {text:"列挙値",url:"globals_eval.html",children:[

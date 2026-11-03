@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: IRenderPass クラス</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classIRenderPass.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('classIRenderPass.html','','classIRenderPass-members'); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,11 +89,7 @@ $(document).ready(function(){initNavTree('classIRenderPass.html',''); initResiza
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="#pro-attribs">限定公開変数類</a> &#124;
-<a href="classIRenderPass-members.html">全メンバ一覧</a>  </div>
-  <div class="headertitle"><div class="title">IRenderPass クラス<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+  <div class="headertitle"><div class="title">IRenderPass クラス<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -102,42 +97,30 @@ $(document).ready(function(){initNavTree('classIRenderPass.html',''); initResiza
 <div class="dynheader">
 IRenderPass の継承関係図</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classIRenderPass__inherit__graph.svg" width="319" height="283"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classIRenderPass__inherit__graph.svg" width="318" height="299"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a52c6a9a8b5ae4b98d6c9d9d6899998e0" id="r_a52c6a9a8b5ae4b98d6c9d9d6899998e0"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a52c6a9a8b5ae4b98d6c9d9d6899998e0">~IRenderPass</a> ()=default</td></tr>
-<tr class="separator:a52c6a9a8b5ae4b98d6c9d9d6899998e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1771179659c4abc6e253814080bba19d" id="r_a1771179659c4abc6e253814080bba19d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a1771179659c4abc6e253814080bba19d">Init</a> (ID3D12Device *pDevice)=0</td></tr>
-<tr class="separator:a1771179659c4abc6e253814080bba19d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a296b54adab092c7100589ea49f2bfd15" id="r_a296b54adab092c7100589ea49f2bfd15"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a296b54adab092c7100589ea49f2bfd15">Execute</a> (const <a class="el" href="structRenderContext.html">RenderContext</a> &amp;ctx)=0</td></tr>
-<tr class="separator:a296b54adab092c7100589ea49f2bfd15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0620af6b0dfcf2951f413c8fdcb451a" id="r_aa0620af6b0dfcf2951f413c8fdcb451a"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#aa0620af6b0dfcf2951f413c8fdcb451a">GetName</a> () const =0</td></tr>
-<tr class="separator:aa0620af6b0dfcf2951f413c8fdcb451a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7902d9b20ee85fb3a30c6e5555445f51" id="r_a7902d9b20ee85fb3a30c6e5555445f51"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a7902d9b20ee85fb3a30c6e5555445f51">IsEnabled</a> () const</td></tr>
-<tr class="separator:a7902d9b20ee85fb3a30c6e5555445f51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adee3ba2abf5a11714da17de66e7d685f" id="r_adee3ba2abf5a11714da17de66e7d685f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#adee3ba2abf5a11714da17de66e7d685f">SetEnabled</a> (bool enabled)</td></tr>
-<tr class="separator:adee3ba2abf5a11714da17de66e7d685f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad813139ca32b2c09417906637c1ac704" id="r_ad813139ca32b2c09417906637c1ac704"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#ad813139ca32b2c09417906637c1ac704">GetInputResourceName</a> () const</td></tr>
-<tr class="separator:ad813139ca32b2c09417906637c1ac704"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18a4eee99f195abf014ce5e6fd4172e6" id="r_a18a4eee99f195abf014ce5e6fd4172e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a18a4eee99f195abf014ce5e6fd4172e6">SetInputResourceName</a> (const std::string &amp;name)</td></tr>
-<tr class="separator:a18a4eee99f195abf014ce5e6fd4172e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3136f173da785fedf682eaece53253d1" id="r_a3136f173da785fedf682eaece53253d1"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a3136f173da785fedf682eaece53253d1">GetOutputResourceName</a> () const</td></tr>
-<tr class="separator:a3136f173da785fedf682eaece53253d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26673c8aa28b1d943ac68a9417a14a2c" id="r_a26673c8aa28b1d943ac68a9417a14a2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a26673c8aa28b1d943ac68a9417a14a2c">SetOutputResourceName</a> (const std::string &amp;name)</td></tr>
-<tr class="separator:a26673c8aa28b1d943ac68a9417a14a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52c6a9a8b5ae4b98d6c9d9d6899998e0" id="r_a52c6a9a8b5ae4b98d6c9d9d6899998e0"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52c6a9a8b5ae4b98d6c9d9d6899998e0">~IRenderPass</a> ()=default</td></tr>
+<tr class="memitem:a1771179659c4abc6e253814080bba19d" id="r_a1771179659c4abc6e253814080bba19d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1771179659c4abc6e253814080bba19d">Init</a> (ID3D12Device *pDevice)=0</td></tr>
+<tr class="memitem:a296b54adab092c7100589ea49f2bfd15" id="r_a296b54adab092c7100589ea49f2bfd15"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a296b54adab092c7100589ea49f2bfd15">Execute</a> (const <a class="el" href="structRenderContext.html">RenderContext</a> &amp;ctx)=0</td></tr>
+<tr class="memitem:aa0620af6b0dfcf2951f413c8fdcb451a" id="r_aa0620af6b0dfcf2951f413c8fdcb451a"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0620af6b0dfcf2951f413c8fdcb451a">GetName</a> () const =0</td></tr>
+<tr class="memitem:a489e62670398c40fb7a0634735af0603" id="r_a489e62670398c40fb7a0634735af0603"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a489e62670398c40fb7a0634735af0603">ReloadShaders</a> (ID3D12Device *pDevice, std::string *outError=nullptr)</td></tr>
+<tr class="memitem:a7902d9b20ee85fb3a30c6e5555445f51" id="r_a7902d9b20ee85fb3a30c6e5555445f51"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7902d9b20ee85fb3a30c6e5555445f51">IsEnabled</a> () const</td></tr>
+<tr class="memitem:adee3ba2abf5a11714da17de66e7d685f" id="r_adee3ba2abf5a11714da17de66e7d685f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adee3ba2abf5a11714da17de66e7d685f">SetEnabled</a> (bool enabled)</td></tr>
+<tr class="memitem:ad813139ca32b2c09417906637c1ac704" id="r_ad813139ca32b2c09417906637c1ac704"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad813139ca32b2c09417906637c1ac704">GetInputResourceName</a> () const</td></tr>
+<tr class="memitem:a18a4eee99f195abf014ce5e6fd4172e6" id="r_a18a4eee99f195abf014ce5e6fd4172e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18a4eee99f195abf014ce5e6fd4172e6">SetInputResourceName</a> (const std::string &amp;name)</td></tr>
+<tr class="memitem:a3136f173da785fedf682eaece53253d1" id="r_a3136f173da785fedf682eaece53253d1"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3136f173da785fedf682eaece53253d1">GetOutputResourceName</a> () const</td></tr>
+<tr class="memitem:a26673c8aa28b1d943ac68a9417a14a2c" id="r_a26673c8aa28b1d943ac68a9417a14a2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26673c8aa28b1d943ac68a9417a14a2c">SetOutputResourceName</a> (const std::string &amp;name)</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 限定公開変数類</h2></td></tr>
-<tr class="memitem:a4786d22e2938e223a6c611f98a26577d" id="r_a4786d22e2938e223a6c611f98a26577d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a4786d22e2938e223a6c611f98a26577d">m_isEnabled</a> = true</td></tr>
-<tr class="separator:a4786d22e2938e223a6c611f98a26577d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79e84b5631daa2e8e417b7d1be5f620a" id="r_a79e84b5631daa2e8e417b7d1be5f620a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a79e84b5631daa2e8e417b7d1be5f620a">m_inputResourceName</a></td></tr>
-<tr class="separator:a79e84b5631daa2e8e417b7d1be5f620a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d84cbda025bbefe4b35aeae4a82d2f3" id="r_a1d84cbda025bbefe4b35aeae4a82d2f3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIRenderPass.html#a1d84cbda025bbefe4b35aeae4a82d2f3">m_outputResourceName</a></td></tr>
-<tr class="separator:a1d84cbda025bbefe4b35aeae4a82d2f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4786d22e2938e223a6c611f98a26577d" id="r_a4786d22e2938e223a6c611f98a26577d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4786d22e2938e223a6c611f98a26577d">m_isEnabled</a> = true</td></tr>
+<tr class="memitem:a79e84b5631daa2e8e417b7d1be5f620a" id="r_a79e84b5631daa2e8e417b7d1be5f620a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79e84b5631daa2e8e417b7d1be5f620a">m_inputResourceName</a></td></tr>
+<tr class="memitem:a1d84cbda025bbefe4b35aeae4a82d2f3" id="r_a1d84cbda025bbefe4b35aeae4a82d2f3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d84cbda025bbefe4b35aeae4a82d2f3">m_outputResourceName</a></td></tr>
 </table>
-<h2 class="groupheader">構築子と解体子</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">構築子と解体子</h2>
 <a id="a52c6a9a8b5ae4b98d6c9d9d6899998e0" name="a52c6a9a8b5ae4b98d6c9d9d6899998e0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a52c6a9a8b5ae4b98d6c9d9d6899998e0">&#9670;&#160;</a></span>~IRenderPass()</h2>
 
@@ -150,20 +133,20 @@ IRenderPass の継承関係図</div>
         <tr>
           <td class="memname">virtual IRenderPass::~IRenderPass </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="a296b54adab092c7100589ea49f2bfd15" name="a296b54adab092c7100589ea49f2bfd15"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a296b54adab092c7100589ea49f2bfd15">&#9670;&#160;</a></span>Execute()</h2>
 
@@ -176,14 +159,13 @@ IRenderPass の継承関係図</div>
         <tr>
           <td class="memname">virtual void IRenderPass::Execute </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structRenderContext.html">RenderContext</a> &amp;&#160;</td>
-          <td class="paramname"><em>ctx</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="structRenderContext.html">RenderContext</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -204,13 +186,13 @@ IRenderPass の継承関係図</div>
         <tr>
           <td class="memname">const std::string &amp; IRenderPass::GetInputResourceName </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -229,13 +211,13 @@ IRenderPass の継承関係図</div>
         <tr>
           <td class="memname">virtual std::string IRenderPass::GetName </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -256,13 +238,13 @@ IRenderPass の継承関係図</div>
         <tr>
           <td class="memname">const std::string &amp; IRenderPass::GetOutputResourceName </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -281,14 +263,13 @@ IRenderPass の継承関係図</div>
         <tr>
           <td class="memname">virtual void IRenderPass::Init </td>
           <td>(</td>
-          <td class="paramtype">ID3D12Device *&#160;</td>
-          <td class="paramname"><em>pDevice</em></td><td>)</td>
+          <td class="paramtype">ID3D12Device *</td>          <td class="paramname"><span class="paramname"><em>pDevice</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -309,16 +290,47 @@ IRenderPass の継承関係図</div>
         <tr>
           <td class="memname">bool IRenderPass::IsEnabled </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a489e62670398c40fb7a0634735af0603" name="a489e62670398c40fb7a0634735af0603"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a489e62670398c40fb7a0634735af0603">&#9670;&#160;</a></span>ReloadShaders()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IRenderPass::ReloadShaders </td>
+          <td>(</td>
+          <td class="paramtype">ID3D12Device *</td>          <td class="paramname"><span class="paramname"><em>pDevice</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *</td>          <td class="paramname"><span class="paramname"><em>outError</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classPostProcessPass.html#a3d238a895ea9b530ec4b5a6c0147b506">PostProcessPass</a>, <a class="el" href="classSampleComputePass.html#a493ab5b0bec820a4dd29a6304ffa407e">SampleComputePass</a>で再実装されています。</p>
 
 </div>
 </div>
@@ -334,14 +346,13 @@ IRenderPass の継承関係図</div>
         <tr>
           <td class="memname">void IRenderPass::SetEnabled </td>
           <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>enabled</em></td><td>)</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>enabled</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -360,14 +371,13 @@ IRenderPass の継承関係図</div>
         <tr>
           <td class="memname">void IRenderPass::SetInputResourceName </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -386,21 +396,20 @@ IRenderPass の継承関係図</div>
         <tr>
           <td class="memname">void IRenderPass::SetOutputResourceName </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">メンバ詳解</h2>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">メンバ詳解</h2>
 <a id="a79e84b5631daa2e8e417b7d1be5f620a" name="a79e84b5631daa2e8e417b7d1be5f620a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a79e84b5631daa2e8e417b7d1be5f620a">&#9670;&#160;</a></span>m_inputResourceName</h2>
 
@@ -416,7 +425,7 @@ IRenderPass の継承関係図</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -438,7 +447,7 @@ IRenderPass の継承関係図</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -460,7 +469,7 @@ IRenderPass の継承関係図</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -472,11 +481,19 @@ IRenderPass の継承関係図</div>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="classIRenderPass.html">IRenderPass</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="classIRenderPass.html">IRenderPass</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

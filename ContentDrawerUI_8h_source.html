@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: Source/Editor/ContentDrawerUI.h ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,28 +35,22 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- æ§‹ç¯‰: Doxygen 1.9.8 -->
+<!-- æ§‹ç¯‰: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','æ¤œç´¢');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','æ¤œç´¢',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function() { init_codefold(0); });
-/* @license-end */
-</script>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -68,10 +63,9 @@ $(document).ready(function() { init_codefold(0); });
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('ContentDrawerUI_8h_source.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('ContentDrawerUI_8h_source.html','',''); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -106,14 +100,14 @@ $(document).ready(function(){initNavTree('ContentDrawerUI_8h_source.html',''); i
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// ƒvƒŒƒnƒu(Prefab)ˆê——‚Ì‰{——E¶¬E•ÒW‚ğs‚¤ƒRƒ“ƒeƒ“ƒcƒhƒƒ[UIƒNƒ‰ƒX</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">// =================================================================</span></div>
 <div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="classCContentDrawerUI.html">CContentDrawerUI</a></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html">    8</a></span><span class="keyword">class </span><a class="code hl_function" href="classCContentDrawerUI.html#a185c036bed4068ed6304e2660fcf0bae">CContentDrawerUI</a></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="comment">// ƒVƒ“ƒOƒ‹ƒgƒ“ƒCƒ“ƒXƒ^ƒ“ƒX‚Ìæ“¾</span></div>
 <div class="foldopen" id="foldopen00012" data-start="{" data-end="}">
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html#a3094603251cff449aef384b5535bbdf0">   12</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classCContentDrawerUI.html">CContentDrawerUI</a>&amp; <a class="code hl_function" href="classCContentDrawerUI.html#a3094603251cff449aef384b5535bbdf0">GetInstance</a>()</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html#a3094603251cff449aef384b5535bbdf0">   12</a></span>    <span class="keyword">static</span> <a class="code hl_function" href="classCContentDrawerUI.html#a185c036bed4068ed6304e2660fcf0bae">CContentDrawerUI</a>&amp; <a class="code hl_function" href="classCContentDrawerUI.html#a3094603251cff449aef384b5535bbdf0">GetInstance</a>()</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keyword">static</span> <a class="code hl_class" href="classCContentDrawerUI.html">CContentDrawerUI</a> instance;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keyword">static</span> <a class="code hl_function" href="classCContentDrawerUI.html#a185c036bed4068ed6304e2660fcf0bae">CContentDrawerUI</a> instance;</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <span class="keywordflow">return</span> instance;</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    }</div>
 </div>
@@ -132,8 +126,8 @@ $(document).ready(function(){initNavTree('ContentDrawerUI_8h_source.html',''); i
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html#a185c036bed4068ed6304e2660fcf0bae">   30</a></span>    <a class="code hl_function" href="classCContentDrawerUI.html#a185c036bed4068ed6304e2660fcf0bae">CContentDrawerUI</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html#af5323ca3e3e5bad12ee29189aad73ecb">   31</a></span>    <a class="code hl_function" href="classCContentDrawerUI.html#af5323ca3e3e5bad12ee29189aad73ecb">~CContentDrawerUI</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html#a273689ce1fa1d448e72afb1964fa16c9">   32</a></span>    <a class="code hl_function" href="classCContentDrawerUI.html#a273689ce1fa1d448e72afb1964fa16c9">CContentDrawerUI</a>(<span class="keyword">const</span> <a class="code hl_class" href="classCContentDrawerUI.html">CContentDrawerUI</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html#a1c7ad8c7b3aeb712114db6db98becfd2">   33</a></span>    <a class="code hl_class" href="classCContentDrawerUI.html">CContentDrawerUI</a>&amp; <a class="code hl_function" href="classCContentDrawerUI.html#a1c7ad8c7b3aeb712114db6db98becfd2">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classCContentDrawerUI.html">CContentDrawerUI</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html#a273689ce1fa1d448e72afb1964fa16c9">   32</a></span>    <a class="code hl_function" href="classCContentDrawerUI.html#a273689ce1fa1d448e72afb1964fa16c9">CContentDrawerUI</a>(<span class="keyword">const</span> <a class="code hl_function" href="classCContentDrawerUI.html#a185c036bed4068ed6304e2660fcf0bae">CContentDrawerUI</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html#a1c7ad8c7b3aeb712114db6db98becfd2">   33</a></span>    <a class="code hl_function" href="classCContentDrawerUI.html#a185c036bed4068ed6304e2660fcf0bae">CContentDrawerUI</a>&amp; <a class="code hl_function" href="classCContentDrawerUI.html#a1c7ad8c7b3aeb712114db6db98becfd2">operator=</a>(<span class="keyword">const</span> <a class="code hl_function" href="classCContentDrawerUI.html#a185c036bed4068ed6304e2660fcf0bae">CContentDrawerUI</a>&amp;) = <span class="keyword">delete</span>;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="comment">// ƒvƒŒƒnƒu‚ÌŒÂ•Ê‚Ìî•ñ‚ğ•Û‚·‚é\‘¢‘Ì</span></div>
 <div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
@@ -151,7 +145,6 @@ $(document).ready(function(){initNavTree('ContentDrawerUI_8h_source.html',''); i
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classCContentDrawerUI.html#aaaef55241fd7e0aa9952bfc0735a1875">   46</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="classCContentDrawerUI.html#aaaef55241fd7e0aa9952bfc0735a1875">m_searchFilter</a>[128] = <span class="stringliteral">&quot;&quot;</span>;           <span class="comment">// ŒŸõƒtƒBƒ‹ƒ^[ƒoƒbƒtƒ@</span></div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>};</div>
 </div>
-<div class="ttc" id="aclassCContentDrawerUI_html"><div class="ttname"><a href="classCContentDrawerUI.html">CContentDrawerUI</a></div><div class="ttdef"><b>Definition</b> ContentDrawerUI.h:9</div></div>
 <div class="ttc" id="aclassCContentDrawerUI_html_a185c036bed4068ed6304e2660fcf0bae"><div class="ttname"><a href="classCContentDrawerUI.html#a185c036bed4068ed6304e2660fcf0bae">CContentDrawerUI::CContentDrawerUI</a></div><div class="ttdeci">CContentDrawerUI()=default</div></div>
 <div class="ttc" id="aclassCContentDrawerUI_html_a1c7ad8c7b3aeb712114db6db98becfd2"><div class="ttname"><a href="classCContentDrawerUI.html#a1c7ad8c7b3aeb712114db6db98becfd2">CContentDrawerUI::operator=</a></div><div class="ttdeci">CContentDrawerUI &amp; operator=(const CContentDrawerUI &amp;)=delete</div></div>
 <div class="ttc" id="aclassCContentDrawerUI_html_a273689ce1fa1d448e72afb1964fa16c9"><div class="ttname"><a href="classCContentDrawerUI.html#a273689ce1fa1d448e72afb1964fa16c9">CContentDrawerUI::CContentDrawerUI</a></div><div class="ttdeci">CContentDrawerUI(const CContentDrawerUI &amp;)=delete</div></div>
@@ -172,11 +165,12 @@ $(document).ready(function(){initNavTree('ContentDrawerUI_8h_source.html',''); i
 <div class="ttc" id="astructCContentDrawerUI_1_1PrefabItem_html_a7158ee64ec20ad91acce6a9c2ea07141"><div class="ttname"><a href="structCContentDrawerUI_1_1PrefabItem.html#a7158ee64ec20ad91acce6a9c2ea07141">CContentDrawerUI::PrefabItem::path</a></div><div class="ttdeci">std::string path</div><div class="ttdef"><b>Definition</b> ContentDrawerUI.h:39</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a class="el" href="dir_b26507eead720464ba2ac6bbc6dcec5f.html">Editor</a></li><li class="navelem"><a class="el" href="ContentDrawerUI_8h.html">ContentDrawerUI.h</a></li>
-    <li class="footer">æ§‹ç¯‰: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_b26507eead720464ba2ac6bbc6dcec5f.html">Editor</a></li><li class="navelem"><a href="ContentDrawerUI_8h.html">ContentDrawerUI.h</a></li>
+    <li class="footer">æ§‹ç¯‰: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>

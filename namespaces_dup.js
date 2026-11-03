@@ -924,27 +924,7 @@ var namespaces_dup =
       [ "WindowRectRelToAbs", "namespaceImGui.html#a10d8f47027c5bea2da6d5792ada70a7f", null ],
       [ "IMGUI_VIEWPORT_DEFAULT_ID", "namespaceImGui.html#aa7a318e32bff29010e015a15ab6b6067", null ]
     ] ],
-    [ "ImStb", "namespaceImStb.html", [
-      [ "ImCharIsSeparatorW", "namespaceImStb.html#a83e389662fe9b33435229a9ed61e8aaf", null ],
-      [ "IMSTB_TEXTEDIT_GETNEXTCHARINDEX_IMPL", "namespaceImStb.html#a1f0a79276d5116d2f14d8fb801c20f8f", null ],
-      [ "IMSTB_TEXTEDIT_GETPREVCHARINDEX_IMPL", "namespaceImStb.html#a5df9e72d33094eda9ddeea990432c447", null ],
-      [ "is_word_boundary_from_left", "namespaceImStb.html#a6625118253ca25ee5849aae59cd47c88", null ],
-      [ "is_word_boundary_from_right", "namespaceImStb.html#ab7f998a5fc7a1f6cab073a2392e786c3", null ],
-      [ "STB_TEXTEDIT_DELETECHARS", "namespaceImStb.html#a46ef9d2dbe0c4a1a8b98792c496289db", null ],
-      [ "STB_TEXTEDIT_GETCHAR", "namespaceImStb.html#a729892eab249074af27a1abf6365e80e", null ],
-      [ "STB_TEXTEDIT_GETWIDTH", "namespaceImStb.html#a0f7912ed04140f7deb98a81163ca919d", null ],
-      [ "STB_TEXTEDIT_INSERTCHARS", "namespaceImStb.html#aeb78e41c47236924d5e2b28ce28d042e", null ],
-      [ "STB_TEXTEDIT_LAYOUTROW", "namespaceImStb.html#ab4b8a7af0c0063874a6f7ed7e6d0bec9", null ],
-      [ "STB_TEXTEDIT_MOVELINEEND_IMPL", "namespaceImStb.html#a779898f058d323f8bc057d40ed706054", null ],
-      [ "STB_TEXTEDIT_MOVELINESTART_IMPL", "namespaceImStb.html#a5575d74ef7b910bdac413af8c8a315bf", null ],
-      [ "STB_TEXTEDIT_MOVEWORDLEFT_IMPL", "namespaceImStb.html#aa17450e2c20f846067d1aee8dbaaf976", null ],
-      [ "STB_TEXTEDIT_MOVEWORDRIGHT_IMPL", "namespaceImStb.html#a591af6c724a8088d03687aba81098ae9", null ],
-      [ "STB_TEXTEDIT_MOVEWORDRIGHT_MAC", "namespaceImStb.html#a1c32d6fc2251c9168d5ce133104110d4", null ],
-      [ "STB_TEXTEDIT_MOVEWORDRIGHT_WIN", "namespaceImStb.html#aaadd38b7c62661755d9205493a834f1e", null ],
-      [ "stb_textedit_replace", "namespaceImStb.html#ae245ee4392b26d481ee10f0fa37fb525", null ],
-      [ "STB_TEXTEDIT_STRINGLEN", "namespaceImStb.html#a145e13c813b64de1d6b124fbdb0a8911", null ],
-      [ "STB_TEXTEDIT_NEWLINE", "namespaceImStb.html#ac8bb93c44323183c6da702c91ce950f8", null ]
-    ] ],
+    [ "ImStb", "namespaceImStb.html", "namespaceImStb" ],
     [ "nlohmann", "namespacenlohmann.html", "namespacenlohmann" ],
     [ "Object", "namespaceObject.html", [
       [ "objectTag", "namespaceObject.html#a601de737429833556e7418bb4a8975b0", [

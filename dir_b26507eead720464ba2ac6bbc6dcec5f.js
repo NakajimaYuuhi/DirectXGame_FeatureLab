@@ -19,7 +19,7 @@ var dir_b26507eead720464ba2ac6bbc6dcec5f =
     [ "HierarchyUI.cpp", "HierarchyUI_8cpp.html", null ],
     [ "HierarchyUI.h", "HierarchyUI_8h.html", "HierarchyUI_8h" ],
     [ "ImGuiManager.cpp", "ImGuiManager_8cpp.html", null ],
-    [ "ImGuiManager.h", "ImGuiManager_8h.html", "ImGuiManager_8h" ],
+    [ "ImGuiManager.h", "ImGuiManager_8h.html", null ],
     [ "InspectorUI.cpp", "InspectorUI_8cpp.html", "InspectorUI_8cpp" ],
     [ "InspectorUI.h", "InspectorUI_8h.html", "InspectorUI_8h" ],
     [ "ProfilerUI.cpp", "ProfilerUI_8cpp.html", null ],

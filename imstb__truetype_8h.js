@@ -19,7 +19,6 @@ var imstb__truetype_8h =
     [ "STBTT_MACSTYLE_UNDERSCORE", "imstb__truetype_8h.html#a9064e582d96dcbaf2f573896cccd5ef7", null ],
     [ "STBTT_POINT_SIZE", "imstb__truetype_8h.html#a42c4058f71988e703efdf4703d5dfe31", null ],
     [ "stbtt_vertex_type", "imstb__truetype_8h.html#ab8fd8e5e0b82b0f7da54532035e47b22", null ],
-    [ "stbrp_rect", "imstb__truetype_8h.html#a7c4a99b31ea2207a0b2bbcbdab8f3840", null ],
     [ "stbtt_fontinfo", "imstb__truetype_8h.html#a82ca6622f6983cc08eca850280126daf", null ],
     [ "stbtt_kerningentry", "imstb__truetype_8h.html#a988d6ec9ddb583b248cc96f17449dd6b", null ],
     [ "stbtt_pack_context", "imstb__truetype_8h.html#a37d613643adacbed24c22718faf6afc7", null ],

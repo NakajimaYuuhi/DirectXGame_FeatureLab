@@ -3,16 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DirectX 12 Render Engine: StateBase&lt; T &gt; クラステンプレート</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -34,21 +35,20 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.15.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','検索');
-  $(document).ready(function() { init_search(); });
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
 });
-/* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
@@ -63,10 +63,9 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classStateBase.html',''); initResizable(); });
-/* @license-end */
+$(function(){initNavTree('classStateBase.html','','classStateBase-members'); });
 </script>
+<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -90,42 +89,32 @@ $(document).ready(function(){initNavTree('classStateBase.html',''); initResizabl
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">公開メンバ関数</a> &#124;
-<a href="#pro-attribs">限定公開変数類</a> &#124;
-<a href="classStateBase-members.html">全メンバ一覧</a>  </div>
   <div class="headertitle"><div class="title">StateBase&lt; T &gt; クラステンプレート</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="StateBase_8h_source.html">StateBase.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:ad7986ce8727dbbaeaf8efce2fe3a052e" id="r_ad7986ce8727dbbaeaf8efce2fe3a052e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStateBase.html#ad7986ce8727dbbaeaf8efce2fe3a052e">~StateBase</a> ()=default</td></tr>
-<tr class="separator:ad7986ce8727dbbaeaf8efce2fe3a052e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a099f12aaf37246ff9867fdf758607713" id="r_a099f12aaf37246ff9867fdf758607713"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStateBase.html#a099f12aaf37246ff9867fdf758607713">Setup</a> (T *ownerInstance)</td></tr>
-<tr class="separator:a099f12aaf37246ff9867fdf758607713"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3619cd862baabb8bbb0fd356cc0893f" id="r_ac3619cd862baabb8bbb0fd356cc0893f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStateBase.html#ac3619cd862baabb8bbb0fd356cc0893f">OnEnter</a> ()</td></tr>
-<tr class="separator:ac3619cd862baabb8bbb0fd356cc0893f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a083b9a45b3d6a055a6a5cb3723c09573" id="r_a083b9a45b3d6a055a6a5cb3723c09573"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStateBase.html#a083b9a45b3d6a055a6a5cb3723c09573">OnUpdate</a> (float deltaTime)</td></tr>
-<tr class="separator:a083b9a45b3d6a055a6a5cb3723c09573"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2745a16de341b32bd3193dfd4d14782" id="r_ad2745a16de341b32bd3193dfd4d14782"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStateBase.html#ad2745a16de341b32bd3193dfd4d14782">OnExit</a> ()</td></tr>
-<tr class="separator:ad2745a16de341b32bd3193dfd4d14782"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7986ce8727dbbaeaf8efce2fe3a052e" id="r_ad7986ce8727dbbaeaf8efce2fe3a052e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7986ce8727dbbaeaf8efce2fe3a052e">~StateBase</a> ()=default</td></tr>
+<tr class="memitem:a099f12aaf37246ff9867fdf758607713" id="r_a099f12aaf37246ff9867fdf758607713"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a099f12aaf37246ff9867fdf758607713">Setup</a> (T *ownerInstance)</td></tr>
+<tr class="memitem:ac3619cd862baabb8bbb0fd356cc0893f" id="r_ac3619cd862baabb8bbb0fd356cc0893f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3619cd862baabb8bbb0fd356cc0893f">OnEnter</a> ()</td></tr>
+<tr class="memitem:a083b9a45b3d6a055a6a5cb3723c09573" id="r_a083b9a45b3d6a055a6a5cb3723c09573"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a083b9a45b3d6a055a6a5cb3723c09573">OnUpdate</a> (float deltaTime)</td></tr>
+<tr class="memitem:ad2745a16de341b32bd3193dfd4d14782" id="r_ad2745a16de341b32bd3193dfd4d14782"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2745a16de341b32bd3193dfd4d14782">OnExit</a> ()</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 限定公開変数類</h2></td></tr>
-<tr class="memitem:a73ed9e9744d667312b22211b2514d576" id="r_a73ed9e9744d667312b22211b2514d576"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStateBase.html#a73ed9e9744d667312b22211b2514d576">owner</a> = nullptr</td></tr>
-<tr class="separator:a73ed9e9744d667312b22211b2514d576"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73ed9e9744d667312b22211b2514d576" id="r_a73ed9e9744d667312b22211b2514d576"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73ed9e9744d667312b22211b2514d576">owner</a> = nullptr</td></tr>
 </table>
-<h2 class="groupheader">構築子と解体子</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">構築子と解体子</h2>
 <a id="ad7986ce8727dbbaeaf8efce2fe3a052e" name="ad7986ce8727dbbaeaf8efce2fe3a052e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad7986ce8727dbbaeaf8efce2fe3a052e">&#9670;&#160;</a></span>~StateBase()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -133,27 +122,27 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">virtual <a class="el" href="classStateBase.html">StateBase</a>&lt; T &gt;::~<a class="el" href="classStateBase.html">StateBase</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">関数詳解</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
 <a id="ac3619cd862baabb8bbb0fd356cc0893f" name="ac3619cd862baabb8bbb0fd356cc0893f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac3619cd862baabb8bbb0fd356cc0893f">&#9670;&#160;</a></span>OnEnter()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -161,13 +150,13 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">virtual void <a class="el" href="classStateBase.html">StateBase</a>&lt; T &gt;::OnEnter </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -180,7 +169,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -188,13 +177,13 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">virtual void <a class="el" href="classStateBase.html">StateBase</a>&lt; T &gt;::OnExit </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -207,7 +196,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -215,14 +204,13 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">virtual void <a class="el" href="classStateBase.html">StateBase</a>&lt; T &gt;::OnUpdate </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>deltaTime</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -235,7 +223,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -243,28 +231,27 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classStateBase.html">StateBase</a>&lt; T &gt;::Setup </td>
           <td>(</td>
-          <td class="paramtype">T *&#160;</td>
-          <td class="paramname"><em>ownerInstance</em></td><td>)</td>
+          <td class="paramtype">T *</td>          <td class="paramname"><span class="paramname"><em>ownerInstance</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">メンバ詳解</h2>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">メンバ詳解</h2>
 <a id="a73ed9e9744d667312b22211b2514d576" name="a73ed9e9744d667312b22211b2514d576"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a73ed9e9744d667312b22211b2514d576">&#9670;&#160;</a></span>owner</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -275,7 +262,7 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -287,11 +274,19 @@ template&lt;typename T &gt; </div>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="classStateBase.html">StateBase</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="navelem"><a href="classStateBase.html">StateBase</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
 </body>
