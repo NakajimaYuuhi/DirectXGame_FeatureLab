@@ -57,7 +57,7 @@ var searchData=
   ['requestedwidth_54',['RequestedWidth',['../structImGuiTabItem.html#a53a1bf7ee4ffff89df56047037af2a29',1,'ImGuiTabItem']]],
   ['requests_55',['Requests',['../structImGuiMultiSelectIO.html#aba5e6ee0184f05432deba747ddc81d93',1,'ImGuiMultiSelectIO']]],
   ['requestsort_56',['RequestSort',['../structExampleAssetsBrowser.html#a41fc44d1d85beac499c843beea5c6e41',1,'ExampleAssetsBrowser']]],
-  ['reserved_57',['reserved',['../structLightBufferData.html#a29424255d614c3f9c8db8d955adb759b',1,'LightBufferData::reserved'],['../structAssetSecurity_1_1AssetFileHeader.html#a2d08f72caa45a86bca74db86290c2359',1,'AssetSecurity::AssetFileHeader::reserved']]],
+  ['reserved_57',['reserved',['../structAssetSecurity_1_1AssetFileHeader.html#a2d08f72caa45a86bca74db86290c2359',1,'AssetSecurity::AssetFileHeader']]],
   ['resize_5fborder_5fdef_58',['resize_border_def',['../imgui_8cpp.html#a80f601256308bd185d2d25e71f1e320a',1,'imgui.cpp']]],
   ['resize_5fgrip_5fdef_59',['resize_grip_def',['../imgui_8cpp.html#a4172a86a71ad90be6fb63c63f362222d',1,'imgui.cpp']]],
   ['resizeborderheld_60',['ResizeBorderHeld',['../structImGuiWindow.html#a2f7c042fc7e8359d4736cab69fff8490',1,'ImGuiWindow']]],

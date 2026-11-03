@@ -171,7 +171,7 @@ var searchData=
   ['reserve_168',['Reserve',['../structImSpanAllocator.html#a89b08935873f324a44642c9be7388004',1,'ImSpanAllocator::Reserve()'],['../structImPool.html#a62a34bcb3efcaaa3f4402c0c3cc1d600',1,'ImPool::Reserve()']]],
   ['reserve_169',['reserve',['../structImVector.html#a0f14f5736c3372157856eebb67123b75',1,'ImVector::reserve()'],['../structImGuiTextBuffer.html#a3271f361e0f1997f4c3eb77665fdf161',1,'ImGuiTextBuffer::reserve()'],['../structImStableVector.html#ad3413a7a930eb4611e62fe834d637c6d',1,'ImStableVector::reserve()']]],
   ['reserve_5fdiscard_170',['reserve_discard',['../structImVector.html#a4120d4da7804ae0a34aa521dbb8e1994',1,'ImVector']]],
-  ['reserved_171',['reserved',['../structLightBufferData.html#a29424255d614c3f9c8db8d955adb759b',1,'LightBufferData::reserved'],['../structAssetSecurity_1_1AssetFileHeader.html#a2d08f72caa45a86bca74db86290c2359',1,'AssetSecurity::AssetFileHeader::reserved']]],
+  ['reserved_171',['reserved',['../structAssetSecurity_1_1AssetFileHeader.html#a2d08f72caa45a86bca74db86290c2359',1,'AssetSecurity::AssetFileHeader']]],
   ['reset_172',['Reset',['../structImGuiListClipperData.html#a2fd1f3adb3fda313acddc1203fec0d1c',1,'ImGuiListClipperData']]],
   ['reset_173',['reset',['../classnlohmann_1_1detail_1_1lexer.html#a3bda093837339813916d11fb6e396606',1,'nlohmann::detail::lexer']]],
   ['resetcount_174',['ResetCount',['../classEnemyCounterComponent.html#af12873e46b0e94ecaa0108a5b86ff61d',1,'EnemyCounterComponent']]],

@@ -109,8 +109,13 @@ LightBufferData 連携図</div>
 <tr class="memitem:a61f239abaab9bcdfeea95cc02e755b35" id="r_a61f239abaab9bcdfeea95cc02e755b35"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61f239abaab9bcdfeea95cc02e755b35">ambientColor</a></td></tr>
 <tr class="memitem:aca95f0491f9a2683ea596e4c35b63fa0" id="r_aca95f0491f9a2683ea596e4c35b63fa0"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aca95f0491f9a2683ea596e4c35b63fa0">shadowParams</a></td></tr>
 <tr class="memitem:a5a15c4631f0dd2c0c2a125c5f446cc53" id="r_a5a15c4631f0dd2c0c2a125c5f446cc53"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a15c4631f0dd2c0c2a125c5f446cc53">lightCounts</a></td></tr>
-<tr class="memitem:a29424255d614c3f9c8db8d955adb759b" id="r_a29424255d614c3f9c8db8d955adb759b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29424255d614c3f9c8db8d955adb759b">reserved</a> [24]</td></tr>
+<tr class="memitem:a63e7022685390a6ed2a40dc034571763" id="r_a63e7022685390a6ed2a40dc034571763"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63e7022685390a6ed2a40dc034571763">shadowExtraParams</a></td></tr>
+<tr class="memitem:a1acfd64d8f4090a9f9801612a1fc9c0a" id="r_a1acfd64d8f4090a9f9801612a1fc9c0a"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1acfd64d8f4090a9f9801612a1fc9c0a">cascadeSplits</a></td></tr>
+<tr class="memitem:a991e59cc3a617aef92d32ac218db3133" id="r_a991e59cc3a617aef92d32ac218db3133"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a991e59cc3a617aef92d32ac218db3133">blobCasters</a> [4]</td></tr>
 <tr class="memitem:a8a0630301651641f27f1269e391b9bbc" id="r_a8a0630301651641f27f1269e391b9bbc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPointLightGPUData.html">PointLightGPUData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a0630301651641f27f1269e391b9bbc">pointLights</a> [8]</td></tr>
+<tr class="memitem:ae7cbe1786b098cb2c37b87b0b937a5e4" id="r_ae7cbe1786b098cb2c37b87b0b937a5e4"><td class="memItemLeft" align="right" valign="top">DirectX::XMMATRIX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7cbe1786b098cb2c37b87b0b937a5e4">lightViewProjCascade1</a></td></tr>
+<tr class="memitem:ab8f33670cf396b92c02ffdc285938f0e" id="r_ab8f33670cf396b92c02ffdc285938f0e"><td class="memItemLeft" align="right" valign="top">DirectX::XMMATRIX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8f33670cf396b92c02ffdc285938f0e">lightViewProjCascade2</a></td></tr>
+<tr class="memitem:aafa3e608be696d4ebcddf57031b27b07" id="r_aafa3e608be696d4ebcddf57031b27b07"><td class="memItemLeft" align="right" valign="top">DirectX::XMFLOAT4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafa3e608be696d4ebcddf57031b27b07">csmPadding</a> [8]</td></tr>
 </table>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">メンバ詳解</h2>
 <a id="a61f239abaab9bcdfeea95cc02e755b35" name="a61f239abaab9bcdfeea95cc02e755b35"></a>
@@ -127,6 +132,20 @@ LightBufferData 連携図</div>
 
 </div>
 </div>
+<a id="a991e59cc3a617aef92d32ac218db3133" name="a991e59cc3a617aef92d32ac218db3133"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a991e59cc3a617aef92d32ac218db3133">&#9670;&#160;</a></span>blobCasters</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT4 LightBufferData::blobCasters[4]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a674f2c4683ac5e78c466bba29d945588" name="a674f2c4683ac5e78c466bba29d945588"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a674f2c4683ac5e78c466bba29d945588">&#9670;&#160;</a></span>cameraPos</h2>
 
@@ -135,6 +154,34 @@ LightBufferData 連携図</div>
       <table class="memname">
         <tr>
           <td class="memname">DirectX::XMFLOAT4 LightBufferData::cameraPos</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1acfd64d8f4090a9f9801612a1fc9c0a" name="a1acfd64d8f4090a9f9801612a1fc9c0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1acfd64d8f4090a9f9801612a1fc9c0a">&#9670;&#160;</a></span>cascadeSplits</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT4 LightBufferData::cascadeSplits</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aafa3e608be696d4ebcddf57031b27b07" name="aafa3e608be696d4ebcddf57031b27b07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafa3e608be696d4ebcddf57031b27b07">&#9670;&#160;</a></span>csmPadding</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMFLOAT4 LightBufferData::csmPadding[8]</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -197,6 +244,34 @@ LightBufferData 連携図</div>
 
 </div>
 </div>
+<a id="ae7cbe1786b098cb2c37b87b0b937a5e4" name="ae7cbe1786b098cb2c37b87b0b937a5e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7cbe1786b098cb2c37b87b0b937a5e4">&#9670;&#160;</a></span>lightViewProjCascade1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMMATRIX LightBufferData::lightViewProjCascade1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab8f33670cf396b92c02ffdc285938f0e" name="ab8f33670cf396b92c02ffdc285938f0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8f33670cf396b92c02ffdc285938f0e">&#9670;&#160;</a></span>lightViewProjCascade2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DirectX::XMMATRIX LightBufferData::lightViewProjCascade2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a8a0630301651641f27f1269e391b9bbc" name="a8a0630301651641f27f1269e391b9bbc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8a0630301651641f27f1269e391b9bbc">&#9670;&#160;</a></span>pointLights</h2>
 
@@ -211,14 +286,14 @@ LightBufferData 連携図</div>
 
 </div>
 </div>
-<a id="a29424255d614c3f9c8db8d955adb759b" name="a29424255d614c3f9c8db8d955adb759b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29424255d614c3f9c8db8d955adb759b">&#9670;&#160;</a></span>reserved</h2>
+<a id="a63e7022685390a6ed2a40dc034571763" name="a63e7022685390a6ed2a40dc034571763"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63e7022685390a6ed2a40dc034571763">&#9670;&#160;</a></span>shadowExtraParams</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float LightBufferData::reserved[24]</td>
+          <td class="memname">DirectX::XMFLOAT4 LightBufferData::shadowExtraParams</td>
         </tr>
       </table>
 </div><div class="memdoc">

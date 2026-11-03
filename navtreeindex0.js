@@ -244,10 +244,10 @@ var NAVTREEINDEX0 =
 "InputManager_8h.html#ac1ec3647c005eacad401b06e7e18f711ae93f994f01c537c4e2f7d8528c3eb5e9":[2,0,0,0,9,1,3],
 "InputManager_8h_source.html":[2,0,0,0,9],
 "InspectorUI_8cpp.html":[2,0,0,1,20],
-"InspectorUI_8cpp.html#a29e1aeadb805e9d91533a2be6b183d10":[2,0,0,1,20,2],
-"InspectorUI_8cpp.html#a4bf579657470d623e3be4507a13bf453":[2,0,0,1,20,3],
-"InspectorUI_8cpp.html#a818451273d4f42ec1c1503bb28a4f868":[2,0,0,1,20,0],
-"InspectorUI_8cpp.html#aceba04366e686bf767f8ed32f1682833":[2,0,0,1,20,1],
-"InspectorUI_8h.html":[2,0,0,1,21],
-"InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817":[2,0,0,1,21,1]
+"InspectorUI_8cpp.html#a29e1aeadb805e9d91533a2be6b183d10":[2,0,0,1,20,3],
+"InspectorUI_8cpp.html#a4bf579657470d623e3be4507a13bf453":[2,0,0,1,20,4],
+"InspectorUI_8cpp.html#a67cce6bd863b6ca9e03900f999f3e041":[2,0,0,1,20,0],
+"InspectorUI_8cpp.html#a818451273d4f42ec1c1503bb28a4f868":[2,0,0,1,20,1],
+"InspectorUI_8cpp.html#aceba04366e686bf767f8ed32f1682833":[2,0,0,1,20,2],
+"InspectorUI_8h.html":[2,0,0,1,21]
 };

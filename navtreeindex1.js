@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817":[2,0,0,1,21,1],
 "InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817a85a7cd587d6142dbfc1a4de05af7b75d":[2,0,0,1,21,1,2],
 "InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817a8d2de5368588552fbae54044ac5c7b3d":[2,0,0,1,21,1,1],
 "InspectorUI_8h.html#a67f4d1a0231e35bcec4886d2f81bf817adeccbe4e9083c3b5f7cd2632722765bb":[2,0,0,1,21,1,0],
@@ -13,6 +14,14 @@ var NAVTREEINDEX1 =
 "LightComponent_8h_source.html":[2,0,0,2,0,30],
 "LightManager_8cpp.html":[2,0,0,6,13],
 "LightManager_8h.html":[2,0,0,6,14],
+"LightManager_8h.html#a65701f2d152bdafa62b2d8bdfcc245d5":[2,0,0,6,14,4],
+"LightManager_8h.html#a65701f2d152bdafa62b2d8bdfcc245d5a0a4faf97013814ceb7f7afe1205a516b":[2,0,0,6,14,4,3],
+"LightManager_8h.html#a65701f2d152bdafa62b2d8bdfcc245d5a0c2f061b83fefe5b9f6c82dc1146ee3b":[2,0,0,6,14,4,1],
+"LightManager_8h.html#a65701f2d152bdafa62b2d8bdfcc245d5a17dfdd35c84734cf51ac5636cc2b81f6":[2,0,0,6,14,4,5],
+"LightManager_8h.html#a65701f2d152bdafa62b2d8bdfcc245d5a600994d8794bda90baaae7f8ac0073a0":[2,0,0,6,14,4,2],
+"LightManager_8h.html#a65701f2d152bdafa62b2d8bdfcc245d5aa519365d78b5be62999cedd0b5ac415e":[2,0,0,6,14,4,4],
+"LightManager_8h.html#a65701f2d152bdafa62b2d8bdfcc245d5ad15305d7a4e34e02489c74a5ef542f36":[2,0,0,6,14,4,0],
+"LightManager_8h.html#a65701f2d152bdafa62b2d8bdfcc245d5ae8016c85ada38bdc5fac616ec1318047":[2,0,0,6,14,4,6],
 "LightManager_8h_source.html":[2,0,0,6,14],
 "Manager_8cpp.html":[2,0,0,0,11],
 "Manager_8h.html":[2,0,0,0,12],
@@ -240,14 +249,5 @@ var NAVTREEINDEX1 =
 "TextRenderer_8cpp.html":[2,0,0,8,6],
 "TextRenderer_8h.html":[2,0,0,8,7],
 "TextRenderer_8h_source.html":[2,0,0,8,7],
-"TextureManager_8cpp.html":[2,0,0,6,39],
-"TextureManager_8h.html":[2,0,0,6,40],
-"TextureManager_8h_source.html":[2,0,0,6,40],
-"Texture_8cpp.html":[2,0,0,7,20],
-"Texture_8h.html":[2,0,0,7,21],
-"Texture_8h_source.html":[2,0,0,7,21],
-"TimeManager_8cpp.html":[2,0,0,0,19],
-"TimeManager_8h.html":[2,0,0,0,20],
-"TimeManager_8h_source.html":[2,0,0,0,20],
-"Transform_8cpp.html":[2,0,0,2,0,35]
+"TextureManager_8cpp.html":[2,0,0,6,39]
 };

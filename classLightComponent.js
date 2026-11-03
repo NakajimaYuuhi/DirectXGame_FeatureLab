@@ -29,6 +29,7 @@ var classLightComponent =
     [ "SetSpecularPower", "classLightComponent.html#adc55bd435133d9d92efc858880a3b97b", null ],
     [ "SetSpotAngle", "classLightComponent.html#aa08603955d096c3fadd6716cd9f01ce6", null ],
     [ "Start", "classLightComponent.html#aed757ffed29ffd8c646af7edde21814f", null ],
+    [ "SyncFromLightManager", "classLightComponent.html#aad0fbf0285d5df51f8f53502c27b3aea", null ],
     [ "SyncToLightManager", "classLightComponent.html#a1e8216ff18d29d21f58335cdcadf554d", null ],
     [ "Update", "classLightComponent.html#a5d01e74fa66f889185d9be2bb392b03e", null ],
     [ "m_ambientColor", "classLightComponent.html#a05a161125ea5cf641218a7bb074b88af", null ],
