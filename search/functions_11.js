@@ -32,7 +32,7 @@ var searchData=
   ['reloadallpassshaders_29',['ReloadAllPassShaders',['../classRenderPipeline.html#aaca282a59ef3298495c297b4a3fb73b1',1,'RenderPipeline']]],
   ['reloadallshaders_30',['ReloadAllShaders',['../classShaderManager.html#a328fa53aed97562f04f457692b68831c',1,'ShaderManager']]],
   ['reloadmaterial_31',['ReloadMaterial',['../classMaterialManager.html#a1d8df2fac6b7d22a4b969133a520887f',1,'MaterialManager']]],
-  ['reloadshaders_32',['ReloadShaders',['../classIRenderPass.html#a489e62670398c40fb7a0634735af0603',1,'IRenderPass::ReloadShaders()'],['../classPostProcessPass.html#a3d238a895ea9b530ec4b5a6c0147b506',1,'PostProcessPass::ReloadShaders()'],['../classSampleComputePass.html#a493ab5b0bec820a4dd29a6304ffa407e',1,'SampleComputePass::ReloadShaders()']]],
+  ['reloadshaders_32',['ReloadShaders',['../classDeferredLightingPass.html#ace75473e0463e975d74d349f1ce987d6',1,'DeferredLightingPass::ReloadShaders()'],['../classIRenderPass.html#a489e62670398c40fb7a0634735af0603',1,'IRenderPass::ReloadShaders()'],['../classPostProcessPass.html#a3d238a895ea9b530ec4b5a6c0147b506',1,'PostProcessPass::ReloadShaders()'],['../classSampleComputePass.html#a493ab5b0bec820a4dd29a6304ffa407e',1,'SampleComputePass::ReloadShaders()']]],
   ['reloadshadersandprefabs_33',['ReloadShadersAndPrefabs',['../classHotReloadManager.html#aea98993cdbcd90a16c71be7965c59abc',1,'HotReloadManager']]],
   ['reloaduserbufandkeepselection_34',['ReloadUserBufAndKeepSelection',['../structImGuiInputTextState.html#a82578d7dd220bd467da37a196d84a7c0',1,'ImGuiInputTextState']]],
   ['reloaduserbufandmovetoend_35',['ReloadUserBufAndMoveToEnd',['../structImGuiInputTextState.html#a7e2df838dc0269cc5dca4786b25b2204',1,'ImGuiInputTextState']]],

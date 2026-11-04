@@ -4,6 +4,7 @@ var classGBuffer =
       [ "ALBEDO", "classGBuffer.html#a415c583664f405b4ddc7c013756ea84fad696d2741150596abe52232689339e88", null ],
       [ "NORMAL", "classGBuffer.html#a415c583664f405b4ddc7c013756ea84fae4893f9f8cfc5910ce5461ca4e07b6a8", null ],
       [ "MATERIAL", "classGBuffer.html#a415c583664f405b4ddc7c013756ea84fa977467d1ec20670242b494dee2ff73f3", null ],
+      [ "POSITION", "classGBuffer.html#a415c583664f405b4ddc7c013756ea84fabe21778befc84283ddfffd7d108f4d27", null ],
       [ "COUNT", "classGBuffer.html#a415c583664f405b4ddc7c013756ea84faee7badfb458416c8110bc5b5af4c113f", null ]
     ] ],
     [ "GBuffer", "classGBuffer.html#ad2728f3b99b4ecded07b05fefb186ca1", null ],

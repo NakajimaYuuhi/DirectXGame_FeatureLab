@@ -17,7 +17,7 @@ var searchData=
   ['object_5fvalue_5f_14',['object_value_',['../classtinygltf_1_1Value.html#ac57d9a665b665016373c263f1792bff4',1,'tinygltf::Value']]],
   ['objectbegin_15',['ObjectBegin',['../namespacetinygltf_1_1detail.html#a2149db0772c8c4f7c2f540dfd0de3e5c',1,'tinygltf::detail::ObjectBegin(const json &amp;o)'],['../namespacetinygltf_1_1detail.html#adcb0befd7590838462f64da86e77e242',1,'tinygltf::detail::ObjectBegin(json &amp;o)']]],
   ['objectend_16',['ObjectEnd',['../namespacetinygltf_1_1detail.html#a00391843ddf31cd3576ac2ce67f33b7e',1,'tinygltf::detail::ObjectEnd(const json &amp;o)'],['../namespacetinygltf_1_1detail.html#af6424002f4481d17f178778f9ac58b89',1,'tinygltf::detail::ObjectEnd(json &amp;o)']]],
-  ['objectfilterpreset_17',['ObjectFilterPreset',['../classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76',1,'ForwardRenderPass']]],
+  ['objectfilterpreset_17',['ObjectFilterPreset',['../classForwardRenderPass.html#af449acca265c5ed05d24fc814cd3ed76',1,'ForwardRenderPass::ObjectFilterPreset'],['../classGBufferPass.html#a77520af0d53771e7a08afb01f13dbfea',1,'GBufferPass::ObjectFilterPreset']]],
   ['objectinfo_2ecpp_18',['ObjectInfo.cpp',['../ObjectInfo_8cpp.html',1,'']]],
   ['objectinfo_2eh_19',['ObjectInfo.h',['../ObjectInfo_8h.html',1,'']]],
   ['objectmanager_20',['ObjectManager',['../classObjectManager.html',1,'ObjectManager'],['../classObjectManager.html#a6fa9372c7c3a8da88412f4158ca3dfd9',1,'ObjectManager::ObjectManager()'],['../classObjectManager.html#a02189c5d0d8fcb5e2b738c94901f5c21',1,'ObjectManager::ObjectManager(const ObjectManager &amp;)=delete']]],

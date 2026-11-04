@@ -363,7 +363,9 @@ var hierarchy =
     [ "nlohmann::detail::internal_iterator&lt; BasicJsonType &gt;", "structnlohmann_1_1detail_1_1internal__iterator.html", null ],
     [ "IRenderPass", "classIRenderPass.html", [
       [ "CompositePass", "classCompositePass.html", null ],
+      [ "DeferredLightingPass", "classDeferredLightingPass.html", null ],
       [ "ForwardRenderPass", "classForwardRenderPass.html", null ],
+      [ "GBufferPass", "classGBufferPass.html", null ],
       [ "GPUParticlePass", "classGPUParticlePass.html", null ],
       [ "PostProcessPass", "classPostProcessPass.html", null ],
       [ "SampleComputePass", "classSampleComputePass.html", null ],

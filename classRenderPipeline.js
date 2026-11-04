@@ -19,6 +19,7 @@ var classRenderPipeline =
     [ "SaveToJson", "classRenderPipeline.html#a7473bd2782447dbd390c0b871966370f", null ],
     [ "SetPreviewTextureName", "classRenderPipeline.html#a4876c1a6aa82d1809367caf508c20ee4", null ],
     [ "SetupCommercialMultiLayerPipeline", "classRenderPipeline.html#a0b5cc8f00a1316d03d99981e907cc8e8", null ],
+    [ "SetupDeferredPipeline", "classRenderPipeline.html#a1f0f0fc95a5e544dc484c3220ce66de9", null ],
     [ "SetupSimpleDefaultPipeline", "classRenderPipeline.html#aa1c478e80d1e29a1e7e77e49fea0be48", null ],
     [ "m_blackboard", "classRenderPipeline.html#ab9f6781dae28ae15c287dea051ea2604", null ],
     [ "m_passes", "classRenderPipeline.html#a1a489acfe2a9b5fbaa3b042388d7d588", null ],
