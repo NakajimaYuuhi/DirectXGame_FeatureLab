@@ -1,5 +1,7 @@
 #include "ContentDrawerUI.h"
 #include "AssetRenameService.h"
+#include "AssetDeleteService.h"
+#include "UndoManager.h"
 #include "InspectorUI.h"
 #include "imgui.h"
 #include "PrefabManager.h"
@@ -769,8 +771,43 @@ void CContentDrawerUI::DrawAssetGrid()
 {
     m_isAnyCardHovered = false;
 
+    // Global/Window Shortcuts: Undo (Ctrl+Z) and Redo (Ctrl+Y / Ctrl+Shift+Z)
+    if (ImGui::GetIO().KeyCtrl && ImGui::IsKeyPressed(ImGuiKey_Z, false))
+    {
+        if (ImGui::GetIO().KeyShift)
+        {
+            if (UndoManager::GetInstance().CanRedo())
+            {
+                std::string name = UndoManager::GetInstance().GetRedoName();
+                UndoManager::GetInstance().Redo();
+                CInspectorUI::GetInstance().SetStatusMessage("Redo: " + name, 2.5f);
+                m_pendingRefresh = true;
+            }
+        }
+        else
+        {
+            if (UndoManager::GetInstance().CanUndo())
+            {
+                std::string name = UndoManager::GetInstance().GetUndoName();
+                UndoManager::GetInstance().Undo();
+                CInspectorUI::GetInstance().SetStatusMessage("Undo: " + name, 2.5f);
+                m_pendingRefresh = true;
+            }
+        }
+    }
+    else if (ImGui::GetIO().KeyCtrl && ImGui::IsKeyPressed(ImGuiKey_Y, false))
+    {
+        if (UndoManager::GetInstance().CanRedo())
+        {
+            std::string name = UndoManager::GetInstance().GetRedoName();
+            UndoManager::GetInstance().Redo();
+            CInspectorUI::GetInstance().SetStatusMessage("Redo: " + name, 2.5f);
+            m_pendingRefresh = true;
+        }
+    }
+
     // F2 Shortcut for renaming currently selected asset
-    if (!m_selectedAssetPath.empty() && m_renamingAssetPath.empty() && ImGui::IsKeyPressed(ImGuiKey_F2))
+    if (!m_selectedAssetPath.empty() && m_renamingAssetPath.empty() && ImGui::IsKeyPressed(ImGuiKey_F2, false))
     {
         for (const auto& e : m_entries)
         {
@@ -782,6 +819,20 @@ void CContentDrawerUI::DrawAssetGrid()
                 m_renameInputFocusNeeded = true;
                 break;
             }
+        }
+    }
+
+    // Delete Shortcut for currently selected asset
+    if (!m_selectedAssetPath.empty() && m_renamingAssetPath.empty() && ImGui::IsKeyPressed(ImGuiKey_Delete, false))
+    {
+        m_activeDeletePlan = AssetDeleteService::AnalyzeDelete(m_selectedAssetPath);
+        if (!m_activeDeletePlan.isValid)
+        {
+            CInspectorUI::GetInstance().SetStatusMessage("Cannot delete: " + m_activeDeletePlan.errorMessage, 4.0f);
+        }
+        else
+        {
+            m_showDeleteConfirmPopup = true;
         }
     }
 
@@ -1144,6 +1195,18 @@ void CContentDrawerUI::DrawAssetGrid()
                     strncpy_s(m_renameInputBuf, sizeof(m_renameInputBuf), initialName.c_str(), _TRUNCATE);
                     m_renameInputFocusNeeded = true;
                 }
+                if (ImGui::MenuItem("Delete", "Del"))
+                {
+                    m_activeDeletePlan = AssetDeleteService::AnalyzeDelete(item.path);
+                    if (!m_activeDeletePlan.isValid)
+                    {
+                        CInspectorUI::GetInstance().SetStatusMessage("Cannot delete: " + m_activeDeletePlan.errorMessage, 4.0f);
+                    }
+                    else
+                    {
+                        m_showDeleteConfirmPopup = true;
+                    }
+                }
                 if (ImGui::MenuItem("Show in Explorer"))
                 {
                     OpenPathInExplorer(item.path, item.type != AssetEntryType::Folder);
@@ -1348,6 +1411,64 @@ void CContentDrawerUI::DrawAssetGrid()
         ImGui::EndPopup();
     }
 
+    // Confirmation Modal Popup for Deletion
+    if (m_showDeleteConfirmPopup)
+    {
+        ImGui::OpenPopup("Confirm Asset Deletion");
+        m_showDeleteConfirmPopup = false;
+    }
+    if (ImGui::BeginPopupModal("Confirm Asset Deletion", nullptr, ImGuiWindowFlags_AlwaysAutoResize))
+    {
+        ImGui::TextColored(ImVec4(1.0f, 0.4f, 0.4f, 1.0f), "Delete '%s'?", m_activeDeletePlan.fileName.c_str());
+        ImGui::Separator();
+
+        if (m_activeDeletePlan.totalOccurrences > 0)
+        {
+            ImGui::TextColored(ImVec4(1.0f, 0.75f, 0.2f, 1.0f),
+                "WARNING: Found %d reference(s) across %d file(s)!",
+                m_activeDeletePlan.totalOccurrences, static_cast<int>(m_activeDeletePlan.hits.size()));
+            ImGui::TextDisabled("Deleting this asset will cause missing references in other files:");
+
+            ImGui::BeginChild("DeleteReferenceHitList", ImVec2(480.0f, 120.0f), true);
+            for (const auto& hit : m_activeDeletePlan.hits)
+            {
+                ImGui::BulletText("%s (%d occurrence%s)", hit.filePath.c_str(), hit.occurrences, hit.occurrences > 1 ? "s" : "");
+            }
+            ImGui::EndChild();
+        }
+        else
+        {
+            ImGui::Text("Are you sure you want to delete this asset? (Can be undone with Ctrl+Z)");
+        }
+
+        ImGui::Spacing();
+        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.75f, 0.2f, 0.2f, 1.0f));
+        if (ImGui::Button("Delete", ImVec2(120.0f, 28.0f)))
+        {
+            std::string err;
+            if (AssetDeleteService::ExecuteDelete(m_activeDeletePlan, &err))
+            {
+                CInspectorUI::GetInstance().SetStatusMessage("Deleted: " + m_activeDeletePlan.fileName + " (Ctrl+Z to undo)", 3.5f);
+                m_selectedAssetPath.clear();
+                m_pendingRefresh = true;
+            }
+            else
+            {
+                CInspectorUI::GetInstance().SetStatusMessage("Delete failed: " + err, 4.0f);
+            }
+            ImGui::CloseCurrentPopup();
+        }
+        ImGui::PopStyleColor();
+
+        ImGui::SameLine();
+        if (ImGui::Button("Cancel", ImVec2(100.0f, 28.0f)))
+        {
+            ImGui::CloseCurrentPopup();
+        }
+
+        ImGui::EndPopup();
+    }
+
     // Apply deferred folder navigation or refresh safely after m_entries iteration finishes
     if (!m_pendingNavigatePath.empty())
     {
@@ -1509,5 +1630,26 @@ void CContentDrawerUI::OnAssetRenamed(const std::string& oldPath, const std::str
 		m_currentDirectory = newNorm + m_currentDirectory.substr(oldNorm.length());
 	}
 
+	m_pendingRefresh = true;
+}
+
+void CContentDrawerUI::OnAssetDeleted(const std::string& deletedPath)
+{
+	std::string norm = deletedPath;
+	for (auto& c : norm) if (c == '\\') c = '/';
+
+	if (m_selectedAssetPath == norm)
+	{
+		m_selectedAssetPath.clear();
+	}
+	m_pendingRefresh = true;
+}
+
+void CContentDrawerUI::OnAssetRestored(const std::string& restoredPath)
+{
+	std::string norm = restoredPath;
+	for (auto& c : norm) if (c == '\\') c = '/';
+
+	m_selectedAssetPath = norm;
 	m_pendingRefresh = true;
 }

@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 #include "AssetRenameService.h"
+#include "AssetDeleteService.h"
+#include "UndoManager.h"
 #include <unordered_map>
 #include <memory>
 #include "imgui.h"
@@ -58,6 +60,8 @@ public:
     const std::string& GetSelectedAssetPath() const { return m_selectedAssetPath; }
     void SetSelectedAssetPath(const std::string& path) { m_selectedAssetPath = path; }
     void OnAssetRenamed(const std::string& oldPath, const std::string& newPath);
+    void OnAssetDeleted(const std::string& deletedPath);
+    void OnAssetRestored(const std::string& restoredPath);
 
 private:
     CContentDrawerUI() = default;
@@ -109,4 +113,7 @@ private:
     bool m_renameInputFocusNeeded = false;
     bool m_showRenameConfirmPopup = false;
     RenamePlan m_activeRenamePlan;
+
+    bool m_showDeleteConfirmPopup = false;
+    DeletePlan m_activeDeletePlan;
 };

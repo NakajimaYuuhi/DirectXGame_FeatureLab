@@ -1,4 +1,6 @@
 #include "AssetRenameService.h"
+#include "AssetUndoCommands.h"
+#include "UndoManager.h"
 #include "Source/Core/Scenes/Manager/SceneManager.h"
 #include "Source/Core/PrefabManager.h"
 #include "InspectorUI.h"
@@ -236,7 +238,7 @@ int AssetRenameService::ReplaceReferencesInContent(std::string& content, const R
 	return count;
 }
 
-bool AssetRenameService::ExecuteRename(const RenamePlan& plan, bool updateReferences, std::string* outError)
+bool AssetRenameService::ExecuteRename(const RenamePlan& plan, bool updateReferences, std::string* outError, bool recordUndo)
 {
 	if (!plan.isValid)
 	{
@@ -352,6 +354,11 @@ bool AssetRenameService::ExecuteRename(const RenamePlan& plan, bool updateRefere
 	CInspectorUI::GetInstance().OnAssetRenamed(plan.oldPath, plan.newPath);
 	CContentDrawerUI::GetInstance().OnAssetRenamed(plan.oldPath, plan.newPath);
 	HotReloadManager::GetInstance().CaptureSceneSnapshot();
+
+	if (recordUndo)
+	{
+		UndoManager::GetInstance().RecordCommand(std::make_unique<AssetRenameUndoCommand>(plan, updateReferences));
+	}
 
 	return true;
 }

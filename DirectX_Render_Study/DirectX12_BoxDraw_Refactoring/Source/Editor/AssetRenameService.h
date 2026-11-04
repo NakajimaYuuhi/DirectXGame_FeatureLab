@@ -31,7 +31,7 @@ class AssetRenameService
 {
 public:
 	static RenamePlan AnalyzeRename(const std::string& oldPath, const std::string& requestedNewName);
-	static bool ExecuteRename(const RenamePlan& plan, bool updateReferences, std::string* outError = nullptr);
+	static bool ExecuteRename(const RenamePlan& plan, bool updateReferences, std::string* outError = nullptr, bool recordUndo = true);
 
 private:
 	static void ScanForReferences(const RenamePlan& plan, std::vector<RenameReferenceHit>& outHits);
