@@ -98,7 +98,7 @@ $(function(){initNavTree('classAssetRenameService.html','','classAssetRenameServ
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
 <tr class="memitem:a664b58bb041aa230a42dc04e37d717be" id="r_a664b58bb041aa230a42dc04e37d717be"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structRenamePlan.html">RenamePlan</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a664b58bb041aa230a42dc04e37d717be">AnalyzeRename</a> (const std::string &amp;oldPath, const std::string &amp;requestedNewName)</td></tr>
-<tr class="memitem:a246e823ecc0b29e83e0a996305b54b56" id="r_a246e823ecc0b29e83e0a996305b54b56"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a246e823ecc0b29e83e0a996305b54b56">ExecuteRename</a> (const <a class="el" href="structRenamePlan.html">RenamePlan</a> &amp;plan, bool updateReferences, std::string *outError=nullptr)</td></tr>
+<tr class="memitem:ab6f95402fd358dfe3e65c1c351c049c4" id="r_ab6f95402fd358dfe3e65c1c351c049c4"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6f95402fd358dfe3e65c1c351c049c4">ExecuteRename</a> (const <a class="el" href="structRenamePlan.html">RenamePlan</a> &amp;plan, bool updateReferences, std::string *outError=nullptr, bool recordUndo=true)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-static-methods" class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
 静的非公開メンバ関数</h2></td></tr>
@@ -145,8 +145,8 @@ $(function(){initNavTree('classAssetRenameService.html','','classAssetRenameServ
 
 </div>
 </div>
-<a id="a246e823ecc0b29e83e0a996305b54b56" name="a246e823ecc0b29e83e0a996305b54b56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a246e823ecc0b29e83e0a996305b54b56">&#9670;&#160;</a></span>ExecuteRename()</h2>
+<a id="ab6f95402fd358dfe3e65c1c351c049c4" name="ab6f95402fd358dfe3e65c1c351c049c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6f95402fd358dfe3e65c1c351c049c4">&#9670;&#160;</a></span>ExecuteRename()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -167,7 +167,12 @@ $(function(){initNavTree('classAssetRenameService.html','','classAssetRenameServ
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string *</td>          <td class="paramname"><span class="paramname"><em>outError</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+          <td class="paramtype">std::string *</td>          <td class="paramname"><span class="paramname"><em>outError</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>recordUndo</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -179,12 +184,12 @@ $(function(){initNavTree('classAssetRenameService.html','','classAssetRenameServ
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classAssetRenameService_a246e823ecc0b29e83e0a996305b54b56_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classAssetRenameService_ab6f95402fd358dfe3e65c1c351c049c4_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classAssetRenameService_a246e823ecc0b29e83e0a996305b54b56_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classAssetRenameService_ab6f95402fd358dfe3e65c1c351c049c4_icgraph.svg" width="100%" height="432"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -223,7 +228,7 @@ $(function(){initNavTree('classAssetRenameService.html','','classAssetRenameServ
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classAssetRenameService_a77bf91fd2abdaf76415d9c7a49c06dcf_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classAssetRenameService_a77bf91fd2abdaf76415d9c7a49c06dcf_icgraph.svg" width="100%" height="467"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

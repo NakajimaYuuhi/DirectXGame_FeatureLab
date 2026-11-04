@@ -13,7 +13,7 @@ var searchData=
   ['objecttag_10',['objectTag',['../classCObjectInfo.html#ac7fcc5682c6257bc6330708d89ff64d4',1,'CObjectInfo']]],
   ['obstacle_11',['Obstacle',['../namespaceCollisionLayer.html#af005110924f05f5e67f8285e5a2834e3',1,'CollisionLayer']]],
   ['occlusiontexture_12',['occlusionTexture',['../structtinygltf_1_1Material.html#aff7562263f6527fbbb00a363e2db8b36',1,'tinygltf::Material']]],
-  ['occurrences_13',['occurrences',['../structRenameReferenceHit.html#a66954792deb08de040fde2d8e884ce1f',1,'RenameReferenceHit']]],
+  ['occurrences_13',['occurrences',['../structDeleteReferenceHit.html#a90568d34f7fb73e3d5d9b1972b87d473',1,'DeleteReferenceHit::occurrences'],['../structRenameReferenceHit.html#a66954792deb08de040fde2d8e884ce1f',1,'RenameReferenceHit::occurrences']]],
   ['offmaxx_14',['OffMaxX',['../structImGuiOldColumns.html#a19f636d31c2c93d1afe01d9484936b28',1,'ImGuiOldColumns']]],
   ['offminx_15',['OffMinX',['../structImGuiOldColumns.html#a7cbfefcc82a7ca3271c8c0c05cfe9ed4',1,'ImGuiOldColumns']]],
   ['offset_16',['Offset',['../classCollider3D.html#add40151d2a04a14b4d51f4644466f0e3',1,'Collider3D::Offset'],['../structExampleMemberInfo.html#a3cc8d0fb5e4fd5db16fcbea82e408c2a',1,'ExampleMemberInfo::Offset'],['../structImGuiStyleVarInfo.html#ae900d6a02166d3d0433c18b95aec10e8',1,'ImGuiStyleVarInfo::Offset'],['../structImGuiTabItem.html#ac09eeb85bebba09f18ac959bc32b5cef',1,'ImGuiTabItem::Offset']]],

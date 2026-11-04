@@ -61,7 +61,7 @@ var searchData=
   ['history_58',['History',['../structExampleAppConsole.html#a11c7fa54e744288f3606e4d6521d6345',1,'ExampleAppConsole']]],
   ['historypos_59',['HistoryPos',['../structExampleAppConsole.html#a2508db0a7d205947cea65b141d4ed589',1,'ExampleAppConsole']]],
   ['hit_5ftiming_60',['HIT_TIMING',['../classEnemyAIComponent.html#a109574444d9f0089226cb97c0d0c5d7d',1,'EnemyAIComponent']]],
-  ['hits_61',['hits',['../structRenamePlan.html#a0ac2287b6a8f4dff22b99ea09a058de1',1,'RenamePlan']]],
+  ['hits_61',['hits',['../structDeletePlan.html#ad150ea785dd66747f20dc00d1c5c0de8',1,'DeletePlan::hits'],['../structRenamePlan.html#a0ac2287b6a8f4dff22b99ea09a058de1',1,'RenamePlan::hits']]],
   ['hittestholeoffset_62',['HitTestHoleOffset',['../structImGuiWindow.html#a656437e7e87dd567069579fb813d6e91',1,'ImGuiWindow']]],
   ['hittestholesize_63',['HitTestHoleSize',['../structImGuiWindow.html#aad97a90bf66307eaf3d9ad4a5697285d',1,'ImGuiWindow']]],
   ['hmtx_64',['hmtx',['../structstbtt__fontinfo.html#aebf42701e99b88d07a59bf99cb84b9a1',1,'stbtt_fontinfo']]],

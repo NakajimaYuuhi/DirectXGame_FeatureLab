@@ -242,7 +242,7 @@ var searchData=
   ['normalize_239',['normalize',['../structnlohmann_1_1detail_1_1dtoa__impl_1_1diyfp.html#a2246b5b40c7c6992153ef174063d6aa6',1,'nlohmann::detail::dtoa_impl::diyfp']]],
   ['normalize_5fto_240',['normalize_to',['../structnlohmann_1_1detail_1_1dtoa__impl_1_1diyfp.html#a6b6665e467ebabe0c0f7418d3fe4b118',1,'nlohmann::detail::dtoa_impl::diyfp']]],
   ['normalized_241',['normalized',['../structtinygltf_1_1Accessor.html#a7f47dbf9df5bd5cad949ab73cec0fd73',1,'tinygltf::Accessor']]],
-  ['normalizepath_242',['NormalizePath',['../AssetRenameService_8cpp.html#acf0f72ac53db13d07c0389f936f30a46',1,'AssetRenameService.cpp']]],
+  ['normalizepath_242',['NormalizePath',['../AssetDeleteService_8cpp.html#a3597b328bd16ac0f14ec20fbd1d5875f',1,'NormalizePath(const std::string &amp;raw):&#160;AssetDeleteService.cpp'],['../AssetRenameService_8cpp.html#acf0f72ac53db13d07c0389f936f30a46',1,'NormalizePath(const std::string &amp;path):&#160;AssetRenameService.cpp']]],
   ['normalizepathslash_243',['NormalizePathSlash',['../ContentDrawerUI_8cpp.html#a574cefbf2881306841d066deced587dc',1,'ContentDrawerUI.cpp']]],
   ['normalizescenepath_244',['NormalizeScenePath',['../SceneManager_8cpp.html#a9eff3e662cedb213a4138a089957a7d7',1,'SceneManager.cpp']]],
   ['normaltexture_245',['normalTexture',['../structtinygltf_1_1Material.html#aa1429d4eda3c2ce2143420f284c825d7',1,'tinygltf::Material']]],

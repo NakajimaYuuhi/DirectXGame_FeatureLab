@@ -9,6 +9,7 @@ var hierarchy =
     [ "tinygltf::AnimationSampler", "structtinygltf_1_1AnimationSampler.html", null ],
     [ "AnimationSamplerData", "structAnimationSamplerData.html", null ],
     [ "tinygltf::Asset", "structtinygltf_1_1Asset.html", null ],
+    [ "AssetDeleteService", "classAssetDeleteService.html", null ],
     [ "CContentDrawerUI::AssetEntry", "structCContentDrawerUI_1_1AssetEntry.html", null ],
     [ "AssetSecurity::AssetFileHeader", "structAssetSecurity_1_1AssetFileHeader.html", null ],
     [ "AssetRenameService", "classAssetRenameService.html", null ],
@@ -94,6 +95,8 @@ var hierarchy =
     ] ],
     [ "CViewportUI", "classCViewportUI.html", null ],
     [ "D2DTextRenderer", "classD2DTextRenderer.html", null ],
+    [ "DeletePlan", "structDeletePlan.html", null ],
+    [ "DeleteReferenceHit", "structDeleteReferenceHit.html", null ],
     [ "nlohmann::detail::detector&lt; Default, AlwaysVoid, Op, Args &gt;", "structnlohmann_1_1detail_1_1detector.html", null ],
     [ "nlohmann::detail::detector&lt; Default, void_t&lt; Op&lt; Args... &gt; &gt;, Op, Args... &gt;", "structnlohmann_1_1detail_1_1detector_3_01Default_00_01void__t_3_01Op_3_01Args_8_8_8_01_4_01_4_00_01Op_00_01Args_8_8_8_01_4.html", null ],
     [ "DirectionalLight", "structDirectionalLight.html", null ],
@@ -417,6 +420,8 @@ var hierarchy =
       [ "nlohmann::detail::iterator_traits< T, enable_if_t< !std::is_pointer< T >::value > >", "structnlohmann_1_1detail_1_1iterator__traits_3_01T_00_01enable__if__t_3_01_9std_1_1is__pointer_3_01T_01_4_1_1value_01_4_01_4.html", null ]
     ] ],
     [ "IUndoCommand", "classIUndoCommand.html", [
+      [ "AssetDeleteUndoCommand", "classAssetDeleteUndoCommand.html", null ],
+      [ "AssetRenameUndoCommand", "classAssetRenameUndoCommand.html", null ],
       [ "DeleteObjectUndoCommand", "classDeleteObjectUndoCommand.html", null ],
       [ "TransformUndoCommand", "classTransformUndoCommand.html", null ]
     ] ],

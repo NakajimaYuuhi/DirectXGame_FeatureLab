@@ -1,9 +1,13 @@
 var dir_b26507eead720464ba2ac6bbc6dcec5f =
 [
+    [ "AssetDeleteService.cpp", "AssetDeleteService_8cpp.html", "AssetDeleteService_8cpp" ],
+    [ "AssetDeleteService.h", "AssetDeleteService_8h.html", "AssetDeleteService_8h" ],
     [ "AssetRenameService.cpp", "AssetRenameService_8cpp.html", "AssetRenameService_8cpp" ],
     [ "AssetRenameService.h", "AssetRenameService_8h.html", "AssetRenameService_8h" ],
     [ "AssetSecurityUI.cpp", "AssetSecurityUI_8cpp.html", null ],
     [ "AssetSecurityUI.h", "AssetSecurityUI_8h.html", "AssetSecurityUI_8h" ],
+    [ "AssetUndoCommands.cpp", "AssetUndoCommands_8cpp.html", "AssetUndoCommands_8cpp" ],
+    [ "AssetUndoCommands.h", "AssetUndoCommands_8h.html", "AssetUndoCommands_8h" ],
     [ "BuildRunner.cpp", "BuildRunner_8cpp.html", null ],
     [ "BuildRunner.h", "BuildRunner_8h.html", "BuildRunner_8h" ],
     [ "BuildSettingsUI.cpp", "BuildSettingsUI_8cpp.html", null ],

@@ -25,7 +25,7 @@ var searchData=
   ['scan_5fliteral_22',['scan_literal',['../classnlohmann_1_1detail_1_1lexer.html#ad89dec0ac0f4e851925a0499e043b18b',1,'nlohmann::detail::lexer']]],
   ['scan_5fnumber_23',['scan_number',['../classnlohmann_1_1detail_1_1lexer.html#aab51a28e32c1957329141baff8eda1c4',1,'nlohmann::detail::lexer']]],
   ['scan_5fstring_24',['scan_string',['../classnlohmann_1_1detail_1_1lexer.html#ab6352978e03ebcbc3cd618cd17142f26',1,'nlohmann::detail::lexer']]],
-  ['scanforreferences_25',['ScanForReferences',['../classAssetRenameService.html#a6f18f57835e71adc9c28d4a9fc7fc2ec',1,'AssetRenameService']]],
+  ['scanforreferences_25',['ScanForReferences',['../classAssetDeleteService.html#a1b7d5b15f44618b82851ffbc3eb2f148',1,'AssetDeleteService::ScanForReferences()'],['../classAssetRenameService.html#a6f18f57835e71adc9c28d4a9fc7fc2ec',1,'AssetRenameService::ScanForReferences()']]],
   ['scanwatchedfiles_26',['ScanWatchedFiles',['../classHotReloadManager.html#a2a5388f7093ff58d41762a39367888ee',1,'HotReloadManager']]],
   ['scene_27',['Scene',['../structtinygltf_1_1Scene.html#a72a05f94e9956a3975c048329f701781',1,'tinygltf::Scene']]],
   ['scenefade_28',['SceneFade',['../classSceneFade.html#a95aa5482669d8ddc0d10c0b0fecea67b',1,'SceneFade']]],

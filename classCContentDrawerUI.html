@@ -97,7 +97,7 @@ $(function(){initNavTree('classCContentDrawerUI.html','','classCContentDrawerUI-
 <div class="dynheader">
 CContentDrawerUI 連携図</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCContentDrawerUI__coll__graph.svg" width="232" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCContentDrawerUI__coll__graph.svg" width="370" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
@@ -116,6 +116,8 @@ CContentDrawerUI 連携図</div>
 <tr class="memitem:a5bc97b94021a31fdc17b0a7b2b1feae9" id="r_a5bc97b94021a31fdc17b0a7b2b1feae9"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bc97b94021a31fdc17b0a7b2b1feae9">GetSelectedAssetPath</a> () const</td></tr>
 <tr class="memitem:a31ca5e1305672d08dea68a45c80b1013" id="r_a31ca5e1305672d08dea68a45c80b1013"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31ca5e1305672d08dea68a45c80b1013">SetSelectedAssetPath</a> (const std::string &amp;path)</td></tr>
 <tr class="memitem:a4195e0f5ee79ad72839b276560c9c2f4" id="r_a4195e0f5ee79ad72839b276560c9c2f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4195e0f5ee79ad72839b276560c9c2f4">OnAssetRenamed</a> (const std::string &amp;oldPath, const std::string &amp;newPath)</td></tr>
+<tr class="memitem:a92729fdc3bd8ae71138d6eacf92c3405" id="r_a92729fdc3bd8ae71138d6eacf92c3405"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92729fdc3bd8ae71138d6eacf92c3405">OnAssetDeleted</a> (const std::string &amp;deletedPath)</td></tr>
+<tr class="memitem:ad29e1f56628ef80df5426134f98350cc" id="r_ad29e1f56628ef80df5426134f98350cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad29e1f56628ef80df5426134f98350cc">OnAssetRestored</a> (const std::string &amp;restoredPath)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
@@ -159,6 +161,8 @@ CContentDrawerUI 連携図</div>
 <tr class="memitem:a04ea8e44d8e54c41feccb4596270da57" id="r_a04ea8e44d8e54c41feccb4596270da57"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04ea8e44d8e54c41feccb4596270da57">m_renameInputFocusNeeded</a> = false</td></tr>
 <tr class="memitem:ac9282a724eef6ea16aa52c0b5801fcc2" id="r_ac9282a724eef6ea16aa52c0b5801fcc2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9282a724eef6ea16aa52c0b5801fcc2">m_showRenameConfirmPopup</a> = false</td></tr>
 <tr class="memitem:a257fbb4f49dfdbd4f56ce26281e93f80" id="r_a257fbb4f49dfdbd4f56ce26281e93f80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structRenamePlan.html">RenamePlan</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a257fbb4f49dfdbd4f56ce26281e93f80">m_activeRenamePlan</a></td></tr>
+<tr class="memitem:aa3cbb9540082c9912798fec4ee68f1e0" id="r_aa3cbb9540082c9912798fec4ee68f1e0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3cbb9540082c9912798fec4ee68f1e0">m_showDeleteConfirmPopup</a> = false</td></tr>
+<tr class="memitem:a449af66841bf1c7f461a11b2ed37acad" id="r_a449af66841bf1c7f461a11b2ed37acad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structDeletePlan.html">DeletePlan</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a449af66841bf1c7f461a11b2ed37acad">m_activeDeletePlan</a></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">構築子と解体子</h2>
 <a id="a185c036bed4068ed6304e2660fcf0bae" name="a185c036bed4068ed6304e2660fcf0bae"></a>
@@ -186,7 +190,7 @@ CContentDrawerUI 連携図</div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCContentDrawerUI_a185c036bed4068ed6304e2660fcf0bae_icgraph.svg" width="100%" height="553"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCContentDrawerUI_a185c036bed4068ed6304e2660fcf0bae_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -483,7 +487,7 @@ CContentDrawerUI 連携図</div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCContentDrawerUI_a3094603251cff449aef384b5535bbdf0_icgraph.svg" width="100%" height="527"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCContentDrawerUI_a3094603251cff449aef384b5535bbdf0_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -609,6 +613,28 @@ CContentDrawerUI 連携図</div>
 
 </div>
 </div>
+<a id="a92729fdc3bd8ae71138d6eacf92c3405" name="a92729fdc3bd8ae71138d6eacf92c3405"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92729fdc3bd8ae71138d6eacf92c3405">&#9670;&#160;</a></span>OnAssetDeleted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CContentDrawerUI::OnAssetDeleted </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>deletedPath</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCContentDrawerUI_a92729fdc3bd8ae71138d6eacf92c3405_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
 <a id="a4195e0f5ee79ad72839b276560c9c2f4" name="a4195e0f5ee79ad72839b276560c9c2f4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4195e0f5ee79ad72839b276560c9c2f4">&#9670;&#160;</a></span>OnAssetRenamed()</h2>
 
@@ -630,7 +656,29 @@ CContentDrawerUI 連携図</div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCContentDrawerUI_a4195e0f5ee79ad72839b276560c9c2f4_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCContentDrawerUI_a4195e0f5ee79ad72839b276560c9c2f4_icgraph.svg" width="100%" height="432"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ad29e1f56628ef80df5426134f98350cc" name="ad29e1f56628ef80df5426134f98350cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad29e1f56628ef80df5426134f98350cc">&#9670;&#160;</a></span>OnAssetRestored()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CContentDrawerUI::OnAssetRestored </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>restoredPath</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classCContentDrawerUI_ad29e1f56628ef80df5426134f98350cc_icgraph.svg" width="464" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -808,6 +856,28 @@ CContentDrawerUI 連携図</div>
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">メンバ詳解</h2>
+<a id="a449af66841bf1c7f461a11b2ed37acad" name="a449af66841bf1c7f461a11b2ed37acad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a449af66841bf1c7f461a11b2ed37acad">&#9670;&#160;</a></span>m_activeDeletePlan</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structDeletePlan.html">DeletePlan</a> CContentDrawerUI::m_activeDeletePlan</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a257fbb4f49dfdbd4f56ce26281e93f80" name="a257fbb4f49dfdbd4f56ce26281e93f80"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a257fbb4f49dfdbd4f56ce26281e93f80">&#9670;&#160;</a></span>m_activeRenamePlan</h2>
 
@@ -1193,6 +1263,28 @@ CContentDrawerUI 連携図</div>
       <table class="memname">
         <tr>
           <td class="memname">std::string CContentDrawerUI::m_selectedAssetPath = &quot;&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa3cbb9540082c9912798fec4ee68f1e0" name="aa3cbb9540082c9912798fec4ee68f1e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3cbb9540082c9912798fec4ee68f1e0">&#9670;&#160;</a></span>m_showDeleteConfirmPopup</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CContentDrawerUI::m_showDeleteConfirmPopup = false</td>
         </tr>
       </table>
   </td>

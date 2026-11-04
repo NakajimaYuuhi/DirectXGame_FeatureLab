@@ -40,7 +40,7 @@ var searchData=
   ['errorcountcurrentframe_37',['ErrorCountCurrentFrame',['../structImGuiContext.html#a9e24110f8e52f3848508f269c5ac9d7c',1,'ImGuiContext']]],
   ['errored_38',['errored',['../classnlohmann_1_1detail_1_1json__sax__dom__parser.html#a31ccb472ed855e2f2370fd091d91aad7',1,'nlohmann::detail::json_sax_dom_parser::errored'],['../classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#ab06baaa640cfaae5846daa7c3594b116',1,'nlohmann::detail::json_sax_dom_callback_parser::errored']]],
   ['errorfirst_39',['ErrorFirst',['../structImGuiContext.html#a6338f974b56243f62fec2a053b773350',1,'ImGuiContext']]],
-  ['errormessage_40',['errorMessage',['../structRenamePlan.html#a5411868d2643f666d2bd41a1b7bac19d',1,'RenamePlan']]],
+  ['errormessage_40',['errorMessage',['../structDeletePlan.html#afe90625272629c82c686f3e1b69bc12d',1,'DeletePlan::errorMessage'],['../structRenamePlan.html#a5411868d2643f666d2bd41a1b7bac19d',1,'RenamePlan::errorMessage']]],
   ['errortooltiplockedpos_41',['ErrorTooltipLockedPos',['../structImGuiContext.html#ae83b928f141456a9879ae3b7f74ef1f6',1,'ImGuiContext']]],
   ['eventactivated_42',['EventActivated',['../structImGuiInputTextCallbackData.html#a5c76d94dfcf60a1c276f4e9ef75ef000',1,'ImGuiInputTextCallbackData']]],
   ['eventchar_43',['EventChar',['../structImGuiInputTextCallbackData.html#a7a6e9a43c5db8f236cde912b913fe707',1,'ImGuiInputTextCallbackData']]],

@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Editor/AssetDeleteService.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('AssetDeleteService_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">AssetDeleteService.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="AssetDeleteService_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="structDeleteReferenceHit.html">    5</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structDeleteReferenceHit.html">DeleteReferenceHit</a></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="structDeleteReferenceHit.html#a577593ea9ca91279cdb7b4a21fa38560">    7</a></span>    std::string <a class="code hl_variable" href="structDeleteReferenceHit.html#a577593ea9ca91279cdb7b4a21fa38560">filePath</a>;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="structDeleteReferenceHit.html#a90568d34f7fb73e3d5d9b1972b87d473">    8</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structDeleteReferenceHit.html#a90568d34f7fb73e3d5d9b1972b87d473">occurrences</a> = 0;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>};</div>
+</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="structDeletePlan.html">   11</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structDeletePlan.html">DeletePlan</a></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="structDeletePlan.html#aaa89ac8b8978039b0183da3e14d7a921">   13</a></span>    std::string <a class="code hl_variable" href="structDeletePlan.html#aaa89ac8b8978039b0183da3e14d7a921">targetPath</a>;          <span class="comment">// e.g. &quot;Assets/Scene/SceneTest.json&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structDeletePlan.html#aacf25eb040156d4a14cf32b8f7dd2771">   14</a></span>    std::string <a class="code hl_variable" href="structDeletePlan.html#aacf25eb040156d4a14cf32b8f7dd2771">fileName</a>;            <span class="comment">// Stem or full filename for display</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="structDeletePlan.html#a9005f46bf049e51b9cda891a5d450dad">   15</a></span>    std::string <a class="code hl_variable" href="structDeletePlan.html#a9005f46bf049e51b9cda891a5d450dad">stemName</a>;            <span class="comment">// Without extension</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="structDeletePlan.html#a5dd736d0eff1310e97380bb6d80d54f9">   16</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structDeletePlan.html#a5dd736d0eff1310e97380bb6d80d54f9">isDirectory</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="structDeletePlan.html#ae2349c2cf556edd6a3c9726d99b157db">   17</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structDeletePlan.html#ae2349c2cf556edd6a3c9726d99b157db">isScene</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="structDeletePlan.html#aa5ff130f7a92c1c750a9737299dcb018">   18</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structDeletePlan.html#aa5ff130f7a92c1c750a9737299dcb018">isPrefab</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="structDeletePlan.html#ad150ea785dd66747f20dc00d1c5c0de8">   20</a></span>    std::vector&lt;DeleteReferenceHit&gt; <a class="code hl_variable" href="structDeletePlan.html#ad150ea785dd66747f20dc00d1c5c0de8">hits</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structDeletePlan.html#a47bcee3985951989dffd0c19790bef58">   21</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structDeletePlan.html#a47bcee3985951989dffd0c19790bef58">totalOccurrences</a> = 0;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="structDeletePlan.html#a6b080192f0ceb1696e536e4963801424">   23</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structDeletePlan.html#a6b080192f0ceb1696e536e4963801424">isValid</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structDeletePlan.html#a87b505bb1adc9e6662c23020ab8b3231">   24</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structDeletePlan.html#a87b505bb1adc9e6662c23020ab8b3231">isBlocked</a> = <span class="keyword">false</span>;          <span class="comment">// e.g. cannot delete active scene</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structDeletePlan.html#afe90625272629c82c686f3e1b69bc12d">   25</a></span>    std::string <a class="code hl_variable" href="structDeletePlan.html#afe90625272629c82c686f3e1b69bc12d">errorMessage</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>};</div>
+</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classAssetDeleteService.html">   28</a></span><span class="keyword">class </span><a class="code hl_class" href="classAssetDeleteService.html">AssetDeleteService</a></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>{</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">static</span> <a class="code hl_struct" href="structDeletePlan.html">DeletePlan</a> <a class="code hl_function" href="classAssetDeleteService.html#af02d69f9f8c08c362d92efff7de5f415">AnalyzeDelete</a>(<span class="keyword">const</span> std::string&amp; targetPath);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classAssetDeleteService.html#a49971530bb33efb6c86a6bc1132cab86">ExecuteDelete</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structDeletePlan.html">DeletePlan</a>&amp; plan, std::string* outError = <span class="keyword">nullptr</span>, <span class="keywordtype">bool</span> recordUndo = <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classAssetDeleteService.html#a1b7d5b15f44618b82851ffbc3eb2f148">ScanForReferences</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structDeletePlan.html">DeletePlan</a>&amp; plan, std::vector&lt;DeleteReferenceHit&gt;&amp; outHits);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>};</div>
+</div>
+<div class="ttc" id="aclassAssetDeleteService_html"><div class="ttname"><a href="classAssetDeleteService.html">AssetDeleteService</a></div><div class="ttdef"><b>Definition</b> AssetDeleteService.h:29</div></div>
+<div class="ttc" id="aclassAssetDeleteService_html_a1b7d5b15f44618b82851ffbc3eb2f148"><div class="ttname"><a href="classAssetDeleteService.html#a1b7d5b15f44618b82851ffbc3eb2f148">AssetDeleteService::ScanForReferences</a></div><div class="ttdeci">static void ScanForReferences(const DeletePlan &amp;plan, std::vector&lt; DeleteReferenceHit &gt; &amp;outHits)</div><div class="ttdef"><b>Definition</b> AssetDeleteService.cpp:70</div></div>
+<div class="ttc" id="aclassAssetDeleteService_html_a49971530bb33efb6c86a6bc1132cab86"><div class="ttname"><a href="classAssetDeleteService.html#a49971530bb33efb6c86a6bc1132cab86">AssetDeleteService::ExecuteDelete</a></div><div class="ttdeci">static bool ExecuteDelete(const DeletePlan &amp;plan, std::string *outError=nullptr, bool recordUndo=true)</div><div class="ttdef"><b>Definition</b> AssetDeleteService.cpp:135</div></div>
+<div class="ttc" id="aclassAssetDeleteService_html_af02d69f9f8c08c362d92efff7de5f415"><div class="ttname"><a href="classAssetDeleteService.html#af02d69f9f8c08c362d92efff7de5f415">AssetDeleteService::AnalyzeDelete</a></div><div class="ttdeci">static DeletePlan AnalyzeDelete(const std::string &amp;targetPath)</div><div class="ttdef"><b>Definition</b> AssetDeleteService.cpp:23</div></div>
+<div class="ttc" id="astructDeletePlan_html"><div class="ttname"><a href="structDeletePlan.html">DeletePlan</a></div><div class="ttdef"><b>Definition</b> AssetDeleteService.h:12</div></div>
+<div class="ttc" id="astructDeletePlan_html_a47bcee3985951989dffd0c19790bef58"><div class="ttname"><a href="structDeletePlan.html#a47bcee3985951989dffd0c19790bef58">DeletePlan::totalOccurrences</a></div><div class="ttdeci">int totalOccurrences</div><div class="ttdef"><b>Definition</b> AssetDeleteService.h:21</div></div>
+<div class="ttc" id="astructDeletePlan_html_a5dd736d0eff1310e97380bb6d80d54f9"><div class="ttname"><a href="structDeletePlan.html#a5dd736d0eff1310e97380bb6d80d54f9">DeletePlan::isDirectory</a></div><div class="ttdeci">bool isDirectory</div><div class="ttdef"><b>Definition</b> AssetDeleteService.h:16</div></div>
+<div class="ttc" id="astructDeletePlan_html_a6b080192f0ceb1696e536e4963801424"><div class="ttname"><a href="structDeletePlan.html#a6b080192f0ceb1696e536e4963801424">DeletePlan::isValid</a></div><div class="ttdeci">bool isValid</div><div class="ttdef"><b>Definition</b> AssetDeleteService.h:23</div></div>
+<div class="ttc" id="astructDeletePlan_html_a87b505bb1adc9e6662c23020ab8b3231"><div class="ttname"><a href="structDeletePlan.html#a87b505bb1adc9e6662c23020ab8b3231">DeletePlan::isBlocked</a></div><div class="ttdeci">bool isBlocked</div><div class="ttdef"><b>Definition</b> AssetDeleteService.h:24</div></div>
+<div class="ttc" id="astructDeletePlan_html_a9005f46bf049e51b9cda891a5d450dad"><div class="ttname"><a href="structDeletePlan.html#a9005f46bf049e51b9cda891a5d450dad">DeletePlan::stemName</a></div><div class="ttdeci">std::string stemName</div><div class="ttdef"><b>Definition</b> AssetDeleteService.h:15</div></div>
+<div class="ttc" id="astructDeletePlan_html_aa5ff130f7a92c1c750a9737299dcb018"><div class="ttname"><a href="structDeletePlan.html#aa5ff130f7a92c1c750a9737299dcb018">DeletePlan::isPrefab</a></div><div class="ttdeci">bool isPrefab</div><div class="ttdef"><b>Definition</b> AssetDeleteService.h:18</div></div>
+<div class="ttc" id="astructDeletePlan_html_aaa89ac8b8978039b0183da3e14d7a921"><div class="ttname"><a href="structDeletePlan.html#aaa89ac8b8978039b0183da3e14d7a921">DeletePlan::targetPath</a></div><div class="ttdeci">std::string targetPath</div><div class="ttdef"><b>Definition</b> AssetDeleteService.h:13</div></div>
+<div class="ttc" id="astructDeletePlan_html_aacf25eb040156d4a14cf32b8f7dd2771"><div class="ttname"><a href="structDeletePlan.html#aacf25eb040156d4a14cf32b8f7dd2771">DeletePlan::fileName</a></div><div class="ttdeci">std::string fileName</div><div class="ttdef"><b>Definition</b> AssetDeleteService.h:14</div></div>
+<div class="ttc" id="astructDeletePlan_html_ad150ea785dd66747f20dc00d1c5c0de8"><div class="ttname"><a href="structDeletePlan.html#ad150ea785dd66747f20dc00d1c5c0de8">DeletePlan::hits</a></div><div class="ttdeci">std::vector&lt; DeleteReferenceHit &gt; hits</div><div class="ttdef"><b>Definition</b> AssetDeleteService.h:20</div></div>
+<div class="ttc" id="astructDeletePlan_html_ae2349c2cf556edd6a3c9726d99b157db"><div class="ttname"><a href="structDeletePlan.html#ae2349c2cf556edd6a3c9726d99b157db">DeletePlan::isScene</a></div><div class="ttdeci">bool isScene</div><div class="ttdef"><b>Definition</b> AssetDeleteService.h:17</div></div>
+<div class="ttc" id="astructDeletePlan_html_afe90625272629c82c686f3e1b69bc12d"><div class="ttname"><a href="structDeletePlan.html#afe90625272629c82c686f3e1b69bc12d">DeletePlan::errorMessage</a></div><div class="ttdeci">std::string errorMessage</div><div class="ttdef"><b>Definition</b> AssetDeleteService.h:25</div></div>
+<div class="ttc" id="astructDeleteReferenceHit_html"><div class="ttname"><a href="structDeleteReferenceHit.html">DeleteReferenceHit</a></div><div class="ttdef"><b>Definition</b> AssetDeleteService.h:6</div></div>
+<div class="ttc" id="astructDeleteReferenceHit_html_a577593ea9ca91279cdb7b4a21fa38560"><div class="ttname"><a href="structDeleteReferenceHit.html#a577593ea9ca91279cdb7b4a21fa38560">DeleteReferenceHit::filePath</a></div><div class="ttdeci">std::string filePath</div><div class="ttdef"><b>Definition</b> AssetDeleteService.h:7</div></div>
+<div class="ttc" id="astructDeleteReferenceHit_html_a90568d34f7fb73e3d5d9b1972b87d473"><div class="ttname"><a href="structDeleteReferenceHit.html#a90568d34f7fb73e3d5d9b1972b87d473">DeleteReferenceHit::occurrences</a></div><div class="ttdeci">int occurrences</div><div class="ttdef"><b>Definition</b> AssetDeleteService.h:8</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_b26507eead720464ba2ac6bbc6dcec5f.html">Editor</a></li><li class="navelem"><a href="AssetDeleteService_8h.html">AssetDeleteService.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>
