@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+#include "AssetRenameService.h"
 #include <unordered_map>
 #include <memory>
 #include "imgui.h"
@@ -56,6 +57,7 @@ public:
     // 現在選択中のアセットパス取得・設定
     const std::string& GetSelectedAssetPath() const { return m_selectedAssetPath; }
     void SetSelectedAssetPath(const std::string& path) { m_selectedAssetPath = path; }
+    void OnAssetRenamed(const std::string& oldPath, const std::string& newPath);
 
 private:
     CContentDrawerUI() = default;
@@ -101,4 +103,10 @@ private:
     char m_searchFilter[128] = "";
     int m_typeFilterIndex = 0; // 0: All, 1: Folder, 2: Scene, 3: Prefab, 4: Shader, 5: Material, 6: Model, 7: Texture, 8: Pipeline, 9: Audio
     float m_cardWidth = 95.0f;
+
+    std::string m_renamingAssetPath;
+    char m_renameInputBuf[128] = "";
+    bool m_renameInputFocusNeeded = false;
+    bool m_showRenameConfirmPopup = false;
+    RenamePlan m_activeRenamePlan;
 };

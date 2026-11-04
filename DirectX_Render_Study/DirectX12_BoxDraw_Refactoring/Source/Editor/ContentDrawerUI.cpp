@@ -1,4 +1,5 @@
 #include "ContentDrawerUI.h"
+#include "AssetRenameService.h"
 #include "InspectorUI.h"
 #include "imgui.h"
 #include "PrefabManager.h"
@@ -768,6 +769,22 @@ void CContentDrawerUI::DrawAssetGrid()
 {
     m_isAnyCardHovered = false;
 
+    // F2 Shortcut for renaming currently selected asset
+    if (!m_selectedAssetPath.empty() && m_renamingAssetPath.empty() && ImGui::IsKeyPressed(ImGuiKey_F2))
+    {
+        for (const auto& e : m_entries)
+        {
+            if (e.path == m_selectedAssetPath)
+            {
+                m_renamingAssetPath = e.path;
+                std::string initialName = (e.type == AssetEntryType::Folder) ? e.fileName : e.name;
+                strncpy_s(m_renameInputBuf, sizeof(m_renameInputBuf), initialName.c_str(), _TRUNCATE);
+                m_renameInputFocusNeeded = true;
+                break;
+            }
+        }
+    }
+
     float availWidth = ImGui::GetContentRegionAvail().x;
     int columns = static_cast<int>(availWidth / (m_cardWidth + 10.0f));
     if (columns < 1) columns = 1;
@@ -1120,6 +1137,13 @@ void CContentDrawerUI::DrawAssetGrid()
                 }
 
                 ImGui::Separator();
+                if (ImGui::MenuItem("Rename", "F2"))
+                {
+                    m_renamingAssetPath = item.path;
+                    std::string initialName = (item.type == AssetEntryType::Folder) ? item.fileName : item.name;
+                    strncpy_s(m_renameInputBuf, sizeof(m_renameInputBuf), initialName.c_str(), _TRUNCATE);
+                    m_renameInputFocusNeeded = true;
+                }
                 if (ImGui::MenuItem("Show in Explorer"))
                 {
                     OpenPathInExplorer(item.path, item.type != AssetEntryType::Folder);
@@ -1154,29 +1178,77 @@ void CContentDrawerUI::DrawAssetGrid()
                 ImGui::Dummy(ImVec2(iconSize, iconSize));
             }
 
-            // 2. File / Asset Name Centered underneath
+            // 2. File / Asset Name Centered underneath (or inline rename input)
             ImGui::Spacing();
-            std::string dispName = item.fileName;
-            float maxTextWidth = m_cardWidth - 8.0f;
-            if (ImGui::CalcTextSize(dispName.c_str()).x > maxTextWidth)
+            if (m_renamingAssetPath == item.path)
             {
-                while (dispName.length() > 3 && ImGui::CalcTextSize((dispName + "...").c_str()).x > maxTextWidth)
+                ImGui::PushItemWidth(m_cardWidth - 8.0f);
+                if (m_renameInputFocusNeeded)
                 {
-                    dispName.pop_back();
+                    ImGui::SetKeyboardFocusHere();
+                    m_renameInputFocusNeeded = false;
                 }
-                dispName += "...";
-            }
-            ImVec2 textSize = ImGui::CalcTextSize(dispName.c_str());
-            float textX = (m_cardWidth - textSize.x) * 0.5f;
-            if (textX > 4.0f) ImGui::SetCursorPosX(textX);
+                bool enterPressed = ImGui::InputText("##InlineRename", m_renameInputBuf, sizeof(m_renameInputBuf),
+                    ImGuiInputTextFlags_EnterReturnsTrue | ImGuiInputTextFlags_AutoSelectAll);
+                ImGui::PopItemWidth();
 
-            if (isSelected)
-            {
-                ImGui::TextColored(ImVec4(1.0f, 0.95f, 0.45f, 1.0f), "%s", dispName.c_str());
+                if (enterPressed)
+                {
+                    std::string requestedName = m_renameInputBuf;
+                    m_renamingAssetPath.clear();
+                    m_activeRenamePlan = AssetRenameService::AnalyzeRename(item.path, requestedName);
+                    if (!m_activeRenamePlan.isValid)
+                    {
+                        CInspectorUI::GetInstance().SetStatusMessage("Rename failed: " + m_activeRenamePlan.errorMessage, 4.0f);
+                    }
+                    else if (m_activeRenamePlan.hits.empty())
+                    {
+                        std::string err;
+                        if (AssetRenameService::ExecuteRename(m_activeRenamePlan, true, &err))
+                        {
+                            CInspectorUI::GetInstance().SetStatusMessage("Renamed to: " + m_activeRenamePlan.newFileName, 3.0f);
+                            m_selectedAssetPath = m_activeRenamePlan.newPath;
+                            m_pendingRefresh = true;
+                        }
+                        else
+                        {
+                            CInspectorUI::GetInstance().SetStatusMessage("Rename error: " + err, 4.0f);
+                        }
+                    }
+                    else
+                    {
+                        m_showRenameConfirmPopup = true;
+                    }
+                }
+                else if (ImGui::IsKeyPressed(ImGuiKey_Escape) || (ImGui::IsMouseClicked(ImGuiMouseButton_Left) && !ImGui::IsItemHovered()))
+                {
+                    m_renamingAssetPath.clear();
+                }
             }
             else
             {
-                ImGui::TextUnformatted(dispName.c_str());
+                std::string dispName = item.fileName;
+                float maxTextWidth = m_cardWidth - 8.0f;
+                if (ImGui::CalcTextSize(dispName.c_str()).x > maxTextWidth)
+                {
+                    while (dispName.length() > 3 && ImGui::CalcTextSize((dispName + "...").c_str()).x > maxTextWidth)
+                    {
+                        dispName.pop_back();
+                    }
+                    dispName += "...";
+                }
+                ImVec2 textSize = ImGui::CalcTextSize(dispName.c_str());
+                float textX = (m_cardWidth - textSize.x) * 0.5f;
+                if (textX > 4.0f) ImGui::SetCursorPosX(textX);
+
+                if (isSelected)
+                {
+                    ImGui::TextColored(ImVec4(1.0f, 0.95f, 0.45f, 1.0f), "%s", dispName.c_str());
+                }
+                else
+                {
+                    ImGui::TextUnformatted(dispName.c_str());
+                }
             }
 
             // Tooltip with full path, type and double-click/right-click hints
@@ -1206,6 +1278,74 @@ void CContentDrawerUI::DrawAssetGrid()
         {
             ImGui::TextDisabled("No matching assets found in '%s'.", m_currentDirectory.c_str());
         }
+    }
+
+    // Confirmation Modal Popup for Renaming with references
+    if (m_showRenameConfirmPopup)
+    {
+        ImGui::OpenPopup("Confirm Asset Rename");
+        m_showRenameConfirmPopup = false;
+    }
+    if (ImGui::BeginPopupModal("Confirm Asset Rename", nullptr, ImGuiWindowFlags_AlwaysAutoResize))
+    {
+        ImGui::TextColored(ImVec4(1.0f, 0.85f, 0.3f, 1.0f), "Update references for '%s' -> '%s'?",
+            m_activeRenamePlan.oldFileName.c_str(), m_activeRenamePlan.newFileName.c_str());
+        ImGui::Separator();
+        ImGui::Text("Found %d reference(s) across %d file(s):",
+            m_activeRenamePlan.totalOccurrences, static_cast<int>(m_activeRenamePlan.hits.size()));
+
+        ImGui::BeginChild("ReferenceHitList", ImVec2(480.0f, 140.0f), true);
+        for (const auto& hit : m_activeRenamePlan.hits)
+        {
+            ImGui::BulletText("%s (%d occurrence%s)", hit.filePath.c_str(), hit.occurrences, hit.occurrences > 1 ? "s" : "");
+        }
+        ImGui::EndChild();
+
+        ImGui::Spacing();
+        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.2f, 0.6f, 0.3f, 1.0f));
+        if (ImGui::Button("Update References & Rename", ImVec2(220.0f, 28.0f)))
+        {
+            std::string err;
+            if (AssetRenameService::ExecuteRename(m_activeRenamePlan, true, &err))
+            {
+                CInspectorUI::GetInstance().SetStatusMessage("Renamed and updated references: " + m_activeRenamePlan.newFileName, 3.0f);
+                m_selectedAssetPath = m_activeRenamePlan.newPath;
+                m_pendingRefresh = true;
+            }
+            else
+            {
+                CInspectorUI::GetInstance().SetStatusMessage("Rename error: " + err, 4.0f);
+            }
+            ImGui::CloseCurrentPopup();
+        }
+        ImGui::PopStyleColor();
+
+        ImGui::SameLine();
+        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.65f, 0.45f, 0.15f, 1.0f));
+        if (ImGui::Button("Rename Without Updating", ImVec2(190.0f, 28.0f)))
+        {
+            std::string err;
+            if (AssetRenameService::ExecuteRename(m_activeRenamePlan, false, &err))
+            {
+                CInspectorUI::GetInstance().SetStatusMessage("Renamed (references kept): " + m_activeRenamePlan.newFileName, 3.0f);
+                m_selectedAssetPath = m_activeRenamePlan.newPath;
+                m_pendingRefresh = true;
+            }
+            else
+            {
+                CInspectorUI::GetInstance().SetStatusMessage("Rename error: " + err, 4.0f);
+            }
+            ImGui::CloseCurrentPopup();
+        }
+        ImGui::PopStyleColor();
+
+        ImGui::SameLine();
+        if (ImGui::Button("Cancel", ImVec2(80.0f, 28.0f)))
+        {
+            ImGui::CloseCurrentPopup();
+        }
+
+        ImGui::EndPopup();
     }
 
     // Apply deferred folder navigation or refresh safely after m_entries iteration finishes
@@ -1346,4 +1486,28 @@ void CContentDrawerUI::Draw()
         }
     }
     ImGui::End();
+}
+
+
+void CContentDrawerUI::OnAssetRenamed(const std::string& oldPath, const std::string& newPath)
+{
+	std::string oldNorm = oldPath;
+	std::string newNorm = newPath;
+	for (auto& c : oldNorm) if (c == '\\') c = '/';
+	for (auto& c : newNorm) if (c == '\\') c = '/';
+
+	if (m_selectedAssetPath == oldNorm)
+	{
+		m_selectedAssetPath = newNorm;
+	}
+	if (m_currentDirectory == oldNorm)
+	{
+		m_currentDirectory = newNorm;
+	}
+	else if (m_currentDirectory.rfind(oldNorm + "/", 0) == 0)
+	{
+		m_currentDirectory = newNorm + m_currentDirectory.substr(oldNorm.length());
+	}
+
+	m_pendingRefresh = true;
 }

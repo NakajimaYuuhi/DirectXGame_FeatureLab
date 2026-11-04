@@ -3,6 +3,7 @@
 #include "EventManager.h"
 #include "EventData_NextScene.h"
 #include "SceneEnums.h"
+#include "Source/Core/Scenes/Manager/SceneManager.h"
 
 enum class ButtonAction
 {
@@ -48,16 +49,16 @@ inline void ExecuteButtonAction(ButtonAction action, const std::string& targetSc
     switch (action)
     {
     case ButtonAction::ChangeScene_Test:
-        eventData = new EventData_NextScene("Assets/Scene/SceneTest.json", Scenes::ID::TEST);
+        eventData = new EventData_NextScene(SceneManager::ResolveScenePathFromID(Scenes::ID::TEST), Scenes::ID::TEST);
         break;
     case ButtonAction::ChangeScene_Title:
-        eventData = new EventData_NextScene("Assets/Scene/SceneTitle.json", Scenes::ID::TITLE);
+        eventData = new EventData_NextScene(SceneManager::ResolveScenePathFromID(Scenes::ID::TITLE), Scenes::ID::TITLE);
         break;
     case ButtonAction::ChangeScene_Clear:
-        eventData = new EventData_NextScene("Assets/Scene/SceneClear.json", Scenes::ID::Clear);
+        eventData = new EventData_NextScene(SceneManager::ResolveScenePathFromID(Scenes::ID::Clear), Scenes::ID::Clear);
         break;
     case ButtonAction::ChangeScene_Failed:
-        eventData = new EventData_NextScene("Assets/Scene/SceneFailed.json", Scenes::ID::Failed);
+        eventData = new EventData_NextScene(SceneManager::ResolveScenePathFromID(Scenes::ID::Failed), Scenes::ID::Failed);
         break;
     case ButtonAction::ChangeScene_Custom:
         if (!targetScenePath.empty())

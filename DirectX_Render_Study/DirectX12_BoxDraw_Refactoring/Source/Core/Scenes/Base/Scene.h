@@ -31,6 +31,7 @@ public:
 	//----- Getter / Setter -----
 	Scenes::ID GetID() const { return id; }
 	const std::string& GetName() const { return m_Name; }
+	void SetName(const std::string& name) { m_Name = name; }
 	const std::string& GetJsonPath() const { return m_jsonPath; }
 	void SetJsonPath(const std::string& path);
 

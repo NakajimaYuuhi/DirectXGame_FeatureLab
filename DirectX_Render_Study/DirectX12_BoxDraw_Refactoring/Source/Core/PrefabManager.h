@@ -26,6 +26,9 @@ public:
 	bool RegisterPrefabJSON(const std::string& typeName, const std::string& jsonPath);
 	void RegisterPrefabsInDirectory(const std::string& directoryPath);
 
+	std::string ResolvePrefabPath(const std::string& typeName) const;
+	void OnAssetRenamed(const std::string& oldPath, const std::string& newPath);
+
 	bool HasPrefab(const std::string& typeName) const;
 
 private:
@@ -36,4 +39,5 @@ private:
 	PrefabManager& operator=(const PrefabManager&) = delete;
 
 	std::unordered_map<std::string, PrefabFactory> m_registry;
+	std::unordered_map<std::string, std::string> m_prefabNameToPath;
 };

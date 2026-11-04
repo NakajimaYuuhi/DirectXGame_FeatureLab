@@ -6,6 +6,7 @@
 #include <vector>
 #include <string>
 #include <memory>
+#include <unordered_map>
 
 class SceneFade;
 
@@ -52,6 +53,10 @@ public:
 	ENGINE_API static std::string ResolveScenePathFromID(Scenes::ID sceneID);
 	ENGINE_API static Scenes::ID ResolveSceneIDFromPath(const std::string& jsonPath);
 
+	// Dynamic Scene Registry & Rename notification
+	ENGINE_API static void RefreshSceneRegistry();
+	ENGINE_API void OnAssetRenamed(const std::string& oldPath, const std::string& newPath);
+
 	// =========================================================
 	// ï¿óÒÉVÅ[ÉìëÄçÏ & ãå Scenes::ID å›ä∑ API
 	// =========================================================
@@ -84,6 +89,9 @@ private:
 	float m_fadeDuration = 0.5f;
 
 	bool IsGameEnd = false;
+
+	mutable std::unordered_map<int, std::string> m_sceneIdToPath;
+	mutable std::unordered_map<std::string, Scenes::ID> m_pathToSceneId;
 
 private:
 	std::shared_ptr<CScene> CreateSceneInstance(Scenes::ID _SceneID);

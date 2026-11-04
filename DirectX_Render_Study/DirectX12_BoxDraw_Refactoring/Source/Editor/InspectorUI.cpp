@@ -3683,3 +3683,26 @@ bool CInspectorUI::SaveCurrentPrefab()
     return success;
 }
 
+
+
+void CInspectorUI::OnAssetRenamed(const std::string& oldPath, const std::string& newPath)
+{
+	std::string oldNorm = oldPath;
+	std::string newNorm = newPath;
+	for (auto& c : oldNorm) if (c == '\\') c = '/';
+	for (auto& c : newNorm) if (c == '\\') c = '/';
+
+	std::string curScene = m_sceneJsonPath;
+	for (auto& c : curScene) if (c == '\\') c = '/';
+	if (curScene == oldNorm)
+	{
+		strncpy_s(m_sceneJsonPath, sizeof(m_sceneJsonPath), newNorm.c_str(), _TRUNCATE);
+	}
+
+	std::string curPrefab = m_editingPrefabPath;
+	for (auto& c : curPrefab) if (c == '\\') c = '/';
+	if (curPrefab == oldNorm)
+	{
+		m_editingPrefabPath = newNorm;
+	}
+}

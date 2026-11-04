@@ -183,10 +183,64 @@ CObject* PrefabManager::InstantiateFromJSON(const std::string& jsonPath, const s
 
 bool PrefabManager::RegisterPrefabJSON(const std::string& typeName, const std::string& jsonPath)
 {
+	m_prefabNameToPath[typeName] = jsonPath;
 	RegisterPrefab(typeName, [this, jsonPath](const std::string& name) -> CObject* {
 		return InstantiateFromJSON(jsonPath, name);
 	});
 	return true;
+}
+
+std::string PrefabManager::ResolvePrefabPath(const std::string& typeName) const
+{
+	auto it = m_prefabNameToPath.find(typeName);
+	if (it != m_prefabNameToPath.end()) return it->second;
+
+	if (typeName.size() > 4 && typeName.rfind("JSON") == typeName.size() - 4)
+	{
+		std::string base = typeName.substr(0, typeName.size() - 4);
+		it = m_prefabNameToPath.find(base);
+		if (it != m_prefabNameToPath.end()) return it->second;
+	}
+	else
+	{
+		it = m_prefabNameToPath.find(typeName + "JSON");
+		if (it != m_prefabNameToPath.end()) return it->second;
+	}
+
+	std::error_code ec;
+	std::string p1 = "Assets/Prefabs/" + typeName + ".json";
+	if (std::filesystem::exists(p1, ec)) return p1;
+	std::string p2 = "Assets/Prefab/" + typeName + ".json";
+	if (std::filesystem::exists(p2, ec)) return p2;
+
+	return "";
+}
+
+void PrefabManager::OnAssetRenamed(const std::string& oldPath, const std::string& newPath)
+{
+	namespace fs = std::filesystem;
+	std::string oldNorm = oldPath;
+	std::string newNorm = newPath;
+	for (auto& c : oldNorm) if (c == '\\') c = '/';
+	for (auto& c : newNorm) if (c == '\\') c = '/';
+
+	std::string newStem = fs::path(newNorm).stem().string();
+
+	for (auto& pair : m_prefabNameToPath)
+	{
+		std::string cur = pair.second;
+		for (auto& c : cur) if (c == '\\') c = '/';
+		if (cur == oldNorm)
+		{
+			pair.second = newNorm;
+			RegisterPrefab(pair.first, [this, newNorm](const std::string& name) -> CObject* {
+				return InstantiateFromJSON(newNorm, name);
+			});
+		}
+	}
+
+	RegisterPrefabJSON(newStem, newNorm);
+	RegisterPrefabJSON(newStem + "JSON", newNorm);
 }
 
 void PrefabManager::RegisterPrefabsInDirectory(const std::string& directoryPath)

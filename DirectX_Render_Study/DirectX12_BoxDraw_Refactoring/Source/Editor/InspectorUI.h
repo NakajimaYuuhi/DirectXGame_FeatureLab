@@ -40,6 +40,7 @@ public:
     int GetSelectedTagIndex() const { return m_selectedTagIndex; }
     int GetSelectedObjectIndex() const { return m_selectedObjectIndex; }
     void SetSelectedObject(int tagIdx, int objIdx) { m_selectedTagIndex = tagIdx; m_selectedObjectIndex = objIdx; }
+    void OnAssetRenamed(const std::string& oldPath, const std::string& newPath);
     void ClearSelection()
     {
         m_selectedTagIndex = -1;

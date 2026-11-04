@@ -413,7 +413,7 @@ void CScene::Init()
 
     m_renderPipeline = std::make_unique<RenderPipeline>();
 
-    bool isPureUIScene = (!has3DContent) && (m_Name == "SceneTitle" || m_Name == "SceneClear" || m_Name == "SceneFailed");
+    bool isPureUIScene = (!has3DContent) && (id == Scenes::ID::TITLE || id == Scenes::ID::Clear || id == Scenes::ID::Failed || m_Name == "SceneTitle" || m_Name == "SceneClear" || m_Name == "SceneFailed");
     if (isPureUIScene)
     {
         m_renderPipeline->GetBlackboard().RegisterTextureRef("SceneColor", m_pSceneTexture.get());
@@ -442,11 +442,11 @@ void CScene::Update()
         Event event;
         if (m_Name == "SceneTitle" || id == Scenes::ID::TITLE)
         {
-            event.SetEventData(new EventData_NextScene("Assets/Scene/SceneTest.json", Scenes::ID::TEST));
+            event.SetEventData(new EventData_NextScene(SceneManager::ResolveScenePathFromID(Scenes::ID::TEST), Scenes::ID::TEST));
         }
         else
         {
-            event.SetEventData(new EventData_NextScene("Assets/Scene/SceneTitle.json", Scenes::ID::TITLE));
+            event.SetEventData(new EventData_NextScene(SceneManager::ResolveScenePathFromID(Scenes::ID::TITLE), Scenes::ID::TITLE));
         }
         event.SetEventID(Events::ID::ChangeScene);
         EventManager::GetInstance().AddEvent(event);
@@ -455,7 +455,7 @@ void CScene::Update()
     if ((m_Name == "SceneTitle" || id == Scenes::ID::TITLE) && CInputManager::GetInstance().IsKeyTrigger('O'))
     {
         Event event;
-        event.SetEventData(new EventData_NextScene("Assets/Scene/SceneClear.json", Scenes::ID::Clear));
+        event.SetEventData(new EventData_NextScene(SceneManager::ResolveScenePathFromID(Scenes::ID::Clear), Scenes::ID::Clear));
         event.SetEventID(Events::ID::ChangeScene);
         EventManager::GetInstance().AddEvent(event);
     }

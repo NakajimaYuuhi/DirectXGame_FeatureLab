@@ -1,4 +1,5 @@
 #include "SceneManager.h"
+#include <fstream>
 #include "ObjectManager.h"
 #include "../Base/Scene.h"
 #include "SceneFade.h"
@@ -35,8 +36,59 @@ static std::string NormalizeScenePath(const std::string& rawPath)
 	return p;
 }
 
+static std::unordered_map<int, std::string> s_sceneIdToPath;
+static std::unordered_map<std::string, Scenes::ID> s_pathToSceneId;
+static bool s_registryInitialized = false;
+
+void SceneManager::RefreshSceneRegistry()
+{
+	s_sceneIdToPath.clear();
+	s_pathToSceneId.clear();
+	s_registryInitialized = true;
+
+	std::error_code ec;
+	fs::path sceneDir("Assets/Scene");
+	if (fs::exists(sceneDir, ec) && fs::is_directory(sceneDir, ec))
+	{
+		for (const auto& entry : fs::directory_iterator(sceneDir, ec))
+		{
+			if (!entry.is_regular_file(ec) || entry.path().extension() != ".json") continue;
+			std::string normPath = entry.path().generic_string();
+
+			std::ifstream file(normPath);
+			if (file.is_open())
+			{
+				nlohmann::json j;
+				try
+				{
+					file >> j;
+					if (j.contains("sceneID") && j["sceneID"].is_number())
+					{
+						int idInt = j["sceneID"].get<int>();
+						Scenes::ID sId = static_cast<Scenes::ID>(idInt);
+						s_sceneIdToPath[idInt] = normPath;
+						s_pathToSceneId[normPath] = sId;
+					}
+				}
+				catch (...) {}
+			}
+		}
+	}
+}
+
 std::string SceneManager::ResolveScenePathFromID(Scenes::ID sceneID)
 {
+	if (!s_registryInitialized)
+	{
+		RefreshSceneRegistry();
+	}
+	int idInt = static_cast<int>(sceneID);
+	auto it = s_sceneIdToPath.find(idInt);
+	if (it != s_sceneIdToPath.end() && !it->second.empty())
+	{
+		return it->second;
+	}
+
 	switch (sceneID)
 	{
 	case Scenes::ID::TITLE:  return "Assets/Scene/SceneTitle.json";
@@ -49,12 +101,67 @@ std::string SceneManager::ResolveScenePathFromID(Scenes::ID sceneID)
 
 Scenes::ID SceneManager::ResolveSceneIDFromPath(const std::string& jsonPath)
 {
-	std::string stem = fs::path(jsonPath).stem().string();
+	if (!s_registryInitialized)
+	{
+		RefreshSceneRegistry();
+	}
+	std::string normPath = NormalizeScenePath(jsonPath);
+	auto it = s_pathToSceneId.find(normPath);
+	if (it != s_pathToSceneId.end())
+	{
+		return it->second;
+	}
+
+	std::ifstream file(normPath);
+	if (file.is_open())
+	{
+		nlohmann::json j;
+		try
+		{
+			file >> j;
+			if (j.contains("sceneID") && j["sceneID"].is_number())
+			{
+				Scenes::ID sId = static_cast<Scenes::ID>(j["sceneID"].get<int>());
+				s_pathToSceneId[normPath] = sId;
+				s_sceneIdToPath[static_cast<int>(sId)] = normPath;
+				return sId;
+			}
+		}
+		catch (...) {}
+	}
+
+	std::string stem = fs::path(normPath).stem().string();
 	if (stem == "SceneTitle")  return Scenes::ID::TITLE;
 	if (stem == "SceneClear")  return Scenes::ID::Clear;
 	if (stem == "SceneFailed") return Scenes::ID::Failed;
 	if (stem == "SceneTest")   return Scenes::ID::TEST;
 	return Scenes::ID::TEST;
+}
+
+void SceneManager::OnAssetRenamed(const std::string& oldPath, const std::string& newPath)
+{
+	std::string normOld = NormalizeScenePath(oldPath);
+	std::string normNew = NormalizeScenePath(newPath);
+
+	if (m_activeScenePath == normOld)
+	{
+		m_activeScenePath = normNew;
+	}
+	if (m_nextScenePath == normOld)
+	{
+		m_nextScenePath = normNew;
+	}
+
+	for (auto& s : m_scenes)
+	{
+		if (s && s->GetJsonPath() == normOld)
+		{
+			s->SetJsonPath(normNew);
+			s->SetName(fs::path(normNew).stem().string());
+		}
+	}
+
+	RefreshSceneRegistry();
 }
 
 SceneManager& SceneManager::GetInstance()
@@ -65,6 +172,7 @@ SceneManager& SceneManager::GetInstance()
 
 SceneManager::SceneManager(void)
 {
+	RefreshSceneRegistry();
 	Init();
 	EventManager::GetInstance().Init();
 }

@@ -83,7 +83,7 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 		if (_TypeName == "Camera" || _ObjectName == "Camera" || _TypeName == "CameraComponent")
 		{
 			CObject* rawObj = PrefabManager::GetInstance().Instantiate("Camera", _ObjectName);
-			if (!rawObj) rawObj = PrefabManager::GetInstance().InstantiateFromJSON("Assets/Prefabs/Camera.json", _ObjectName);
+			if (!rawObj) { std::string p = PrefabManager::GetInstance().ResolvePrefabPath("Camera"); if (!p.empty()) rawObj = PrefabManager::GetInstance().InstantiateFromJSON(p, _ObjectName); }
 			if (!rawObj)
 			{
 				rawObj = new CObject(_ObjectName);
@@ -102,7 +102,7 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 	case ObjectTag::BACKGROUND:
 		{
 			CObject* rawObj = PrefabManager::GetInstance().Instantiate("SkydomeJSON", _ObjectName);
-			if (!rawObj) rawObj = PrefabManager::GetInstance().InstantiateFromJSON("Assets/Prefabs/Skydome.json", _ObjectName);
+			if (!rawObj) { std::string p = PrefabManager::GetInstance().ResolvePrefabPath("Skydome"); if (!p.empty()) rawObj = PrefabManager::GetInstance().InstantiateFromJSON(p, _ObjectName); }
 			tmpObject = std::unique_ptr<CObject>(rawObj);
 			returnObject = tmpObject.get();
 			m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::BACKGROUND), std::move(tmpObject) });
@@ -118,7 +118,7 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 	case ObjectTag::PLAYER:
 		{
 			CObject* rawObj = PrefabManager::GetInstance().Instantiate("PlayerJSON", _ObjectName);
-			if (!rawObj) rawObj = PrefabManager::GetInstance().InstantiateFromJSON("Assets/Prefabs/Player.json", _ObjectName);
+			if (!rawObj) { std::string p = PrefabManager::GetInstance().ResolvePrefabPath("Player"); if (!p.empty()) rawObj = PrefabManager::GetInstance().InstantiateFromJSON(p, _ObjectName); }
 			tmpObject = std::unique_ptr<CObject>(rawObj);
 			returnObject = tmpObject.get();
 			m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::PLAYER), std::move(tmpObject) });
@@ -128,7 +128,7 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 	case ObjectTag::PLAYER_BULLET:
 		{
 			CObject* rawObj = PrefabManager::GetInstance().Instantiate("PlayerBulletJSON", _ObjectName);
-			if (!rawObj) rawObj = PrefabManager::GetInstance().InstantiateFromJSON("Assets/Prefabs/PlayerBullet.json", _ObjectName);
+			if (!rawObj) { std::string p = PrefabManager::GetInstance().ResolvePrefabPath("PlayerBullet"); if (!p.empty()) rawObj = PrefabManager::GetInstance().InstantiateFromJSON(p, _ObjectName); }
 			tmpObject = std::unique_ptr<CObject>(rawObj);
 			returnObject = tmpObject.get();
 			m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::PLAYER_BULLET), std::move(tmpObject) });
@@ -138,7 +138,7 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 	case ObjectTag::ENEMY:
 		{
 			CObject* rawObj = PrefabManager::GetInstance().Instantiate("EnemyJSON", _ObjectName);
-			if (!rawObj) rawObj = PrefabManager::GetInstance().InstantiateFromJSON("Assets/Prefabs/Enemy.json", _ObjectName);
+			if (!rawObj) { std::string p = PrefabManager::GetInstance().ResolvePrefabPath("Enemy"); if (!p.empty()) rawObj = PrefabManager::GetInstance().InstantiateFromJSON(p, _ObjectName); }
 			tmpObject = std::unique_ptr<CObject>(rawObj);
 			returnObject = tmpObject.get();
 			m_pendingAddObjects.push_back({ static_cast<ObjectTag>(ObjectTag::ENEMY), std::move(tmpObject) });
@@ -151,7 +151,7 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 	case ObjectTag::FIELD:
 		{
 			CObject* rawObj = PrefabManager::GetInstance().Instantiate("Field", _ObjectName);
-			if (!rawObj) rawObj = PrefabManager::GetInstance().InstantiateFromJSON("Assets/Prefabs/Field.json", _ObjectName);
+			if (!rawObj) { std::string p = PrefabManager::GetInstance().ResolvePrefabPath("Field"); if (!p.empty()) rawObj = PrefabManager::GetInstance().InstantiateFromJSON(p, _ObjectName); }
 			if (!rawObj)
 			{
 				rawObj = new CObject(_ObjectName);
@@ -209,7 +209,7 @@ CObject* ObjectManager::Instantiate(Scenes::ID _SceneID, ObjectTag _Tag, std::st
 	case ObjectTag::LIGHT:
 		{
 			CObject* rawObj = PrefabManager::GetInstance().Instantiate("DirectionalLight", _ObjectName);
-			if (!rawObj) rawObj = PrefabManager::GetInstance().InstantiateFromJSON("Assets/Prefabs/DirectionalLight.json", _ObjectName);
+			if (!rawObj) { std::string p = PrefabManager::GetInstance().ResolvePrefabPath("DirectionalLight"); if (!p.empty()) rawObj = PrefabManager::GetInstance().InstantiateFromJSON(p, _ObjectName); }
 			if (!rawObj)
 			{
 				rawObj = new CObject(_ObjectName);
