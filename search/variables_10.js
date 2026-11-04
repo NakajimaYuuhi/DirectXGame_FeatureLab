@@ -22,7 +22,7 @@ var searchData=
   ['parentwindowforfocusroute_19',['ParentWindowForFocusRoute',['../structImGuiWindow.html#a80376c0012e7645e6d540b3192b158f5',1,'ImGuiWindow']]],
   ['parentwindowinbeginstack_20',['ParentWindowInBeginStack',['../structImGuiWindow.html#aa08b777f1426ceea4214ff1161819515',1,'ImGuiWindow']]],
   ['parentworkrect_21',['ParentWorkRect',['../structImGuiWindow.html#add72d18277b43939929463c062c8975b',1,'ImGuiWindow']]],
-  ['path_22',['path',['../structCContentDrawerUI_1_1PrefabItem.html#a7158ee64ec20ad91acce6a9c2ea07141',1,'CContentDrawerUI::PrefabItem::path'],['../structAnimationChannelData.html#af81d9bc0088d73424c71eb006eb6f740',1,'AnimationChannelData::path']]],
+  ['path_22',['path',['../structCContentDrawerUI_1_1AssetEntry.html#a7f70d46347227e33d18f08cb5ba62643',1,'CContentDrawerUI::AssetEntry::path'],['../structAnimationChannelData.html#af81d9bc0088d73424c71eb006eb6f740',1,'AnimationChannelData::path']]],
   ['pbrmetallicroughness_23',['pbrMetallicRoughness',['../structtinygltf_1_1Material.html#ad771074fe40bbcfcdddc5a1b42c11771',1,'tinygltf::Material']]],
   ['pcommandqueue_24',['pCommandQueue',['../structImGui__ImplDX12__Data.html#a707d5d6da5b5754db9067a47b0a195f0',1,'ImGui_ImplDX12_Data']]],
   ['pd3ddevice_25',['pd3dDevice',['../structImGui__ImplDX12__Data.html#a1c8a790e04e775e3dc8e3f9b5a8f886e',1,'ImGui_ImplDX12_Data']]],

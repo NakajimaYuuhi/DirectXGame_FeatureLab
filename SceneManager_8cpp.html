@@ -93,12 +93,9 @@ $(function(){initNavTree('SceneManager_8cpp.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="SceneManager_8h_source.html">SceneManager.h</a>&quot;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
 <code>#include &quot;<a class="el" href="ObjectManager_8h_source.html">ObjectManager.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Scene_8h_source.html">../Base/Scene.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="SceneTest_8h_source.html">SceneTest.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="SceneTitle_8h_source.html">SceneTitle.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="SceneClear_8h_source.html">SceneClear.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="SceneFailed_8h_source.html">SceneFailed.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="SceneFade_8h_source.html">SceneFade.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ButtonEventManager_8h_source.html">ButtonEventManager.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="InputManager_8h_source.html">InputManager.h</a>&quot;</code><br />
@@ -109,13 +106,124 @@ $(function(){initNavTree('SceneManager_8cpp.html','',''); });
 <code>#include &quot;<a class="el" href="ModelManager_8h_source.html">ModelManager.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="DX12Manager_8h_source.html">DX12Manager.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="InspectorUI_8h_source.html">InspectorUI.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="json_8hpp_source.html">Source/External/json.hpp</a>&quot;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;filesystem&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 SceneManager.cpp の依存先関係図:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="SceneManager_8cpp__incl.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
-</div></div><!-- contents -->
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+関数</h2></td></tr>
+<tr class="memitem:a9eff3e662cedb213a4138a089957a7d7" id="r_a9eff3e662cedb213a4138a089957a7d7"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9eff3e662cedb213a4138a089957a7d7">NormalizeScenePath</a> (const <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;rawPath)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+変数</h2></td></tr>
+<tr class="memitem:a04da3a542aa8ea11e86b8e330cb604f4" id="r_a04da3a542aa8ea11e86b8e330cb604f4"><td class="memItemLeft" align="right" valign="top">static std::unordered_map&lt; int, <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04da3a542aa8ea11e86b8e330cb604f4">s_sceneIdToPath</a></td></tr>
+<tr class="memitem:ab87229282e3ef9746f8f610c4d52294e" id="r_ab87229282e3ef9746f8f610c4d52294e"><td class="memItemLeft" align="right" valign="top">static std::unordered_map&lt; <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a>, <a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275">Scenes::ID</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab87229282e3ef9746f8f610c4d52294e">s_pathToSceneId</a></td></tr>
+<tr class="memitem:ae40b706dfcde99e39023eb6bc348aa72" id="r_ae40b706dfcde99e39023eb6bc348aa72"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae40b706dfcde99e39023eb6bc348aa72">s_registryInitialized</a> = false</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
+<a id="a9eff3e662cedb213a4138a089957a7d7" name="a9eff3e662cedb213a4138a089957a7d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9eff3e662cedb213a4138a089957a7d7">&#9670;&#160;</a></span>NormalizeScenePath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> NormalizeScenePath </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rawPath</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="SceneManager_8cpp_a9eff3e662cedb213a4138a089957a7d7_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">変数詳解</h2>
+<a id="ab87229282e3ef9746f8f610c4d52294e" name="ab87229282e3ef9746f8f610c4d52294e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab87229282e3ef9746f8f610c4d52294e">&#9670;&#160;</a></span>s_pathToSceneId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;<a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a>, <a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275">Scenes::ID</a>&gt; s_pathToSceneId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae40b706dfcde99e39023eb6bc348aa72" name="ae40b706dfcde99e39023eb6bc348aa72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae40b706dfcde99e39023eb6bc348aa72">&#9670;&#160;</a></span>s_registryInitialized</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool s_registryInitialized = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a04da3a542aa8ea11e86b8e330cb604f4" name="a04da3a542aa8ea11e86b8e330cb604f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04da3a542aa8ea11e86b8e330cb604f4">&#9670;&#160;</a></span>s_sceneIdToPath</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;int, <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a>&gt; s_sceneIdToPath</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>

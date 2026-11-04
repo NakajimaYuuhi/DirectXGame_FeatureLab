@@ -97,16 +97,18 @@ $(function(){initNavTree('SceneManager_8h.html','',''); });
 <code>#include &quot;<a class="el" href="SceneEnums_8h_source.html">SceneEnums.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="SmartPtrAlias_8h_source.html">SmartPtrAlias.h</a>&quot;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 <code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;unordered_map&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 SceneManager.h の依存先関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="SceneManager_8h__incl.svg" width="587" height="207"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="SceneManager_8h__incl.svg" width="100%" height="455"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 被依存関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="SceneManager_8h__dep__incl.svg" width="100%" height="424"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="SceneManager_8h__dep__incl.svg" width="100%" height="563"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="SceneManager_8h_source.html">[ソースコード]</a></p>
@@ -122,8 +124,41 @@ SceneManager.h の依存先関係図:</div>
 , <a class="el" href="#a8b7171c7ec1f644ad010a7486791d762ad9eb87bb5b6d83f7142c1663673185af">SwapScene</a>
 , <a class="el" href="#a8b7171c7ec1f644ad010a7486791d762a294f48edd972b58ced15c2284db56f82">FadeIn</a>
  }</td></tr>
+<tr class="memitem:a8567786ada19aeabfb1919ebceb2584c" id="r_a8567786ada19aeabfb1919ebceb2584c"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8567786ada19aeabfb1919ebceb2584c">SceneTemplateType</a> { <a class="el" href="#a8567786ada19aeabfb1919ebceb2584cae87b8d6fc475365dc5278ecba8344a57">Standard3DTest</a> = 0
+, <a class="el" href="#a8567786ada19aeabfb1919ebceb2584ca53fb714417cac96ab3e75cab7fc6d0bc">ShadowShowcase</a> = 1
+, <a class="el" href="#a8567786ada19aeabfb1919ebceb2584ca6e16d10aaf87fe3b6a00ae840c576b4e">Minimal3D</a> = 2
+, <a class="el" href="#a8567786ada19aeabfb1919ebceb2584cae7098fd92c24ddbfaa49b16294e30a10">EmptyUIScene</a> = 3
+ }</td></tr>
 </table>
 <a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">列挙型詳解</h2>
+<a id="a8567786ada19aeabfb1919ebceb2584c" name="a8567786ada19aeabfb1919ebceb2584c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8567786ada19aeabfb1919ebceb2584c">&#9670;&#160;</a></span>SceneTemplateType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a8567786ada19aeabfb1919ebceb2584c">SceneTemplateType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">列挙値</th></tr><tr><td class="fieldname"><a id="a8567786ada19aeabfb1919ebceb2584cae87b8d6fc475365dc5278ecba8344a57" name="a8567786ada19aeabfb1919ebceb2584cae87b8d6fc475365dc5278ecba8344a57"></a>Standard3DTest&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8567786ada19aeabfb1919ebceb2584ca53fb714417cac96ab3e75cab7fc6d0bc" name="a8567786ada19aeabfb1919ebceb2584ca53fb714417cac96ab3e75cab7fc6d0bc"></a>ShadowShowcase&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8567786ada19aeabfb1919ebceb2584ca6e16d10aaf87fe3b6a00ae840c576b4e" name="a8567786ada19aeabfb1919ebceb2584ca6e16d10aaf87fe3b6a00ae840c576b4e"></a>Minimal3D&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8567786ada19aeabfb1919ebceb2584cae7098fd92c24ddbfaa49b16294e30a10" name="a8567786ada19aeabfb1919ebceb2584cae7098fd92c24ddbfaa49b16294e30a10"></a>EmptyUIScene&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <a id="a8b7171c7ec1f644ad010a7486791d762" name="a8b7171c7ec1f644ad010a7486791d762"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8b7171c7ec1f644ad010a7486791d762">&#9670;&#160;</a></span>TransitionStep</h2>
 

@@ -57,7 +57,7 @@ var searchData=
   ['evaluate_54',['Evaluate',['../classEaseUtility.html#a250d6fecf825d470deb878df2e8b401a',1,'EaseUtility']]],
   ['event_55',['Event',['../classEvent.html#aee6a4269152dcdb7a11de3e24d90c229',1,'Event']]],
   ['eventdata_56',['EventData',['../classEventData.html#af3b2887aee6312e35a2df0d621930b75',1,'EventData']]],
-  ['eventdata_5fnextscene_57',['EventData_NextScene',['../classEventData__NextScene.html#a4b170458f5ddc31b803037ffcfa40cd1',1,'EventData_NextScene']]],
+  ['eventdata_5fnextscene_57',['EventData_NextScene',['../classEventData__NextScene.html#a4b170458f5ddc31b803037ffcfa40cd1',1,'EventData_NextScene::EventData_NextScene(Scenes::ID _NextScene)'],['../classEventData__NextScene.html#a4f3d3eb943454692d82fa072befa6203',1,'EventData_NextScene::EventData_NextScene(const std::string &amp;_NextScenePath, Scenes::ID _FallbackID=Scenes::ID::NONE)']]],
   ['eventmanager_58',['EventManager',['../classEventManager.html#a988bd286bee8d202ac5afd1f4758ec24',1,'EventManager::EventManager()=default'],['../classEventManager.html#a4e802f57b1f9176a95309b17750c5c6c',1,'EventManager::EventManager(const EventManager &amp;)=delete']]],
   ['exampleappconsole_59',['ExampleAppConsole',['../structExampleAppConsole.html#a405521e6aa8f97954b67315baf8d6147',1,'ExampleAppConsole']]],
   ['exampleappdocuments_60',['ExampleAppDocuments',['../structExampleAppDocuments.html#ad5764912b760eaae5829a7197b26c911',1,'ExampleAppDocuments']]],
@@ -71,9 +71,10 @@ var searchData=
   ['exception_5fmessage_68',['exception_message',['../classnlohmann_1_1detail_1_1binary__reader.html#a9c413c9a1bade1ce345740f4d69156f0',1,'nlohmann::detail::binary_reader::exception_message()'],['../classnlohmann_1_1detail_1_1parser.html#a94e7f8a0f880c20c8a48f591f56cbd85',1,'nlohmann::detail::parser::exception_message()']]],
   ['execcommand_69',['ExecCommand',['../structExampleAppConsole.html#aa1e8bf1f3795cbc41597e1ff081c6589',1,'ExampleAppConsole']]],
   ['execute_70',['Execute',['../classIUndoCommand.html#af626e75748867a390e7bec3406284599',1,'IUndoCommand::Execute()'],['../classTransformUndoCommand.html#aeccf124ed136ef2ec2f0d185133ec41b',1,'TransformUndoCommand::Execute()'],['../classDeleteObjectUndoCommand.html#a8a1c8215acfb37f833cee4c03c007af3',1,'DeleteObjectUndoCommand::Execute()'],['../classCompositePass.html#a0bdfb4adcf81df697ab03c50e9cc5d07',1,'CompositePass::Execute()'],['../classForwardRenderPass.html#ad04a5434e75b8d1e81fc5b1f2fc2d516',1,'ForwardRenderPass::Execute()'],['../classGPUParticlePass.html#a70d6fdf34c72d7318604e29339692451',1,'GPUParticlePass::Execute()'],['../classIRenderPass.html#a296b54adab092c7100589ea49f2bfd15',1,'IRenderPass::Execute()'],['../classPostProcessPass.html#ad5cb96984d04f6e2c38efa93b9db52d7',1,'PostProcessPass::Execute()'],['../classRenderPipeline.html#a0f0d5927dbdb9d8e6a0ac30b29c19a71',1,'RenderPipeline::Execute()'],['../classSampleComputePass.html#a47d336ffcd34e93eb2c8982f77940502',1,'SampleComputePass::Execute()'],['../classShadowMapPass.html#a15b1e30806151a975d67c0ce936a45cd',1,'ShadowMapPass::Execute()']]],
-  ['executebuttonaction_71',['ExecuteButtonAction',['../ButtonAction_8h.html#a8e2d98860f5e324054a184d61e18b371',1,'ButtonAction.h']]],
-  ['expand_72',['Expand',['../structImRect.html#af33a7424c3341d08acd69da30c27c753',1,'ImRect::Expand(const float amount)'],['../structImRect.html#ac0b0b88fe65725b4694cd7d91d42d382',1,'ImRect::Expand(const ImVec2 &amp;amount)']]],
-  ['expandfilepath_73',['ExpandFilePath',['../namespacetinygltf.html#a2cc3baf7856ea03c802b5c6ad01851cb',1,'tinygltf']]],
-  ['extendhitboxwhennearviewportedge_74',['ExtendHitBoxWhenNearViewportEdge',['../namespaceImGui.html#a90f5d88e949341f12b947fae7d086e65',1,'ImGui']]],
-  ['extractreflection_75',['ExtractReflection',['../classShader.html#a8b3082791d97db06c6e550ed2e661d08',1,'Shader']]]
+  ['executebuttonaction_71',['ExecuteButtonAction',['../ButtonAction_8h.html#aef43aee71bae23446fd03e2556c6e7b0',1,'ButtonAction.h']]],
+  ['executerename_72',['ExecuteRename',['../classAssetRenameService.html#a246e823ecc0b29e83e0a996305b54b56',1,'AssetRenameService']]],
+  ['expand_73',['Expand',['../structImRect.html#af33a7424c3341d08acd69da30c27c753',1,'ImRect::Expand(const float amount)'],['../structImRect.html#ac0b0b88fe65725b4694cd7d91d42d382',1,'ImRect::Expand(const ImVec2 &amp;amount)']]],
+  ['expandfilepath_74',['ExpandFilePath',['../namespacetinygltf.html#a2cc3baf7856ea03c802b5c6ad01851cb',1,'tinygltf']]],
+  ['extendhitboxwhennearviewportedge_75',['ExtendHitBoxWhenNearViewportEdge',['../namespaceImGui.html#a90f5d88e949341f12b947fae7d086e65',1,'ImGui']]],
+  ['extractreflection_76',['ExtractReflection',['../classShader.html#a8b3082791d97db06c6e550ed2e661d08',1,'Shader']]]
 ];

@@ -96,10 +96,11 @@ $(function(){initNavTree('ButtonAction_8h.html','',''); });
 <code>#include &quot;<a class="el" href="EventManager_8h_source.html">EventManager.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="EventData__NextScene_8h_source.html">EventData_NextScene.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="SceneEnums_8h_source.html">SceneEnums.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="SceneManager_8h_source.html">Source/Core/Scenes/Manager/SceneManager.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 ButtonAction.h の依存先関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="ButtonAction_8h__incl.svg" width="538" height="266"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="ButtonAction_8h__incl.svg" width="100%" height="512"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 被依存関係図:</div>
@@ -118,6 +119,7 @@ ButtonAction.h の依存先関係図:</div>
 , <a class="el" href="#afa717ac273a5a382f7c01ef7afba1ee7aa73aaf32b08ddf5976fa9e1688225898">ChangeScene_Clear</a>
 , <br />
 &#160;&#160;<a class="el" href="#afa717ac273a5a382f7c01ef7afba1ee7a7dd070495d4e741df48037a9d63a6fb2">ChangeScene_Failed</a>
+, <a class="el" href="#afa717ac273a5a382f7c01ef7afba1ee7ad3b47f70b78bd790661db850488e8a08">ChangeScene_Custom</a>
 , <a class="el" href="#afa717ac273a5a382f7c01ef7afba1ee7a4166c4566d4ee3c335e2f09f7f0d5d0b">ExitGame</a>
 <br />
  }</td></tr>
@@ -126,7 +128,7 @@ ButtonAction.h の依存先関係図:</div>
 関数</h2></td></tr>
 <tr class="memitem:a8007549b4acd30ed823645254dfc71e5" id="r_a8007549b4acd30ed823645254dfc71e5"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8007549b4acd30ed823645254dfc71e5">ButtonActionToString</a> (<a class="el" href="#afa717ac273a5a382f7c01ef7afba1ee7">ButtonAction</a> action)</td></tr>
 <tr class="memitem:a7c91bceb4b224d59b9645429a7343f2a" id="r_a7c91bceb4b224d59b9645429a7343f2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#afa717ac273a5a382f7c01ef7afba1ee7">ButtonAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c91bceb4b224d59b9645429a7343f2a">StringToButtonAction</a> (const <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;str)</td></tr>
-<tr class="memitem:a8e2d98860f5e324054a184d61e18b371" id="r_a8e2d98860f5e324054a184d61e18b371"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e2d98860f5e324054a184d61e18b371">ExecuteButtonAction</a> (<a class="el" href="#afa717ac273a5a382f7c01ef7afba1ee7">ButtonAction</a> action)</td></tr>
+<tr class="memitem:aef43aee71bae23446fd03e2556c6e7b0" id="r_aef43aee71bae23446fd03e2556c6e7b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef43aee71bae23446fd03e2556c6e7b0">ExecuteButtonAction</a> (<a class="el" href="#afa717ac273a5a382f7c01ef7afba1ee7">ButtonAction</a> action, const <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;targetScenePath=&quot;&quot;)</td></tr>
 </table>
 <a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">列挙型詳解</h2>
 <a id="afa717ac273a5a382f7c01ef7afba1ee7" name="afa717ac273a5a382f7c01ef7afba1ee7"></a>
@@ -154,6 +156,7 @@ ButtonAction.h の依存先関係図:</div>
 <tr><td class="fieldname"><a id="afa717ac273a5a382f7c01ef7afba1ee7afa20f2f62318eeda9692da61773a4cba" name="afa717ac273a5a382f7c01ef7afba1ee7afa20f2f62318eeda9692da61773a4cba"></a>ChangeScene_Title&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="afa717ac273a5a382f7c01ef7afba1ee7aa73aaf32b08ddf5976fa9e1688225898" name="afa717ac273a5a382f7c01ef7afba1ee7aa73aaf32b08ddf5976fa9e1688225898"></a>ChangeScene_Clear&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="afa717ac273a5a382f7c01ef7afba1ee7a7dd070495d4e741df48037a9d63a6fb2" name="afa717ac273a5a382f7c01ef7afba1ee7a7dd070495d4e741df48037a9d63a6fb2"></a>ChangeScene_Failed&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa717ac273a5a382f7c01ef7afba1ee7ad3b47f70b78bd790661db850488e8a08" name="afa717ac273a5a382f7c01ef7afba1ee7ad3b47f70b78bd790661db850488e8a08"></a>ChangeScene_Custom&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="afa717ac273a5a382f7c01ef7afba1ee7a4166c4566d4ee3c335e2f09f7f0d5d0b" name="afa717ac273a5a382f7c01ef7afba1ee7a4166c4566d4ee3c335e2f09f7f0d5d0b"></a>ExitGame&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
@@ -185,13 +188,13 @@ ButtonAction.h の依存先関係図:</div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="ButtonAction_8h_a8007549b4acd30ed823645254dfc71e5_icgraph.svg" width="100%" height="597"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="ButtonAction_8h_a8007549b4acd30ed823645254dfc71e5_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="a8e2d98860f5e324054a184d61e18b371" name="a8e2d98860f5e324054a184d61e18b371"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e2d98860f5e324054a184d61e18b371">&#9670;&#160;</a></span>ExecuteButtonAction()</h2>
+<a id="aef43aee71bae23446fd03e2556c6e7b0" name="aef43aee71bae23446fd03e2556c6e7b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef43aee71bae23446fd03e2556c6e7b0">&#9670;&#160;</a></span>ExecuteButtonAction()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -202,8 +205,12 @@ ButtonAction.h の依存先関係図:</div>
         <tr>
           <td class="memname">void ExecuteButtonAction </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#afa717ac273a5a382f7c01ef7afba1ee7">ButtonAction</a></td>          <td class="paramname"><span class="paramname"><em>action</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#afa717ac273a5a382f7c01ef7afba1ee7">ButtonAction</a></td>          <td class="paramname"><span class="paramname"><em>action</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>targetScenePath</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;&quot;</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -215,12 +222,12 @@ ButtonAction.h の依存先関係図:</div>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="ButtonAction_8h_a8e2d98860f5e324054a184d61e18b371_cgraph.svg" width="100%" height="368"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="ButtonAction_8h_aef43aee71bae23446fd03e2556c6e7b0_cgraph.svg" width="100%" height="419"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="ButtonAction_8h_a8e2d98860f5e324054a184d61e18b371_icgraph.svg" width="427" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="ButtonAction_8h_aef43aee71bae23446fd03e2556c6e7b0_icgraph.svg" width="427" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

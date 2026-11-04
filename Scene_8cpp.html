@@ -93,12 +93,102 @@ $(function(){initNavTree('Scene_8cpp.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="Scene_8h_source.html">Scene.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Object_8h_source.html">Object.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Model_8h_source.html">Model.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="SpriteRenderer_8h_source.html">SpriteRenderer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ButtonComponent_8h_source.html">ButtonComponent.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ButtonAction_8h_source.html">ButtonAction.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Transform_8h_source.html">Transform.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="DX12Manager_8h_source.html">DX12Manager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ObjectManager_8h_source.html">ObjectManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="InputManager_8h_source.html">InputManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="EventManager_8h_source.html">EventManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="EventData__NextScene_8h_source.html">EventData_NextScene.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ObjectTag_8h_source.html">ObjectTag.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ButtonEventManager_8h_source.html">ButtonEventManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="SceneSerializer_8h_source.html">Source/Core/Scenes/Serializer/SceneSerializer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="RenderPipeline_8h_source.html">RenderPipeline.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="RenderTexture_8h_source.html">RenderTexture.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ShadowMapPass_8h_source.html">ShadowMapPass.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ForwardRenderPass_8h_source.html">ForwardRenderPass.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="PostProcessPass_8h_source.html">PostProcessPass.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="SampleComputePass_8h_source.html">SampleComputePass.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="GPUParticlePass_8h_source.html">GPUParticlePass.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="TimeManager_8h_source.html">TimeManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="BasicSettings_8h_source.html">BasicSettings.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="RectTransform_8h_source.html">Source/UI/RectTransform.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Tween_8h_source.html">Source/Util/Tween.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="LightComponent_8h_source.html">LightComponent.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="FieldComponent_8h_source.html">FieldComponent.h</a>&quot;</code><br />
+<code>#include &lt;filesystem&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Scene.cpp の依存先関係図:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="Scene_8cpp__incl.svg" width="211" height="207"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="Scene_8cpp__incl.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
-</div></div><!-- contents -->
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+関数</h2></td></tr>
+<tr class="memitem:acfa097a63e8a892b2ddc9b6c3d376d52" id="r_acfa097a63e8a892b2ddc9b6c3d376d52"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfa097a63e8a892b2ddc9b6c3d376d52">DefaultPathForLegacyID</a> (<a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275">Scenes::ID</a> sceneId)</td></tr>
+<tr class="memitem:a6234cc7aef8ba1d4fa3a598948bee217" id="r_a6234cc7aef8ba1d4fa3a598948bee217"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275">Scenes::ID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6234cc7aef8ba1d4fa3a598948bee217">InferLegacyIDFromPath</a> (const <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;jsonPath)</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
+<a id="acfa097a63e8a892b2ddc9b6c3d376d52" name="acfa097a63e8a892b2ddc9b6c3d376d52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfa097a63e8a892b2ddc9b6c3d376d52">&#9670;&#160;</a></span>DefaultPathForLegacyID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> DefaultPathForLegacyID </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275">Scenes::ID</a></td>          <td class="paramname"><span class="paramname"><em>sceneId</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="Scene_8cpp_acfa097a63e8a892b2ddc9b6c3d376d52_icgraph.svg" width="362" height="91"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a6234cc7aef8ba1d4fa3a598948bee217" name="a6234cc7aef8ba1d4fa3a598948bee217"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6234cc7aef8ba1d4fa3a598948bee217">&#9670;&#160;</a></span>InferLegacyIDFromPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceScenes.html#a0ad7ab6856b1d77d498e3a251f6bb275">Scenes::ID</a> InferLegacyIDFromPath </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>jsonPath</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>

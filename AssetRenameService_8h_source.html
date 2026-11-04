@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: Source/Editor/AssetRenameService.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('AssetRenameService_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">AssetRenameService.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="AssetRenameService_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="structRenameReferenceHit.html">    5</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structRenameReferenceHit.html">RenameReferenceHit</a></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="structRenameReferenceHit.html#a18fa95b011bef9dd1e676a5baa6ee6a0">    7</a></span>    std::string <a class="code hl_variable" href="structRenameReferenceHit.html#a18fa95b011bef9dd1e676a5baa6ee6a0">filePath</a>;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="structRenameReferenceHit.html#a66954792deb08de040fde2d8e884ce1f">    8</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structRenameReferenceHit.html#a66954792deb08de040fde2d8e884ce1f">occurrences</a> = 0;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>};</div>
+</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="structRenamePlan.html">   11</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structRenamePlan.html">RenamePlan</a></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="structRenamePlan.html#a4f5a17ca406bb0c6e62816de546996bb">   13</a></span>    std::string <a class="code hl_variable" href="structRenamePlan.html#a4f5a17ca406bb0c6e62816de546996bb">oldPath</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structRenamePlan.html#a998a8c5d636e05be96984abe4daa0083">   14</a></span>    std::string <a class="code hl_variable" href="structRenamePlan.html#a998a8c5d636e05be96984abe4daa0083">newPath</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="structRenamePlan.html#a2d3f123508f403bab6d00f6d75ad9c70">   15</a></span>    std::string <a class="code hl_variable" href="structRenamePlan.html#a2d3f123508f403bab6d00f6d75ad9c70">oldName</a>;       <span class="comment">// Stem without extension</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="structRenamePlan.html#a0400b8af7fb41970c79ca720253de40e">   16</a></span>    std::string <a class="code hl_variable" href="structRenamePlan.html#a0400b8af7fb41970c79ca720253de40e">newName</a>;       <span class="comment">// Stem without extension</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="structRenamePlan.html#a90ce5c60afccc67650fd09517b65235f">   17</a></span>    std::string <a class="code hl_variable" href="structRenamePlan.html#a90ce5c60afccc67650fd09517b65235f">oldFileName</a>;   <span class="comment">// With extension (or folder name)</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="structRenamePlan.html#a4514e0aec52fffce48d1a22945e27faa">   18</a></span>    std::string <a class="code hl_variable" href="structRenamePlan.html#a4514e0aec52fffce48d1a22945e27faa">newFileName</a>;   <span class="comment">// With extension (or folder name)</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="structRenamePlan.html#a3d4358a026fe86be7d9d60115734fd4f">   19</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structRenamePlan.html#a3d4358a026fe86be7d9d60115734fd4f">isDirectory</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="structRenamePlan.html#afde274c5013167c5a7c429742d4babe8">   20</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structRenamePlan.html#afde274c5013167c5a7c429742d4babe8">isPrefab</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structRenamePlan.html#a35fcb533c78d9d243a61bfbaf25c2f01">   21</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structRenamePlan.html#a35fcb533c78d9d243a61bfbaf25c2f01">isScene</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="structRenamePlan.html#a0ac2287b6a8f4dff22b99ea09a058de1">   23</a></span>    std::vector&lt;RenameReferenceHit&gt; <a class="code hl_variable" href="structRenamePlan.html#a0ac2287b6a8f4dff22b99ea09a058de1">hits</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structRenamePlan.html#ae978d116460990a5717d4f4d653e83cf">   24</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structRenamePlan.html#ae978d116460990a5717d4f4d653e83cf">totalOccurrences</a> = 0;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="structRenamePlan.html#a131a6b49107e10f83106da0d695ffcc2">   26</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structRenamePlan.html#a131a6b49107e10f83106da0d695ffcc2">isValid</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structRenamePlan.html#a5411868d2643f666d2bd41a1b7bac19d">   27</a></span>    std::string <a class="code hl_variable" href="structRenamePlan.html#a5411868d2643f666d2bd41a1b7bac19d">errorMessage</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>};</div>
+</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classAssetRenameService.html">   30</a></span><span class="keyword">class </span><a class="code hl_class" href="classAssetRenameService.html">AssetRenameService</a></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>{</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">static</span> <a class="code hl_struct" href="structRenamePlan.html">RenamePlan</a> <a class="code hl_function" href="classAssetRenameService.html#a664b58bb041aa230a42dc04e37d717be">AnalyzeRename</a>(<span class="keyword">const</span> std::string&amp; oldPath, <span class="keyword">const</span> std::string&amp; requestedNewName);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classAssetRenameService.html#a246e823ecc0b29e83e0a996305b54b56">ExecuteRename</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structRenamePlan.html">RenamePlan</a>&amp; plan, <span class="keywordtype">bool</span> updateReferences, std::string* outError = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classAssetRenameService.html#a6f18f57835e71adc9c28d4a9fc7fc2ec">ScanForReferences</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structRenamePlan.html">RenamePlan</a>&amp; plan, std::vector&lt;RenameReferenceHit&gt;&amp; outHits);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classAssetRenameService.html#a77bf91fd2abdaf76415d9c7a49c06dcf">ReplaceReferencesInContent</a>(std::string&amp; content, <span class="keyword">const</span> <a class="code hl_struct" href="structRenamePlan.html">RenamePlan</a>&amp; plan);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>};</div>
+</div>
+<div class="ttc" id="aclassAssetRenameService_html"><div class="ttname"><a href="classAssetRenameService.html">AssetRenameService</a></div><div class="ttdef"><b>Definition</b> AssetRenameService.h:31</div></div>
+<div class="ttc" id="aclassAssetRenameService_html_a246e823ecc0b29e83e0a996305b54b56"><div class="ttname"><a href="classAssetRenameService.html#a246e823ecc0b29e83e0a996305b54b56">AssetRenameService::ExecuteRename</a></div><div class="ttdeci">static bool ExecuteRename(const RenamePlan &amp;plan, bool updateReferences, std::string *outError=nullptr)</div><div class="ttdef"><b>Definition</b> AssetRenameService.cpp:239</div></div>
+<div class="ttc" id="aclassAssetRenameService_html_a664b58bb041aa230a42dc04e37d717be"><div class="ttname"><a href="classAssetRenameService.html#a664b58bb041aa230a42dc04e37d717be">AssetRenameService::AnalyzeRename</a></div><div class="ttdeci">static RenamePlan AnalyzeRename(const std::string &amp;oldPath, const std::string &amp;requestedNewName)</div><div class="ttdef"><b>Definition</b> AssetRenameService.cpp:52</div></div>
+<div class="ttc" id="aclassAssetRenameService_html_a6f18f57835e71adc9c28d4a9fc7fc2ec"><div class="ttname"><a href="classAssetRenameService.html#a6f18f57835e71adc9c28d4a9fc7fc2ec">AssetRenameService::ScanForReferences</a></div><div class="ttdeci">static void ScanForReferences(const RenamePlan &amp;plan, std::vector&lt; RenameReferenceHit &gt; &amp;outHits)</div><div class="ttdef"><b>Definition</b> AssetRenameService.cpp:168</div></div>
+<div class="ttc" id="aclassAssetRenameService_html_a77bf91fd2abdaf76415d9c7a49c06dcf"><div class="ttname"><a href="classAssetRenameService.html#a77bf91fd2abdaf76415d9c7a49c06dcf">AssetRenameService::ReplaceReferencesInContent</a></div><div class="ttdeci">static int ReplaceReferencesInContent(std::string &amp;content, const RenamePlan &amp;plan)</div><div class="ttdef"><b>Definition</b> AssetRenameService.cpp:204</div></div>
+<div class="ttc" id="astructRenamePlan_html"><div class="ttname"><a href="structRenamePlan.html">RenamePlan</a></div><div class="ttdef"><b>Definition</b> AssetRenameService.h:12</div></div>
+<div class="ttc" id="astructRenamePlan_html_a0400b8af7fb41970c79ca720253de40e"><div class="ttname"><a href="structRenamePlan.html#a0400b8af7fb41970c79ca720253de40e">RenamePlan::newName</a></div><div class="ttdeci">std::string newName</div><div class="ttdef"><b>Definition</b> AssetRenameService.h:16</div></div>
+<div class="ttc" id="astructRenamePlan_html_a0ac2287b6a8f4dff22b99ea09a058de1"><div class="ttname"><a href="structRenamePlan.html#a0ac2287b6a8f4dff22b99ea09a058de1">RenamePlan::hits</a></div><div class="ttdeci">std::vector&lt; RenameReferenceHit &gt; hits</div><div class="ttdef"><b>Definition</b> AssetRenameService.h:23</div></div>
+<div class="ttc" id="astructRenamePlan_html_a131a6b49107e10f83106da0d695ffcc2"><div class="ttname"><a href="structRenamePlan.html#a131a6b49107e10f83106da0d695ffcc2">RenamePlan::isValid</a></div><div class="ttdeci">bool isValid</div><div class="ttdef"><b>Definition</b> AssetRenameService.h:26</div></div>
+<div class="ttc" id="astructRenamePlan_html_a2d3f123508f403bab6d00f6d75ad9c70"><div class="ttname"><a href="structRenamePlan.html#a2d3f123508f403bab6d00f6d75ad9c70">RenamePlan::oldName</a></div><div class="ttdeci">std::string oldName</div><div class="ttdef"><b>Definition</b> AssetRenameService.h:15</div></div>
+<div class="ttc" id="astructRenamePlan_html_a35fcb533c78d9d243a61bfbaf25c2f01"><div class="ttname"><a href="structRenamePlan.html#a35fcb533c78d9d243a61bfbaf25c2f01">RenamePlan::isScene</a></div><div class="ttdeci">bool isScene</div><div class="ttdef"><b>Definition</b> AssetRenameService.h:21</div></div>
+<div class="ttc" id="astructRenamePlan_html_a3d4358a026fe86be7d9d60115734fd4f"><div class="ttname"><a href="structRenamePlan.html#a3d4358a026fe86be7d9d60115734fd4f">RenamePlan::isDirectory</a></div><div class="ttdeci">bool isDirectory</div><div class="ttdef"><b>Definition</b> AssetRenameService.h:19</div></div>
+<div class="ttc" id="astructRenamePlan_html_a4514e0aec52fffce48d1a22945e27faa"><div class="ttname"><a href="structRenamePlan.html#a4514e0aec52fffce48d1a22945e27faa">RenamePlan::newFileName</a></div><div class="ttdeci">std::string newFileName</div><div class="ttdef"><b>Definition</b> AssetRenameService.h:18</div></div>
+<div class="ttc" id="astructRenamePlan_html_a4f5a17ca406bb0c6e62816de546996bb"><div class="ttname"><a href="structRenamePlan.html#a4f5a17ca406bb0c6e62816de546996bb">RenamePlan::oldPath</a></div><div class="ttdeci">std::string oldPath</div><div class="ttdef"><b>Definition</b> AssetRenameService.h:13</div></div>
+<div class="ttc" id="astructRenamePlan_html_a5411868d2643f666d2bd41a1b7bac19d"><div class="ttname"><a href="structRenamePlan.html#a5411868d2643f666d2bd41a1b7bac19d">RenamePlan::errorMessage</a></div><div class="ttdeci">std::string errorMessage</div><div class="ttdef"><b>Definition</b> AssetRenameService.h:27</div></div>
+<div class="ttc" id="astructRenamePlan_html_a90ce5c60afccc67650fd09517b65235f"><div class="ttname"><a href="structRenamePlan.html#a90ce5c60afccc67650fd09517b65235f">RenamePlan::oldFileName</a></div><div class="ttdeci">std::string oldFileName</div><div class="ttdef"><b>Definition</b> AssetRenameService.h:17</div></div>
+<div class="ttc" id="astructRenamePlan_html_a998a8c5d636e05be96984abe4daa0083"><div class="ttname"><a href="structRenamePlan.html#a998a8c5d636e05be96984abe4daa0083">RenamePlan::newPath</a></div><div class="ttdeci">std::string newPath</div><div class="ttdef"><b>Definition</b> AssetRenameService.h:14</div></div>
+<div class="ttc" id="astructRenamePlan_html_ae978d116460990a5717d4f4d653e83cf"><div class="ttname"><a href="structRenamePlan.html#ae978d116460990a5717d4f4d653e83cf">RenamePlan::totalOccurrences</a></div><div class="ttdeci">int totalOccurrences</div><div class="ttdef"><b>Definition</b> AssetRenameService.h:24</div></div>
+<div class="ttc" id="astructRenamePlan_html_afde274c5013167c5a7c429742d4babe8"><div class="ttname"><a href="structRenamePlan.html#afde274c5013167c5a7c429742d4babe8">RenamePlan::isPrefab</a></div><div class="ttdeci">bool isPrefab</div><div class="ttdef"><b>Definition</b> AssetRenameService.h:20</div></div>
+<div class="ttc" id="astructRenameReferenceHit_html"><div class="ttname"><a href="structRenameReferenceHit.html">RenameReferenceHit</a></div><div class="ttdef"><b>Definition</b> AssetRenameService.h:6</div></div>
+<div class="ttc" id="astructRenameReferenceHit_html_a18fa95b011bef9dd1e676a5baa6ee6a0"><div class="ttname"><a href="structRenameReferenceHit.html#a18fa95b011bef9dd1e676a5baa6ee6a0">RenameReferenceHit::filePath</a></div><div class="ttdeci">std::string filePath</div><div class="ttdef"><b>Definition</b> AssetRenameService.h:7</div></div>
+<div class="ttc" id="astructRenameReferenceHit_html_a66954792deb08de040fde2d8e884ce1f"><div class="ttname"><a href="structRenameReferenceHit.html#a66954792deb08de040fde2d8e884ce1f">RenameReferenceHit::occurrences</a></div><div class="ttdeci">int occurrences</div><div class="ttdef"><b>Definition</b> AssetRenameService.h:8</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_74389ed8173ad57b461b9d623a1f3867.html">Source</a></li><li class="navelem"><a href="dir_b26507eead720464ba2ac6bbc6dcec5f.html">Editor</a></li><li class="navelem"><a href="AssetRenameService_8h.html">AssetRenameService.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

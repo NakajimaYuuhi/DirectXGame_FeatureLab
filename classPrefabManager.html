@@ -107,6 +107,8 @@ $(function(){initNavTree('classPrefabManager.html','','classPrefabManager-member
 <tr class="memitem:a4639c94285276a067b4518d04e3623b6" id="r_a4639c94285276a067b4518d04e3623b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4639c94285276a067b4518d04e3623b6">InstantiateFromJSON</a> (const std::string &amp;jsonPath, const std::string &amp;instanceName=&quot;&quot;)</td></tr>
 <tr class="memitem:a75b5183589dab3d0171926163d1d531a" id="r_a75b5183589dab3d0171926163d1d531a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75b5183589dab3d0171926163d1d531a">RegisterPrefabJSON</a> (const std::string &amp;typeName, const std::string &amp;jsonPath)</td></tr>
 <tr class="memitem:aa00d4844a1bae29d0f8f4e2506849843" id="r_aa00d4844a1bae29d0f8f4e2506849843"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa00d4844a1bae29d0f8f4e2506849843">RegisterPrefabsInDirectory</a> (const std::string &amp;directoryPath)</td></tr>
+<tr class="memitem:a94b4c389001429ab31f54679a80d4f93" id="r_a94b4c389001429ab31f54679a80d4f93"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94b4c389001429ab31f54679a80d4f93">ResolvePrefabPath</a> (const std::string &amp;typeName) const</td></tr>
+<tr class="memitem:a581a2dabe2ff9e1085a1cfb19cbabe1c" id="r_a581a2dabe2ff9e1085a1cfb19cbabe1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a581a2dabe2ff9e1085a1cfb19cbabe1c">OnAssetRenamed</a> (const std::string &amp;oldPath, const std::string &amp;newPath)</td></tr>
 <tr class="memitem:a3d6cdaea5676f78883a230e653a7ef01" id="r_a3d6cdaea5676f78883a230e653a7ef01"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d6cdaea5676f78883a230e653a7ef01">HasPrefab</a> (const std::string &amp;typeName) const</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
@@ -123,6 +125,7 @@ $(function(){initNavTree('classPrefabManager.html','','classPrefabManager-member
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 非公開変数類</h2></td></tr>
 <tr class="memitem:a6bacacf4718aa76aa25da68ef485c21f" id="r_a6bacacf4718aa76aa25da68ef485c21f"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, <a class="el" href="#af8a8af85f6bcb600bbbedb4a10b025d1">PrefabFactory</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6bacacf4718aa76aa25da68ef485c21f">m_registry</a></td></tr>
+<tr class="memitem:a85b1eaa9df61369b557e6ed98bbf3a06" id="r_a85b1eaa9df61369b557e6ed98bbf3a06"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85b1eaa9df61369b557e6ed98bbf3a06">m_prefabNameToPath</a></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">型定義メンバ詳解</h2>
 <a id="af8a8af85f6bcb600bbbedb4a10b025d1" name="af8a8af85f6bcb600bbbedb4a10b025d1"></a>
@@ -372,6 +375,37 @@ $(function(){initNavTree('classPrefabManager.html','','classPrefabManager-member
 
 </div>
 </div>
+<a id="a581a2dabe2ff9e1085a1cfb19cbabe1c" name="a581a2dabe2ff9e1085a1cfb19cbabe1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a581a2dabe2ff9e1085a1cfb19cbabe1c">&#9670;&#160;</a></span>OnAssetRenamed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PrefabManager::OnAssetRenamed </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>oldPath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>newPath</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classPrefabManager_a581a2dabe2ff9e1085a1cfb19cbabe1c_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classPrefabManager_a581a2dabe2ff9e1085a1cfb19cbabe1c_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
 <a id="a88ae45c795ca46f303e5aafdab4fd617" name="a88ae45c795ca46f303e5aafdab4fd617"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a88ae45c795ca46f303e5aafdab4fd617">&#9670;&#160;</a></span>operator=()</h2>
 
@@ -486,7 +520,51 @@ $(function(){initNavTree('classPrefabManager.html','','classPrefabManager-member
 
 </div>
 </div>
+<a id="a94b4c389001429ab31f54679a80d4f93" name="a94b4c389001429ab31f54679a80d4f93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94b4c389001429ab31f54679a80d4f93">&#9670;&#160;</a></span>ResolvePrefabPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string PrefabManager::ResolvePrefabPath </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>typeName</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classPrefabManager_a94b4c389001429ab31f54679a80d4f93_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">メンバ詳解</h2>
+<a id="a85b1eaa9df61369b557e6ed98bbf3a06" name="a85b1eaa9df61369b557e6ed98bbf3a06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85b1eaa9df61369b557e6ed98bbf3a06">&#9670;&#160;</a></span>m_prefabNameToPath</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::string, std::string&gt; PrefabManager::m_prefabNameToPath</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a6bacacf4718aa76aa25da68ef485c21f" name="a6bacacf4718aa76aa25da68ef485c21f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6bacacf4718aa76aa25da68ef485c21f">&#9670;&#160;</a></span>m_registry</h2>
 

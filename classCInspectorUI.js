@@ -18,6 +18,7 @@ var classCInspectorUI =
     [ "IsEditMode", "classCInspectorUI.html#af76651761f17afdb470786d2cbaa3b07", null ],
     [ "IsPaused", "classCInspectorUI.html#a43fc4c1121b7092a2ac3cf1094a5e56d", null ],
     [ "IsPrefabEditMode", "classCInspectorUI.html#a70e3b8ae5f6141df0238761bca8c9c9c", null ],
+    [ "OnAssetRenamed", "classCInspectorUI.html#ae9a1732e46f0dee982924ab036f32980", null ],
     [ "OpenPrefabEditMode", "classCInspectorUI.html#afbf9e781731aa2f68cb1a73549616780", null ],
     [ "operator=", "classCInspectorUI.html#a5e3fa7faed8724dd5271568c4de02da0", null ],
     [ "SaveCurrentPrefab", "classCInspectorUI.html#ac707ab3cad0d06aecf856e43f30ba4b4", null ],

@@ -9,7 +9,9 @@ var hierarchy =
     [ "tinygltf::AnimationSampler", "structtinygltf_1_1AnimationSampler.html", null ],
     [ "AnimationSamplerData", "structAnimationSamplerData.html", null ],
     [ "tinygltf::Asset", "structtinygltf_1_1Asset.html", null ],
+    [ "CContentDrawerUI::AssetEntry", "structCContentDrawerUI_1_1AssetEntry.html", null ],
     [ "AssetSecurity::AssetFileHeader", "structAssetSecurity_1_1AssetFileHeader.html", null ],
+    [ "AssetRenameService", "classAssetRenameService.html", null ],
     [ "tinygltf::AudioEmitter", "structtinygltf_1_1AudioEmitter.html", null ],
     [ "tinygltf::AudioSource", "structtinygltf_1_1AudioSource.html", null ],
     [ "B1", null, [
@@ -84,11 +86,7 @@ var hierarchy =
     [ "nlohmann::detail::container_input_adapter_factory_impl::container_input_adapter_factory&lt; ContainerType, void_t&lt; decltype(begin(std::declval&lt; ContainerType &gt;()), end(std::declval&lt; ContainerType &gt;()))&gt; &gt;", "structnlohmann_1_1detail_1_1container__input__adapter__factory__impl_1_1container__input__adapte602516bdb0b70b8ee5c6d4ff825368be.html", null ],
     [ "CProfilerUI", "classCProfilerUI.html", null ],
     [ "CScene", "classCScene.html", [
-      [ "CSceneTest", "classCSceneTest.html", null ],
-      [ "SceneClear", "classSceneClear.html", null ],
-      [ "SceneFade", "classSceneFade.html", null ],
-      [ "SceneFailed", "classSceneFailed.html", null ],
-      [ "SceneTitle", "classSceneTitle.html", null ]
+      [ "SceneFade", "classSceneFade.html", null ]
     ] ],
     [ "CTexture", "classCTexture.html", null ],
     [ "CTween", "classCTween.html", [
@@ -471,7 +469,6 @@ var hierarchy =
     [ "PointLightGPUData", "structPointLightGPUData.html", null ],
     [ "nlohmann::detail::position_t", "structnlohmann_1_1detail_1_1position__t.html", null ],
     [ "tinygltf::PositionalEmitter", "structtinygltf_1_1PositionalEmitter.html", null ],
-    [ "CContentDrawerUI::PrefabItem", "structCContentDrawerUI_1_1PrefabItem.html", null ],
     [ "PrefabManager", "classPrefabManager.html", null ],
     [ "PrefabSerializer", "classPrefabSerializer.html", null ],
     [ "tinygltf::Primitive", "structtinygltf_1_1Primitive.html", null ],
@@ -486,6 +483,8 @@ var hierarchy =
     [ "Ray", "structRay.html", null ],
     [ "ReflectedCBuffer", "structReflectedCBuffer.html", null ],
     [ "ReflectedVariable", "structReflectedVariable.html", null ],
+    [ "RenamePlan", "structRenamePlan.html", null ],
+    [ "RenameReferenceHit", "structRenameReferenceHit.html", null ],
     [ "RenderBlackboard", "classRenderBlackboard.html", null ],
     [ "RenderContext", "structRenderContext.html", null ],
     [ "RenderPipeline", "classRenderPipeline.html", null ],
