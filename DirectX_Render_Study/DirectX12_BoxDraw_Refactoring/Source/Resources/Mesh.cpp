@@ -169,7 +169,11 @@ void CMesh::Draw(CTransform* transform, CMaterial* material, BlendMode blendMode
 
     // --定数バッファ用のチE?EタにセチE??する
     
-    ID3D12PipelineState* pso = PSOManager::GetInstance().GetPSO(material, PSOManager::GetInstance().GetMeshRootSignature());
+    ID3D12PipelineState* pso = PSOManager::GetInstance().GetActiveOverridePSO();
+    if (!pso)
+    {
+        pso = PSOManager::GetInstance().GetPSO(material, PSOManager::GetInstance().GetMeshRootSignature());
+    }
     if (pso) 
     { 
         commandList->SetPipelineState(pso); 

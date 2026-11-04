@@ -6,9 +6,10 @@ void GBuffer::Init(ID3D12Device* pDevice, UINT width, UINT height)
     m_height = height;
 
     // Clear colors
-    const float clearAlbedo[4]   = { 0.0f, 0.0f, 0.0f, 1.0f };
+    const float clearAlbedo[4]   = { 0.0f, 0.0f, 0.0f, 0.0f };
     const float clearNormal[4]   = { 0.0f, 0.0f, 0.0f, 0.0f };
     const float clearMaterial[4] = { 0.0f, 1.0f, 1.0f, 0.0f }; // Metallic 0, Roughness 1, AO 1, Emissive 0
+    const float clearPosition[4] = { 0.0f, 0.0f, 0.0f, 0.0f }; // WorldPos 0, HasGeometry 0
 
     // 0: Albedo (R8G8B8A8_UNORM)
     m_targets[ALBEDO] = std::make_unique<RenderTexture>(
@@ -23,6 +24,11 @@ void GBuffer::Init(ID3D12Device* pDevice, UINT width, UINT height)
     // 2: Material Parameters (R8G8B8A8_UNORM)
     m_targets[MATERIAL] = std::make_unique<RenderTexture>(
         pDevice, width, height, DXGI_FORMAT_R8G8B8A8_UNORM, clearMaterial, false
+    );
+
+    // 3: World Position (R32G32B32A32_FLOAT)
+    m_targets[POSITION] = std::make_unique<RenderTexture>(
+        pDevice, width, height, DXGI_FORMAT_R32G32B32A32_FLOAT, clearPosition, false
     );
 }
 

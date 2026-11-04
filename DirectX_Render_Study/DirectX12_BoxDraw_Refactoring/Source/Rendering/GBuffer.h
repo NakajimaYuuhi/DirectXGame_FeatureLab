@@ -8,9 +8,10 @@
 // =========================================================================
 // GBuffer
 // Manages Multi-Render-Target (MRT) textures for Deferred Rendering:
-// - RT0: Albedo (RGB) + Material ID / Specular (A)   [R8G8B8A8_UNORM]
+// - RT0: Albedo (RGB) + Specular / Flags (A)         [R8G8B8A8_UNORM]
 // - RT1: World Normal (RGB) + Roughness (A)          [R16G16B16A16_FLOAT]
 // - RT2: Metallic (R) + AO (G) + Emissive (B)        [R8G8B8A8_UNORM]
+// - RT3: World Position (RGB) + HasGeometry (A)      [R32G32B32A32_FLOAT]
 // =========================================================================
 class GBuffer
 {
@@ -20,7 +21,8 @@ public:
         ALBEDO = 0,
         NORMAL = 1,
         MATERIAL = 2,
-        COUNT = 3
+        POSITION = 3,
+        COUNT = 4
     };
 
     GBuffer() = default;

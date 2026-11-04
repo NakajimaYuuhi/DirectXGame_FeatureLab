@@ -44,6 +44,11 @@ public:
     ID3D12RootSignature* GetSpriteRootSignature() const { return m_spriteRootSignature.Get(); }
     ID3D12PipelineState* GetSpritePSO() const { return m_spritePipelineState.Get(); }
 
+    ID3D12PipelineState* GetGBufferPSO() const { return m_gbufferPipelineState.Get(); }
+
+    void SetActiveOverridePSO(ID3D12PipelineState* pso) { m_activeOverridePSO = pso; }
+    ID3D12PipelineState* GetActiveOverridePSO() const { return m_activeOverridePSO; }
+
     D3D12_GPU_DESCRIPTOR_HANDLE GetDummyBoneSRV() const { return m_dummyBoneSrvGpuHandle; }
 
 private:
@@ -61,6 +66,9 @@ private:
 
     ComPtr<ID3D12RootSignature> m_spriteRootSignature;
     ComPtr<ID3D12PipelineState> m_spritePipelineState;
+
+    ComPtr<ID3D12PipelineState> m_gbufferPipelineState;
+    ID3D12PipelineState* m_activeOverridePSO = nullptr;
 
     ComPtr<ID3D12Resource> m_dummyBoneBuffer;
     D3D12_CPU_DESCRIPTOR_HANDLE m_dummyBoneSrvCpuHandle{};

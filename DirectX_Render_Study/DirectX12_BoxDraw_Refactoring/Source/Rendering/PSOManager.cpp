@@ -142,6 +142,49 @@ void PSOManager::Init(ID3D12Device* device)
     }
 
     // ----- 繧ｷ繝｣繝峨え逕ｨ PSO (豺ｱ蠎ｦ縺ｮ縺ｿ謠冗判) -----
+    // ----- GBuffer用 PSO (MRT 4ターゲット) -----
+    auto gbufferVS = ShaderManager::GetInstance().GetShader(L"Assets/Shader/GBuffer.hlsl", "VSMain", "vs_5_0");
+    auto gbufferPS = ShaderManager::GetInstance().GetShader(L"Assets/Shader/GBuffer.hlsl", "PSMain", "ps_5_0");
+    if (gbufferVS && gbufferPS)
+    {
+        DXGI_FORMAT gbufferRtvFormats[4] = {
+            DXGI_FORMAT_R8G8B8A8_UNORM,     // RT0: Albedo
+            DXGI_FORMAT_R16G16B16A16_FLOAT, // RT1: Normal
+            DXGI_FORMAT_R8G8B8A8_UNORM,     // RT2: Material
+            DXGI_FORMAT_R32G32B32A32_FLOAT  // RT3: WorldPos
+        };
+
+        D3D12_RASTERIZER_DESC rasterDesc = {};
+        rasterDesc.FillMode = D3D12_FILL_MODE_SOLID;
+        rasterDesc.CullMode = D3D12_CULL_MODE_BACK;
+        rasterDesc.FrontCounterClockwise = FALSE;
+        rasterDesc.DepthClipEnable = TRUE;
+
+        D3D12_DEPTH_STENCIL_DESC depthDesc = {};
+        depthDesc.DepthEnable = TRUE;
+        depthDesc.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ALL;
+        depthDesc.DepthFunc = D3D12_COMPARISON_FUNC_LESS;
+
+        D3D12_BLEND_DESC blendDesc = {};
+        for (int i = 0; i < 4; ++i)
+        {
+            blendDesc.RenderTarget[i].BlendEnable = FALSE;
+            blendDesc.RenderTarget[i].RenderTargetWriteMask = D3D12_COLOR_WRITE_ENABLE_ALL;
+        }
+
+        PSOBuilder psoBuilder;
+        psoBuilder.SetRootSignature(m_meshRootSignature.Get())
+                  .SetInputLayout(inputLayout, _countof(inputLayout))
+                  .SetShaders(gbufferVS->GetBytecode(), gbufferPS->GetBytecode())
+                  .SetPrimitiveTopologyType(D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE)
+                  .SetRenderTargetFormats(4, gbufferRtvFormats, DXGI_FORMAT_D32_FLOAT)
+                  .SetRasterizerState(rasterDesc)
+                  .SetDepthStencilState(depthDesc)
+                  .SetBlendState(blendDesc);
+
+        psoBuilder.Build(device, &m_gbufferPipelineState);
+    }
+
     auto shadowVertexShader = ShaderManager::GetInstance().GetShader(L"Assets/Shader/ShadowMap.hlsl", "VSMain", "vs_5_0");
     if (shadowVertexShader)
     {
@@ -213,7 +256,7 @@ void PSOManager::Init(ID3D12Device* device)
         psoBuilder.Build(device, &m_spritePipelineState);
     }
 
-    // ----- 繝繝溘・繝懊・繝ｳ繝舌ャ繝輔ぃ・医・繝ｼ繝ｳ繧呈戟縺溘↑縺・Γ繝・す繝･縺ｮ螳牙・蟇ｾ遲厄ｼ・-----
+    // ----- 繝繝溘・繝懊・繝ｳ繝舌ャ繝輔ぃ・医・繝ｼ繝ｳ繧呈戟縺溘↑縺・Γ繝・す繝･縺ｮ螳牙・蟇ｾ遲厄ｼ・-----
     {
         D3D12_HEAP_PROPERTIES heapProp = {};
         heapProp.Type = D3D12_HEAP_TYPE_UPLOAD;
@@ -500,6 +543,49 @@ bool PSOManager::RebuildPSOs(ID3D12Device* device, std::string* outError)
                   .SetBlendState(blendDesc)
                   .SetDepthStencilState(depthDesc);
         addBuilder.Build(device, &m_additivePipelineState);
+    }
+
+    // ----- GBuffer用 PSO 再構築 -----
+    auto gbufferVS = ShaderManager::GetInstance().GetShader(L"Assets/Shader/GBuffer.hlsl", "VSMain", "vs_5_0");
+    auto gbufferPS = ShaderManager::GetInstance().GetShader(L"Assets/Shader/GBuffer.hlsl", "PSMain", "ps_5_0");
+    if (gbufferVS && gbufferPS && m_meshRootSignature)
+    {
+        DXGI_FORMAT gbufferRtvFormats[4] = {
+            DXGI_FORMAT_R8G8B8A8_UNORM,
+            DXGI_FORMAT_R16G16B16A16_FLOAT,
+            DXGI_FORMAT_R8G8B8A8_UNORM,
+            DXGI_FORMAT_R32G32B32A32_FLOAT
+        };
+
+        D3D12_RASTERIZER_DESC rasterDesc = {};
+        rasterDesc.FillMode = D3D12_FILL_MODE_SOLID;
+        rasterDesc.CullMode = D3D12_CULL_MODE_BACK;
+        rasterDesc.FrontCounterClockwise = FALSE;
+        rasterDesc.DepthClipEnable = TRUE;
+
+        D3D12_DEPTH_STENCIL_DESC depthDesc = {};
+        depthDesc.DepthEnable = TRUE;
+        depthDesc.DepthWriteMask = D3D12_DEPTH_WRITE_MASK_ALL;
+        depthDesc.DepthFunc = D3D12_COMPARISON_FUNC_LESS;
+
+        D3D12_BLEND_DESC blendDesc = {};
+        for (int i = 0; i < 4; ++i)
+        {
+            blendDesc.RenderTarget[i].BlendEnable = FALSE;
+            blendDesc.RenderTarget[i].RenderTargetWriteMask = D3D12_COLOR_WRITE_ENABLE_ALL;
+        }
+
+        PSOBuilder psoBuilder;
+        psoBuilder.SetRootSignature(m_meshRootSignature.Get())
+                  .SetInputLayout(inputLayout, _countof(inputLayout))
+                  .SetShaders(gbufferVS->GetBytecode(), gbufferPS->GetBytecode())
+                  .SetPrimitiveTopologyType(D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE)
+                  .SetRenderTargetFormats(4, gbufferRtvFormats, DXGI_FORMAT_D32_FLOAT)
+                  .SetRasterizerState(rasterDesc)
+                  .SetDepthStencilState(depthDesc)
+                  .SetBlendState(blendDesc);
+
+        psoBuilder.Build(device, &m_gbufferPipelineState);
     }
 
     auto shadowVertexShader = ShaderManager::GetInstance().GetShader(L"Assets/Shader/ShadowMap.hlsl", "VSMain", "vs_5_0");

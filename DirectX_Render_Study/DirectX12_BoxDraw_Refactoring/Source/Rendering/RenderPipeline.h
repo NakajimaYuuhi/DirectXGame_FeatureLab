@@ -38,6 +38,9 @@ public:
     // Build the simple 4-pass legacy default pipeline
     void SetupSimpleDefaultPipeline(ID3D12Device* pDevice, RenderTexture* pDefaultSceneTex);
 
+    // Build the Deferred Rendering pipeline (GBuffer -> Deferred Lighting -> Forward Transparent/UI -> PostProcess)
+    void SetupDeferredPipeline(ID3D12Device* pDevice, RenderTexture* pDefaultSceneTex);
+
     // Save / Load pipeline configuration to/from JSON file
     bool SaveToJson(const std::string& filePath) const;
     bool LoadFromJson(const std::string& filePath, ID3D12Device* pDevice, RenderTexture* pDefaultSceneTex);

@@ -1,0 +1,124 @@
+{
+    "blackboardTextures": [
+        {
+            "allowUAV": false,
+            "clearColor": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "height": 1080,
+            "name": "SceneColor",
+            "width": 1920
+        }
+    ],
+    "globalPostProcess": {
+        "bloomEnabled": true,
+        "bloomIntensity": 1.0,
+        "bloomSpread": 1.0,
+        "bloomThreshold": 0.8,
+        "chromaticAberrationEnabled": false,
+        "chromaticAberrationIntensity": 0.004,
+        "effectType": 0,
+        "exposure": 1.0,
+        "orthoSize": 25.0,
+        "outlineEnabled": false,
+        "outlineIntensity": 1.0,
+        "outlineThreshold": 0.08,
+        "outlineWidth": 0.5,
+        "shadowBias": 0.00025,
+        "shadowDarkness": 0.35,
+        "shadowEnabled": true,
+        "toneMapType": 0
+    },
+    "passes": [
+        {
+            "depthBias": 500,
+            "enabled": true,
+            "input": "",
+            "output": "",
+            "shaderPath": "",
+            "slopeScaledBias": 1.5,
+            "type": "ShadowMapPass",
+            "vsEntry": "VSMain"
+        },
+        {
+            "clearDepth": true,
+            "customName": "GBuffer Pass (Opaque Geometry)",
+            "enabled": true,
+            "filterPreset": 0,
+            "input": "",
+            "layerFilter": 0,
+            "output": "GBuffer_Albedo",
+            "tagMask": 4294967295,
+            "type": "GBufferPass"
+        },
+        {
+            "clearColor": true,
+            "customName": "Deferred Lighting (PBR & Shadows)",
+            "enabled": true,
+            "input": "",
+            "output": "SceneColor",
+            "type": "DeferredLightingPass"
+        },
+        {
+            "clearColor": false,
+            "clearDepth": false,
+            "customName": "Forward Pass (Transparent / UI)",
+            "enabled": true,
+            "filterPreset": 0,
+            "input": "",
+            "layerFilter": 1,
+            "output": "SceneColor",
+            "tagMask": 4294967295,
+            "type": "ForwardRenderPass"
+        },
+        {
+            "clearColor": false,
+            "customName": "GPU Particle Pass",
+            "enabled": true,
+            "input": "",
+            "output": "SceneColor",
+            "type": "GPUParticlePass"
+        },
+        {
+            "customName": "PostProcess (Final Color)",
+            "enabled": true,
+            "input": "SceneColor",
+            "output": "FinalColor",
+            "settings": {
+                "bloomEnabled": true,
+                "bloomIntensity": 1.0,
+                "bloomSpread": 1.0,
+                "bloomThreshold": 0.8,
+                "chromaticAberrationEnabled": false,
+                "chromaticAberrationIntensity": 0.004,
+                "effectType": 0,
+                "exposure": 1.0,
+                "fade": 0.0,
+                "fadeColor": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "outlineColor": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "outlineEnabled": false,
+                "outlineIntensity": 1.0,
+                "outlineThreshold": 0.08,
+                "outlineWidth": 0.5,
+                "outputToBackBuffer": true,
+                "preserveAlpha": false,
+                "toneMapType": 0,
+                "useCustomSettings": true
+            },
+            "shaderPath": "",
+            "type": "PostProcessPass"
+        }
+    ],
+    "previewTexture": ""
+}

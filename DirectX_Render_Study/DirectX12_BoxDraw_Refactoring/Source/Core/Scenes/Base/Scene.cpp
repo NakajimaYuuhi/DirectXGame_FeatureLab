@@ -413,8 +413,20 @@ void CScene::Init()
 
     m_renderPipeline = std::make_unique<RenderPipeline>();
 
+    bool isDeferredScene = (m_Name.find("Deferred") != std::string::npos || m_jsonPath.find("Deferred") != std::string::npos);
     bool isPureUIScene = (!has3DContent) && (id == Scenes::ID::TITLE || id == Scenes::ID::Clear || id == Scenes::ID::Failed || m_Name == "SceneTitle" || m_Name == "SceneClear" || m_Name == "SceneFailed");
-    if (isPureUIScene)
+
+    if (isDeferredScene)
+    {
+        const std::string deferredPipelineJsonPath = "Assets/Pipeline/DeferredPipeline.json";
+        if (!fs::exists(deferredPipelineJsonPath) ||
+            !m_renderPipeline->LoadFromJson(deferredPipelineJsonPath, pDevice, m_pSceneTexture.get()))
+        {
+            m_renderPipeline->SetupDeferredPipeline(pDevice, m_pSceneTexture.get());
+            m_renderPipeline->SaveToJson(deferredPipelineJsonPath);
+        }
+    }
+    else if (isPureUIScene)
     {
         m_renderPipeline->GetBlackboard().RegisterTextureRef("SceneColor", m_pSceneTexture.get());
         m_renderPipeline->AddPass(std::make_unique<ForwardRenderPass>(m_pSceneTexture.get()));

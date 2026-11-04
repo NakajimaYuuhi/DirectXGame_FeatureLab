@@ -5,6 +5,8 @@
 #include "PostProcessPass.h"
 #include "SampleComputePass.h"
 #include "CompositePass.h"
+#include "GBufferPass.h"
+#include "DeferredLightingPass.h" 
 #include "RenderLayer.h"
 #include "ViewportUI.h"
 #include "BasicSettings.h"
@@ -136,6 +138,65 @@ void RenderPipeline::SetupSimpleDefaultPipeline(ID3D12Device* pDevice, RenderTex
     auto cs = std::make_unique<SampleComputePass>();
     cs->SetEnabled(false);
     AddPass(std::move(cs), pDevice);
+}
+
+void RenderPipeline::SetupDeferredPipeline(ID3D12Device* pDevice, RenderTexture* pDefaultSceneTex)
+{
+    ClearPasses();
+
+    if (pDefaultSceneTex) {
+        m_blackboard.RegisterTextureRef("SceneColor", pDefaultSceneTex);
+    }
+
+    // 1. Shadow Map Pass
+    AddPass(std::make_unique<ShadowMapPass>(), pDevice);
+
+    // 2. GBuffer Pass (MRT: Albedo, Normal, Material, WorldPos)
+    auto gbufferPass = std::make_unique<GBufferPass>();
+    gbufferPass->SetCustomName("GBuffer Pass (Opaque Geometry)");
+    gbufferPass->SetLayerFilter(static_cast<int>(RenderLayer::Opaque));
+    gbufferPass->SetFilterPreset(GBufferPass::ObjectFilterPreset::All);
+    gbufferPass->SetClearDepthEnabled(true);
+    AddPass(std::move(gbufferPass), pDevice);
+
+    // 3. Deferred Lighting Pass (Evaluates lights & shadows -> SceneColor)
+    auto deferredLightingPass = std::make_unique<DeferredLightingPass>(pDefaultSceneTex);
+    deferredLightingPass->SetCustomName("Deferred Lighting (PBR & Shadows)");
+    deferredLightingPass->SetOutputResourceName("SceneColor");
+    deferredLightingPass->SetClearColorEnabled(true);
+    AddPass(std::move(deferredLightingPass), pDevice);
+
+    // 4. Forward Pass for Transparent & UI objects (shares depth from mainDSV)
+    auto forwardTransparentPass = std::make_unique<ForwardRenderPass>(pDefaultSceneTex);
+    forwardTransparentPass->SetCustomName("Forward Pass (Transparent / UI)");
+    forwardTransparentPass->SetOutputResourceName("SceneColor");
+    forwardTransparentPass->SetLayerFilter(static_cast<int>(RenderLayer::Transparent));
+    forwardTransparentPass->SetClearColorEnabled(false);
+    forwardTransparentPass->SetClearDepthEnabled(false);
+    AddPass(std::move(forwardTransparentPass), pDevice);
+
+    // 5. GPU Particle Pass
+    auto particlePass = std::make_unique<GPUParticlePass>(pDefaultSceneTex);
+    particlePass->SetCustomName("GPU Particle Pass");
+    particlePass->SetOutputResourceName("SceneColor");
+    particlePass->SetClearColorEnabled(false);
+    AddPass(std::move(particlePass), pDevice);
+
+    // 6. PostProcess Pass (Bloom & Tonemapping -> BackBuffer)
+    auto postProcessPass = std::make_unique<PostProcessPass>(pDefaultSceneTex);
+    postProcessPass->SetCustomName("PostProcess Pass");
+    postProcessPass->SetInputResourceName("SceneColor");
+    postProcessPass->SetOutputResourceName("FinalColor");
+    {
+        auto& s = postProcessPass->GetSettings();
+        s.useCustomSettings = true;
+        s.bloomEnabled = true;
+        s.bloomThreshold = 0.8f;
+        s.bloomIntensity = 1.0f;
+        s.outlineEnabled = false;
+        s.outputToBackBuffer = true;
+    }
+    AddPass(std::move(postProcessPass), pDevice);
 }
 
 void RenderPipeline::SetupCommercialMultiLayerPipeline(ID3D12Device* pDevice, RenderTexture* pDefaultSceneTex)
@@ -395,6 +456,19 @@ bool RenderPipeline::SaveToJson(const std::string& filePath) const
                 sj["outputToBackBuffer"] = s.outputToBackBuffer;
                 pj["settings"] = sj;
             }
+            else if (auto* gb = dynamic_cast<GBufferPass*>(pass.get())) {
+                pj["type"] = "GBufferPass";
+                pj["customName"] = gb->GetCustomName();
+                pj["layerFilter"] = gb->GetLayerFilter();
+                pj["filterPreset"] = static_cast<int>(gb->GetFilterPreset());
+                pj["tagMask"] = gb->GetTagMask();
+                pj["clearDepth"] = gb->IsClearDepthEnabled();
+            }
+            else if (auto* dl = dynamic_cast<DeferredLightingPass*>(pass.get())) {
+                pj["type"] = "DeferredLightingPass";
+                pj["customName"] = dl->GetCustomName();
+                pj["clearColor"] = dl->IsClearColorEnabled();
+            }
             else if (auto* comp = dynamic_cast<CompositePass*>(pass.get())) {
                 pj["type"] = "CompositePass";
                 pj["customName"] = comp->GetCustomName();
@@ -554,6 +628,21 @@ bool RenderPipeline::LoadFromJson(const std::string& filePath, ID3D12Device* pDe
                         s.outputToBackBuffer = sj.value("outputToBackBuffer", true);
                     }
                     pass = std::move(pp);
+                }
+                else if (type == "GBufferPass") {
+                    auto gb = std::make_unique<GBufferPass>();
+                    gb->SetCustomName(pj.value("customName", "GBuffer Pass"));
+                    if (pj.contains("layerFilter")) gb->SetLayerFilter(pj["layerFilter"].get<int>());
+                    if (pj.contains("filterPreset")) gb->SetFilterPreset(static_cast<GBufferPass::ObjectFilterPreset>(pj["filterPreset"].get<int>()));
+                    if (pj.contains("tagMask")) gb->SetTagMask(pj["tagMask"].get<uint32_t>());
+                    if (pj.contains("clearDepth")) gb->SetClearDepthEnabled(pj["clearDepth"].get<bool>());
+                    pass = std::move(gb);
+                }
+                else if (type == "DeferredLightingPass") {
+                    auto dl = std::make_unique<DeferredLightingPass>(pDefaultSceneTex);
+                    dl->SetCustomName(pj.value("customName", "Deferred Lighting Pass"));
+                    if (pj.contains("clearColor")) dl->SetClearColorEnabled(pj["clearColor"].get<bool>());
+                    pass = std::move(dl);
                 }
                 else if (type == "CompositePass") {
                     std::string outName = pj.value("output", "CompositeFinal");

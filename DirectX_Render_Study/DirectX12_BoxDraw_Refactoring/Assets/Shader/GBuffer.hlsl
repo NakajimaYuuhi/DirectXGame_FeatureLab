@@ -3,6 +3,7 @@
 // Target0: Albedo (RGB) + Specular Intensity (A)
 // Target1: World Normal (RGB) + Roughness (A)
 // Target2: Metallic (R) + AO (G) + Emissive (B) + Extra (A)
+// Target3: World Position (RGB) + HasGeometry (A)
 // ==============================================================
 
 cbuffer ObjectBuffer : register(b0)
@@ -63,6 +64,7 @@ struct PSOutput
     float4 gAlbedo   : SV_Target0; // RGB: Albedo, A: Specular/Flags
     float4 gNormal   : SV_Target1; // RGB: World Normal, A: Roughness
     float4 gMaterial : SV_Target2; // R: Metallic, G: AO, B: Emissive, A: Extra
+    float4 gPosition : SV_Target3; // RGB: World Position, A: HasGeometry
 };
 
 VSOutput VSMain(VSInput input)
@@ -112,6 +114,9 @@ PSOutput PSMain(VSOutput input)
 
     // Target2: Metallic (R) + AO (G) + Emissive (B)
     output.gMaterial = float4(matMetallic, 1.0f, 0.0f, 1.0f);
+
+    // Target3: World Position (RGB) + HasGeometry (A)
+    output.gPosition = float4(input.worldPos, 1.0f);
 
     return output;
 }
