@@ -50,6 +50,71 @@ static std::string ToLowerStr(std::string s)
     return s;
 }
 
+static void SplitTextToTwoLines(const std::string& text, float maxWidth, std::string& outLine1, std::string& outLine2)
+{
+    if (text.empty())
+    {
+        outLine1 = "";
+        outLine2 = "";
+        return;
+    }
+
+    if (ImGui::CalcTextSize(text.c_str()).x <= maxWidth)
+    {
+        outLine1 = text;
+        outLine2 = "";
+        return;
+    }
+
+    size_t bestSplit = 0;
+    for (size_t i = 1; i < text.length(); ++i)
+    {
+        std::string sub = text.substr(0, i);
+        if (ImGui::CalcTextSize(sub.c_str()).x > maxWidth)
+        {
+            break;
+        }
+        char prev = text[i - 1];
+        char c = text[i];
+        if (prev == '_' || prev == '-' || prev == ' ' || prev == '.' ||
+            (islower(static_cast<unsigned char>(prev)) && isupper(static_cast<unsigned char>(c))))
+        {
+            bestSplit = i;
+        }
+    }
+
+    if (bestSplit == 0)
+    {
+        for (size_t i = 1; i < text.length(); ++i)
+        {
+            std::string sub = text.substr(0, i);
+            if (ImGui::CalcTextSize(sub.c_str()).x > maxWidth)
+            {
+                bestSplit = (i > 1) ? (i - 1) : 1;
+                break;
+            }
+        }
+        if (bestSplit == 0) bestSplit = text.length();
+    }
+
+    outLine1 = text.substr(0, bestSplit);
+    outLine2 = text.substr(bestSplit);
+
+    while (!outLine2.empty() && outLine2[0] == ' ')
+    {
+        outLine2.erase(0, 1);
+    }
+
+    if (ImGui::CalcTextSize(outLine2.c_str()).x > maxWidth)
+    {
+        while (outLine2.length() > 1 && ImGui::CalcTextSize((outLine2 + "...").c_str()).x > maxWidth)
+        {
+            outLine2.pop_back();
+        }
+        outLine2 += "...";
+    }
+}
+
 static std::wstring Utf8ToWString(const std::string& str)
 {
     if (str.empty()) return L"";
@@ -637,7 +702,7 @@ void CContentDrawerUI::DrawTopNavigationBar()
 
     ImGui::SameLine();
     ImGui::SetNextItemWidth(85.0f);
-    ImGui::SliderFloat("Size", &m_cardWidth, 75.0f, 160.0f, "%.0f");
+    ImGui::SliderFloat("Size", &m_cardWidth, 75.0f, 200.0f, "%.0f");
 
     ImGui::SameLine();
     ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.18f, 0.55f, 0.28f, 1.0f));
@@ -935,8 +1000,9 @@ void CContentDrawerUI::DrawAssetGrid()
             ImGui::TableNextColumn();
             ImGui::PushID(item.path.c_str());
 
-            float iconSize = std::clamp(m_cardWidth * 0.55f, 32.0f, 72.0f);
-            float cardHeight = iconSize + 36.0f;
+            float iconSize = std::clamp(m_cardWidth * 0.46f, 28.0f, 68.0f);
+            float lineHeight = ImGui::GetTextLineHeight();
+            float cardHeight = iconSize + (lineHeight * 2.0f) + 18.0f;
 
             bool isSelected = (m_selectedAssetPath == item.path);
             ImVec4 cardBg = isSelected
@@ -949,7 +1015,8 @@ void CContentDrawerUI::DrawAssetGrid()
             ImGui::PushStyleColor(ImGuiCol_ChildBg, cardBg);
             ImGui::PushStyleColor(ImGuiCol_Border, cardBorder);
             ImGui::PushStyleVar(ImGuiStyleVar_ChildBorderSize, isSelected ? 2.0f : 1.0f);
-            ImGui::PushStyleVar(ImGuiStyleVar_ChildRounding, 4.0f);
+            ImGui::PushStyleVar(ImGuiStyleVar_ChildRounding, 5.0f);
+            ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(4.0f, 3.0f));
             ImGui::BeginChild("AssetCard", ImVec2(m_cardWidth, cardHeight), true, ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
 
             // Detect click / double-click / right-click on the card
@@ -1341,27 +1408,37 @@ void CContentDrawerUI::DrawAssetGrid()
             }
             else
             {
-                std::string dispName = item.fileName;
-                float maxTextWidth = m_cardWidth - 8.0f;
-                if (ImGui::CalcTextSize(dispName.c_str()).x > maxTextWidth)
-                {
-                    while (dispName.length() > 3 && ImGui::CalcTextSize((dispName + "...").c_str()).x > maxTextWidth)
-                    {
-                        dispName.pop_back();
-                    }
-                    dispName += "...";
-                }
-                ImVec2 textSize = ImGui::CalcTextSize(dispName.c_str());
-                float textX = (m_cardWidth - textSize.x) * 0.5f;
-                if (textX > 4.0f) ImGui::SetCursorPosX(textX);
+                float maxTextWidth = m_cardWidth - 6.0f;
+                std::string line1, line2;
+                SplitTextToTwoLines(item.fileName, maxTextWidth, line1, line2);
 
+                // Line 1
+                ImVec2 sz1 = ImGui::CalcTextSize(line1.c_str());
+                float x1 = (m_cardWidth - sz1.x) * 0.5f;
+                if (x1 > 2.0f) ImGui::SetCursorPosX(x1);
                 if (isSelected)
                 {
-                    ImGui::TextColored(ImVec4(1.0f, 0.95f, 0.45f, 1.0f), "%s", dispName.c_str());
+                    ImGui::TextColored(ImVec4(1.0f, 0.95f, 0.45f, 1.0f), "%s", line1.c_str());
                 }
                 else
                 {
-                    ImGui::TextUnformatted(dispName.c_str());
+                    ImGui::TextUnformatted(line1.c_str());
+                }
+
+                // Line 2 (if present)
+                if (!line2.empty())
+                {
+                    ImVec2 sz2 = ImGui::CalcTextSize(line2.c_str());
+                    float x2 = (m_cardWidth - sz2.x) * 0.5f;
+                    if (x2 > 2.0f) ImGui::SetCursorPosX(x2);
+                    if (isSelected)
+                    {
+                        ImGui::TextColored(ImVec4(1.0f, 0.95f, 0.45f, 1.0f), "%s", line2.c_str());
+                    }
+                    else
+                    {
+                        ImGui::TextColored(ImVec4(0.82f, 0.84f, 0.88f, 0.92f), "%s", line2.c_str());
+                    }
                 }
             }
 
@@ -1417,7 +1494,7 @@ void CContentDrawerUI::DrawAssetGrid()
             }
 
             ImGui::EndChild();
-            ImGui::PopStyleVar(2);
+            ImGui::PopStyleVar(3);
             ImGui::PopStyleColor(2);
             ImGui::PopID();
         }

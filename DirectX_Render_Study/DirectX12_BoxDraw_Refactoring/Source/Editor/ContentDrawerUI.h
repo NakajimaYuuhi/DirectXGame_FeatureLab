@@ -106,7 +106,7 @@ private:
 
     char m_searchFilter[128] = "";
     int m_typeFilterIndex = 0; // 0: All, 1: Folder, 2: Scene, 3: Prefab, 4: Shader, 5: Material, 6: Model, 7: Texture, 8: Pipeline, 9: Audio
-    float m_cardWidth = 95.0f;
+    float m_cardWidth = 115.0f;
 
     std::string m_renamingAssetPath;
     char m_renameInputBuf[128] = "";
