@@ -5,6 +5,7 @@
 #include "InspectorUI.h"
 #include "imgui.h"
 #include "PrefabManager.h"
+#include "PrefabSerializer.h"
 #include "ObjectManager.h"
 #include "Transform.h"
 #include "ObjectInfo.h"
@@ -233,6 +234,12 @@ AssetEntryType CContentDrawerUI::ClassifyAsset(const std::string& normalizedPath
 
     if (extLower == ".wav" || extLower == ".mp3" || extLower == ".ogg")
         return AssetEntryType::Audio;
+
+    if (extLower == ".prefab")
+        return AssetEntryType::Prefab;
+
+    if (extLower == ".scene")
+        return AssetEntryType::Scene;
 
     if (extLower == ".json")
     {
@@ -644,6 +651,11 @@ void CContentDrawerUI::DrawTopNavigationBar()
                         CInspectorUI::GetInstance().SetStatusMessage("Cannot move: " + plan.errorMessage, 4.0f);
                     }
                 }
+                if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("HIERARCHY_OBJECT_PTR"))
+                {
+                    CObject* droppedObj = *(CObject**)payload->Data;
+                    CreatePrefabFromObject(droppedObj, crumbs[i].second);
+                }
                 ImGui::EndDragDropTarget();
             }
             if (isLast)
@@ -851,6 +863,11 @@ void CContentDrawerUI::DrawFolderTreeRecursive(const std::string& folderPath)
             {
                 CInspectorUI::GetInstance().SetStatusMessage("Cannot move: " + plan.errorMessage, 4.0f);
             }
+        }
+        if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("HIERARCHY_OBJECT_PTR"))
+        {
+            CObject* droppedObj = *(CObject**)payload->Data;
+            CreatePrefabFromObject(droppedObj, normPath);
         }
         ImGui::EndDragDropTarget();
     }
@@ -1473,6 +1490,11 @@ void CContentDrawerUI::DrawAssetGrid()
                                 CInspectorUI::GetInstance().SetStatusMessage("Cannot move: " + plan.errorMessage, 4.0f);
                             }
                         }
+                        if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("HIERARCHY_OBJECT_PTR"))
+                        {
+                            CObject* droppedObj = *(CObject**)payload->Data;
+                            CreatePrefabFromObject(droppedObj, item.path);
+                        }
                         ImGui::EndDragDropTarget();
                     }
                 }
@@ -1809,6 +1831,17 @@ void CContentDrawerUI::Draw()
             ImGui::BeginChild("AssetGridPane", ImVec2(0, 0), false);
             DrawAssetGrid();
 
+            // Drop target for creating Prefab from Hierarchy object in current directory
+            if (ImGui::BeginDragDropTarget())
+            {
+                if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("HIERARCHY_OBJECT_PTR"))
+                {
+                    CObject* droppedObj = *(CObject**)payload->Data;
+                    CreatePrefabFromObject(droppedObj, m_currentDirectory);
+                }
+                ImGui::EndDragDropTarget();
+            }
+
             // Deselect when clicking on empty background area in the asset grid
             if (ImGui::IsWindowHovered(ImGuiHoveredFlags_RootAndChildWindows) &&
                 ImGui::IsMouseClicked(ImGuiMouseButton_Left) &&
@@ -1895,4 +1928,53 @@ void CContentDrawerUI::OnAssetRestored(const std::string& restoredPath)
 
 	m_selectedAssetPath = norm;
 	m_pendingRefresh = true;
+}
+
+
+void CContentDrawerUI::CreatePrefabFromObject(CObject* obj, const std::string& targetFolder)
+{
+    if (!obj) return;
+
+    std::string objName = obj->GetName();
+    if (objName.empty()) objName = "GameObject";
+
+    std::string safeName = "";
+    for (char c : objName)
+    {
+        if (c == '/' || c == '\\' || c == ':' || c == '*' || c == '?' || c == '"' || c == '<' || c == '>' || c == '|')
+        {
+            safeName += '_';
+        }
+        else
+        {
+            safeName += c;
+        }
+    }
+    if (safeName.empty()) safeName = "Prefab";
+
+    std::string normFolder = NormalizePathSlash(targetFolder);
+    if (normFolder.empty()) normFolder = m_rootDirectory;
+
+    std::string filePath = normFolder + "/" + safeName + ".prefab";
+    int counter = 1;
+    std::error_code ec;
+    while (fs::exists(filePath, ec))
+    {
+        filePath = normFolder + "/" + safeName + "_" + std::to_string(counter++) + ".prefab";
+    }
+
+    if (PrefabSerializer::SavePrefab(filePath, obj))
+    {
+        std::string stemName = fs::path(filePath).stem().string();
+        PrefabManager::GetInstance().RegisterPrefabJSON(stemName, filePath);
+
+        m_selectedAssetPath = filePath;
+        RefreshCurrentDirectory();
+
+        CInspectorUI::GetInstance().SetStatusMessage("Created Prefab: " + fs::path(filePath).filename().string(), 3.5f);
+    }
+    else
+    {
+        CInspectorUI::GetInstance().SetStatusMessage("Failed to save prefab: " + filePath, 4.0f);
+    }
 }

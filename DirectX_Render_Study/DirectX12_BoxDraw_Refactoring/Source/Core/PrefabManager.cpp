@@ -208,9 +208,13 @@ std::string PrefabManager::ResolvePrefabPath(const std::string& typeName) const
 	}
 
 	std::error_code ec;
-	std::string p1 = "Assets/Prefabs/" + typeName + ".json";
+	std::string p1 = "Assets/Prefabs/" + typeName + ".prefab";
 	if (std::filesystem::exists(p1, ec)) return p1;
-	std::string p2 = "Assets/Prefab/" + typeName + ".json";
+	p1 = "Assets/Prefabs/" + typeName + ".json";
+	if (std::filesystem::exists(p1, ec)) return p1;
+	std::string p2 = "Assets/Prefab/" + typeName + ".prefab";
+	if (std::filesystem::exists(p2, ec)) return p2;
+	p2 = "Assets/Prefab/" + typeName + ".json";
 	if (std::filesystem::exists(p2, ec)) return p2;
 
 	return "";
@@ -251,7 +255,7 @@ void PrefabManager::RegisterPrefabsInDirectory(const std::string& directoryPath)
 	std::error_code ec;
 	for (const auto& entry : fs::recursive_directory_iterator(directoryPath, ec))
 	{
-		if (entry.is_regular_file(ec) && entry.path().extension() == ".json")
+		if (entry.is_regular_file(ec) && (entry.path().extension() == ".json" || entry.path().extension() == ".prefab"))
 		{
 			std::string jsonPath = entry.path().string();
 			std::string stemName = entry.path().stem().string();

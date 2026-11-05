@@ -84,6 +84,9 @@ private:
     void DrawAssetGrid();
     void HandleAssetDoubleClick(const AssetEntry& entry);
 
+    // Hierarchy からドラッグ＆ドロップされたオブジェクトをプレハブとして保存
+    void CreatePrefabFromObject(class CObject* obj, const std::string& targetFolder);
+
     ImTextureID GetAssetIconTextureID(AssetEntryType type);
 
     static AssetEntryType ClassifyAsset(const std::string& normalizedPath, bool isDirectory, const std::string& extLower);
