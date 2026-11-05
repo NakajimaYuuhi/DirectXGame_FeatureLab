@@ -450,7 +450,19 @@ void CInspectorUI::Draw()
         {
             std::string createdPath;
             SceneTemplateType tmpl = static_cast<SceneTemplateType>(newSceneTemplateIdx);
-            if (SceneManager::GetInstance().CreateNewScene(newSceneNameBuf, tmpl, &createdPath))
+            std::string parentFolder = "Assets/Scene";
+            std::string currentSceneRef = !activeScenePath.empty() ? activeScenePath : std::string(m_sceneJsonPath);
+            if (!currentSceneRef.empty())
+            {
+                std::string p = std::filesystem::path(currentSceneRef).parent_path().generic_string();
+                std::replace(p.begin(), p.end(), '\\', '/');
+                while (!p.empty() && p.back() == '/') p.pop_back();
+                if (!p.empty() && (p == "Assets/Scene" || p.rfind("Assets/Scene/", 0) == 0))
+                {
+                    parentFolder = p;
+                }
+            }
+            if (SceneManager::GetInstance().CreateNewScene(newSceneNameBuf, tmpl, &createdPath, parentFolder))
             {
                 strncpy_s(m_sceneJsonPath, sizeof(m_sceneJsonPath), createdPath.c_str(), _TRUNCATE);
                 SceneManager::GetInstance().ChangeSceneByPath(createdPath, false);
@@ -3652,7 +3664,7 @@ namespace fs = std::filesystem;
 void CInspectorUI::OpenPrefabEditMode(const std::string& jsonPath)
 {
     m_editingPrefabPath = jsonPath;
-    std::string prefabName = fs::path(jsonPath).stem().string();
+    std::string prefabName = std::filesystem::path(jsonPath).stem().string();
 
     CObject* rawObj = PrefabManager::GetInstance().InstantiateFromJSON(jsonPath, "Editing_" + prefabName);
     if (rawObj)

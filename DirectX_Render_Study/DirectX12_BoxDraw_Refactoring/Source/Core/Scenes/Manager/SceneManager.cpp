@@ -346,17 +346,31 @@ void SceneManager::ChangeSceneByPath(const std::string& jsonPath, bool withFade,
 	}
 }
 
-bool SceneManager::CreateNewScene(const std::string& sceneName, SceneTemplateType templateType, std::string* outCreatedPath)
+bool SceneManager::CreateNewScene(const std::string& sceneName, SceneTemplateType templateType, std::string* outCreatedPath, const std::string& targetFolder)
 {
 	if (sceneName.empty()) return false;
 
-	std::error_code ec;
-	fs::create_directories("Assets/Scene", ec);
+	std::string normFolder = NormalizeScenePath(targetFolder);
+	fs::path inputPath(sceneName);
+	if (inputPath.has_parent_path())
+	{
+		std::string sub = inputPath.parent_path().generic_string();
+		normFolder = normFolder.empty() ? ("Assets/Scene/" + sub) : (normFolder + "/" + sub);
+		normFolder = NormalizeScenePath(normFolder);
+	}
 
-	std::string cleanName = fs::path(sceneName).stem().string();
+	if (normFolder != "Assets/Scene" && normFolder.rfind("Assets/Scene/", 0) != 0)
+	{
+		normFolder = "Assets/Scene";
+	}
+
+	std::error_code ec;
+	fs::create_directories(normFolder, ec);
+
+	std::string cleanName = inputPath.stem().string();
 	if (cleanName.empty()) return false;
 
-	std::string targetPath = "Assets/Scene/" + cleanName + ".json";
+	std::string targetPath = normFolder + "/" + cleanName + ".json";
 	if (outCreatedPath) *outCreatedPath = targetPath;
 
 	json rootJson;
@@ -478,7 +492,7 @@ bool SceneManager::CreateNewScene(const std::string& sceneName, SceneTemplateTyp
 	return true;
 }
 
-bool SceneManager::DuplicateScene(const std::string& srcJsonPath, const std::string& newSceneName, std::string* outCreatedPath)
+bool SceneManager::DuplicateScene(const std::string& srcJsonPath, const std::string& newSceneName, std::string* outCreatedPath, const std::string& targetFolder)
 {
 	std::string normSrc = NormalizeScenePath(srcJsonPath);
 	if (normSrc.empty() || newSceneName.empty()) return false;
@@ -486,11 +500,30 @@ bool SceneManager::DuplicateScene(const std::string& srcJsonPath, const std::str
 	std::error_code ec;
 	if (!fs::exists(normSrc, ec)) return false;
 
-	fs::create_directories("Assets/Scene", ec);
-	std::string cleanName = fs::path(newSceneName).stem().string();
+	std::string normFolder = NormalizeScenePath(targetFolder);
+	if (normFolder.empty())
+	{
+		normFolder = NormalizeScenePath(fs::path(normSrc).parent_path().generic_string());
+	}
+
+	fs::path inputPath(newSceneName);
+	if (inputPath.has_parent_path())
+	{
+		std::string sub = inputPath.parent_path().generic_string();
+		normFolder = normFolder.empty() ? ("Assets/Scene/" + sub) : (normFolder + "/" + sub);
+		normFolder = NormalizeScenePath(normFolder);
+	}
+
+	if (normFolder != "Assets/Scene" && normFolder.rfind("Assets/Scene/", 0) != 0)
+	{
+		normFolder = "Assets/Scene";
+	}
+
+	fs::create_directories(normFolder, ec);
+	std::string cleanName = inputPath.stem().string();
 	if (cleanName.empty()) return false;
 
-	std::string dstPath = "Assets/Scene/" + cleanName + ".json";
+	std::string dstPath = normFolder + "/" + cleanName + ".json";
 	if (outCreatedPath) *outCreatedPath = dstPath;
 
 	fs::copy_file(normSrc, dstPath, fs::copy_options::overwrite_existing, ec);

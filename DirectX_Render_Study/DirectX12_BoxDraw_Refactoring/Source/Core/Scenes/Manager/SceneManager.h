@@ -45,8 +45,8 @@ public:
 	ENGINE_API bool IsSceneLoadedByPath(const std::string& jsonPath) const;
 
 	// エディタからのシーン作成・複製・削除
-	ENGINE_API bool CreateNewScene(const std::string& sceneName, SceneTemplateType templateType, std::string* outCreatedPath = nullptr);
-	ENGINE_API bool DuplicateScene(const std::string& srcJsonPath, const std::string& newSceneName, std::string* outCreatedPath = nullptr);
+	ENGINE_API bool CreateNewScene(const std::string& sceneName, SceneTemplateType templateType, std::string* outCreatedPath = nullptr, const std::string& targetFolder = "Assets/Scene");
+	ENGINE_API bool DuplicateScene(const std::string& srcJsonPath, const std::string& newSceneName, std::string* outCreatedPath = nullptr, const std::string& targetFolder = "");
 	ENGINE_API bool DeleteSceneFile(const std::string& jsonPath);
 
 	// 既存の Scenes::ID と JSON パスの相互変換ヘルパー

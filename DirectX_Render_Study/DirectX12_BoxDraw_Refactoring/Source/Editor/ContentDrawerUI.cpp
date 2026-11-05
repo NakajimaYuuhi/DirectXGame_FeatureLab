@@ -742,21 +742,44 @@ void CContentDrawerUI::DrawTopNavigationBar()
                 CInspectorUI::GetInstance().SetStatusMessage("Created folder: " + newFolder.generic_string(), 3.0f);
             }
         }
+        std::string curNorm = NormalizePathSlash(m_currentDirectory);
+        std::string sceneTargetFolder = "Assets/Scene";
+        if (curNorm == "Assets/Scene" || curNorm.rfind("Assets/Scene/", 0) == 0)
+        {
+            sceneTargetFolder = curNorm;
+        }
+
         if (ImGui::Selectable("?? New 3D Test Scene (.json)"))
         {
             std::string createdPath;
-            if (SceneManager::GetInstance().CreateNewScene(newAssetNameBuf, SceneTemplateType::Standard3DTest, &createdPath))
+            if (SceneManager::GetInstance().CreateNewScene(newAssetNameBuf, SceneTemplateType::Standard3DTest, &createdPath, sceneTargetFolder))
             {
-                NavigateTo("Assets/Scene", true);
+                if (curNorm == sceneTargetFolder)
+                {
+                    RefreshCurrentDirectory();
+                }
+                else
+                {
+                    NavigateTo(sceneTargetFolder, true);
+                }
+                m_selectedAssetPath = createdPath;
                 CInspectorUI::GetInstance().SetStatusMessage("Created scene: " + createdPath, 3.0f);
             }
         }
         if (ImGui::Selectable("?? New Shadow Showcase Scene (.json)"))
         {
             std::string createdPath;
-            if (SceneManager::GetInstance().CreateNewScene(newAssetNameBuf, SceneTemplateType::ShadowShowcase, &createdPath))
+            if (SceneManager::GetInstance().CreateNewScene(newAssetNameBuf, SceneTemplateType::ShadowShowcase, &createdPath, sceneTargetFolder))
             {
-                NavigateTo("Assets/Scene", true);
+                if (curNorm == sceneTargetFolder)
+                {
+                    RefreshCurrentDirectory();
+                }
+                else
+                {
+                    NavigateTo(sceneTargetFolder, true);
+                }
+                m_selectedAssetPath = createdPath;
                 CInspectorUI::GetInstance().SetStatusMessage("Created shadow scene: " + createdPath, 3.0f);
             }
         }
