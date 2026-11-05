@@ -36,6 +36,18 @@ static std::string NormalizeScenePath(const std::string& rawPath)
 	return p;
 }
 
+static std::string NormalizeFolderPath(const std::string& rawPath)
+{
+	if (rawPath.empty()) return "";
+	std::string p = rawPath;
+	std::replace(p.begin(), p.end(), '\\', '/');
+	while (!p.empty() && p.back() == '/')
+	{
+		p.pop_back();
+	}
+	return p;
+}
+
 static std::unordered_map<int, std::string> s_sceneIdToPath;
 static std::unordered_map<std::string, Scenes::ID> s_pathToSceneId;
 static bool s_registryInitialized = false;
@@ -350,16 +362,16 @@ bool SceneManager::CreateNewScene(const std::string& sceneName, SceneTemplateTyp
 {
 	if (sceneName.empty()) return false;
 
-	std::string normFolder = NormalizeScenePath(targetFolder);
+	std::string normFolder = NormalizeFolderPath(targetFolder);
 	fs::path inputPath(sceneName);
 	if (inputPath.has_parent_path())
 	{
-		std::string sub = inputPath.parent_path().generic_string();
+		std::string sub = NormalizeFolderPath(inputPath.parent_path().generic_string());
 		normFolder = normFolder.empty() ? ("Assets/Scene/" + sub) : (normFolder + "/" + sub);
-		normFolder = NormalizeScenePath(normFolder);
+		normFolder = NormalizeFolderPath(normFolder);
 	}
 
-	if (normFolder != "Assets/Scene" && normFolder.rfind("Assets/Scene/", 0) != 0)
+	if (normFolder.empty() || (normFolder != "Assets/Scene" && normFolder.rfind("Assets/Scene/", 0) != 0))
 	{
 		normFolder = "Assets/Scene";
 	}
@@ -500,21 +512,21 @@ bool SceneManager::DuplicateScene(const std::string& srcJsonPath, const std::str
 	std::error_code ec;
 	if (!fs::exists(normSrc, ec)) return false;
 
-	std::string normFolder = NormalizeScenePath(targetFolder);
+	std::string normFolder = NormalizeFolderPath(targetFolder);
 	if (normFolder.empty())
 	{
-		normFolder = NormalizeScenePath(fs::path(normSrc).parent_path().generic_string());
+		normFolder = NormalizeFolderPath(fs::path(normSrc).parent_path().generic_string());
 	}
 
 	fs::path inputPath(newSceneName);
 	if (inputPath.has_parent_path())
 	{
-		std::string sub = inputPath.parent_path().generic_string();
+		std::string sub = NormalizeFolderPath(inputPath.parent_path().generic_string());
 		normFolder = normFolder.empty() ? ("Assets/Scene/" + sub) : (normFolder + "/" + sub);
-		normFolder = NormalizeScenePath(normFolder);
+		normFolder = NormalizeFolderPath(normFolder);
 	}
 
-	if (normFolder != "Assets/Scene" && normFolder.rfind("Assets/Scene/", 0) != 0)
+	if (normFolder.empty() || (normFolder != "Assets/Scene" && normFolder.rfind("Assets/Scene/", 0) != 0))
 	{
 		normFolder = "Assets/Scene";
 	}
