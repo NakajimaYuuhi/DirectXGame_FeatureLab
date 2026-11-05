@@ -116,4 +116,7 @@ private:
 
     bool m_showDeleteConfirmPopup = false;
     DeletePlan m_activeDeletePlan;
+
+    bool m_showMoveConfirmPopup = false;
+    RenamePlan m_activeMovePlan;
 };

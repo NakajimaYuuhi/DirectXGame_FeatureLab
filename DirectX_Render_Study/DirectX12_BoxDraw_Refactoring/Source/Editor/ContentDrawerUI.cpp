@@ -563,6 +563,24 @@ void CContentDrawerUI::DrawTopNavigationBar()
                 m_searchFilter[0] = '\0';
                 NavigateTo(crumbs[i].second, true);
             }
+            if (ImGui::BeginDragDropTarget())
+            {
+                if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("ASSET_DRAWER_PATH"))
+                {
+                    const char* srcPath = (const char*)payload->Data;
+                    RenamePlan plan = AssetRenameService::AnalyzeMove(srcPath, crumbs[i].second);
+                    if (plan.isValid)
+                    {
+                        m_activeMovePlan = plan;
+                        m_showMoveConfirmPopup = true;
+                    }
+                    else
+                    {
+                        CInspectorUI::GetInstance().SetStatusMessage("Cannot move: " + plan.errorMessage, 4.0f);
+                    }
+                }
+                ImGui::EndDragDropTarget();
+            }
             if (isLast)
             {
                 ImGui::PopStyleColor();
@@ -740,6 +758,37 @@ void CContentDrawerUI::DrawFolderTreeRecursive(const std::string& folderPath)
 
     std::string label = "[Dir] " + folderName + "##" + normPath;
     bool opened = ImGui::TreeNodeEx(label.c_str(), nodeFlags);
+
+    // Drag folder from tree
+    if (normPath != m_rootDirectory)
+    {
+        if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_SourceAllowNullID))
+        {
+            ImGui::SetDragDropPayload("ASSET_DRAWER_PATH", normPath.c_str(), normPath.size() + 1);
+            ImGui::Text("Move Folder: %s", folderName.c_str());
+            ImGui::EndDragDropSource();
+        }
+    }
+
+    // Drop into folder in tree
+    if (ImGui::BeginDragDropTarget())
+    {
+        if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("ASSET_DRAWER_PATH"))
+        {
+            const char* srcPath = (const char*)payload->Data;
+            RenamePlan plan = AssetRenameService::AnalyzeMove(srcPath, normPath);
+            if (plan.isValid)
+            {
+                m_activeMovePlan = plan;
+                m_showMoveConfirmPopup = true;
+            }
+            else
+            {
+                CInspectorUI::GetInstance().SetStatusMessage("Cannot move: " + plan.errorMessage, 4.0f);
+            }
+        }
+        ImGui::EndDragDropTarget();
+    }
 
     if (ImGui::IsItemClicked() && !ImGui::IsItemToggledOpen())
     {
@@ -1228,6 +1277,8 @@ void CContentDrawerUI::DrawAssetGrid()
             // Top padding
             ImGui::Dummy(ImVec2(0.0f, 1.0f));
 
+            ImGui::BeginGroup();
+
             // 1. Icon Image Centered on top
             ImTextureID iconTexID = GetAssetIconTextureID(item.type);
             float iconX = (m_cardWidth - iconSize) * 0.5f;
@@ -1311,6 +1362,42 @@ void CContentDrawerUI::DrawAssetGrid()
                 else
                 {
                     ImGui::TextUnformatted(dispName.c_str());
+                }
+            }
+
+            ImGui::EndGroup();
+
+            if (m_renamingAssetPath != item.path)
+            {
+                // Drag Source (can drag any asset or folder)
+                if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_SourceAllowNullID))
+                {
+                    ImGui::SetDragDropPayload("ASSET_DRAWER_PATH", item.path.c_str(), item.path.size() + 1);
+                    ImGui::Text("Move: %s", item.fileName.c_str());
+                    ImGui::EndDragDropSource();
+                }
+
+                // Drop Target (only folders can receive dropped assets)
+                if (item.type == AssetEntryType::Folder)
+                {
+                    if (ImGui::BeginDragDropTarget())
+                    {
+                        if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("ASSET_DRAWER_PATH"))
+                        {
+                            const char* srcPath = (const char*)payload->Data;
+                            RenamePlan plan = AssetRenameService::AnalyzeMove(srcPath, item.path);
+                            if (plan.isValid)
+                            {
+                                m_activeMovePlan = plan;
+                                m_showMoveConfirmPopup = true;
+                            }
+                            else
+                            {
+                                CInspectorUI::GetInstance().SetStatusMessage("Cannot move: " + plan.errorMessage, 4.0f);
+                            }
+                        }
+                        ImGui::EndDragDropTarget();
+                    }
                 }
             }
 
@@ -1403,6 +1490,85 @@ void CContentDrawerUI::DrawAssetGrid()
         ImGui::PopStyleColor();
 
         ImGui::SameLine();
+        if (ImGui::Button("Cancel", ImVec2(80.0f, 28.0f)))
+        {
+            ImGui::CloseCurrentPopup();
+        }
+
+        ImGui::EndPopup();
+    }
+
+    // Confirmation Modal Popup for Moving with references or folder move
+    if (m_showMoveConfirmPopup)
+    {
+        ImGui::OpenPopup("Confirm Asset Move");
+        m_showMoveConfirmPopup = false;
+    }
+    if (ImGui::BeginPopupModal("Confirm Asset Move", nullptr, ImGuiWindowFlags_AlwaysAutoResize))
+    {
+        ImGui::TextColored(ImVec4(0.4f, 0.8f, 1.0f, 1.0f), "Move '%s' to '%s'?",
+            m_activeMovePlan.oldFileName.c_str(), m_activeMovePlan.newPath.c_str());
+        ImGui::Separator();
+
+        if (m_activeMovePlan.totalOccurrences > 0)
+        {
+            ImGui::Text("Found %d reference(s) across %d file(s) that will be updated:",
+                m_activeMovePlan.totalOccurrences, static_cast<int>(m_activeMovePlan.hits.size()));
+
+            ImGui::BeginChild("MoveReferenceHitList", ImVec2(520.0f, 140.0f), true);
+            for (const auto& hit : m_activeMovePlan.hits)
+            {
+                ImGui::BulletText("%s (%d occurrence%s)", hit.filePath.c_str(), hit.occurrences, hit.occurrences > 1 ? "s" : "");
+            }
+            ImGui::EndChild();
+        }
+        else
+        {
+            ImGui::TextDisabled("No file references found across project. Safe to move.");
+        }
+
+        ImGui::Spacing();
+        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.2f, 0.6f, 0.3f, 1.0f));
+        if (ImGui::Button("Move & Update References", ImVec2(220.0f, 28.0f)))
+        {
+            std::string err;
+            if (AssetRenameService::ExecuteRename(m_activeMovePlan, true, &err))
+            {
+                CInspectorUI::GetInstance().SetStatusMessage("Moved and updated references: " + m_activeMovePlan.newFileName, 3.0f);
+                m_selectedAssetPath = m_activeMovePlan.newPath;
+                m_pendingRefresh = true;
+            }
+            else
+            {
+                CInspectorUI::GetInstance().SetStatusMessage("Move error: " + err, 4.0f);
+            }
+            ImGui::CloseCurrentPopup();
+        }
+        ImGui::PopStyleColor();
+
+        ImGui::SameLine();
+        if (m_activeMovePlan.totalOccurrences > 0)
+        {
+            ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.65f, 0.45f, 0.15f, 1.0f));
+            if (ImGui::Button("Move Without Updating", ImVec2(190.0f, 28.0f)))
+            {
+                std::string err;
+                if (AssetRenameService::ExecuteRename(m_activeMovePlan, false, &err))
+                {
+                    CInspectorUI::GetInstance().SetStatusMessage("Moved (references kept): " + m_activeMovePlan.newFileName, 3.0f);
+                    m_selectedAssetPath = m_activeMovePlan.newPath;
+                    m_pendingRefresh = true;
+                }
+                else
+                {
+                    CInspectorUI::GetInstance().SetStatusMessage("Move error: " + err, 4.0f);
+                }
+                ImGui::CloseCurrentPopup();
+            }
+            ImGui::PopStyleColor();
+            ImGui::SameLine();
+        }
+
         if (ImGui::Button("Cancel", ImVec2(80.0f, 28.0f)))
         {
             ImGui::CloseCurrentPopup();

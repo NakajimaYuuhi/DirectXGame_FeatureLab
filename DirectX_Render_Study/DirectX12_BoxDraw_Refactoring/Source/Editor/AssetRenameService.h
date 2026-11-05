@@ -31,6 +31,7 @@ class AssetRenameService
 {
 public:
 	static RenamePlan AnalyzeRename(const std::string& oldPath, const std::string& requestedNewName);
+	static RenamePlan AnalyzeMove(const std::string& sourcePath, const std::string& targetFolder);
 	static bool ExecuteRename(const RenamePlan& plan, bool updateReferences, std::string* outError = nullptr, bool recordUndo = true);
 
 private:

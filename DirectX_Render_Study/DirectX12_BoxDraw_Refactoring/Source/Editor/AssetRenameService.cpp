@@ -167,6 +167,101 @@ RenamePlan AssetRenameService::AnalyzeRename(const std::string& oldPath, const s
 	return plan;
 }
 
+
+RenamePlan AssetRenameService::AnalyzeMove(const std::string& sourcePath, const std::string& targetFolder)
+{
+	RenamePlan plan;
+	plan.oldPath = NormalizePath(sourcePath);
+	std::string normTargetFolder = NormalizePath(targetFolder);
+
+	std::error_code ec;
+	if (!fs::exists(plan.oldPath, ec))
+	{
+		plan.isValid = false;
+		plan.errorMessage = "Source asset does not exist: " + plan.oldPath;
+		return plan;
+	}
+
+	if (!fs::exists(normTargetFolder, ec) || !fs::is_directory(normTargetFolder, ec))
+	{
+		plan.isValid = false;
+		plan.errorMessage = "Target folder does not exist: " + normTargetFolder;
+		return plan;
+	}
+
+	plan.isDirectory = fs::is_directory(plan.oldPath, ec);
+	fs::path srcFs(plan.oldPath);
+	std::string parentDir = srcFs.parent_path().generic_string();
+
+	if (parentDir == normTargetFolder)
+	{
+		plan.isValid = false;
+		plan.errorMessage = "Asset is already inside target folder.";
+		return plan;
+	}
+
+	if (plan.isDirectory)
+	{
+		if (plan.oldPath == normTargetFolder)
+		{
+			plan.isValid = false;
+			plan.errorMessage = "Cannot move folder into itself.";
+			return plan;
+		}
+
+		// Prevent moving folder into its own subfolder (circular nesting)
+		std::string folderPrefix = plan.oldPath + "/";
+		if (normTargetFolder.find(folderPrefix) == 0)
+		{
+			plan.isValid = false;
+			plan.errorMessage = "Cannot move folder into its own subdirectory.";
+			return plan;
+		}
+
+		plan.oldFileName = srcFs.filename().string();
+		plan.newFileName = plan.oldFileName;
+		plan.oldName = plan.oldFileName;
+		plan.newName = plan.newFileName;
+		plan.newPath = normTargetFolder + "/" + plan.newFileName;
+	}
+	else
+	{
+		plan.oldFileName = srcFs.filename().string();
+		plan.oldName = srcFs.stem().string();
+		plan.newFileName = plan.oldFileName;
+		plan.newName = plan.oldName;
+		plan.newPath = normTargetFolder + "/" + plan.newFileName;
+
+		std::string oldExt = srcFs.extension().string();
+		std::string lowerOld = plan.oldPath;
+		std::transform(lowerOld.begin(), lowerOld.end(), lowerOld.begin(), ::tolower);
+		if (oldExt == ".json" && lowerOld.find("scene") != std::string::npos)
+		{
+			plan.isScene = true;
+		}
+		else if (oldExt == ".json" && lowerOld.find("prefab") != std::string::npos)
+		{
+			plan.isPrefab = true;
+		}
+	}
+
+	if (fs::exists(plan.newPath, ec))
+	{
+		plan.isValid = false;
+		plan.errorMessage = "An asset named '" + plan.newFileName + "' already exists in the target folder.";
+		return plan;
+	}
+
+	ScanForReferences(plan, plan.hits);
+	for (const auto& hit : plan.hits)
+	{
+		plan.totalOccurrences += hit.occurrences;
+	}
+
+	plan.isValid = true;
+	return plan;
+}
+
 void AssetRenameService::ScanForReferences(const RenamePlan& plan, std::vector<RenameReferenceHit>& outHits)
 {
 	outHits.clear();
