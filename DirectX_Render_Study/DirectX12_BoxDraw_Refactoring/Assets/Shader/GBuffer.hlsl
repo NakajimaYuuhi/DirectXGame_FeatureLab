@@ -71,24 +71,33 @@ VSOutput VSMain(VSInput input)
 {
     VSOutput output;
 
-    float3 pos = input.position;
-    float3 norm = input.normal;
+    float4 localPos = float4(input.position, 1.0f);
+    float3 localNormal = input.normal;
 
     float totalWeight = input.blendWeights.x + input.blendWeights.y + input.blendWeights.z + input.blendWeights.w;
+    
+    float4 skinnedPos = localPos;
+    float3 skinnedNormal = localNormal;
+
     if (totalWeight > 0.001f)
     {
-        float4x4 skinMat = g_BoneMatrices[input.blendIndices.x] * input.blendWeights.x
-                         + g_BoneMatrices[input.blendIndices.y] * input.blendWeights.y
-                         + g_BoneMatrices[input.blendIndices.z] * input.blendWeights.z
-                         + g_BoneMatrices[input.blendIndices.w] * input.blendWeights.w;
+        skinnedPos =
+            mul(localPos, g_BoneMatrices[input.blendIndices.x]) * input.blendWeights.x +
+            mul(localPos, g_BoneMatrices[input.blendIndices.y]) * input.blendWeights.y +
+            mul(localPos, g_BoneMatrices[input.blendIndices.z]) * input.blendWeights.z +
+            mul(localPos, g_BoneMatrices[input.blendIndices.w]) * input.blendWeights.w;
 
-        pos = mul(skinMat, float4(pos, 1.0f)).xyz;
-        norm = mul((float3x3)skinMat, norm);
+        skinnedNormal =
+            mul(localNormal, (float3x3)g_BoneMatrices[input.blendIndices.x]) * input.blendWeights.x +
+            mul(localNormal, (float3x3)g_BoneMatrices[input.blendIndices.y]) * input.blendWeights.y +
+            mul(localNormal, (float3x3)g_BoneMatrices[input.blendIndices.z]) * input.blendWeights.z +
+            mul(localNormal, (float3x3)g_BoneMatrices[input.blendIndices.w]) * input.blendWeights.w;
     }
 
-    output.pos = mul(WVP, float4(pos, 1.0f));
-    output.worldPos = mul(World, float4(pos, 1.0f)).xyz;
-    output.normal = normalize(mul((float3x3)World, norm));
+    // Clip space position (vector on the left, matrix on the right for row-major DirectXMath)
+    output.pos = mul(skinnedPos, WVP);
+    output.worldPos = mul(skinnedPos, World).xyz;
+    output.normal = normalize(mul(float4(skinnedNormal, 0.0f), World).xyz);
     output.uv = input.uv * uvScale + uvOffset;
 
     return output;

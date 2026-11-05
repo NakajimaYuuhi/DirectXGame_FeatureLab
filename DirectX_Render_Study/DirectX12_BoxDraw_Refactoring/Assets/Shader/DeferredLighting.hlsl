@@ -85,7 +85,7 @@ float CalculateShadow(float3 worldPos, float3 normal, float3 L)
     for (int c = 0; c < cascadeCount; ++c)
     {
         float4x4 vp = (c == 0) ? LightViewProj : ((c == 1) ? LightViewProjCascade1 : LightViewProjCascade2);
-        float4 clipPos = mul(vp, float4(biasedWorldPos, 1.0f));
+        float4 clipPos = mul(float4(biasedWorldPos, 1.0f), vp); // Vector on left, matrix on right!
 
         float2 shadowUV;
         float shadowDepth;
@@ -94,6 +94,7 @@ float CalculateShadow(float3 worldPos, float3 normal, float3 L)
             float bias = max(shadowParams.x * (1.0f - dot(normal, L)), 0.0002f);
             float currentDepth = shadowDepth - bias;
 
+            // 2x2 PCF filtering
             float shadowSum = 0.0f;
             float2 texelSize = float2(1.0f / 2048.0f, 1.0f / 2048.0f);
 
@@ -123,7 +124,7 @@ float4 PSMain(VSOutput input) : SV_Target
 {
     float4 posData = g_WorldPosTex.Sample(g_Sampler, input.uv);
 
-    // If no geometry was drawn to this pixel, keep background clear
+    // If no geometry was drawn to this pixel, discard to keep sky / clear color
     if (posData.w < 0.5f)
     {
         discard;
@@ -139,6 +140,13 @@ float4 PSMain(VSOutput input) : SV_Target
     float  metallic  = matData.r;
     float  ao        = matData.g;
     float3 worldPos  = posData.xyz;
+
+    // Distant background objects (Skydome, etc. distance > 200) are treated as self-illuminated sky
+    float distToCamera = length(worldPos - cameraPos.xyz);
+    if (distToCamera > 200.0f)
+    {
+        return float4(albedo, 1.0f);
+    }
 
     float3 N = normal;
     float3 L = normalize(-lightDir.xyz);

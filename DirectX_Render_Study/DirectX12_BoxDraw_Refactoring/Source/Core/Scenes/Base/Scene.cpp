@@ -449,29 +449,6 @@ void CScene::Update()
 {
     ButtonEventManager::GetInstance().Update();
 
-    if (CInputManager::GetInstance().IsKeyTrigger('P'))
-    {
-        Event event;
-        if (m_Name == "SceneTitle" || id == Scenes::ID::TITLE)
-        {
-            event.SetEventData(new EventData_NextScene(SceneManager::ResolveScenePathFromID(Scenes::ID::TEST), Scenes::ID::TEST));
-        }
-        else
-        {
-            event.SetEventData(new EventData_NextScene(SceneManager::ResolveScenePathFromID(Scenes::ID::TITLE), Scenes::ID::TITLE));
-        }
-        event.SetEventID(Events::ID::ChangeScene);
-        EventManager::GetInstance().AddEvent(event);
-    }
-
-    if ((m_Name == "SceneTitle" || id == Scenes::ID::TITLE) && CInputManager::GetInstance().IsKeyTrigger('O'))
-    {
-        Event event;
-        event.SetEventData(new EventData_NextScene(SceneManager::ResolveScenePathFromID(Scenes::ID::Clear), Scenes::ID::Clear));
-        event.SetEventID(Events::ID::ChangeScene);
-        EventManager::GetInstance().AddEvent(event);
-    }
-
     ObjectManager::GetInstance().Update(Scenes::ID::NONE);
 }
 

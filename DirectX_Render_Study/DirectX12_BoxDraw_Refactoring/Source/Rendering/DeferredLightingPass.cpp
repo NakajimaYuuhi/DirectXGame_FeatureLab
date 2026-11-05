@@ -165,27 +165,39 @@ void DeferredLightingPass::Execute(const RenderContext& ctx)
     }
 
     // 1..4: GBuffer textures (t0..t3)
-    if (ctx.blackboard)
-    {
-        RenderTexture* texAlbedo   = ctx.blackboard->GetTexture("GBuffer_Albedo");
-        RenderTexture* texNormal   = ctx.blackboard->GetTexture("GBuffer_Normal");
-        RenderTexture* texMaterial = ctx.blackboard->GetTexture("GBuffer_Material");
-        RenderTexture* texWorldPos = ctx.blackboard->GetTexture("GBuffer_WorldPos");
+    RenderTexture* texAlbedo   = ctx.blackboard ? ctx.blackboard->GetTexture("GBuffer_Albedo") : nullptr;
+    RenderTexture* texNormal   = ctx.blackboard ? ctx.blackboard->GetTexture("GBuffer_Normal") : nullptr;
+    RenderTexture* texMaterial = ctx.blackboard ? ctx.blackboard->GetTexture("GBuffer_Material") : nullptr;
+    RenderTexture* texWorldPos = ctx.blackboard ? ctx.blackboard->GetTexture("GBuffer_WorldPos") : nullptr;
 
-        if (texAlbedo)   ctx.cmdList->SetGraphicsRootDescriptorTable(1, texAlbedo->GetSRV());
-        if (texNormal)   ctx.cmdList->SetGraphicsRootDescriptorTable(2, texNormal->GetSRV());
-        if (texMaterial) ctx.cmdList->SetGraphicsRootDescriptorTable(3, texMaterial->GetSRV());
-        if (texWorldPos) ctx.cmdList->SetGraphicsRootDescriptorTable(4, texWorldPos->GetSRV());
+    if (!texAlbedo || !texNormal || !texMaterial || !texWorldPos)
+    {
+        // GBuffer is not ready yet, skip draw
+        return;
     }
 
-    // 5..7: ShadowMaps (t4..t6)
+    ctx.cmdList->SetGraphicsRootDescriptorTable(1, texAlbedo->GetSRV());
+    ctx.cmdList->SetGraphicsRootDescriptorTable(2, texNormal->GetSRV());
+    ctx.cmdList->SetGraphicsRootDescriptorTable(3, texMaterial->GetSRV());
+    ctx.cmdList->SetGraphicsRootDescriptorTable(4, texWorldPos->GetSRV());
+
+    // 5..7: ShadowMaps (t4..t6) - ensure EVERY slot has a valid descriptor table!
+    D3D12_GPU_DESCRIPTOR_HANDLE defaultShadowHandle = {};
+    ShadowMap* sm0 = LightManager::GetInstance().GetShadowMap(0);
+    if (sm0 && sm0->GetSRV().ptr != 0)
+    {
+        defaultShadowHandle = sm0->GetSRV();
+    }
+    else
+    {
+        defaultShadowHandle = texAlbedo->GetSRV(); // Fallback to avoid unbound descriptor table
+    }
+
     for (int c = 0; c < 3; ++c)
     {
         ShadowMap* sm = LightManager::GetInstance().GetShadowMap(c);
-        if (sm && sm->GetSRV().ptr != 0)
-        {
-            ctx.cmdList->SetGraphicsRootDescriptorTable(5 + c, sm->GetSRV());
-        }
+        D3D12_GPU_DESCRIPTOR_HANDLE handle = (sm && sm->GetSRV().ptr != 0) ? sm->GetSRV() : defaultShadowHandle;
+        ctx.cmdList->SetGraphicsRootDescriptorTable(5 + c, handle);
     }
 
     // Draw full-screen triangle
