@@ -116,3 +116,25 @@ void DeleteObjectUndoCommand::Undo()
         m_targetObj->SetIsDestroyed(false);
     }
 }
+
+// SpawnObjectUndoCommand Implementation
+SpawnObjectUndoCommand::SpawnObjectUndoCommand(CObject* target)
+    : m_targetObj(target)
+{
+}
+
+void SpawnObjectUndoCommand::Execute()
+{
+    if (m_targetObj)
+    {
+        m_targetObj->SetIsDestroyed(false);
+    }
+}
+
+void SpawnObjectUndoCommand::Undo()
+{
+    if (m_targetObj)
+    {
+        m_targetObj->SetIsDestroyed(true);
+    }
+}

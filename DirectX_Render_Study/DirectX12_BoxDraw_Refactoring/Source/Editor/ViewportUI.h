@@ -1,6 +1,7 @@
 #pragma once
 #include <d3d12.h>
 #include "imgui.h"
+#include <string>
 
 class CViewportUI
 {
@@ -35,6 +36,9 @@ public:
 
     // ビューポート画像内の正規化マウス座標 (0.0f ~ 1.0f) を取得。画像外なら false
     bool GetNormalizedMousePos(float& outX, float& outY) const;
+
+    // Content Drawer からのアセットドラッグ＆ドロップ配置
+    void HandleAssetDropOnViewport(const std::string& assetPath);
 
 private:
     CViewportUI() = default;

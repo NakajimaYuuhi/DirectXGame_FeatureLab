@@ -87,3 +87,17 @@ public:
 private:
     CObject* m_targetObj = nullptr;
 };
+
+// Built-in Command: Object Spawn (Restore/Destroy on Undo)
+class SpawnObjectUndoCommand : public IUndoCommand
+{
+public:
+    SpawnObjectUndoCommand(CObject* target);
+
+    void Execute() override;
+    void Undo() override;
+    std::string GetName() const override { return "Spawn Object"; }
+
+private:
+    CObject* m_targetObj = nullptr;
+};
