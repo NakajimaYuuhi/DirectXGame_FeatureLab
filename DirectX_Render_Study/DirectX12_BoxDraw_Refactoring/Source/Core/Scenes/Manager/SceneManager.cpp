@@ -50,9 +50,11 @@ void SceneManager::RefreshSceneRegistry()
 	fs::path sceneDir("Assets/Scene");
 	if (fs::exists(sceneDir, ec) && fs::is_directory(sceneDir, ec))
 	{
-		for (const auto& entry : fs::directory_iterator(sceneDir, ec))
+		for (const auto& entry : fs::recursive_directory_iterator(sceneDir, ec))
 		{
-			if (!entry.is_regular_file(ec) || entry.path().extension() != ".json") continue;
+			if (!entry.is_regular_file(ec)) continue;
+			auto ext = entry.path().extension();
+			if (ext != ".json" && ext != ".scene") continue;
 			std::string normPath = entry.path().generic_string();
 
 			std::ifstream file(normPath);
@@ -208,10 +210,11 @@ std::vector<std::string> SceneManager::GetAvailableSceneFiles() const
 	fs::path sceneDir("Assets/Scene");
 	if (fs::exists(sceneDir, ec) && fs::is_directory(sceneDir, ec))
 	{
-		for (const auto& entry : fs::directory_iterator(sceneDir, ec))
+		for (const auto& entry : fs::recursive_directory_iterator(sceneDir, ec))
 		{
 			if (!entry.is_regular_file(ec)) continue;
-			if (entry.path().extension() == ".json")
+			auto ext = entry.path().extension();
+			if (ext == ".json" || ext == ".scene")
 			{
 				std::string p = entry.path().generic_string();
 				files.push_back(p);

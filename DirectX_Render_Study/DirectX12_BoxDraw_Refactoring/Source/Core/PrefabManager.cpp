@@ -248,9 +248,10 @@ void PrefabManager::RegisterPrefabsInDirectory(const std::string& directoryPath)
 	namespace fs = std::filesystem;
 	if (!fs::exists(directoryPath) || !fs::is_directory(directoryPath)) return;
 
-	for (const auto& entry : fs::directory_iterator(directoryPath))
+	std::error_code ec;
+	for (const auto& entry : fs::recursive_directory_iterator(directoryPath, ec))
 	{
-		if (entry.is_regular_file() && entry.path().extension() == ".json")
+		if (entry.is_regular_file(ec) && entry.path().extension() == ".json")
 		{
 			std::string jsonPath = entry.path().string();
 			std::string stemName = entry.path().stem().string();

@@ -373,8 +373,12 @@ void CInspectorUI::Draw()
 
         for (const auto& sp : availableScenePaths)
         {
-            std::string stem = std::filesystem::path(sp).stem().string();
-            displayLabels.push_back(stem + " (" + sp + ")");
+            std::string rel = sp;
+            if (rel.rfind("Assets/Scene/", 0) == 0)
+            {
+                rel = rel.substr(std::string("Assets/Scene/").length());
+            }
+            displayLabels.push_back(rel);
         }
         for (const auto& lbl : displayLabels)
         {
