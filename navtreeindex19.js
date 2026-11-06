@@ -1,5 +1,6 @@
 var NAVTREEINDEX19 =
 {
+"classtinygltf__json.html#a3a05c898b29102e1b9813243ecd9e23b":[1,0,319,37],
 "classtinygltf__json.html#a46273309718f43e082e3909ae287e2bc":[1,0,319,71],
 "classtinygltf__json.html#a4794d4fe4557a27fe228c4f0dd0994b5":[1,0,319,50],
 "classtinygltf__json.html#a4be0f6d82840ad809b332aae94954b1f":[1,0,319,11],
@@ -248,6 +249,5 @@ var NAVTREEINDEX19 =
 "globals_r.html":[2,1,0,17],
 "globals_s.html":[2,1,0,18],
 "globals_t.html":[2,1,0,19],
-"globals_type.html":[2,1,3],
-"globals_u.html":[2,1,0,20]
+"globals_type.html":[2,1,3]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX47 =
 {
+"structnlohmann_1_1detail_1_1dtoa__impl_1_1boundaries.html":[1,0,2,0,2,1],
 "structnlohmann_1_1detail_1_1dtoa__impl_1_1boundaries.html#a3321ae2816a6ec5250a0d8e29f798232":[0,0,5,0,2,1,1],
 "structnlohmann_1_1detail_1_1dtoa__impl_1_1boundaries.html#a3321ae2816a6ec5250a0d8e29f798232":[1,0,2,0,2,1,1],
 "structnlohmann_1_1detail_1_1dtoa__impl_1_1boundaries.html#ad1668c60aeade5f2557fafed8b8aee1a":[0,0,5,0,2,1,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX47 =
 "structnlohmann_1_1detail_1_1is__iterator__traits_3_01iterator__traits_3_01T_01_4_01_4.html#ac2711760b352b8921accc6609957dc90":[1,0,2,0,52,1],
 "structnlohmann_1_1detail_1_1is__json__ref.html":[0,0,5,0,28],
 "structnlohmann_1_1detail_1_1is__json__ref.html":[1,0,2,0,28],
-"structnlohmann_1_1detail_1_1is__json__ref_3_01json__ref_3_01T_01_4_01_4.html":[0,0,5,0,29],
-"structnlohmann_1_1detail_1_1is__json__ref_3_01json__ref_3_01T_01_4_01_4.html":[1,0,2,0,29]
+"structnlohmann_1_1detail_1_1is__json__ref_3_01json__ref_3_01T_01_4_01_4.html":[0,0,5,0,29]
 };

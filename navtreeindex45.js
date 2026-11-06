@@ -1,5 +1,6 @@
 var NAVTREEINDEX45 =
 {
+"structImSpan.html#abb79a7731eb2fc2c87cf2c162a2af9b6":[1,0,226,4],
 "structImSpan.html#abc89fdbfad2b87dd044a197983c4eddb":[1,0,226,2],
 "structImSpan.html#aece61505cbe4789a4423eaabdd5689dc":[1,0,226,9],
 "structImSpanAllocator.html":[1,0,227],
@@ -248,6 +249,5 @@ var NAVTREEINDEX45 =
 "structImVector.html#ac0e46e8b30cb079d93c8f0aad7d7cbd0":[1,0,240,47],
 "structImVector.html#ac17681baa8b9b5cd97e556da29f9ef73":[1,0,240,11],
 "structImVector.html#ac1ed34eac753156e87e8a92f78dbbe3f":[1,0,240,14],
-"structImVector.html#ac371dd62e56ae486b1a5038cf07eee56":[1,0,240,40],
-"structImVector.html#ade9f2e937e47b0e0f9970dcfba038204":[1,0,240,44]
+"structImVector.html#ac371dd62e56ae486b1a5038cf07eee56":[1,0,240,40]
 };

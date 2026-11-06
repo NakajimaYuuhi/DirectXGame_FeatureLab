@@ -1,5 +1,6 @@
 var NAVTREEINDEX48 =
 {
+"structnlohmann_1_1detail_1_1is__json__ref_3_01json__ref_3_01T_01_4_01_4.html":[1,0,2,0,29],
 "structnlohmann_1_1detail_1_1is__ordered__map.html":[0,0,5,0,79],
 "structnlohmann_1_1detail_1_1is__ordered__map.html":[1,0,2,0,79],
 "structnlohmann_1_1detail_1_1is__ordered__map.html#a99a559f257bee6888355dc2d18ed2a17":[0,0,5,0,79,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX48 =
 "structnlohmann_1_1ordered__map.html":[1,0,2,4],
 "structstbi__io__callbacks.html":[1,0,299],
 "structstbi__io__callbacks.html#a257aac5480a90a6c4b8fbe86c1b01068":[1,0,299,2],
-"structstbi__io__callbacks.html#a319639db2f76e715eed7a7a974136832":[1,0,299,0],
-"structstbi__io__callbacks.html#a623e46b3a2a019611601409926283a88":[1,0,299,1]
+"structstbi__io__callbacks.html#a319639db2f76e715eed7a7a974136832":[1,0,299,0]
 };

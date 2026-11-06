@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"classCameraComponent.html#a808e139ad3da8c1b0e831dd8e46eced8":[1,0,19,77],
 "classCameraComponent.html#a8220dbf5b50926dde10fcaac4c2eb02c":[1,0,19,16],
 "classCameraComponent.html#a885c59f795e4a666568ffef15276705b":[1,0,19,38],
 "classCameraComponent.html#a8b55513f3c9a501d55813aa2b867949c":[1,0,19,78],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "classDX12Manager.html#a66bc23ea2cd4d369e2522e74b4d53e0a":[1,0,64,16],
 "classDX12Manager.html#a679221c7da04cdae9da17b22297008b7":[1,0,64,1],
 "classDX12Manager.html#a696128c17054fa5cc2cb8524e6d061a7":[1,0,64,4],
-"classDX12Manager.html#a6e604c7fffe68f3eeaa186a8a58e6fe6":[1,0,64,25],
-"classDX12Manager.html#a6fb15c091d36938e8685b4ee122205f9":[1,0,64,8]
+"classDX12Manager.html#a6e604c7fffe68f3eeaa186a8a58e6fe6":[1,0,64,25]
 };

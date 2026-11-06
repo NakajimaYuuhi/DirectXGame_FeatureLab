@@ -1,5 +1,6 @@
 var NAVTREEINDEX49 =
 {
+"structstbi__io__callbacks.html#a623e46b3a2a019611601409926283a88":[1,0,299,1],
 "structstbrp__context.html":[1,0,300],
 "structstbrp__context.html#a007509feee322404083034e4c2d3dc5d":[1,0,300,6],
 "structstbrp__context.html#a0b80e1fbdac125427526f3500d4e7624":[1,0,300,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX49 =
 "structtinygltf_1_1Asset.html":[0,0,9,24],
 "structtinygltf_1_1Asset.html":[1,0,4,24],
 "structtinygltf_1_1Asset.html#a191c0883967fb20390e27af43a353beb":[0,0,9,24,7],
-"structtinygltf_1_1Asset.html#a191c0883967fb20390e27af43a353beb":[1,0,4,24,7],
-"structtinygltf_1_1Asset.html#a2a0ae546f50311384db67e798a33fe1c":[0,0,9,24,6]
+"structtinygltf_1_1Asset.html#a191c0883967fb20390e27af43a353beb":[1,0,4,24,7]
 };

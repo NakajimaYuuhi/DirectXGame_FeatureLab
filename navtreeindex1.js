@@ -234,6 +234,7 @@ var NAVTREEINDEX1 =
 "SceneManager_8h.html#a8567786ada19aeabfb1919ebceb2584c":[2,0,0,0,0,1,1,1],
 "SceneManager_8h.html#a8567786ada19aeabfb1919ebceb2584ca53fb714417cac96ab3e75cab7fc6d0bc":[2,0,0,0,0,1,1,1,1],
 "SceneManager_8h.html#a8567786ada19aeabfb1919ebceb2584ca6e16d10aaf87fe3b6a00ae840c576b4e":[2,0,0,0,0,1,1,1,2],
+"SceneManager_8h.html#a8567786ada19aeabfb1919ebceb2584caa5839dffc37cc2fa2a9e1a3c290e2cbf":[2,0,0,0,0,1,1,1,4],
 "SceneManager_8h.html#a8567786ada19aeabfb1919ebceb2584cae7098fd92c24ddbfaa49b16294e30a10":[2,0,0,0,0,1,1,1,3],
 "SceneManager_8h.html#a8567786ada19aeabfb1919ebceb2584cae87b8d6fc475365dc5278ecba8344a57":[2,0,0,0,0,1,1,1,0],
 "SceneManager_8h.html#a8b7171c7ec1f644ad010a7486791d762":[2,0,0,0,0,1,1,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "SceneSerializer_8h.html":[2,0,0,0,0,2,1],
 "SceneSerializer_8h_source.html":[2,0,0,0,0,2,1],
 "Scene_8cpp.html":[2,0,0,0,0,0,0],
-"Scene_8cpp.html#a6234cc7aef8ba1d4fa3a598948bee217":[2,0,0,0,0,0,0,1],
-"Scene_8cpp.html#acfa097a63e8a892b2ddc9b6c3d376d52":[2,0,0,0,0,0,0,0]
+"Scene_8cpp.html#a6234cc7aef8ba1d4fa3a598948bee217":[2,0,0,0,0,0,0,1]
 };

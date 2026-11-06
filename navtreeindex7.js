@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"classDX12Manager.html#a6fb15c091d36938e8685b4ee122205f9":[1,0,64,8],
 "classDX12Manager.html#a7100301d542dff7c8cadcc5a78c8d7fd":[1,0,64,43],
 "classDX12Manager.html#a7493ec0bf60ee0f2fc579460439e62a3":[1,0,64,13],
 "classDX12Manager.html#a74b86149b3f2436b08f225f66198a8bc":[1,0,64,24],
@@ -248,6 +249,5 @@ var NAVTREEINDEX7 =
 "classForwardRenderPass.html#a6e1fc3210db4d9029fd3e918de9e72b2":[1,0,85,2],
 "classForwardRenderPass.html#a6e9ec4ab27d423e8bbb9e69a1af554fe":[1,0,85,6],
 "classForwardRenderPass.html#a75976b2e59b22c7e9fa103d2c6e8f43a":[1,0,85,11],
-"classForwardRenderPass.html#a9c2f8c0adeaf21db1530b9e9c8e95080":[1,0,85,4],
-"classForwardRenderPass.html#ab02090ade6eef5c944a7e3104a40eed0":[1,0,85,1]
+"classForwardRenderPass.html#a9c2f8c0adeaf21db1530b9e9c8e95080":[1,0,85,4]
 };
