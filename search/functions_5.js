@@ -77,5 +77,6 @@ var searchData=
   ['expand_74',['Expand',['../structImRect.html#af33a7424c3341d08acd69da30c27c753',1,'ImRect::Expand(const float amount)'],['../structImRect.html#ac0b0b88fe65725b4694cd7d91d42d382',1,'ImRect::Expand(const ImVec2 &amp;amount)']]],
   ['expandfilepath_75',['ExpandFilePath',['../namespacetinygltf.html#a2cc3baf7856ea03c802b5c6ad01851cb',1,'tinygltf']]],
   ['extendhitboxwhennearviewportedge_76',['ExtendHitBoxWhenNearViewportEdge',['../namespaceImGui.html#a90f5d88e949341f12b947fae7d086e65',1,'ImGui']]],
-  ['extractreflection_77',['ExtractReflection',['../classShader.html#a8b3082791d97db06c6e550ed2e661d08',1,'Shader']]]
+  ['extractprimitivetype_77',['ExtractPrimitiveType',['../classPrimitiveGenerator.html#ac064297a40e81da374a8d0765e574b04',1,'PrimitiveGenerator']]],
+  ['extractreflection_78',['ExtractReflection',['../classShader.html#a8b3082791d97db06c6e550ed2e661d08',1,'Shader']]]
 ];

@@ -156,6 +156,9 @@ var NAVTREEINDEX1 =
 "PrefabSerializer_8cpp.html#ab701e3ac61a85b337ec5c1abaad6742d":[2,0,0,0,16,0],
 "PrefabSerializer_8h.html":[2,0,0,0,17],
 "PrefabSerializer_8h_source.html":[2,0,0,0,17],
+"PrimitiveGenerator_8cpp.html":[2,0,0,7,20],
+"PrimitiveGenerator_8h.html":[2,0,0,7,21],
+"PrimitiveGenerator_8h_source.html":[2,0,0,7,21],
 "ProfilerUI_8cpp.html":[2,0,0,1,28],
 "ProfilerUI_8h.html":[2,0,0,1,29],
 "ProfilerUI_8h_source.html":[2,0,0,1,29],
@@ -246,8 +249,5 @@ var NAVTREEINDEX1 =
 "SceneSerializer_8cpp.html":[2,0,0,0,0,2,0],
 "SceneSerializer_8cpp.html#a29e1aeadb805e9d91533a2be6b183d10":[2,0,0,0,0,2,0,0],
 "SceneSerializer_8cpp.html#a4bf579657470d623e3be4507a13bf453":[2,0,0,0,0,2,0,1],
-"SceneSerializer_8h.html":[2,0,0,0,0,2,1],
-"SceneSerializer_8h_source.html":[2,0,0,0,0,2,1],
-"Scene_8cpp.html":[2,0,0,0,0,0,0],
-"Scene_8cpp.html#a6234cc7aef8ba1d4fa3a598948bee217":[2,0,0,0,0,0,0,1]
+"SceneSerializer_8h.html":[2,0,0,0,0,2,1]
 };

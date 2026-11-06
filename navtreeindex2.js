@@ -1,5 +1,8 @@
 var NAVTREEINDEX2 =
 {
+"SceneSerializer_8h_source.html":[2,0,0,0,0,2,1],
+"Scene_8cpp.html":[2,0,0,0,0,0,0],
+"Scene_8cpp.html#a6234cc7aef8ba1d4fa3a598948bee217":[2,0,0,0,0,0,0,1],
 "Scene_8cpp.html#acfa097a63e8a892b2ddc9b6c3d376d52":[2,0,0,0,0,0,0,0],
 "Scene_8h.html":[2,0,0,0,0,0,1],
 "Scene_8h.html#a5573b97b9e5129f61d289e037d7e806c":[2,0,0,0,0,0,1,1],
@@ -43,9 +46,9 @@ var NAVTREEINDEX2 =
 "TextureManager_8cpp.html":[2,0,0,6,43],
 "TextureManager_8h.html":[2,0,0,6,44],
 "TextureManager_8h_source.html":[2,0,0,6,44],
-"Texture_8cpp.html":[2,0,0,7,20],
-"Texture_8h.html":[2,0,0,7,21],
-"Texture_8h_source.html":[2,0,0,7,21],
+"Texture_8cpp.html":[2,0,0,7,22],
+"Texture_8h.html":[2,0,0,7,23],
+"Texture_8h_source.html":[2,0,0,7,23],
 "TimeManager_8cpp.html":[2,0,0,0,19],
 "TimeManager_8h.html":[2,0,0,0,20],
 "TimeManager_8h_source.html":[2,0,0,0,20],
@@ -70,10 +73,10 @@ var NAVTREEINDEX2 =
 "ViewportUI_8cpp.html":[2,0,0,1,32],
 "ViewportUI_8h.html":[2,0,0,1,33],
 "ViewportUI_8h_source.html":[2,0,0,1,33],
-"XorDecryptor_8cpp.html":[2,0,0,7,22],
-"XorDecryptor_8cpp.html#ae24f20524de514bf93c5910c49bc2b14":[2,0,0,7,22,0],
-"XorDecryptor_8h.html":[2,0,0,7,23],
-"XorDecryptor_8h_source.html":[2,0,0,7,23],
+"XorDecryptor_8cpp.html":[2,0,0,7,24],
+"XorDecryptor_8cpp.html#ae24f20524de514bf93c5910c49bc2b14":[2,0,0,7,24,0],
+"XorDecryptor_8h.html":[2,0,0,7,25],
+"XorDecryptor_8h_source.html":[2,0,0,7,25],
 "annotated.html":[1,0],
 "audio_8cpp.html":[2,0,0,9,1],
 "audio_8h.html":[2,0,0,9,2],
@@ -246,8 +249,5 @@ var NAVTREEINDEX2 =
 "classCAssetSecurityUI.html#aa3fa68f19180f98f3eeb2745ce06922c":[1,0,21,4],
 "classCAssetSecurityUI.html#aa7a4523bbc831ef88519789666281cf5":[1,0,21,12],
 "classCAssetSecurityUI.html#ab621c0cc678ee9cc10977e8dc9fa6c03":[1,0,21,1],
-"classCAssetSecurityUI.html#acfccaf7b4c517fc352922db1f4f02e14":[1,0,21,8],
-"classCAssetSecurityUI.html#ae303150ed9aca91755232fcfcf3338c9":[1,0,21,10],
-"classCAssetSecurityUI.html#ae589504cc79cf4ee2f53225a7fc672bb":[1,0,21,11],
-"classCBone.html":[1,0,22]
+"classCAssetSecurityUI.html#acfccaf7b4c517fc352922db1f4f02e14":[1,0,21,8]
 };

@@ -1,0 +1,680 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DirectX 12 Render Engine: PrimitiveGenerator クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DirectX 12 Render Engine
+   </div>
+   <div id="projectbrief">A custom DirectX 12 rendering engine for game development</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('classPrimitiveGenerator.html','','classPrimitiveGenerator-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">PrimitiveGenerator クラス</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>3D Primitive mesh and model generation utility class  
+ <a href="#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="PrimitiveGenerator_8h_source.html">PrimitiveGenerator.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静的公開メンバ関数</h2></td></tr>
+<tr class="memitem:afb1db97cfb92768efaffb6bf8f45a1d2" id="r_afb1db97cfb92768efaffb6bf8f45a1d2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structMeshData.html">MeshData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb1db97cfb92768efaffb6bf8f45a1d2">CreateCube</a> (float width=1.0f, float height=1.0f, float depth=1.0f)</td></tr>
+<tr class="memdesc:afb1db97cfb92768efaffb6bf8f45a1d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create Cube / Box mesh  <br /></td></tr>
+<tr class="memitem:afa2b0a9ad7ad1d1661229d331bae1c94" id="r_afa2b0a9ad7ad1d1661229d331bae1c94"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structMeshData.html">MeshData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa2b0a9ad7ad1d1661229d331bae1c94">CreatePlane</a> (float width=1.0f, float depth=1.0f, uint32_t subdivisionsX=1, uint32_t subdivisionsZ=1)</td></tr>
+<tr class="memdesc:afa2b0a9ad7ad1d1661229d331bae1c94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create Plane / Grid mesh (XZ plane, Y=0, Normal facing up)  <br /></td></tr>
+<tr class="memitem:a06fe13bd28a910a82587533151aaf90f" id="r_a06fe13bd28a910a82587533151aaf90f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structMeshData.html">MeshData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06fe13bd28a910a82587533151aaf90f">CreateCircle</a> (float radius=0.5f, uint32_t sliceCount=32)</td></tr>
+<tr class="memdesc:a06fe13bd28a910a82587533151aaf90f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create Circle / Disc mesh (XZ plane, Y=0, Normal facing up)  <br /></td></tr>
+<tr class="memitem:a8c102a69af31ad3067ee0504af378d9e" id="r_a8c102a69af31ad3067ee0504af378d9e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structMeshData.html">MeshData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c102a69af31ad3067ee0504af378d9e">CreateSphere</a> (float radius=0.5f, uint32_t sliceCount=32, uint32_t stackCount=16)</td></tr>
+<tr class="memdesc:a8c102a69af31ad3067ee0504af378d9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create Sphere mesh (UV Sphere)  <br /></td></tr>
+<tr class="memitem:af8f87538d9cc4887e1b0e9da07f9b732" id="r_af8f87538d9cc4887e1b0e9da07f9b732"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structMeshData.html">MeshData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8f87538d9cc4887e1b0e9da07f9b732">CreateCylinder</a> (float bottomRadius=0.5f, float topRadius=0.5f, float height=1.0f, uint32_t sliceCount=32, uint32_t stackCount=1)</td></tr>
+<tr class="memdesc:af8f87538d9cc4887e1b0e9da07f9b732"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create Cylinder mesh  <br /></td></tr>
+<tr class="memitem:af20ef118afd721725fdf7a9ce878f657" id="r_af20ef118afd721725fdf7a9ce878f657"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structMeshData.html">MeshData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af20ef118afd721725fdf7a9ce878f657">CreateCone</a> (float radius=0.5f, float height=1.0f, uint32_t sliceCount=32)</td></tr>
+<tr class="memdesc:af20ef118afd721725fdf7a9ce878f657"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create Cone mesh  <br /></td></tr>
+<tr class="memitem:a400c4bcfd06726d2fc17b2f1dab93203" id="r_a400c4bcfd06726d2fc17b2f1dab93203"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structMeshData.html">MeshData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a400c4bcfd06726d2fc17b2f1dab93203">CreateCapsule</a> (float radius=0.5f, float cylinderHeight=1.0f, uint32_t sliceCount=32, uint32_t stackCount=8)</td></tr>
+<tr class="memdesc:a400c4bcfd06726d2fc17b2f1dab93203"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create Capsule mesh (Hemispheres + Cylinder body)  <br /></td></tr>
+<tr class="memitem:a14e49c60acae948912cfee438adac183" id="r_a14e49c60acae948912cfee438adac183"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structMeshData.html">MeshData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14e49c60acae948912cfee438adac183">CreateTorus</a> (float majorRadius=1.0f, float minorRadius=0.25f, uint32_t majorSegments=32, uint32_t minorSegments=16)</td></tr>
+<tr class="memdesc:a14e49c60acae948912cfee438adac183"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create Torus / Donut mesh  <br /></td></tr>
+<tr class="memitem:a8638918163e4616de918f87e9026416c" id="r_a8638918163e4616de918f87e9026416c"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classCMesh.html">CMesh</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8638918163e4616de918f87e9026416c">CreateMesh</a> (const <a class="el" href="structMeshData.html">MeshData</a> &amp;meshData, <a class="el" href="classCObject.html">CObject</a> *owner=nullptr)</td></tr>
+<tr class="memdesc:a8638918163e4616de918f87e9026416c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create <a class="el" href="classCMesh.html">CMesh</a> from <a class="el" href="structMeshData.html">MeshData</a>  <br /></td></tr>
+<tr class="memitem:a9dc7afa7dbe41beb20cc4d45c61ea00f" id="r_a9dc7afa7dbe41beb20cc4d45c61ea00f"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classCModel.html">CModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9dc7afa7dbe41beb20cc4d45c61ea00f">CreateModel</a> (const <a class="el" href="structMeshData.html">MeshData</a> &amp;meshData, const std::wstring &amp;texturePath=L&quot;&quot;, const DirectX::XMFLOAT4 &amp;color={ 1.0f, 1.0f, 1.0f, 1.0f })</td></tr>
+<tr class="memdesc:a9dc7afa7dbe41beb20cc4d45c61ea00f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create <a class="el" href="classCModel.html">CModel</a> from <a class="el" href="structMeshData.html">MeshData</a>  <br /></td></tr>
+<tr class="memitem:af6f24a2ec2e94347136b08544e8cc4d0" id="r_af6f24a2ec2e94347136b08544e8cc4d0"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classCModel.html">CModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6f24a2ec2e94347136b08544e8cc4d0">CreatePrimitiveModel</a> (const std::string &amp;primitiveType, const std::wstring &amp;texturePath=L&quot;&quot;, const DirectX::XMFLOAT4 &amp;color={ 1.0f, 1.0f, 1.0f, 1.0f })</td></tr>
+<tr class="memdesc:af6f24a2ec2e94347136b08544e8cc4d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create <a class="el" href="classCModel.html">CModel</a> by primitive type name  <br /></td></tr>
+<tr class="memitem:ac35fc26085fbd9164b40d1649d3c03a7" id="r_ac35fc26085fbd9164b40d1649d3c03a7"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac35fc26085fbd9164b40d1649d3c03a7">IsPrimitivePath</a> (const std::string &amp;path)</td></tr>
+<tr class="memdesc:ac35fc26085fbd9164b40d1649d3c03a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if string indicates a primitive specification  <br /></td></tr>
+<tr class="memitem:ac064297a40e81da374a8d0765e574b04" id="r_ac064297a40e81da374a8d0765e574b04"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac064297a40e81da374a8d0765e574b04">ExtractPrimitiveType</a> (const std::string &amp;path)</td></tr>
+<tr class="memdesc:ac064297a40e81da374a8d0765e574b04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract primitive type from path string  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">詳解</h2>
+<div class="textblock"><p>3D Primitive mesh and model generation utility class </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">関数詳解</h2>
+<a id="a400c4bcfd06726d2fc17b2f1dab93203" name="a400c4bcfd06726d2fc17b2f1dab93203"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a400c4bcfd06726d2fc17b2f1dab93203">&#9670;&#160;</a></span>CreateCapsule()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structMeshData.html">MeshData</a> PrimitiveGenerator::CreateCapsule </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>radius</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0.5f</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>cylinderHeight</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1.0f</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>sliceCount</em></span><span class="paramdefsep"> = </span><span class="paramdefval">32</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>stackCount</em></span><span class="paramdefsep"> = </span><span class="paramdefval">8</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create Capsule mesh (Hemispheres + Cylinder body) </p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classPrimitiveGenerator_a400c4bcfd06726d2fc17b2f1dab93203_icgraph.svg" width="376" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a06fe13bd28a910a82587533151aaf90f" name="a06fe13bd28a910a82587533151aaf90f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06fe13bd28a910a82587533151aaf90f">&#9670;&#160;</a></span>CreateCircle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structMeshData.html">MeshData</a> PrimitiveGenerator::CreateCircle </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>radius</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0.5f</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>sliceCount</em></span><span class="paramdefsep"> = </span><span class="paramdefval">32</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create Circle / Disc mesh (XZ plane, Y=0, Normal facing up) </p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classPrimitiveGenerator_a06fe13bd28a910a82587533151aaf90f_icgraph.svg" width="376" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af20ef118afd721725fdf7a9ce878f657" name="af20ef118afd721725fdf7a9ce878f657"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af20ef118afd721725fdf7a9ce878f657">&#9670;&#160;</a></span>CreateCone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structMeshData.html">MeshData</a> PrimitiveGenerator::CreateCone </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>radius</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0.5f</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>height</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1.0f</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>sliceCount</em></span><span class="paramdefsep"> = </span><span class="paramdefval">32</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create Cone mesh </p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classPrimitiveGenerator_af20ef118afd721725fdf7a9ce878f657_cgraph.svg" width="350" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classPrimitiveGenerator_af20ef118afd721725fdf7a9ce878f657_icgraph.svg" width="376" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="afb1db97cfb92768efaffb6bf8f45a1d2" name="afb1db97cfb92768efaffb6bf8f45a1d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb1db97cfb92768efaffb6bf8f45a1d2">&#9670;&#160;</a></span>CreateCube()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structMeshData.html">MeshData</a> PrimitiveGenerator::CreateCube </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>width</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1.0f</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>height</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1.0f</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>depth</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1.0f</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create Cube / Box mesh </p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classPrimitiveGenerator_afb1db97cfb92768efaffb6bf8f45a1d2_icgraph.svg" width="376" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af8f87538d9cc4887e1b0e9da07f9b732" name="af8f87538d9cc4887e1b0e9da07f9b732"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8f87538d9cc4887e1b0e9da07f9b732">&#9670;&#160;</a></span>CreateCylinder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structMeshData.html">MeshData</a> PrimitiveGenerator::CreateCylinder </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>bottomRadius</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0.5f</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>topRadius</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0.5f</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>height</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1.0f</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>sliceCount</em></span><span class="paramdefsep"> = </span><span class="paramdefval">32</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>stackCount</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create Cylinder mesh </p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classPrimitiveGenerator_af8f87538d9cc4887e1b0e9da07f9b732_icgraph.svg" width="570" height="87"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8638918163e4616de918f87e9026416c" name="a8638918163e4616de918f87e9026416c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8638918163e4616de918f87e9026416c">&#9670;&#160;</a></span>CreateMesh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classCMesh.html">CMesh</a> &gt; PrimitiveGenerator::CreateMesh </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structMeshData.html">MeshData</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>meshData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCObject.html">CObject</a> *</td>          <td class="paramname"><span class="paramname"><em>owner</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create <a class="el" href="classCMesh.html">CMesh</a> from <a class="el" href="structMeshData.html">MeshData</a> </p>
+
+</div>
+</div>
+<a id="a9dc7afa7dbe41beb20cc4d45c61ea00f" name="a9dc7afa7dbe41beb20cc4d45c61ea00f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dc7afa7dbe41beb20cc4d45c61ea00f">&#9670;&#160;</a></span>CreateModel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classCModel.html">CModel</a> &gt; PrimitiveGenerator::CreateModel </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structMeshData.html">MeshData</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>meshData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::wstring &amp;</td>          <td class="paramname"><span class="paramname"><em>texturePath</em></span><span class="paramdefsep"> = </span><span class="paramdefval">L&quot;&quot;</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DirectX::XMFLOAT4 &amp;</td>          <td class="paramname"><span class="paramname"><em>color</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{&#160;1.0f,&#160;1.0f,&#160;1.0f,&#160;1.0f&#160;}</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create <a class="el" href="classCModel.html">CModel</a> from <a class="el" href="structMeshData.html">MeshData</a> </p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classPrimitiveGenerator_a9dc7afa7dbe41beb20cc4d45c61ea00f_icgraph.svg" width="376" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="afa2b0a9ad7ad1d1661229d331bae1c94" name="afa2b0a9ad7ad1d1661229d331bae1c94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa2b0a9ad7ad1d1661229d331bae1c94">&#9670;&#160;</a></span>CreatePlane()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structMeshData.html">MeshData</a> PrimitiveGenerator::CreatePlane </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>width</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1.0f</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>depth</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1.0f</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>subdivisionsX</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>subdivisionsZ</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create Plane / Grid mesh (XZ plane, Y=0, Normal facing up) </p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classPrimitiveGenerator_afa2b0a9ad7ad1d1661229d331bae1c94_icgraph.svg" width="376" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af6f24a2ec2e94347136b08544e8cc4d0" name="af6f24a2ec2e94347136b08544e8cc4d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6f24a2ec2e94347136b08544e8cc4d0">&#9670;&#160;</a></span>CreatePrimitiveModel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classCModel.html">CModel</a> &gt; PrimitiveGenerator::CreatePrimitiveModel </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>primitiveType</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::wstring &amp;</td>          <td class="paramname"><span class="paramname"><em>texturePath</em></span><span class="paramdefsep"> = </span><span class="paramdefval">L&quot;&quot;</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DirectX::XMFLOAT4 &amp;</td>          <td class="paramname"><span class="paramname"><em>color</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{&#160;1.0f,&#160;1.0f,&#160;1.0f,&#160;1.0f&#160;}</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create <a class="el" href="classCModel.html">CModel</a> by primitive type name </p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classPrimitiveGenerator_af6f24a2ec2e94347136b08544e8cc4d0_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a8c102a69af31ad3067ee0504af378d9e" name="a8c102a69af31ad3067ee0504af378d9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c102a69af31ad3067ee0504af378d9e">&#9670;&#160;</a></span>CreateSphere()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structMeshData.html">MeshData</a> PrimitiveGenerator::CreateSphere </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>radius</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0.5f</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>sliceCount</em></span><span class="paramdefsep"> = </span><span class="paramdefval">32</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>stackCount</em></span><span class="paramdefsep"> = </span><span class="paramdefval">16</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create Sphere mesh (UV Sphere) </p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classPrimitiveGenerator_a8c102a69af31ad3067ee0504af378d9e_icgraph.svg" width="376" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a14e49c60acae948912cfee438adac183" name="a14e49c60acae948912cfee438adac183"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14e49c60acae948912cfee438adac183">&#9670;&#160;</a></span>CreateTorus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structMeshData.html">MeshData</a> PrimitiveGenerator::CreateTorus </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>majorRadius</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1.0f</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>minorRadius</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0.25f</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>majorSegments</em></span><span class="paramdefsep"> = </span><span class="paramdefval">32</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>minorSegments</em></span><span class="paramdefsep"> = </span><span class="paramdefval">16</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create Torus / Donut mesh </p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classPrimitiveGenerator_a14e49c60acae948912cfee438adac183_icgraph.svg" width="376" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac064297a40e81da374a8d0765e574b04" name="ac064297a40e81da374a8d0765e574b04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac064297a40e81da374a8d0765e574b04">&#9670;&#160;</a></span>ExtractPrimitiveType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string PrimitiveGenerator::ExtractPrimitiveType </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Extract primitive type from path string </p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="classPrimitiveGenerator_ac064297a40e81da374a8d0765e574b04_icgraph.svg" width="395" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac35fc26085fbd9164b40d1649d3c03a7" name="ac35fc26085fbd9164b40d1649d3c03a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac35fc26085fbd9164b40d1649d3c03a7">&#9670;&#160;</a></span>IsPrimitivePath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PrimitiveGenerator::IsPrimitivePath </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if string indicates a primitive specification </p>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>Source/Resources/<a class="el" href="PrimitiveGenerator_8h_source.html">PrimitiveGenerator.h</a></li>
+<li>Source/Resources/<a class="el" href="PrimitiveGenerator_8cpp.html">PrimitiveGenerator.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="classPrimitiveGenerator.html">PrimitiveGenerator</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

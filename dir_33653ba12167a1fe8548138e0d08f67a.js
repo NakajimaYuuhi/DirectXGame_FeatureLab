@@ -20,6 +20,8 @@ var dir_33653ba12167a1fe8548138e0d08f67a =
     [ "ModelData.h", "ModelData_8h.html", "ModelData_8h" ],
     [ "ModelManager.cpp", "ModelManager_8cpp.html", null ],
     [ "ModelManager.h", "ModelManager_8h.html", "ModelManager_8h" ],
+    [ "PrimitiveGenerator.cpp", "PrimitiveGenerator_8cpp.html", null ],
+    [ "PrimitiveGenerator.h", "PrimitiveGenerator_8h.html", "PrimitiveGenerator_8h" ],
     [ "Texture.cpp", "Texture_8cpp.html", null ],
     [ "Texture.h", "Texture_8h.html", "Texture_8h" ],
     [ "XorDecryptor.cpp", "XorDecryptor_8cpp.html", "XorDecryptor_8cpp" ],

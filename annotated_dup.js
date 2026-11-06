@@ -463,6 +463,7 @@ var annotated_dup =
     [ "PostProcessPass", "classPostProcessPass.html", "classPostProcessPass" ],
     [ "PrefabManager", "classPrefabManager.html", "classPrefabManager" ],
     [ "PrefabSerializer", "classPrefabSerializer.html", "classPrefabSerializer" ],
+    [ "PrimitiveGenerator", "classPrimitiveGenerator.html", "classPrimitiveGenerator" ],
     [ "Profiler", "classProfiler.html", "classProfiler" ],
     [ "ProfileSample", "structProfileSample.html", "structProfileSample" ],
     [ "ProfileScope", "classProfileScope.html", "classProfileScope" ],

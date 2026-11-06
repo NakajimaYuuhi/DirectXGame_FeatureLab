@@ -481,6 +481,7 @@ var hierarchy =
     [ "PrefabSerializer", "classPrefabSerializer.html", null ],
     [ "tinygltf::Primitive", "structtinygltf_1_1Primitive.html", null ],
     [ "nlohmann::detail::primitive_iterator_t", "classnlohmann_1_1detail_1_1primitive__iterator__t.html", null ],
+    [ "PrimitiveGenerator", "classPrimitiveGenerator.html", null ],
     [ "nlohmann::detail::priority_tag&lt; N &gt;", "structnlohmann_1_1detail_1_1priority__tag.html", null ],
     [ "nlohmann::detail::priority_tag&lt; 0 &gt;", "structnlohmann_1_1detail_1_1priority__tag_3_010_01_4.html", null ],
     [ "Profiler", "classProfiler.html", null ],
