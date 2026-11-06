@@ -1,3 +1,4 @@
+#include "PrimitiveGenerator.h"
 #include "ModelManager.h"
 #include <filesystem>
 #include <iostream>
