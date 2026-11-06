@@ -10,6 +10,7 @@ var classCViewportUI =
     [ "GetNormalizedMousePos", "classCViewportUI.html#a1e55c6677d457435737c280482740dfd", null ],
     [ "GetViewportPos", "classCViewportUI.html#aa0e4dd6eea2028df2b88fe499c7734a9", null ],
     [ "GetViewportSize", "classCViewportUI.html#a3af5ec81d407f73f24fd1175bf234971", null ],
+    [ "HandleAssetDropOnViewport", "classCViewportUI.html#af1b66deed2fc76391d592352aec76c55", null ],
     [ "IsFocused", "classCViewportUI.html#a222f07ea275f55ba31f3f7703b7ccf07", null ],
     [ "IsHovered", "classCViewportUI.html#a059e569d8dbeec4ce730c3b3d3df79aa", null ],
     [ "IsVisible", "classCViewportUI.html#afa84d4b927aa294e9c72a8139f366fdb", null ],

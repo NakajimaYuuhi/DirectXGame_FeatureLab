@@ -5,6 +5,7 @@ var classCContentDrawerUI =
     [ "~CContentDrawerUI", "classCContentDrawerUI.html#af5323ca3e3e5bad12ee29189aad73ecb", null ],
     [ "CContentDrawerUI", "classCContentDrawerUI.html#a273689ce1fa1d448e72afb1964fa16c9", null ],
     [ "ClassifyAsset", "classCContentDrawerUI.html#ac808c3cee021b36ea0b83f21b04336e2", null ],
+    [ "CreatePrefabFromObject", "classCContentDrawerUI.html#af96408e6f506cb21deba873e85f37653", null ],
     [ "Draw", "classCContentDrawerUI.html#a52b37928eca0b8fcfa804ef9678aa401", null ],
     [ "DrawAssetGrid", "classCContentDrawerUI.html#adfa0a27d7f12cec592ebbff23ae5f7e1", null ],
     [ "DrawFolderTreeRecursive", "classCContentDrawerUI.html#ad7a02b0c793132d464a184a0cafdd491", null ],
@@ -25,6 +26,7 @@ var classCContentDrawerUI =
     [ "SetVisible", "classCContentDrawerUI.html#a44c6cfd003b02f322ae69bb4708989f0", null ],
     [ "ToggleVisible", "classCContentDrawerUI.html#a3c77cf543ca942566e315891ffbadb8a", null ],
     [ "m_activeDeletePlan", "classCContentDrawerUI.html#a449af66841bf1c7f461a11b2ed37acad", null ],
+    [ "m_activeMovePlan", "classCContentDrawerUI.html#a04d48ee1b7bd1312361e44903e17c6c1", null ],
     [ "m_activeRenamePlan", "classCContentDrawerUI.html#a257fbb4f49dfdbd4f56ce26281e93f80", null ],
     [ "m_backHistory", "classCContentDrawerUI.html#a13f9c47915d53906d911e8c1b13c2456", null ],
     [ "m_cardWidth", "classCContentDrawerUI.html#a4c0b546784a25072e3ff5e8a3a725373", null ],
@@ -44,6 +46,7 @@ var classCContentDrawerUI =
     [ "m_searchFilter", "classCContentDrawerUI.html#aaaef55241fd7e0aa9952bfc0735a1875", null ],
     [ "m_selectedAssetPath", "classCContentDrawerUI.html#af2eb26d7e391eef4749d9e5e98aee16a", null ],
     [ "m_showDeleteConfirmPopup", "classCContentDrawerUI.html#aa3cbb9540082c9912798fec4ee68f1e0", null ],
+    [ "m_showMoveConfirmPopup", "classCContentDrawerUI.html#a11d5a0f8bb4a3c6ddbd9656fda18c610", null ],
     [ "m_showRenameConfirmPopup", "classCContentDrawerUI.html#ac9282a724eef6ea16aa52c0b5801fcc2", null ],
     [ "m_typeFilterIndex", "classCContentDrawerUI.html#a0500c8e8e8c436e2d72815f4f6f7fd36", null ]
 ];

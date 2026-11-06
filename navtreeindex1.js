@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"HealthComponent_8cpp.html":[2,0,0,4,1,0,0],
 "HealthComponent_8h.html":[2,0,0,4,1,0,1],
 "HealthComponent_8h_source.html":[2,0,0,4,1,0,1],
 "HierarchyUI_8cpp.html":[2,0,0,1,22],
@@ -224,10 +225,11 @@ var NAVTREEINDEX1 =
 "SceneFade_8h.html#a30b47622279c51e64aeb20a6234c9030af8be2875b8fa26739660f6f090938475":[2,0,0,4,2,1,1,2],
 "SceneFade_8h_source.html":[2,0,0,4,2,1],
 "SceneManager_8cpp.html":[2,0,0,0,0,1,0],
-"SceneManager_8cpp.html#a04da3a542aa8ea11e86b8e330cb604f4":[2,0,0,0,0,1,0,3],
-"SceneManager_8cpp.html#a9eff3e662cedb213a4138a089957a7d7":[2,0,0,0,0,1,0,0],
-"SceneManager_8cpp.html#ab87229282e3ef9746f8f610c4d52294e":[2,0,0,0,0,1,0,1],
-"SceneManager_8cpp.html#ae40b706dfcde99e39023eb6bc348aa72":[2,0,0,0,0,1,0,2],
+"SceneManager_8cpp.html#a04da3a542aa8ea11e86b8e330cb604f4":[2,0,0,0,0,1,0,4],
+"SceneManager_8cpp.html#a2da6a18d94a7c8b30e399e3baef347bf":[2,0,0,0,0,1,0,0],
+"SceneManager_8cpp.html#a9eff3e662cedb213a4138a089957a7d7":[2,0,0,0,0,1,0,1],
+"SceneManager_8cpp.html#ab87229282e3ef9746f8f610c4d52294e":[2,0,0,0,0,1,0,2],
+"SceneManager_8cpp.html#ae40b706dfcde99e39023eb6bc348aa72":[2,0,0,0,0,1,0,3],
 "SceneManager_8h.html":[2,0,0,0,0,1,1],
 "SceneManager_8h.html#a8567786ada19aeabfb1919ebceb2584c":[2,0,0,0,0,1,1,1],
 "SceneManager_8h.html#a8567786ada19aeabfb1919ebceb2584ca53fb714417cac96ab3e75cab7fc6d0bc":[2,0,0,0,0,1,1,1,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX1 =
 "SceneSerializer_8h_source.html":[2,0,0,0,0,2,1],
 "Scene_8cpp.html":[2,0,0,0,0,0,0],
 "Scene_8cpp.html#a6234cc7aef8ba1d4fa3a598948bee217":[2,0,0,0,0,0,0,1],
-"Scene_8cpp.html#acfa097a63e8a892b2ddc9b6c3d376d52":[2,0,0,0,0,0,0,0],
-"Scene_8h.html":[2,0,0,0,0,0,1],
-"Scene_8h.html#a5573b97b9e5129f61d289e037d7e806c":[2,0,0,0,0,0,1,1]
+"Scene_8cpp.html#acfa097a63e8a892b2ddc9b6c3d376d52":[2,0,0,0,0,0,0,0]
 };

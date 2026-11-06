@@ -159,6 +159,6 @@ var searchData=
   ['drawtreenode_156',['DrawTreeNode',['../structExampleAppPropertyEditor.html#ad6c3faf05a92ecfa88d39cc11e439dd4',1,'ExampleAppPropertyEditor']]],
   ['dummy_157',['Dummy',['../namespaceImGui.html#a8b0fb07113251301ff897b8578a53f34',1,'ImGui']]],
   ['dump_158',['dump',['../classnlohmann_1_1detail_1_1serializer.html#a95460ebd1a535a543e5a0ec52e00f48b',1,'nlohmann::detail::serializer::dump()'],['../classtinygltf__json.html#a776751761384a00a5063d3a5f08a937a',1,'tinygltf_json::dump()']]],
-  ['duplicatescene_159',['DuplicateScene',['../classSceneManager.html#aefb010b56e8b5ab3857e8d8c9aebb273',1,'SceneManager']]],
+  ['duplicatescene_159',['DuplicateScene',['../classSceneManager.html#a4cab178a40d141fd9dd7c3b3f5a706fc',1,'SceneManager']]],
   ['dx12manager_160',['DX12Manager',['../classDX12Manager.html#aefb57a3a20f84eec8a585b46ae601d61',1,'DX12Manager::DX12Manager()=default'],['../classDX12Manager.html#a766ec99f2a841027196f4eb75933f3eb',1,'DX12Manager::DX12Manager(const DX12Manager &amp;)=delete']]]
 ];

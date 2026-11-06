@@ -490,6 +490,7 @@ var annotated_dup =
     [ "ShadowMap", "classShadowMap.html", "classShadowMap" ],
     [ "ShadowMapPass", "classShadowMapPass.html", "classShadowMapPass" ],
     [ "SkinData", "structSkinData.html", "structSkinData" ],
+    [ "SpawnObjectUndoCommand", "classSpawnObjectUndoCommand.html", "classSpawnObjectUndoCommand" ],
     [ "SpriteVertex", "structSpriteVertex.html", "structSpriteVertex" ],
     [ "StateBase", "classStateBase.html", "classStateBase" ],
     [ "StateMachine", "classStateMachine.html", "classStateMachine" ],

@@ -333,7 +333,7 @@ var searchData=
   ['dummy_330',['Dummy',['../namespaceImGui.html#a8b0fb07113251301ff897b8578a53f34',1,'ImGui']]],
   ['dummydrawchannel_331',['DummyDrawChannel',['../structImGuiTable.html#a1daad01c8bb3bc4194401c658b61a667',1,'ImGuiTable']]],
   ['dump_332',['dump',['../classnlohmann_1_1detail_1_1serializer.html#a95460ebd1a535a543e5a0ec52e00f48b',1,'nlohmann::detail::serializer::dump()'],['../classtinygltf__json.html#a776751761384a00a5063d3a5f08a937a',1,'tinygltf_json::dump()']]],
-  ['duplicatescene_333',['DuplicateScene',['../classSceneManager.html#aefb010b56e8b5ab3857e8d8c9aebb273',1,'SceneManager']]],
+  ['duplicatescene_333',['DuplicateScene',['../classSceneManager.html#a4cab178a40d141fd9dd7c3b3f5a706fc',1,'SceneManager']]],
   ['durationms_334',['durationMs',['../structProfileSample.html#af3130c6190d9392840abadef2a35af6c',1,'ProfileSample']]],
   ['dx12manager_335',['DX12Manager',['../classDX12Manager.html',1,'DX12Manager'],['../classDX12Manager.html#aefb57a3a20f84eec8a585b46ae601d61',1,'DX12Manager::DX12Manager()=default'],['../classDX12Manager.html#a766ec99f2a841027196f4eb75933f3eb',1,'DX12Manager::DX12Manager(const DX12Manager &amp;)=delete']]],
   ['dx12manager_2ecpp_336',['DX12Manager.cpp',['../DX12Manager_8cpp.html',1,'']]],

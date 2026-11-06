@@ -99,6 +99,7 @@ $(function(){initNavTree('ContentDrawerUI_8cpp.html','',''); });
 <code>#include &quot;<a class="el" href="InspectorUI_8h_source.html">InspectorUI.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="imgui_8h_source.html">imgui.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="PrefabManager_8h_source.html">PrefabManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="PrefabSerializer_8h_source.html">PrefabSerializer.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ObjectManager_8h_source.html">ObjectManager.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Transform_8h_source.html">Transform.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ObjectInfo_8h_source.html">ObjectInfo.h</a>&quot;</code><br />
@@ -132,6 +133,7 @@ ContentDrawerUI.cpp の依存先関係図:</div>
 関数</h2></td></tr>
 <tr class="memitem:a574cefbf2881306841d066deced587dc" id="r_a574cefbf2881306841d066deced587dc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a574cefbf2881306841d066deced587dc">NormalizePathSlash</a> (const <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;p)</td></tr>
 <tr class="memitem:a95b1a7a3f580303a3cc81278929d6462" id="r_a95b1a7a3f580303a3cc81278929d6462"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95b1a7a3f580303a3cc81278929d6462">ToLowerStr</a> (<a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> s)</td></tr>
+<tr class="memitem:a7fab4b2142770545c1e11dad332c6b97" id="r_a7fab4b2142770545c1e11dad332c6b97"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7fab4b2142770545c1e11dad332c6b97">SplitTextToTwoLines</a> (const <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;text, float maxWidth, <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;outLine1, <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;outLine2)</td></tr>
 <tr class="memitem:a385cc999c2988ecf9140f4011e9e273a" id="r_a385cc999c2988ecf9140f4011e9e273a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="StringAlias_8h.html#a8bf8f5b1549fb24bd5aeb73d9d4563b8">std::wstring</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a385cc999c2988ecf9140f4011e9e273a">Utf8ToWString</a> (const <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;str)</td></tr>
 <tr class="memitem:af87892ede352658bf487c9daf5004249" id="r_af87892ede352658bf487c9daf5004249"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCObject.html">CObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af87892ede352658bf487c9daf5004249">GetCurrentlySelectedEditorObject</a> ()</td></tr>
 <tr class="memitem:aa59238ebbbc17115195726ebb3748050" id="r_aa59238ebbbc17115195726ebb3748050"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa59238ebbbc17115195726ebb3748050">OpenPathInExplorer</a> (const <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;relPath, bool selectFile=false)</td></tr>
@@ -259,7 +261,7 @@ ContentDrawerUI.cpp の依存先関係図:</div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="ContentDrawerUI_8cpp_a574cefbf2881306841d066deced587dc_icgraph.svg" width="100%" height="591"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="ContentDrawerUI_8cpp_a574cefbf2881306841d066deced587dc_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -298,6 +300,55 @@ ContentDrawerUI.cpp の依存先関係図:</div>
 
 </div>
 </div>
+<a id="a7fab4b2142770545c1e11dad332c6b97" name="a7fab4b2142770545c1e11dad332c6b97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fab4b2142770545c1e11dad332c6b97">&#9670;&#160;</a></span>SplitTextToTwoLines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SplitTextToTwoLines </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>maxWidth</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>outLine1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="StringAlias_8h.html#aca454f84dd198a937af6499dd758aa3d">std::string</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>outLine2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="ContentDrawerUI_8cpp_a7fab4b2142770545c1e11dad332c6b97_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="ContentDrawerUI_8cpp_a7fab4b2142770545c1e11dad332c6b97_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
 <a id="a95b1a7a3f580303a3cc81278929d6462" name="a95b1a7a3f580303a3cc81278929d6462"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a95b1a7a3f580303a3cc81278929d6462">&#9670;&#160;</a></span>ToLowerStr()</h2>
 
@@ -323,7 +374,7 @@ ContentDrawerUI.cpp の依存先関係図:</div>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="ContentDrawerUI_8cpp_a95b1a7a3f580303a3cc81278929d6462_icgraph.svg" width="100%" height="554"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="ContentDrawerUI_8cpp_a95b1a7a3f580303a3cc81278929d6462_icgraph.svg" width="100%" height="592"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

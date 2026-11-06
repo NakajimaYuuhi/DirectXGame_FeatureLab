@@ -425,6 +425,7 @@ var hierarchy =
       [ "AssetDeleteUndoCommand", "classAssetDeleteUndoCommand.html", null ],
       [ "AssetRenameUndoCommand", "classAssetRenameUndoCommand.html", null ],
       [ "DeleteObjectUndoCommand", "classDeleteObjectUndoCommand.html", null ],
+      [ "SpawnObjectUndoCommand", "classSpawnObjectUndoCommand.html", null ],
       [ "TransformUndoCommand", "classTransformUndoCommand.html", null ]
     ] ],
     [ "nlohmann::json_pointer&lt; BasicJsonType &gt;", "classnlohmann_1_1json__pointer.html", null ],
