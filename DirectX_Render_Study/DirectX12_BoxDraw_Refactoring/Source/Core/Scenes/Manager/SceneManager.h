@@ -24,7 +24,8 @@ enum class SceneTemplateType
 	Standard3DTest = 0, // Camera + DirectionalLight + Field + Skydome + Player + Enemy
 	ShadowShowcase = 1, // Camera + DirectionalLight + Field + Skydome + Player + 3 Staggered Enemies
 	Minimal3D      = 2, // Camera + DirectionalLight + Field + Skydome
-	EmptyUIScene   = 3  // Camera only
+	EmptyUIScene   = 3, // Camera only
+	ShadowLab      = 4  // Camera + Light + Field + Acne Ramp + PCSS Poles + CSM Chain
 };
 
 class SceneManager

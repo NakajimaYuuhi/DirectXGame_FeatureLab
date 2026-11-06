@@ -440,7 +440,8 @@ void CInspectorUI::Draw()
             "Standard 3D Test (Camera + Light + Field + Player + Enemy)",
             "Shadow Showcase (Camera + Light + Field + Player + 3 Caster Enemies)",
             "Minimal 3D (Camera + Light + Field + Skydome)",
-            "Empty UI Scene (Camera Only)"
+            "Empty UI Scene (Camera Only)",
+            "Shadow Lab (Acne / PCSS / CSM Multi-fixture Study Scene)"
         };
 
         ImGui::InputText("New Scene Name", newSceneNameBuf, sizeof(newSceneNameBuf));

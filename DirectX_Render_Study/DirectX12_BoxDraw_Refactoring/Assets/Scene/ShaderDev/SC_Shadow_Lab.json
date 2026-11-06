@@ -1,0 +1,465 @@
+{
+    "sceneID": 5,
+    "eventSystem": {
+        "firstSelected": ""
+    },
+    "objects": [
+        {
+            "name": "Camera",
+            "prefab": "Camera",
+            "tag": 11,
+            "type": "Camera",
+            "transform": {
+                "position": [
+                    0.0,
+                    8.0,
+                    -18.0
+                ],
+                "rotation": [
+                    0.35,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            }
+        },
+        {
+            "name": "Skydome",
+            "prefab": "Skydome",
+            "tag": 0,
+            "type": "Skydome",
+            "transform": {
+                "position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    3.14159,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            }
+        },
+        {
+            "name": "Field",
+            "prefab": "Field",
+            "tag": 5,
+            "type": "Field",
+            "transform": {
+                "position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            }
+        },
+        {
+            "name": "DirectionalLight",
+            "prefab": "DirectionalLight",
+            "tag": 14,
+            "type": "Light",
+            "transform": {
+                "position": [
+                    0.0,
+                    20.0,
+                    -20.0
+                ],
+                "rotation": [
+                    0.785398,
+                    0.785398,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "light": {
+                "type": 0,
+                "color": [
+                    1.0,
+                    0.98,
+                    0.92
+                ],
+                "intensity": 1.25,
+                "ambientColor": [
+                    0.22,
+                    0.25,
+                    0.32
+                ],
+                "specularPower": 32.0,
+                "castShadow": true,
+                "shadowBias": 0.00025,
+                "shadowDarkness": 0.3,
+                "range": 100.0,
+                "spotAngle": 45.0
+            }
+        },
+        {
+            "name": "Player",
+            "prefab": "Player",
+            "tag": 1,
+            "type": "Player",
+            "transform": {
+                "position": [
+                    0.0,
+                    0.0,
+                    -8.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    0.7,
+                    0.7,
+                    0.7
+                ]
+            }
+        },
+        {
+            "name": "Acne_SlopedRamp",
+            "prefab": "ShadowCaster_Cube",
+            "tag": 3,
+            "type": "Enemy",
+            "transform": {
+                "position": [
+                    -9.0,
+                    0.9,
+                    0.0
+                ],
+                "rotation": [
+                    0.35,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    3.5,
+                    0.25,
+                    6.0
+                ]
+            }
+        },
+        {
+            "name": "Acne_MonkOrganic",
+            "prefab": "Enemy",
+            "tag": 3,
+            "type": "Enemy",
+            "transform": {
+                "position": [
+                    -9.0,
+                    0.0,
+                    -4.5
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    0.7,
+                    0.7,
+                    0.7
+                ]
+            }
+        },
+        {
+            "name": "PeterPan_GroundCube",
+            "prefab": "ShadowCaster_Cube",
+            "tag": 3,
+            "type": "Enemy",
+            "transform": {
+                "position": [
+                    -9.0,
+                    0.5,
+                    5.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            }
+        },
+        {
+            "name": "PCSS_LowPole",
+            "prefab": "ShadowCaster_Cube",
+            "tag": 3,
+            "type": "Enemy",
+            "transform": {
+                "position": [
+                    -2.0,
+                    0.75,
+                    -2.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    0.5,
+                    1.5,
+                    0.5
+                ]
+            }
+        },
+        {
+            "name": "PCSS_MidPole",
+            "prefab": "ShadowCaster_Cube",
+            "tag": 3,
+            "type": "Enemy",
+            "transform": {
+                "position": [
+                    0.0,
+                    1.75,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    0.5,
+                    3.5,
+                    0.5
+                ]
+            }
+        },
+        {
+            "name": "PCSS_TallPole",
+            "prefab": "ShadowCaster_Cube",
+            "tag": 3,
+            "type": "Enemy",
+            "transform": {
+                "position": [
+                    2.0,
+                    3.0,
+                    2.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    0.5,
+                    6.0,
+                    0.5
+                ]
+            }
+        },
+        {
+            "name": "PCSS_TiltedBar",
+            "prefab": "ShadowCaster_Cube",
+            "tag": 3,
+            "type": "Enemy",
+            "transform": {
+                "position": [
+                    0.0,
+                    2.5,
+                    6.5
+                ],
+                "rotation": [
+                    0.6,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    0.4,
+                    5.5,
+                    0.4
+                ]
+            }
+        },
+        {
+            "name": "CSM_Near_1",
+            "prefab": "ShadowCaster_Cube",
+            "tag": 3,
+            "type": "Enemy",
+            "transform": {
+                "position": [
+                    8.0,
+                    1.5,
+                    -8.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    0.6,
+                    3.0,
+                    0.6
+                ]
+            }
+        },
+        {
+            "name": "CSM_Near_2",
+            "prefab": "ShadowCaster_Cube",
+            "tag": 3,
+            "type": "Enemy",
+            "transform": {
+                "position": [
+                    8.0,
+                    2.0,
+                    -3.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    0.6,
+                    4.0,
+                    0.6
+                ]
+            }
+        },
+        {
+            "name": "CSM_Mid_1",
+            "prefab": "ShadowCaster_Cube",
+            "tag": 3,
+            "type": "Enemy",
+            "transform": {
+                "position": [
+                    8.0,
+                    2.5,
+                    4.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    0.8,
+                    5.0,
+                    0.8
+                ]
+            }
+        },
+        {
+            "name": "CSM_Mid_2",
+            "prefab": "ShadowCaster_Cube",
+            "tag": 3,
+            "type": "Enemy",
+            "transform": {
+                "position": [
+                    8.0,
+                    3.0,
+                    13.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    0.8,
+                    6.0,
+                    0.8
+                ]
+            }
+        },
+        {
+            "name": "CSM_Far_1",
+            "prefab": "ShadowCaster_Cube",
+            "tag": 3,
+            "type": "Enemy",
+            "transform": {
+                "position": [
+                    8.0,
+                    3.5,
+                    25.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    7.0,
+                    1.0
+                ]
+            }
+        },
+        {
+            "name": "CSM_Far_2",
+            "prefab": "ShadowCaster_Cube",
+            "tag": 3,
+            "type": "Enemy",
+            "transform": {
+                "position": [
+                    8.0,
+                    4.0,
+                    42.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.2,
+                    8.0,
+                    1.2
+                ]
+            }
+        },
+        {
+            "name": "CSM_Far_3",
+            "prefab": "ShadowCaster_Cube",
+            "tag": 3,
+            "type": "Enemy",
+            "transform": {
+                "position": [
+                    8.0,
+                    5.0,
+                    65.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.5,
+                    10.0,
+                    1.5
+                ]
+            }
+        }
+    ]
+}

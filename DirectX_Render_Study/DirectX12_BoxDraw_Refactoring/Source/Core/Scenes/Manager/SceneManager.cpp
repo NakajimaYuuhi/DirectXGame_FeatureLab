@@ -457,7 +457,7 @@ bool SceneManager::CreateNewScene(const std::string& sceneName, SceneTemplateTyp
 		}
 	}
 
-	if (templateType == SceneTemplateType::Standard3DTest || templateType == SceneTemplateType::ShadowShowcase)
+	if (templateType == SceneTemplateType::Standard3DTest || templateType == SceneTemplateType::ShadowShowcase || templateType == SceneTemplateType::ShadowLab)
 	{
 		// Player
 		{
@@ -466,7 +466,9 @@ bool SceneManager::CreateNewScene(const std::string& sceneName, SceneTemplateTyp
 			player["prefab"] = "Player";
 			player["tag"] = 1;
 			player["type"] = "Player";
-			player["transform"] = makeTransform(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+			player["transform"] = (templateType == SceneTemplateType::ShadowLab)
+				? makeTransform(0.0f, 0.0f, -8.0f, 0.0f, 0.0f, 0.0f, 0.7f, 0.7f, 0.7f)
+				: makeTransform(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
 			rootJson["objects"].push_back(player);
 		}
 
@@ -493,6 +495,96 @@ bool SceneManager::CreateNewScene(const std::string& sceneName, SceneTemplateTyp
 				enemy["type"] = "Enemy";
 				enemy["transform"] = makeTransform(offsetsX[i], 0.0f, offsetsZ[i], 0.0f, 3.14f, 0.0f);
 				rootJson["objects"].push_back(enemy);
+			}
+		}
+		else if (templateType == SceneTemplateType::ShadowLab)
+		{
+			// Station 1: Acne & Peter Panning Lab (X: -9)
+			{
+				json ramp;
+				ramp["name"] = "Acne_SlopedRamp";
+				ramp["prefab"] = "ShadowCaster_Cube";
+				ramp["tag"] = 3;
+				ramp["type"] = "Enemy";
+				ramp["transform"] = makeTransform(-9.0f, 0.9f, 0.0f, 0.35f, 0.0f, 0.0f, 3.5f, 0.25f, 6.0f);
+				rootJson["objects"].push_back(ramp);
+			}
+			{
+				json monk;
+				monk["name"] = "Acne_MonkOrganic";
+				monk["prefab"] = "Enemy";
+				monk["tag"] = 3;
+				monk["type"] = "Enemy";
+				monk["transform"] = makeTransform(-9.0f, 0.0f, -4.5f, 0.0f, 0.0f, 0.0f, 0.7f, 0.7f, 0.7f);
+				rootJson["objects"].push_back(monk);
+			}
+			{
+				json cube;
+				cube["name"] = "PeterPan_GroundCube";
+				cube["prefab"] = "ShadowCaster_Cube";
+				cube["tag"] = 3;
+				cube["type"] = "Enemy";
+				cube["transform"] = makeTransform(-9.0f, 0.5f, 5.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);
+				rootJson["objects"].push_back(cube);
+			}
+
+			// Station 2: PCSS Contact Hardening Lab (X: -2..2)
+			{
+				json pole;
+				pole["name"] = "PCSS_LowPole";
+				pole["prefab"] = "ShadowCaster_Cube";
+				pole["tag"] = 3;
+				pole["type"] = "Enemy";
+				pole["transform"] = makeTransform(-2.0f, 0.75f, -2.0f, 0.0f, 0.0f, 0.0f, 0.5f, 1.5f, 0.5f);
+				rootJson["objects"].push_back(pole);
+			}
+			{
+				json pole;
+				pole["name"] = "PCSS_MidPole";
+				pole["prefab"] = "ShadowCaster_Cube";
+				pole["tag"] = 3;
+				pole["type"] = "Enemy";
+				pole["transform"] = makeTransform(0.0f, 1.75f, 0.0f, 0.0f, 0.0f, 0.0f, 0.5f, 3.5f, 0.5f);
+				rootJson["objects"].push_back(pole);
+			}
+			{
+				json pole;
+				pole["name"] = "PCSS_TallPole";
+				pole["prefab"] = "ShadowCaster_Cube";
+				pole["tag"] = 3;
+				pole["type"] = "Enemy";
+				pole["transform"] = makeTransform(2.0f, 3.0f, 2.0f, 0.0f, 0.0f, 0.0f, 0.5f, 6.0f, 0.5f);
+				rootJson["objects"].push_back(pole);
+			}
+			{
+				json bar;
+				bar["name"] = "PCSS_TiltedBar";
+				bar["prefab"] = "ShadowCaster_Cube";
+				bar["tag"] = 3;
+				bar["type"] = "Enemy";
+				bar["transform"] = makeTransform(0.0f, 2.5f, 6.5f, 0.6f, 0.0f, 0.0f, 0.4f, 5.5f, 0.4f);
+				rootJson["objects"].push_back(bar);
+			}
+
+			// Station 3: CSM Cascade Split Chain (X: 8)
+			const struct { const char* name; float y; float z; float sy; } csmNodes[] = {
+				{ "CSM_Near_1", 1.5f, -8.0f, 3.0f },
+				{ "CSM_Near_2", 2.0f, -3.0f, 4.0f },
+				{ "CSM_Mid_1",  2.5f,  4.0f, 5.0f },
+				{ "CSM_Mid_2",  3.0f, 13.0f, 6.0f },
+				{ "CSM_Far_1",  3.5f, 25.0f, 7.0f },
+				{ "CSM_Far_2",  4.0f, 42.0f, 8.0f },
+				{ "CSM_Far_3",  5.0f, 65.0f, 10.0f }
+			};
+			for (const auto& node : csmNodes)
+			{
+				json o;
+				o["name"] = node.name;
+				o["prefab"] = "ShadowCaster_Cube";
+				o["tag"] = 3;
+				o["type"] = "Enemy";
+				o["transform"] = makeTransform(8.0f, node.y, node.z, 0.0f, 0.0f, 0.0f, 0.7f, node.sy, 0.7f);
+				rootJson["objects"].push_back(o);
 			}
 		}
 	}

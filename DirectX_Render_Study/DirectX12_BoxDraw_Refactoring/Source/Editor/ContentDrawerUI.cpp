@@ -783,6 +783,23 @@ void CContentDrawerUI::DrawTopNavigationBar()
                 CInspectorUI::GetInstance().SetStatusMessage("Created shadow scene: " + createdPath, 3.0f);
             }
         }
+        if (ImGui::Selectable("?? New Shadow Lab Scene (.json)"))
+        {
+            std::string createdPath;
+            if (SceneManager::GetInstance().CreateNewScene(newAssetNameBuf, SceneTemplateType::ShadowLab, &createdPath, sceneTargetFolder))
+            {
+                if (curNorm == sceneTargetFolder)
+                {
+                    RefreshCurrentDirectory();
+                }
+                else
+                {
+                    NavigateTo(sceneTargetFolder, true);
+                }
+                m_selectedAssetPath = createdPath;
+                CInspectorUI::GetInstance().SetStatusMessage("Created shadow lab scene: " + createdPath, 3.0f);
+            }
+        }
         if (ImGui::Selectable("? New Lit Shadow Shader (.hlsl)"))
         {
             std::string shaderPath = "Assets/Shader/" + std::string(newAssetNameBuf) + ".hlsl";
